@@ -292,7 +292,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Spring Boot on Azure, see the following article:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-web-app-on-azure.md)
+* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 

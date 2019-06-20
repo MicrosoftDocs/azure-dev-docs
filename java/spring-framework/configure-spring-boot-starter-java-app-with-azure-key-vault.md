@@ -321,7 +321,7 @@ For more information about using Azure Key Vaults, see the following articles:
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-web-app-on-azure.md)
+* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 
