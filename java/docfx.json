@@ -17,13 +17,41 @@
           "LICENSE-CODE",
           "ThirdPartyNotices"
         ]
+      },
+      {
+        "files": [
+          "**/*.md"
+        ],
+        "src": "_mavenref",
+        "dest": "api/overview/azure/maven",
+        "group": "stable",
+        "version": "azure-java-stable"
+      },
+      {
+        "files": [
+          "**/*.md"
+        ],
+        "src": "_mavenref",
+        "dest": "api/overview/azure/maven",
+        "group": "preview",
+        "version": "azure-java-preview"
+      },
+      {
+        "files": [
+          "**/*.md"
+        ],
+        "src": "_mavenref",
+        "dest": "api/overview/azure/maven",
+        "group": "legacy",
+        "version": "azure-java-legacy"
       }
     ],
     "resource": [
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
