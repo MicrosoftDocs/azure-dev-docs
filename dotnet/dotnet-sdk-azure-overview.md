@@ -28,7 +28,7 @@ var windowsVM = azure.VirtualMachines.Define(windowsVmName)
     .Create();
  ```
 
-Review the [.NET service list](/dotnet/api/overview/azure/) to start using the libraries immediately with your projects. Then read the [get started article](dotnet-sdk-azure-get-started.md) to set up authentication and run sample code against your own Azure subscription.  The [concepts article](dotnet-sdk-azure-concepts.md) goes into the conventions the SDK uses and how to leverage them to simplify your application code. New features, breaking changes, and migration instructions are available in the [release notes](dotnet-sdk-azure-release-notes.md).
+Review the [.NET service list](/dotnet/api/overview/azure/) to start using the libraries immediately with your projects. Then read the [get started article](dotnet-sdk-azure-get-started.md) to set up authentication and run sample code against your own Azure subscription.  The [concepts article](dotnet-sdk-azure-concepts.md) goes into the conventions the SDK uses and how to leverage them to simplify your application code. New features, breaking changes, and migration instructions are available in the [release notes](https://github.com/Azure/azure-libraries-for-net).
 
 ## Consume Azure services
 
@@ -38,10 +38,10 @@ In addition to using .NET APIs to create and programmatically manage resources w
 
 The following samples cover common automation tasks with the Azure libraries for .NET:
 
-- [Virtual machines](dotnet-sdk-azure-virtual-machine-samples.md)
-- [Web apps](dotnet-sdk-azure-web-apps-samples.md)
-- [SQL Database](dotnet-sdk-azure-sql-database-samples.md)
+- [Virtual machines](dotnet-samples.md)
+- [Web apps](dotnet-samples.md)
+- [SQL Database](dotnet-samples.md)
 
-A unified [reference](/dotnet/api/overview/azure/?view=azure-dotnet) is available for all packages in both the service and management libraries. New features, breaking changes, and migration instructions are available in the [release notes](dotnet-sdk-azure-release-notes.md).
+A unified [reference](/dotnet/api/overview/azure/?view=azure-dotnet) is available for all packages in both the service and management libraries. New features, breaking changes, and migration instructions are available in the [release notes](https://github.com/Azure/azure-libraries-for-net).
 
 [!include[Contribute and community](includes/contribute.md)]
