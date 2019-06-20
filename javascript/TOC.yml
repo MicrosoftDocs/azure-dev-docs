@@ -1,2 +1,141 @@
-- name: Index
-  href: index.md
+- name: Azure for JavaScript & Node.js developers
+  href: index.yml
+  items:
+  - name: Overview
+    items:
+    - name: Azure modules 
+      href: overview.md
+  - name: Quickstarts
+    expanded: true
+    items:
+    - name: Azure SDK
+      href: node-sdk-azure-get-started.md
+    - name: Tools
+      href: node-azure-tools.md
+    - name: App hosting
+      items:
+      - name: Static sites
+        href: https://code.visualstudio.com/tutorials/static-website/getting-started
+      - name: Web apps and APIs
+        href: https://code.visualstudio.com/tutorials/app-service-extension/getting-started
+      - name: Serverless 
+        href: https://code.visualstudio.com/tutorials/functions-extension/getting-started
+        maintainContext: true
+      - name: Docker
+        href: https://code.visualstudio.com/tutorials/docker-extension/getting-started 
+      - name: Kubernetes
+        href: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
+        maintainContext: true
+      - name: Linux VMs
+        href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
+        maintainContext: true
+    - name: Store data
+      items:
+      - name: Blob storage
+        href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs
+        maintainContext: true
+      - name: SQL Database
+        href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-nodejs
+        maintainContext: true
+      - name: Cosmos DB
+        href: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs
+        maintainContext: true
+      - name: Redis Cache
+        href: https://docs.microsoft.com/azure/redis-cache/cache-nodejs-get-started
+        maintainContext: true
+      - name: PostgreSQL
+        href: https://docs.microsoft.com/azure/postgresql/connect-nodejs 
+        maintainContext: true
+      - name: MySQL
+        href: https://docs.microsoft.com/azure/mysql/connect-nodejs
+        maintainContext: true
+    - name: Security and authentication
+      items:
+      - name: Azure Active Directory
+        href: https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs
+        maintainContext: true
+      - name: Azure AD B2C
+        href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-node
+        maintainContext: true
+      - name: Key Vault
+        href: https://docs.microsoft.com/azure/key-vault/quick-create-cli
+        maintainContext: true
+    - name: Monitoring and logging
+      items:
+      - name: Application Insights
+        href: https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start
+        maintainContext: true
+      - name: Log Analytics
+        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-linux-computer
+        maintainContext: true
+      - name: Azure Monitor
+        href: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
+    - name: Debugging and diagnostics
+      items:
+      - name: Remote debugging for Azure App Service
+        href: https://code.visualstudio.com/docs/azure/remote-debugging
+      - name: Log Points in VS Code for Azure App Service
+        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
+      - name: Debug local Node.js apps in VS Code
+        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+    - name: Messaging and integration
+      items: 
+      - name: Event Grid
+        href: https://docs.microsoft.com/azure/event-grid/custom-event-quickstart
+        maintainContext: true
+      - name: Service Bus
+        href: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues
+        maintainContext: true
+      - name: Queue storage
+        href: https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues
+        maintainContext: true
+    - name: IoT
+      items:
+      - name: IoT Hub
+        href: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted
+        maintainContext: true
+      - name: Big data streaming
+        href: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted
+    - name: Cognitive Services
+      items: 
+      - name: Text Analytics
+        href: https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/nodejs
+        maintainContext: true 
+      - name: Computer Vision
+        href: https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
+        maintainContext: true 
+      - name: Speech recognition
+        href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started
+        maintainContext: true
+    - name: Continuous Deployment and DevOps
+      items:
+      - name: Azure Devops
+        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+        maintainContext: true
+      - name: GitHub Actions
+        href: https://css-tricks.com/introducing-github-actions/
+      - name: Continuous Integration
+        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+  - name: How-To guides
+    items:
+    - name: Deploy with Visual Studio Code
+      href: node-howto-e2e.md
+    - name: Create a REST API 
+      href: http://docs.microsoft.com/azure/app-service-api/app-service-api-nodejs-api-app
+      maintainContext: true
+  - name: Samples
+    items: 
+    - name: Compute
+      href: node-samples-services-compute.md
+    - name: Databases
+      href: node-samples-services-database.md
+    - name: Storage
+      href: node-samples-services-storage.md
+    - name: Messaging + IoT
+      href: node-samples-services-iot.md
+    - name: Web + Mobile
+      href: node-samples-services-web-and-mobile.md
+    - name: Security + Identity
+      href: node-samples-services-security-and-identity.md
+    - name: Billing
+      href: node-samples-services-billing.md
