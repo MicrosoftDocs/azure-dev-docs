@@ -13,4 +13,4 @@ ms.service: azure-nodejs
 
 # Node.js Code samples for Azure App Service management modules
 
-[!INCLUDE [node-appservice-samples](../docs-ref-conceptual/includes/appservice-samples.md)]
+[!INCLUDE [node-appservice-samples](../includes/appservice-samples.md)]
