@@ -16,4 +16,4 @@ The following code samples demonstrate how to build Azure web and mobile apps wi
 
 If you need code for other tasks, you can browse the full list of [Azure Node.js samples](https://azure.microsoft.com/resources/samples/?term=nodejs).
 
-[!INCLUDE [node-appservice-samples](../includes/appservice-samples.md)]
+[!INCLUDE [node-appservice-samples](includes/appservice-samples.md)]

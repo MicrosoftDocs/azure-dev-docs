@@ -21,7 +21,7 @@ This guide walks you through installing Azure Node.js modules, authenticating to
 - [Node.js](https://nodejs.org)
 - [Azure Cloud Shell](https://docs.microsoft.coms/azure/cloud-shell/quickstart) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-[!INCLUDE [azure-cloud-shell](../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cloud-shell](includes/cloud-shell-try-it.md)]
 
 ## Prepare your environment
 
