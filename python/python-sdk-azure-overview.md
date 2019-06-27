@@ -2,9 +2,9 @@
 title: Azure libraries for Python
 description: Overview of the Azure management and service libraries for Python
 keywords: Azure, Python, SDK, API
-author: lisawong19
-ms.author: liwong
-manager: douge
+author: sptramer
+ms.author: sttramer
+manager: carmonm
 ms.date: 06/01/2017
 ms.topic: article
 ms.technology: azure

@@ -1,15 +1,14 @@
 ---
 title: Managed Disks
 description: Create, resizing, and updating a managed disk.
-author: lisawong19
-manager: douge
-ms.assetid: 
+author: sptramer
+manager: carmonm
 ms.devlang: python
 ms.topic: article
 ms.service: Azure
 ms.technology: Azure
 ms.date: 6/15/2017
-ms.author: liwong
+ms.author: sttramer
 ---
 
 # Managed Disks

@@ -1,9 +1,9 @@
 ---
 title: Multi-cloud 
 description: use Azure on all regions
-author: lmazuel 
-ms.author: lmazuel
-manager: routlaw
+author: sptramer 
+ms.author: sttramer
+manager: carmonm
 ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: python

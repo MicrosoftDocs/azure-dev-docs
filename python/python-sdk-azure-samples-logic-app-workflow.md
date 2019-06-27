@@ -1,15 +1,15 @@
 ---
 title: Create a Logic App Workflow
 description: Create a Logic App workflow
-author: lisawong19
-manager: douge
+author: sptramer
+manager: carmonm
 ms.assetid: 
 ms.devlang: python
 ms.topic: article
 ms.service: Azure
 ms.technology: Azure
 ms.date: 6/15/2017
-ms.author: liwong
+ms.author: sttramer
 ---
 
 # Create a Logic App Workflow
