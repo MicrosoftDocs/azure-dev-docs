@@ -26,27 +26,27 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
       text: Spring Boot Starters for Azure
       href: spring-boot-starters-for-azure.md
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/storage.svg
+        src: https://docs.microsoft.com/azure/media/index/storage.svg
       text: Azure Storage
       href: configure-spring-boot-starter-java-app-with-azure-storage.md
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/ActiveDirectory.svg
+        src: https://docs.microsoft.com/azure/media/index/ActiveDirectory.svg
       text: Azure Active Directory
       href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/KeyVault.svg
+        src: https://docs.microsoft.com/azure/media/index/KeyVault.svg
       text: Key Vault
       href: configure-spring-boot-starter-java-app-with-azure-key-vault.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/EventHubs.svg
+        src: https://docs.microsoft.com/azure/media/index/EventHubs.svg
       text: Kafka and Event Hubs
       href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/ApplicationInsights.svg
+        src: https://docs.microsoft.com/azure/media/index/ApplicationInsights.svg
       text: Application Insights
       href: configure-spring-boot-java-applicationinsights.md
 - title: Step-by-Step Tutorials
