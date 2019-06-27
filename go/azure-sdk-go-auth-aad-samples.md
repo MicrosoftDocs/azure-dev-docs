@@ -6,7 +6,6 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/05/2018
 ms.topic: sample
-ms.technology: azure-sdk-go
 ms.devlang: go
 ---
 # Azure SDK for Go samples for authentication and AAD
