@@ -103,3 +103,5 @@
       href: python-sdk-azure-sql-database-samples.md
     - name: All Python samples
       href: https://azure.microsoft.com/resources/samples/?platform=python
+- name: Reference
+  href: /python/api/?view=azure-python
