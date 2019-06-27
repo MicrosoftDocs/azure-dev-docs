@@ -3,11 +3,11 @@ title: How to use Spring Data JDBC with Azure SQL Database
 description: Learn how to use Spring Data JDBC with an Azure SQL Database.
 services: sql-database
 documentationcenter: java
-author: rmcmurray
-manager: mbaldwin
+author: bmitchell287
+manager: douge
 editor: ''
 ms.assetid:
-ms.author: robmcm
+ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: sql-database

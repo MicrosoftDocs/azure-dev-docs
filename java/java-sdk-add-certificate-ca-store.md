@@ -3,8 +3,8 @@ title: Add a root certificate for Azure to the Java CA store
 description: Learn how to add a certificate authority (CA) root certificate to the Java CA certificate (cacerts) store for use with Microsoft Azure.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: mbaldwin
+author: bmitchell287
+manager: douge
 
 ms.assetid: d3699b0a-835c-43fb-844d-9c25344e5cda
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: robmcm
+ms.author: brendm
 ---
 
 # Adding a root certificate to the Java CA certificates store

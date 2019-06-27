@@ -3,12 +3,12 @@ title: Displaying Javadoc Content in Eclipse for the Azure Libraries Package for
 description: How to display the Javadoc content for the Azure Libraries in Eclipse.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: routlaw
+author: bmitchell287
+manager: douge
 editor: ''
 
 ms.assetid: 30f8b6a1-1d76-4d1c-861b-1db478c46e6b
-ms.author: robmcm
+ms.author: brendm
 ms.date: 02/01/2018
 ms.devlang: Java
 ms.service: multiple

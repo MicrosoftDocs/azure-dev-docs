@@ -3,7 +3,7 @@ title: Get started with the Azure libraries for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
 author: rloutlaw
-ms.author: routlaw
+ms.author: brendm
 manager: douge
 ms.date: 04/16/2017
 ms.topic: get-started-article

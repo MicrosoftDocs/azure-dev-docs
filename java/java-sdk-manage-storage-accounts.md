@@ -10,7 +10,7 @@ ms.service: Azure
 ms.devlang: java
 ms.technology: Azure
 ms.date: 3/30/2017
-ms.author: routlaw;asirveda
+ms.author: brendm;asirveda
 ---
 
 # Manage Azure storage accounts from your Java applications

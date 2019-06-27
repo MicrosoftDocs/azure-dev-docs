@@ -4,7 +4,7 @@ description: Learn how to deploy a MicroProfile service using Docker and Azure W
 services: container-registry;app-service
 documentationcenter: java
 author: jonathangiles
-manager: routlaw
+manager: douge
 editor: jonathangiles
 
 ms.assetid:

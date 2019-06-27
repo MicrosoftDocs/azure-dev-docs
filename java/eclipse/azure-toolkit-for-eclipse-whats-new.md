@@ -3,12 +3,12 @@ title: What's New in the Azure Toolkit for Eclipse
 description: Learn about the latest features in the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: mbaldwin
+author: bmitchell287
+manager: douge
 editor: ''
 
 ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
-ms.author: robmcm
+ms.author: brendm
 ms.date: 11/13/2018
 ms.devlang: Java
 ms.service: multiple

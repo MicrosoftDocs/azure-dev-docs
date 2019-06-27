@@ -1,13 +1,13 @@
 ---
 title: Azure storage with Node.js code samples
 description: Sample code that demonstrates how to use Azure storage with Node.js.
-author: rloutlaw
-manager: routlaw
+author: KarlErickson
+manager: douge
 ms.devlang: nodejs
 ms.topic: article
 ms.service: azure-nodejs
 ms.date: 06/17/2017
-ms.author: routlaw
+ms.author: karler
 ---
 
 # Azure storage with Node.js code samples

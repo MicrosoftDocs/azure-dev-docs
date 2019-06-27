@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: Azure
 ms.technology: Azure
 ms.date: 3/30/2017
-ms.author: routlaw;asirveda
+ms.author: brendm;asirveda
 ---
 
 

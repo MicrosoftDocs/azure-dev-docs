@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: Azure
 ms.technology: Azure
 ms.date: 11/13/2018
-ms.author: routlaw
+ms.author: brendm
 ---
 
 # Azure tools for Java developers

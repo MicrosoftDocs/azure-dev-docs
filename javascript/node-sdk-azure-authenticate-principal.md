@@ -1,9 +1,9 @@
 ---
 title: Create an Azure service principal with Node.js
 description: Learn how to use service principal authentication via Node.js 
-author: rloutlaw
-manager: routlaw
-ms.author: routlaw
+author: KarlErickson
+manager: douge
+ms.author: karler
 ms.date: 06/17/2017
 ms.topic: article
 ms.prod: azure
