@@ -8,7 +8,7 @@ metadata:
   author: sptramer
   ms.author: sttramer
   manager: carmonm
-  ms.date: 04/17/2019
+  ms.date: 06/27/2019
   ms.topic: landing-page
   ms.prod: azure
   ms.technology: azure
@@ -32,9 +32,9 @@ sections:
       title: Use Visual Studio Code to create and deploy a serverless Python app in Azure Functions.
       href: https://code.visualstudio.com/docs/python/tutorial-azure-functions
     - image:
-        src: https://docs.microsoft.com/python/azure/media/AzureNotebooks.png
+        src: https://docs.microsoft.com/azure/python/media/AzureNotebooks.png
       title: Get started with Azure Machine Learning in a Jupyter notebook.
-      href: https://docs.microsoft.com/en-us/azure/notebooks/use-machine-learning-services-jupyter-notebooks?toc=%2Fpython%2Fazure%2FTOC.json
+      href: https://docs.microsoft.com/azure/notebooks/use-machine-learning-services-jupyter-notebooks?toc=%2Fpython%2Fazure%2FTOC.json
     - image:
         src: https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg
       title: Build and deploy a Python app on Azure Pipelines 
@@ -87,7 +87,7 @@ sections:
       html: Discover Azure services to prepare and train data, and deploy machine learning models.
       href: https://docs.microsoft.com/azure/machine-learning/service?toc=%2Fpython%2Fazure%2FTOC.json
     - image:
-        src: https://docs.microsoft.com/python/azure/media/AzureNotebooks.png
+        src: https://docs.microsoft.com/azure/python/media/AzureNotebooks.png
       title: Azure Notebooks
       html: Run Python data science experiments using a fully-managed Jupyter notebook.
       href: https://notebooks.azure.com/
@@ -102,10 +102,10 @@ sections:
       html: Use a managed Hadoop or Spark cluster with Azure HDInsights for large data processing workloads.
       href: https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal?toc=%2Fpython%2Fazure%2FTOC.json
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/i_azure-cognitive-services-color.svg
+        src: https://docs.microsoft.com/azure/media/index/i_azure-cognitive-services-color.svg
       title: Cognitive Services
       html: Build applications using Azure services for computer vision, text analysis, speech recognition, and more.
-      href: https://docs.microsoft.com/en-us/azure/cognitive-services?toc=%2Fpython%2Fazure%2FTOC.json
+      href: https://docs.microsoft.com/azure/cognitive-services?toc=%2Fpython%2Fazure%2FTOC.json
 - title: Data solutions
   items:
   - type: list
@@ -122,7 +122,7 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/cosmosdb.svg
       title: Cosmos DB
       html: Store data in a globally-distributed, scalable, and multi-model NoSQL database.
-      href: https://docs.microsoft.com/en-us/azure/cosmos-db/create-sql-api-python?toc=%2Fpython%2Fazure%2FTOC.json
+      href: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python?toc=%2Fpython%2Fazure%2FTOC.json
     - image:
         src: https://docs.microsoft.com/azure/media/index/RedisCache.svg
       title: Redis Cache
