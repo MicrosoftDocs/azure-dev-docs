@@ -1,15 +1,12 @@
 ---
 title: Managed Disks
 description: Create, resizing, and updating a managed disk.
-author: lisawong19
-manager: douge
-ms.assetid: 
+author: sptramer
+manager: carmonm
 ms.devlang: python
-ms.topic: article
-ms.service: Azure
-ms.technology: Azure
+ms.topic: conceptual
 ms.date: 6/15/2017
-ms.author: liwong
+ms.author: sttramer
 ---
 
 # Managed Disks
@@ -60,6 +57,29 @@ async_creation = compute_client.disks.create_or_update(
 disk_resource = async_creation.result()
 ```
 
+### Create an image from blob storage
+
+```python
+from azure.mgmt.compute.models import DiskCreateOption
+
+async_creation = compute_client.images.create_or_update(
+    'my_resource_group',
+    'my_image_name',
+    {
+        'location': 'eastus',
+        'storage_profile': {
+           'os_disk': {
+              'os_type': 'Linux',
+              'os_state': "Generalized",
+              'blob_uri': 'https://bg09.blob.core.windows.net/vm-images/non-existent.vhd',
+              'caching': "ReadWrite",
+           }
+        }        
+    }
+)
+image_resource = async_creation.result()
+```
+
 ### Create a Managed Disk from your own image
 
 ```python
@@ -100,6 +120,18 @@ storage_profile = azure.mgmt.compute.models.StorageProfile(
 ```
 
 This ``storage_profile`` parameter is now valid. To get a complete example on how to create a VM in Python (including network, etc), check the full [VM tutorial in Python](https://github.com/Azure-Samples/virtual-machines-python-manage).
+
+You can also create a ``storage_profile`` from your own image:
+
+```python
+# If you don't know the id, do a 'get' like this to obtain it
+image = compute_client.images.get(self.group_name, 'myImageDisk')
+storage_profile = azure.mgmt.compute.models.StorageProfile(
+    image_reference = azure.mgmt.compute.models.ImageReference(
+        id = image.id
+    )
+)
+```
 
 You can easily attach a previously provisioned Managed Disk.
 

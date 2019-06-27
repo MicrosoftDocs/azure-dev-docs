@@ -1,16 +1,12 @@
 ---
 title: Installation
 description: How to install the Azure python SDK
-keywords: Azure, Python, SDK, API
-author: lisawong19
-ms.author: liwong
-manager: douge
+author: sptramer
+ms.author: sttramer
+manager: carmonm
 ms.date: 06/05/2017
-ms.topic: install
-ms.prod: azure
-ms.technology: azure
+ms.topic: conceptual
 ms.devlang: python
-ms.service: multiple
 ---
 
 # Installation
@@ -72,3 +68,24 @@ git clone git://github.com/Azure/azure-sdk-for-python.git
 cd azure-sdk-for-python
 python setup.py install
 ```
+
+## Install an older version with pip
+You can install an older version of `azure` by specifying 'azure==3.0.0' version details.
+```bash
+pip install azure==3.0.0 
+```
+## Check SDK installation details with pip
+You can check `azure` SDK installation location, version details etc.
+```bash
+pip show azure # Show installed version, location details etc.
+pip freeze     # Output installed packages in requirements format.
+pip list       # List installed packages, including editables.
+```
+## To uninstall with pip
+You can uninstall all Azure libraries in a single line using the `azure` meta-package.
+```bash
+pip uninstall azure 
+```
+> [!NOTE]
+> `pip uninstall azure`removes the `azure` meta-package but leaves the individual `azure-*` packages behind (and others, like `adal` and `msrest` ). An aspect of Python and pip is that for all packages that have dependencies, uninstalling the initial package does not uninstall the dependencies. To remove `azure-` and its supporting packages, run the command `pip freeze | grep 'azure-' | xargs pip uninstall -y` (and then perform individual uninstalls for adal, msrest, and msrestazure).
+

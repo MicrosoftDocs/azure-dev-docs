@@ -1,3 +1,14 @@
+---
+title: Azure Monitor
+description: Inspect and configure metrics reporting from Azure Monitor.
+author: sptramer
+manager: carmonm
+ms.devlang: python
+ms.topic: conceptual
+ms.date: 6/15/2017
+ms.author: sttramer
+---
+
 # Azure Monitor
 
 This sample get the metrics of a resource on Azure (VMs, etc.).
