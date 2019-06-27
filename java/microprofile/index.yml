@@ -26,15 +26,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/ContainerInstances.svg
+        src: https://docs.microsoft.com/azure/media/index/ContainerInstances.svg
       text: Deploy to Azure Container Instances
       href: deploy-microprofile-to-container-instances.md
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/AppService.svg
+        src: https://docs.microsoft.com/azure/media/index/AppService.svg
       text: Deploy to Azure Web Apps
       href: deploy-microprofile-to-web-app-for-containers.md
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/keyvault.svg
+        src: https://docs.microsoft.com/azure/media/index/keyvault.svg
       text: Config Source for Azure Key Vault
       href: configure-microprofile-with-keyvault.md
     - image: 

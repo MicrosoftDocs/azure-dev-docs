@@ -349,7 +349,7 @@ For more information about iteratively running and debugging containers directly
 <!-- Newly added -->
 [Authenticate with Azure Container Registry from Azure Kubernetes Service]: /azure/container-registry/container-registry-auth-aks/
 [Visual Studio Code Java Tutorials]: https://code.visualstudio.com/docs/java/java-kubernetes/
-[Get started on Azure Dev Spaces with Java]: https://docs.microsoft.com/en-us/azure/dev-spaces/get-started-java
+[Get started on Azure Dev Spaces with Java]: https://docs.microsoft.com/azure/dev-spaces/get-started-java
 <!-- IMG List -->
 
 [SB01]: ./media/deploy-spring-boot-java-app-on-kubernetes/SB01.png

@@ -19,20 +19,20 @@ This article will walk you through the process of building, configuring, deployi
 It will demonstrate the usage of the following components:
 
 - [Spring Boot Starter with the Azure Cosmos DB SQL API](configure-spring-boot-starter-java-app-with-cosmos-db.md)
-- [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-introduction)
-- [App Service Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro)
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
+- [App Service Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 
 ## Prerequisites
 
 The following prerequisites are required in order to follow the steps in this article:
 
 - In order to deploy a Java Web app to cloud, you need an Azure subscription. If you do not already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account]((https://azure.microsoft.com/pricing/free-trial/)).
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Java 8 JDK](https://docs.microsoft.com/java/azure/jdk/java-jdk-install)
 - [Maven 3](http://maven.apache.org/)
 
 ## Clone the Sample Java Web App Repository
-For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable) and [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-introduction).
+For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction).
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
     For bash:
@@ -288,8 +288,8 @@ bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEG
 
 ## Next steps
 
-- [Java in App Service Linux dev guide](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-java)
-- [Azure for Java Developers](https://docs.microsoft.com/en-us/java/azure/)
+- [Java in App Service Linux dev guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)
+- [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]

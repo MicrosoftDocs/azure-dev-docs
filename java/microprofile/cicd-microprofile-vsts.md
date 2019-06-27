@@ -31,8 +31,8 @@ We will start the Azure DevOps containerize process by building a Docker image a
 ## Prerequisites
 - Copy and save the Git url from [Github](https://github.com/Azure-Samples/microprofile-hello-azure)
 - Register or Log into your [Azure DevOps](https://dev.azure.com) account
-- Create a new [Azure DevOps project](https://docs.microsoft.com/en-us/vsts/organizations/projects/create-project?view=vsts&tabs=new-nav) and use the above Git url to **import a repository**
-- Create an [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry) (ACR)
+- Create a new [Azure DevOps project](https://docs.microsoft.com/vsts/organizations/projects/create-project?view=vsts&tabs=new-nav) and use the above Git url to **import a repository**
+- Create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry) (ACR)
 - Create an Azure Web App for Container
   > [!NOTE]
   >

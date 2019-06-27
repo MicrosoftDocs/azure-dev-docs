@@ -16,11 +16,11 @@ Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production
 
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/zulu/). You can also get a virtual machine image from the Azure Marketplace Gallery for the following platforms:
 
-  * [Azul Zulu: Java 8 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azul.azul-zulu8-ubuntu-1804)
-  * [Azul Zulu: Java 8 on Windows Server 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azul.azul-zulu8-windows-2019)
+  * [Azul Zulu: Java 8 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)
+  * [Azul Zulu: Java 8 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-windows-2019)
   
-  * [Azul Zulu: Java 11 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azul.azul-zulu11-ubuntu-1804)
-  * [Azul Zulu: Java 11 on Windows Server 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azul.azul-zulu11-windows-2019)
+  * [Azul Zulu: Java 11 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-1804)
+  * [Azul Zulu: Java 11 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-windows-2019)
 
 
 > [!NOTE]
