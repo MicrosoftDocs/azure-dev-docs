@@ -37,7 +37,7 @@ sections:
       href: https://docs.microsoft.com/en-us/azure/notebooks/use-machine-learning-services-jupyter-notebooks?toc=%2Fpython%2Fazure%2FTOC.json
     - image:
         src: https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg
-      title: Build and deploy a Python app on Azure DevOps Pipelines 
+      title: Build and deploy a Python app on Azure Pipelines 
       href: https://docs.microsoft.com/azure/devops/pipelines/languages/python-webapp?toc=%2Fpython%2Fazure%2FTOC.json
     - href: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python?toc=%2Fpython%2Fazure%2FTOC.json
       image:
