@@ -19,7 +19,7 @@ metadata:
 sections:
 - title: Deploy your first Node.js app for free!
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>You can deploy Node.js sample apps for free on Azure App Service</p>
   - type: list
     style: cards
@@ -33,7 +33,7 @@ sections:
       title: Deploy your first Node.js sample app
 - title: Choose the right hosting for your app
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Azure supports many hosting and application types for Javascript and Node.js developers. Choose your application type below, and we'll guide you on how to build, deploy, and scale your applications on Azure.</p>
   - type: list
     style: cards
@@ -62,7 +62,7 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
 - title: Store data
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage data in files or databases</p>
   - type: list
     style: cards
@@ -101,7 +101,7 @@ sections:
       href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-nodejs
 - title: Authentication and security
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Secure apps, resources and protect cloud secrets and keys</p>  
   - type: list
     style: cards
@@ -125,7 +125,7 @@ sections:
       title: Active Directory B2C
 - title: Monitoring and logging
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Monitor resource health and detect issues in your apps</p>
   - type: list
     style: cards
@@ -149,7 +149,7 @@ sections:
       title: Azure Monitor
 - title: Debugging and diagnostics
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Find and fix production bugs with best in class tools</p>
   - type: list
     style: cards
@@ -173,7 +173,7 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_vs-code.svg    
 - title: Messaging
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage and connect devices and apps</p>  
   - type: list
     style: cards
@@ -197,7 +197,7 @@ sections:
       title: Queue storage
 - title: IoT
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage and connect devices and apps</p>  
   - type: list
     style: cards
@@ -216,7 +216,7 @@ sections:
       title: Big data streaming
 - title: Continuous Deployment and DevOps
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Build, test, and manage your app releases</p> 
   - type: list
     style: cards

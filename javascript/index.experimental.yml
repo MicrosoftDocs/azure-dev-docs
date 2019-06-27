@@ -21,7 +21,7 @@ metadata:
 sections:
 - title: Get started fast 
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>See how easy it is to get started with Node.js on Azure!
   - type: list
     style: cards
@@ -35,7 +35,7 @@ sections:
       title: Get started free!
 - title: Host applications 
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Build, deploy, and scale your Node.js applications on Azure
   - type: list
     style: cards
@@ -64,7 +64,7 @@ sections:
       title: Serverless apps and APIs
 - title: Store data
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage data in files or databases</p>
   - type: list
     style: cards
@@ -103,7 +103,7 @@ sections:
       href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-nodejs
 - title: Authentication and security
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Secure apps, resources and protect cloud secrets and keys</p>  
   - type: list
     style: cards
@@ -127,7 +127,7 @@ sections:
       title: Active Directory B2C
 - title: Monitoring and logging
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Monitor resource health and detect issues in your apps</p>
   - type: list
     style: cards
@@ -156,7 +156,7 @@ sections:
       title: Azure Monitor
 - title: Debugging and diagnostics
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Find and fix production bugs with best in class tools</p>
   - type: list
     style: cards
@@ -185,7 +185,7 @@ sections:
       title: Debugging in VS Code
 - title: Messaging
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage and connect devices and apps</p>  
   - type: list
     style: cards
@@ -209,7 +209,7 @@ sections:
       title: Queue storage
 - title: IoT
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Manage and connect devices and apps</p>  
   - type: list
     style: cards
@@ -228,7 +228,7 @@ sections:
       title: Big data streaming
 - title: DevOps
   items:
-  - type: paragragh
+  - type: paragraph
     html: <p>Build, test, and manage your app releases</p> 
   - type: list
     style: cards
