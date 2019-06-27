@@ -4,7 +4,7 @@ description: Learn how to inject secrets into a MicroProfile web service with Az
 services: key-vault
 documentationcenter: java
 author: jonathangiles
-manager: routlaw
+manager: douge
 editor: jonathangiles
 
 ms.assetid:

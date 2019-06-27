@@ -6,9 +6,9 @@ metadata:
   title: Spring on Azure
   description: Get started using Spring to develop apps on Azure.
   keywords: Azure, Java, Maven, Spring, Boot
-  author: rmcmurray
-  ms.author: robmcm
-  manager: routlaw
+  author: bmitchell287
+  ms.author: brendm
+  manager: douge
   ms.date: 02/01/2018
   ms.topic: landing-page
   ms.prod: azure

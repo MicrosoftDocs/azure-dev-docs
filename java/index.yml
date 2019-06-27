@@ -6,7 +6,7 @@ metadata:
   description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
   keywords: Azure, Java, SDK, API, Maven, Spring
   author: rloutlaw 
-  ms.author: routlaw
+  ms.author: brendm
   manager: douge
   ms.date: 11/02/2017
   ms.topic: article

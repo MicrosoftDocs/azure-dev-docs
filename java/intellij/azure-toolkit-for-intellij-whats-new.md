@@ -3,12 +3,12 @@ title: What's New in the Azure Toolkit for IntelliJ
 description: Learn about the latest features in the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: mbaldwin
+author: bmitchell287
+manager: douge
 editor: ''
 
 ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
-ms.author: robmcm
+ms.author: brendm
 ms.date: 11/13/2018
 ms.devlang: Java
 ms.service: multiple

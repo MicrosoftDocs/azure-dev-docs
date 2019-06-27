@@ -3,11 +3,11 @@ title: How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs
 description: Learn how to configure an application created with the Spring Boot Initializr to use Apache Kafka with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-author: rmcmurray
-manager: mbaldwin
+author: bmitchell287
+manager: douge
 editor: ''
 ms.assetid:
-ms.author: robmcm
+ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: event-hubs
