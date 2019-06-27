@@ -4,7 +4,7 @@ description: Learn how to setup a CI/CD release cycle to deploy a MicroProfile a
 services: Azure DevOps
 documentationcenter: MicroProfile
 author: ruyakubu
-manager: brunoborges
+manager: jaturnbu
 editor: ruyakubu
 
 ms.assetid:

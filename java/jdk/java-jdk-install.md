@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Install the Azul Zulu JDK for Azure and Azure Stack
 description: How to install the Azul Zulu Java Development Kits (JDKs) for Azure development with Windows, Linux, and Mac
-author: erickson-doug
+author: bmitchell287
 manager: douge
-ms.author: douge # Microsoft employees only
+ms.author: brendm
 ms.date: 4/19/2019
 ms.devlang: java
 ms.topic: conceptual
