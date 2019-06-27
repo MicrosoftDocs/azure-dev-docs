@@ -6,8 +6,6 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 03/14/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-sdk-go
 ms.devlang: go
 ---
 

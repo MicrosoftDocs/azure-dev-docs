@@ -6,8 +6,6 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/05/2018
 ms.topic: quickstart
-ms.technology: azure-sdk-go
-ms.service: virtual-machines
 ms.devlang: go
 ---
 # Quickstart: Deploy an Azure virtual machine from a template with the Azure SDK for Go
