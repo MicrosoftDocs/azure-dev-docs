@@ -3,11 +3,8 @@ title: List images
 description: Print all of the available images to use for creating virtual machines.
 author: sptramer
 manager: carmonm
-ms.assetid: 
 ms.devlang: python
-ms.topic: article
-ms.service: Azure
-ms.technology: Azure
+ms.topic: conceptual
 ms.date: 6/15/2017
 ms.author: sttramer
 ---

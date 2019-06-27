@@ -1,16 +1,12 @@
 ---
 title: Installation
 description: How to install the Azure python SDK
-keywords: Azure, Python, SDK, API
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 06/05/2017
-ms.topic: install
-ms.prod: azure
-ms.technology: azure
+ms.topic: conceptual
 ms.devlang: python
-ms.service: multiple
 ---
 
 # Installation

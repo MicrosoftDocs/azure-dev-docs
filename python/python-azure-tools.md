@@ -4,9 +4,7 @@ description: IDE integrations and command-line interfaces for Python developers 
 author: sptramer
 manager: carmonm
 ms.devlang: python
-ms.topic: article
-ms.service: Azure
-ms.technology: Azure
+ms.topic: conceptual
 ms.date: 06/21/2017
 ms.author: sttramer
 ---

@@ -1,16 +1,12 @@
 ---
 title: Azure management libraries for Python SQL Database samples
 description: Get sample code for creating and updating Azure SQL databases using the Azure Management libraries for Python
-keywords: Azure, python, SDK, API, SQL database
 author: sptramer
 ms.author: sttramer   
 manager: carmonm
 ms.date: 06/05/2017
-ms.topic: article
-ms.technology: azure
+ms.topic: conceptual
 ms.devlang: python
-ms.service: multiple
-ms.assetid: 
 ---
 
 

@@ -1,15 +1,12 @@
 ---
 title: Azure SDK for Python operations configuration 
 description: C thrown by the Azure SDK for Python
-keywords: Azure, Python, SDK, API, exceptions
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 03/07/2018
-ms.topic: article
-ms.technology: azure
+ms.topic: conceptual
 ms.devlang: python
-ms.service: multiple
 ---
 
 # Operation config 

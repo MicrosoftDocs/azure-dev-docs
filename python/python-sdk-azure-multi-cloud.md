@@ -5,9 +5,8 @@ author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 02/22/2018
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: python
-ms.service: multiple
 ---
 
 # Multi-cloud - use Azure on all regions
