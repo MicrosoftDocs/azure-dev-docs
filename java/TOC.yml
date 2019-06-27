@@ -189,3 +189,5 @@
           href: java-sdk-azure-containers-samples.md
         - name: All Java samples
           href: https://azure.microsoft.com/resources/samples/?platform=java
+    - name: Reference
+      href: /java/api/?view=azure-java

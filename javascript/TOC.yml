@@ -139,3 +139,5 @@
       href: node-samples-services-security-and-identity.md
     - name: Billing
       href: node-samples-services-billing.md
+  - name: Reference
+    href: /javascript/api/?view=azure-node-latest

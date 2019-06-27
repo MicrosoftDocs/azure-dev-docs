@@ -5,22 +5,22 @@
       expanded: true
       items:
         - name: Web Apps
-          href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet
+          href: /azure/app-service-web/app-service-web-get-started-dotnet
           maintainContext: true
         - name: Serverless functions
-          href: https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio
+          href: /azure/azure-functions/functions-create-your-first-function-visual-studio
           maintainContext: true
         - name: SQL Database
-          href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-dotnet
+          href: /azure/sql-database/sql-database-connect-query-dotnet
           maintainContext: true
         - name: Cosmos DB
-          href: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet
+          href: /azure/cosmos-db/create-sql-api-dotnet
           maintainContext: true
         - name: Service Fabric
-          href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet
+          href: /azure/service-fabric/service-fabric-quickstart-dotnet
           maintainContext: true
         - name: Blob storage
-          href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet
+          href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
           maintainContext: true
     - name: Get started with Azure
       href: dotnet-sdk-azure-get-started.md
@@ -74,3 +74,5 @@
           maintainContext: true
     - name: .NET Code Samples
       href: dotnet-samples.md
+    - name: Reference
+      href: /dotnet/api/?view=azure-dotnet
