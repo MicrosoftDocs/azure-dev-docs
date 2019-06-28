@@ -6,7 +6,7 @@ ms.author: cesardl
 ms.date: 11/15/2017
 ---
 
-# Choose the right Azure hosting option
+# Choose the right Azure hosting option 
 
 This document provides multiple considerations and comparisons between the multiple choices you have in Azure when migrating your existing .NET Framework applications from on-premises to Azure.
 
