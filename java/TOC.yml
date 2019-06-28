@@ -12,7 +12,7 @@
           - name: Linux and Tomcat
             href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Java SE
-            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/application-insights/app-insights-java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: DevOps Pipeline with CI/CD
@@ -87,9 +87,9 @@
       expanded: true
       items:
       - name: Spring Framework & Spring Boot
-        href: spring-framework/index
+        href: spring-framework/index?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
       - name: Eclipse MicroProfile
-        href: microprofile/index
+        href: microprofile/index?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Developer Tools
       expanded: true
       items:
