@@ -17,8 +17,7 @@ metadata:
   ms.devlang: nodejs
   ms.service: multiple
 sections:
-- title: Deploy your first Node.js app for free
-  items:
+- items:
   - type: list
     style: cards
     className: cardsM
