@@ -71,7 +71,7 @@
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "Azure.AzureJava",
-          "folder_relative_path_in_docset": "docs-ref-conceptual/"
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
         }
       }
     },
