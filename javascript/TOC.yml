@@ -8,10 +8,6 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Azure SDK
-      href: node-sdk-azure-get-started.md
-    - name: Tools
-      href: node-azure-tools.md
     - name: App hosting
       items:
       - name: Static sites
@@ -29,6 +25,27 @@
       - name: Linux VMs
         href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
         maintainContext: true
+    - name: Azure SDK
+      href: node-sdk-azure-get-started.md
+    - name: Continuous Deployment and DevOps
+      items:
+      - name: Azure Devops
+        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+        maintainContext: true
+      - name: GitHub Actions
+        href: https://css-tricks.com/introducing-github-actions/
+      - name: Continuous Integration
+        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+    - name: Debugging and diagnostics
+      items:
+      - name: Remote debugging for Azure App Service
+        href: https://code.visualstudio.com/docs/azure/remote-debugging
+      - name: Log Points in VS Code for Azure App Service
+        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
+      - name: Debug local Node.js apps in VS Code
+        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+    - name: Tools and extensions
+      href: node-azure-tools.md
     - name: Store data
       items:
       - name: Blob storage
@@ -70,14 +87,6 @@
         maintainContext: true
       - name: Azure Monitor
         href: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
-    - name: Debugging and diagnostics
-      items:
-      - name: Remote debugging for Azure App Service
-        href: https://code.visualstudio.com/docs/azure/remote-debugging
-      - name: Log Points in VS Code for Azure App Service
-        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
-      - name: Debug local Node.js apps in VS Code
-        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
     - name: Messaging and integration
       items: 
       - name: Event Grid
@@ -107,15 +116,6 @@
       - name: Speech recognition
         href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started
         maintainContext: true
-    - name: Continuous Deployment and DevOps
-      items:
-      - name: Azure Devops
-        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
-        maintainContext: true
-      - name: GitHub Actions
-        href: https://css-tricks.com/introducing-github-actions/
-      - name: Continuous Integration
-        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
   - name: How-To guides
     items:
     - name: Deploy with Visual Studio Code
