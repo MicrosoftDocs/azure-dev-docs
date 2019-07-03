@@ -8,10 +8,6 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Azure SDK
-      href: node-sdk-azure-get-started.md
-    - name: Tools
-      href: node-azure-tools.md
     - name: App hosting
       items:
       - name: Static sites
@@ -26,6 +22,26 @@
         href: /azure/aks/kubernetes-walkthrough?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Linux VMs
         href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - name: Azure SDK
+      href: node-sdk-azure-get-started.md
+    - name: Continuous Deployment and DevOps
+      items:
+      - name: Azure Devops
+        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: GitHub Actions
+        href: https://css-tricks.com/introducing-github-actions/
+      - name: Continuous Integration
+        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - name: Debugging and diagnostics
+      items:
+      - name: Remote debugging for Azure App Service
+        href: https://code.visualstudio.com/docs/azure/remote-debugging
+      - name: Log Points in VS Code for Azure App Service
+        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
+      - name: Debug local Node.js apps in VS Code
+        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+    - name: Tools and extensions
+      href: node-azure-tools.md
     - name: Store data
       items:
       - name: Blob storage
@@ -56,14 +72,6 @@
         href: /azure/log-analytics/log-analytics-quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Azure Monitor
         href: /azure/monitoring-and-diagnostics?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: Debugging and diagnostics
-      items:
-      - name: Remote debugging for Azure App Service
-        href: https://code.visualstudio.com/docs/azure/remote-debugging
-      - name: Log Points in VS Code for Azure App Service
-        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
-      - name: Debug local Node.js apps in VS Code
-        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
     - name: Messaging and integration
       items: 
       - name: Event Grid
@@ -86,14 +94,6 @@
         href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Speech recognition
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: Continuous Deployment and DevOps
-      items:
-      - name: Azure Devops
-        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-      - name: GitHub Actions
-        href: https://css-tricks.com/introducing-github-actions/
-      - name: Continuous Integration
-        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: How-To guides
     items:
     - name: Deploy with Visual Studio Code

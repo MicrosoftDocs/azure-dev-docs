@@ -12,6 +12,7 @@ metadata:
   nextTutorialTitle: python SDK reference
   displayType: two-column
   interactive: azurecli
+  ms.date: 11/30/2017
 items:
 - durationInMinutes: 1
   content: |
