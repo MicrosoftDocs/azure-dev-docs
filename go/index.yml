@@ -57,11 +57,11 @@ sections:
       image:
         src: https://docs.microsoft.com/azure/virtual-machines/media/index/virtualmachine.svg
     - title: Transfer objects to Azure Blob Storage with the Azure Storage SDK for Go
-      href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-go?toc=%2fazure%2fgo%2ftoc.json
+      href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/go/toc.json&bc=/azure/go/breadcrumb/toc.json
       image:
         src: https://docs.microsoft.com/azure/media/index/logo_azure-blob-storage.svg
     - title: Connect to Azure Database for PostgreSQL with Go
-      href: https://docs.microsoft.com/azure/postgresql/connect-go?toc=%2fazure%2fgo%2ftoc.json
+      href: /azure/postgresql/connect-go?toc=/azure/go/toc.json&bc=/azure/go/breadcrumb/toc.json
       image:
         src: https://docs.microsoft.com/azure/media/index/PostgreSQL.svg
 - title: Samples

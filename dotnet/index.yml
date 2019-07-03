@@ -21,9 +21,8 @@ sections:
     className: cardsM
     columns: 2
     items:
-    - href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet
+    - href: /azure/app-service-web/app-service-web-get-started-dotnet?toc=/azure/dotnet/toc.json&bc=/azure/dotnet/breadcrumb/toc.json
       html: <p>Deploy your first ASP.NET Core web app to Azure</p>
-      maintainContext: true
       image:
         src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
       title: Get Started
