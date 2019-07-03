@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Go developers
+title: Azure for Go cloud developers
 metadata:
   title: Azure for Go developers - Tutorials, API Reference
   description: Get started developing with the Azure SDK for Go using the developer resources below.
@@ -13,10 +13,6 @@ metadata:
   - clicktale
   ms.devlang: golang
 sections:
-- items:
-  - type: markdown
-    text: |
-      Get started developing apps with the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) using our official tutorials and tools.
 - items:
   - type: list
     style: cards
@@ -45,8 +41,6 @@ sections:
         src: https://docs.microsoft.com/media/common/i_api-reference.svg
 - title: Go SDK Quickstarts
   items:
-  - type: paragraph
-    text: 'Learn how to use the Azure SDK for Go.'
   - type: list
     style: cards
     className: cardsM

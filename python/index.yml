@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Python developers
+title: Azure for Python cloud developers
 metadata:
   title: Azure for Python developers - Tutorials, API Reference
   description: Learn about Python on Azure with these quickstarts, tutorials, and API reference.
@@ -16,8 +16,6 @@ metadata:
 sections:
 - title: Get started fast
   items:
-  - type: paragraph
-    text: Get started quickly with Python on Azure.
   - type: list
     style: cards
     className: cardsM
@@ -164,7 +162,7 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/KeyVault.svg
       title: Key Vault
       html: Safeguard cryptographic keys and secrets used by cloud apps and services.
-      href: https://docs.microsoft.com/python/api/overview/azure/key-vault?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+      href: /python/api/overview/azure/key-vault
 - title: Tools for Python on Azure development
   items:
   - type: list

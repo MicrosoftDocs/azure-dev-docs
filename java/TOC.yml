@@ -121,13 +121,9 @@
           href: /azure/jenkins/
         - name: ALM with Azure DevOps
           href: /azure/devops/java/
-    - name: How-to Articles
+    - name: Concepts
       items:
-        - name: Add Root Certificate
-          href: java-sdk-add-certificate-ca-store.md
-        - name: Authenticate with the Azure libraries for Java
-          href: java-sdk-azure-authenticate.md
-        - name: Patterns & Best Practices for Developing with Azure SDKs for Java
+        - name: Patterns & best practices
           href: java-sdk-azure-concepts.md
     - name: Tutorials
       items:
@@ -143,6 +139,12 @@
           href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service from Azure Container Registry
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+    - name: How-to Articles
+      items:
+        - name: Add Root Certificate
+          href: java-sdk-add-certificate-ca-store.md
+        - name: Authenticate
+          href: java-sdk-azure-authenticate.md
     - name: Code Samples
       items:
         - name: Service Fabric
