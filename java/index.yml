@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Java developers
+title: Azure for Java cloud developers
 metadata:
   title: Azure for Java developers - Tutorials, API Reference
   description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
@@ -15,10 +15,6 @@ metadata:
   ms.devlang: java
   ms.service: multiple
 sections:
-- items:
-  - type: markdown
-    text: |
-      Get started developing Java apps for the cloud with these tutorials, tools, and libraries.
 - items:
   - type: list
     style: cards
@@ -52,8 +48,6 @@ sections:
       title: Azure SDKs for Java
 - title: Get started guides
   items:
-  - type: paragraph
-    text: 'Learn how to use Java with Azure services.'
   - type: list
     style: cards
     className: cardsM

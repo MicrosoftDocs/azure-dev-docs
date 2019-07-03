@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for .NET and .NET Core developers
+title: Azure for .NET and .NET Core cloud developers
 metadata:
   document_id: be4f4c73-c672-4490-8fca-ae087fba8b3b
   title: Azure for .NET and .NET Core developers - Tutorials, API references for C#
@@ -11,10 +11,6 @@ metadata:
   - clicktale
   ms.service: multiple
 sections:
-- items:
-  - type: markdown
-    text: |
-      Get started developing cloud-enabled apps with Azure using the resources below to find great tutorials and tools for .NET and .NET Core developers.
 - items:
   - type: list
     style: cards
@@ -43,8 +39,6 @@ sections:
       title: API Reference
 - title: 5-Minute Quickstarts
   items:
-  - type: paragraph
-    text: 'Learn how to build .NET and .NET Core apps with Azure services and C#.'
   - type: list
     style: cards
     className: cardsM
@@ -99,8 +93,6 @@ sections:
       title: '.NET application architecture guidance'
 - title: Step-by-Step Tutorials
   items:
-  - type: paragraph
-    text: Learn how to use Azure services and tools in your .NET and .NET Core apps.
   - type: list
     style: unordered
     items:
