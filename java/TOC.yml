@@ -12,7 +12,7 @@
           - name: Linux and Tomcat
             href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Java SE
-            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/application-insights/app-insights-java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: DevOps Pipeline with CI/CD
@@ -87,9 +87,9 @@
       expanded: true
       items:
       - name: Spring Framework & Spring Boot
-        href: spring-framework/index?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        href: /azure/java/spring-framework/index
       - name: Eclipse MicroProfile
-        href: microprofile/index?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        href: /azure/java/microprofile/index
     - name: Developer Tools
       expanded: true
       items:
@@ -138,11 +138,11 @@
         - name: Jenkins CI/CD to App Service
           href: /azure/jenkins/java-deploy-webapp-tutorial?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service with Maven
-          href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md
+          href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service
-          href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md
+          href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service from Azure Container Registry
-          href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
+          href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Code Samples
       items:
         - name: Service Fabric
