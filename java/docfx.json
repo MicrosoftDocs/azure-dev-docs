@@ -23,7 +23,8 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
@@ -43,7 +44,7 @@
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "azure-java",
     "markdownEngineName": "markdig"
   }
 }
+
