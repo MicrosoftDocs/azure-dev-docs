@@ -1,6 +1,6 @@
 ---
 title: Configure a Spring Boot Initializer app to use Azure Application Insights SpringBoot Starter
-description: Configure a Spring Boot application created with the Spring Initializr to use Appliaction Insights SpringBoot Starter.
+description: Configure a Spring Boot application created with the Spring Initializr to use Application Insights SpringBoot Starter.
 services: Application-Insights
 documentationcenter: java
 author: dhaval24
@@ -33,7 +33,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to [https://start.spring.io/](https://start.spring.io/).
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select web dependency in the dependenies section.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select web dependency in the dependencies section.
 
    ![Basic Spring Initializr options][SI01]
 
