@@ -1,6 +1,6 @@
 ---
 title: Configure a Spring Boot Initializer app to use Azure Application Insights SpringBoot Starter
-description: Configure a Spring Boot application created with the Spring Initializr to use Appliaction Insights SpringBoot Starter.
+description: Configure a Spring Boot application created with Spring Initializr to use Application Insights Spring Boot Starter.
 services: Application-Insights
 documentationcenter: java
 author: dhaval24
@@ -18,28 +18,28 @@ ms.workload: na
 
 # Configure a Spring Boot Initializer app to use Application Insights
 
-This article walks you through creating a Spring Boot application using **[Spring Initializr]**, that uses Azure Application Insights Spring Boot Starter for end-to-end monitoring of Java applications on cloud.
+This article walks you through creating a Spring Boot application using **[Spring Initializr]**. It uses Azure Application Insights Spring Boot Starter for end-to-end monitoring of Java applications on cloud.
 
 ## Prerequisites
 
 The following prerequisites are required in order to complete the steps in this article:
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * Web Flux and Netty APIs are **not currently supported** with the Application Insights Spring Boot starter.
 
-## Create a custom application using the Spring Initializr
+## Create a custom application using Spring Initializr
 
 1. Browse to [https://start.spring.io/](https://start.spring.io/).
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select web dependency in the dependenies section.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select web dependency in the dependencies section.
 
    ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
    >
-   > The Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.example.demo*.
+   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.example.demo*.
    >
 
 1. Click the button to **Generate Project**.
@@ -52,28 +52,28 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Application Insights Resource on Azure
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and click **+New**.
+1. Browse to Azure at <https://portal.azure.com/> and click **+New**.
 
-   ![Azure portal][AZ01]
+   ![Azure][AZ01]
 
 1. Click **Management Tools**, and then click **Application Insights**.
 
-   ![Azure portal][AZ02]
+   ![Azure][AZ02]
 
 1. On the **New Application Insights Resource** page, specify the following information:
 
    * Enter the **Name** for your Application Insights resource.
    * Choose the **Application Type** to Java Web Application.
    * Specify your **Subscription**, **Resource group** and **Location**.
-   * Select Pin to dashboard option, if you would like to pin the resource on your Azure portal.
+   * Select Pin to dashboard option, if you would like to pin the resource on your Azure.
 
    When you have specified these options, click **Create** to create your Application Insights resource.
 
-   ![Azure portal][AZ03]
-
+   ![Azure][AZ03]
+ 
 1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From this overview page please copy the **instrumentation key**.
 
-   ![Azure portal][AZ04]
+   ![Azure][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
@@ -100,12 +100,12 @@ The following prerequisites are required in order to complete the steps in this 
    spring.application.name=[your app name]
    ```
 
-   For more ways to fine tune Application Insights please refer to [Application Insights Springboot starter readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
    > [!NOTE]
    > 
-   > You can use different Application Insights instrumentation keys (i.e different resources) for different profiles like PROD, DEV etc. 
-   > Please refer to [Spring Boot Profile Specific Properties] for additional information. 
+   > Use different Application Insights instrumentation keys (such as different resources) for different profiles like PROD, DEV, etc. 
+   > Refer to [Spring Boot Profile Specific Properties] for additional information. 
 
 1. Save and close the *application.properties* file.
 
@@ -157,32 +157,32 @@ The following prerequisites are required in order to complete the steps in this 
     }
    ```
 
-   Where you will need to replace `com.example.demo` with the package name for your project.
+   Replace `com.example.demo` with the package name for your project.
 
 1. Save and close the *TestController.java* file.
 
-1. Build your Spring Boot application with Maven and run it; for example:
+1. Build your Spring Boot application with Maven and run it. For example:
 
    ```shell
    mvn clean package
    mvn spring-boot:run
    ```
 
-1. Test the web app by browsing to http://localhost:8080/sample/hello using a web browser, or use the syntax like the following example if you have curl available:
+1. Test the web app by browsing to http://localhost:8080/sample/hello using a web browser, or use the syntax like the following example if you have **curl** available:
 
    ```shell
    curl http://localhost:8080/sample/hello
    ```
 
-   You should see the "hello!" message from your sample controller displayed. Application Insights will automatically collect this request and send it as a telemetry item with it's associated custom event, custom metric, custom dependency and custom trace as specified in the controller logic. 
+   You should see the "hello!" message from your sample controller displayed. Application Insights will automatically collect this request and send it as a telemetry item with its associated custom event, custom metric, custom dependency, and custom trace as specified in the controller logic. 
 
-   After a few seconds you should see the data on Azure portal. 
+   After a few seconds you should see the data on Azure. 
 
-   ![Azure Portal][AZ05]
+   ![Azure][AZ05]
 
-   You can click on Application Map tile to view high level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Please remember to set it.
+Click on the **Application Map** tile to view high-level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Remember to set it.
 
-   ![Azure Portal][AZ08] 
+   ![Azure][AZ08] 
 
 ## Configure Springboot Application to send log4j logs to Application Insights
 
@@ -255,13 +255,13 @@ The following prerequisites are required in order to complete the steps in this 
 ```
 4. Build and run the Spring Boot application again as shown above. 
 
-Within few seconds, you should see all the spring logs being available on Azure Portal. 
+Within a few seconds, you should see all the spring logs being available on Azure. 
 
-![Azure Portal][AZ06]
+![Azure][AZ06]
 
 You can even look at the detailed log messages and do analysis on Analytics Portal. 
 
-![Azure Portal][AZ07]
+![Azure][AZ07]
 
 ## Next steps
 
@@ -280,7 +280,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 Application Insights supports automatic collection of external dependencies and its correlation with incoming requests. Currently we support autocollection of Oracle, MsSQL, MySQL and Redis. For more details on enabling autocollection please follow the article [how to use Application Insights Java agent](/azure/application-insights/app-insights-java-agent).
 
-For more information about Azure Application Insights, and it's monitoring capabilities, see the **[Application Insights]** home page.
+For more information about Azure Application Insights, and its monitoring capabilities, see the **[Application Insights]** home page.
 
 For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
@@ -288,7 +288,7 @@ For feature requests and potential bugs, please open issues on our [GitHub](http
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at [https://github.com/spring-guides/](https://github.com/spring-guides/). In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more popular projects built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at [https://github.com/spring-guides/](https://github.com/spring-guides/). In addition to choosing from the list of basic Spring Boot projects, **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
 <!-- URL List -->
 
