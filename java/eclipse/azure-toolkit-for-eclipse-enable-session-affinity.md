@@ -1,3 +1,3 @@
 ---
-redirect_url: /java/azure/eclipse/azure-toolkit-for-eclipse
+redirect_url: /azure/java/eclipse/azure-toolkit-for-eclipse
 ---

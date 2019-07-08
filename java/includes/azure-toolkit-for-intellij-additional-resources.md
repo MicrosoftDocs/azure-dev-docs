@@ -2,7 +2,7 @@ To report bugs or request new features, create issues on [our GitHub repository]
 
 For more information about using Java with Azure, see the following links: 
 
-* [Azure for Java Developers](/java/azure/) 
+* [Azure for Java Developers](/azure/java/) 
 * [Java with Azure DevOps Services](/azure/devops/java/)
 * [Get Java JDK downloads and support when developing for Azure](https://aka.ms/azure-jdks)
 <!-- TODO: Add URLs for Java in VSCode here --> 
