@@ -52,28 +52,28 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Application Insights Resource on Azure
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and click **+New**.
+1. Browse to the Azure Portal at <https://portal.azure.com/> and click **+New**.
 
-   ![Azure portal][AZ01]
+   ![Azure Portal][AZ01]
 
 1. Click **Management Tools**, and then click **Application Insights**.
 
-   ![Azure portal][AZ02]
+   ![Azure Portal][AZ02]
 
 1. On the **New Application Insights Resource** page, specify the following information:
 
    * Enter the **Name** for your Application Insights resource.
    * Choose the **Application Type** to Java Web Application.
    * Specify your **Subscription**, **Resource group** and **Location**.
-   * Select Pin to dashboard option, if you would like to pin the resource on your Azure portal.
+   * Select Pin to dashboard option, if you would like to pin the resource on your Azure Portal.
 
    When you have specified these options, click **Create** to create your Application Insights resource.
 
-   ![Azure portal][AZ03]
+   ![Azure Portal][AZ03]
 
 1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From this overview page please copy the **instrumentation key**.
 
-   ![Azure portal][AZ04]
+   ![Azure Portal][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
@@ -176,7 +176,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    You should see the "hello!" message from your sample controller displayed. Application Insights will automatically collect this request and send it as a telemetry item with it's associated custom event, custom metric, custom dependency and custom trace as specified in the controller logic. 
 
-   After a few seconds you should see the data on Azure portal. 
+   After a few seconds you should see the data on Azure Portal. 
 
    ![Azure Portal][AZ05]
 
