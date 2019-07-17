@@ -7,7 +7,7 @@ author: judubois
 manager: brborges
 ms.assetid: 
 ms.author: judubois
-ms.date: 067/17/2019
+ms.date: 07/17/2019
 ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
