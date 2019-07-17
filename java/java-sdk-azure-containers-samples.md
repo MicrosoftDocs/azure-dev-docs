@@ -7,7 +7,6 @@ ms.author: brendm
 manager: douge
 ms.date: 07/31/2017
 ms.topic: article
-ms.prod: azure
 ms.technology: azure
 ms.devlang: java
 ms.service: multiple
