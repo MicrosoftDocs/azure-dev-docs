@@ -39,7 +39,7 @@ We are going to build a simple "Hello, World" function, that runs on Azure Funct
 
 It will receive a simple `User` JSON object, which contains a user name, and sends back a `Greeting` object, which contains the welcome message to that user.
 
-The project we build here is available on [https://github.com/Azure-Samples/hello-spring-function-azure](https://github.com/Azure-Samples/hello-spring-function-azure), so you can use that sample repository directly if you want to see the final work that is detailed in this article.
+The project we build here is available on [https://github.com/Azure-Samples/hello-spring-function-azure](https://github.com/Azure-Samples/hello-spring-function-azure), so you can use that sample repository directly if you want to see the final work that is detailed in this quick start.
 
 ## Create a new Maven project
 
@@ -50,11 +50,29 @@ In an empty folder, create a new `pom.xml` and copy/paste the content from our s
 Please note that this file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and that it configures
 the Spring Boot and Azure Functions Maven plugins.
 
-A few properties need to be customized for your application:
+A few properties need to be customized for your application :
 
 - `<functionAppName>` is the name of your Azure Function
 - `<functionAppRegion>` is the name of the Azure region where your Function is deployed
 - `<functionResourceGroup>` is the name of the Azure resource group you are using
+
+You should change those properties directly near the top of the `pom.xml` file :
+
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <azure.functions.maven.plugin.version>1.3.2</azure.functions.maven.plugin.version>
+    <azure.functions.java.library.version>1.3.0</azure.functions.java.library.version>
+    <functionAppName>judubois-fun-web</functionAppName>
+    <functionAppRegion>westus</functionAppRegion>
+    <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
+    <functionResourceGroup>judubois-demos</functionResourceGroup>
+    <start-class>com.example.HelloFunction</start-class>
+    <wrapper.version>1.0.22.RELEASE</wrapper.version>
+</properties>
+```
 
 ## Create Azure configuration files
 
