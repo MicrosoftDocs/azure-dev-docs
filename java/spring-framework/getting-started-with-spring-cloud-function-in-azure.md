@@ -9,7 +9,7 @@ ms.assetid:
 ms.author: judubois
 ms.date: 07/17/2019
 ms.devlang: Java
-ms.service: multiple
+ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: na
