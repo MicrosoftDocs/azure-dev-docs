@@ -17,7 +17,7 @@ ms.workload: na
 
 # Getting started with Spring Cloud Function in Azure
 
-This article guides you through using [Spring Cloud Functions](https://spring.io/projects/spring-cloud-function) to develop a Java function and publish it to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article guides you through using [Spring Cloud Functions](https://spring.io/projects/spring-cloud-function) to develop a Java function and publish it to Azure Functions. When you're done, your function code runs on the [Consumption Plan](/azure/azure-functions/functions-scale#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +28,7 @@ To develop functions using Java, you must have the following installed:
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1158 or above
+- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 2.7.1158 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
