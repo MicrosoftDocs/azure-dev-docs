@@ -1,5 +1,5 @@
 ---
-title: Java Flight Recorder and Mission Control
+title: Review data with Java Flight Recorder and Mission Control
 description: Guidance for using Java Flight Recorder and Mission Control to collect and review app data.
 author: bmitchell287
 manager: douge

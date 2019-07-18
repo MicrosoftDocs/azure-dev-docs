@@ -1,5 +1,5 @@
 ---
-title: Azure management libraries for Java developer's guide
+title: Develop with Azure management libraries for Java
 description: Patterns and concepts for using the Java management libraries for Java to manage your cloud resources in Azure.
 keywords: Azure, Java, SDK, API, Maven, Gradle, authentication, active directory, service principal
 author: rloutlaw
