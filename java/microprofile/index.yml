@@ -3,7 +3,7 @@ documentType: LandingData
 title: Eclipse MicroProfile on Azure
 metadata:
   document_id: 
-  title: Eclipse MicroProfile on Azure
+  title: Resources for creating Azure apps with Eclipse MicroProfile
   description: Get started using Eclipse MicroProfile to develop apps on Azure.
   keywords: Azure, Java, Maven, MicroProfile, Jakarta EE, Java EE, Eclipse
   author: brborges
