@@ -41,7 +41,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/common/i_download-install.svg
       title: Supported JDKs
-    - href: java-sdk-azure-install.md
+    - href: /java/api/?view=azure-java
       html: <p>API Reference</p>
       image:
         src: https://docs.microsoft.com/media/common/i_api-reference.svg
