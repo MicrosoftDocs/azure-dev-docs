@@ -1,10 +1,6 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
-  - name: Overview
-    items:
-    - name: Azure modules 
-      href: overview.md
   - name: Quickstarts
     expanded: true
     items:
@@ -22,9 +18,7 @@
         href: /azure/aks/kubernetes-walkthrough?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Linux VMs
         href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: Azure SDK
-      href: node-sdk-azure-get-started.md
-    - name: Continuous Deployment and DevOps
+    - name: DevOps (CI/CD)
       items:
       - name: Azure Devops
         href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
