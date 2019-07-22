@@ -4,9 +4,10 @@ description: Guidance for using Java Flight Recorder and Mission Control to coll
 author: bmitchell287
 manager: douge
 ms.author: brendm 
-ms.date: 4/9/2019
+ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
+ms.service: Azure 
 ---
 # Using Java Flight Recorder (JFR) and Mission Control
 
