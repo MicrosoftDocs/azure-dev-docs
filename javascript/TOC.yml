@@ -93,7 +93,7 @@
     - name: Deploy with Visual Studio Code
       href: node-howto-e2e.md
     - name: Create a REST API 
-      href: /azure/app-service-api/app-service-api-nodejs-api-app?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: Samples
     items: 
     - name: Compute
