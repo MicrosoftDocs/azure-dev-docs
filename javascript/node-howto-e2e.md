@@ -25,7 +25,7 @@ In order to follow along with the demo, you'll need to have the following softwa
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Docker](https://www.docker.com/products/docker)
 - [DockerHub account](https://hub.docker.com/)
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
+- [Azure CLI 2.0](/cli/azure/install-az-cli2)
 - [Azure account](https://azure.microsoft.com/free/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 - [Chrome](https://www.google.com/chrome/browser/desktop/) - Used for debugging the demo app's front-end.
@@ -361,7 +361,7 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
     ``` 
 
     > [!NOTE]
-    > If instead of using a custom container, you'd prefer a Git deployment, refer to the article, [Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-nodejs#configure-to-use-nodejs).
+    > If instead of using a custom container, you'd prefer a Git deployment, refer to the article, [Create a Node.js web app in Azure](/azure/app-service-web/app-service-web-get-started-nodejs#configure-to-use-nodejs).
 
 5. Set the web app as the default web instance:
 
