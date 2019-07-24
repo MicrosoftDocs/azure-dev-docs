@@ -3,7 +3,7 @@ documentType: LandingData
 title: Spring on Azure
 metadata:
   document_id: 
-  title: Resources for developing Spring apps on Azure
+  title: Spring on Azure
   description: Get started using Spring to develop apps on Azure.
   keywords: Azure, Java, Maven, Spring, Boot
   author: bmitchell287
