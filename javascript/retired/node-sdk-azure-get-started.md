@@ -19,9 +19,9 @@ This guide walks you through installing Azure Node.js modules, authenticating to
 
 - An Azure account. If you don't have one , [get a free trial](https://azure.microsoft.com/free/)
 - [Node.js](https://nodejs.org)
-- [Azure Cloud Shell](https://docs.microsoft.coms/azure/cloud-shell/quickstart) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
-[!INCLUDE [azure-cloud-shell](includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cloud-shell](../includes/cloud-shell-try-it.md)]
 
 ## Prepare your environment
 
@@ -37,7 +37,7 @@ npm install --save azure ms-rest-azure azure-arm-compute azure-arm-network azure
 
 Your Node.js applications need read and create permissions in your Azure subscription to run the sample code in this guide. Create a service principal and configure your application to run with its credentials. Service principals are a non-interactive account associated with your identity to which you grant only the privileges your app needs to run.
 
-[Create a service principal using the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. You'll need to provide a [secure password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`.
+[Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. You'll need to provide a [secure password](/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name AzureNodeTest --password MY_SECURE_PASSWORD
@@ -61,7 +61,7 @@ export AZURE_PASS password
 export AZURE_TENANT XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
 
-Get the ID for your subscription with [az account show](https://docs.microsoft.com/cli/azure/account#show)
+Get the ID for your subscription with [az account show](/cli/azure/account#show)
 
 ```azurecli-interactive
 az account show

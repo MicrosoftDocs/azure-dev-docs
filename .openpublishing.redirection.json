@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path": "javascript/overview.md",
+            "redirect_url": "/azure/javascript/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "javascript/node-sdk-azure-get-started.md",
+            "redirect_url": "/azure/javascript/",
+            "redirect_document_id": false
+        }
+    ]
+}

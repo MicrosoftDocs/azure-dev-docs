@@ -5,5 +5,5 @@
 | [Deploy an image from Azure Container Registry into a new Linux Web App][3] | Deploy a Docker image running Tomcat to a new web app running in Azure App Service for Linux. | 
 
 [1]: https://azure.microsoft.com/resources/samples/acr-java-manage-azure-container-registry/
-[2]: https://azure.microsoft.com/resources/samples/acs-java-manage-azure-container-service/
+[2]: https://azure.microsoft.com/resources/samples/acs-java-manage-azure-container-service-with-kubernetes-orchestrator/
 [3]: https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/
