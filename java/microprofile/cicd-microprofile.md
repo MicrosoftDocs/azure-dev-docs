@@ -30,16 +30,16 @@ You start the Azure Pipelines containerize process by building a Docker image an
 
 ## Prerequisites
 1. Copy and save the clone URL from [GitHub](https://github.com/Azure-Samples/microprofile-hello-azure).
-1. Register or log into your [Azure DevOps](https://dev.azure.com) account and create a new [project](/vsts/organizations/projects/create-project). 
+1. Register or log into your [Azure DevOps](https://dev.azure.com) organization and create a new [project](/vsts/organizations/projects/create-project). 
 1. From your project page, select **Repos** in the left navigation, select **Import**, and use the Git clone URL you saved to **Import a Git repository**.
 1. In the [Azure portal](https://portal.azure.com), create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 1. In the Azure portal, create an Azure Web App for Containers. Select **Linux** for the **OS**, and for **Configure container**, select **Quickstart** as the **Image source**.  
   
 ## Create a build pipeline
 
-The continuous integration build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
+The continuous integration build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
 
-1. From your Azure Repos Git repository, select **Azure Pipelines** > **Builds** in the left navigation. 
+1. From your Azure Repos Git repository, select **Pipelines** > **Builds** in the left navigation. 
    
    ![Select Builds](media/cicd-microprofile/builds.png)
    
@@ -96,7 +96,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
 
 Azure Pipelines pushes the Docker image to your Azure Container Registry, and uses it to run the MicroProfile API app as a containerized Java web app.
 
-1. Since you are using Docker in Azure Pipelines, create a new Docker template by repeating the steps under [Create a Docker build image](#create-a-docker-build-image). This time, select **push** in the **Command** dropdown.
+1. Since you're using Docker in Azure Pipelines, create a new Docker template by repeating the steps under [Create a Docker build image](#create-a-docker-build-image). This time, select **push** in the **Command** dropdown.
    
 1. Select the dropdown next to **Save & queue**, and select **Save & queue**. 
    
@@ -110,7 +110,7 @@ Azure Pipelines pushes the Docker image to your Azure Container Registry, and us
 
 An Azure Pipelines continuous release pipeline automatically triggers deployment to a target environment like Azure as soon as a build succeeds. You can create release pipelines for environments like dev, test, staging, or production.
 
-1. On your Azure DevOps project page, select **Azure Pipelines** > **Releases** in the left navigation. 
+1. On your Azure DevOps project page, select **Pipelines** > **Releases** in the left navigation. 
    
 1. Select **New Pipeline**.
    
@@ -193,7 +193,7 @@ To enable continuous deployment:
    
 ## Deploy the Java app
 
-Now that you enabled CI/CD, modifying the source code creates and runs builds and releases automatically. To create and run a new release manually.
+Now that you enabled CI/CD, modifying the source code creates and runs builds and releases automatically. You can also create and run releases manually.
 
 1. Select **Create release** at the upper right on the pipeline page.
    
