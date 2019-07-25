@@ -111,12 +111,12 @@
         - name: Eclipse
           href: eclipse/azure-toolkit-for-eclipse.md
         - name: Maven Plugins
-          href: /java/api/overview/azure/maven/README.md
+          href: /java/api/overview/azure/maven/README
           items:
             - name: Azure App Service Web Apps
-              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README
             - name: Azure Functions
-              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README
         - name: Jenkins CI/CD
           href: /azure/jenkins/
         - name: Azure Pipelines
