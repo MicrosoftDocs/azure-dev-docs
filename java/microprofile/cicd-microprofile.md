@@ -142,12 +142,12 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
       
    1. Enter your ACR name in the **Registry or Namespaces** field. For example, enter *myregistry.azure.io*.
       
-   1. Enter the registry name in the **Repository** field.
+   1. Enter the repository that contains your Docker image in the **Repository** field, such as *samples/nginx*.
    
 1. In the left pane, select **Deploy War to Azure App Service**, and in the right pane, enter the *latest* tag for the container image in the **Tag** field. 
    
    > [!NOTE]
-   > Use the fully-qualified image name in the tag: `<registry or namespace>/<repository>:<tag>`. For example, *mymicroprofileregistry.azurecr.io*.
+   > Use the fully-qualified image name in the tag: `<registry or namespace>/<repository>:<tag>`. For example, *mymicroprofileregistry.azurecr.io/nginx:latest*.
    
 1. In the left pane, select **Run on agent**, and in the right pane, select **Hosted Ubuntu 1604** in the **Agent pool** dropdown. 
 
