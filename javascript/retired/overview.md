@@ -13,7 +13,7 @@ ms.service: azure-nodejs
 
 # Azure modules for JavaScript
 
-Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as [npm modules](node-sdk-azure-install.md) for use in your projects. 
+Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as [npm modules](../node-sdk-azure-install.md) for use in your projects. 
 
 ## Manage Azure resources
 
@@ -76,11 +76,11 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
 });
 ```
 
-Review the [install instructions](node-sdk-azure-install.md) for a full list of the modules and the [get started article](node-sdk-azure-get-started.md) to set up authentication and run sample code to create and update resources against your own Azure subscription. 
+Review the [install instructions](../node-sdk-azure-install.md) for a full list of the modules and the [get started article](../node-sdk-azure-get-started.md) to set up authentication and run sample code to create and update resources against your own Azure subscription. 
 
 ## Connect to Azure services
 
-In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](node-sdk-azure-install.md) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
+In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](../node-sdk-azure-install.md) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
 
 For example, to print out the contents of every blob in an Azure storage container:
 
@@ -97,8 +97,8 @@ blobService.listBlobsSegmented('testcontainer', null, function(error, result, re
 
 The following samples cover common tasks with the Azure management modules and have code ready to use in your own apps:
 
-- [Virtual machines](node-samples-services-compute.md)
-- [Web apps](node-samples-services-web-and-mobile.md)
-- [SQL Database](node-samples-services-database.md)
+- [Virtual machines](../node-samples-services-compute.md)
+- [Web apps](../node-samples-services-web-and-mobile.md)
+- [SQL Database](../node-samples-services-database.md)
    
-A [reference](https://docs.microsoft.com/javascript/api) is available for all modules in both the service and management modules. New features, breaking changes, and migration instructions from previous versions are available in the [release notes](https://github.com/Azure/azure-sdk-for-node/releases).
+A [reference](/javascript/api) is available for all modules in both the service and management modules. New features, breaking changes, and migration instructions from previous versions are available in the [release notes](https://github.com/Azure/azure-sdk-for-node/releases).

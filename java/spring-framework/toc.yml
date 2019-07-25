@@ -50,6 +50,8 @@
             href: configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
           - name: Azure Event Hub Kafka API
             href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+          - name: Azure Functions
+            href: getting-started-with-spring-cloud-function-in-azure.md
   - name: Tutorials
     items:      
       - name: Deploy to App Service with Maven

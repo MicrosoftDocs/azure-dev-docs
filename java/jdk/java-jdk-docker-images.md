@@ -5,9 +5,10 @@ description:
 author: bmitchell287
 manager: douge
 ms.author: brendm # Microsoft employees only
-ms.date: 4/9/2019
+ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
+ms.service: Azure 
 ---
 # Use Docker with a JDK for Azure 
 
