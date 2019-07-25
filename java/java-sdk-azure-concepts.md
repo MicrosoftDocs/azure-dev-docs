@@ -12,6 +12,7 @@ ms.technology: azure
 ms.devlang: java
 ms.service: multiple
 ms.assetid: f452468b-7aae-4944-abad-0b1aaf19170d
+ms.custom: seo-java-july2019
 ---
 
 # Patterns and best practices for development with the Azure libraries for Java 
