@@ -7,6 +7,7 @@ ms.author: brendm
 ms.date: 4/9/2019
 ms.devlang: java
 ms.topic: conceptual
+ms.custom: seo-java-july2019
 ---
 # Using Java Flight Recorder (JFR) and Mission Control
 
