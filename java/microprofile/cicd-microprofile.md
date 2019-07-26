@@ -19,17 +19,17 @@ ms.workload: web
 
 # CI/CD for MicroProfile apps using Azure Pipelines
 
-This tutorial shows you how to easily set up an Azure Pipelines continuous integration and continuous deployment (CI/CD) release cycle to deploy your [MicroProfile](http://microprofile.io) Java EE application to an Azure Web App for Containers. The MicroProfile app in this tutorial uses a [Payara Micro](https://www.payara.fish/payara_micro) base image. 
+This tutorial shows you how to easily set up an Azure Pipelines continuous integration and continuous deployment (CI/CD) release cycle to deploy your [MicroProfile](http://microprofile.io) Java EE application to an Azure Web App for Containers. The MicroProfile app in this tutorial uses a [Payara Micro](https://www.payara.fish/payara_micro) base image to create a WAR file. 
 
 ```Dockerfile
 FROM payara/micro:5.182
 COPY target/*.war $DEPLOY_DIR/ROOT.war
 EXPOSE 8080
 ```
-You start the Azure Pipelines containerize process by building a Docker image and pushing the container image to an Azure Container Registry (ACR). You complete the process by creating an Azure Pipelines release pipeline and deploying the container image to a web app.
+You start the Azure Pipelines containerization process by building a Docker image and pushing the container image to an Azure Container Registry (ACR). You complete the process by creating an Azure Pipelines release pipeline and deploying the container image to a web app.
 
 ## Prerequisites
-1. Copy and save the clone URL from [GitHub](https://github.com/Azure-Samples/microprofile-hello-azure).
+1. Copy and save the clone URL from the sample GitHub project at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
 1. Register or log into your [Azure DevOps](https://dev.azure.com) organization and create a new [project](/vsts/organizations/projects/create-project). 
 1. From your project page, select **Repos** in the left navigation, select **Import**, and use the Git clone URL you saved to **Import a Git repository**.
 1. In the [Azure portal](https://portal.azure.com), create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
@@ -54,9 +54,9 @@ The continuous integration build pipeline in Azure Pipelines automatically execu
    
 1. To configure the pipeline for continuous integration, select the **Triggers** tab, and then select the checkbox next to **Enable continuous integration**.  
    
-   ![Enable continuous integration](media/cicd-microprofile/continuous-integration.png)
-   
 1. Select the dropdown next to **Save & queue**, and select **Save**. 
+
+   ![Enable continuous integration](media/cicd-microprofile/continuous-integration.png)
 
 ## Create a Docker build image
 
@@ -75,7 +75,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
 1. In the **Add a Docker Registry service connection** dialog:
    1. Select **Azure Container Registry** next to **Registry type**.
    1. Enter a name next to **Connection Name**.
-   1. Select your Azure subscription from the **Azure subscription** dropdown.
+   1. Select your Azure subscription from the **Azure subscription** dropdown, and if necessary, select **Authorize**.
    1. Select your Azure Container Registry name from the **Azure container registry** dropdown. 
    1. Select **OK**.
    
@@ -134,15 +134,15 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    
 1. In the right pane:
    
-   1. Select your Azure subscription in the **Azure subscription** dropdown, and if necessary, select **Authorize**.
+   1. Select your Azure subscription in the **Azure subscription** dropdown.
       
    1. Select **Web App for Containers (Linux)** from the **App type** dropdown.
       
    1. Select your ACR instance in the **App service name** dropdown.
       
-   1. Enter your ACR name in the **Registry or Namespaces** field. For example, enter *myregistry.azure.io*.
+   1. Enter your ACR name in the **Registry or Namespaces** field. For example, enter *mymicroprofileregistry.azure.io*.
       
-   1. Enter the repository that contains your Docker image in the **Repository** field, such as *samples/nginx*.
+   1. Enter the repository that contains your Docker image in the **Repository** field. 
    
 1. In the left pane, select **Deploy War to Azure App Service**, and in the right pane, enter the *latest* tag for the container image in the **Tag** field. 
    
@@ -155,9 +155,7 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
 
 Add and define environment variables to connect to the container registry during deployment.
 
-1. Select the **Variables** tab, and then select **Add**.
-   
-1. Add the variable names and values for your container registry URL, username, and password. For security, select the lock icon to keep the password value hidden.
+1. Select the **Variables** tab, and then select **Add** to add variables for your container registry URL, username, and password. For security, select the lock icon to keep the password value hidden.
    
    For example, add:
    - registry.url
@@ -171,9 +169,9 @@ Add and define environment variables to connect to the container registry during
 1. In the right pane, expand **Application and Configuration Settings**, and then select the ellipsis **...** next to the **App Settings** field.
    
 1. In the **App settings** popup, select **Add** to define and assign the app setting variables:
-   - DOCKER_REGISTRY_SERVER_PASSWORD = $(registry.password)
    - DOCKER_REGISTRY_SERVER_URL = $(registry.url)
    - DOCKER_REGISTRY_SERVER_USERNAME = $(registry.username)
+   - DOCKER_REGISTRY_SERVER_PASSWORD = $(registry.password)
    
 1. Select **OK**.
    
@@ -193,23 +191,21 @@ To enable continuous deployment:
    
 ## Deploy the Java app
 
-Now that you enabled CI/CD, modifying the source code creates and runs builds and releases automatically. You can also create and run releases manually.
+Now that you enabled CI/CD, modifying the source code creates and runs builds and releases automatically. You can also create and run releases manually, as follows:
 
-1. Select **Create release** at the upper right on the pipeline page.
+1. At the upper right on the release pipeline page, select **Create release** .
    
-1. Select your stage in the left pane, and in the right pane, select the stage name under **Stages for a trigger change from automated to manual**. 
+1. On the **Create a new release** page, select the stage name under **Stages for a trigger change from automated to manual**. 
    
 1. Select **Create**. 
    
-1. Select the release number in the banner, and then select your stage name and select **Deploy**. 
+1. Select the release name, hover over or select the stage, and then select **Deploy**. 
    
-1. Select **Deploy** again in the popup window to start the deployment to Azure. 
-
 ## Test the Java web app
 
 After deployment completes successfully, test your web app. 
 
-1. Copy your web app URL from the Azure portal.
+1. Copy the web app URL from the Azure portal.
    
    ![App Service app in the Azure portal](media/cicd-microprofile/portalurl.png)
    
