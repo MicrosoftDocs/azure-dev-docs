@@ -242,7 +242,7 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/iot-hub/quickstart-control-device-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Manage thousands of devices with IoT Hub</p>
       image:
         src: /azure/media/index/IOT_edge_50.svg
