@@ -32,10 +32,9 @@ Follow the steps outlined in the topic,
 
 ## Create a service principal using the Azure CLI 2.0
 
-Creating a service principal using the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) can be 
-accomplished with the following steps:
+Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli2) can be accomplished with the following steps:
 
-1. Download the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+1. Download the [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 2. Open a terminal window.
 

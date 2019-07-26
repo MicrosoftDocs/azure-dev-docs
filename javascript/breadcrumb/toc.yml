@@ -4,4 +4,4 @@
   items:
   - name: Node on Azure
     tocHref: /azure/javascript
-    topicHref: /azure/python/index
+    topicHref: /azure/javascript/index

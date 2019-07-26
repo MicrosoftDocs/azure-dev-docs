@@ -26,7 +26,7 @@ Beginning April 15, 2013, Azure began migrating from the GTE CyberTrust Global r
 
 > [!NOTE]
 > 
-> You can use the steps in this article to configure your Java SDK to trust the root certificates from other trusted certificate authorities. For example, you might choose a root certificate from the list of certificates at [GeoTrust Root Certificates](http://www.geotrust.com/resources/root-certificates/).
+> You can use the steps in this article to configure your Java SDK to trust the root certificates from other trusted certificate authorities. For example, you might choose a root certificate from the list of certificates at [GeoTrust Root Certificates](https://www.geotrust.com/resources/root-certificates/).
 > 
 
 ## Determining which root certificates are installed
@@ -43,7 +43,7 @@ The Baltimore certificate might already be installed in your cacerts store, so y
 
    > [!NOTE]
    > 
-   > If you want to change the store password, see the keytool documentation at <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
+   > If you want to change the store password, see the keytool documentation at <https://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
    > 
 
 1. If you do not see the certificate with the thumbprint of `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`, use the steps in the following section to download and install the certificate.
@@ -84,10 +84,10 @@ After you have successfully added the root certificate to your JDK, you can zip 
 
 ## Next steps
 
-For more information about the keytool utility, see <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
+For more information about the keytool utility, see <https://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
 For more information about Java, see [Azure for Java developers](/azure/java).
 
-<!-- For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx). -->
+<!-- For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](https://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx). -->
 
 For more information about the supported JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.

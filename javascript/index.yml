@@ -10,7 +10,6 @@ metadata:
   manager: douge
   ms.date: 07/01/2019
   ms.topic: landing-page
-  ms.prod: azure
   featureFlags:
   - clicktale
   ms.technology: azure
@@ -26,7 +25,7 @@ sections:
     - href: https://aka.ms/try-azure-node
       html: <p>Deploy your first app in a free sandbox environment on Azure App Service</p>
       image:
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
+        src: /media/common/i_get-started.svg
       title: Deploy your first Node.js sample app
 - title: Choose the right scalable hosting for your app
   items:
@@ -39,22 +38,22 @@ sections:
       html: <p>Deploy static apps built with frameworks like React, Angular, and Vue on Azure Storage</p>
       href: https://code.visualstudio.com/tutorials/static-website/getting-started
       image:
-        src: https://docs.microsoft.com/media/logos/logo_React.svg      
+        src: /media/logos/logo_React.svg
     - title: Full-stack Node.js-powered Web Apps and APIs
       html: <p>Deploy full-stack node.js web apps and APIs built with frameworks like Express on Azure App Service</p>
       href: https://code.visualstudio.com/tutorials/app-service-extension/getting-started
       image:
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+        src: /media/logos/logo_vs-code.svg
     - title: Containerized Apps and Microservices with Docker
       html: <p>Deploy containerized apps and microservices using Docker containers on Azure App Service</p>
       href: https://code.visualstudio.com/tutorials/docker-extension/getting-started 
       image:
-        src: https://docs.microsoft.com/azure/docker/media/docker.png
+        src: /azure/docker/media/docker.png
     - title: Serverless Apps and APIs
       href: https://code.visualstudio.com/tutorials/functions-extension/getting-started    
       html: <p>Deploy serverless apps and APIs written in JavaScript on Azure Functions</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: /azure/media/index/azurefunctions.svg
 - title: Azure SDK for Node.js
   items:
   - type: list
@@ -62,20 +61,15 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/javascript/node-sdk-azure-get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-      html: <p>Set up a local dev environment and test drive the Azure SDK</p>
-      image: 
-        src: https://docs.microsoft.com/media/common/i_get-started.svg
-      title: Get started with the SDK
     - href: /javascript/api/overview/azure/
       html: <p>Complete reference docs for the Azure SDK</p>
       image: 
-        src: https://docs.microsoft.com/media/common/i_api-reference.svg
+        src: /media/common/i_api-reference.svg
       title: Reference 
     - href: https://azure.microsoft.com/en-us/resources/samples/?sort=0&platform=nodejs
       html: <p>Sample GitHub repos for the Azure SDK</p>
       image: 
-        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+        src: /common/i_code-samples.svg
       title: SDK Samples
 - title: Continuous Deployment and DevOps
   items:
@@ -88,17 +82,17 @@ sections:
       href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Build and deploy apps from your Azure DevOps Project</p>
       image:
-        src: https://docs.microsoft.com/media/logos/logo_vs-team-services.svg
+        src: /media/logos/logo_vs-team-services.svg
     - title: GitHub Actions 
       href: https://css-tricks.com/introducing-github-actions/
       html: <p>Build and deploy apps to Azure from GitHub Actions</p>
       image:
-        src: https://docs.microsoft.com/media/logos/logo_octokitty.svg
+        src: /media/logos/logo_octokitty.svg
     - title: Continuous Integration
       href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Add Jenkins, CircleCI, or Travis to manage builds</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_scrum.svg
+        src: /media/common/i_scrum.svg
 - title: Find and fix bugs with debugging and diagnostic tools
   items:
   - type: list
@@ -110,17 +104,17 @@ sections:
       href: https://code.visualstudio.com/docs/azure/remote-debugging
       html: <p>Attach a debugger to your test or production apps on Azure App Service</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_debug.svg    
+        src: /media/common/i_debug.svg    
     - title: Log Points in VS Code for Azure App Service
       href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
       html: <p>Add log statements to Azure App Service apps without redeploying from VS Code</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_tools.svg
+        src: /media/common/i_tools.svg
     - title: Debug local Node.js apps in VS Code 
       href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
       html: <p>Automatically attach the debugger to running processes</p>
       image:
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg    
+        src: /media/logos/logo_vs-code.svg
 - title: Tools and extensions
   items:
   - type: list
@@ -131,12 +125,12 @@ sections:
     - href: https://code.visualstudio.com/docs/azure/extensions
       html: <p>Use Azure directly from Visual Studio Code through extensions</p>
       image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+        src: /media/logos/logo_vs-code.svg
       title: Visual Studio Code
-    - href: https://docs.microsoft.com/cli/azure
+    - href: /cli/azure
       html: <p>Manage Azure resources from the command line</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/azure_dev-7.svg
+        src: /azure/media/index/azure_dev-7.svg
       title: Azure CLI 2.0
 - title: Store and manage data in files or databases
   items:
@@ -146,7 +140,7 @@ sections:
     columns: 3
     items:
     - image:
-        src: https://docs.microsoft.com/azure/media/index/Storage.svg
+        src: /azure/media/index/Storage.svg
       title: File Storage
       html: <p>Store files securely in cloud storage</p>
       href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
@@ -154,24 +148,24 @@ sections:
       title: MongoDB
       html: <p>Use MongoDB and CosmosDB in your apps</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/cosmosdb.svg
+        src: /azure/media/index/cosmosdb.svg
     - image:
-        src: https://docs.microsoft.com/azure/media/index/RedisCache.svg
+        src: /azure/media/index/RedisCache.svg
       title: Redis Cache
       html: <p>Read and write data to a Redis in-memory data store</p>
       href: /azure/redis-cache/cache-nodejs-get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/azure/media/index/PostgreSQL.svg
+        src: /azure/media/index/PostgreSQL.svg
       title: PostgreSQL
       html: <p>Create and manage a cloud Postgres database</p>
       href: /azure/postgresql/connect-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/azure/media/index/MySQL.SVG
+        src: /azure/media/index/MySQL.SVG
       title: MySQL
       html: <p>Create and manage a cloud MySQL database</p>
       href: /azure/mysql/connect-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/azure/media/index/SQLDatabase.svg
+        src: /azure/media/index/SQLDatabase.svg
       title: Azure SQL Database
       html: <p>Create and manage a cloud SQL database</p>
       href: /azure/sql-database/sql-database-connect-query-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
@@ -185,17 +179,17 @@ sections:
     - href: /azure/active-directory/develop/quickstart-v1-nodejs-webapi?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Authenticate users with Passport strategies</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/ActiveDirectory.svg
+        src: /azure/media/index/ActiveDirectory.svg
       title: Active Directory
     - href: /azure/key-vault/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Securely store API keys and secrets in your apps</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/KeyVault.svg
+        src: /azure/media/index/KeyVault.svg
       title: Key Vault
     - href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use Passport and Azure AD to add sign-in to Facebook, Twitter, or GitHub to your web app</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/ActiveDirectory.svg
+        src: /azure/media/index/ActiveDirectory.svg
       title: Active Directory B2C
 - title: Monitoring resource health and detect issues in your apps
   items:
@@ -207,17 +201,17 @@ sections:
     - href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Monitor requests and identify errors in your application</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/ApplicationInsights.svg
+        src: /azure/media/index/ApplicationInsights.svg
       title: Application Insights
     - href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Review data about your environment in a single location</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/operationsmanagementsuite.svg
+        src: /azure/media/index/operationsmanagementsuite.svg
       title: Log Analytics
     - href: /azure/azure-monitor/?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Get detailed performance and utilization data</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/AzureMonitoring.svg
+        src: /azure/media/index/AzureMonitoring.svg
       title: Azure Monitor
 - title: Manage and connect devices and apps with messaging
   items:
@@ -229,17 +223,17 @@ sections:
     - href: /azure/event-grid/custom-event-quickstart?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use HTTP-based event delivery to eliminate polling</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/azure_event_grid.svg
+        src: /azure/media/index/azure_event_grid.svg
       title: Event Grid 
     - href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Employ highly reliable messaging across services</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/IOT_edge_50.svg
+        src: /azure/media/index/IOT_edge_50.svg
       title: Service Bus 
     - href: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use queues for highly scalable messaging</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_sharepoint-list.svg
+        src: /media/common/i_sharepoint-list.svg
       title: Queue storage
 - title: IoT
   items:
@@ -251,10 +245,10 @@ sections:
     - href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Manage thousands of devices with IoT Hub</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/IOT_edge_50.svg
+        src: /azure/media/index/IOT_edge_50.svg
       title: Connect and manage IoT devices 
     - href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use Event hub to collect billions of data points</p>
       image:
-        src: https://docs.microsoft.com/azure/media/index/EventHubs.svg
+        src: /azure/media/index/EventHubs.svg
       title: Big data streaming

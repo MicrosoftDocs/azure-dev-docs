@@ -10,7 +10,6 @@ metadata:
   manager: douge
   ms.date: 11/02/2017
   ms.topic: article
-  ms.prod: azure
   ms.technology: azure
   ms.devlang: java
   ms.service: multiple
@@ -41,7 +40,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/common/i_download-install.svg
       title: Supported JDKs
-    - href: java-sdk-azure-install.md
+    - href: /java/api/?view=azure-java
       html: <p>API Reference</p>
       image:
         src: https://docs.microsoft.com/media/common/i_api-reference.svg
