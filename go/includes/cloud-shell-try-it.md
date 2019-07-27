@@ -5,7 +5,7 @@ manager: carmonm
 ms.date: 09/05/2018 
 ms.topic: include
 ms.prod: azure
--cli
+ms.technology: azure-cli
 ---
 ## Launch Azure Cloud Shell
 
