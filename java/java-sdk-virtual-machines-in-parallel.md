@@ -8,7 +8,8 @@ ms.service: Azure
 ms.devlang: java
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: brendm;asirveda
+ms.author: brendm
+ms.reviewer: asirveda
 
 ---
 

@@ -2,6 +2,7 @@
 title: Azure .NET APIs
 description: Overview of the Azure APIs for .NET
 ms.date: 10/19/2017
+ms.topic: conceptual
 ---
 
 # Azure .NET APIs
