@@ -10,7 +10,7 @@ ms.assetid:
 ms.author: dhdoshi
 ms.date: 12/19/2018
 ms.devlang: java
-ms.service: azure monitor
+ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
 ms.workload: na
