@@ -5,7 +5,7 @@ manager: carmonm
 ms.date: 09/05/2018 
 ms.topic: include
 ms.prod: azure
--cli
+ms.technology: azure-cli
 ---
 The [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) is compatible with Go versions 1.8 and higher. For environments using
 [Azure Stack Profiles](/azure/azure-stack/user/azure-stack-version-profiles-go), Go version 1.9 is the minimum requirement.
