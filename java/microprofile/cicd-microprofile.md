@@ -72,12 +72,16 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    
 1. Under **Container Repository**, select **New** next to the **Container Registry** field. 
    
-1. In the **Add a Docker Registry service connection** dialog:
-   1. Select **Azure Container Registry** next to **Registry type**.
-   1. Enter a name next to **Connection Name**.
-   1. Select your Azure subscription from the **Azure subscription** dropdown, and if necessary, select **Authorize**.
-   1. Select your Azure Container Registry name from the **Azure container registry** dropdown. 
-   1. Select **OK**.
+1. In the right pane, fill out the **Add a Docker Registry service connection** dialog as follows:
+   
+   |Field|Value|
+   |---|---|
+   |**Registry type**|Select **Azure Container Registry**.|
+   |**Connection Name**|Enter a name for the connection.|
+   |**Azure subscription**|Select your Azure subscription from the dropdown, and if necessary, select **Authorize**.|
+   |**Azure container registry**|Select your Azure Container Registry name from the dropdown.| 
+   
+1. Select **OK**.
    
    > [!NOTE]
    > If you're using Docker Hub or another registry, select **Docker Hub** or **Others** instead of **Azure Container Registry** next to **Registry type**. Then provide the credentials and connection information for your container registry.
@@ -96,7 +100,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
 
 Azure Pipelines pushes the Docker image to your Azure Container Registry, and uses it to run the MicroProfile API app as a containerized Java web app.
 
-1. Since you're using Docker in Azure Pipelines, create a new Docker template by repeating the steps under [Create a Docker build image](#create-a-docker-build-image). This time, select **push** in the **Command** dropdown.
+1. Since you're using Docker in Azure Pipelines, create another Docker template by repeating the steps under [Create a Docker build image](#create-a-docker-build-image). This time, select **push** in the **Command** dropdown.
    
 1. Select the dropdown next to **Save & queue**, and select **Save & queue**. 
    
@@ -132,17 +136,15 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    
    ![Select the stage name](media/cicd-microprofile/viewstagetasks.png)
    
-1. In the right pane:
+1. In the right pane, fill out the form as follows:
    
-   1. Select your Azure subscription in the **Azure subscription** dropdown.
-      
-   1. Select **Web App for Containers (Linux)** from the **App type** dropdown.
-      
-   1. Select your ACR instance in the **App service name** dropdown.
-      
-   1. Enter your ACR name in the **Registry or Namespaces** field. For example, enter *mymicroprofileregistry.azure.io*.
-      
-   1. Enter the repository that contains your Docker image in the **Repository** field. 
+   |Field|Value|
+   |---|---|
+   |**Azure subscription**|Select your Azure subscription from the dropdown.|
+   |**App type**|Select **Web App for Containers (Linux)** from the dropdown.|
+   |**App service name**|Select your ACR instance from the dropdown.|
+   |**Registry or Namespaces**|Enter your ACR name in the field. For example, enter *mymicroprofileregistry.azure.io*.
+   |**Repository**|Enter the repository that contains your Docker image in the field.| 
    
 1. In the left pane, select **Deploy War to Azure App Service**, and in the right pane, enter the *latest* tag for the container image in the **Tag** field. 
    
