@@ -11,7 +11,7 @@ ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/14/2018
 ms.devlang: Java
-ms.service: Azure DevOps
+ms.service: azure devops
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web

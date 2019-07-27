@@ -4,7 +4,7 @@ description: Sample code to create virtual machines across different Azure regio
 author: rloutlaw
 manager: douge
 ms.assetid: e5a36699-2d96-4571-84f9-a6af13f3c067
-ms.service: Azure
+ms.service: azure
 ms.devlang: java
 ms.topic: article
 ms.date: 03/30/2017

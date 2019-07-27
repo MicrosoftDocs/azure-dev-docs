@@ -7,7 +7,7 @@ ms.author: brendm
 manager: douge
 ms.date: 04/16/2017
 ms.topic: article
-ms.technology: azure
+
 ms.devlang: java
 ms.service: multiple
 ms.assetid: 43633e5c-9fb1-4807-ba63-e24c126754e2

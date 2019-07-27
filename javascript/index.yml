@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   featureFlags:
   - clicktale
-  ms.technology: azure
+  
   ms.devlang: nodejs
   ms.service: multiple
 sections:

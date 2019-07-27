@@ -2,7 +2,7 @@
 title: Tools for JavaScript developers on Azure | Microsoft Docs
 description: Install individual tools for JavaScript development on Azure
 services: multiple
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.service: azure-nodejs
 ms.tgt_pltfrm: na

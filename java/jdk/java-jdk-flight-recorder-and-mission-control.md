@@ -7,7 +7,7 @@ ms.author: brendm
 ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
-ms.service: Azure 
+ms.service: azure 
 ---
 # Using Java Flight Recorder (JFR) and Mission Control
 
