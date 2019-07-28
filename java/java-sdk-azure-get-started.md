@@ -1,5 +1,5 @@
 ---
-title: Get started with the Azure libraries for Java
+title: Get started developing Azure services in your Java applications - Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
 author: rloutlaw
@@ -11,6 +11,7 @@ ms.technology: azure
 ms.devlang: java
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
+ms.custom: seo-java-july2019 
 ---
 
 # Get started with cloud development using Java on Azure
