@@ -6,8 +6,8 @@ manager: douge
 ms.assetid: 92736911-3df6-46e7-b751-25bb36bf89b9
 ms.devlang: java
 ms.topic: article
-ms.service: Azure
-ms.technology: Azure
+ms.service: azure
+
 ms.date: 3/30/2017
 ms.author: brendm;asirveda
 ---

@@ -1,7 +1,7 @@
 ---
 title: Azure web and mobile apps with Node.js code samples
 description: Azure web and mobile applications code samples in Node.js
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.devlang: nodejs
 ms.topic: article

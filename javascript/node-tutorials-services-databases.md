@@ -1,7 +1,7 @@
 ---
 title: Azure databases with Node.js tutorials
 description: Tutorials for connecting to and using Azure databases with Node.js.
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.devlang: nodejs
 ms.topic: article

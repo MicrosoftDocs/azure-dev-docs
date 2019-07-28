@@ -8,7 +8,7 @@ ms.author: brendm
 ms.date: 04/19/2019
 ms.devlang: java
 ms.topic: conceptual
-ms.service: Azure 
+ms.service: azure 
 ---
 
 # Install the JDK for Azure and Azure Stack

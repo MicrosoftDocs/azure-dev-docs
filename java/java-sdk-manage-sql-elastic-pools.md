@@ -5,9 +5,9 @@ author: rloutlaw
 manager: douge
 ms.assetid: 9b461de8-46bc-4650-8e9e-59531f4e2a53
 ms.topic: article
-ms.service: Azure
+ms.service: azure
 ms.devlang: java
-ms.technology: Azure
+
 ms.date: 3/30/2017
 ms.author: brendm;asirveda
 ---
