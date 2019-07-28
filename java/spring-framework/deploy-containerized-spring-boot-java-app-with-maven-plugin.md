@@ -1,5 +1,5 @@
 ---
-title: Deploy a Spring Boot JAR file app to the cloud with Maven and Azure - Azure SDK for Java
+title: Deploy a Spring Boot JAR file app to the cloud with Maven and Azure - Azure JDK
 description: Learn how to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure.
 services: app-service
 documentationcenter: java
