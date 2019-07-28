@@ -9,7 +9,8 @@ ms.topic: article
 ms.service: azure
 
 ms.date: 3/30/2017
-ms.author: brendm;asirveda
+ms.author: brendm
+ms.reviewer: asirveda
 ---
 
 

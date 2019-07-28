@@ -2,6 +2,7 @@
 title: Tutorials for .NET and .NET Core apps in Azure
 description: Tutorials to build and add features to your web and mobile apps using Azure services and .NET, .NET Core, ASP.NET, and ASP.NET Core.
 ms.date: 07/17/2018
+ms.topic: conceptual
 ---
 
 # Tutorials for building .NET and .NET Core apps in Azure

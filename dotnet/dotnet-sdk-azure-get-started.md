@@ -2,6 +2,7 @@
 title: Get started with Azure and .NET
 description: Learn the basics you need to know about Azure and .NET.
 ms.date: 09/19/2018
+ms.topic: conceptual
 ---
 
 # Get started with Azure and .NET

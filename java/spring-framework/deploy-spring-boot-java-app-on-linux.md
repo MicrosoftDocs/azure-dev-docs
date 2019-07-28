@@ -10,7 +10,7 @@ ms.assetid:
 ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
-ms.service: azure app service
+ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web

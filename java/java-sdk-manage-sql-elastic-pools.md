@@ -9,7 +9,8 @@ ms.service: azure
 ms.devlang: java
 
 ms.date: 3/30/2017
-ms.author: brendm;asirveda
+ms.author: brendm
+ms.reviewer: asirveda
 ---
 
 # Manage Azure SQL databases in elastic pools from your Java applications

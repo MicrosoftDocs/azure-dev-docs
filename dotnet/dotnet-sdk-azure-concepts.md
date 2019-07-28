@@ -2,6 +2,7 @@
 title: Azure management libraries for .NET usage concepts and patterns
 description: 
 ms.date: 10/19/2017
+ms.topic: conceptual
 ---
 
 # Azure management library for .NET fluent concepts
