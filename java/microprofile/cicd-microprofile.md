@@ -31,7 +31,9 @@ You start the Azure Pipelines containerization process by building a Docker imag
 ## Prerequisites
 1. Copy and save the clone URL from the sample GitHub project at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
 1. Register or log into your [Azure DevOps](https://dev.azure.com) organization and create a new [project](/vsts/organizations/projects/create-project). 
-1. From your project page, select **Repos** in the left navigation, select **Import**, enter the Git clone URL you saved, and select **Import** again.
+1. From your Azure DevOps project page, select **Repos** in the left navigation.
+1. Under **or import a repository**, select **Import**. 
+1. Under **Clone URL**, enter the Git clone URL you saved, and select **Import**.
 1. In the [Azure portal](https://portal.azure.com), create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 1. In the Azure portal, create an Azure Web App for Containers. Select **Linux** for the **OS**, and for **Configure container**, select **Quickstart** as the **Image source**.  
   
@@ -45,14 +47,14 @@ The continuous integration build pipeline in Azure Pipelines automatically execu
    
 1. Select **Use the classic editor** to create a pipeline without YAML. 
    
-1. Make sure your project and imported GitHub repository appear in the fields, and select **Continue**.
+1. Make sure your project name and imported GitHub repository appear in the fields, and select **Continue**.
    
 1. Select **Maven** from the list of templates, and then select **Apply**.
    
 1. In the right pane, make sure **Hosted Ubuntu 1604** appears in the **Agent pool** dropdown.
    
    > [!NOTE]
-   > This setting lets Azure Pipelines know which build server to use.  You can also use your private customized build server.
+   > This setting lets Azure Pipelines know which build server to use.  You can also use your private, customized build server.
    
 1. To configure the pipeline for continuous integration, select the **Triggers** tab on the left pane, and then select the checkbox next to **Enable continuous integration**.  
    
@@ -92,7 +94,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    
 1. Under **Commands**, select **build** from the **Command** dropdown.
    
-1. Select the ellipsis **...** next to the **Dockerfile** field, browse to and select the **Dockerfile** from the GitHub project, and then select **OK**. 
+1. Select the ellipsis **...** next to the **Dockerfile** field, browse to and select the **Dockerfile** from your GitHub repository, and then select **OK**. 
    
    ![Select the Dockerfile](media/cicd-microprofile/selectdockerfile.png)
    
@@ -128,7 +130,7 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    
 1. In the popup window, change **Stage 1** to a stage name like *Dev*, *Test*, *Staging*, or *Production*, and then close the window. 
    
-1. Under **Artifacts** in the left pane, select **Add an artifact** to link artifacts from the build pipeline to the release pipeline. 
+1. Under **Artifacts** in the left pane, select **Add** to link artifacts from the build pipeline to the release pipeline. 
    
 1. In the right pane, select your build pipeline in the dropdown under **Source (build pipeline)**, and then select **Add**.
    
@@ -146,8 +148,7 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    |**App type**|Select **Web App for Containers (Linux)** from the dropdown.|
    |**App service name**|Select your ACR instance from the dropdown.|
    |**Registry or Namespaces**|Enter your ACR name in the field. For example, enter *mymicroprofileregistry.azure.io*.
-   |**Repository**|Enter the repository that contains your Docker image in the field.| 
-   
+   |**Repository**|Enter the repository that contains your Docker image.| 
    
    ![Configure stage tasks](media/cicd-microprofile/configurestage.png)
    
@@ -163,9 +164,9 @@ Add and define environment variables to connect to the container registry during
    
    |Name|Value|
    |---|---|
-   |**registry.url**|Enter your container registry URL. For example: *https:\//mymicroprofileregistry.azure.io*|
-   |**registry.username**|Enter the username for the registry.|
-   |**registry.password**|Enter the password for the registry. For security, select the lock icon to keep the password value hidden.|
+   |*registry.url*|Enter your container registry URL. For example: *https:\//mymicroprofileregistry.azure.io*|
+   |*registry.username*|Enter the username for the registry.|
+   |*registry.password*|Enter the password for the registry. For security, select the lock icon to keep the password value hidden.|
    
    ![Add variables](media/cicd-microprofile/addvariables.png)
    
@@ -174,9 +175,12 @@ Add and define environment variables to connect to the container registry during
 1. In the right pane, expand **Application and Configuration Settings**, and then select the ellipsis **...** next to the **App Settings** field.
    
 1. In the **App settings** popup, select **Add** to define and assign the app setting variables:
-   - DOCKER_REGISTRY_SERVER_URL = $(registry.url)
-   - DOCKER_REGISTRY_SERVER_USERNAME = $(registry.username)
-   - DOCKER_REGISTRY_SERVER_PASSWORD = $(registry.password)
+   
+   |Name|Value|
+   |---|---|
+   |*DOCKER_REGISTRY_SERVER_URL*|*$(registry.url)*|
+   |*DOCKER_REGISTRY_SERVER_USERNAME*|*$(registry.username)*|
+   |*DOCKER_REGISTRY_SERVER_PASSWORD*|*$(registry.password)*|
    
 1. Select **OK**.
    
