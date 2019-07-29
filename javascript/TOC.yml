@@ -25,7 +25,7 @@
       - name: GitHub Actions
         href: https://css-tricks.com/introducing-github-actions/
       - name: Continuous Integration
-        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Debugging and diagnostics
       items:
       - name: Remote debugging for Azure App Service
@@ -45,7 +45,7 @@
       - name: Cosmos DB
         href: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Redis Cache
-        href: /azure/redis-cache/cache-nodejs-get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/javascript/toc.json&bc=/
       - name: PostgreSQL
         href: /azure/postgresql/connect-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: MySQL
@@ -53,19 +53,19 @@
     - name: Security and authentication
       items:
       - name: Azure Active Directory
-        href: /azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/active-directory/develop/quickstart-v1-nodejs-webapi?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Azure AD B2C
-        href: /azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Key Vault
         href: /azure/key-vault/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Monitoring and logging
       items:
       - name: Application Insights
-        href: /azure/application-insights/app-insights-nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Log Analytics
-        href: /azure/log-analytics/log-analytics-quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Azure Monitor
-        href: /azure/monitoring-and-diagnostics?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/azure-monitor?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Messaging and integration
       items: 
       - name: Event Grid
@@ -77,9 +77,9 @@
     - name: IoT
       items:
       - name: IoT Hub
-        href: /azure/iot-hub/iot-hub-node-node-getstarted?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/iot-hub/quickstart-control-device-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Big data streaming
-        href: /azure/iot-hub/iot-hub-node-node-getstarted?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Cognitive Services
       items: 
       - name: Text Analytics
