@@ -31,7 +31,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
 ## Prerequisites
 1. Copy and save the clone URL from the sample GitHub project at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
 1. Register or log into your [Azure DevOps](https://dev.azure.com) organization and create a new [project](/vsts/organizations/projects/create-project). 
-1. From your project page, select **Repos** in the left navigation, select **Import**, and use the Git clone URL you saved to **Import a Git repository**.
+1. From your project page, select **Repos** in the left navigation, select **Import**, enter the Git clone URL you saved, and select **Import** again.
 1. In the [Azure portal](https://portal.azure.com), create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 1. In the Azure portal, create an Azure Web App for Containers. Select **Linux** for the **OS**, and for **Configure container**, select **Quickstart** as the **Image source**.  
   
@@ -39,22 +39,24 @@ You start the Azure Pipelines containerization process by building a Docker imag
 
 The continuous integration build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
 
-1. From your Azure Repos Git repository, select **Pipelines** > **Builds** in the left navigation. 
-   
-   ![Select Builds](media/cicd-microprofile/builds.png)
+1. From your Azure Devops project page, select **Pipelines** > **Builds** in the left navigation. 
    
 1. Select **New Pipeline**.
    
+1. Select **Use the classic editor** to create a pipeline without YAML. 
+   
+1. Make sure your project and imported GitHub repository appear in the fields, and select **Continue**.
+   
 1. Select **Maven** from the list of templates, and then select **Apply**.
    
-1. In the left pane, select **Agent job 1**. In the right pane, select **Hosted Ubuntu 1604** from the **Agent pool** dropdown.
+1. In the right pane, make sure **Hosted Ubuntu 1604** appears in the **Agent pool** dropdown.
    
    > [!NOTE]
    > This setting lets Azure Pipelines know which build server to use.  You can also use your private customized build server.
    
-1. To configure the pipeline for continuous integration, select the **Triggers** tab, and then select the checkbox next to **Enable continuous integration**.  
+1. To configure the pipeline for continuous integration, select the **Triggers** tab on the left pane, and then select the checkbox next to **Enable continuous integration**.  
    
-1. Select the dropdown next to **Save & queue**, and select **Save**. 
+1. At the top of the page, select the dropdown next to **Save & queue**, and select **Save**. 
 
    ![Enable continuous integration](media/cicd-microprofile/continuous-integration.png)
 
@@ -62,7 +64,7 @@ The continuous integration build pipeline in Azure Pipelines automatically execu
 
 Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create a Docker image.  
 
-1. On the **Tasks** tab, select the **+** next to **Agent job 1** to add a task.
+1. Select the **Tasks** tab, and then select the plus sign **+** next to **Agent job 1** to add a task.
    
    ![Add a new task](media/cicd-microprofile/add-task.png)
    
@@ -72,7 +74,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    
 1. Under **Container Repository**, select **New** next to the **Container Registry** field. 
    
-1. In the right pane, fill out the **Add a Docker Registry service connection** dialog as follows:
+1. Fill out the **Add a Docker Registry service connection** dialog as follows:
    
    |Field|Value|
    |---|---|
@@ -86,6 +88,8 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    > [!NOTE]
    > If you're using Docker Hub or another registry, select **Docker Hub** or **Others** instead of **Azure Container Registry** next to **Registry type**. Then provide the credentials and connection information for your container registry.
    
+   ![Add a Docker Registry service connection](media/cicd-microprofile/dockerconnection.png)
+   
 1. Under **Commands**, select **build** from the **Command** dropdown.
    
 1. Select the ellipsis **...** next to the **Dockerfile** field, browse to and select the **Dockerfile** from the GitHub project, and then select **OK**. 
@@ -94,7 +98,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    
 1. Under **Tags**, enter *latest* on a new line. 
    
-1. Select the dropdown next to **Save & queue**, and select **Save**. 
+1. At the top of the page, select the dropdown next to **Save & queue**, and select **Save**. 
 
 ## Push the Docker image to ACR
 
@@ -118,17 +122,15 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    
 1. Select **New Pipeline**.
    
-   ![Select Releases and then select New Pipeline](media/cicd-microprofile/newrelease.png)
-   
 1. Select **Deploy a Java app to Azure App Service** in the list of templates, and then select **Apply**. 
    
    ![Select the Deploy a Java app to Azure App Service template](media/cicd-microprofile/selectreleasetemplate.png)
    
 1. In the popup window, change **Stage 1** to a stage name like *Dev*, *Test*, *Staging*, or *Production*, and then close the window. 
    
-1. Under **Artifacts** in the left pane, select **Add** to link artifacts from the build pipeline to the release pipeline. 
+1. Under **Artifacts** in the left pane, select **Add an artifact** to link artifacts from the build pipeline to the release pipeline. 
    
-1. Select your build pipeline in the dropdown under **Source (build pipeline)**, and then select **Add**.
+1. In the right pane, select your build pipeline in the dropdown under **Source (build pipeline)**, and then select **Add**.
    
    ![Add a build artifact](media/cicd-microprofile/addbuildartifact.png)
    
@@ -146,23 +148,24 @@ An Azure Pipelines continuous release pipeline automatically triggers deployment
    |**Registry or Namespaces**|Enter your ACR name in the field. For example, enter *mymicroprofileregistry.azure.io*.
    |**Repository**|Enter the repository that contains your Docker image in the field.| 
    
-1. In the left pane, select **Deploy War to Azure App Service**, and in the right pane, enter the *latest* tag for the container image in the **Tag** field. 
    
-   > [!NOTE]
-   > Use the fully-qualified image name in the tag: `<registry or namespace>/<repository>:<tag>`. For example, *mymicroprofileregistry.azurecr.io/nginx:latest*.
+   ![Configure stage tasks](media/cicd-microprofile/configurestage.png)
    
-1. In the left pane, select **Run on agent**, and in the right pane, select **Hosted Ubuntu 1604** in the **Agent pool** dropdown. 
+1. In the left pane, select **Deploy War to Azure App Service**, and in the right pane, enter *latest* tag in the **Tag** field. 
+   
+1. In the left pane, select **Run on agent**, and in the right pane, select **Hosted Ubuntu 1604** from the **Agent pool** dropdown. 
 
 ## Set up environment variables
 
 Add and define environment variables to connect to the container registry during deployment.
 
-1. Select the **Variables** tab, and then select **Add** to add variables for your container registry URL, username, and password. For security, select the lock icon to keep the password value hidden.
+1. Select the **Variables** tab, and then select **Add** to add the following variables for your container registry URL, username, and password. 
    
-   For example, add:
-   - registry.url
-   - registry.username
-   - registry.password
+   |Name|Value|
+   |---|---|
+   |**registry.url**|Enter your container registry URL. For example: *https:\//mymicroprofileregistry.azure.io*|
+   |**registry.username**|Enter the username for the registry.|
+   |**registry.password**|Enter the password for the registry. For security, select the lock icon to keep the password value hidden.|
    
    ![Add variables](media/cicd-microprofile/addvariables.png)
    
