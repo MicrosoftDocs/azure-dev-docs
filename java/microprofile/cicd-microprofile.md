@@ -38,7 +38,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
    
 1. Register or log into your [Azure DevOps](https://dev.azure.com) organization, and create a new [project](/vsts/organizations/projects/create-project). 
    
-1. Import the sample GitHub repository for this tutorial:
+1. Import the sample GitHub repository into Azure Repos:
    
    1. From your Azure DevOps project page, select **Repos** in the left navigation.
    1. Under **or import a repository**, select **Import**. 
@@ -94,10 +94,10 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
    
 1. Select **OK**.
    
+   ![Add a Docker Registry service connection](media/cicd-microprofile/dockerconnection.png)
+   
    > [!NOTE]
    > If you're using Docker Hub or another registry, select **Docker Hub** or **Others** instead of **Azure Container Registry** next to **Registry type**. Then provide the credentials and connection information for your container registry.
-   
-   ![Add a Docker Registry service connection](media/cicd-microprofile/dockerconnection.png)
    
 1. Under **Commands**, select **build** from the **Command** dropdown.
    
