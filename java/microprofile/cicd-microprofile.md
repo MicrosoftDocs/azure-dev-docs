@@ -29,23 +29,30 @@ EXPOSE 8080
 You start the Azure Pipelines containerization process by building a Docker image and pushing the container image to an Azure Container Registry (ACR). You complete the process by creating an Azure Pipelines release pipeline and deploying the container image to a web app.
 
 ## Prerequisites
-1. Copy and save the clone URL from the sample GitHub project at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
-1. Register or log into your [Azure DevOps](https://dev.azure.com) organization and create a new [project](/vsts/organizations/projects/create-project). 
-1. From your Azure DevOps project page, select **Repos** in the left navigation.
-1. Under **or import a repository**, select **Import**. 
-1. Under **Clone URL**, enter the Git clone URL you saved, and select **Import**.
+
 1. In the [Azure portal](https://portal.azure.com), create an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
-1. In the Azure portal, create an Azure Web App for Containers. Select **Linux** for the **OS**, and for **Configure container**, select **Quickstart** as the **Image source**.  
+   
+1. In the Azure portal, create an [Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). Select **Linux** for the **OS**, and for **Configure container**, select **Quickstart** as the **Image source**.  
+   
+1. Copy and save the clone URL from the sample GitHub project at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
+   
+1. Register or log into your [Azure DevOps](https://dev.azure.com) organization, and create a new [project](/vsts/organizations/projects/create-project). 
+   
+1. Import the sample GitHub repository for this tutorial:
+   
+   1. From your Azure DevOps project page, select **Repos** in the left navigation.
+   1. Under **or import a repository**, select **Import**. 
+   1. Under **Clone URL**, enter the Git clone URL you saved, and select **Import**.
   
 ## Create a build pipeline
 
 The continuous integration build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
 
-1. From your Azure Devops project page, select **Pipelines** > **Builds** in the left navigation. 
+1. From your Azure DevOps project page, select **Pipelines** > **Builds** in the left navigation. 
    
 1. Select **New Pipeline**.
    
-1. Select **Use the classic editor** to create a pipeline without YAML. 
+1. Select **Use the classic editor to create a pipeline without YAML**. 
    
 1. Make sure your project name and imported GitHub repository appear in the fields, and select **Continue**.
    
@@ -194,9 +201,9 @@ To enable continuous deployment:
    
 1. In the right pane, set the **Continuous deployment trigger** to **Enabled**.
    
-   ![Enable continuous deployment trigger](media/cicd-microprofile/setcontinuousdeployment.png)
+1. Select **Save** at upper right, and then select **Save** again. 
    
-1. Select **Save** at upper right, and then select **OK**. 
+   ![Enable continuous deployment trigger](media/cicd-microprofile/setcontinuousdeployment.png)
    
 ## Deploy the Java app
 
