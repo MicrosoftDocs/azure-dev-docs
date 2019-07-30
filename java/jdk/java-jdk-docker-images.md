@@ -4,11 +4,11 @@ title: Use Docker images with a JDK for Azure Java development
 description: 
 author: bmitchell287
 manager: douge
-ms.author: brendm # Microsoft employees only
+ms.author: brendm # microsoft employees only
 ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
-ms.service: Azure 
+ms.service: azure 
 ---
 # Use Docker with a JDK for Azure 
 

@@ -8,13 +8,13 @@
         - name: Deploy Web Apps
           items:
           - name: Windows and Eclipse 
-            href: /azure/app-service-web/app-service-web-get-started-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+            href: /azure/app-service/app-service-web-get-started-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Tomcat
             href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Java SE
             href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
-          href: /azure/application-insights/app-insights-java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure DevOps Projects
           href: /azure/devops-project/azure-devops-project-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Serverless Function
@@ -42,7 +42,7 @@
         - name: Storage Blobs
           href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Redis Cache
-          href: /azure/redis-cache/cache-java-get-started?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Service Fabric
           items:
             - name: Deploy Spring Boot 
@@ -60,11 +60,7 @@
                 - name: JMS and AMQP
                   href: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Event Hubs
-              items: 
-                - name: Sending events
-                  href: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-                - name: Receiving events
-                  href: /azure/event-hubs/event-hubs-java-get-started-receive-eph?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+              href: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: IoT Hub
           items: 
             - name: Send telemetry
@@ -111,15 +107,15 @@
         - name: Eclipse
           href: eclipse/azure-toolkit-for-eclipse.md
         - name: Maven Plugins
-          href: /java/api/overview/azure/maven/README.md
+          href: /java/api/overview/azure/maven/README
           items:
             - name: Azure App Service Web Apps
-              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README
             - name: Azure Functions
-              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README
         - name: Jenkins CI/CD
           href: /azure/jenkins/
-        - name: Azure Pipelines
+        - name: Azure DevOps
           href: /azure/devops/java/
     - name: Concepts
       items:
@@ -129,10 +125,10 @@
       items:
         - name: Deploy Microservices on Service Fabric
           href: /azure/service-fabric/service-fabric-tutorial-create-java-app?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-        - name: Spring Boot on App Service with MySQL
-          href: /azure/app-service-web/app-service-web-tutorial-java-mysql?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Spring Boot on App Service with Cosmos DB
+          href: /azure/app-service/containers/tutorial-java-spring-cosmosdb?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Jenkins CI/CD to App Service
-          href: /azure/jenkins/java-deploy-webapp-tutorial?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service with Maven
           href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service

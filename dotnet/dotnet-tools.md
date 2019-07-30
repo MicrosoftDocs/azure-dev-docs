@@ -3,6 +3,7 @@ title: Tools for Azure .NET and .NET Core developers
 description: Get the tools to start using the Azure .NET libraries from a Windows, Linux, and Mac environment.
 ms.date: 08/11/2018
 ms.custom: azure-dotnet-devcenter, azure-dotnet-devcenter-authored, azure-dotnet-devcenter-conceptual, vs-azure
+ms.topic: conceptual
 ---
 
 # Tools for .NET and .NET Core Azure developers

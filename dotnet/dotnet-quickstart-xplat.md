@@ -2,6 +2,7 @@
 title: Deploy to Azure from the command line with .NET Core
 description: This article describes how to deploy an ASP.NET Core application to an Azure App Service using command-line tools.
 ms.date: 06/20/2017
+ms.topic: quickstart
 ---
 
 # Deploy to Azure from the command line with .NET Core

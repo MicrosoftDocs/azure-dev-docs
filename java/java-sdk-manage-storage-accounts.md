@@ -6,11 +6,12 @@ manager: douge
 ms.assetid: 49be8b66-3b56-4c10-8f14-9d326d815cb4
 ms.devlang: java
 ms.topic: article
-ms.service: Azure
+ms.service: azure
 ms.devlang: java
-ms.technology: Azure
+
 ms.date: 3/30/2017
-ms.author: brendm;asirveda
+ms.author: brendm
+ms.reviewer: asirveda
 ---
 
 # Manage Azure storage accounts from your Java applications
