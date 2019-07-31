@@ -4,7 +4,7 @@ description: Sample Java code to configure Git or FTP Azure App Service deployme
 author: rloutlaw
 manager: douge
 ms.assetid: 833e9c78-1e50-4c23-a611-f73a2f0c2983
-ms.service: Azure
+ms.service: azure
 ms.devlang: java
 ms.topic: article
 ms.date: 03/30/2017

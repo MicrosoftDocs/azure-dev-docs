@@ -3,7 +3,8 @@ title: How to use Spring and Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
 author: bmitchell287
-ms.author: brendm; joshuapa 
+ms.author: brendm
+ms.reviewer: joshuapa 
 ms.date: 4/24/2019
 ms.devlang: java
 ms.service: app-service, cosmos-db
@@ -32,7 +33,7 @@ The following prerequisites are required in order to follow the steps in this ar
 - [Maven 3](http://maven.apache.org/)
 
 ## Clone the Sample Java Web App Repository
-For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction).
+For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction).
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
     For bash:

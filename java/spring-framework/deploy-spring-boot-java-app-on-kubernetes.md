@@ -221,9 +221,9 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ```
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command
+   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command.
 
-   * The `--type` parameter specifies that the cluster uses load balancer
+   * The `--type` parameter specifies that the cluster uses load balancer.
 
    * The `--port` parameter specifies the public-facing TCP port of 80. You access the app on this port.
 
@@ -248,7 +248,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    az aks browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster
    ```
 
-1. When the Kubernetes configuration website opens in your browser, click the link to **deploy a containerized app**:
+1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
 
    ![Kubernetes Configuration Website][KB01]
 
@@ -267,7 +267,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ![Kubernetes Configuration Website][KB02]
 
 
-1. Click **Deploy** to deploy the container.
+1. Select **Deploy** to deploy the container.
 
    ![Kubernetes Deploy][KB05]
 
@@ -275,7 +275,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    ![Kubernetes Services][KB06]
 
-1. If you click the link for **External endpoints**, you can see your Spring Boot application running on Azure.
+1. If you select the link for **External endpoints**, you can see your Spring Boot application running on Azure.
 
    ![Kubernetes Services][KB07]
 

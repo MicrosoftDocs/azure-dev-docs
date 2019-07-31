@@ -1,7 +1,7 @@
 ---
 title: Azure Billing code samples for Node.js
 description: Sample code demonstrating how to add Azure Billing functionality with Node.js.
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.devlang: nodejs
 ms.topic: article

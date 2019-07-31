@@ -1,7 +1,7 @@
 ---
 title: Azure messaging and IoT with Node.js code samples
 description: Sample code that demonstrates how to use Azure messaging and IoT with Node.js
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.devlang: nodejs
 ms.topic: article

@@ -69,7 +69,7 @@ sections:
     - href: https://azure.microsoft.com/en-us/resources/samples/?sort=0&platform=nodejs
       html: <p>Sample GitHub repos for the Azure SDK</p>
       image: 
-        src: /common/i_code-samples.svg
+        src: /media/common/i_code-samples.svg
       title: SDK Samples
 - title: Continuous Deployment and DevOps
   items:
@@ -89,7 +89,7 @@ sections:
       image:
         src: /media/logos/logo_octokitty.svg
     - title: Continuous Integration
-      href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Add Jenkins, CircleCI, or Travis to manage builds</p>
       image:
         src: /media/common/i_scrum.svg
@@ -176,7 +176,7 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/active-directory/develop/quickstart-v1-nodejs-webapi?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Authenticate users with Passport strategies</p>
       image:
         src: /azure/media/index/ActiveDirectory.svg
@@ -186,7 +186,7 @@ sections:
       image:
         src: /azure/media/index/KeyVault.svg
       title: Key Vault
-    - href: /azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use Passport and Azure AD to add sign-in to Facebook, Twitter, or GitHub to your web app</p>
       image:
         src: /azure/media/index/ActiveDirectory.svg
@@ -198,17 +198,17 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/application-insights/app-insights-nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Monitor requests and identify errors in your application</p>
       image:
         src: /azure/media/index/ApplicationInsights.svg
       title: Application Insights
-    - href: /azure/log-analytics/log-analytics-quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Review data about your environment in a single location</p>
       image:
         src: /azure/media/index/operationsmanagementsuite.svg
       title: Log Analytics
-    - href: /azure/monitoring-and-diagnostics?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/azure-monitor/?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Get detailed performance and utilization data</p>
       image:
         src: /azure/media/index/AzureMonitoring.svg
@@ -242,12 +242,12 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/iot-hub/iot-hub-node-node-getstarted?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/iot-hub/quickstart-control-device-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Manage thousands of devices with IoT Hub</p>
       image:
         src: /azure/media/index/IOT_edge_50.svg
       title: Connect and manage IoT devices 
-    - href: /azure/iot-hub/iot-hub-node-node-getstarted?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       html: <p>Use Event hub to collect billions of data points</p>
       image:
         src: /azure/media/index/EventHubs.svg

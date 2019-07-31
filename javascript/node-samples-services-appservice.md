@@ -1,7 +1,7 @@
 ---
 title: Azure management modules for Node.js web app samples
 description: Node.js code samples for Azure App Service management modules
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.author: karler
 ms.date: 06/17/2017
