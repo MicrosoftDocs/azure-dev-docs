@@ -11,9 +11,10 @@ metadata:
   manager: brborges
   ms.date: 02/01/2018
   ms.topic: landing-page
-  ms.technology: azure
+  
   ms.devlang: java
   ms.service: multiple
+  ms.custom: seo-java-july2019
 sections:
 - items:
   -  type: markdown
