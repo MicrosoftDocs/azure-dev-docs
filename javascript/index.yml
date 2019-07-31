@@ -69,7 +69,7 @@ sections:
     - href: https://azure.microsoft.com/en-us/resources/samples/?sort=0&platform=nodejs
       html: <p>Sample GitHub repos for the Azure SDK</p>
       image: 
-        src: /common/i_code-samples.svg
+        src: /media/common/i_code-samples.svg
       title: SDK Samples
 - title: Continuous Deployment and DevOps
   items:
