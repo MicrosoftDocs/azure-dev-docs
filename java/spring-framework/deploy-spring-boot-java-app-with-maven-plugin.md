@@ -199,6 +199,14 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
 Verify that the deployment was successful by using the same cURL command as before, using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Greetings from Spring Boot!** 
 
+## Clean up resources
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+
+- From the Azure portal, select Resource group from the left menu.
+- Enter **gs-spring-boot-** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
+- Select the resource group created in this tutorial.
+- Select Delete resource group from the top menu.
+
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
