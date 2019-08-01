@@ -3,9 +3,10 @@ title: Migrate a SQL Server database to Azure
 description: Learn how to migrate a SQL Server database from on-premises SQL Server to Azure.
 ms.date: 11/15/2017
 ms.service: sql-database
+ms.topic: conceptual
 ---
 
-## Migrate a SQL Server database to Azure
+# Migrate a SQL Server database to Azure
 
 This short article provides a brief outline of two options for migrating a SQL Server database to Azure.
 
@@ -68,7 +69,7 @@ To learn more about the differences between the two, read Choose a cloud SQL Ser
 * **Can I still use tools such as SQL Server Management Studio and SQL Server Reporting Services (SSRS) with SQL Server in Azure VMs or Azure SQL Database?**
 
     Yes! All Microsoft SQL tooling works with both services. SSRS is not part of Azure SQL Database, though, and it's recommended that you run it in an Azure VM and then point it to your database instance.
-    
+
 * **I want to go PaaS but I'm not sure if my database is compatible. Are there tools to help?**
 
     Yes. The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) is a tool that is used as a part of migrating to Azure SQL Database.  The [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) is a preview service which you can use for either IaaS or PaaS.
@@ -76,7 +77,7 @@ To learn more about the differences between the two, read Choose a cloud SQL Ser
 * **Can I estimate costs?**
 
     Yes.  The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) can be used for estimating costs for all Azure services, including VMs and database services.
-    
+
 ## Next steps
 
 > [!div class="nextstepaction"]

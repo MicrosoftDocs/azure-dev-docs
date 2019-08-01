@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 04/09/2019
 ms.author: brendm
 ms.topic: conceptual
+ms.service: azure 
 ---
 
 # Java Long-Term Support for Azure and Azure Stack

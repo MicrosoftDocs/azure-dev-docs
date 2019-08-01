@@ -8,118 +8,84 @@
         - name: Deploy Web Apps
           items:
           - name: Windows and Eclipse 
-            href: /azure/app-service-web/app-service-web-get-started-java
-            maintainContext: true
+            href: /azure/app-service/app-service-web-get-started-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Tomcat
-            href: /azure/app-service/containers/quickstart-java
-            maintainContext: true
+            href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Java SE
-            href: /java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
-            maintainContext: true
+            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
-          href: /azure/application-insights/app-insights-java-quick-start
-          maintainContext: true
-        - name: DevOps Pipeline with CI/CD
-          href: /azure/devops-project/azure-devops-project-java
-          maintainContext: true
+          href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure DevOps Projects
+          href: /azure/devops-project/azure-devops-project-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Serverless Function
-          href: /azure/azure-functions/functions-create-first-java-maven
-          maintainContext: true
+          href: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Databases
           items:
             - name: SQL Database
-              href: /azure/sql-database/sql-database-connect-query-java
-              maintainContext: true
+              href: /azure/sql-database/sql-database-connect-query-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: MySQL
-              href: /azure/mysql/connect-java
-              maintainContext: true
+              href: /azure/mysql/connect-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: PostgreSQL
-              href: /azure/postgresql/connect-java
-              maintainContext: true
+              href: /azure/postgresql/connect-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Cosmos DB
               items: 
                 - name: SQL API
-                  href: /azure/cosmos-db/create-sql-api-java
-                  maintainContext: true
+                  href: /azure/cosmos-db/create-sql-api-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: Table API
-                  href: /azure/cosmos-db/create-table-java
-                  maintainContext: true
+                  href: /azure/cosmos-db/create-table-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: Graph API
-                  href: /azure/cosmos-db/create-graph-java
-                  maintainContext: true
+                  href: /azure/cosmos-db/create-graph-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: Cassandra API
-                  href: /azure/cosmos-db/create-cassandra-java
-                  maintainContext: true
+                  href: /azure/cosmos-db/create-cassandra-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: MongoDB API
-                  href: /azure/cosmos-db/create-mongodb-java
-                  maintainContext: true
+                  href: /azure/cosmos-db/create-mongodb-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Storage Blobs
-          href: /azure/storage/blobs/storage-quickstart-blobs-java-v10
-          maintainContext: true
+          href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Redis Cache
-          href: /azure/redis-cache/cache-java-get-started
-          maintainContext: true
+          href: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Service Fabric
           items:
             - name: Deploy Spring Boot 
-              href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot
-              maintainContext: true
+              href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Deploy Reliable Services
-              href: /azure/service-fabric/service-fabric-quickstart-java-reliable-services
-              maintainContext: true
+              href: /azure/service-fabric/service-fabric-quickstart-java-reliable-services?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Messaging Applications
           items:
             - name: Service Bus Messaging
               items: 
                 - name: Use queues
-                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
-                  maintainContext: true
+                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: Use topics and subscriptions
-                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
-                  maintainContext: true
+                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
                 - name: JMS and AMQP
-                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp
-                  maintainContext: true
+                  href: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Event Hubs
-              items: 
-                - name: Sending events
-                  href: /azure/event-hubs/event-hubs-java-get-started-send
-                  maintainContext: true
-                - name: Receiving events
-                  href: /azure/event-hubs/event-hubs-java-get-started-receive-eph
-                  maintainContext: true
+              href: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: IoT Hub
           items: 
             - name: Send telemetry
-              href: /azure/iot-hub/quickstart-send-telemetry-java
-              maintainContext: true
+              href: /azure/iot-hub/quickstart-send-telemetry-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Control a device
-              href: /azure/iot-hub/quickstart-control-device-java
-              maintainContext: true
+              href: /azure/iot-hub/quickstart-control-device-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure Search
-          href: /azure/search/search-get-started-java
-          maintainContext: true
+          href: /azure/search/search-get-started-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Cognitive Services
           items: 
             - name: Computer Vision
-              href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
-              maintainContext: true
+              href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Text Analytics
-              href: /azure/cognitive-services/Text-Analytics/quickstarts/java
-              maintainContext: true
+              href: /azure/cognitive-services/Text-Analytics/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Bing Web Search
-              href: /azure/cognitive-services/bing-web-search/quickstarts/java
-              maintainContext: true
+              href: /azure/cognitive-services/bing-web-search/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
             - name: Bing Image Search
-              href: /azure/cognitive-services/bing-image-search/quickstarts/java
-              maintainContext: true
+              href: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Frameworks and Platforms
       expanded: true
       items:
       - name: Spring Framework & Spring Boot
-        href: /java/azure/spring-framework/index
+        href: /azure/java/spring-framework/index
       - name: Eclipse MicroProfile
-        href: /java/azure/microprofile/index
+        href: /azure/java/microprofile/index
     - name: Developer Tools
       expanded: true
       items:
@@ -138,41 +104,43 @@
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
           href: intellij/azure-toolkit-for-intellij.md
-        - name: Eclipse IDE
+        - name: Eclipse
           href: eclipse/azure-toolkit-for-eclipse.md
         - name: Maven Plugins
-          href: /java/api/overview/azure/maven/README.md
+          href: /java/api/overview/azure/maven/README
           items:
             - name: Azure App Service Web Apps
-              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/README
             - name: Azure Functions
-              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README.md
+              href: /java/api/overview/azure/maven/azure-functions-maven-plugin/README
         - name: Jenkins CI/CD
           href: /azure/jenkins/
-        - name: ALM with Azure DevOps
+        - name: Azure DevOps
           href: /azure/devops/java/
-    - name: How-to Articles
+    - name: Concepts
       items:
-        - name: Add Root Certificate
-          href: java-sdk-add-certificate-ca-store.md
-        - name: Authenticate with the Azure libraries for Java
-          href: java-sdk-azure-authenticate.md
-        - name: Patterns & Best Practices for Developing with Azure SDKs for Java
+        - name: Patterns & best practices
           href: java-sdk-azure-concepts.md
     - name: Tutorials
       items:
         - name: Deploy Microservices on Service Fabric
-          href: /azure/service-fabric/service-fabric-tutorial-create-java-app
-        - name: Spring Boot on App Service with MySQL
-          href: /azure/app-service-web/app-service-web-tutorial-java-mysql
+          href: /azure/service-fabric/service-fabric-tutorial-create-java-app?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Spring Boot on App Service with Cosmos DB
+          href: /azure/app-service/containers/tutorial-java-spring-cosmosdb?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Jenkins CI/CD to App Service
-          href: /azure/jenkins/java-deploy-webapp-tutorial
+          href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service with Maven
-          href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md
+          href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service
-          href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md
+          href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service from Azure Container Registry
-          href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
+          href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+    - name: How-to Articles
+      items:
+        - name: Add Root Certificate
+          href: java-sdk-add-certificate-ca-store.md
+        - name: Authenticate
+          href: java-sdk-azure-authenticate.md
     - name: Code Samples
       items:
         - name: Service Fabric

@@ -13,76 +13,53 @@
   - name: App hosting
     items:
     - name: App Service
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
-      maintainContext: true
+      href: /azure/app-service/containers/quickstart-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Kubernetes
-      href: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
-      maintainContext: true
+      href: /azure/aks/kubernetes-walkthrough?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Linux VMs
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
-      maintainContext: true
+      href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Container instances
-      href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      maintainContext: true
+      href: /azure/container-instances/container-instances-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Batch
-      href: https://docs.microsoft.com/azure/batch/quick-run-python
-      maintainContext: true
+      href: /azure/batch/quick-run-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
   - name: Data solutions
     items:
     - name: Blob Storage
-      href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python
-      maintainContext: true
+      href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Table Storage
-      href: https://docs.microsoft.com/azure/cosmos-db/create-table-python
-      maintainContext: true
+      href: /azure/cosmos-db/create-table-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Cosmos DB
-      href: https://docs.microsoft.com/azure/cosmos-db/sql-api-python-application
-      maintainContext: true
+      href: /azure/cosmos-db/sql-api-python-application?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Redis Cache
-      href: https://docs.microsoft.com/azure/redis-cache/cache-python-get-started
-      maintainContext: true
+      href: /azure/redis-cache/cache-python-get-started?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: SQL Database
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python
-      maintainContext: true
+      href: /azure/sql-database/sql-database-connect-query-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: PostgreSQL
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-docker-python-postgresql-app
-      maintainContext: true
+      href: /azure/app-service/containers/tutorial-docker-python-postgresql-app?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: MySQL
-      href: https://docs.microsoft.com/azure/mysql/connect-python
-      maintainContext: true
+      href: /azure/mysql/connect-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Data Factory
-      href: https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-python
-      maintainContext: true
+      href: /azure/data-factory/quickstart-create-data-factory-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
   - name: AI and machine learning
     items:      
     - name: Machine Learning Services
-      href: https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
-      maintainContext: true
+      href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Batch AI
-      href: https://docs.microsoft.com/azure/batch-ai/quickstart-python
-      maintainContext: true
+      href: /azure/batch-ai/quickstart-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Computer Vision
-      href: https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
-      maintainContext: true
+      href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Text Analytics
-      href: https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/quickstarts/python
-      maintainContext: true
+      href: /azure/cognitive-services/Text-Analytics/quickstarts/python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Azure Notebooks
       href: https://notebooks.azure.com/liwong/libraries/iris1234/html/Data+Science+Quickstart.ipynb
-      maintainContext: true
   - name: Security and integration
     items:     
     - name: Service Bus
-      href: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-python-how-to-use-queues
-      maintainContext: true
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Event Grid
-      href: https://docs.microsoft.com/azure/event-grid/custom-event-quickstart
-      maintainContext: true
-    - name: Key Vault
-      href: https://docs.microsoft.com/python/api/overview/azure/key-vault
+      href: /azure/event-grid/custom-event-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Queue Storage
-      href: https://docs.microsoft.com/azure/storage/queues/storage-python-how-to-use-queue-storage
-      maintainContext: true
+      href: /azure/storage/queues/storage-python-how-to-use-queue-storage?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
 - name: How-to guides
   items: 
   - name: Install the SDK

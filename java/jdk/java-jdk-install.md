@@ -5,9 +5,10 @@ description: How to install the Azul Zulu Java Development Kits (JDKs) for Azure
 author: bmitchell287
 manager: douge
 ms.author: brendm
-ms.date: 4/19/2019
+ms.date: 04/19/2019
 ms.devlang: java
 ms.topic: conceptual
+ms.service: azure 
 ---
 
 # Install the JDK for Azure and Azure Stack
@@ -73,7 +74,7 @@ OpenJDK 64-Bit Server VM (Zulu 8.38.0.13-macosx)-Microsoft-Azure-restricted (bui
 
 ## Download and install the Azul Zulu JDKs from a Yum repository
 
-The Azul Zulu JDKs are provided in a [Yum repository](http://repos.azul.com/azure-only/zulu-azure.repo) by Azul.
+The Azul Zulu JDKs are provided in a [Yum repository](https://repos.azul.com/azure-only/zulu-azure.repo) by Azul.
 
 **To install the Azul Zulu JDK for Java 8, run the following commands from your CLI:**
 
@@ -119,7 +120,7 @@ sudo yum -y erase zulu-8-azure-jdk
 
 ## Download and install the Azul Zulu JDKs from an apt-get repository
 
-The Azul Zulu JDKs are also provided in an [apt-get repository](http://repos.azul.com/azure-only/zulu/apt) by Azul.
+The Azul Zulu JDKs are also provided in an [apt-get repository](https://repos.azul.com/azure-only/zulu/apt) by Azul.
 
 **To install the Azul Zulu JDK for Java 8 with apt-get, run the following commands from your CLI:**
 

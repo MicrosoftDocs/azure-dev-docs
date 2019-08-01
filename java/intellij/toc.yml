@@ -3,7 +3,6 @@
   items:
   - name: Get Started
     href: azure-toolkit-for-intellij-create-hello-world-web-app.md
-    maintainContext: true
   - name: Tutorials
     items:
       - name: Deploy web app to a Linux container

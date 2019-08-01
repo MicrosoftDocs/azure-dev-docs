@@ -1,7 +1,7 @@
 ---
 title: Azure storage with Node.js tutorials
 description: Tutorials for connecting to and using Azure storage with Node.js.
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.devlang: nodejs
 ms.topic: article
@@ -19,8 +19,8 @@ For sample source code, browse the full list of [Azure Node.js samples](https://
 | | |
 |---|---|
 | **Blobs** ||
-| [Use Blob storage from Node.js](http://docs.microsoft.com/azure/storage/storage-nodejs-how-to-use-blob-storage?toc=/azure/node/toc.json&bc=/azure/node/toc.json) | Upload, list, download, and delete blobs. |
+| [Use Blob storage from Node.js](/azure/storage/storage-nodejs-how-to-use-blob-storage?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json) | Upload, list, download, and delete blobs. |
 | **Queues** ||
-| [Use Queue storage from Node.js](http://docs.microsoft.com/azure/storage/storage-nodejs-how-to-use-queues?toc=/azure/node/toc.json&bc=/azure/node/toc.json) | Create and delete queues and insert, peek, get, and delete messages. |
+| [Use Queue storage from Node.js](/azure/storage/storage-nodejs-how-to-use-queues?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json) | Create and delete queues and insert, peek, get, and delete messages. |
 | **Tables** ||
-| [Use Table storage from Node.js](http://docs.microsoft.com/azure/storage/storage-nodejs-how-to-use-table-storage?toc=/azure/node/toc.json&bc=/azure/node/toc.json) | Create, modify, and delete tables and entities. |
+| [Use Table storage from Node.js](/azure/storage/storage-nodejs-how-to-use-table-storage?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json) | Create, modify, and delete tables and entities. |

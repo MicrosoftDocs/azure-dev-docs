@@ -1,3 +1,14 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Java on Azure
+    tocHref: /azure/java
+    topicHref: /azure/java/index
+    items:
+    - name: Spring on Azure
+      tocHref: /azure/java/spring-framework
+      topicHref: /azure/java/spring-framework/index
+    - name: Eclipse MicroProfiles
+      tocHref: /azure/java/microprofile
+      topicHref: /azure/java/microprofile/index

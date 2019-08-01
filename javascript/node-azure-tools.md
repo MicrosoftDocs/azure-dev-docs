@@ -2,7 +2,7 @@
 title: Tools for JavaScript developers on Azure | Microsoft Docs
 description: Install individual tools for JavaScript development on Azure
 services: multiple
-author: KarlErickson
+author: karlerickson
 manager: douge
 ms.service: azure-nodejs
 ms.tgt_pltfrm: na
@@ -21,7 +21,7 @@ Azure CLI is optimized for managing Azure resources from the command line.
 ![CLI](media/node-azure-tools/cli.png)
  
 > [!div class="nextstepaction"]
-> [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
+> [Install the Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 ## Visual Studio Code
 Edit and debug JavaScript apps on any OS.

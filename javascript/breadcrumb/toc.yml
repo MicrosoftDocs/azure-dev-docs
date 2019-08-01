@@ -1,3 +1,7 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Node on Azure
+    tocHref: /azure/javascript
+    topicHref: /azure/javascript/index

@@ -1,0 +1,60 @@
+{
+    "redirections": [
+        {
+            "source_path": "dotnet-sdk-azure-install.md",
+            "redirect_url": "/dotnet/api/overview/azure/"
+        },
+        {
+            "source_path": "dotnet-sdk-azure-sql-database-samples.md",
+            "redirect_url": "/azure/dotnet/dotnet-samples"
+        },
+        {
+            "source_path": "dotnet-sdk-azure-virtual-machine-samples.md",
+            "redirect_url": "/azure/dotnet/dotnet-samples"
+        },        
+        {
+            "source_path": "dotnet-sdk-azure-web-apps-samples.md",
+            "redirect_url": "/azure/dotnet/dotnet-samples"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-ai-cognitive.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-analytics.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-containers.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-databases.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-messaging-iot.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-monitoring.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-security.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-storage.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-tutorials-services-web-mobile.md",
+            "redirect_url": "/azure/dotnet/dotnet-tutorials"
+        },
+        {
+            "source_path": "dotnet-sdk-azure-release-notes.md",
+            "redirect_url": "https://github.com/Azure/azure-libraries-for-net"
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-|  |  |
+|Sample   |Description  |
 |---------|---------|
 | [Connect and query data from Azure SQL Database using JDBC][4] | Configure a sample database, then run select, insert, update, and delete commands. |
 | [Create and manage SQL databases][1] | Create SQL databases, set performance levels, and configure firewalls.|

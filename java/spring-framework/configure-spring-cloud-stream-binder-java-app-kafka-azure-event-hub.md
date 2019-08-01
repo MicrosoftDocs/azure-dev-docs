@@ -421,7 +421,7 @@ In this section, you create the necessary Java classes for sending events to you
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/java/azure/spring-framework)
+> [Spring on Azure](/azure/java/spring-framework)
 
 ### Additional Resources
 

@@ -508,7 +508,7 @@ In this section, you create the necessary Java classes for storing data in your 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/java/azure/spring-framework)
+> [Spring on Azure](/azure/java/spring-framework)
 
 ### Additional Resources
 
@@ -545,7 +545,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 <!-- URL List -->
 
 [Azure Cosmos DB Documentation]: /azure/cosmos-db/
-[Azure for Java Developers]: /java/azure/
+[Azure for Java Developers]: /azure/java/
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java 
 [Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
 [Spring Data Gremlin Starter]: https://github.com/Microsoft/spring-data-gremlin

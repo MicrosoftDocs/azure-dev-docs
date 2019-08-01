@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Java developers
+title: Azure for Java cloud developers
 metadata:
   title: Azure for Java developers - Tutorials, API Reference
   description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
@@ -10,79 +10,72 @@ metadata:
   manager: douge
   ms.date: 11/02/2017
   ms.topic: article
-  ms.prod: azure
   ms.technology: azure
   ms.devlang: java
   ms.service: multiple
 sections:
-- items:
-  - type: markdown
-    text: |
-      Get started developing Java apps for the cloud with these tutorials, tools, and libraries.
 - items:
   - type: list
     style: cards
     className: cardsM
     columns: 2
     items:
-    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+    - href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
       html: <p>Deploy your first web app to Azure</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_get-started.svg
+        src: /media/common/i_get-started.svg
       title: Get Started
-    - href: https://docs.microsoft.com/java/azure/spring-framework/
+    - href: /azure/java/spring-framework/
       html: <p>Azure services with Spring Boot</p>
       image:
-        src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
+        src: /java/media/spring.svg
       title: Spring on Azure
     - href: java-azure-tools.md
       html: <p>Tools and IDEs</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_download-install.svg
+        src: /media/common/i_download-install.svg
       title: IntelliJ, Maven, Eclipse, and VS Code plugins
     - href: jdk/index.md 
       html: <p>Supported JDKs</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_download-install.svg
+        src: /media/common/i_download-install.svg
       title: Supported JDKs
-    - href: java-sdk-azure-install.md
+    - href: /java/api/?view=azure-java
       html: <p>API Reference</p>
       image:
-        src: https://docs.microsoft.com/media/common/i_api-reference.svg
+        src: /media/common/i_api-reference.svg
       title: Azure SDKs for Java
 - title: Get started guides
   items:
-  - type: paragraph
-    text: 'Learn how to use Java with Azure services.'
   - type: list
     style: cards
     className: cardsM
     columns: 3
     items: 
     - image:
-        src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
+        src: /java/media/spring.svg
       title: Deploy a Spring Boot app with Maven
-      href: https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+      href: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
     - image:
-        src: https://docs.microsoft.com/azure/media/index/storage.svg
+        src: /azure/media/index/storage.svg
       title: Upload and download blobs from Storage
-      href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+      href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: /azure/media/index/azurefunctions.svg
       title: Create a Java serverless function
-      href: https://docs.microsoft.com/azure/azure-functions/functions-create-first-java-maven?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+      href: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/javascript/azure/media/k8s_logo.svg
-      title: Deploy to Kubernetes    
-      href: https://docs.microsoft.com/azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+        src: /javascript/azure/media/k8s_logo.svg
+      title: Deploy to Kubernetes
+      href: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
     - image:
-        src: https://docs.microsoft.com/azure/media/index/fabric.svg
+        src: /azure/media/index/fabric.svg
       title: Microservices with Service Fabric
-      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+      href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - image:
-        src: https://docs.microsoft.com/java/docs-ref-conceptual/media/jenkins_logo.svg
+        src: /java/media/jenkins_logo.svg
       title:  CI/CD to App Service with Jenkins®
-      href: https://docs.microsoft.com/azure/jenkins/java-deploy-webapp-tutorial?toc=%2Fen-us%2Fjava%2Fapi%2Fazure-java-sdk%2Ftoc.json&bc=%2Fen-us%2Fjava%2Fbreadcrumb%2Ftoc.json 
+      href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service&bc=/azure/java/breadcrumb/toc.json
 - title: Samples
   items:
   - type: list

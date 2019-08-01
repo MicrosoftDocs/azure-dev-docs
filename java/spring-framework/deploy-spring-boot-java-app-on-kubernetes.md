@@ -23,7 +23,7 @@ ms.custom: mvc
 
 This tutorial walks you through combining these two popular, open-source technologies to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use *[Spring Boot]* for application development, *[Kubernetes]* for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
 
-### Prerequisites
+## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
@@ -221,9 +221,9 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ```
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command
+   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command.
 
-   * The `--type` parameter specifies that the cluster uses load balancer
+   * The `--type` parameter specifies that the cluster uses load balancer.
 
    * The `--port` parameter specifies the public-facing TCP port of 80. You access the app on this port.
 
@@ -248,7 +248,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    az aks browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster
    ```
 
-1. When the Kubernetes configuration website opens in your browser, click the link to **deploy a containerized app**:
+1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
 
    ![Kubernetes Configuration Website][KB01]
 
@@ -267,7 +267,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ![Kubernetes Configuration Website][KB02]
 
 
-1. Click **Deploy** to deploy the container.
+1. Select **Deploy** to deploy the container.
 
    ![Kubernetes Deploy][KB05]
 
@@ -275,7 +275,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    ![Kubernetes Services][KB06]
 
-1. If you click the link for **External endpoints**, you can see your Spring Boot application running on Azure.
+1. If you select the link for **External endpoints**, you can see your Spring Boot application running on Azure.
 
    ![Kubernetes Services][KB07]
 
@@ -286,7 +286,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/java/azure/spring-framework)
+> [Spring on Azure](/azure/java/spring-framework)
 
 ### Additional Resources
 
@@ -324,7 +324,7 @@ For more information about iteratively running and debugging containers directly
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure for Java Developers]: /java/azure/
+[Azure for Java Developers]: /azure/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image

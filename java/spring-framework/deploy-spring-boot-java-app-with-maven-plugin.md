@@ -1,5 +1,5 @@
 ---
-title: Deploy a Spring Boot JAR file app to the cloud with Maven and Azure
+title: Deploy a Spring Boot JAR file app to Azure with Maven
 description: Learn how to deploy a Spring Boot app to the cloud using the Maven Plugin for Azure Web App for Linux.
 services: app-service
 documentationcenter: java
@@ -11,6 +11,7 @@ ms.date: 12/19/2018
 ms.devlang: java
 ms.service: app-service
 ms.topic: article
+ms.custom: seo-java-july2019  
 #Customer intent: As a Java and Spring developer, I want to deploy apps to Azure as JAR files so that I don't have to deal with app server configuration and management.
 ---
 
@@ -198,12 +199,20 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
 Verify that the deployment was successful by using the same cURL command as before, using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Greetings from Spring Boot!** 
 
+## Clean up resources
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+
+- From the Azure portal, select Resource group from the left menu.
+- Enter **gs-spring-boot-** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
+- Select the resource group created in this tutorial.
+- Select Delete resource group from the top menu.
+
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/java/azure/spring-framework)
+> [Spring on Azure](/azure/java/spring-framework)
 
 ### Additional Resources
 
@@ -220,7 +229,7 @@ For more information about the various technologies discussed in this article, s
 <!-- URL List -->
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
-[Azure for Java Developers]: /java/azure/
+[Azure for Java Developers]: /azure/java/
 [Azure portal]: https://portal.azure.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/

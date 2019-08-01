@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Go developers
+title: Azure for Go cloud developers
 metadata:
   title: Azure for Go developers - Tutorials, API Reference
   description: Get started developing with the Azure SDK for Go using the developer resources below.
@@ -13,10 +13,6 @@ metadata:
   - clicktale
   ms.devlang: golang
 sections:
-- items:
-  - type: markdown
-    text: |
-      Get started developing apps with the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) using our official tutorials and tools.
 - items:
   - type: list
     style: cards
@@ -45,8 +41,6 @@ sections:
         src: https://docs.microsoft.com/media/common/i_api-reference.svg
 - title: Go SDK Quickstarts
   items:
-  - type: paragraph
-    text: 'Learn how to use the Azure SDK for Go.'
   - type: list
     style: cards
     className: cardsM
@@ -57,11 +51,11 @@ sections:
       image:
         src: https://docs.microsoft.com/azure/virtual-machines/media/index/virtualmachine.svg
     - title: Transfer objects to Azure Blob Storage with the Azure Storage SDK for Go
-      href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-go?toc=%2fazure%2fgo%2ftoc.json
+      href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/go/toc.json&bc=/azure/go/breadcrumb/toc.json
       image:
         src: https://docs.microsoft.com/azure/media/index/logo_azure-blob-storage.svg
     - title: Connect to Azure Database for PostgreSQL with Go
-      href: https://docs.microsoft.com/azure/postgresql/connect-go?toc=%2fazure%2fgo%2ftoc.json
+      href: /azure/postgresql/connect-go?toc=/azure/go/toc.json&bc=/azure/go/breadcrumb/toc.json
       image:
         src: https://docs.microsoft.com/azure/media/index/PostgreSQL.svg
 - title: Samples

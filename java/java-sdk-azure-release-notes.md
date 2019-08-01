@@ -5,10 +5,10 @@ keywords: Azure,  Java, API, reference,  notes,  updates, deprecate
 author: bmitchell287
 manager: douge
 ms.assetid: 1f128cf9-f747-4344-84e1-f9964709deb8
-ms.service: Azure
+ms.service: azure
 ms.devlang: java
 ms.topic: reference
-ms.technology: Azure
+
 ms.date: 3/06/2016
 ---
 

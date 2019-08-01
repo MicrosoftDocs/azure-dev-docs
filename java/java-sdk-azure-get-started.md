@@ -6,9 +6,8 @@ author: rloutlaw
 ms.author: brendm
 manager: douge
 ms.date: 04/16/2017
-ms.topic: get-started-article
-ms.prod: azure
-ms.technology: azure
+ms.topic: article
+
 ms.devlang: java
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
@@ -23,7 +22,7 @@ This guide walks you through setting up a development environment for Azure deve
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/)
 - [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 - [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell)
-- [Maven 3](http://maven.apache.org/download.cgi) (included in Azure Cloud Shell)
+- [Maven 3](https://maven.apache.org/download.cgi) (included in Azure Cloud Shell)
 
 ## Set up authentication
 
@@ -97,7 +96,7 @@ setx AZURE_AUTH_LOCATION "C:\<fullpath>\azureauth.properties" /m
 
 Create a Maven project from the command line in a new directory on your system:
 
-```
+```shell
 mkdir java-azure-test
 cd java-azure-test
 mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp  \ 
@@ -124,7 +123,7 @@ This creates a basic Maven project under the `testAzureApp` folder. Add the foll
 </dependency>
 ```
 
-Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](http://www.mojohaus.org/exec-maven-plugin/) to run the samples:
+Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples:
 
 ```XML
 <build>
@@ -232,7 +231,7 @@ public class AzureApp {
 
 Run the sample from the command line:
 
-```
+```shell
 mvn compile exec:java
 ```
 
@@ -284,7 +283,7 @@ Replace the main method in `AzureApp.java` with the one below, updating the `app
 
 Run the code as before using Maven:
 
-```
+```shell
 mvn clean compile exec:java
 ```
 
@@ -368,7 +367,7 @@ This code creates a new SQL database with a firewall rule allowing remote access
 ```
 Run the sample from the command line:
 
-```
+```shell
 mvn clean compile exec:java
 ```
 
@@ -435,7 +434,7 @@ public static void main(String[] args) {
 
 Run the sample from the command line:
 
-```
+```shell
 mvn clean compile exec:java
 ```
 
@@ -453,8 +452,8 @@ To learn more about how to use the Azure management libraries for Java to manage
 
 ## Reference and release notes
 
-A [reference](http://docs.microsoft.com/java/api) is available for all packages.
+A [reference](https://docs.microsoft.com/java/api) is available for all packages.
 
 ## Get help and give feedback
 
-Post questions to the community on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure libraries for Java on the [project GitHub](https://github.com/Azure/azure-sdk-for-java).
+Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure libraries for Java on the [project GitHub](https://github.com/Azure/azure-sdk-for-java).

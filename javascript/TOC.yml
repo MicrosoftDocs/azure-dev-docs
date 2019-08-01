@@ -1,17 +1,9 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
-  - name: Overview
-    items:
-    - name: Azure modules 
-      href: overview.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Azure SDK
-      href: node-sdk-azure-get-started.md
-    - name: Tools
-      href: node-azure-tools.md
     - name: App hosting
       items:
       - name: Static sites
@@ -20,56 +12,20 @@
         href: https://code.visualstudio.com/tutorials/app-service-extension/getting-started
       - name: Serverless 
         href: https://code.visualstudio.com/tutorials/functions-extension/getting-started
-        maintainContext: true
       - name: Docker
         href: https://code.visualstudio.com/tutorials/docker-extension/getting-started 
       - name: Kubernetes
-        href: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
-        maintainContext: true
+        href: /azure/aks/kubernetes-walkthrough?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Linux VMs
-        href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
-        maintainContext: true
-    - name: Store data
+        href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - name: DevOps (CI/CD)
       items:
-      - name: Blob storage
-        href: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs
-        maintainContext: true
-      - name: SQL Database
-        href: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-nodejs
-        maintainContext: true
-      - name: Cosmos DB
-        href: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs
-        maintainContext: true
-      - name: Redis Cache
-        href: https://docs.microsoft.com/azure/redis-cache/cache-nodejs-get-started
-        maintainContext: true
-      - name: PostgreSQL
-        href: https://docs.microsoft.com/azure/postgresql/connect-nodejs 
-        maintainContext: true
-      - name: MySQL
-        href: https://docs.microsoft.com/azure/mysql/connect-nodejs
-        maintainContext: true
-    - name: Security and authentication
-      items:
-      - name: Azure Active Directory
-        href: https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs
-        maintainContext: true
-      - name: Azure AD B2C
-        href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-node
-        maintainContext: true
-      - name: Key Vault
-        href: https://docs.microsoft.com/azure/key-vault/quick-create-cli
-        maintainContext: true
-    - name: Monitoring and logging
-      items:
-      - name: Application Insights
-        href: https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start
-        maintainContext: true
-      - name: Log Analytics
-        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-linux-computer
-        maintainContext: true
-      - name: Azure Monitor
-        href: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
+      - name: Azure Devops
+        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: GitHub Actions
+        href: https://css-tricks.com/introducing-github-actions/
+      - name: Continuous Integration
+        href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Debugging and diagnostics
       items:
       - name: Remote debugging for Azure App Service
@@ -78,51 +34,66 @@
         href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
       - name: Debug local Node.js apps in VS Code
         href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+    - name: Tools and extensions
+      href: node-azure-tools.md
+    - name: Store data
+      items:
+      - name: Blob storage
+        href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: SQL Database
+        href: /azure/sql-database/sql-database-connect-query-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Cosmos DB
+        href: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Redis Cache
+        href: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/javascript/toc.json&bc=/
+      - name: PostgreSQL
+        href: /azure/postgresql/connect-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: MySQL
+        href: /azure/mysql/connect-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - name: Security and authentication
+      items:
+      - name: Azure Active Directory
+        href: /azure/active-directory/develop/quickstart-v1-nodejs-webapi?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Azure AD B2C
+        href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Key Vault
+        href: /azure/key-vault/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+    - name: Monitoring and logging
+      items:
+      - name: Application Insights
+        href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Log Analytics
+        href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Azure Monitor
+        href: /azure/azure-monitor?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Messaging and integration
       items: 
       - name: Event Grid
-        href: https://docs.microsoft.com/azure/event-grid/custom-event-quickstart
-        maintainContext: true
+        href: /azure/event-grid/custom-event-quickstart?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Service Bus
-        href: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues
-        maintainContext: true
+        href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Queue storage
-        href: https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues
-        maintainContext: true
+        href: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: IoT
       items:
       - name: IoT Hub
-        href: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted
-        maintainContext: true
+        href: /azure/iot-hub/quickstart-control-device-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Big data streaming
-        href: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted
+        href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Cognitive Services
       items: 
       - name: Text Analytics
-        href: https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/nodejs
-        maintainContext: true 
+        href: /azure/cognitive-services/text-analytics/quickstarts/nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Computer Vision
-        href: https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
-        maintainContext: true 
+        href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Speech recognition
-        href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started
-        maintainContext: true
-    - name: Continuous Deployment and DevOps
-      items:
-      - name: Azure Devops
-        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
-        maintainContext: true
-      - name: GitHub Actions
-        href: https://css-tricks.com/introducing-github-actions/
-      - name: Continuous Integration
-        href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+        href: /azure/cognitive-services/speech-service/get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: How-To guides
     items:
     - name: Deploy with Visual Studio Code
       href: node-howto-e2e.md
     - name: Create a REST API 
-      href: http://docs.microsoft.com/azure/app-service-api/app-service-api-nodejs-api-app
-      maintainContext: true
+      href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: Samples
     items: 
     - name: Compute
