@@ -9,7 +9,7 @@ editor: ruyakubu
 
 ms.assetid:
 ms.author: ruyakubu
-ms.date: 07/23/2019
+ms.date: 07/31/2019
 ms.devlang: Java
 ms.service: Azure DevOps
 ms.tgt_pltfrm: multiple
@@ -46,7 +46,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
   
 ## Create a build pipeline
 
-The continuous integration build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
+The continuous integration Build pipeline in Azure Pipelines automatically executes all build tasks each time there's a commit in the Java EE source app. In this example, Azure Pipelines uses Maven to build the Java MicroProfile project.
 
 1. From your Azure DevOps project page, select **Pipelines** > **Builds** in the left navigation. 
    
@@ -125,7 +125,7 @@ Azure Pipelines pushes the Docker image to your Azure Container Registry, and us
 
 ## Create a release pipeline
 
-An Azure Pipelines continuous release pipeline automatically triggers deployment to a target environment like Azure as soon as a build succeeds. You can create release pipelines for environments like dev, test, staging, or production.
+An Azure Pipelines continuous Release pipeline automatically triggers deployment to a target environment like Azure as soon as a build succeeds. You can create release pipelines for environments like dev, test, staging, or production.
 
 1. On your Azure DevOps project page, select **Pipelines** > **Releases** in the left navigation. 
    
