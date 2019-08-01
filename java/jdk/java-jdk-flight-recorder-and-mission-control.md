@@ -1,5 +1,5 @@
 ---
-title: Java Flight Recorder and Mission Control
+title: Review data with Java Flight Recorder and Mission Control
 description: Guidance for using Java Flight Recorder and Mission Control to collect and review app data.
 author: bmitchell287
 manager: douge
@@ -7,7 +7,8 @@ ms.author: brendm
 ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
-ms.service: azure 
+ms.service: azure
+ms.custom: seo-java-july2019
 ---
 # Using Java Flight Recorder (JFR) and Mission Control
 
@@ -88,7 +89,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
         * On the second line, write the path to your JDK installation. (For example, `C:\Program Files\Java\jdk1.8.0_212\bin\javaw.exe`).
 
 7.	Locate the JVM running your application
-    1.	In the upper left pane of the Zulu Mission Control window click on the tab labelled **JVM Browser**.
+    1.	In the upper left pane of the Zulu Mission Control window, select the tab labelled **JVM Browser**.
     2.	Select and expand the list item in the upper left for your the JVM instance running your application.
 
     > [!div class="mx-imgBorder"]
@@ -96,8 +97,8 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
 
 
 8.	Start a Flight Recording, if necessary
-    1.	If the Flight Recorder displays "No Recordings", start one by right-clicking on the Flight Recorder line in the JVM Browser tab and selecting **Start Flight Recording...**
-    2.	Select either a fixed duration recording or a continuous recording, and either a Profiling configuration (fine-grained) or a Continuous configuration (lower overhead), then click **Finish**.
+    1.	If the Flight Recorder displays "No Recordings", start one by right-clicking on the Flight Recorder line in the JVM Browser tab and selecting **Start Flight Recording**.
+    2.	Select either a fixed duration recording or a continuous recording, and either a Profiling configuration (fine-grained) or a Continuous configuration (lower overhead), then select **Finish**.
 
     > [!div class="mx-imgBorder"]
     ![Start a Flight Recording](../media/jdk/azul-jfr-3.png)
