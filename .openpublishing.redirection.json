@@ -9,6 +9,11 @@
             "source_path": "javascript/node-sdk-azure-get-started.md",
             "redirect_url": "/azure/javascript/",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "java/microprofile/cicd-microprofile-vsts.md",
+            "redirect_url": "/azure/java/microprofile/cicd-microprofile",
+            "redirect_document_id": true
         }
     ]
 }

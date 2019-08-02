@@ -40,7 +40,13 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure-dotnet/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "None",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "Azure.azuredotnet",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      }
     },
     "fileMetadata": {},
     "template": [],

@@ -39,7 +39,13 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure/go/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "None",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "Azure.azure-go-sdk-conceptual",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      }
     },
     "fileMetadata": {},
     "template": [],
