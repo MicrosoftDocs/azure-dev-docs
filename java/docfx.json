@@ -40,7 +40,9 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure/java/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None",
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
+      "feedback_product_url": "https://github.com/Azure/azure-sdk-for-java/issues",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "Azure.AzureJava",
