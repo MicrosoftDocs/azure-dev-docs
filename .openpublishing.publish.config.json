@@ -72,7 +72,12 @@
     }
   ],
   "notification_subscribers": [
-    "douge@microsoft.com"
+    "brendm@microsoft.com",
+    "karler@microsoft.com",
+    "ksangiah@microsoft.com",
+    "kraigb@microsoft.com",
+    "Stephen.Tramer@microsoft.com",
+    "barbkess@microsoft.com"
   ],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
