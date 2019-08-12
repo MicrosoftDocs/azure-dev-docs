@@ -121,12 +121,12 @@ You can configure your app based on either the connection string or a credential
 
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string that you obtained in your service bus namespace from the portal.                                   |
+    |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string you obtained in your service bus namespace from the portal.                                   |
     |               `spring.cloud.stream.bindings.input.destination`                 |                            Specify the Service Bus queue or Service Bus topic you used in this tutorial.                         |
     |                  `spring.cloud.stream.bindings.input.group`                    |                                            If you used a Service Bus topic, specify the topic subscription.                                |
     |               `spring.cloud.stream.bindings.output.destination`                |                               Specify the same value used for input destination.                        |
-    | `spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode` |                                                       Specify the checkpoint mode for queue, which for this tutorial is `MANUAL`.                                                   |
-    | `spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode` |                                                       Specify the checkpoint mode for topic, which for this tutorial is `MANUAL`.                                                   |
+    | `spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
+    | `spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
 
 1. Save and close the *application.properties* file.
 
