@@ -43,7 +43,7 @@ The following prerequisites are required for this article:
 
 1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
-## Configure your Spring Boot app to use the Azure Service Bus JMS starter
+## Use the Azure Service Bus JMS starter
 
 1. Locate the *pom.xml* file in the parent directory of your app; for example:
 
@@ -53,7 +53,9 @@ The following prerequisites are required for this article:
 
     `/users/example/home/servicebus/pom.xml`
 
-2. Open the *pom.xml* file in a text editor and add the Spring Boot Azure Service Bus JMS starter to the list of `<dependencies>`:
+1. Open the *pom.xml* file in a text editor.
+
+1. Add the following code block under the **&lt;dependencies>** element:
 
     ```xml
     <dependency>
@@ -63,7 +65,7 @@ The following prerequisites are required for this article:
     </dependency>
     ```
 
-    ![Configure pom.xml](https://github.com/bqchen/Spring-JMS-ServiceBus/raw/tutorial/figure/spring-jms-servicebus-figure/S5.PNG)
+    ![Add the dependency section to the pom.xml file.] (./media/configure-spring-messaging-java-app-with-azure-service-bus/add-dependency-section.png)
 
 3. Add [maven repositories](https://maven.apache.org/settings.html#Repositories) configuration to use SNAPSHOT version as follows:
 
@@ -80,7 +82,7 @@ The following prerequisites are required for this article:
     </repositories>
     ```
 
-    ![Configure pom.xml](https://github.com/bqchen/Spring-JMS-ServiceBus/raw/tutorial/figure/spring-jms-servicebus-figure/S6.PNG)
+    ![Add the repository section to the pom.xml file.] (./media/configure-spring-messaging-java-app-with-azure-service-bus/add-repository-section.png)
 
 4. Save and close the *pom.xml* file.
 

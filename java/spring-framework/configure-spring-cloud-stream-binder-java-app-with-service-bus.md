@@ -42,7 +42,7 @@ The following prerequisites are required for this article:
 
 ## Use the Spring Cloud Stream Binder starter
 
-1. Locate the *pom.xml* file in the root directory of your app; for example:
+1. Locate the *pom.xml* file in the parent directory of your app; for example:
 
     `C:\SpringBoot\servicebus\pom.xml`
 
@@ -53,7 +53,6 @@ The following prerequisites are required for this article:
 1. Open the *pom.xml* file in a text editor.
 
 1. Add the following code block under the **&lt;dependencies>** element, depending on whether you're using a Service Bus queue or topic:
-
 
     **Service Bus queue**
 
