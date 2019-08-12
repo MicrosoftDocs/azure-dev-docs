@@ -52,7 +52,7 @@ The following prerequisites are required for this article:
 
 1. Open the *pom.xml* file in a text editor.
 
-1. Add the following code block under the **&lt;dependencies>** element, depending on if you're using a Service Bus queue or topic:
+1. Add the following code block under the **&lt;dependencies>** element, depending on whether you're using a Service Bus queue or topic:
 
 
     **Service Bus queue**
@@ -96,7 +96,7 @@ You can configure your app based on either the connection string or a credential
 
 1. Open the *application.properties* file in a text editor.
 
-1. Append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic. Use the [Field Descriptions table](#fd) to replace the sample values with the appropriate properties for your service bus.
+1. Append the appropriate code to the end of the *application.properties* file depending on whether you're using a Service Bus queue or topic. Use the [Field Descriptions table](#fd) to replace the sample values with the appropriate properties for your service bus.
 
     **Service Bus queue**
 
