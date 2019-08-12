@@ -145,7 +145,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your service bus namespace from the Azure portal.   |
-    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client id if you're using an Azure Service Bus topic with a durable subscription. |
+    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID if you're using an Azure Service Bus topic with a durable subscription. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
 1. Save and close the *application.properties* file.
@@ -221,7 +221,7 @@ In this section, you create the necessary Java classes for sending messages to y
     }
     ```
 
-    `Serializable` is implemented in order to use the `send` method in `JmsTemplate` in the Spring framework. Otherwise, a customized `MessageConverter` bean should be defined to serialize the content to json in text format (i.e., as a `TextMessage`). For more details about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
+    `Serializable` is implemented to use the `send` method in `JmsTemplate` in the Spring framework. Otherwise, a customized `MessageConverter` bean should be defined to serialize the content to json in text format. For more information about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
 
 1. Save and close the *User.java* file.
 
@@ -356,7 +356,7 @@ In this section, you create the necessary Java classes for sending messages to y
     curl -X POST localhost:8080/messages?message=hello
     ```
 
-    You will see "Sending message" and "hello" posted to your application log. For example:
+    You should see "Sending message" and "hello" posted to your application log:
 
     ```shell
     [nio-8080-exec-1] com.wingtiptoys.servicebus.SendController : Sending message
