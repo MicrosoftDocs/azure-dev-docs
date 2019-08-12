@@ -4,7 +4,7 @@ description: This article demonstrates how to use Spring Cloud Stream Binder to 
 author: seanli1988
 manager: kyliel
 ms.author: Sean.Li
-ms.date: 08/09/2019
+ms.date: 08/12/2019
 ms.devlang: java
 ms.service: azure-java
 ms.topic: article
@@ -30,15 +30,15 @@ The following prerequisites are required for this article:
 
 1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-1. If you don't have a queue, [use the Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal).
-queue.
+1. If you already have a configured Service Bus queue and topic, ensure that the Service Bus namespace meets the following requirements:
 
-1. If you don't have a topic and a topic subscription, [use the Azure portal to create a Service Bus topic and subscriptions to the topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+    1. Allows access from all networks
+    1. Is Premium (or higher)
+    1. Has an access policy with read/write access for your queue and topic
 
-1. If you don't have a Spring Boot application, you can [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a configured Service Bus queue and topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) and [create a Service Bus topic] (https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
 
-> [!NOTE]
-> The Service Bus namespace must allow access from all networks, be Premium or higher (lower tiers have some limitations), and have an access policy with read/write access for your queue / topic.
+1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Configure your Spring Boot app to use the Azure Service Bus Spring Cloud Stream Binder starter
 

@@ -2,7 +2,7 @@
  author: seanli1988
  ms.service: azure-java
  ms.topic: include
- ms.date: 06/05/2019
+ ms.date: 08/12/2019
  ms.author: Sean.Li
 ---
 

@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Spring JMS Starter to send
 author: seanli1988
 manager: kyliel
 ms.author: Sean.Li
-ms.date: 08/09/2019
+ms.date: 08/12/2019
 ms.devlang: java
 ms.service: azure-java
 ms.topic: article
