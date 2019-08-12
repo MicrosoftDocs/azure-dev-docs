@@ -132,7 +132,7 @@ You can configure your app based on either the connection string or a credential
 
 ## Implement basic Service Bus functionality
 
-In this section, you see how to create the necessary Java classes for sending messages to your service bus.
+In this section, you create the necessary Java classes for sending messages to your service bus.
 
 ### Modify the main application class
 
