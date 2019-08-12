@@ -38,7 +38,7 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
 
-1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Use the Spring Cloud Stream Binder starter
 
@@ -145,7 +145,7 @@ In this section, you create the necessary Java classes for sending messages to y
 
 1. Open the main application Java file in a text editor.
 
-1. Append the following lines to the file:
+1. Add the following code to the file:
 
     ```java
     package com.example;
@@ -168,7 +168,7 @@ In this section, you create the necessary Java classes for sending messages to y
 
 1. Using a text editor, create a Java file named *StreamBinderSource.java* in the package directory of your app.
 
-1. Add the following lines of code to the new file:
+1. Add the following code to the new file:
 
     ```java
     package com.example;

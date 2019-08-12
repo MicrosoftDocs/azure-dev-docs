@@ -130,7 +130,9 @@ In this section, you see how to configure your app to use either a Service Bus q
 
     `/users/example/home/servicebus/application.properties`
 
-2. Open the *application.properties* file in a text editor, add the following lines and then replace the sample values with the appropriate properties for your Service Bus.
+1. Open the *application.properties* file in a text editor.
+
+1. Append the following code to the end of the *application.properties* file. Replace the sample values with the appropriate values for your service bus:
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -146,11 +148,11 @@ In this section, you see how to configure your app to use either a Service Bus q
     | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client id if you're using an Azure Service Bus topic with a durable subscription. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
-3. Save and close the *application.properties* file.
+1. Save and close the *application.properties* file.
 
-## Add sample code to implement basic Service Bus functionality
+## Implement basic Service Bus functionality
 
-In this section, you create the necessary Java classes for sending messages to your Service Bus queue or topic and receive messages from your corresponding queue or subscription.
+In this section, you create the necessary Java classes for sending messages to your Service Bus queue or topic and receive messages from your corresponding queue or topic subscription.
 
 ### Modify the main application class
 
@@ -162,7 +164,9 @@ In this section, you create the necessary Java classes for sending messages to y
 
     `/users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java`
 
-2. Open the main application Java file in a text editor, and add the following lines to the file:
+1. Open the main application Java file in a text editor.
+
+1. Add the following code to the file:
 
    ```java
     package com.wingtiptoys.servicebus;
@@ -179,13 +183,13 @@ In this section, you create the necessary Java classes for sending messages to y
     }
     ```
 
-3. Save and close the main application Java file.
+1. Save and close the file.
 
-### Define a simple Java class
+### Define a test Java class
 
-1. Create a new Java file named *User.java* in the package directory of your app.
+1. Using a text editor, create a Java file named *User.java* in the package directory of your app.
 
-2. Open the *User.java* file in a text editor, and add the following lines to define a generic user class that stores and retrieves user's name:
+1. Define a generic user class that stores and retrieves user's name:
 
     ```java
     package com.wingtiptoys.servicebus;
@@ -217,13 +221,15 @@ In this section, you create the necessary Java classes for sending messages to y
     }
     ```
 
-    Here, `Serializable` is implemented in order to use the send method in `JmsTemplate` in Spring framework correctly. Otherwise, a customized `MessageConverter` bean should be defined to serialize the content to json in text format (i.e. as a `TextMessage`). For more details about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
+    `Serializable` is implemented in order to use the `send` method in `JmsTemplate` in the Spring framework. Otherwise, a customized `MessageConverter` bean should be defined to serialize the content to json in text format (i.e., as a `TextMessage`). For more details about `MessageConverter`, see the official [Spring JMS starter project](https://spring.io/guides/gs/messaging-jms/).
 
-3. Save and close the *User.java* file.
+1. Save and close the *User.java* file.
 
 ### Create a new class for the message send controller
 
-1. Create a new Java file named *SendController.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+1. Using a text editor, create a Java file named *SendController.java* in the package directory of your app
+
+1. Add the following code to the new file:
 
     ```java
     package com.wingtiptoys.servicebus;
@@ -258,13 +264,15 @@ In this section, you create the necessary Java classes for sending messages to y
     > [!NOTE]
     > Replace `<DestinationName>` with your own queue name or topic name configured in your Service Bus namespace.
 
-2. Save and close the *SendController.java*.
+1. Save and close the *SendController.java*.
 
-### Create a new class for the message receive controller
+### Create a class for the message receive controller
 
 #### Receive messages from a Service Bus queue
 
-1. Create a new Java file named *QueueReceiveController.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+1. Use a text editor to create a Java file named *QueueReceiveController.java* in the package directory of your app
+
+1. Add the following code to the new file:
 
     ```java
     package com.wingtiptoys.servicebus;
@@ -291,11 +299,13 @@ In this section, you create the necessary Java classes for sending messages to y
     > [!NOTE]
     > Replace `<ServiceBusQueueName>` with your own queue name configured in your Service Bus namespace.
 
-2. Save and close the *QueueReceiveController.java* file.
+1. Save and close the *QueueReceiveController.java* file.
 
 #### Receive messages from a Service Bus subscription
 
-1. Create a new Java file named *TopicReceiveController.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+1. Using a text editor, create a Java file named *TopicReceiveController.java* in the package directory of your app. 
+
+1. Add the following code to the new file. Replace the `<ServiceBusTopicName>` placeholder with your own topic name configured in your Service Bus namespace. Replace the `<ServiceBusSubscriptionName>` placeholder with your own subscription name for your Service Bus topic.
 
     ```java
     package com.wingtiptoys.servicebus;
@@ -322,14 +332,11 @@ In this section, you create the necessary Java classes for sending messages to y
     }
     ```
 
-    > [!NOTE]
-    > Replace `<ServiceBusTopicName>` with your own topic name configured in your Service Bus namespace.
-    >
-    > Replace `<ServiceBusSubscriptionName>` with your own subscription name for your Service Bus topic.
+1. Save and close the *TopicReceiveController.java* file.
 
 ## Build and test your application
 
-1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
+1. Open a command prompt and change directory to the location of your *pom.xml*; for example:
 
     `cd C:\SpringBoot\servicebus`
 
@@ -337,13 +344,13 @@ In this section, you create the necessary Java classes for sending messages to y
 
     `cd cd /users/example/home/servicebus`
 
-2. Build your Spring Boot application with Maven and run it; for example:
+1. Build your Spring Boot application with Maven and run it:
 
     ```shell
     mvn clean spring-boot:run
     ```
 
-3. Once your application is running, you can use *curl* to test your application; for example:
+3. Once your application is running, you can use *curl* to test your application:
 
     ```shell
     curl -X POST localhost:8080/messages?message=hello
@@ -358,7 +365,7 @@ In this section, you create the necessary Java classes for sending messages to y
 
 ## Clean up resources
 
-You can delete the resources on your [Azure Portal](http://ms.portal.azure.com/) to avoid unexpected charges.
+When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
