@@ -12,6 +12,8 @@ ms.topic: article
 
 # How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 
+[!INCLUDE [spring-boot-20-note.md](../../includes/spring-boot-20-note.md)]
+
 ## Overview
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
@@ -24,30 +26,19 @@ The following prerequisites are required for this article:
 
 1. An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
 
-2. A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+1. A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
-3. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
+1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-4. If you don't have a queue, [use the Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal).
-queue**.
+1. If you don't have a queue, [use the Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal).
+queue.
 
-5. If you don't have a topic and a subscription to work with, follow steps in the [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) to create a topic and a subscription.
+1. If you don't have a topic and a topic subscription, [use the Azure portal to create a Service Bus topic and subscriptions to the topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
 
-    a. Create a Service Bus **namespace**.
-
-    b. Get the **connection string**.
-
-    c. Create a Service Bus **topic**.
-
-    d. Create a **subscription** to the topic in the namespace.
-
-6. If you don't have a Spring Boot application, you can create your **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to add the **Web** dependency.
+1. If you don't have a Spring Boot application, you can [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 > [!NOTE]
 > The Service Bus namespace must allow access from all networks, be Premium or higher (lower tiers have some limitations), and have an access policy with read/write access for your queue / topic.
-
-> [!IMPORTANT]
-> Spring Boot version 2.0 or greater is required to complete the steps in this article.
 
 ## Configure your Spring Boot app to use the Azure Service Bus Spring Cloud Stream Binder starter
 
