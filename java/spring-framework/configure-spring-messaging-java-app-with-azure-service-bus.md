@@ -12,6 +12,8 @@ ms.topic: article
 
 # How to use the Spring Boot Starter for Azure Service Bus JMS
 
+[!INCLUDE [spring-boot-20-note.md](../includes/spring-boot-20-note.md)]
+
 ## Overview
 
 The Spring Boot Starter for Azure Service Bus JMS provides Spring integration with Azure Service Bus, which developers can use to implement messaging services.
@@ -25,37 +27,21 @@ This article demonstrates how to use Spring Boot Starter for Azure Service Bus J
 
 The following prerequisites are required for this article:
 
-1. An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
+1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
 
-2. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
-3. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
+1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-4. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) to create a queue.
+1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
-    a. Create a Service Bus **namespace**.
+    1. Allows access from all networks
+    1. Is Premium (or higher)
+    1. Has an access policy with read/write access for your queue and topic
 
-    b. Get the **connection string**.
+1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
 
-    c. Create a Service Bus **queue**.
-
-5. If you don't have a topic and a subscription to work with, follow steps in the [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) to create a topic and a subscription.
-
-    a. Create a Service Bus **namespace**.
-
-    b. Get the **connection string**.
-
-    c. Create a Service Bus **topic**.
-
-    d. Create a **subscription** to the topic in the namespace.
-
-6. If you don't have a Spring Boot application, you can create your **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to add the **Web** dependency.
-
-> [!NOTE]
-> The Service Bus namespace must allow access from all networks, be Premium or higher (lower tiers have some limitations), and have an access policy with read/write access for your queue / topic.
-
-> [!IMPORTANT]
-> Spring Boot version 2.0 or greater is required to complete the steps in this article.
+1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Configure your Spring Boot app to use the Azure Service Bus JMS starter
 
