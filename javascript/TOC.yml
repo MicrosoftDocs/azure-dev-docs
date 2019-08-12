@@ -18,14 +18,20 @@
         href: /azure/aks/kubernetes-walkthrough?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Linux VMs
         href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: DevOps (CI/CD)
+    - name: DevOps
       items:
-      - name: Azure Devops
+      - name: Azure Repos
+        href: /azure/devops/repos/get-started/index?view=azure-devops&toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: CI/CD with Azure Pipelines
+        href: /azure/devops/pipelines/languages/javascript?view=azure-devops&toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: CI/CD with Azure DevOps Projects
         href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Application Insights with Azure Monitor
+        href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+      - name: Log Analytics with Azure Monitor
+        href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: GitHub Actions
         href: https://css-tricks.com/introducing-github-actions/
-      - name: Continuous Integration
-        href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Debugging and diagnostics
       items:
       - name: Remote debugging for Azure App Service
@@ -58,14 +64,6 @@
         href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Key Vault
         href: /azure/key-vault/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: Monitoring and logging
-      items:
-      - name: Application Insights
-        href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-      - name: Log Analytics
-        href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-      - name: Azure Monitor
-        href: /azure/azure-monitor?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Messaging and integration
       items: 
       - name: Event Grid
