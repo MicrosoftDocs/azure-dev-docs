@@ -30,7 +30,7 @@ The following prerequisites are required for this article:
 
 1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-1. If you already have a configured Service Bus queue or topic that you will use for this article, ensure that the Service Bus namespace meets the following requirements:
+1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
     1. Allows access from all networks
     1. Is Premium (or higher)
@@ -122,8 +122,8 @@ You can configure your app based on either the connection string or a credential
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specifies the connection string that you obtained in your service bus namespace from the portal.                                   |
-    |               `spring.cloud.stream.bindings.input.destination`                 |                            Specifies the input destination service bus, which for this tutorial is the service bus queue or topic you created earlier.                         |
-    |                  `spring.cloud.stream.bindings.input.group`                    |                                            Specifies a subscription that you created in your service bus topic only if you use a service bus topic.                                |
+    |               `spring.cloud.stream.bindings.input.destination`                 |                            Specifies the input destination service bus, which for this tutorial is the Service Bus queue or topic you created earlier.                         |
+    |                  `spring.cloud.stream.bindings.input.group`                    |                                            Specifies a subscription that you created in your Service Bus topic only if you use a Service Bus topic.                                |
     |               `spring.cloud.stream.bindings.output.destination`                |                               Specifies the output destination service bus, which for this tutorial will be the same as the input destination.                        |
     | `spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode` |                                                       Specifies the checkpoint mode for queue, which for this tutorial will be `MANUAL`.                                                   |
     | `spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode` |                                                       Specifies the checkpoint mode for topic, which for this tutorial will be `MANUAL`.                                                   |
