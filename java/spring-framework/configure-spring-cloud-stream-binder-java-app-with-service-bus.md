@@ -30,13 +30,13 @@ The following prerequisites are required for this article:
 
 1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-1. If you already have a configured Service Bus queue and topic, ensure that the Service Bus namespace meets the following requirements:
+1. If you already have a configured Service Bus queue or topic that you will use for this article, ensure that the Service Bus namespace meets the following requirements:
 
     1. Allows access from all networks
     1. Is Premium (or higher)
     1. Has an access policy with read/write access for your queue and topic
 
-1. If you don't have a configured Service Bus queue and topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) and [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
+1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
 
 1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
@@ -50,9 +50,9 @@ The following prerequisites are required for this article:
 
     `/users/example/home/servicebus/pom.xml`
 
-1. Open the *pom.xml* file in an editor.
+1. Open the *pom.xml* file in a text editor.
 
-1. If you are using a Service Bus queue, add the following code block under the **&lt;dependencies>** element.
+1. If you are using a Service Bus **queue**, add the following code block under the **&lt;dependencies>** element.
 
     ```xml
     <dependency>
@@ -64,7 +64,7 @@ The following prerequisites are required for this article:
 
     ![Edit the pom.xml file for the Service Bus queue.](./media/configure-spring-cloud-stream-binder-java-app-with-service-bus/add-stream-binder-starter-pom-file-dependency-for-service-bus-queue.png)
 
-    If you are using a Service Bus topic, add the following code block under the **&lt;dependencies>** element.
+    If you are using a Service Bus **topic**, add the following code block under the **&lt;dependencies>** element.
 
     ```xml
     <dependency>
@@ -76,14 +76,14 @@ The following prerequisites are required for this article:
 
     ![Edit the pom.xml file for the Service Bus topic.](./media/configure-spring-cloud-stream-binder-java-app-with-service-bus/add-stream-binder-starter-pom-file-dependency-for-service-bus-topic.png)
 
-3. Save and close the *pom.xml* file.
+1. Save and close the *pom.xml* file.
 
 ## Configure the app for your Service Bus
 
-You can configure your app based on either connection string or credential file. In this tutorial, connection string based usage is recommended. For more information about credential file based usage, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-queue-binder-sample#credential-file-based-usage
+You can configure your app based on either the connection string or a credentials file. This tutorial uses a connection string. For more information about using credential files, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-queue-binder-sample#credential-file-based-usage
 ) and [Spring Cloud Azure Stream Binder for Service Bus topic Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-topic-binder-sample#credential-file-based-usage).
 
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
+1. Locate the *application.properties* file in the *resources* directory of your app; for example:
 
    `C:\SpringBoot\servicebus\src\main\resources\application.properties`
 
@@ -91,7 +91,9 @@ You can configure your app based on either connection string or credential file.
 
    `/users/example/home/servicebus/src/main/resources/application.properties`
 
-2. If you use Service Bus queue, open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your service bus:
+1. Open the *application.properties* file in a text editor.
+
+1. If you are using a Service Bus **queue**, append the following code to the end of the file. Replace the sample values with the appropriate properties for your service bus based on the field descriptions listed at the end of this step.
 
     ```yaml
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -100,7 +102,7 @@ You can configure your app based on either connection string or credential file.
     spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode=MANUAL
     ```
 
-    If you use Service Bus topic, open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your service bus:
+    If you are using a Service Bus **topic**, append the following code to the end of the file. Replace the sample values with the appropriate properties for your service bus based on the field descriptions listed at the end of this step.
 
     ```yaml
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -110,7 +112,7 @@ You can configure your app based on either connection string or credential file.
     spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode=MANUAL
     ```
 
-    Where:
+    **Field Descriptions**
 
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,9 +125,9 @@ You can configure your app based on either connection string or credential file.
 
 3. Save and close the *application.properties* file.
 
-## Add sample code to implement basic Service Bus functionality
+## Implement basic Service Bus functionality
 
-In this section, you create the necessary Java classes for sending messages to your Service Bus.
+In this section, you see how to create the necessary Java classes for sending messages to your service bus.
 
 ### Modify the main application class
 
