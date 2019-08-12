@@ -40,7 +40,7 @@ The following prerequisites are required for this article:
 
 1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
-## Configure your Spring Boot app to use the Azure Service Bus Spring Cloud Stream Binder starter
+## Use the Spring Cloud Stream Binder starter
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
@@ -50,7 +50,9 @@ The following prerequisites are required for this article:
 
     `/users/example/home/servicebus/pom.xml`
 
-2. If you use Azure Service Bus queue, open the *pom.xml* file and add the Spring Cloud Service Bus Queue Stream Binder starter to the list of `<dependencies>`:
+1. Open the *pom.xml* file in an editor.
+
+1. If you are using a Service Bus queue, add the following code block under the **&lt;dependencies>** element.
 
     ```xml
     <dependency>
@@ -60,9 +62,9 @@ The following prerequisites are required for this article:
     </dependency>
     ```
 
-    ![Edit pom.xml file 1](https://github.com/bqchen/Spring-StreamBinder-ServiceBus/raw/master/S1.PNG)
+    ![Edit the pom.xml file for the Service Bus queue.](./media/configure-spring-cloud-stream-binder-java-app-with-service-bus/add-stream-binder-starter-pom-file-dependency-for-service-bus-queue.png)
 
-    If you use Azure Service Bus topic, open the *pom.xml* file and add the Spring Cloud Service Bus Topic Stream Binder starter to the list of `<dependencies>`:
+    If you are using a Service Bus topic, add the following code block under the **&lt;dependencies>** element.
 
     ```xml
     <dependency>
@@ -72,14 +74,13 @@ The following prerequisites are required for this article:
     </dependency>
     ```
 
-    ![Edit pom.xml file](https://github.com/bqchen/Spring-StreamBinder-ServiceBus/raw/master/S2.PNG)
+    ![Edit the pom.xml file for the Service Bus topic.](./media/configure-spring-cloud-stream-binder-java-app-with-service-bus/add-stream-binder-starter-pom-file-dependency-for-service-bus-topic.png)
 
 3. Save and close the *pom.xml* file.
 
-## Configure your Spring Boot app to use Spring Cloud Stream Binder for your Service Bus
+## Configure the app for your Service Bus
 
-You can configure your app based on either connection string or credential file. In this tutorial, connection string based usage is recommended. For more information about credential file based usage, please see our [
-Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-queue-binder-sample#credential-file-based-usage
+You can configure your app based on either connection string or credential file. In this tutorial, connection string based usage is recommended. For more information about credential file based usage, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-queue-binder-sample#credential-file-based-usage
 ) and [Spring Cloud Azure Stream Binder for Service Bus topic Code Sample](https://github.com/microsoft/spring-cloud-azure/tree/release/1.1.0.RC4/spring-cloud-azure-samples/servicebus-topic-binder-sample#credential-file-based-usage).
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
