@@ -38,7 +38,7 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step.
 
-1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Use the Spring Cloud Stream Binder starter
 
@@ -266,7 +266,7 @@ In this section, you see how to create the necessary Java classes for sending me
 
 ## Clean up resources
 
-When no longer needed, use the [Azure Portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
