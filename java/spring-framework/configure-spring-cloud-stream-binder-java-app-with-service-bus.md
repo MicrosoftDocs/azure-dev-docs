@@ -96,7 +96,7 @@ You can configure your app based on either the connection string or a credential
 
 1. Open the *application.properties* file in a text editor.
 
-1. Based on the field descriptions listed at the end of this step, append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic.
+1. Based on the [field descriptions](#fd) listed at the end of this step, append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic.
 
     **Service Bus queue**
 
@@ -117,7 +117,7 @@ You can configure your app based on either the connection string or a credential
     spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode=MANUAL
     ```
 
-    **Field Descriptions**
+    **<a name="fd">Field Descriptions</a>**
 
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
