@@ -1,5 +1,5 @@
 ---
-title: Use Maven for Azure Web Apps to deploy a Spring Boot app to Azure
+title: Deploy a Spring Boot JAR file app to the cloud with Maven and Azure
 description: Learn how to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure.
 services: app-service
 documentationcenter: java
@@ -14,7 +14,7 @@ ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019 
 ---
 
 # How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure
