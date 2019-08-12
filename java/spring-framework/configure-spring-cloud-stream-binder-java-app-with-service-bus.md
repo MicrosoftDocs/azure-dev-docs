@@ -52,7 +52,10 @@ The following prerequisites are required for this article:
 
 1. Open the *pom.xml* file in a text editor.
 
-1. If you are using a Service Bus **queue**, add the following code block under the **&lt;dependencies>** element.
+1. Add the following code block under the **&lt;dependencies>** element, depending on if you're using a Service Bus queue or topic:
+
+
+    **Service Bus queue**
 
     ```xml
     <dependency>
@@ -64,7 +67,7 @@ The following prerequisites are required for this article:
 
     ![Edit the pom.xml file for the Service Bus queue.](./media/configure-spring-cloud-stream-binder-java-app-with-service-bus/add-stream-binder-starter-pom-file-dependency-for-service-bus-queue.png)
 
-    If you are using a Service Bus **topic**, add the following code block under the **&lt;dependencies>** element.
+    **Service Bus topic**
 
     ```xml
     <dependency>
@@ -93,7 +96,9 @@ You can configure your app based on either the connection string or a credential
 
 1. Open the *application.properties* file in a text editor.
 
-1. If you are using a Service Bus **queue**, append the following code to the end of the file. Replace the sample values with the appropriate properties for your service bus based on the field descriptions listed at the end of this step.
+1. Based on the field descriptions listed at the end of this step, append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic.
+
+    **Service Bus queue**
 
     ```yaml
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -102,7 +107,7 @@ You can configure your app based on either the connection string or a credential
     spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode=MANUAL
     ```
 
-    If you are using a Service Bus **topic**, append the following code to the end of the file. Replace the sample values with the appropriate properties for your service bus based on the field descriptions listed at the end of this step.
+    **Service Bus topic**
 
     ```yaml
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
