@@ -96,7 +96,7 @@ You can configure your app based on either the connection string or a credential
 
 1. Open the *application.properties* file in a text editor.
 
-1. Based on the [field descriptions](#fd) listed at the end of this step, append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic.
+1. Append the appropriate code to the end of the *application.properties* file depending on if you're using a Service Bus queue or topic. Use the [Field Descriptions table](#fd) to replace the sample values with the appropriate properties for your service bus.
 
     **Service Bus queue**
 
