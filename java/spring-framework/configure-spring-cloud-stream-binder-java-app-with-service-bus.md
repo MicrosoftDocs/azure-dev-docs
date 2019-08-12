@@ -12,7 +12,7 @@ ms.topic: article
 
 # How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 
-[!INCLUDE [spring-boot-20-note.md](../../includes/spring-boot-20-note.md)]
+[!INCLUDE [spring-boot-20-note.md](../includes/spring-boot-20-note.md)]
 
 ## Overview
 
