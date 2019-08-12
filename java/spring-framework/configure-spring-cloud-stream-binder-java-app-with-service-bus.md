@@ -122,13 +122,13 @@ You can configure your app based on either the connection string or a credential
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specifies the connection string that you obtained in your Azure Service Bus Namespace from your portal.                                   |
-    |               `spring.cloud.stream.bindings.input.destination`                 |                            Specifies the input destination Azure Service Bus, which for this tutorial is the queue / topic you created earlier.                         |
-    |                  `spring.cloud.stream.bindings.input.group`                    |                                            Specifies a subscription that you created in your Azure Service Bus Topic **ONLY** when you use Service Bus Topic.                                |
+    |               `spring.cloud.stream.bindings.input.destination`                 |                            Specifies the input destination Azure Service Bus, which for this tutorial is the Service Bus queue or topic you created earlier.                         |
+    |                  `spring.cloud.stream.bindings.input.group`                    |                                            Specifies a subscription that you created in your Azure Service Bus topic **ONLY** when you use Service Bus topic.                                |
     |               `spring.cloud.stream.bindings.output.destination`                |                               Specifies the output destination Azure Service Bus, which for this tutorial will be the same as the input destination.                        |
     | `spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode` |                                                       Specifies the checkpoint mode for queue, which for this tutorial will be `MANUAL`.                                                   |
     | `spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode` |                                                       Specifies the checkpoint mode for topic, which for this tutorial will be `MANUAL`.                                                   |
 
-3. Save and close the *application.properties* file.
+1. Save and close the *application.properties* file.
 
 ## Implement basic Service Bus functionality
 
@@ -144,7 +144,9 @@ In this section, you see how to create the necessary Java classes for sending me
 
    `/users/example/home/servicebus/src/main/java/com/example/ServiceBusBinderApplication.java`
 
-2. Open the main application Java file in a text editor, and add the following lines to the file:
+1. Open the main application Java file in a text editor.
+
+1. Append the following lines to the file:
 
     ```java
     package com.example;
@@ -161,11 +163,13 @@ In this section, you see how to create the necessary Java classes for sending me
     }
     ```
 
-3. Save and close the main application Java file.
+1. Save and close the file.
 
 ### Create a new class for the source connector
 
-1. Create a new Java file named *StreamBinderSource.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+1. Using a text editor, create a Java file named *StreamBinderSource.java* in the package directory of your app.
+
+1. Add the following lines of code to the new file:
 
     ```java
     package com.example;
@@ -193,11 +197,13 @@ In this section, you see how to create the necessary Java classes for sending me
     }
     ```
 
-2. Save and close the *StreamBinderSources.java* file.
+1. Save and close the *StreamBinderSources.java* file.
 
 ### Create a new class for the sink connector
 
-1. Create a new Java file named *StreamBinderSink.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+1. Using a text editor, create a Java file named *StreamBinderSink.java* in the package directory of your app.
+
+1. Add the following lines of code to the new file:
 
     ```java
     package com.example;
@@ -225,11 +231,13 @@ In this section, you see how to create the necessary Java classes for sending me
     }
     ```
 
-2. Save and close the *StreamBinderSink.java* file.
+1. Save and close the *StreamBinderSink.java* file.
 
 ## Build and test your application
 
-1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
+1. Open a command prompt.
+
+1. Change the directory to the location of your *pom.xml* file; for example:
 
     `cd C:\SpringBoot\servicebus`
 
@@ -237,19 +245,19 @@ In this section, you see how to create the necessary Java classes for sending me
 
     `cd /users/example/home/servicebus`
 
-2. Build your Spring Boot application with Maven and run it; for example:
+2. Build your Spring Boot application with Maven and run it:
 
     ```shell
     mvn clean spring-boot:run
     ```
 
-3. Once your application is running, you can use *curl* to test your application; for example:
+3. Once your application is running, you can use *curl* to test your application:
 
     ```shell
     curl -X POST localhost:8080/messages?message=hello
     ```
 
-    You should see "hello" posted to your application's logs. For example:
+    You should see "hello" posted to your application's log:
 
     ```shell
     New message received: 'hello'
@@ -258,7 +266,7 @@ In this section, you see how to create the necessary Java classes for sending me
 
 ## Clean up resources
 
-You can delete the resources on your [Azure Portal](http://ms.portal.azure.com/) to avoid unexpected charges.
+When no longer needed, use the [Azure Portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
