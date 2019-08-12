@@ -86,9 +86,11 @@ The following prerequisites are required for this article:
 
 1. Save and close the *pom.xml* file.
 
-## Configure the app for your Service Bus 
+## Configure the app for your service bus 
 
-### Configure your app to use Service Bus Queue
+In this section, you see how to configure your app to use either a Service Bus queue or topic.
+
+### Use a Service Bus queue
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
@@ -113,7 +115,7 @@ The following prerequisites are required for this article:
 
 3. Save and close the *application.properties* file.
 
-### Configure your app to use Service Bus Topic
+### Use Service Bus topic
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
