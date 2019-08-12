@@ -65,7 +65,7 @@ The following prerequisites are required for this article:
     </dependency>
     ```
 
-    ![Add the dependency section to the pom.xml file.] (./media/configure-spring-messaging-java-app-with-azure-service-bus/add-dependency-section.png)
+    ![Add the dependency section to the pom.xml file.](./media/configure-spring-messaging-java-app-with-azure-service-bus/add-dependency-section.png)
 
 3. Add [maven repositories](https://maven.apache.org/settings.html#Repositories) configuration to use SNAPSHOT version as follows:
 
@@ -82,7 +82,7 @@ The following prerequisites are required for this article:
     </repositories>
     ```
 
-    ![Add the repository section to the pom.xml file.] (./media/configure-spring-messaging-java-app-with-azure-service-bus/add-repository-section.png)
+    ![Add the repository section to the pom.xml file.](./media/configure-spring-messaging-java-app-with-azure-service-bus/add-repository-section.png)
 
 4. Save and close the *pom.xml* file.
 
