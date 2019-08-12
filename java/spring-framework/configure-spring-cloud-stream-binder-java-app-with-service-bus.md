@@ -1,22 +1,22 @@
 ---
-title: Spring Cloud Azure Stream Binder for Service Bus
+title: Spring Cloud Azure Stream Binder for Azure Service Bus
 description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
 author: seanli1988
 manager: kyliel
 ms.author: Sean.Li
-ms.date:
+ms.date: 08/09/2019
 ms.devlang: java
 ms.service: azure-java
 ms.topic: article
 ---
 
-# How to use Spring Cloud Azure Stream Binder for Service Bus
+# How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 
 ## Overview
 
-Azure provides an asynchronous messaging platform called [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) that is based on the Advanced Message Queueing Protocol 1.0 ([AMQP 1.0](http://www.amqp.org/)) standard. Service Bus can be used across the range of supported Azure platforms.
+Azure provides an asynchronous messaging platform called [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
 
-This article demonstrates how to use the Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus **Queues** and **Topics**.
+This article demonstrates how to use the Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus `queues` and `topics`.
 
 ## Prerequisites
 
@@ -28,13 +28,8 @@ The following prerequisites are required for this article:
 
 3. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-4. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) to create a queue.
-
-    a. Create a Service Bus **namespace**.
-
-    b. Get the **connection string**.
-
-    c. Create a Service Bus **queue**.
+4. If you don't have a queue, [use the Azure portal to create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal).
+queue**.
 
 5. If you don't have a topic and a subscription to work with, follow steps in the [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) to create a topic and a subscription.
 
