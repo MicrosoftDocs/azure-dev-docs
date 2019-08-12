@@ -369,8 +369,7 @@ When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to de
 
 ## Next steps
 
-For more information about using Azure Service Bus with JMS, see [How to use JMS API with Service Bus and AMQP 1.0](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+## Next steps
 
-For more information about using Java with the Azure platform see [Azure for Java cloud developers](https://docs.microsoft.com/en-us/azure/java)
-
-For more information on using the Spring framework in your app see the Spring web site [Spring](https://spring.io/). It provides developers with a JMS integration framework, simplifying the use of the JMS API.
+> [!div class="nextstepaction"]
+> [How to use JMS API with Service Bus and AMQP 1.0](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp)

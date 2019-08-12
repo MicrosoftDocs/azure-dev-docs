@@ -269,7 +269,5 @@ When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to de
 
 ## Next steps
 
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
-
 > [!div class="nextstepaction"]
 > [Spring on Azure](/java/azure/spring-framework)
