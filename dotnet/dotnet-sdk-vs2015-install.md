@@ -2,6 +2,8 @@
 title: Azure tools for Visual Studio 2015
 description: Get the tools to start using the Azure .NET libraries from Visual Studio 2015.
 ms.date: 10/19/2017
+author: CamSoper
+ms.author: casoper
 ms.topic: conceptual
 ---
 
