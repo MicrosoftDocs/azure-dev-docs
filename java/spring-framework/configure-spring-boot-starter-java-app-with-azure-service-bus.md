@@ -111,7 +111,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     spring.jms.servicebus.idle-timeout=<IdleTimeout>
     ```
 
-    **Field Descriptions**
+    **Field descriptions**
 
     | Field                                     | Description                                                                                     |
     |-------------------------------------------|-------------------------------------------------------------------------------------------------|
@@ -140,7 +140,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     spring.jms.servicebus.idle-timeout=<IdleTimeout>
     ```
 
-    **Field Descriptions**
+    **Field descriptions**
 
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
