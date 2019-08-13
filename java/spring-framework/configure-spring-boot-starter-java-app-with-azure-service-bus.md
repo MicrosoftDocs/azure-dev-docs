@@ -115,7 +115,7 @@ In this section, you see how to configure your app to use either a Service Bus q
 
     | Field                                     | Description                                                                                     |
     |-------------------------------------------|-------------------------------------------------------------------------------------------------|
-    | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your service bus namespace from the Azure portal. |
+    | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.   |
 
 3. Save and close the *application.properties* file.
@@ -144,7 +144,7 @@ In this section, you see how to configure your app to use either a Service Bus q
 
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
-    | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your service bus namespace from the Azure portal.   |
+    | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
     | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID if you're using an Azure Service Bus topic with a durable subscription. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
@@ -366,8 +366,6 @@ In this section, you create the necessary Java classes for sending messages to y
 ## Clean up resources
 
 When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
-
-## Next steps
 
 ## Next steps
 

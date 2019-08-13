@@ -120,7 +120,7 @@ You can configure your app based on either the connection string or a credential
 
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string you obtained in your service bus namespace from the Azure portal.                                   |
+    |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                   |
     |               `spring.cloud.stream.bindings.input.destination`                 |                            Specify the Service Bus queue or Service Bus topic you used in this tutorial.                         |
     |                  `spring.cloud.stream.bindings.input.group`                    |                                            If you used a Service Bus topic, specify the topic subscription.                                |
     |               `spring.cloud.stream.bindings.output.destination`                |                               Specify the same value used for input destination.                        |
