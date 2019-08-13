@@ -2,6 +2,8 @@
 title: Authenticate with the Azure libraries for .NET
 description: Authenticate into the Azure libraries for .NET
 ms.date: 08/22/2018
+author: CamSoper
+ms.author: casoper
 ms.topic: conceptual
 ---
 
