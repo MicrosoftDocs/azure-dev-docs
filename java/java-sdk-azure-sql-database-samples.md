@@ -11,9 +11,10 @@ ms.topic: article
 ms.devlang: java
 ms.service: multiple
 ms.assetid: e4537f38-a60d-4218-a9ba-3cba7af61b8b
+ms.custom: seo-java-august2019 ​
 ---
 
 
-# Azure management libraries for Java samples for SQL Database
+# Azure management libraries for Java - SQL Database samples
 
 [!INCLUDE [java-sql-samples](includes/java-sql-samples.md)]
