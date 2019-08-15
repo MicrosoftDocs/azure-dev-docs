@@ -99,7 +99,7 @@
     - name: Databases
       items:
         - name: Cosmos DB
-          href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database
+          href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db
         - name: SQL DB
           href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-sql-database
         - name: Mongo DB
@@ -109,7 +109,7 @@
     - name: Identity &  Security
       href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault
     - name: IoT
-      href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central    
+      href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
     - name: Microservices
       href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-event-grid
     - name: AI with Cognitive Services
