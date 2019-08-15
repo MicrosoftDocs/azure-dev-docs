@@ -85,7 +85,7 @@ items:
 
     Create a public IP address:
     ```azurecli-interactive
-    az network public-ip create -g sampleVmResourceGroup -n azure-sample-ip --allocation-method Dynamic --version IPv6
+    az network public-ip create -g sampleVmResourceGroup -n azure-sample-ip --allocation-method Dynamic --version IPv4
     ```
     Create a network interface client:
     ```azurecli-interactive

@@ -43,8 +43,6 @@
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
       "feedback_product_url": "https://github.com/Azure/azure-sdk-for-net/issues",  
-      "author": "CamSoper",
-      "ms.author": "casoper",
       "ms.topic": "conceptual",
       "ms.devlang": "csharp",
       "ms.date": "09/20/2018",
