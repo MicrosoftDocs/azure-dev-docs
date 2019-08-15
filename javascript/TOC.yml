@@ -116,8 +116,6 @@
       href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-cognitive-services
     - name: Search
       href: /samples/browse/?languages=javascript%2Cnodejs&products=azure-search
-    - name: Billing
-      href: https://github.com/Azure-Samples/consumption-cost-node
     - name: All Samples
       href: /samples/browse/?languages=javascript%2Cnodejs
   - name: Reference
