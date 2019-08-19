@@ -16,6 +16,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "javascript/node-sdk-azure-install.md",
+            "redirect_url": "/javascript/api/?view=azure-node-latest",
+            "redirect_document_id": false
+        },        {
             "source_path": "javascript/node-samples-services-appservice.md",
             "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
             "redirect_document_id": true

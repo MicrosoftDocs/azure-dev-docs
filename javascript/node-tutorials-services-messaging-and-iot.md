@@ -1,13 +1,13 @@
 ---
 title: Azure messaging and Internet of Things (IoT) with Node.js tutorials
 description: Tutorials for using Azure messaging and Internet of Things (IoT) with Node.js.
-author: karlerickson
-manager: douge
+author: kraigb
+manager: barbkess
 ms.devlang: nodejs
 ms.topic: article
 ms.service: azure-nodejs
 ms.date: 06/17/2017
-ms.author: karler
+ms.author: kraigb
 ---
 
 # Azure messaging and Internet of Things (IoT) with Node.js tutorials
