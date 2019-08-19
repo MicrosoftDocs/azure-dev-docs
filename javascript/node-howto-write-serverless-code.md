@@ -14,7 +14,9 @@ ms.author: kraigb
 
 Serverless code allows you to create responsive, on-demand endpoints on the Internet without having to concern yourself with provisioning or managing infrastructure. Serverless code is composed to scripts or other bits of code that are run in response to various events. On Azure, the serverless offering is called Azure Functions.
 
-First, jump right in with [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+First, jump right in:
+
+- [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code.md). This article introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
 
 Next, expand your understanding of what Azure Functions can do by reviewing the following articles:
 
