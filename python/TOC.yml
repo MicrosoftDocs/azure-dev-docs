@@ -71,14 +71,34 @@
   - name: Multi-cloud development
     href: python-sdk-azure-multi-cloud.md
 - name: Samples
-  items:
-    - name: Virtual machines
-      href: python-sdk-azure-virtual-machine-samples.md
-    - name: Web apps
-      href: python-sdk-azure-web-apps-samples.md
-    - name: SQL Database
-      href: python-sdk-azure-sql-database-samples.md
-    - name: All Python samples
-      href: https://azure.microsoft.com/resources/samples/?platform=python
+  items: 
+  - name: Web apps & serverless
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps
+  - name: Databases
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database
+  - name: Storage
+    items:
+      - name: Azure Storage
+        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-storage
+      - name: Redis Cahe
+        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-redis-cache
+  - name: Identity &  Security
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
+  - name: IoT
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
+  - name: Data science
+    items:
+      - name: Machine Learning Service    
+        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-machine-learning-service
+      - name: Databricks
+        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-databricks
+      - name: HDInsight
+        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-hdinsight
+  - name: AI with Cognitive Services
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cognitive-services
+  - name: Search
+    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-search
+  - name: All Samples
+    href: https://docs.microsoft.com/samples/browse/?languages=python
 - name: Reference
   href: /python/api/?view=azure-python
