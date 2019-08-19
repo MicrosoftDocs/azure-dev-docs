@@ -1,6 +1,6 @@
 items:
   - name: Azure SDK for Go
-    href: index.yml
+    href: index.md
   - name: Overview
     items:
     - name: Installation

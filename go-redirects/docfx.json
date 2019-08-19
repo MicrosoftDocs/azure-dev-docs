@@ -36,7 +36,7 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/go/azure/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
+      "extendBreadcrumb": false,
       "feedback_system": "None"
     },
     "template": [],
