@@ -90,8 +90,6 @@
     items:
     - name: Deploy with Visual Studio Code
       href: node-howto-e2e.md
-    - name: Create a REST API 
-      href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
 #    - name: Deploy a web app
 #      href: node-howto-deploy-web-app.md
 #    - name: Deploy containers
@@ -108,6 +106,8 @@
 #      href: node-howto-automate-monitoring.md
 #    - name: Use SDKs with a PWA
 #      href: node-howto-use-sdk-pwa.md
+    - name: Create a REST API 
+      href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: Samples
     items: 
     - name: Web apps & serverless
