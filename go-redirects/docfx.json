@@ -1,0 +1,12 @@
+{
+  "build": {
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "feedback_system": "None"
+    },
+    "template": [],
+    "dest": "azure-go-redirect",
+    "markdownEngineName": "markdig"
+  }
+}
