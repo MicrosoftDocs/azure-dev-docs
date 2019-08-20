@@ -25,11 +25,11 @@ The following articles help you explore these steps. For a walkthrough and demon
 
 - **Databases**: you can use any database you like. The [database services on Azure](https://docs.microsoft.com/azure/#pivot=products&panel=databases) include:
 
-- [Cosmos DB](/azure/cosmos-db/create-sql-api-nodejs.md) (a NoSQL store for JSON documents)
-- [MySQL](/azure/mysql/connect-nodejs.md)
-- [PostgreSQL](/azure/postgresql/connect-nodejs.md)
-- [Azure SQL Database](/azure/sql-database/sql-database-connect-query-nodejs.md)
-- [Redis Cache](/azure/azure-cache-for-redis/cache-nodejs-get-started.md)
+  - [Cosmos DB](/azure/cosmos-db/create-sql-api-nodejs.md) (a NoSQL store for JSON documents)
+  - [MySQL](/azure/mysql/connect-nodejs.md)
+  - [PostgreSQL](/azure/postgresql/connect-nodejs.md)
+  - [Azure SQL Database](/azure/sql-database/sql-database-connect-query-nodejs.md)
+  - [Redis Cache](/azure/azure-cache-for-redis/cache-nodejs-get-started.md)
   
 - **Serverless APIs**:
 
@@ -64,4 +64,4 @@ The following articles help you explore these steps. For a walkthrough and demon
     }
     ```
 
-[!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
+> [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
