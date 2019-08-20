@@ -1,19 +1,119 @@
 {
-    "redirections": [
-        {
-            "source_path": "javascript/overview.md",
-            "redirect_url": "/azure/javascript/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "javascript/node-sdk-azure-get-started.md",
-            "redirect_url": "/azure/javascript/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "java/microprofile/cicd-microprofile-vsts.md",
-            "redirect_url": "/azure/java/microprofile/cicd-microprofile",
-            "redirect_document_id": true
-        }
-    ]
+  "redirections": [
+    {
+      "source_path": "java/microprofile/cicd-microprofile-vsts.md",
+      "redirect_url": "/azure/java/microprofile/cicd-microprofile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/overview.md",
+      "redirect_url": "/azure/javascript/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "javascript/node-sdk-azure-get-started.md",
+      "redirect_url": "/azure/javascript/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "javascript/node-samples-services-appservice.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-web-and-mobile.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-billing.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-compute.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-database.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-iot.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-security-and-identity.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-samples-services-storage.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-sql-database-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-virtual-machine-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-virtual-machines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-web-apps-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
+      "redirect_url": "/azure/go/azure-sdk-go-auth-aad-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-authorization.md",
+      "redirect_url": "/azure/go/azure-sdk-go-authorization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-compute-networking-samples.md",
+      "redirect_url": "/azure/go/azure-sdk-go-compute-networking-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-containers-samples.md",
+      "redirect_url": "/azure/go/azure-sdk-go-containers-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-install.md",
+      "redirect_url": "/azure/go/azure-sdk-go-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-qs-vm.md",
+      "redirect_url": "/azure/go/azure-sdk-go-qs-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-sql-database-samples.md",
+      "redirect_url": "/azure/go/azure-sdk-go-sql-database-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/azure-sdk-go-tools.md",
+      "redirect_url": "/azure/go/azure-sdk-go-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "go-redirects/index.yml",
+      "redirect_url": "/azure/go",
+      "redirect_document_id": false
+    }
+  ]
 }
