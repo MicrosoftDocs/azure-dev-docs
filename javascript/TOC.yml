@@ -100,8 +100,8 @@
 #      href: node-howto-integrate-databases.md
     - name: Write serverless code
       href: node-howto-write-serverless-code.md
-#    - name: Create a static site
-#      href: node-howto-create-static-site.md
+    - name: Create a static (JAMstack) site
+      href: node-howto-create-static-site-jamstack.md
 #    - name: Automate monitoring
 #      href: node-howto-automate-monitoring.md
 #    - name: Use SDKs with a PWA
