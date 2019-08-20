@@ -88,24 +88,22 @@
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: How-To guides
     items:
-    - name: Deploy with Visual Studio Code
+    - name: End to end Node.js with VS Code
       href: node-howto-e2e.md
-#    - name: Deploy a web app
-#      href: node-howto-deploy-web-app.md
-#    - name: Deploy containers
-#      href: node-howto-deploy-containers.md
-#    - name: Deploy through continuous delivery
-#      href: node-howto-deploy-continuous-delivery.md
+    - name: Deploy a web app
+      href: node-howto-deploy-web-app.md
+    - name: Deploy containers
+      href: node-howto-deploy-containers.md
+    - name: Deploy through continuous delivery
+      href: /azure/devops/pipelines/languages/javascript?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Integrate with databases
       href: node-howto-integrate-databases.md
     - name: Write serverless code
       href: node-howto-write-serverless-code.md
     - name: Create a static (JAMstack) site
       href: node-howto-create-static-site-jamstack.md
-#    - name: Automate monitoring
-#      href: node-howto-automate-monitoring.md
-#    - name: Use SDKs with a PWA
-#      href: node-howto-use-sdk-pwa.md
+    - name: Automate monitoring
+      href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Create a REST API 
       href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: Samples

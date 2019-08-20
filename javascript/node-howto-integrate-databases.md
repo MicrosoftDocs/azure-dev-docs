@@ -17,8 +17,16 @@ The following table links to a variety of articles for connecting to and using A
 | Service | Quickstart | Samples |
 | --- | --- | --- |
 | **Cosmos DB** | [Create a Node.js Azure Cosmos DB web app](/azure/cosmos-db/create-sql-api-nodejs.md) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db) |
-| **MongoDB** | [Create a Node.js and MongoDB web app](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&term=Mongo%20DB) |
+| **MongoDB** | [Create a Node.js and MongoDB web app](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&term=Mongo%20DB) |
 | **Redis Cache** | [Create and consume a Redis cache](/azure/redis-cache/cache-nodejs-get-started) | |
 | **Azure SQL database** | [Use Node.js to query and Azure SQL database](/azure/sql-database/sql-database-connect-query-nodejs.md) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-sql-database) | |
 | **MySQL** | [Use Node.js to connect and query data](/azure/mysql/connect-nodejs.md) | |
 | **PostgreSQL** | [Use Node.js to connect and query data](/azure/postgresql/connect-nodejs.md) | |
+
+You can also use Azure Storage for file (blob), table, and queue (message) storage:
+
+| Service | Quickstart |
+| --- | --- | --- |
+| **Blobs** | [Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript](/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) | Upload, list, download, and delete blobs. |
+| **Queues** | [How to use Queue storage from Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues.md) |
+| **Tables** | [How to use Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs) |
