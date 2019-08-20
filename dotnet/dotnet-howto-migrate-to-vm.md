@@ -2,6 +2,8 @@
 title: Migrate an ASP.NET Web application to an Azure Virtual Machine
 description: Learn how to migrate an ASP.NET Web application from on-premises to an Azure Virtual Machine.
 ms.date: 11/15/2017
+author: CamSoper
+ms.author: casoper
 ms.service: virtual-machines
 ms.topic: conceptual
 ---
