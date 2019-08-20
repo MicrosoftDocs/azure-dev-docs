@@ -1,6 +1,6 @@
 ---
 title: Build static sites with Node.js Azure
-description: How to use Azure to build a JAMstack app: JavaScript, APIs, and Markup
+description: How to use Azure to build a JAMstack app (JavaScript, APIs, and Markup)
 author: kraigb
 manager: barbkess
 ms.devlang: nodejs
@@ -29,7 +29,7 @@ A step-by-step tutorial can be found on [Deploy a static website to Azure](https
 
 The following articles also explain further details:
 
-- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](node-how-to-integrate-databases.md).
+- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](node-howto-integrate-databases.md).
   
 - **Serverless APIs**:
 
