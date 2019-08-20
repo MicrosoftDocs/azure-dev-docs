@@ -96,8 +96,8 @@
 #      href: node-howto-deploy-containers.md
 #    - name: Deploy through continuous delivery
 #      href: node-howto-deploy-continuous-delivery.md
-#    - name: Integrate with databases
-#      href: node-howto-integrate-databases.md
+    - name: Integrate with databases
+      href: node-howto-integrate-databases.md
     - name: Write serverless code
       href: node-howto-write-serverless-code.md
     - name: Create a static (JAMstack) site

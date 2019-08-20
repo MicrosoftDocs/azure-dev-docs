@@ -21,15 +21,13 @@ To implement a static/JAMstack site on Azure, you employ a variety of tools and 
 - Choose any libraries you want for front-end development, such as Angular. You then upload these static HTML, CSS< and JavaScript files to Azure Blob Storage, which provides a built-in web server.
 - Create a reverse proxy so that all your traffic goes through one URL domain.
 
-The following articles help you explore these steps. For a walkthrough and demonstration, watch the //build 2019 session [Productive front-end development with JavaScript, Visual Studio Code, and Azure](https://mybuild.techcommunity.microsoft.com/sessions/77038?source=sessions#top-anchor), shown at the end of this article.
+You can watch a demonstration of the process with the //build 2019 session, [Productive front-end development with JavaScript, Visual Studio Code, and Azure](https://mybuild.techcommunity.microsoft.com/sessions/77038?source=sessions#top-anchor).
 
-- **Databases**: you can use any database you like. The [database services on Azure](https://docs.microsoft.com/azure/#pivot=products&panel=databases) include:
+> [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
 
-  - [Cosmos DB](/azure/cosmos-db/create-sql-api-nodejs.md) (a NoSQL store for JSON documents)
-  - [MySQL](/azure/mysql/connect-nodejs.md)
-  - [PostgreSQL](/azure/postgresql/connect-nodejs.md)
-  - [Azure SQL Database](/azure/sql-database/sql-database-connect-query-nodejs.md)
-  - [Redis Cache](/azure/azure-cache-for-redis/cache-nodejs-get-started.md)
+The following articles also explain the details:
+
+- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](node-how-to-integrate-databases.md).
   
 - **Serverless APIs**:
 
@@ -63,5 +61,3 @@ The following articles help you explore these steps. For a walkthrough and demon
       }
     }
     ```
-
-> [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
