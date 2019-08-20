@@ -48,7 +48,7 @@ credentials = ServicePrincipalCredentials(
 )
 ```
 
-> [NOTE!]
+> [!NOTE]
 > To connect to one of the Azure sovereign clouds, use the `cloud_environment` parameter.
 >
 > ```python
@@ -115,7 +115,7 @@ subscription_id = '33333333-3333-3333-3333-333333333333'
 client = ComputeManagementClient(credentials, subscription_id)
 ```
 
-> [NOTE!]
+> [!NOTE]
 > When using an Azure sovereign cloud you must also specify the appropriate base URL (via the constants in `msrestazure.azure_cloud`) when creating the management client. For example for Azure China Cloud:
 > ```python
 > client = ComputeManagementClient(credentials, subscription_id,
