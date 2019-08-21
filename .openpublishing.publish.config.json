@@ -29,6 +29,20 @@
       "template_folder": "_themes"
     },
     {
+      "docset_name": "azure-go-redirect",
+      "build_source_folder": "go-redirects",
+      "build_output_subfolder": "azure-go-redirect",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": false,
+      "type_mapping": {
+        "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    },
+    {
       "docset_name": "azure-java",
       "build_source_folder": "java",
       "build_output_subfolder": "azure-java",
