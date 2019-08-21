@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Spring JMS Starter to send
 author: seanli1988
 manager: kyliel
 ms.author: Sean.Li
-ms.date: 08/12/2019
+ms.date: 08/21/2019
 ms.devlang: java
 ms.service: azure-java
 ms.topic: article
@@ -13,8 +13,6 @@ ms.topic: article
 # How to use the Spring Boot Starter for Azure Service Bus JMS
 
 [!INCLUDE [spring-boot-20-note.md](../includes/spring-boot-20-note.md)]
-
-## Overview
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
 
