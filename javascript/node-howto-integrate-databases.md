@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # How to integrate Azure databases in Node.js apps
 
-The following table links to a variety of articles for connecting to and using Azure databases with Node.js.
+The following table links to a variety of articles for connecting to and using Azure databases with Node.js. For a side-by-side list of different database options, see [Databases - Fully managed intelligent database services](https://azure.microsoft.com/product-categories/databases/).
 
 | Service | Quickstart | Samples |
 | --- | --- | --- |
