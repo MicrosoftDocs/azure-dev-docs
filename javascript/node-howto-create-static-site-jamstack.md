@@ -33,14 +33,14 @@ The following articles also explain further details:
   
 - **Serverless APIs**:
 
-  - Start with [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+  - Start with [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
   - When you complete the article, you have an Azure Functions project (a folder) that contains a subfolder named for the function, which is the same as its HTTP endpoint. That function folder contains an *index.js* file with the code.
   - You can modify that function as needed, and also add more functions to the project, then deploy them again to Azure where they are publicly available.
   - For additional resources on serverless development, see [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md)
 
-- **Deploy your front-end to Azure Storage**: with your APIs in hand, you can now write your front-end code to use those APIs, using whatever framework you like. When you're ready, follow the article, [Tutorial: Host a static website on Blob Storage](/storage/blobs/storage-blob-static-website-host.md), to upload those files to Azure and turn on static website hosting.
+- **Deploy your front-end to Azure Storage**: with your APIs in hand, you can now write your front-end code to use those APIs, using whatever framework you like. When you're ready, follow the article, [Tutorial: Host a static website on Blob Storage](/azure/storage/blobs/storage-blob-static-website-host), to upload those files to Azure and turn on static website hosting.
 
-- **Create a reverse proxy**: A reverse proxy, as described on [Work with Azure Functions proxies](/azure/azure-functions/functions-proxies.md) allows you to easily direct certain requests to different URLs. In this case, you want to direct requests for your front-end files to the Azure Storage URL, where you deployed those files, and API requests to the Azure Functions URL.
+- **Create a reverse proxy**: A reverse proxy, as described on [Work with Azure Functions proxies](/azure/azure-functions/functions-proxies) allows you to easily direct certain requests to different URLs. In this case, you want to direct requests for your front-end files to the Azure Storage URL, where you deployed those files, and API requests to the Azure Functions URL.
 
   - To create these proxies, edit the *proxies.json* file in your Functions project so that it appears as shown below, substituting your URLs for `<storage_url>` and `<api_url>`:
   
