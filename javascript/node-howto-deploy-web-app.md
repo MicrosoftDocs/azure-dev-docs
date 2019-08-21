@@ -16,7 +16,7 @@ On Azure, you have several options for hosting web apps:
 
 - The best hosting option for web apps is Azure App Service, a platform-as-a-service (PaaS) offering. To get started, try any of the following resources:
 
-  - [Create a Node.js web app in Azure](/azure/app-service/app-service-web-get-started-nodejs.md)
+  - [Create a Node.js web app in Azure](/azure/app-service/app-service-web-get-started-nodejs)
   - [Try Azure App Service - Create an Express app from a template](https://code.visualstudio.com/tryappservice/?utm_source=msftdocs&utm_medium=microsoft&utm_campaign=tryappservice)
   - [Host a web app with Azure App Service - Learn module](/learn/modules/host-a-web-app-with-azure-app-service/index)
   - [Build a Node.js and MongoDB app in Azure](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
@@ -30,4 +30,4 @@ On Azure, you have several options for hosting web apps:
 
 - If you'd like to control the infrastructure, you can simply use a virtual machine. To get started, follow the [Deploy a website with Azure virtual machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/) path on Microsoft Learn.
 
-For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree.md) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/) module on Microsoft Learn.
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/) module on Microsoft Learn.
