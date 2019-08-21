@@ -31,7 +31,7 @@
       - name: Log Analytics with Azure Monitor
         href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: GitHub Actions
-        href: https://css-tricks.com/introducing-github-actions/
+        href: https://azure.microsoft.com/resources/videos/azure-friday-deploy-to-azure-using-github-actions
     - name: Debugging and diagnostics
       items:
       - name: Remote debugging for Azure App Service
