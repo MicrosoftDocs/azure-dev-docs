@@ -11,9 +11,10 @@ ms.topic: article
 ms.devlang: java
 ms.service: multiple
 ms.assetid: 1eeb166f-8253-4fde-82d2-43997fda7819
+ms.custom: 
 ---
 
-# Azure management libraries for Java samples for virtual machines
+# Azure management libraries for Java - Virtual machine samples
 
 The following table links to Java source you can use to create and configure Azure virtual machines.
 
