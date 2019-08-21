@@ -26,7 +26,7 @@ The following table links to a variety of articles for connecting to and using A
 You can also use Azure Storage for file (blob), table, and queue (message) storage:
 
 | Service | Quickstart |
-| --- | --- | --- |
-| **Blobs** | [Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript](/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) | Upload, list, download, and delete blobs. |
+| --- | --- |
+| **Blobs** | [Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript](/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) |
 | **Queues** | [How to use Queue storage from Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues.md) |
 | **Tables** | [How to use Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs) |
