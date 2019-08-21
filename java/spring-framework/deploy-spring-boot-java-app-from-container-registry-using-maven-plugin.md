@@ -14,10 +14,10 @@ ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: seo-java-july2019 
+ms.custom: seo-java-july2019, seo-java-august2019  
 ---
 
-# How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
+# Use Maven for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
 
 This article demonstrates how to deploy a sample [Spring Boot] application to Azure Container Registry, and then use the Maven Plugin for Azure Web Apps to deploy your application to Azure App Service.
 
