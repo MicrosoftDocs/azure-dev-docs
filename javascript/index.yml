@@ -84,7 +84,7 @@ sections:
       image:
         src: /media/logos/logo_vs-team-services.svg
     - title: GitHub Actions 
-      href: https://css-tricks.com/introducing-github-actions/
+      href: https://azure.microsoft.com/resources/videos/azure-friday-deploy-to-azure-using-github-actions
       html: <p>Build and deploy apps to Azure from GitHub Actions</p>
       image:
         src: /media/logos/logo_octokitty.svg
