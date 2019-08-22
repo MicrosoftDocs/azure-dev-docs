@@ -4,9 +4,7 @@ description: Learn how to configure an application created with the Spring Boot 
 services: cosmos-db
 documentationcenter: java
 author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
+ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: cosmos-db
