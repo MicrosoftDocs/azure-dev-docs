@@ -35,7 +35,7 @@ From here, you can enjoy a number other resources that help you explore serverle
 - Learn about using various triggers to run serverless code:
 
   - [Run code on a timer](/azure/azure-functions/functions-create-scheduled-function)
-  - [Run code when file are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
+  - [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
   - [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
 
 - [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](node-howto-integrate-databases.md)
