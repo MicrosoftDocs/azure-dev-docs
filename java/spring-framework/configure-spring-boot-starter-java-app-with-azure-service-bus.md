@@ -26,19 +26,19 @@ The following prerequisites are required for this article:
 
 1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
 
-2. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
-3. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
+1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-4. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
+1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
     1. Allows access from all networks
-    2. Is Premium (or higher)
-    3. Has an access policy with read/write access for your queue and topic
+    1. Is Premium (or higher)
+    1. Has an access policy with read/write access for your queue and topic
 
-5. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
+1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-6. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Use the Azure Service Bus JMS starter
 
@@ -64,7 +64,7 @@ The following prerequisites are required for this article:
 
     ![Add the dependency section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-dependency-section-new.png)
 
-2. Save and close the *pom.xml* file.
+1. Save and close the *pom.xml* file.
 
 ## Configure the app for your service bus 
 
@@ -96,7 +96,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.   |
 
-3. Save and close the *application.properties* file.
+1. Save and close the *application.properties* file.
 
 ### Use Service Bus topic
 
@@ -328,7 +328,7 @@ In this section, you create the necessary Java classes for sending messages to y
     mvn clean spring-boot:run
     ```
 
-3. Once your application is running, you can use *curl* to test your application:
+1. Once your application is running, you can use *curl* to test your application:
 
     ```shell
     curl -X POST localhost:8080/messages?message=hello
