@@ -20,28 +20,25 @@ The Spring Boot Starter for Azure Service Bus JMS provides Spring integration wi
 
 This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
 
-> [!NOTE]
-> Currently, this article uses the `SNAPSHOT` version of the starter.
-
 ## Prerequisites
 
 The following prerequisites are required for this article:
 
 1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
 
-1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+2. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
-1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
+3. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
 
-1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
+4. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
     1. Allows access from all networks
-    1. Is Premium (or higher)
-    1. Has an access policy with read/write access for your queue and topic
+    2. Is Premium (or higher)
+    3. Has an access policy with read/write access for your queue and topic
 
-1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
+5. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+6. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
 ## Use the Azure Service Bus JMS starter
 
@@ -61,30 +58,13 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
-        <version>2.1.7-SNAPSHOT</version>
+        <version>2.1.7</version>
     </dependency>
     ```
 
-    ![Add the dependency section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-dependency-section.png)
+    ![Add the dependency section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-dependency-section-new.png)
 
-1. Add the [maven repositories](https://maven.apache.org/settings.html#Repositories) configuration to use SNAPSHOT version:
-
-    ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-    ```
-
-    ![Add the repository section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-repository-section.png)
-
-1. Save and close the *pom.xml* file.
+2. Save and close the *pom.xml* file.
 
 ## Configure the app for your service bus 
 
