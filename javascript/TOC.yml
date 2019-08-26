@@ -36,8 +36,6 @@
       items:
       - name: Remote debugging for Azure App Service
         href: https://code.visualstudio.com/docs/azure/remote-debugging
-      - name: Log Points in VS Code for Azure App Service
-        href: https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
       - name: Debug local Node.js apps in VS Code
         href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
     - name: Tools and extensions
