@@ -35,12 +35,14 @@ From here, you can enjoy a number other resources that help you explore serverle
 - Learn about using various triggers to run serverless code:
 
   - [Run code on a timer](/azure/azure-functions/functions-create-scheduled-function)
-  - [Run code when file are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
+  - [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
   - [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
 
 - [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](node-howto-integrate-databases.md)
 
-- [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local) along with [Strategies for testing your code in Azure Functions](/azure/azure-functions/functions-test-a-function) and [Error handling](/azure/azure-functions/functions-bindings-error-pages)
+- [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)
+
+- [Strategies for testing your code in Azure Functions](/azure/azure-functions/functions-test-a-function) and [Error handling](/azure/azure-functions/functions-bindings-error-pages)
 
 - [Configure authentication with Azure Active Directory](/azure/app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json)
 
