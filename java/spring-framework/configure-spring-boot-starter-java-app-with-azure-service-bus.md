@@ -20,9 +20,6 @@ The Spring Boot Starter for Azure Service Bus JMS provides Spring integration wi
 
 This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
 
-> [!NOTE]
-> Currently, this article uses the `SNAPSHOT` version of the starter.
-
 ## Prerequisites
 
 The following prerequisites are required for this article:
@@ -61,28 +58,11 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
-        <version>2.1.7-SNAPSHOT</version>
+        <version>2.1.7</version>
     </dependency>
     ```
 
-    ![Add the dependency section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-dependency-section.png)
-
-1. Add the [maven repositories](https://maven.apache.org/settings.html#Repositories) configuration to use SNAPSHOT version:
-
-    ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-    ```
-
-    ![Add the repository section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-repository-section.png)
+    ![Add the dependency section to the pom.xml file.](./media/configure-spring-boot-starter-java-app-with-azure-service-bus/add-dependency-section-new.png)
 
 1. Save and close the *pom.xml* file.
 
@@ -116,7 +96,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.   |
 
-3. Save and close the *application.properties* file.
+1. Save and close the *application.properties* file.
 
 ### Use Service Bus topic
 
@@ -348,7 +328,7 @@ In this section, you create the necessary Java classes for sending messages to y
     mvn clean spring-boot:run
     ```
 
-3. Once your application is running, you can use *curl* to test your application:
+1. Once your application is running, you can use *curl* to test your application:
 
     ```shell
     curl -X POST localhost:8080/messages?message=hello
