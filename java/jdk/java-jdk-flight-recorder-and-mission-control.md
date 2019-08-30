@@ -8,9 +8,10 @@ ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
 ms.service: azure
-ms.custom: seo-java-july2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
-# Using Java Flight Recorder (JFR) and Mission Control
+
+# Monitor and manage Java workloads with Java Flight Recorder (JFR) and Zulu Mission Control
 
 This articles shows you how to monitor and manage Java workloads with Java Flight Recorder (JFR) and Zulu Mission Control.
 
