@@ -8,9 +8,9 @@ ms.date: 04/09/2019
 ms.devlang: java
 ms.topic: conceptual
 ms.service: azure
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
-# Using Java Flight Recorder (JFR) and Mission Control
+# Monitor and manage Java workloads with Java Flight Recorder (JFR) and Zulu Mission Control
 
 Zulu Mission Control is a fully-tested build of JDK Mission Control, which was open sourced by Oracle in 2018 and is managed as a project under the OpenJDK umbrella. Coupled with Flight Recorder, Mission Control delivers low-overhead, interactive monitoring and management capabilities for Java workloads.
 

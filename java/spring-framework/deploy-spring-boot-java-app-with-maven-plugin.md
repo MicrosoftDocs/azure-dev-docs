@@ -15,7 +15,7 @@ ms.custom: seo-java-july2019, seo-java-august2019
 #Customer intent: As a Java and Spring developer, I want to deploy apps to Azure as JAR files so that I don't have to deal with app server configuration and management.
 ---
 
-# Deploy a Spring Boot web app to Azure App Service on Linux
+# Deploy a Spring Boot JAR file app to Azure App Service with Maven and Azure on Linux
 
 This article demonstrates using the [Maven Plugin for Azure App Service Web Apps](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy a Spring Boot application packaged as a Java SE JAR to [Azure App Service on Linux](/azure/app-service/containers/). Choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
