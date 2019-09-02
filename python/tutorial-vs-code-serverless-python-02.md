@@ -34,7 +34,7 @@ ms.author: kraigb
     [![Result of creating a new Python functions project](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > If Visual Studio Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted in the previous article under [Prerequisites](tutorial-vs-code-serverless-python-01#prerequisites).
+    > If Visual Studio Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted in the previous article under [Prerequisites](tutorial-vs-code-serverless-python-01.md#prerequisites).
     >
     > ![Selecting the virtual environment created with the project](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
 
