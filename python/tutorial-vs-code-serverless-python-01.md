@@ -1,0 +1,82 @@
+---
+title: Create and deploy Azure Functions in Python with Visual Studio Code
+description: How to use the Visual Studio Code extension for Azure Functions to create serverless functions in Python and deploy them to Azure.
+services: functions
+author: kraigb
+manager: barbkess
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 09/02/2019
+ms.author: kraigb
+---
+
+# Deploy Python to Azure Functions with Visual Studio Code
+
+In this tutorial, you use Visual Studio Code and the Azure Functions extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. Azure Functions runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for Visual Studio Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+
+If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** button at the end of each article to submit feedback.
+
+## Prerequisites
+
+- An [Azure subscription](#azure-subscription).
+- [Visual Studio Code with the Azure Functions](#visual-studio-code-python-and-the-azure-functions-extension) extension.
+- The [Azure Functions Core Tools](#azure-functions-core-tools).
+
+### Azure subscription
+
+If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+
+### Visual Studio Code, Python, and the Azure Functions extension
+
+Install the following software:
+
+- Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
+- [Visual Studio Code](https://code.visualstudio.com/).
+- The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Visual Studio Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
+- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
+
+### Azure Functions Core Tools
+
+Follow the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local.md#v2). The tools themselves are written in .NET Core, and the Core Tools package is best installed using the Node.js package manager, npm, which is why you need to install .NET Core and Node.js at present, even for Python code. You can, however bypass the .NET Core requirement using "extension bundles" as described in the aforementioned documentation. Whatever the case, you need install these components only once, after which Visual Studio Code automatically prompts you to install any updates.
+
+### Sign in to Azure
+
+Once the Functions extension is installed, sign into your Azure account by navigating to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
+
+![Sign in to Azure through Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
+
+After signing in, verify that the email account of your Azure subscription appears in the Status Bar:
+
+![Visual Studio Code status bar showing Azure account](media/tutorial-vs-code-serverless-python/azure-account-status-bar.png)
+
+The name you've assigned to your subscription also appears in the **Azure: Functions** explorer ("Primary" in the image below):
+
+![Visual Studio Code Azure App Service explorer showing subscriptions](media/tutorial-vs-code-serverless-python/azure-subscription-view.png)
+
+> [!NOTE]
+> If you encounter the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
+>
+> ```bash
+> # macOS/Linux
+> export HTTPS_PROXY=https://username:password@proxy:8080
+> export HTTP_PROXY=http://username:password@proxy:8080
+> ```
+>
+> ```ps
+> # Windows
+> set HTTPS_PROXY=https://username:password@proxy:8080
+> set HTTP_PROXY=http://username:password@proxy:8080
+> ```
+
+### Verify prerequisites
+
+To verify that all the Azure Functions tools are installed, open the Visual Studio Code Command Palette (F1), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func`:
+
+![Checking Azure Functions core tools prerequisites](media/tutorial-vs-code-serverless-python/check-prereqs.png)
+
+The output that starts with the Azure Functions logo (you need to scroll the output upwards) indicates that the Azure Functions Core Tools are present.
+
+If the `func` command isn't recognized, then verify that the folder where you installed the Azure Functions Core Tools is included in your PATH environment variable.
+
+> [!div class="nextstepaction"]
+> [Next: Create the function](tutorial-vs-code-serverless-python-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
