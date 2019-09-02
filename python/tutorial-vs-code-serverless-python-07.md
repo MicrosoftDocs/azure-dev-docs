@@ -89,7 +89,7 @@ In this section, you add a storage binding to the HttpExample function created e
 
     1. Navigate and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
 
-    1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
+    1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](/azure/azure-functions/functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
 
 1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
 

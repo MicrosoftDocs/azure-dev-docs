@@ -19,7 +19,7 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
-- [Visual Studio Code with the Azure Functions](#visual-studio-code-python-and-the-azure-functions-extension) extension.
+- [Visual Studio Code with the Azure Functions extension](#visual-studio-code-python-and-the-azure-functions-extension).
 - The [Azure Functions Core Tools](#azure-functions-core-tools).
 
 ### Azure subscription

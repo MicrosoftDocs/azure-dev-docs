@@ -45,9 +45,9 @@ In these steps, you use the Functions extension to create a function app in Azur
       HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
     ```
 
-    Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match the results of the local endpoint you tested earlier.
+    Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match the results of the local endpoint you tested previously in [part 4](tutorial-vs-code-serverless-python-04.md).
 
-### Stream logs
+## Stream logs
 
 Support for log streaming is currently in development, as described on [Issue 589](https://github.com/microsoft/vscode-azurefunctions/issues/589) for the Azure Functions extension. The **Stream logs** button in the deployment message popup will eventually connect the log output on Azure to Visual Studio Code. You will also be able to start and stop the log stream on the **Azure Functions** explorer by right-clicking the Functions project and selecting **Start streaming logs** or **Stop streaming logs**.
 
@@ -58,7 +58,7 @@ At present, however, these commands aren't yet operational. Log streaming is ins
 func azure functionapp logstream <app_name> --browser
 ```
 
-### Sync local settings to Azure
+## Sync local settings to Azure
 
 The **Upload settings** button in the deployment message popup applies any changes you've made to your *local.settings.json* file to Azure. You can also invoke the command on the **Azure Functions** explorer by expanding the Functions project node, right-clicking **Application Settings**, and selecting **Upload local settings...**. You can also use the Command Palette to select the **Azure Functions: Upload Local Settings** command.
 
