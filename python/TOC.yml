@@ -60,6 +60,24 @@
       href: /azure/event-grid/custom-event-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Queue Storage
       href: /azure/storage/queues/storage-python-how-to-use-queue-storage?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+- name: Tutorials
+  items:
+    - name: Deploy Azure Functions with VS Code
+      items:
+        - name: Introduction and prerequisites
+          href: tutorial-vs-code-serverless-python-01.md
+        - name: Create the Python function
+          href: tutorial-vs-code-serverless-python-02.md
+        - name: Examine code files
+          href: tutorial-vs-code-serverless-python-03.md
+        - name: Debug locally
+          href: tutorial-vs-code-serverless-python-04.md
+        - name: Deploy to Azure
+          href: tutorial-vs-code-serverless-python-05.md
+        - name: Add a second function
+          href: tutorial-vs-code-serverless-python-06.md
+        - name: Add a storage binding and cleanup
+          href: tutorial-vs-code-serverless-python-07.md
 - name: How-to guides
   items: 
   - name: Install the SDK
