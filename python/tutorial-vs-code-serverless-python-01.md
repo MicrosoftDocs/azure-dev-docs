@@ -79,4 +79,4 @@ The output that starts with the Azure Functions logo (you need to scroll the out
 If the `func` command isn't recognized, then verify that the folder where you installed the Azure Functions Core Tools is included in your PATH environment variable.
 
 > [!div class="nextstepaction"]
-> [Next: Create the function](tutorial-vs-code-serverless-python-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
+> [Next: Create the function](tutorial-vs-code-serverless-python-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=01-verify-prerequisites)

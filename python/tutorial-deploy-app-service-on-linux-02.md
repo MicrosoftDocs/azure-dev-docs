@@ -49,4 +49,4 @@ If you have an environment variable definitions file, you can use that file to c
 1. If you create settings directly on the Azure portal, you can save them in a definitions file by right-clicking the **Application Settings** node and selecting **Download Remote Settings**. This process makes sure that you have those settings in your repository and not only on the portal.
 
 > [!div class="nextstepaction"]
-> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=02-create-app-service)
+> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-create-app-service)

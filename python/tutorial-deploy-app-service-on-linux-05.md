@@ -68,4 +68,4 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
     ![The app running successfully on App Service](media/deploy-azure/running-app.png)
 
 > [!div class="nextstepaction"]
-> [Next: Make changes and redeploy](tutorial-deploy-app-service-on-linux-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=05-deploy-with-git)
+> [Next: Make changes and redeploy](tutorial-deploy-app-service-on-linux-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=05-deploy-with-git)

@@ -72,4 +72,4 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     ```
 
 > [!div class="nextstepaction"]
-> [Next: Add the app to a Git repository](tutorial-deploy-app-service-on-linux-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=03-startup-command)
+> [Next: Add the app to a Git repository](tutorial-deploy-app-service-on-linux-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-startup-command)

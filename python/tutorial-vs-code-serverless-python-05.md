@@ -67,4 +67,4 @@ Uploading settings updates any existing settings and adds any new settings defin
 To apply any changes you make through the portal or through the **Azure Explorer** to the *local.settings.json* file, right-click the **Application Settings** node and select the **Download remote settings** command. You can also use the Command Palette to select the **Azure Functions: Download Remote Settings** command.
 
 > [!div class="nextstepaction"]
-> [Next: deploy a second function](tutorial-vs-code-serverless-python-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
+> [Next: deploy a second function](tutorial-vs-code-serverless-python-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=05-deploy)

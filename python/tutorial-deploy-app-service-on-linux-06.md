@@ -46,6 +46,9 @@ When you use the App Service extension in VS Code to set GitHub as the deploymen
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=06-make-changes-redeploy)
+
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying Python code to App Service on Linux!

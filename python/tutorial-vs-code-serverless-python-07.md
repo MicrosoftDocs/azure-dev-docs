@@ -100,6 +100,9 @@ In this section, you add a storage binding to the HttpExample function created e
 
 The Function App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=07-storage-binding)
+
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying Python code to Azure Functions! You're now ready to create many more serverless functions.

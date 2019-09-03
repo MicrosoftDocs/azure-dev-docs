@@ -88,4 +88,4 @@ The important parts of the code are as follows:
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
 > [!div class="nextstepaction"]
-> [Next: Debug locally](tutorial-vs-code-serverless-python-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
+> [Next: Debug locally](tutorial-vs-code-serverless-python-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=03-examine-code-files)

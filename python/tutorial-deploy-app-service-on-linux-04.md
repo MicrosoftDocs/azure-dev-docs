@@ -52,4 +52,4 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     ![Commit the app code to source control](media/deploy-azure/source-control-commit.png)
 
 > [!div class="nextstepaction"]
-> [Next: Deploy your app using Git](tutorial-deploy-app-service-on-linux-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=04-add-to-git)
+> [Next: Deploy your app using Git](tutorial-deploy-app-service-on-linux-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=04-add-to-git)

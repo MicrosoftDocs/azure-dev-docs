@@ -52,4 +52,4 @@ ms.author: kraigb
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
 > [!div class="nextstepaction"]
-> [Next: Deploy to Azure Functions](tutorial-vs-code-serverless-python-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
+> [Next: Deploy to Azure Functions](tutorial-vs-code-serverless-python-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=04-test-debug)

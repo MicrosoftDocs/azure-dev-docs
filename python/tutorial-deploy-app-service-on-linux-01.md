@@ -93,4 +93,4 @@ If you don't already have an app you'd like to work with, use one of the options
     > Caveat: If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. The reason for this is that, at present, the preview of App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors. The workaround is to use a database that's hosted elsewhere, in which case you would deploy and initialize that database separately before deploying the app code as described in this tutorial.
 
 > [!div class="nextstepaction"]
-> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=01-verify-prerequisites)
+> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=01-verify-prerequisites)

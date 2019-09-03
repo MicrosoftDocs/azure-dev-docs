@@ -44,4 +44,4 @@ ms.author: kraigb
 > ![New Function command in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/function-create-new.png)
 
 > [!div class="nextstepaction"]
-> [Next: Examine the code files](tutorial-vs-code-serverless-python-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
+> [Next: Examine the code files](tutorial-vs-code-serverless-python-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=02-create-function)

@@ -39,6 +39,9 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 
 The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, its best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=04-stream-logs)
+
 ## Next steps
 
 You can learn more about the Docker and App Service extensions by visiting their respective repositories on GitHub: [vscode-docker](https://github.com/Microsoft/vscode-docker) and [vscode-azureappservice](https://github.com/Microsoft/vscode-azureappservice). Issues and contributions are also welcome.
