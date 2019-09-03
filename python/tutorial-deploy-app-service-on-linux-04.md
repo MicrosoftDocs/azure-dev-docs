@@ -22,7 +22,8 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
     1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
 
-    > **Tip**: be sure to place *requirements.txt* in the root folder, otherwise App Service won't find it and won't automatically install your dependencies.
+    > [!TIP]
+    > Be sure to place *requirements.txt* in the root folder, otherwise App Service won't find it and won't automatically install your dependencies.
 
 1. In your project folder, create a file named *.gitignore* with the following contents (change *.venv* if you're using a different folder for a virtual environment):
 

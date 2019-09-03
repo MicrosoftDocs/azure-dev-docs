@@ -76,16 +76,16 @@
           href: tutorial-deploy-app-service-on-linux-05.md
         - name: Make changes and redeploy
           href: tutorial-deploy-app-service-on-linux-06.md
-    - name: Deploy containers to App Service with VS Code
+    - name: Deploy containers with VS Code
       items:
         - name: Introduction and prerequisites
-          href: ../common/tutorial-deploy-containers-01.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+          href: tutorial-deploy-containers-01.md
         - name: Deploy the container image
-          href: ../common/tutorial-deploy-containers-02.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+          href: tutorial-deploy-containers-02.md
         - name: Make changes and redeploy
-          href: ../common/tutorial-deploy-containers-03.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+          href: tutorial-deploy-containers-03.md
         - name: Stream logs
-          href: ../common/tutorial-deploy-containers-04.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+          href: tutorial-deploy-containers-04.md
     - name: Deploy Azure Functions with VS Code
       items:
         - name: Introduction and prerequisites

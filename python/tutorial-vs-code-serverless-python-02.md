@@ -34,12 +34,12 @@ ms.author: kraigb
     [![Result of creating a new Python functions project](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > If Visual Studio Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted in the previous article under [Prerequisites](tutorial-vs-code-serverless-python-01.md#prerequisites).
+    > If Visual Studio Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (**F1**), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted in the previous article under [Prerequisites](tutorial-vs-code-serverless-python-01.md#prerequisites).
     >
     > ![Selecting the virtual environment created with the project](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
 
 > [!TIP]
-> Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or open the Command Palette (F1) and select the **Azure Functions: Create Function** command. Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
+> Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or open the Command Palette (**F1**) and select the **Azure Functions: Create Function** command. Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
 >
 > ![New Function command in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/function-create-new.png)
 

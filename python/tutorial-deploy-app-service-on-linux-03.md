@@ -56,7 +56,7 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir myapp website:app
     ```
 
-1. **Startup file is within a module**: in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *__init__.py* file. The app object is named `app` and is defined in *__init__.py* and *webapp.py* uses a relative import. Because of this arrangement, pointing Gunicorn to `webapp:app` produces the error, "Attempted relative import in non-package," and the app fails to start.
+1. **Startup file is within a module**: in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py* and *webapp.py* uses a relative import. Because of this arrangement, pointing Gunicorn to `webapp:app` produces the error, "Attempted relative import in non-package," and the app fails to start.
 
     In this situation, create a simple shim file that imports the app object from the module, and then have Gunicorn launch the app using the shim. The [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, for example, contains *startup.py* with the following contents:
 
@@ -72,4 +72,4 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     ```
 
 > [!div class="nextstepaction"]
-> [Next: Add the app to a Git repository](tutorial-deploy-app-service-on-linux-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=03-startup-command)
+> [Next: Add the app to a Git repository](tutorial-deploy-app-service-on-linux-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=03-startup-command)

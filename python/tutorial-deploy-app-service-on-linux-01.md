@@ -31,9 +31,9 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 - A Python environment
 - [An app you'd like to deploy](#your-application).
 
-### Azure account
+### Azure subscription
 
-If you don't have an Azure account, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension) for a free account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
 ### Visual Studio Code, Python, and the Azure App Service extension
 
@@ -55,7 +55,8 @@ After signing in, verify that you see the email account of your Azure around in 
 
 ![VS Code Azure App Service explorer showing subscriptions](media/deploy-azure/azure-subscription-view.png)
 
-> **Note**: If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
+> [!NOTE]
+> If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
 > ```sh
 > # macOS/Linux
@@ -88,8 +89,8 @@ If you don't already have an app you'd like to work with, use one of the options
 
 - [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
 
-    > ![IMPORTANT]
+    > [!IMPORTANT]
     > Caveat: If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. The reason for this is that, at present, the preview of App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors. The workaround is to use a database that's hosted elsewhere, in which case you would deploy and initialize that database separately before deploying the app code as described in this tutorial.
 
 > [!div class="nextstepaction"]
-> [Next: Create the App Service](tutorial-deploy-app-service-on-linus-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=01-verify-prerequisites)
+> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice&step=01-verify-prerequisites)

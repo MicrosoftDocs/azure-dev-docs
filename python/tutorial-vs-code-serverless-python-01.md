@@ -70,7 +70,7 @@ The name you've assigned to your subscription also appears in the **Azure: Funct
 
 ### Verify prerequisites
 
-To verify that all the Azure Functions tools are installed, open the Visual Studio Code Command Palette (F1), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func`:
+To verify that all the Azure Functions tools are installed, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func`:
 
 ![Checking Azure Functions core tools prerequisites](media/tutorial-vs-code-serverless-python/check-prereqs.png)
 
