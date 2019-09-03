@@ -1,6 +1,6 @@
 ---
 title: Deploy Python apps to Azure App Service on Linux from Visual Studio Code
-description: Tutorial part 1, introduction and prerequistites.
+description: Tutorial part 1, introduction and prerequisites.
 services: app-service
 author: kraigb
 manager: barbkess

@@ -26,7 +26,7 @@ With a container image in a registry, you can use the Docker extension in VS Cod
 
 1. Follow the prompts to select an Azure subscription, select or specify a resource group, specify a region, configure an App Service Plan (B1 is the least expensive), and specify a name for the site. The animation below illustrates the process.
 
-    ![Create and Deploy](media/deploy-containers/deploy-to-app-service.gif)
+    ![Create and Deploy animation](media/deploy-containers/deploy-to-app-service.gif)
 
     A **Resource Group** is a named collection the different resources that make up an app. By assigning all the app's resources to a single group, you can easily manage those resources as a single unit. (For more information, see the [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in the Azure documentation.)
 
@@ -36,7 +36,7 @@ With a container image in a registry, you can use the Docker extension in VS Cod
 
 1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
 
-1. Once completed, you **must** also add a setting named `WEBSITES_PORT` (notice the plural "WEBSITES") to the App Service to specify the port on which the container is listening. (If you're using an image from the [Create a container - Python](../python/tutorial-create-container.md) tutorial, the port is 5000 for Flask and 8000 for Django ). To set `WEBSITES_PORT`, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts, enter `WEBSITES_PORT` as the key and the port number for the value.
+1. Once completed, you **must** also add a setting named `WEBSITES_PORT` (notice the plural "WEBSITES") to the App Service to specify the port on which the container is listening. (If you're using an image from the [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-container) tutorial, for example, the port is 5000 for Flask and 8000 for Django ). To set `WEBSITES_PORT`, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts, enter `WEBSITES_PORT` as the key and the port number for the value.
 
     ![Context menu command on an App Service for Add New Setting](media/deploy-containers/add-app-service-setting.png)
 

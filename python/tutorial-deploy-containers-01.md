@@ -1,6 +1,6 @@
 ---
 title: Deploy Docker containers to Azure App Service with Visual Studio Code
-description: description: Tutorial part 1, introduction and prerequistites.
+description: Tutorial part 1, introduction and prerequisites.
 services: app-service
 author: kraigb
 manager: barbkess
