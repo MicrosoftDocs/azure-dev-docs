@@ -1,6 +1,6 @@
 ---
-title: Create and deploy Azure Functions in Python with Visual Studio Code
-description: How to use the Visual Studio Code extension for Azure Functions to create serverless functions in Python and deploy them to Azure.
+title: Create and deploy serverless Azure Functions in Python with Visual Studio Code
+description: Tutorial part 1, introduction and prerequistites.
 services: functions
 author: kraigb
 manager: barbkess
@@ -24,7 +24,7 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 
 ### Azure subscription
 
-If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
 ### Visual Studio Code, Python, and the Azure Functions extension
 

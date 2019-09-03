@@ -62,6 +62,30 @@
       href: /azure/storage/queues/storage-python-how-to-use-queue-storage?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
 - name: Tutorials
   items:
+    - name: Deploy to App Service with VS Code
+      items:
+        - name: Introduction and prerequisites
+          href: tutorial-deploy-app-service-on-linux-01.md
+        - name: Create the App Service
+          href: tutorial-deploy-app-service-on-linux-02.md
+        - name: Configure the startup file
+          href: tutorial-deploy-app-service-on-linux-03.md
+        - name: Add the app to a Git repository
+          href: tutorial-deploy-app-service-on-linux-04.md
+        - name: Deploy using Git
+          href: tutorial-deploy-app-service-on-linux-05.md
+        - name: Make changes and redeploy
+          href: tutorial-deploy-app-service-on-linux-06.md
+    - name: Deploy containers to App Service with VS Code
+      items:
+        - name: Introduction and prerequisites
+          href: ../common/tutorial-deploy-containers-01.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+        - name: Deploy the container image
+          href: ../common/tutorial-deploy-containers-02.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+        - name: Make changes and redeploy
+          href: ../common/tutorial-deploy-containers-03.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+        - name: Stream logs
+          href: ../common/tutorial-deploy-containers-04.md?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Deploy Azure Functions with VS Code
       items:
         - name: Introduction and prerequisites

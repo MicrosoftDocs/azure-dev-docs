@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create the Python function
 
-[Previous step: prerequsites](tutorial-vs-code-serverless-python-01.md)
+[Previous step: prerequisites](tutorial-vs-code-serverless-python-01.md)
 
 1. Code for Azure Functions is managed within a Functions _project_, which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette (F1) and select **Azure Functions: Create New Project**.
 
@@ -20,7 +20,7 @@ ms.author: kraigb
 
 1. In the prompts that follow:
 
-    | Prompt | Value | Description | 
+    | Prompt | Value | Description |
     | --- | --- | --- |
     | Specify a folder for the project | Current open folder | The folder in which to create the project. You may want to create the project in a subfolder. |
     | Select a language for your function app project | **Python** | The language to use for the function, which determines the template used for the code. |
