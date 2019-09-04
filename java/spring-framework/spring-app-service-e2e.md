@@ -1,5 +1,5 @@
 ---
-title: 
+title: Deploy a Spring/Tomcat app to App Service with Azure Database for MySQL
 description: End-to-end tutorial for Java App Service with MySQL
 author: KarlErickson
 manager: barbkess
@@ -14,7 +14,7 @@ ms.topic: article
 
 This tutorial walks you through the process of building, configuring, deploying, troubleshooting and scaling Java Web apps in App Service Linux.
 
-This tutorial builds on the popular Spring PetClinic sample application. In this topic, you will test an HSQLDB version of the app locally, then deploy it to Azure App Service. After that, you will configure and deploy a MySQL version. Finally, you will learn how to access the app logs, and increase the number of workers to scale out.
+This tutorial builds on the popular Spring PetClinic sample application. In this topic, you will test an HSQLDB version of the app locally, then deploy it to Azure App Service. After that, you will configure and deploy a version that uses Azure Database for MySQL. Finally, you will learn how to access the app logs and scale out by increasing the number of workers running your app.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ This tutorial builds on the popular Spring PetClinic sample application. In this
 
 ## Get the sample
 
-To get started with the sample, clone and prepare it using the following commands.
+To get started with the sample, clone and prepare the sample repo using the following commands.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
@@ -37,7 +37,9 @@ yes | cp -rf .prep/* .
 
 ## Build and run the HSQLDB sample locally
 
-First, test the sample locally using using HSQLDB as the database. Navigate to the HSQLDB version of the sample and then build it.
+First, we'll test the sample locally using using HSQLDB as the database.
+
+Navigate to the HSQLDB version of the sample and then build it.
 
 ```bash
 cd initial-hsqldb/spring-framework-petclinic
@@ -50,7 +52,7 @@ Next, set the TOMCAT_HOME environment variable to the location of your Tomcat in
 export TOMCAT_HOME=<Tomcat install directory>
 ```
 
-Next, update the *pom.xml* file to configure Maven for a Tomcat WAR file deployment. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.7` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
+Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deployment. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.7` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
 
 ```xml
 <plugin>
@@ -87,7 +89,7 @@ With this configuration in place, you can deploy the app locally to Tomcat.
 mvn cargo:deploy
 ```
 
-Finally, launch the Catalina server from your Tomcat install directory.
+Finally, launch Tomcat.
 
 ```bash
 cd ${TOMCAT_HOME}
@@ -98,7 +100,7 @@ You can now navigate your browser to [http://localhost:8080](http://localhost:80
 
 ## Deploy to Azure App Service
 
-Now that you've seen it running locally, deploy the app to Azure.
+Now that you've seen it running locally, we'll deploy the app to Azure.
 
 First, set the following environment variables. Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your source files.
 
@@ -135,9 +137,9 @@ mvn azure-webapp:deploy
 
 You can now navigate to `https://<app name>.azurewebsites.net` to see the running app.
 
-## Create a MySQL instance on Azure
+## Set up Azure Database for MySQL
 
-Now, you can switch the app to use MySQL instead of HSQLDB. You'll create a MySQL server instance on Azure and add a database, then you'll update your app configuration with the new database connection info.
+Now, you can switch the app to use MySQL instead of HSQLDB. First, we'll create a MySQL server instance on Azure and add a database, then we'll update the app configuration with the new database connection info.
 
 First, set the following environment variables for use in later steps.
 
@@ -182,7 +184,7 @@ az mysql server configuration set --name time_zone \
 <!-- REMOVE NEXT SECTION? 
      confirm whether this is even needed. Does az mysql up handle this, too? -->
 
-Next, use the MySQL CLI to create the database.
+Then, use the MySQL CLI to create the database.
 
 ```bash
 mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
@@ -191,13 +193,23 @@ mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
 
 At the MySQL CLI prompt, run the following command.
 
+<!-- environment variables didn't work for me inside MySQL CLI. need to use placeholder instead I think, if we still need this section. -->
+
 ```console
 CREATE DATABASE ${MYSQL_DATABASE_NAME};
 ```
 
-<!-- environment variables didn't work for me inside MySQL CLI. need to use placeholder instead I think, if we still need this section. -->
+MySQL is now ready for use.
 
-Next, update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. As you can see, the environment variables you set previously are being used by Maven to configure your MySQL access.
+## Configure the app for MySQL
+
+
+
+
+
+Next, we'll configure to app to use MySQL instead of HSQLDB.
+
+Update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. As you can see, the environment variables you set previously are used by Maven to configure your MySQL access. In this way, your account secrets are kept out of your POM file.
 
 ```xml
 <profile>
@@ -219,7 +231,7 @@ Next, update the *pom.xml* file to make MySQL the active configuration. Remove t
 
 <!-- remove the ellipsis? say more about JDBC etc here?  -->
 
-Then, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `plugin` element you added previously. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
 ```xml
 <plugin>
@@ -258,3 +270,13 @@ Then, update the *pom.xml* file to configure Maven for an Azure deployment and f
 </plugin>
 ```
 
+Next, build and deploy locally to Tomcat, then launch Tomcat.
+
+```bash
+mvn package
+mvn cargo:deploy
+cd ${TOMCAT_HOME}
+./bin/catalina.sh run
+```
+
+You can now view the app locally at [http://localhost:8080](http://localhost:8080). The app will look and behave the same as before, but will be using Azure Database for MySQL instead of HSQLDB.
