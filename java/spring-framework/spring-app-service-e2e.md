@@ -14,7 +14,7 @@ ms.topic: article
 
 This tutorial walks you through the process of building, configuring, deploying, troubleshooting and scaling Java web apps in App Service Linux.
 
-This tutorial builds on the popular Spring PetClinic sample app. In this topic, you will test an HSQLDB version of the app locally, then deploy it to Azure App Service. After that, you will configure and deploy a version that uses Azure Database for MySQL. Finally, you will learn how to access the app logs and scale out by increasing the number of workers running your app.
+This tutorial builds on the popular Spring PetClinic sample app. In this topic, you will test an HSQLDB version of the app locally, then deploy it to [Azure App Service](/azure/app-service/containers). After that, you will configure and deploy a version that uses [Azure Database for MySQL](/azure/mysql). Finally, you will learn how to access the app logs and scale out by increasing the number of workers running your app.
 
 ## Prerequisites
 
