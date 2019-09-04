@@ -314,7 +314,7 @@ az group delete --name ${RESOURCEGROUP_NAME}
 
 ## Next steps
 
-Next, check out the other configuration options available for Java with App Service.
+Next, check out the CI/CD options available for Java with App Service.
 
 > [!div class="nextstepaction"]
 > [Build and deploy to a Java web app using Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp?view=azure-devops&tabs=java-tomcat)
