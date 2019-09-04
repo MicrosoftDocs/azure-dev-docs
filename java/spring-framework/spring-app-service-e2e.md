@@ -129,10 +129,15 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 </plugin>
 ```
 
-Next, sign in to Azure and deploy the app to App Service Linux.
+Next, sign in to Azure.
 
 ```azurecli
 az login
+```
+
+Then deploy the app to App Service Linux.
+
+```bash
 mvn azure-webapp:deploy
 ```
 
@@ -276,15 +281,7 @@ You can now navigate to `https://<app-name>.azurewebsites.net` to see the runnin
 
 ## Access the app logs
 
-If you need to troubleshoot, you can look at the app logs. First, configure App Service to enable logging.
-
-```azurecli
-az webapp log config --name ${WEBAPP_NAME} \
-    --resource-group ${RESOURCEGROUP_NAME} \
-    --web-server-logging filesystem
-```
-
-Then you can open the remote log stream for your local machine.
+If you need to troubleshoot, you can look at the app logs. To open the remote log stream on your local machine, use the following command.
 
 ```azurecli
 az webapp log tail --name ${WEBAPP_NAME} \
@@ -320,4 +317,6 @@ az group delete --name ${RESOURCEGROUP_NAME}
 Next, check out the other configuration options available for Java with App Service.
 
 > [!div class="nextstepaction"]
-> [Configure a Linux Java app for Azure App Service](/azure/app-service/containers/configure-language-java)
+> [Build and deploy to a Java web app using Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp?view=azure-devops&tabs=java-tomcat)
+> [!div class="nextstepaction"]
+> [Deploy to Azure App Service by using the Jenkins plugin](/azure/jenkins/deploy-jenkins-app-service-plugin)
