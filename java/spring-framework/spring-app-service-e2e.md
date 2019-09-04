@@ -136,7 +136,7 @@ az login
 mvn azure-webapp:deploy
 ```
 
-You can now navigate to `https://<app name>.azurewebsites.net` (after replacing `<app name>`) to see the running app.
+You can now navigate to `https://<app-name>.azurewebsites.net` (after replacing `<app-name>`) to see the running app.
 
 ## Set up Azure Database for MySQL
 
@@ -285,7 +285,7 @@ Finally, deploy the app to App Service.
 mvn azure-webapp:deploy
 ```
 
-You can now navigate to `https://<app name>.azurewebsites.net` to see the running app using App Service and Azure Database for MySQL.
+You can now navigate to `https://<app-name>.azurewebsites.net` to see the running app using App Service and Azure Database for MySQL.
 
 ## Accessing the app logs
 
@@ -306,7 +306,7 @@ az webapp log tail --name ${WEBAPP_NAME} \
 
 When you are finished viewing the logs, select Ctrl+C to halt the stream.
 
-You can also inspect the log files from the browser at `https://<app name>.scm.azurewebsites.net/api/logstream`.
+You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logstream`.
 
 ## Scaling out
 
