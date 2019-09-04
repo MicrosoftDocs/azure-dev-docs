@@ -201,15 +201,17 @@ CREATE DATABASE ${MYSQL_DATABASE_NAME};
 
 MySQL is now ready for use.
 
-## Configure the app for MySQL
+## Configure an app for MySQL
 
+Next, we'll add the connection info to the MySQL version of the app, then deploy it to App Service.
 
+First, navigate to the correct folder at the Bash prompt.
 
+```bash
+cd ../../initial-mysql/spring-framework-petclinic
+```
 
-
-Next, we'll configure to app to use MySQL instead of HSQLDB.
-
-Update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. As you can see, the environment variables you set previously are used by Maven to configure your MySQL access. In this way, your account secrets are kept out of your POM file.
+Then, update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. As you can see, the environment variables you set previously are used by Maven to configure your MySQL access. In this way, your account secrets are kept out of your POM file.
 
 ```xml
 <profile>
