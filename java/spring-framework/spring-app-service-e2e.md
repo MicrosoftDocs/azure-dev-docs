@@ -153,13 +153,7 @@ export MYSQL_DATABASE_NAME=<database>
 export DOLLAR=\$
 ```
 
-Next, use [az mysql up](/cli/azure/ext/db-up/mysql?view=azure-cli-latest#ext-db-up-az-mysql-up) to create and initialize the database server.
-
-<!-- say something about the timeout and timezone after understanding the requirement for these -->
-
-<!-- timeout of 2147483 is ~25 days. default is 8 hours. is the change necessary? -->
-
-<!-- time_zone: US/Pacific gave an error. "Named time zones can be used only if the time zone information tables in the mysql database have been created and populated." See https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html. -->
+Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql?view=azure-cli-latest#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration?view=azure-cli-latest#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
 
 ```azurecli
 az mysql up \
@@ -169,19 +163,14 @@ az mysql up \
     --admin-user ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
     --admin-password ${MYSQL_SERVER_ADMIN_PASSWORD}
 
-// increase connection timeout
 az mysql server configuration set --name wait_timeout \
     --resource-group ${RESOURCEGROUP_NAME} \
     --server ${MYSQL_SERVER_NAME} --value 2147483
 
-// set server timezone
 az mysql server configuration set --name time_zone \
     --resource-group ${RESOURCEGROUP_NAME} \
     --server ${MYSQL_SERVER_NAME} --value -8:00
 ```
-
-<!-- REMOVE NEXT SECTION? 
-     confirm whether this is even needed. Does az mysql up handle this, too? -->
 
 Then, use the MySQL CLI to create the database.
 
@@ -190,12 +179,10 @@ mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
  -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
 ```
 
-At the MySQL CLI prompt, run the following command.
-
-<!-- environment variables didn't work for me inside MySQL CLI. need to use placeholder instead I think, if we still need this section. -->
+At the MySQL CLI prompt, run the following command, replacing `<database name>` with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.
 
 ```console
-CREATE DATABASE ${MYSQL_DATABASE_NAME};
+CREATE DATABASE <database name>;
 ```
 
 MySQL is now ready for use.
@@ -287,7 +274,7 @@ mvn azure-webapp:deploy
 
 You can now navigate to `https://<app-name>.azurewebsites.net` to see the running app using App Service and Azure Database for MySQL.
 
-## Accessing the app logs
+## Access the app logs
 
 If you need to troubleshoot, you can look at the app logs. First, configure App Service to enable logging.
 
@@ -306,9 +293,9 @@ az webapp log tail --name ${WEBAPP_NAME} \
 
 When you are finished viewing the logs, select Ctrl+C to halt the stream.
 
-You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logstream`.
+The log stream is also available at `https://<app-name>.scm.azurewebsites.net/api/logstream`.
 
-## Scaling out
+## Scale out
 
 To support increased traffic to your app, you can scale out to multiple instances using the following command.
 
