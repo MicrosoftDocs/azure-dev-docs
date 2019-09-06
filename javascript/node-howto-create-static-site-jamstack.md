@@ -1,5 +1,5 @@
 ---
-title: Build static sites with Node.js Azure
+title: Build static sites on Azure with Node.js, APIs, and markup
 description: How to use Azure to build a JAMstack app (JavaScript, APIs, and Markup)
 author: kraigb
 manager: barbkess
@@ -8,6 +8,7 @@ ms.topic: article
 ms.service: azure-nodejs
 ms.date: 08/20/2019
 ms.author: kraigb
+ms.custom: seo-javascript-september2019
 ---
 
 # How to build JAMstack (static site) web apps with Azure
