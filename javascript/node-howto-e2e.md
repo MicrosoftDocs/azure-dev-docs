@@ -1,5 +1,5 @@
 ---
-title: Node.js development with Visual Studio Code and Azure
+title: Deploy a containerized Node.js app with VS Code and Azure
 description: Complete end-to-end tutorial illustrating how create, dockerize, and deploy to Azure, a Node.js app
 services: multiple
 author: karlerickson
@@ -10,6 +10,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: karler
+ms.custom: seo-javascript-september2019
 ---
 
 # Node.js development with Visual Studio Code and Azure
