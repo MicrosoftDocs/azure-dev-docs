@@ -13,7 +13,7 @@ ms.service: azure
 
 # Install the JDK for Azure and Azure Stack
 
-Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications.
+Azul Zulu for Azure - Enterprise Edition JDK builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications.
 
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/zulu/). You can also get a virtual machine image from the Azure Marketplace Gallery for the following platforms:
 
@@ -72,7 +72,7 @@ OpenJDK 64-Bit Server VM (Zulu 8.38.0.13-macosx)-Microsoft-Azure-restricted (bui
 
 ```
 
-## Download and install the Azul Zulu JDKs from a Yum repository
+## Download and install the Azul Zulu for Azure - Enterprise Edition JDKs from a Yum repository
 
 The Azul Zulu JDKs are provided in a [Yum repository](https://repos.azul.com/azure-only/zulu-azure.repo) by Azul.
 
