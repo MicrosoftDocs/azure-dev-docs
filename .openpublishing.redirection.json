@@ -121,133 +121,133 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-install.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-install.md",
       "redirect_url": "/dotnet/api/overview/azure/"
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-sql-database-samples.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-sql-database-samples.md",
       "redirect_url": "/dotnet/azure/dotnet-samples"
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-virtual-machine-samples.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-virtual-machine-samples.md",
       "redirect_url": "/dotnet/azure/dotnet-samples"
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-web-apps-samples.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-web-apps-samples.md",
       "redirect_url": "/dotnet/azure/dotnet-samples"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-ai-cognitive.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-ai-cognitive.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-analytics.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-analytics.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-containers.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-containers.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-databases.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-databases.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-messaging-iot.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-messaging-iot.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-monitoring.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-monitoring.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-security.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-security.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-storage.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-storage.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-tutorials-services-web-mobile.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials-services-web-mobile.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials"
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-release-notes.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-release-notes.md",
       "redirect_url": "https://github.com/Azure/azure-libraries-for-net"
     },
     {
-      "source_path": "dotnet/dotnet-howto-choose-migration.md",
+      "source_path": "dotnet-redirects/dotnet-howto-choose-migration.md",
       "redirect_url": "/dotnet/azure/dotnet-howto-choose-migration",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-howto-migrate-app-service.md",
+      "source_path": "dotnet-redirects/dotnet-howto-migrate-app-service.md",
       "redirect_url": "/dotnet/azure/dotnet-howto-migrate-app-service",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-howto-migrate-sql.md",
+      "source_path": "dotnet-redirects/dotnet-howto-migrate-sql.md",
       "redirect_url": "/dotnet/azure/dotnet-howto-migrate-sql",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-howto-migrate-to-vm.md",
+      "source_path": "dotnet-redirects/dotnet-howto-migrate-to-vm.md",
       "redirect_url": "/dotnet/azure/dotnet-howto-migrate-to-vm",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-quickstart-vs.md",
+      "source_path": "dotnet-redirects/dotnet-quickstart-vs.md",
       "redirect_url": "/dotnet/azure/dotnet-quickstart-vs",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-quickstart-xplat.md",
+      "source_path": "dotnet-redirects/dotnet-quickstart-xplat.md",
       "redirect_url": "/dotnet/azure/dotnet-quickstart-xplat",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-samples.md",
+      "source_path": "dotnet-redirects/dotnet-samples.md",
       "redirect_url": "/dotnet/azure/dotnet-samples",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-authenticate.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-authenticate.md",
       "redirect_url": "/dotnet/azure/dotnet-sdk-azure-authenticate",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-concepts.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-concepts.md",
       "redirect_url": "/dotnet/azure/dotnet-sdk-azure-concepts",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-get-started.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-get-started.md",
       "redirect_url": "/dotnet/azure/dotnet-sdk-azure-get-started",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-sdk-azure-overview.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-azure-overview.md",
       "redirect_url": "/dotnet/azure/dotnet-sdk-azure-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-sdk-vs2015-install.md",
+      "source_path": "dotnet-redirects/dotnet-sdk-vs2015-install.md",
       "redirect_url": "/dotnet/azure/dotnet-sdk-vs2015-install",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-tools.md",
+      "source_path": "dotnet-redirects/dotnet-tools.md",
       "redirect_url": "/dotnet/azure/dotnet-tools",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/dotnet-tutorials.md",
+      "source_path": "dotnet-redirects/dotnet-tutorials.md",
       "redirect_url": "/dotnet/azure/dotnet-tutorials",
       "redirect_document_id": false
     },
     {
-      "source_path": "dotnet/index.md",
+      "source_path": "dotnet-redirects/index.md",
       "redirect_url": "/dotnet/azure",
       "redirect_document_id": false
     }

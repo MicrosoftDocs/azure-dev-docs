@@ -10,11 +10,11 @@ ms.topic: article
 
 ms.devlang: java
 ms.service: multiple
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-september2019
 ---
 
 # Java samples for Azure Container Service
 
-The following table links to Java source you can use to create and configure applications running in containers.
+The following table links to Java source you can use to create and configure applications running in Azure Container Service.
 
 [!INCLUDE [java-container-samples](includes/java-container-samples.md)]
