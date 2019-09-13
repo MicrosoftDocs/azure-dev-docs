@@ -1,52 +1,73 @@
 ---
-title: Create the App Service from Visual Studio Code
-description: Tutorial part 2 for deploying Python apps to Azure App Service on Linux
+title: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code
+description: Tutorial step 2, set up your application
 services: app-service
 author: kraigb
 manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/12/2019
 ms.author: kraigb
 ---
 
-# Create the App Service
+# Prepare your app
 
 [Previous step: prerequisites](tutorial-deploy-app-service-on-linux-01.md)
 
-1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (**F1**) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
+If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file that describes your dependencies, including frameworks like Flask or Django.
 
-    ![Create new App Service button in the App Service explorer](media/deploy-azure/app-service-create-new.png)
+If you don't already have an app, use one of the options below. Be sure to verify that the app runs locally.
 
-1. In the prompts that follow:
+## Minimal Flask app
 
-    - Enter a name for your app, which must be globally unique on App Service; typically you use your name or company name followed by the app name.
-    - Select **Linux** for the operating system.
-    - Select **[Preview] Python 3.7** as the runtime.
+This section describes the minimal Flask app used in this walkthrough.
 
-1. After a short time you see a message that the new App Service was created, along with the question **Deploy to web app?**. Answer **No** at this point because you need to change the deployment source to Git. Otherwise the "Deploy to Web App" command only copies your files to the server using a ZIP file and doesn't install your dependencies.
+1. Create a new folder, open it in VS Code, and add a file named *hello.py* with the contents below. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you learn later.
 
-    ![Messages that appear after the App Service is created](media/deploy-azure/app-service-created.png)
+    ```python
+    from flask import Flask
+    myapp = Flask(__name__)
 
-1. To confirm that the App Service is running properly, expand your subscription in the **Azure: App Service** explorer, right-click the App Service name, and select **Browse website**:
+    @myapp.route("/")
+    def hello():
+        return "Hello Flask, on Azure App Service for Linux"
+    ```
 
-    ![Browse Website command on an App Service in the App Service explorer](media/deploy-azure/browse-website-command.png)
+1. Create a file named *requirements.txt* with the following contents:
 
-1. Because you haven't deployed your own code to the App Service yet, you should see only the default app:
+    ```text
+    Flask==1.1.1
+    ```
 
-    ![Default Python app on App Service on Linux](media/deploy-azure/default-python-app.png)
+1. Follow the instructions in [Flask Tutorial - Create a project environment for Flask](/docs/python/tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
-## (Optional) Upload an environment variable definitions file
+1. To run this app, use the following commands (depending on your operating system). The FLASK_APP environment variable tells Flask where to find the app object.
 
-If you have an environment variable definitions file, you can use that file to configure the App Service environment as well. (To learn more about such files, which typically have the *.env* extension, refer to [Visual Studio Code - Python Environments](https://code.visualstudio.com/docs/python/environments#environment-variable-definitions-file).)
+    ```ps
+    set FLASK_APP=hello:myapp
+    flask run
+    ```
 
-1. In the **Azure: App Service** explorer, expand the node for the desired App Service, then right-click the **Application Settings** node and select **Upload Local Settings**.
+    ```bash
+    export FLASK_APP=hello:myapp
+    flask run
+    ```
 
-1. VS Code prompts you for the location of your *.env* file, then uploads it to the App Service.
+    You can then open the app in a browser using the URL `http://127.0.0.1:5000/`.
 
-1. Once the upload is complete, you can expand the **Application Settings** node to see the individual values. You can also view them on the Azure portal by navigating to the App Service and selecting **Configuration**.
+## VS Code Flask tutorial sample
 
-1. If you create settings directly on the Azure portal, you can save them in a definitions file by right-clicking the **Application Settings** node and selecting **Download Remote Settings**. This process makes sure that you have those settings in your repository and not only on the portal.
+Download or clone [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
+
+## VS Code Django tutorial sample
+
+Download or clone [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
+
+If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. The reason for this is that, at present, App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors.
+
+The best option in any case is to use a separate database that's deployed and initialized independently from the app code.
 
 > [!div class="nextstepaction"]
-> [Next: Create the App Service](tutorial-deploy-app-service-on-linux-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-create-app-service)
+> [I have my app ready](tutorial-deploy-app-service-on-linux-03.md)
+
+[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-prepare-app)

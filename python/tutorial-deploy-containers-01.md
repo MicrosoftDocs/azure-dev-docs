@@ -30,28 +30,7 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 
 ## Sign in to Azure
 
-Once the Azure App Service extension is installed, sign into your Azure account by navigating to the **Azure: App Service** explorer, select **Sign in to Azure**, and follow the prompts.
-
-![Sign in to Azure through VS Code](media/deploy-containers/azure-sign-in.png)
-
-After signing in, verify that you see the email account of your Azure around in the Status Bar and your subscription(s) in the **Azure: App Service** explorer:
-
-![VS Code status bar showing Azure account](media/deploy-containers/azure-account-status-bar.png)
-
-![VS Code Azure App Service explorer showing subscriptions](media/deploy-containers/azure-subscription-view.png)
-
-> [!NOTE]
-> If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
->
-> ```sh
-> # macOS/Linux
-> export HTTPS_PROXY=https://username:password@proxy:8080
-> export HTTP_PROXY=http://username:password@proxy:8080
->
-> #Windows
-> set HTTPS_PROXY=https://username:password@proxy:8080
-> set HTTP_PROXY=http://username:password@proxy:8080
-> ```
+[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
 > [!div class="nextstepaction"]
 > [Next: Deploy the image to Azure](tutorial-deploy-containers-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=01-verify-prerequisites)

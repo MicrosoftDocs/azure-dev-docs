@@ -1,75 +1,55 @@
 ---
-title: Configure a customs startup file for Python apps on Azure App Service on Linux
-description: Tutorial part 3 for deploying Python apps to Azure App Service on Linux
+title: Create the App Service from Visual Studio Code
+description: Tutorial step 3, creating the App Service from the VS Code extension.
 services: app-service
 author: kraigb
 manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/12/2019
 ms.author: kraigb
 ---
 
-# Configure a custom startup file
+# Create the App Service
 
-[Previous step: create the App Service](tutorial-deploy-app-service-on-linux-02.md)
+[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-01.md)
 
-Depending on how you've structured your app, you may need to create a custom startup command file for your app as described on [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python) in the Azure docs.
+In this step you create the instance of Azure App Service to which you deploy your app. You do this step before deploying your code so you can configure a custom startup file if necessary in the next step.
 
-The specific use cases of a custom startup command are as follows:
+1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (**F1**) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 
-- You have a **Flask** app whose startup file and app object are named something **other** than *application.py* and `app`, respectively. In other words, unless you have an *application.py* in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
-- You want to start the Gunicorn web server with additional arguments beyond the defaults, which are `--bind=0.0.0.0 --timeout 600`.
+    ![Create new App Service button in the App Service explorer](media/deploy-azure/app-service-create-new.png)
 
-Django apps typically don't need customizations unless you want to provide additional arguments to Gunicorn.
+1. In the prompts that follow:
 
-If you need a custom startup file, first create the file and commit it to your repository so it can be deployed with the rest of the app code.
+    - Enter a name for your app, which must be globally unique on App Service; typically you use your name or company name followed by the app name.
+    - Select **Python 3.7** as the runtime.
 
-1. Create a file in your project named *startup.txt* (or another name of your choice) that contains your startup command. For Flask, see [Flask startup commands](#flask-startup-commands) in the next section.
+1. When a message appears indicating that the new App Service was created, select **View Output** to switch to the **Output** window in VS Code. The output shows the names of the Azure resource group and App Service Plan that were created, along with the URL for the App Service.
 
-1. In the **Azure: App Service** explorer, expand the App Service, right-click **Application Settings**, and select **Open in Portal**:
+    ![Message that appears after the App Service is created](media/deploy-azure/app-service-created.png)
 
-    ![Open Settings in Portal command in the App Service explorer](media/deploy-azure/open-settings-in-portal-command.png)
+1. To confirm that the App Service is running properly, expand your subscription in the **Azure: App Service** explorer, right-click the App Service name, and select **Browse website**:
 
-1. In the Azure portal, sign in if necessary; then on the **Application settings** page, enter your startup file name (like *startup.txt*) under **Runtime** > **Startup File**, then select **Save**. (This step is the one case in which you need to visit the Azure portal.)
+    ![Browse Website command on an App Service in the App Service explorer](media/deploy-azure/browse-website-command.png)
 
-    ![Setting the startup file name in the Azure portal](media/deploy-azure/azure-portal-startup-file.png)
+1. Because you haven't deployed your own code to the App Service yet (which you do in the next step), only a default app appears:
 
-1. The App Service restarts when you save changes. Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests.
+    ![Default Python app on App Service on Linux](media/deploy-azure/default-python-app.png)
 
-> [!NOTE]
-> Instead of using a startup command file, you can also put the startup command directly in the **Startup File** field on the Azure portal. Using a file is generally preferable, however, as it keeps this bit of configuration in your repository where you can audit changes and redeploy to a different App Service instance altogether.
+## (Optional) Upload an environment variable definitions file
 
-## Flask startup commands
+If you have an environment variable definitions file, you can use that file to configure the App Service environment as well. (To learn more about such files, which typically have the *.env* extension, refer to [Visual Studio Code - Python Environments](https://code.visualstudio.com/docs/python/environments#environment-variable-definitions-file).)
 
-By default, the App Service on Linux container assumes that a Flask app's startup file is named *application.py* and resides in the app's root folder. It further assumes that the Flask app object defined within that file is named `app`. If your app isn't structured in this exact way, then your custom startup command must identify the app object's location:
+1. In the **Azure: App Service** explorer, expand the node for the desired App Service, then right-click the **Application Settings** node and select **Upload Local Settings**.
 
-1. **Different file name and/or app object name**: for example, if the app's startup file is *hello.py* and the app object is named `myapp`, the startup command is as follows:
+1. VS Code prompts you for the location of your *.env* file, then uploads it to the App Service.
 
-    ```text
-    gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
-    ```
+1. Once the upload is complete, you can expand the **Application Settings** node to see the individual values. You can also view them on the Azure portal by navigating to the App Service and selecting **Configuration**.
 
-1. **Startup file is in a subfolder**: for example, if the startup file is *myapp/website.py* and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
-
-    ```text
-    gunicorn --bind=0.0.0.0 --timeout 600 --chdir myapp website:app
-    ```
-
-1. **Startup file is within a module**: in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py* and *webapp.py* uses a relative import. Because of this arrangement, pointing Gunicorn to `webapp:app` produces the error, "Attempted relative import in non-package," and the app fails to start.
-
-    In this situation, create a simple shim file that imports the app object from the module, and then have Gunicorn launch the app using the shim. The [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, for example, contains *startup.py* with the following contents:
-
-    ```python
-    # startup.py shim
-    from hello_app.webapp import app
-    ```
-
-    The startup command is then the following:
-
-    ```text
-    gunicorn --bind=0.0.0.0 --timeout 600 startup:app
-    ```
+1. If you create settings directly on the Azure portal, you can save them in a definitions file by right-clicking the **Application Settings** node and selecting **Download Remote Settings**. This process makes sure that you have those settings in your repository and not only on the portal.
 
 > [!div class="nextstepaction"]
-> [Next: Add the app to a Git repository](tutorial-deploy-app-service-on-linux-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-startup-command)
+> [I created the App Service](tutorial-deploy-app-service-on-linux-04.md)
+
+[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-create-app-service)

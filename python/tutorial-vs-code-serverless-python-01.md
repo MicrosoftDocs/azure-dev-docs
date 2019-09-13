@@ -41,32 +41,7 @@ Follow the instructions for your operating system on [Work with Azure Functions 
 
 ### Sign in to Azure
 
-Once the Functions extension is installed, sign into your Azure account by navigating to the **Azure: Functions** explorer, select **Sign in to Azure**, and follow the prompts.
-
-![Sign in to Azure through Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
-
-After signing in, verify that the email account of your Azure subscription appears in the Status Bar:
-
-![Visual Studio Code status bar showing Azure account](media/tutorial-vs-code-serverless-python/azure-account-status-bar.png)
-
-The name you've assigned to your subscription also appears in the **Azure: Functions** explorer ("Primary" in the image below):
-
-![Visual Studio Code Azure App Service explorer showing subscriptions](media/tutorial-vs-code-serverless-python/azure-subscription-view.png)
-
-> [!NOTE]
-> If you encounter the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
->
-> ```bash
-> # macOS/Linux
-> export HTTPS_PROXY=https://username:password@proxy:8080
-> export HTTP_PROXY=http://username:password@proxy:8080
-> ```
->
-> ```ps
-> # Windows
-> set HTTPS_PROXY=https://username:password@proxy:8080
-> set HTTP_PROXY=http://username:password@proxy:8080
-> ```
+[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
 ### Verify prerequisites
 
