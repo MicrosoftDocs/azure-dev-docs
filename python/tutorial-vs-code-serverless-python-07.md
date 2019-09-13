@@ -1,6 +1,6 @@
 ---
 title: Add a storage binding for Azure Functions in Python with Visual Studio Code
-description: Tutorial part 7, adding a binding in Python to write messages to Azure storage.
+description: Tutorial step 7, adding a binding in Python to write messages to Azure storage.
 services: functions
 author: kraigb
 manager: barbkess
@@ -94,32 +94,6 @@ In this section, you add a storage binding to the HttpExample function created e
 1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
+> [I added a storage binding](tutorial-vs-code-serverless-python-08.md)
 
-## Clean up resources
-
-The Function App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=07-storage-binding)
-
-## Next steps
-
-Congratulations on completing this walkthrough of deploying Python code to Azure Functions! You're now ready to create many more serverless functions.
-
-As noted earlier, you can learn more about the Functions extension by visiting its GitHub repository, [vscode-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions). Issues and contributions are also welcome.
-
-Read the [Azure Functions Overview](/azure/azure-functions/functions-overview.md) to explore the different triggers you can use.
-
-To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/python/?view=azure-python).
-
-There are also other Azure extensions for Visual Studio Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
-
-![Azure extensions for Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-extensions.png)
-
-Some popular extensions are:
-
-- [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-- [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). See the [Deploy to App Service tutorial](tutorial-deploy-app-service-on-linux-01.md)
-- [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-- [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)

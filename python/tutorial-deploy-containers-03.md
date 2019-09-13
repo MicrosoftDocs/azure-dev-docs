@@ -1,12 +1,12 @@
 ---
-title: Redeploy a conatiner to Azure App Service after making changes in Visual Studio Code
-description: Tutorial part 3, the simple steps to rebuild and redeploy a container image.
+title: Redeploy a container to Azure App Service after making changes in Visual Studio Code
+description: Tutorial step 3, the simple steps to rebuild and redeploy a container image.
 services: app-service
 author: kraigb
 manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/12/2019
 ms.author: kraigb
 ---
 
@@ -27,4 +27,6 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
 > [!div class="nextstepaction"]
-> [Next: Stream logs](tutorial-deploy-containers-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=03-make-changes-redeploy)
+> [I made changes and redeployed](tutorial-deploy-containers-04.md)
+
+[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=03-make-changes-redeploy)

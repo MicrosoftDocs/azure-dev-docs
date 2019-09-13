@@ -88,6 +88,8 @@
           href: tutorial-deploy-containers-03.md
         - name: Stream logs
           href: tutorial-deploy-containers-04.md
+        - name: Clean up resources
+          href: tutorial-deploy-containers-05.md
     - name: Deploy Azure Functions with VS Code
       items:
         - name: Introduction and prerequisites
@@ -102,8 +104,10 @@
           href: tutorial-vs-code-serverless-python-05.md
         - name: Add a second function
           href: tutorial-vs-code-serverless-python-06.md
-        - name: Add a storage binding and cleanup
+        - name: Add a storage binding
           href: tutorial-vs-code-serverless-python-07.md
+        - name: Clean up resources
+          href: tutorial-vs-code-serverless-python-08.md
 - name: How-to guides
   items: 
   - name: Install the SDK
