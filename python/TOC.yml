@@ -66,16 +66,18 @@
       items:
         - name: Introduction and prerequisites
           href: tutorial-deploy-app-service-on-linux-01.md
-        - name: Create the App Service
+        - name: Prepare your app
           href: tutorial-deploy-app-service-on-linux-02.md
-        - name: Configure the startup file
+        - name: Create the App Service
           href: tutorial-deploy-app-service-on-linux-03.md
-        - name: Add the app to a Git repository
+        - name: Configure the startup file
           href: tutorial-deploy-app-service-on-linux-04.md
-        - name: Deploy using Git
+        - name: Deploy the app
           href: tutorial-deploy-app-service-on-linux-05.md
-        - name: Make changes and redeploy
+        - name: Stream logs
           href: tutorial-deploy-app-service-on-linux-06.md
+        - name: Clean up resources
+          href: tutorial-deploy-app-service-on-linux-07.md
     - name: Deploy containers with VS Code
       items:
         - name: Introduction and prerequisites

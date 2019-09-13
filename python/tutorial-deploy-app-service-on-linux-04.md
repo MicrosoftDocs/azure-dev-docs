@@ -37,9 +37,10 @@ If you need a custom startup file, use the following steps:
 
     ![Setting the startup file name in the Azure portal](media/deploy-azure/azure-portal-startup-file.png)
 
-1. The App Service restarts when you save changes. Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
+    > [!NOTE]
+    > Instead of using a startup command file, you can also put the startup command directly in the **Startup Command** field on the Azure portal. Using a file is generally preferable, however, as it keeps this bit of configuration in your repository where you can audit changes and redeploy to a different App Service instance altogether.
 
-Instead of using a startup command file, you can also put the startup command directly in the **Startup Command** field on the Azure portal. Using a file is generally preferable, however, as it keeps this bit of configuration in your repository where you can audit changes and redeploy to a different App Service instance altogether.
+1. The App Service restarts when you save changes. Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
 
 ## Django startup commands
 
