@@ -3,12 +3,12 @@
 title: Azure SDK for Python documentation
 summary: |
   Learn about the Azure SDK for Python, how to get started using it, and what it offers for developers. Get started with useful
-  Azure features like application hosting, support for open source databases like mySQL and PostgreSQL, and working with big
+  Azure features like application hosting, support for open-source databases like mySQL and PostgreSQL, and working with big
   data for machine learning and other applications.
 
 metadata:
   title: Azure for Python developers
-  description: Get started develioping with the Azure SDK for Python using the developer resources below.
+  description: Get started developing with the Azure SDK for Python using the developer resources below.
   author: sptramer
   ms.author: sttramer
   ms.date: 09/10/2019
