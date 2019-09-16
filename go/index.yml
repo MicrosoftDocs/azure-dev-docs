@@ -3,7 +3,7 @@
 title: Azure SDK for Go documentation
 summary: |
   Learn about how to use the Azure SDK for Go, what features the SDK provides, and development tools that make
-  it easy to use Azure.
+  it easy to use Azure with Go.
 metadata:
   title: Azure for Go developers
   description: Get started developing with the Azure SDK for Go using the developer resources below.
