@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+        "source_path": "java/intellij/azure-toolkit-for-intellij.md",
+        "redirect_url": "java/intellij",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "javascript/overview.md",
       "redirect_url": "/azure/javascript/",
       "redirect_document_id": false
