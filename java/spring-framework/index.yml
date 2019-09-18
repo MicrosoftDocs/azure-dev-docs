@@ -2,7 +2,7 @@
 
 title: Spring on Azure
 summary: |
-  [Spring](https://spring.io/) is an open-source application framework developed by [Pivotal](https://pivotal.io) that provides a simplified, modular approach
+  Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach
   for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:

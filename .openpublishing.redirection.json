@@ -7,12 +7,12 @@
     },
     {
         "source_path": "java/intellij/azure-toolkit-for-intellij.md",
-        "redirect_url": "java/intellij",
+        "redirect_url": "/azure/java/intellij",
         "redirect_document_id": true
     },
     {
         "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
-        "redirect_url": "java/eclipse",
+        "redirect_url": "/azure/java/eclipse",
         "redirect_document_id": true
     },
     {
