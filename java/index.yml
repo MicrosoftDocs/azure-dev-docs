@@ -1,87 +1,61 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure for Java cloud developers
+### YamlMime:Landing
+
+title: Azure JDK for Java documentation
+summary: |
+  Learn about the Azure JDK for Java, what features the JDK provides, and development tools that make it easy to use Azure with Java.
+
 metadata:
-  title: Azure for Java developers - Tutorials, API Reference
+  title: Azure for Java developers
   description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
-  keywords: Azure, Java, SDK, API, Maven, Spring
   author: rloutlaw 
   ms.author: brendm
-  manager: douge
-  ms.date: 11/02/2017
-  ms.topic: article
-  ms.technology: azure
-  ms.devlang: java
-  ms.service: multiple
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-      html: <p>Deploy your first web app to Azure</p>
-      image:
-        src: /media/common/i_get-started.svg
-      title: Get Started
-    - href: /azure/java/spring-framework/
-      html: <p>Azure services with Spring Boot</p>
-      image:
-        src: /java/media/spring.svg
-      title: Spring on Azure
-    - href: java-azure-tools.md
-      html: <p>Tools and IDEs</p>
-      image:
-        src: /media/common/i_download-install.svg
-      title: IntelliJ, Maven, Eclipse, and VS Code plugins
-    - href: jdk/index.md 
-      html: <p>Supported JDKs</p>
-      image:
-        src: /media/common/i_download-install.svg
-      title: Supported JDKs
-    - href: /java/api/?view=azure-java
-      html: <p>API Reference</p>
-      image:
-        src: /media/common/i_api-reference.svg
-      title: Azure SDKs for Java
-- title: Get started guides
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items: 
-    - image:
-        src: /java/media/spring.svg
-      title: Deploy a Spring Boot app with Maven
-      href: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
-    - image:
-        src: /azure/media/index/storage.svg
-      title: Upload and download blobs from Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-    - image:
-        src: /azure/media/index/azurefunctions.svg
-      title: Create a Java serverless function
-      href: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-    - image:
-        src: /javascript/azure/media/k8s_logo.svg
-      title: Deploy to Kubernetes
-      href: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
-    - image:
-        src: /azure/media/index/fabric.svg
-      title: Microservices with Service Fabric
-      href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-    - image:
-        src: /java/media/jenkins_logo.svg
-      title:  CI/CD to App Service with Jenkins®
-      href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2">Create a Spring Boot app with Linux and Cosmos DB</a>
-    - html: <a href="https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart">Azure Blob Storage with Java</a>
-    - html: <a href="https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started">Connect to Cosmos DB with the SQL API</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Java microservices with Service Fabric</a>
+  ms.date: 09/18/2019
+  ms.topic: landing-page
+
+landingContent:
+  - title: Get started with the Azure JDK
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - url: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          text: Deploy your first web app to Azure
+        - text: Deploy a Spring Boot app with Maven
+          url: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+        - text: Upload and download blobs from Storage
+          url: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - text: Create a Java serverless function
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - text: Deploy to Kubernetes
+          url: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
+        - text: Microservices with Service Fabric
+          url: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - text:  CI/CD to App Service with Jenkins®
+          url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Development tools
+    linkLists:
+      - linkListType: conceptual
+        links:
+        - url: /azure/java/spring-framework/
+          text: Azure services with Spring Boot
+        - url: java-azure-tools.md
+          text: IntelliJ, Maven, Eclipse, and VS Code plugins
+        - url: jdk/index.md 
+          text: Supported JDKs
+  - title: Code samples
+    linkLists:
+      - linkListType: download
+        links:
+        - text: Create a Spring Boot app with Linux and Cosmos DB
+          url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2
+        - text: Azure Blob Storage with Java
+          url: https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart
+        - text: Connect to Cosmos DB with the SQL API
+          url: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+        - text: Java microservices with Service Fabric
+          url: https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+        - url: /java/api/?view=azure-java
+          text: API Reference
