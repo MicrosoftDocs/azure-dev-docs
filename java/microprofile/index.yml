@@ -27,7 +27,7 @@ landingContent:
         url: cicd-microprofile-vsts.md
 - title: Samples for Azure
   linkLists:
-  - linkListType: conceptual
+  - linkListType: concept
     links:
     - text: MicroProfile Samples for Azure
       url: https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue
@@ -35,7 +35,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - title: MicroProfile.io
+    - text: MicroProfile.io
       url: https://microprofile.io/
-    - title: Samples by MicroProfile.io
+    - text: Samples by MicroProfile.io
       url: https://microprofile.io/project/eclipse/microprofile-samples

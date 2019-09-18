@@ -33,7 +33,7 @@ landingContent:
           url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
   - title: Development tools
     linkLists:
-      - linkListType: conceptual
+      - linkListType: concept
         links:
         - url: /azure/java/spring-framework/
           text: Azure services with Spring Boot

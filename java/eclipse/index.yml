@@ -42,7 +42,7 @@ landingContent:
             url: azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
   - title: Give feedback and get help
     linkLists:
-      - linkListType: conceptual
+      - linkListType: concept
         links:
           - text: Report a bug
             url: https://github.com/Microsoft/azure-tools-for-java/issues
