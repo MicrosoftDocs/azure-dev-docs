@@ -18,41 +18,41 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - title: Create a Hello World web app for Azure App Service
+          - text: Create a Hello World web app for Azure App Service
             url: azure-toolkit-for-intellij-create-hello-world-web-app.md
       - linkListType: tutorial
         links:
-          - title: Run a Hello World web app in a Linux container by using the Azure Toolkit for IntelliJ
+          - text: Run a Hello World web app in a Linux container by using the Azure Toolkit for IntelliJ
             url: azure-toolkit-for-intellij-hello-world-web-app-linux.md
-          - title: Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ
+          - text: Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ
             url: azure-toolkit-for-intellij-publish-spring-boot-docker-app.md
-          - title: Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ
+          - text: Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ
             url: azure-toolkit-for-intellij-publish-as-docker-container.md
-          - title: Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for an HDInsight Spark Linux cluster
+          - text: Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
   - title: Manage Azure resources
     linkLists:
       - linkListType: quickstart
         links:
-          - title: Redis caches
+          - text: Redis caches
             url: azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md
-          - title: Storage accounts
+          - text: Storage accounts
             url: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
-          - title: Virtual machines
+          - text: Virtual machines
             url: azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
   - title: Give feedback and get help
     linkLists:
       - linkListType: conceptual
         links:
-          - title: Report a bug
+          - text: Report a bug
             url: https://github.com/Microsoft/azure-tools-for-java/issues
-          - title: Azure tools for Java on Stack Overflow
+          - text: Azure tools for Java on Stack Overflow
             url: https://stackoverflow.com/questions/tagged/azure-java-tools 
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
-          - title: JDK Downloads and support
+          - text: JDK Downloads and support
             url: https://aka.ms/azure-jdks 
-          - title: Azure Toolkit for IntelliJ source
+          - text: Azure Toolkit for IntelliJ source
             url: https://github.com/microsoft/azure-tools-for-java

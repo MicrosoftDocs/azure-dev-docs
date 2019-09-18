@@ -11,6 +11,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
+        "redirect_url": "java/eclipse",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "javascript/overview.md",
       "redirect_url": "/azure/javascript/",
       "redirect_document_id": false
