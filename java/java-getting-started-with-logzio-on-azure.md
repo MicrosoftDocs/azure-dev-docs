@@ -15,9 +15,9 @@ ms.custom:
 
 # Getting started with Logz.io for Java projects running on Azure
 
-[Logz.io](https://logz.io/) provides a full monitoring solution based on Elasticsearch, Logstash, Kibana and Grafana.
+[Logz.io](https://logz.io/) provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
 
-In this getting started guide, we will learn how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. This guide should work for most Java applications running on Azure, as it uses the two most widely-used Java logging libraries, Log4J and Logback.
+In this getting started guide, we will learn how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. This guide should work for most Java applications running on Azure, as it uses the two most widely used Java logging libraries, Log4J and Logback.
 
 ## Supported JDK runtimes
 
@@ -31,19 +31,19 @@ Once you are logged in, you will need your Logz.io token in order to be able to 
 
 ## Logz.io's "Type" selection
 
-A "Type" is a logical field in Elasticsearch that is used to separate different documents from one another. It is essential to configure this properly in order to get the most of Logz.io.
+A "Type" is a logical field in Elasticsearch that is used to separate different documents from one another. It is essential to configure this parameter properly in order to get the most of Logz.io.
 
 A "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example, it's not: server1, server2, server3). As we are configuring Java applications in this quickstart, and we expect those applications will all have the same format, we are calling our type "java-application".
 
-For advanced usage, you could group your Java applications into different types, which all have their own specific log format (log formatting is totally configurable with Log4J and Logback), so you could have a "spring-boot-monolith" type and "spring-boot-microservice" type, for example.
+For advanced usage, you could group your Java applications into different types, which all have their own specific log format (log formatting is configurable with Log4J and Logback), so you could have a "spring-boot-monolith" type and "spring-boot-microservice" type, for example.
 
 ## Library installation and configuration for Log4J
 
-Those instructions are for people using Log4J, if you use Logback, please go to the next section.
+Those instructions are for people using Log4J, if you use Logback, go to the next section.
 
-[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but please check if a newer library version is available when doing this setup.
+[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
 
-If you are using Maven, please add the following dependency to your `pom.xml`:
+If you are using Maven, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -53,7 +53,7 @@ If you are using Maven, please add the following dependency to your `pom.xml`:
 </dependency>
 ```
 
-If you are using Gradle, please add the following the dependency to your build script:
+If you are using Gradle, add the following the dependency to your build script:
 
 ```
 implementation 'io.logz.log4j:logzio-log4j-appender:1.0.11'
@@ -79,9 +79,9 @@ Once the library is installed, you must configure its usage in your Log4J config
 
 ## Library installation and configuration for Logback
 
-[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but please check if a newer library version is available when doing this setup.
+[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
 
-If you are using Maven, please add the following dependency to your `pom.xml`:
+If you are using Maven, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -91,7 +91,7 @@ If you are using Maven, please add the following dependency to your `pom.xml`:
 </dependency>
 ```
 
-If you are using Gradle, please add the following the dependency to your build script:
+If you are using Gradle, add the following the dependency to your build script:
 
 ```
 implementation 'io.logz.logback:logzio-logback-appender:1.0.22'
@@ -120,7 +120,7 @@ Once the library is installed, you must configure its usage in your Logback conf
 
 ## Configuration test and log analysis on Logz.io
 
-Once the Logz.io library is configured, your application should now send logs directly to it: in order to test this, please go to the Logz.io console and select the "Live tail" tab. Click on the "run" button, and you should have a message telling you the connection is working:
+Once the Logz.io library is configured, your application should now send logs directly to it: in order to test that everything works correctly, go to the Logz.io console and select the "Live tail" tab. Click on the "run" button, and you should have a message telling you the connection is working:
 
 ```
 Requesting Live Tail access...
