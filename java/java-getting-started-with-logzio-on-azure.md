@@ -17,11 +17,11 @@ ms.custom:
 
 [Logz.io](https://logz.io/) provides a full monitoring solution based on Elasticsearch, Logstash, Kibana and Grafana.
 
-In this getting started guide, we will learn how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. This guide should work for most Java applications running on Azure, as it uses the two most widely-used Java logging librairies, Log4J and Logback.
+In this getting started guide, we will learn how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. This guide should work for most Java applications running on Azure, as it uses the two most widely-used Java logging libraries, Log4J and Logback.
 
 ## Supported JDK runtimes
 
-Librairies used here require Java 8 and up.
+Libraries used here require Java 8 and up.
 
 ## Logz.io account creation
 
