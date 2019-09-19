@@ -35,7 +35,7 @@ A "Type" is a logical field in Elasticsearch that is used to separate different 
 
 A "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example, it's not: server1, server2, server3). As we are configuring Java applications in this quickstart, and we expect those applications will all have the same format, we are calling our type "java-application".
 
-For advanced usage, you could group your Java applications into different types, which all have their own specific log format (log formatting is totally configurable with Log4J and Logback), so you could have a "spring-boot-monolith" type and and "spring-boot-microservice" type, for example.
+For advanced usage, you could group your Java applications into different types, which all have their own specific log format (log formatting is totally configurable with Log4J and Logback), so you could have a "spring-boot-monolith" type and "spring-boot-microservice" type, for example.
 
 ## Library installation and configuration for Log4J
 
