@@ -9,6 +9,7 @@ ms.date: 04/09/2019
 ms.author: brendm
 ms.topic: conceptual
 ms.service: azure 
+ms.custom: seo-java-september2019
 ---
 
 # Java Long-Term Support for Azure and Azure Stack
@@ -52,10 +53,10 @@ Azul Systems provides fully-supported [Azul Zulu for Azure - Enterprise Edition]
 
 |Java SE LTS  |Support until  |
 |---------|----------|
-|[![Java 7](../media/jdk/java-7.png)](https://www.azul.com/downloads/azure-only/zulu/#java7) |July 2023 |
-|[![Java 8](../media/jdk/java-8.png)](https://www.azul.com/downloads/azure-only/zulu/#java8) |March 2025|
-|[![Java 11](../media/jdk/java-11.png)](https://www.azul.com/downloads/azure-only/zulu/#java11) |Sept. 2026|
-|[![Java 12](../media/jdk/java-12.png)]() |**PREVIEW**|
+|[![Supported Java version - Java 7](../media/jdk/supported-java-versions-java-7.png)](https://www.azul.com/downloads/azure-only/zulu/#java7) |July 2023 |
+|[![Supported Java version - Java 8](../media/jdk/supported-java-versions-java-8.png)](https://www.azul.com/downloads/azure-only/zulu/#java8) |March 2025|
+|[![Supported Java version - Java 11](../media/jdk/supported-java-versions-java-11.png)](https://www.azul.com/downloads/azure-only/zulu/#java11) |Sept. 2026|
+|[![Supported Java version - Java 12](../media/jdk/supported-java-versions-java-12.png)]() |**PREVIEW**|
 
 These JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed.  This support includes back ports of security updates and bug fixes to Java 7 and 8 reported in newer versions of Java such as Java 11, which ensures the continued stability and security of older versions of Java.  Azure customers can get these security updates and platform bug fixes without incurring any unplanned Java SE subscription fees.
 
