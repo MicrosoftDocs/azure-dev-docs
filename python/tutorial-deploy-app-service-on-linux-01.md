@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 Install the following software:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Python and the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [VS Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial.md).
+- Python and the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [VS Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
 - The [Azure App Service](vscode:extension/ms-azuretools.vscode-azureappservice) extension, which provides interaction with Azure App Service from within VS Code. For general information, explore the [App Service extension tutorial](https://code.visualstudio.com/tutorials/app-service-extension/getting-started) and visit the [vscode-azureappservice GitHub repository](https://github.com/Microsoft/vscode-azureappservice).
 
 ## Sign in to Azure

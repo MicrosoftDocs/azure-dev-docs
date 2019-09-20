@@ -14,7 +14,7 @@ ms.author: kraigb
 
 [Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
 
-In these steps, you use the Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. It also requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale.md#hosting-plan-support). All of these resources are organized within a single resource group.
+In these steps, you use the Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. It also requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale#hosting-plan-support). All of these resources are organized within a single resource group.
 
 1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or open the Command Palette (**F1**) and select the **Azure Functions: Deploy to Function App** command. Again, the function app is where your Python project runs in Azure.
 
@@ -25,7 +25,7 @@ In these steps, you use the Functions extension to create a function app in Azur
 1. The extension performs the following actions, which you can observe in Visual Studio Code popup messages and the **Output** window (the process takes a few minutes):
 
     - Create a resource group using the name you gave (removing hyphens).
-    - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](/azure/azure-functions/functions-scale.md#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](/azure/azure-functions/functions-develop-vs-code.md).
+    - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](/azure/azure-functions/functions-scale#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](/azure/azure-functions/functions-develop-vs-code).
     - Deploy your code to the function app.
 
     The **Azure: Functions** explorer also shows progress:
