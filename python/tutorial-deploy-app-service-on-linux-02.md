@@ -39,7 +39,7 @@ This section describes the minimal Flask app used in this walkthrough.
     Flask==1.1.1
     ```
 
-1. Follow the instructions in [Flask Tutorial - Create a project environment for Flask](/docs/python/tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
+1. Follow the instructions in [Flask Tutorial - Create a project environment for Flask](https://code.visualstudio.com/docs/python/tutorial-flask#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
 1. To run this app, use the following commands (depending on your operating system). The FLASK_APP environment variable tells Flask where to find the app object.
 
@@ -57,11 +57,11 @@ This section describes the minimal Flask app used in this walkthrough.
 
 ## VS Code Flask tutorial sample
 
-Download or clone [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
+Download or clone [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](https://code.visualstudio.com/docs/python/tutorial-flask).
 
 ## VS Code Django tutorial sample
 
-Download or clone [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
+Download or clone [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](https://code.visualstudio.com/docs/python/tutorial-django).
 
 If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. The reason for this is that, at present, App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors.
 

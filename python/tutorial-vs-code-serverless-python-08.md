@@ -24,7 +24,7 @@ Congratulations on completing this walkthrough of deploying Python code to Azure
 
 As noted earlier, you can learn more about the Functions extension by visiting its GitHub repository, [vscode-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions). Issues and contributions are also welcome.
 
-Read the [Azure Functions Overview](/azure/azure-functions/functions-overview.md) to explore the different triggers you can use.
+Read the [Azure Functions Overview](/azure/azure-functions/functions-overview) to explore the different triggers you can use.
 
 To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/python/?view=azure-python).
 

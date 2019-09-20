@@ -14,7 +14,7 @@ ms.author: kraigb
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 
-A _binding_ let you connect your function code to resources, such as Azure storage, without writing any data access code. A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings.md).
+A _binding_ let you connect your function code to resources, such as Azure storage, without writing any data access code. A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings).
 
 In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request. The storage in question uses the same default storage account used by the function app. If you plan on making heavy use of storage, however, you would want to consider creating a separate account.
 
@@ -87,9 +87,9 @@ In this section, you add a storage binding to the HttpExample function created e
 
     1. Sign into the [Azure portal](https://portal.azure.com), and navigate to the resource group containing your functions project. Within that resource group, local and navigate into the storage account for the project, then navigate into **Queues**. On that page, navigate into "outqueue", which should display all the logged messages.
 
-    1. Navigate and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code.md), especially the [Examine the output queue](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) section.
+    1. Navigate and examine the queue with either the Azure Storage Explorer, which integrates with Visual Studio, as described on [Connect Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code), especially the [Examine the output queue](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code#examine-the-output-queue) section.
 
-    1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](/azure/azure-functions/functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
+    1. Use the Azure CLI to query the storage queue, as described on [Query the storage queue](/azure/azure-functions/functions-add-output-binding-storage-queue-python#query-the-storage-queue).
 
 1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
 
