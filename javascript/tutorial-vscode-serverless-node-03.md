@@ -10,7 +10,7 @@ ms.date: 09/23/2019
 ms.author: kraigb
 ---
 
-# Test the function locally
+# Test the function code locally
 
 [Previous step: create the Function app](tutorial-vscode-serverless-node-02.md)
 

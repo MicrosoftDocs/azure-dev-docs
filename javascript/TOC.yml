@@ -114,6 +114,18 @@
             href: tutorial-vscode-docker-node-05.md
           - name: Clean up resources
             href: tutorial-vscode-docker-node-06.md
+      - name: Deploy Azure Functions with VS Code
+        items:
+          - name: Introduction and prerequisites
+            href: tutorial-vscode-serverless-node-01.md
+          - name: Create the Functions app
+            href: tutorial-vscode-serverless-node-02.md
+          - name: Test the function locally
+            href: tutorial-vscode-serverless-node-03.md
+          - name: Deploy the Functions app
+            href: tutorial-vscode-serverless-node-04.md
+          - name: Clean up resources
+            href: tutorial-vscode-serverless-node-05.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
