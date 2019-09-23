@@ -86,6 +86,34 @@
         href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Speech recognition
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+  - name: Tutorials
+    items:
+      - name: Deploy to App Service with VS Code
+        items:
+          - name: Introduction and prerequisites
+            href: tutorial-vs-code-azure-app-service-node-01.md
+          - name: Create the app
+            href: tutorial-vs-code-azure-app-service-node-02.md
+          - name: Deploy the website
+            href: tutorial-vs-code-azure-app-service-node-03.md
+          - name: Stream logs
+            href: tutorial-vs-code-azure-app-service-node-04.md
+          - name: Clean up resources
+            href: tutorial-vs-code-azure-app-service-node-05.md
+      - name: Deploy containers with VS Code
+        items:
+          - name: Introduction and prerequisites
+            href: tutorial-vs-code-docker-node-01.md
+          - name: Use a container registry
+            href: tutorial-vs-code-docker-node-02.md
+          - name: Create your app image
+            href: tutorial-vs-code-docker-node-03.md
+          - name: Deploy the image
+            href: tutorial-vs-code-docker-node-04.md
+          - name: Stream logs
+            href: tutorial-vs-code-docker-node-05.md
+          - name: Clean up resources
+            href: tutorial-vs-code-docker-node-06.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code

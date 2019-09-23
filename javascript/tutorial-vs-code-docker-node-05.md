@@ -1,6 +1,6 @@
 ---
-title: Stream logs from a containerized Node.js app into Visual Studio Code
-description: Tutorial part 5, stream logs into Visual Studio
+title: Stream logs from a containerized Node.js app from Visual Studio Code
+description: Tutorial part 5, stream logs into Visual Studio Code
 services: app-service
 author: kraigb
 manager: barbkess
@@ -31,4 +31,4 @@ In this step, you learn how to view or "tail" any output that the running websit
 [!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I'm done](node-howto-deploy-containers.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=tailing-logs)
+> [I see the logs](tutorial-vscode-docker-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=tailing-logs)
