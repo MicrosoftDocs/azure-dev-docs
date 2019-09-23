@@ -245,5 +245,5 @@ For more information about the various technologies discussed in this article, s
 
 <!-- IMG List -->
 
-[AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/AP01.png
-[AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/AP02.png
+[AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
+[AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png
