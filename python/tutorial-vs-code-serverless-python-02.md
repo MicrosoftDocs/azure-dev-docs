@@ -24,7 +24,7 @@ ms.author: kraigb
     | --- | --- | --- |
     | Specify a folder for the project | Current open folder | The folder in which to create the project. You may want to create the project in a subfolder. |
     | Select a language for your function app project | **Python** | The language to use for the function, which determines the template used for the code. |
-    | Select a template for your project's first function | **HTTP trigger** | A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (There are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](/azure/azure-functions/functions-overview.md#what-can-i-do-with-functions).) |
+    | Select a template for your project's first function | **HTTP trigger** | A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (There are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](/azure/azure-functions/functions-overview#what-can-i-do-with-functions).) |
     | Provide a function name | HttpExample | The name is used for a subfolder that contains the function's code along with configuration data, and also defines the name of the HTTP endpoint. Use "HttpExample" rather than accepting the default "HTTPTrigger" to distinguish the function itself from the trigger. |
     | Authorization level | **Anonymous** | Anonymous authorization makes the function publicly accessible to anyone. |
     | Select how you would like to open your project | **Open in current window** | Opens the project in the current Visual Studio Code window. |
