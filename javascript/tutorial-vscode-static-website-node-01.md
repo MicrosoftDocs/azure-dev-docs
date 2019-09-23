@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Functions in Node.js from Visual Studio Code
+title: Deploy a Static Node.js Website to Azure from Visual Studio Code
 description: Tutorial part 1, introduction and prerequisites.
 services: app-service
 author: kraigb
@@ -10,9 +10,9 @@ ms.date: 09/23/2019
 ms.author: kraigb
 ---
 
-# Deploy Azure Functions from Visual Studio Code
+# Deploy a static website to Azure from Visual Studio Code
 
-In this tutorial, you use Visual Studio Code and the Azure Functions extension to create and deploy an Azure Functions application written with JavaScript. 
+In this tutorial, you use Visual Studio Code to create and deploy a static Node.js website to Azure using Azure App service, Azure Functions, and Azure Storage. 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To enable local debugging, you need to install the [Azure Functions Core Tools](
 
 # [macOS](#tab/unix)
 
-Install the Core Tools using [Homebrew](https://brew.sh/).
+Install the Core TOols using [Homebrew](https://brew.sh/).
 
 ```bash
 brew tap azure/functions
@@ -46,7 +46,7 @@ brew install azure-functions-core-tools
 
 # [Windows](#tab/windows)
 
-Install using [npm](https://npmjs.com).
+**On Windows**, install using [npm](https://npmjs.com).
 
 ```bash
 npm install -g azure-functions-core-tools

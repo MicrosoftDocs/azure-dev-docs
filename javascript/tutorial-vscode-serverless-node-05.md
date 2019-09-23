@@ -23,4 +23,4 @@ You can also visit the [Azure portal](https://portal.azure.com), select **Resour
 [!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I;m done](node-howto-write-serverless-code.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=clean-up-resources)
+> [I'm done](node-howto-write-serverless-code.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=clean-up-resources)

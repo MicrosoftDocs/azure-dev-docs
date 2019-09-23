@@ -26,13 +26,15 @@ If you don't already have an app for this walkthrough, use the app from the [Vis
 
 1. The command creates a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
-> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](https://code.visualstudio.com/docs/azure/docker) in the VS Code documentation to learn about rich language features like smart suggestions, completions, and error detection.
+    > [!TIP]
+    > VS Code has great support for Docker files. See the [Working with Docker](https://code.visualstudio.com/docs/azure/docker) in the VS Code documentation to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
 The `Dockerfile` describe the environment for your app including the location of the source files and the command to start the app within a container.
 
-> **Tip:** Containers versus images: A container is an instance of an image.
+    > [!TIP]
+    > Containers versus images: A container is an instance of an image.
 
 1. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image.
 
@@ -60,8 +62,7 @@ The `Dockerfile` describe the environment for your app including the location of
 
 1. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
 
-![Pushed image appearing in the Azure Container Registry](media/deploy-containers/image-in-acr.png)
-
+    ![Pushed image appearing in the Azure Container Registry](media/deploy-containers/image-in-acr.png)
 
 > [!div class="nextstepaction"]
 > [I've created an image for my application](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)

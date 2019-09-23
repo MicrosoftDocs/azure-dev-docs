@@ -34,9 +34,5 @@ In this step, you learn how to view or "tail" any output that the running websit
 
 1. Refresh the web page a few times in the browser to see additional log output.
 
-## Next steps
-
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
-
 > [!div class="nextstepaction"]
 > [I see the logs](tutorial-vscode-azure-app-service-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=tailing-logs)
