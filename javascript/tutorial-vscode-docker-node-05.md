@@ -22,7 +22,7 @@ In this step, you learn how to view or "tail" any output that the running websit
 
 1. When prompted, choose to enable logging and restart the application.
 
-    ![Prompt to enable logging and restart](media/deploy-azure/enable-logging-and-restart.png)
+    ![Prompt to enable logging and restart](media/deploy-azure/enable-restart.png)
 
 1. Once the app is restarted, the **Output** panel in Visual Studio Code opens with a connection to the log stream, starting with the message `Starting Live Log Stream`.
 

@@ -60,8 +60,8 @@ The `Dockerfile` describe the environment for your app including the location of
 
 1. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
 
-![Pushed image appearing in the Azure Container Registry](images/docker-extension/image-in-acr.png)
+![Pushed image appearing in the Azure Container Registry](media/deploy-containers/image-in-acr.png)
 
 
 > [!div class="nextstepaction"]
-> [I've created an image for my application](tutorial-vs-code-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)
+> [I've created an image for my application](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)

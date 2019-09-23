@@ -56,4 +56,4 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/en
     ![Verifying that the registry appears in the Docker explorer](media/deploy-containers/registries.png)
 
 > [!div class="nextstepaction"]
-> [I've created a registry](tutorial-vs-code-docker-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)
+> [I've created a registry](tutorial-vscode-docker-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)

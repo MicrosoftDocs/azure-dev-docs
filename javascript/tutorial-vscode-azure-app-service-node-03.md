@@ -68,4 +68,4 @@ You can deploy changes to this app by using the same process and choosing the ex
 ----
 
 > [!div class="nextstepaction"]
-> [My site is on Azure](tutorial-vs-code-azure-app-service-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=deploy-app)
+> [My site is on Azure](tutorial-vscode-azure-app-service-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=deploy-app)

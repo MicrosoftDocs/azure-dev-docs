@@ -37,4 +37,4 @@ In this step, you deploy the image that you pushed to a registry to [Azure App S
 1. To browse the deployed website, you can **Ctrl**+**Click** the URL in the **Output** panel. The new App Service also appears in the **AZURE** explorer in Visual Studio Code under the **APP SERVICE** section, where you can right-click the website and select **Browse Website**.
 
 > [!div class="nextstepaction"]
-> [My site is on Azure](tutorial-vs-code-docker-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=deploy-app)
+> [My site is on Azure](tutorial-vscode-docker-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=deploy-app)

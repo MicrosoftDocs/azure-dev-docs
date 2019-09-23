@@ -32,4 +32,4 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 [!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
 > [!div class="nextstepaction"]
-> [I've installed the Azure extension](tutorial-vs-code-azure-app-service-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=getting-started)
+> [I've installed the Azure extension](tutorial-vscode-azure-app-service-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=getting-started)

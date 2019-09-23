@@ -48,4 +48,4 @@ You can also use the app from the [Visual Studio Code Node.js tutorial](https://
     ![Running Express Application](media/deploy-azure/express.png)
 
 > [!div class="nextstepaction"]
-> [I created the  Node.js app](tutorial-vs-code-azure-app-service-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
+> [I created the  Node.js app](tutorial-vscode-azure-app-service-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
