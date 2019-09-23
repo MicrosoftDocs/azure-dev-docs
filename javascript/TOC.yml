@@ -91,29 +91,29 @@
       - name: Deploy to App Service with VS Code
         items:
           - name: Introduction and prerequisites
-            href: tutorial-vs-code-azure-app-service-node-01.md
+            href: tutorial-vscode-azure-app-service-node-01.md
           - name: Create the app
-            href: tutorial-vs-code-azure-app-service-node-02.md
+            href: tutorial-vscode-azure-app-service-node-02.md
           - name: Deploy the website
-            href: tutorial-vs-code-azure-app-service-node-03.md
+            href: tutorial-vscode-azure-app-service-node-03.md
           - name: Stream logs
-            href: tutorial-vs-code-azure-app-service-node-04.md
+            href: tutorial-vscode-azure-app-service-node-04.md
           - name: Clean up resources
-            href: tutorial-vs-code-azure-app-service-node-05.md
+            href: tutorial-vscode-azure-app-service-node-05.md
       - name: Deploy containers with VS Code
         items:
           - name: Introduction and prerequisites
-            href: tutorial-vs-code-docker-node-01.md
+            href: tutorial-vscode-docker-node-01.md
           - name: Use a container registry
-            href: tutorial-vs-code-docker-node-02.md
+            href: tutorial-vscode-docker-node-02.md
           - name: Create your app image
-            href: tutorial-vs-code-docker-node-03.md
+            href: tutorial-vscode-docker-node-03.md
           - name: Deploy the image
-            href: tutorial-vs-code-docker-node-04.md
+            href: tutorial-vscode-docker-node-04.md
           - name: Stream logs
-            href: tutorial-vs-code-docker-node-05.md
+            href: tutorial-vscode-docker-node-05.md
           - name: Clean up resources
-            href: tutorial-vs-code-docker-node-06.md
+            href: tutorial-vscode-docker-node-06.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
