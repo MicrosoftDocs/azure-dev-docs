@@ -30,10 +30,10 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/en
     - Select your subscription in **Subscription**.
     - **Resource group** needs to be unique only within your subscription.
     - In location, **Location**, selecting a region close to you.
-    - Leave **Admin user** as **Enable**.
+    - Set **Admin user** as **Enable**.
     - Select **Basic** for **SKU**.
 
-    ![Values for the container registry form](media/deploy-containers/portal-03.png)
+    ![Values for the container registry form](media/deploy-containers/portal-02.png)
 
 1. Select **Create** to create the registry.
 
@@ -41,9 +41,9 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/en
 
     ![Opening the newly created registry resource](media/deploy-containers/portal-03.png)
 
-1. On the registry page, select **Access Keys**, then under **Admin User** select **Enable**.
+1. On the registry page, select **Access Keys** and note the admin credentials:
 
-    ![Enabling the admin user on the Azure portalt](media/deploy-containers/portal-04.png)
+    ![Registry credentials for the registry on the Azure portal](media/deploy-containers/portal-04.png)
 
 1. At a command prompt or terminal, log in to Docker using the command below, replacing `<registry_name>` with the name of your registry, and `<username>` and `<password>` from with the values shown in the Azure portal for the admin user:
 
