@@ -59,7 +59,7 @@ In this step, you deploy your Node.js website to using Visual Studio Code and th
 
 ## Troubleshooting
 
-The error "You do not have permission to view this directory or page" indicates that the app probably failed to start correctly. Viewing logs, as described in the [next step](tutorial-vs-code-azure-app-service-node-04.md) can help to diagnose and fix the problem. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
+The error "You do not have permission to view this directory or page" indicates that the app probably failed to start correctly. Viewing logs, as described in the [next step](tutorial-vscode-azure-app-service-node-04.md) can help to diagnose and fix the problem. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
 
 ## Updating the website
 

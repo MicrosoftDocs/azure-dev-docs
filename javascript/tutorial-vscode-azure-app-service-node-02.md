@@ -16,7 +16,7 @@ ms.author: kraigb
 
 In this step, you create a simple Node.js app using the Express application generator that you can then deploy to Azure.
 
-You can also use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), in which case you can skip ahead to [Deploy the app](tutorial-vs-code-azure-app-service-node-03.md).
+You can also use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), in which case you can skip ahead to [Deploy the app](tutorial-vscode-azure-app-service-node-03.md).
 
 1. Use the following command in a terminal or command prompt to install the Express application generator. (The `-g` switch installs package globally on your computer so you can run it from anywhere.)
 
