@@ -31,11 +31,11 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 [!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
-# Install the Azure Functions Core Tools
+## Install the Azure Functions Core Tools
 
 To enable local debugging, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing).
 
-# [macOS](#tab/unix)
+### [macOS](#tab/unix)
 
 Install the Core Tools using [Homebrew](https://brew.sh/).
 
@@ -44,7 +44,7 @@ brew tap azure/functions
 brew install azure-functions-core-tools
 ```
 
-# [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 Install using [npm](https://npmjs.com).
 
@@ -52,7 +52,7 @@ Install using [npm](https://npmjs.com).
 npm install -g azure-functions-core-tools
 ```
 
-# [Linux](#tab/linux)
+### [Linux](#tab/linux)
 
 Follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
 
@@ -78,4 +78,4 @@ Function Runtime Version: 2.0.12332.0
 ```
 
 > [!div class="nextstepaction"]
-> [I've installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
+> [I installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

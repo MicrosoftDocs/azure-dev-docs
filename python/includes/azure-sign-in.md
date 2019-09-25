@@ -1,8 +1,8 @@
-Once you've installed the Azure extension, sign into your Azure account by navigating to the **Azure: App Service** explorer, select **Sign in to Azure**, and follow the prompts.
+Once you've installed the Azure extension, sign into your Azure account by navigating to the **Azure** explorer, select **Sign in to Azure**, and follow the prompts. (If you have multiple Azure extensions installed, select the one for the area in which you're working, such as App Service, Functions, etc.)
 
 ![Sign in to Azure through VS Code](../media/deploy-azure/azure-sign-in.png)
 
-After signing in, verify that the email address of your Azure account appears in the Status Bar and your subscription(s) appears in the **Azure: App Service** explorer:
+After signing in, verify that the email address of your Azure account appears in the Status Bar and your subscription(s) appears in the **Azure** explorer:
 
 ![VS Code status bar showing Azure account](../media/deploy-azure/azure-account-status-bar.png)
 

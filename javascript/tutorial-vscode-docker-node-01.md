@@ -50,4 +50,4 @@ Docker Version 17.12.0-ce, build c97c6d6
 ```
 
 > [!div class="nextstepaction"]
-> [I've installed the Docker extension](tutorial-vscode-docker-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=getting-started)
+> [I installed the Docker extension](tutorial-vscode-docker-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=getting-started)
