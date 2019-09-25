@@ -194,7 +194,7 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
 * And the URL for your web app will be listed in the **Overview** for your web app:
 
-   ![Determining the URL for your web app][AP02]
+   ![Find the URL for your web app in Azure portal App Services][AP02]
 
 Verify that the deployment was successful by using the same cURL command as before, using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Greetings from Spring Boot!** 
 
@@ -244,6 +244,7 @@ For more information about the various technologies discussed in this article, s
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->
+
 
 [AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
 [AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png
