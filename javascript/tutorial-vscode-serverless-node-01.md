@@ -48,7 +48,7 @@ brew install azure-functions-core-tools
 
 Install using [npm](https://npmjs.com).
 
-```bash
+```powershell
 npm install -g azure-functions-core-tools
 ```
 

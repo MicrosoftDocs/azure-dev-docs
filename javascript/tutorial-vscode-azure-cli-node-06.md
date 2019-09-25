@@ -16,7 +16,7 @@ ms.author: kraigb
 
 In this step, you make changes to your app code, commit them to the local Git repository, and then redeploy your site by pushing to Azure.
 
-1. In the `myExpressApp` folder, open the *views/index.pug* file and change the message in line 5 to `p Welcome to Azure~`.
+1. In the `myExpressApp` folder, open the *views/index.pug* file and change the message in line 5 to `p Welcome to Azure!`.
 
     ![Editing the index.pug file](media/azure-cli/editpugfile.png)
 
