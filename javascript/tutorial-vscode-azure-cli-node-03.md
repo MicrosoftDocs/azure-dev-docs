@@ -26,7 +26,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
     Once the command runs successfully, it displays JSON output with the details of the resource group.
 
-1. Run the following command command to set the default resource group and region for subsequent commands. Doing so avoids the need to specify these values each time. (This command has no output on success.)
+1. Run the following command to set the default resource group and region for subsequent commands. Doing so avoids the need to specify these values each time. (This command has no output on success.)
 
     ```bash
     az configure --defaults group=myResourceGroup location=westus
@@ -38,7 +38,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
     az appservice plan create --name myPlan --sku F1
     ```
 
-    The command above specifies a free hosting plan (`--sku F1`), which uses a shared virtual machine,and names the plan `myPlan`. Again, the command shows JSON output on success.
+    The command above specifies a free hosting plan (`--sku F1`), which uses a shared virtual machine, and names the plan `myPlan`. Again, the command shows JSON output on success.
 
 1. Run the following command to create the App Service, replacing `<your_app_name>` with a unique name that becomes the URL, `http://<your_app_name>.azurewebsites.net`. Note that the PowerShell command is slightly different. The `--runtime "node|6.9"` argument tells Azure to use node version 6.9.x on the server.
 
@@ -55,7 +55,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
     > },
     > ```
 
-1. Run the following command to open a browser to the newly created App Service, again replacing replacing `<your_app_name>` with the name you used:
+1. Run the following command to open a browser to the newly created App Service, again replacing `<your_app_name>` with the name you used:
 
     ```bash
     az webapp browse --name <your_app_name>
