@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Clean up resources
 
-[Previous step: make changes and redeploy](tutorial-vscode-docker-node-06.md)
+[Previous step: Make changes and redeploy](tutorial-vscode-docker-node-06.md)
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, run the following command at a terminal or command prompt:
 

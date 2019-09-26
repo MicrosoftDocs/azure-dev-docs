@@ -10,9 +10,9 @@ ms.date: 09/24/2019
 ms.author: kraigb
 ---
 
-# Deploy the app code to App Service
+# Deploy the app to App Service
 
-[Previous step: create the App Service](tutorial-vscode-azure-cli-node-03.md)
+[Previous step: Create the App Service](tutorial-vscode-azure-cli-node-03.md)
 
 In this step, you deploy your Node.js app code to Azure App Service using a basic process of pushing your local Git repository to Azure.
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Stream logs from App Service
 
-[Previous step: deploy the app code](tutorial-vscode-azure-cli-node-04.md)
+[Previous step: Deploy the app](tutorial-vscode-azure-cli-node-04.md)
 
 In this step, you view (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 

@@ -10,9 +10,9 @@ ms.date: 09/23/2019
 ms.author: kraigb
 ---
 
-# Test the function code locally
+# Test the function locally
 
-[Previous step: create the Function app](tutorial-vscode-serverless-node-02.md)
+[Previous step: Create the Functions app](tutorial-vscode-serverless-node-02.md)
 
 In this step, you run the Azure Functions project locally to test it before deploying to Azure.
 

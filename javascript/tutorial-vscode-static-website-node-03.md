@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create an Azure Storage account
 
-[Previous step: create the app](tutorial-vscode-static-website-node-02.md)
+[Previous step: Create the app](tutorial-vscode-static-website-node-02.md)
 
 In this step, you create an Azure Storage account, which serves as a simple file store (or CDN) with a built-in web server. This built-in server makes Azure Storage a great choice for quickly hosting static sites.
 

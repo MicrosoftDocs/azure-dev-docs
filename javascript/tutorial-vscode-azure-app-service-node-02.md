@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create your Node.js application
 
-[Previous step: prerequisites](tutorial-vscode-azure-app-service-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-azure-app-service-node-01.md)
 
 In this step, you create a simple Node.js app using the Express application generator that you can then deploy to Azure.
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Clean up resources
 
-[Previous step: stream logs](tutorial-vscode-azure-app-service-node-04.md)
+[Previous step: Stream logs](tutorial-vscode-azure-app-service-node-04.md)
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**.
 

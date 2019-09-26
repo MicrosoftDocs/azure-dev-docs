@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Clean up resources
 
-[Previous step: stream logs](tutorial-vscode-docker-node-05.md)
+[Previous step: Stream logs](tutorial-vscode-docker-node-05.md)
 
 The App Service you created for the container includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**.
 

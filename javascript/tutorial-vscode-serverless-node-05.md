@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Clean up resources
 
-[Previous step: deploy the Function app](tutorial-vscode-serverless-node-04.md)
+[Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-04.md)
 
 The Function App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**.
 

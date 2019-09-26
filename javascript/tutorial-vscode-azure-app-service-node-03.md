@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Deploy the website
 
-[Previous step: create the app](tutorial-vscode-azure-app-service-node-02.md)
+[Previous step: Create the app](tutorial-vscode-azure-app-service-node-02.md)
 
 In this step, you deploy your Node.js website to using Visual Studio Code and the Azure App Service extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to Azure App Service on Linux.
 

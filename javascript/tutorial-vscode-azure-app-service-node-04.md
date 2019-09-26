@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Stream logs from Azure App Service
 
-[Previous step: deploy the website](tutorial-vscode-azure-app-service-node-03.md)
+[Previous step: Deploy the website](tutorial-vscode-azure-app-service-node-03.md)
 
 In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
 

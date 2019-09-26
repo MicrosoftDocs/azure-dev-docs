@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create the app
 
-[Previous step: prerequisites](tutorial-vscode-static-website-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-static-website-node-01.md)
 
 In this step, you use the React utility CLI, [create-react-app](https://github.com/facebook/create-react-app), to create a simple React app that can be deployed to Azure. You can alternately use Angular, Vue, another framework, or any folder that contains a few HTML files. If you already have an app ready to deploy, you can skip ahead to [Create an Azure Storage account](tutorial-vscode-static-website-node-03.md).
 

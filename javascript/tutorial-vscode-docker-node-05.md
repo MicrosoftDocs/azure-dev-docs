@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Stream logs into Visual Studio Code
 
-[Previous step: deploy the app image](tutorial-vscode-docker-node-04.md)
+[Previous step: Deploy the app image](tutorial-vscode-docker-node-04.md)
 
 In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
 

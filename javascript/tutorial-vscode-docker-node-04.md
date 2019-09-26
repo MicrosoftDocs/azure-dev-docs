@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Deploy the image to Azure App Service
 
-[Previous step: create the app image](tutorial-vscode-docker-node-03.md)
+[Previous step: Create the app image](tutorial-vscode-docker-node-03.md)
 
 In this step, you deploy the image that you pushed to a registry to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) directly from Visual Studio Code.
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Deploy the Functions app
 
-[Previous step: test teh function locally](tutorial-vscode-serverless-node-03.md)
+[Previous step: Test the function locally](tutorial-vscode-serverless-node-03.md)
 
 1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Azure Functions**, select the blue up arrow to deploy your app:
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Deploy the website to Azure Storage
 
-[Previous step: create storage](tutorial-vscode-static-website-node-03.md)
+[Previous step: Create a Storage account](tutorial-vscode-static-website-node-03.md)
 
 In this step, you use Visual Studio Code to deploy the static website files created in the previous steps to Azure Storage, which then hosts and serves those files.
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Clean up resources
 
-[Previous step: make a code change](tutorial-vscode-static-website-node-05.md)
+[Previous step: Make changes and redeploy](tutorial-vscode-static-website-node-05.md)
 
 The storage you created incurs minimal ongoing costs (which for storage are very small). To avoid those costs, right-click the storage account in the **Azure: Storage** explorer of Visual Studio Code and select **Delete Storage Account**.
 

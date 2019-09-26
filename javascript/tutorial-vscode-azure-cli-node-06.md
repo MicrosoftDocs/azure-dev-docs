@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Make changes and redeploy
 
-[Previous step: deploy the app code](tutorial-vscode-azure-cli-node-05.md)
+[Previous step: Stream logs](tutorial-vscode-azure-cli-node-05.md)
 
 In this step, you make changes to your app code, commit them to the local Git repository, and then redeploy your site by pushing to Azure.
 

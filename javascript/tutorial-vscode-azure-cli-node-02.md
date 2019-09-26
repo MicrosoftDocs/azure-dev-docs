@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create the app code using Express
 
-[Previous step: prerequisites](tutorial-vscode-azure-cli-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-azure-cli-node-01.md)
 
 In this step, you create a simple Node.js app with [Express](https://www.expressjs.com) using the [Express Generator](https://expressjs.com/en/starter/generator.html).
 

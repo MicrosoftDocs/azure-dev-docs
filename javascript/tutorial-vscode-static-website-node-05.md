@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Make changes and redeploy
 
-[Previous step: deploy the website](tutorial-vscode-static-website-node-04.md)
+[Previous step: Deploy to Azure Storage](tutorial-vscode-static-website-node-04.md)
 
 In this step, you make a simple change to the app's source code and redeploy the site to experience the end-to-end deployment workflow.
 

@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create the App Service
 
-[Previous step: create the app](tutorial-vscode-azure-cli-node-02.md)
+[Previous step: Create the app](tutorial-vscode-azure-cli-node-02.md)
 
 In this step, you use the Azure CLI to create the Azure App Service to host your app code.
 

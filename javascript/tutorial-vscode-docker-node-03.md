@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create your Node.js application image
 
-[Previous step: use a container registry](tutorial-vscode-docker-node-02.md)
+[Previous step: Use a container registry](tutorial-vscode-docker-node-02.md)
 
 In this step, you use the Docker extension in Visual Studio Code to add the necessary files to create an image for your app, build the image, and push it to a registry.
 

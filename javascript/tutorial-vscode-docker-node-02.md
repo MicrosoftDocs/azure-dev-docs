@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Use a container registry
 
-[Previous step: prerequisites](tutorial-vscode-docker-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-docker-node-01.md)
 
 In this step, you set up a suitable container registry for your app image. Container-capable hosting services like Azure App Service then pull the images from the registry.
 

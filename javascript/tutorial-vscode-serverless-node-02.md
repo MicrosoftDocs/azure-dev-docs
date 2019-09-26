@@ -12,7 +12,7 @@ ms.author: kraigb
 
 # Create the local Function app
 
-[Previous step: prerequisites](tutorial-vscode-serverless-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-01.md)
 
 In this step, you create a local Azure Functions application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 
