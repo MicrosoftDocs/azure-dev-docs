@@ -10,7 +10,7 @@ ms.date: 09/23/2019
 ms.author: kraigb
 ---
 
-# Create the local Function app
+# Create the local Functions app
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-01.md)
 

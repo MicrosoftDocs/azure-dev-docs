@@ -33,49 +33,30 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ## Install the Azure Functions Core Tools
 
-To enable local debugging, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing).
+To enable local debugging, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools), which can be done directly in Visual Studio Code.
 
-### [macOS](#tab/unix)
+1. Start Visual Studio Code.
 
-Install the Core Tools using [Homebrew](https://brew.sh/).
+1. Open the **Command Palette** (**F1**), enter **Azure Functions: Install or Update Azure Functions Core Tools**, and press **Enter** to run the command.
 
-```bash
-brew tap azure/functions
-brew install azure-functions-core-tools
-```
+1. To verify installation, select the menu command **Terminal** > **New Terminal** in VS Code, then run the command, `func`. The command should show output like that below (along with usage information).
 
-### [Windows](#tab/windows)
+    ```output
+                      %%%%%%
+                     %%%%%%
+                @   %%%%%%    @
+              @@   %%%%%%      @@
+           @@@    %%%%%%%%%%%    @@@
+         @@      %%%%%%%%%%        @@
+           @@         %%%%       @@
+             @@      %%%       @@
+               @@    %%      @@
+                    %%
+                    %
 
-Install using [npm](https://npmjs.com).
-
-```powershell
-npm install -g azure-functions-core-tools
-```
-
-### [Linux](#tab/linux)
-
-Follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
-
----
-
-To verify that you have the Azure Functions tools installed, open a terminal or command prompt and run the command, `func`. The command should show output like that below (along with usage information).
-
-```output
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-Azure Functions Core Tools (2.4.419 Commit hash: c9c1724d002bd90b2e6b41393915ea3a26bcf0ce)
-Function Runtime Version: 2.0.12332.0
-```
+    Azure Functions Core Tools (2.4.419 Commit hash: c9c1724d002bd90b2e6b41393915ea3a26bcf0ce)
+    Function Runtime Version: 2.0.12332.0
+    ```
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

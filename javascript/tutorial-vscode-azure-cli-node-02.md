@@ -16,16 +16,10 @@ ms.author: kraigb
 
 In this step, you create a simple Node.js app with [Express](https://www.expressjs.com) using the [Express Generator](https://expressjs.com/en/starter/generator.html).
 
-1. Install the Express Generator using the following command from a terminal or command prompt. (The `-g` switch installs the Express Generator globally on your computer so you can run it from anywhere.)
+1. Use the following command to run the Express Generator and scaffold a new Express app called "myExpressApp". (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
 
     ```bash
-    npm install -g express-generator
-    ```
-
-1. Scaffold a new Express app called "myExpressApp" by running the following command. (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
-
-    ```bash
-    express myExpressApp --view pug --git
+    npx express-generator myExpressApp --view pug –git
     ```
 
 1. Navigate into the app folder and install the app's dependencies by running the following commands:

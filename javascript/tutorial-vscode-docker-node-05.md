@@ -1,6 +1,6 @@
 ---
-title: Stream logs from a containerized Node.js app from Visual Studio Code
-description: Tutorial part 5, stream logs into Visual Studio Code
+title: Redeploy a container to Azure App Service after making changes in Visual Studio Code
+description: Tutorial step 5, the simple steps to rebuild and redeploy a container image.
 services: app-service
 author: kraigb
 manager: barbkess
@@ -10,21 +10,20 @@ ms.date: 09/20/2019
 ms.author: kraigb
 ---
 
-# Stream logs into Visual Studio Code
+# Make changes and redeploy
 
 [Previous step: Deploy the app image](tutorial-vscode-docker-node-04.md)
 
-In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
+Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
 
-1. In the **Azure App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
+1. Make changes to your app and test locally.
 
-    ![View Streaming Logs](media/deploy-containers/stream-logs-command.png)
+1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to rebuild the image). If you change only app code, the build should take only a few seconds.
 
-1. When prompted, choose to enable logging and restart the application.
+1. To push the image to the registry, open the **Command Palette** (**F1**) again and run **Docker Images: Push**, choosing the image you just built. As before, because a change to your app code is small, only that layer needs to be pushed and the process typically completes in a few seconds.
 
-    ![Prompt to enable logging and restart](media/deploy-azure/enable-restart.png)
+1. In the **Azure: App Service** explorer, right-click the appropriate App Service and select **Restart**. Restarting an app service automatically pulls the latest container image from the registry.
 
-1. Once the app is restarted, the **Output** panel in Visual Studio Code opens with a connection to the log stream, starting with the message `Starting Live Log Stream`.
+1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
-> [!div class="nextstepaction"]
-> [I see the logs](tutorial-vscode-docker-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=tailing-logs)
+> [I see the changes](tutorial-vscode-docker-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=deploy-changes)

@@ -33,8 +33,8 @@ If you don't already have an app for this walkthrough, use the app from the [Vis
 
 The `Dockerfile` describe the environment for your app including the location of the source files and the command to start the app within a container.
 
-    > [!TIP]
-    > Containers versus images: A container is an instance of an image.
+> [!TIP]
+> Containers versus images: A container is an instance of an image.
 
 1. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image.
 

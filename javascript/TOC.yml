@@ -122,10 +122,12 @@
             href: tutorial-vscode-docker-node-03.md
           - name: Deploy the app image
             href: tutorial-vscode-docker-node-04.md
-          - name: Stream logs
+          - name: Make changes and redeploy
             href: tutorial-vscode-docker-node-05.md
-          - name: Clean up resources
+          - name: Stream logs
             href: tutorial-vscode-docker-node-06.md
+          - name: Clean up resources
+            href: tutorial-vscode-docker-node-07.md
       - name: Deploy to App Service with the Azure CLI
         items:
           - name: Introduction and prerequisites

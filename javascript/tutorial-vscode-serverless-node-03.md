@@ -16,7 +16,7 @@ ms.author: kraigb
 
 In this step, you run the Azure Functions project locally to test it before deploying to Azure.
 
-When you created the Function app, the Azure Functions extension automatically added a VS Code launch configuration to your project, which is found in the *.vscode/launch.json* file. This configuration uses the same runtime that runs on Azure, so you can be sure that your source code works before deploying to the cloud.
+When you created the Functions app, the Azure Functions extension automatically added a VS Code launch configuration to your project, which is found in the *.vscode/launch.json* file. This configuration uses the same runtime that runs on Azure, so you can be sure that your source code works before deploying to the cloud.
 
 1. In Visual Studio Code, press **F5** (or use the **Debug** > **Start Debugging** menu command) to launch the debugger and attach to the Azure Functions host. (This command automatically uses the single debug configuration that Azure Functions created.)
 

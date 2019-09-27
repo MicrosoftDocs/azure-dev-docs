@@ -16,16 +16,10 @@ ms.author: kraigb
 
 In this step, you use the React utility CLI, [create-react-app](https://github.com/facebook/create-react-app), to create a simple React app that can be deployed to Azure. You can alternately use Angular, Vue, another framework, or any folder that contains a few HTML files. If you already have an app ready to deploy, you can skip ahead to [Create an Azure Storage account](tutorial-vscode-static-website-node-03.md).
 
-1. Install the create-react-app tool using npm by running the following command in a terminal or command prompt. (The `-g` switch installs `create-react-app` globally on your computer so you can run it from anywhere.)
+1. Use the create-react-app tool to scaffold a new React app called `my-react-app` by running the following command:
 
     ```bash
-    npm install -g create-react-app
-    ```
-
-1. Scaffold a new React app called `my-react-app` by running the following command:
-
-    ```bash
-    create-react-app my-react-app
+    npm create react-app my-react-app
     ```
 
 1. Build the application by switching to the new folder and running `npm run build`:

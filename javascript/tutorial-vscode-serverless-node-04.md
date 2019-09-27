@@ -14,7 +14,7 @@ ms.author: kraigb
 
 [Previous step: Test the function locally](tutorial-vscode-serverless-node-03.md)
 
-1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Azure Functions**, select the blue up arrow to deploy your app:
+1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the blue up arrow to deploy your app:
 
     ![Deploy to Azure Functions command](media/functions-extension/deploy-app.png)
 
@@ -26,10 +26,7 @@ ms.author: kraigb
 
 1. At the next prompt, select an Azure [region](https://azure.microsoft.com/en-us/regions/) close to you.
 
-    > [!TIP]
-    > When using certain triggers that depend on storage, deploying to Azure Functions will also prompt you to create a storage account if necessary.
-
-1. The VS Code **Output** panel for **Azure Functions** shows progress: 
+1. The VS Code **Output** panel for **Azure Functions** shows progress:
 
     ![VS Code output panel showing deployment progres](media/functions-extension/deploy-progress.png)
 

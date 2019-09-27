@@ -41,7 +41,7 @@ The command opens a browser window in which you're asked to log into Azure. Once
 
 ## Check npm version
 
-If you already had Node.js installed, run the `node -v` command and verify that the version is 6.x or higher. If you have an older version, [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Support") release.
+If you already had Node.js installed, run the `node -v` command and verify that the version is 10.x or higher. If you have an older version, [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Support") release.
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](tutorial-vscode-azure-cli-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=getting-started)

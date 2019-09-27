@@ -2,7 +2,7 @@ Once you've installed the Azure extension, sign into your Azure account by navig
 
 ![Sign in to Azure through VS Code](../media/deploy-azure/azure-sign-in.png)
 
-After signing in, verify that the email address of your Azure account appears in the Status Bar and your subscription(s) appears in the **Azure** explorer:
+After signing in, verify that the email address of your Azure account (or "Signed In") appears in the Status Bar and your subscription(s) appears in the **Azure** explorer:
 
 ![VS Code status bar showing Azure account](../media/deploy-azure/azure-account-status-bar.png)
 
