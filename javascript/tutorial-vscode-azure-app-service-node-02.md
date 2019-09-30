@@ -18,16 +18,10 @@ In this step, you create a simple Node.js app using the Express application gene
 
 You can also use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), in which case you can skip ahead to [Deploy the app](tutorial-vscode-azure-app-service-node-03.md).
 
-1. Use the following command in a terminal or command prompt to install the Express application generator. (The `-g` switch installs package globally on your computer so you can run it from anywhere.)
+1. In a terminal or command prompt, use the following command to run the Express Generator and scaffold a new Express app called "myExpressApp". (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
 
     ```bash
-    npm install -g express-generator
-    ```
-
-1. Use the following command to scaffold a new Express application called `myExpressApp`. (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`) and to create a `.gitignore` file.)
-
-    ```bash
-    express myExpressApp --view pug --git
+    npx express-generator myExpressApp --view pug –git
     ```
 
 1. Install the application's dependencies by running `npm install` in the app folder:
