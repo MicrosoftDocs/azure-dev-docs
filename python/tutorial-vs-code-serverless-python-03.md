@@ -6,7 +6,7 @@ author: kraigb
 manager: barbkess
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 00/02/2019
+ms.date: 09/02/2019
 ms.author: kraigb
 ---
 
