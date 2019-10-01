@@ -14,7 +14,7 @@ ms.author: kraigb
 
 Azure provides a robust container service so that you can easily deploy, scale, and manage container-based Node.js apps.
 
-To get started, follow the simple step-by-step walkthrough [Deploy to Azure using Docker and Visual Studio Code](https://code.visualstudio.com/tutorials/docker-extension/getting-started). Using Visual Studio Code makes it easy for you to upload images to a container registry (such as Azure Container Registry), and to then deploy that container to Azure App Service.
+To get started, follow the simple step-by-step walkthrough [Deploy to Azure using Docker and Visual Studio Code](tutorial-vscode-docker-node-01.md). Using Visual Studio Code makes it easy for you to upload images to a container registry (such as Azure Container Registry), and to then deploy that container to Azure App Service.
 
 You can also go through the following Microsoft Learn modules:
 
