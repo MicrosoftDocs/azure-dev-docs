@@ -22,7 +22,7 @@ landingContent:
             url: /azure/app-service/containers/app-service-linux-intro?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
       - linkListType: quickstart
         links:
-          - text: Build, deploy and scale Python web apps
+          - text: Build, deploy, and scale Python web apps
             url: /azure/app-service/containers/quickstart-python?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
           - text: Deploy containerized apps in Azure Kubernetes Service
             url: /azure/aks/kubernetes-walkthrough?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json 
