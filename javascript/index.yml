@@ -36,24 +36,24 @@ sections:
     items:
     - title: Static Web Apps, SPAs and Progressive Web Apps
       html: <p>Deploy static apps built with frameworks like React, Angular, and Vue on Azure Storage</p>
-      href: https://code.visualstudio.com/tutorials/static-website/getting-started
+      href: tutorial-vscode-static-website-node-01.md
       image:
         src: /media/logos/logo_React.svg
+    - title: Serverless Apps and APIs
+      href: tutorial-vscode-serverless-node-01.md
+      html: <p>Deploy serverless apps and APIs written in JavaScript on Azure Functions</p>
+      image:
+        src: /azure/media/index/azurefunctions.svg
     - title: Full-stack Node.js-powered Web Apps and APIs
       html: <p>Deploy full-stack node.js web apps and APIs built with frameworks like Express on Azure App Service</p>
-      href: https://code.visualstudio.com/tutorials/app-service-extension/getting-started
+      href: tutorial-vscode-azure-app-service-node-01.md
       image:
         src: /media/logos/logo_vs-code.svg
     - title: Containerized Apps and Microservices with Docker
       html: <p>Deploy containerized apps and microservices using Docker containers on Azure App Service</p>
-      href: https://code.visualstudio.com/tutorials/docker-extension/getting-started 
+      href: tutorial-vscode-docker-node-01.md
       image:
         src: /azure/docker/media/docker.png
-    - title: Serverless Apps and APIs
-      href: https://code.visualstudio.com/tutorials/functions-extension/getting-started    
-      html: <p>Deploy serverless apps and APIs written in JavaScript on Azure Functions</p>
-      image:
-        src: /azure/media/index/azurefunctions.svg
 - title: Azure SDK for Node.js
   items:
   - type: list
