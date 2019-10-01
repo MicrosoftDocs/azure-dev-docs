@@ -13,7 +13,7 @@ ms.author: karler
 ms.custom: seo-javascript-september2019
 ---
 
-# Node.js development with Visual Studio Code and Azure
+# Develop and deploy a containerized Node.js app with Visual Studio Code and Azure
 
 This tutorial illustrates taking an existing Node.js app, "containerizing" it (with Docker), and then deploying the app to Azure using Visual Studio Code.
 
