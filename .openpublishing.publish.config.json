@@ -2,7 +2,7 @@
   "docsets_to_publish": [
     {
       "docset_name": "azure-dotnet",
-      "build_source_folder": "dotnet",
+      "build_source_folder": "dotnet-redirects",
       "build_output_subfolder": "azure-dotnet",
       "locale": "en-us",
       "monikers": [],

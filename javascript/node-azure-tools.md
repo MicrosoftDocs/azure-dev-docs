@@ -1,5 +1,5 @@
 ---
-title: Tools for JavaScript developers on Azure | Microsoft Docs
+title: Tools for JavaScript developers on Azure
 description: Install individual tools for JavaScript development on Azure
 services: multiple
 author: karlerickson
@@ -10,6 +10,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/07/2017 
 ms.author: karler
+ms.custom: seo-javascript-september2019
 ---
 
 # Azure tools for JavaScript developers

@@ -11,6 +11,7 @@ ms.topic: article
 ms.devlang: java
 ms.service: multiple
 ms.assetid: 10f457e3-578b-4655-8cd1-51339226ee7d
+ms.custom: seo-java-september2019
 ---
 
 
@@ -18,7 +19,7 @@ ms.assetid: 10f457e3-578b-4655-8cd1-51339226ee7d
 
 ## Connect to services with connection strings
 
-Most Azure service libraries use a connection string or secure key for authentication. For example, SQL Database includes username and password information in the JDBC connection string:
+This article shows how to authenticate with the Azure libraries for Java. Most Azure service libraries use a connection string or secure key for authentication. For example, SQL Database includes username and password information in the JDBC connection string:
 
 ```java
 String url = "jdbc:sqlserver://myazuredb.database.windows.net:1433;" + 
