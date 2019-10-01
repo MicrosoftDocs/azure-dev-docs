@@ -11,14 +11,13 @@ ms.date: 12/19/2018
 ms.devlang: java
 ms.service: app-service
 ms.topic: article
-ms.custom: seo-java-july2019, seo-java-august2019  
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019  
 #Customer intent: As a Java and Spring developer, I want to deploy apps to Azure as JAR files so that I don't have to deal with app server configuration and management.
 ---
 
 # Deploy a Spring Boot JAR file app to Azure App Service with Maven and Azure on Linux
 
-This article demonstrates using the [Maven Plugin for Azure App Service Web Apps](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy a Spring Boot application packaged as a Java SE JAR to [Azure App Service on Linux](/azure/app-service/containers/). Choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
-
+In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy a Spring Boot application packaged as a Java SE JAR to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -195,7 +194,7 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
 * And the URL for your web app will be listed in the **Overview** for your web app:
 
-   ![Determining the URL for your web app][AP02]
+   ![Find the URL for your web app in Azure portal App Services][AP02]
 
 Verify that the deployment was successful by using the same cURL command as before, using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Greetings from Spring Boot!** 
 
@@ -246,5 +245,6 @@ For more information about the various technologies discussed in this article, s
 
 <!-- IMG List -->
 
-[AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/AP01.png
-[AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/AP02.png
+
+[AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
+[AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png

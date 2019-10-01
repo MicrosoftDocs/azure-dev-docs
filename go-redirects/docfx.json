@@ -35,8 +35,6 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/go/azure/breadcrumb/toc.json",
-      "extendBreadcrumb": false,
       "feedback_system": "None"
     },
     "template": [],
