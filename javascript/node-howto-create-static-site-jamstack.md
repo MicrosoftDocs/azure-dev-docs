@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-javascript-september2019
 ---
 
-# How to build JAMstack (static site) web apps with Azure
+# Build JAMstack (static site) web apps on Azure with Node.js
 
 Great web apps can be productively built and maintained using a combination of a *JavaScript* front end, *APIs* (third-party or custom APIs built as serverless code), and templated *markup* (HTML and CSS) that is served as static pages. With this combination, also known as the JAMstack, you avoid writing complicated back end code to serve web pages. Instead, the system serves only static pages (HTML, CSS, and JavaScript), where those pages call upon your APIs for server-side work. Because you can write those APIs with auto-scaling serverless technologies, you completely avoid the cost and security concerns of using a typical always-on servers or web hosts. (For more information, see [jamstack.org](https://jamstack.org/).)
 
