@@ -21,7 +21,7 @@ The options for operation configuration are:
 |  cert |`str`| Path to local certificate for client side verification.|
 |  timeout |`int`| Timeout for establishing a server connection in seconds.|
 |  allow_redirects |`bool` | Whether to allow redirects.|
-|  max_redirects  |`int`| Maimum number of allowed redirects.|
+|  max_redirects  |`int`| Maximum number of allowed redirects.|
 |  proxies  |`dict` |Proxy server settings.|
 |  use_env_proxies |`bool` |Whether to read proxy settings from local environment variables.|
 |  retries  |`int` | Total number of retry attempts.|
