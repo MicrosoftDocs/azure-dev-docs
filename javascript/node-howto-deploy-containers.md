@@ -8,9 +8,10 @@ ms.topic: article
 ms.service: azure-nodejs
 ms.date: 08/20/2019
 ms.author: kraigb
+ms.custom: seo-javascript-september2019
 ---
 
-# How to deploy Node.js containers to Azure
+# Use Azure to deploy, scale, and manage Node.js containers
 
 Azure provides a robust container service so that you can easily deploy, scale, and manage container-based Node.js apps.
 

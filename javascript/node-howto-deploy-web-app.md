@@ -8,9 +8,10 @@ ms.topic: article
 ms.service: azure-nodejs
 ms.date: 08/20/2019
 ms.author: kraigb
+ms.custom: seo-javascript-september2019
 ---
 
-# How to deploy web apps to Azure
+# Deploy Node.js web apps to Azure App Service
 
 On Azure, you have several options for hosting web apps:
 
