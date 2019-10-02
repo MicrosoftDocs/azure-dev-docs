@@ -3,12 +3,12 @@ title: How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
 description: Learn how to configure an application created with the Spring Boot Initializer with the Azure Cosmos DB SQL API.
 services: cosmos-db
 documentationcenter: java
-author: bmitchell287
-manager: douge
+author: KarlErickson
+manager: barbkess
 editor: ''
 ms.assetid:
-ms.author: brendm
-ms.date: 12/19/2018
+ms.author: karler
+ms.date: 10/02/2019
 ms.devlang: java
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
@@ -33,7 +33,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Create an Azure Cosmos DB by using the Azure portal
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and click **+Create a resource**.
+1. Browse to the Azure portal at <https://portal.azure.com/> and click **Create a resource**.
 
    ![Azure portal][AZ01]
 
@@ -100,26 +100,17 @@ The following prerequisites are required in order to follow the steps in this ar
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+      <version>2.2.0.M1</version>
    </dependency>
    ```
 
-   ![Editing the pom.xml file][PM02]
-
-1. Verify that the Spring Boot version is the version that you chose when you created your application with the Spring Initializr; for example:
+1. Verify that the *properties* element indicates the required versions of Java and Azure:
 
    ```xml
-   <parent>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-parent</artifactId>
-      <version>2.1.5.RELEASE</version>
-      <relativePath/>
-   </parent>
-   ```
-
-1. Verify that you use the most recent [Azure Spring Boot starters](https://github.com/microsoft/azure-spring-boot) version, for example:
-
-   ```xml
-   <azure.version>2.1.6</azure.version>
+   <properties>
+      <java.version>1.8</java.version>
+      <azure.version>2.1.6</azure.version>
+   </properties>
    ```
 
 1. Save and close the *pom.xml* file.
@@ -166,49 +157,31 @@ In this section you create two Java classes for storing user data, and then you 
    ```java
    package com.example.wingtiptoysdata;
 
-   // Define a generic User class.
+   import com.microsoft.azure.spring.data.cosmosdb.core.mapping.Document;
+   import com.microsoft.azure.spring.data.cosmosdb.core.mapping.PartitionKey;
+   import lombok.AllArgsConstructor;
+   import lombok.Getter;
+   import lombok.NoArgsConstructor;
+   import lombok.Setter;
+   import org.springframework.data.annotation.Id;
+
+   @Document(collection = "mycollection")
+   @NoArgsConstructor
+   @Getter
+   @Setter
+   @AllArgsConstructor
    public class User {
-      private String id;
-      private String firstName;
-      private String lastName;
+       @Id
+       private String id;
+       private String firstName;
+       @PartitionKey
+       private String lastName;
+       private String address;
 
-      public User() {
-      }
-
-      public User(String id, String firstName, String lastName) {
-         this.id = id;
-         this.firstName = firstName;
-         this.lastName = lastName;
-      }
-
-      public String getId() {
-         return this.id;
-      }
-
-      public void setId(String id) {
-         this.id = id;
-      }
-
-      public String getFirstName() {
-         return firstName;
-      }
-
-      public void setFirstName(String firstName) {
-         this.firstName = firstName;
-      }
-
-      public String getLastName() {
-         return lastName;
-      }
-
-      public void setLastName(String lastName) {
-         this.lastName = lastName;
-      }
-
-      @Override
-      public String toString() {
-         return String.format("User: %s %s %s", id, firstName, lastName);
-      }
+       @Override
+       public String toString() {
+           return String.format("%s %s, %s", firstName, lastName, address);
+       }
    }
    ```
 
@@ -223,11 +196,14 @@ In this section you create two Java classes for storing user data, and then you 
    ```java
    package com.example.wingtiptoysdata;
 
-   import com.microsoft.azure.spring.data.cosmosdb.repository.DocumentDbRepository;
+   import com.microsoft.azure.spring.data.cosmosdb.repository.ReactiveCosmosRepository;
    import org.springframework.stereotype.Repository;
+   import reactor.core.publisher.Flux;
 
    @Repository
-   public interface UserRepository extends DocumentDbRepository<User, String> { }
+   public interface UserRepository extends ReactiveCosmosRepository<User, String> {
+       Flux<User> findByFirstName(String firstName);
+   }
    ```
 
 1. Save and close the *UserRepository.java* file.
@@ -247,50 +223,69 @@ In this section you create two Java classes for storing user data, and then you 
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 
    ```java
-    package com.example.wingtiptoysdata;
+   package com.example.wingtiptoysdata;
 
-    import org.springframework.boot.CommandLineRunner;
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.util.Assert;
+   import reactor.core.publisher.Flux;
+   import reactor.core.publisher.Mono;
 
-    import java.util.Optional;
-    import java.util.UUID;
+   import javax.annotation.PostConstruct;
+   import java.util.Optional;
 
-    @SpringBootApplication
-    public class WingtiptoysdataApplication implements CommandLineRunner {
+   @SpringBootApplication
+   public class CosmosSampleApplication implements CommandLineRunner {
 
-        private final UserRepository repository;
+       private static final Logger LOGGER = LoggerFactory.getLogger(CosmosSampleApplication.class);
 
-        public WingtiptoysdataApplication(UserRepository repository) {
-            this.repository = repository;
-        }
+       @Autowired
+       private UserRepository repository;
 
-        public static void main(String[] args) {
-            // Execute the command line runner.
-            SpringApplication.run(WingtiptoysdataApplication.class, args);
-            System.exit(0);
-        }
+       public static void main(String[] args) {
+           SpringApplication.run(CosmosSampleApplication.class, args);
+       }
 
-        public void run(String... args) throws Exception {
-            // Create a unique identifier.
-            String uuid = UUID.randomUUID().toString();
+       public void run(String... var1) throws Exception {
+           final User testUser = new User("testId", "testFirstName", "testLastName", "test address line one");
 
-            // Create a new User class.
-            final User testUser = new User(uuid, "John", "Doe");
+           // Save the User class to Azure CosmosDB database.
+           final Mono<User> saveUserMono = repository.save(testUser);
 
-            // For this example, remove all of the existing records.
-            repository.deleteAll();
+           final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
 
-            // Save the User class to the Azure database.
-            repository.save(testUser);
+           //  Nothing happens until we subscribe to these Monos.
+           //  findById will not return the user as user is not present.
+           final Mono<User> findByIdMono = repository.findById(testUser.getId());
+           final User findByIdUser = findByIdMono.block();
+           Assert.isNull(findByIdUser, "User must be null");
 
-            // Retrieve the database record for the User class you just saved by ID.
-            Optional<User> result = repository.findById(testUser.getId());
+           final User savedUser = saveUserMono.block();
+           Assert.state(savedUser != null, "Saved user must not be null");
+           Assert.state(savedUser.getFirstName().equals(testUser.getFirstName()), "Saved user first name doesn't match");
 
-            // Display the results of the database record retrieval.
-            System.out.println("\nSaved user is: " + result + "\n")
-        }
-    }
+           firstNameUserFlux.collectList().block();
+
+           final Optional<User> optionalUserResult = repository.findById(testUser.getId()).blockOptional();
+           Assert.isTrue(optionalUserResult.isPresent(), "Cannot find user.");
+
+           final User result = optionalUserResult.get();
+           Assert.state(result.getFirstName().equals(testUser.getFirstName()), "query result firstName doesn't match!");
+           Assert.state(result.getLastName().equals(testUser.getLastName()), "query result lastName doesn't match!");
+
+           LOGGER.info("findOne in User collection get result: {}", result.toString());
+       }
+
+       @PostConstruct
+       public void setup() {
+           // For this example, remove all of the existing records.
+           this.repository.deleteAll().block();
+       }
+   }
    ```
 
 1. Save and close the main application Java file.
