@@ -7,6 +7,7 @@
     items:
       - name: Spring Boot 
         href: spring-boot-starters-for-azure.md
+        expanded: true
         items:
           - name: Azure Storage
             href: configure-spring-boot-starter-java-app-with-azure-storage.md
@@ -17,6 +18,7 @@
           - name: Azure Service Bus
             href: configure-spring-boot-starter-java-app-with-azure-service-bus.md
       - name: Spring Data 
+        expanded: true
         items:
           - name: Azure Cosmos DB Starter
             href: configure-spring-boot-starter-java-app-with-cosmos-db.md
@@ -41,12 +43,14 @@
           - name: JPA with Azure SQL Server
             href: configure-spring-data-jpa-with-azure-sql-server.md
       - name: Spring Security 
+        expanded: true
         items:
           - name: Azure Active Directory 
             href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - name: Azure Active Directory B2C
             href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
       - name: Spring Cloud 
+        expanded: true
         items:
           - name: Azure Event Hub  
             href: configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
