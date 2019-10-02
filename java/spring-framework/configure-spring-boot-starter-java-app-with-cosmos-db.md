@@ -109,7 +109,7 @@ The following prerequisites are required in order to follow the steps in this ar
    ```xml
    <properties>
       <java.version>1.8</java.version>
-      <azure.version>2.1.6</azure.version>
+      <azure.version>2.2.0.M1</azure.version>
    </properties>
    ```
 
