@@ -241,15 +241,15 @@ In this section you create two Java classes for storing user data, and then you 
    import java.util.Optional;
 
    @SpringBootApplication
-   public class CosmosSampleApplication implements CommandLineRunner {
+   public class WingtiptoysdataApplication implements CommandLineRunner {
 
-       private static final Logger LOGGER = LoggerFactory.getLogger(CosmosSampleApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(WingtiptoysdataApplication.class);
 
        @Autowired
        private UserRepository repository;
 
        public static void main(String[] args) {
-           SpringApplication.run(CosmosSampleApplication.class, args);
+           SpringApplication.run(WingtiptoysdataApplication.class, args);
        }
 
        public void run(String... var1) throws Exception {
