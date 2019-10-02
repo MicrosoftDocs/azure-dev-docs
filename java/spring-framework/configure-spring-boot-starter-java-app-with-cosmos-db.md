@@ -191,7 +191,7 @@ In this section you create two Java classes for storing user data, and then you 
 
 1. Create a new file named *UserRepository.java* in the same directory as your main application Java file.
 
-1. Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user repository interface that extends the default DocumentDB repository interface:
+1. Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user repository interface that extends the default `ReactiveCosmosRepository` interface:
 
    ```java
    package com.example.wingtiptoysdata;
@@ -205,6 +205,8 @@ In this section you create two Java classes for storing user data, and then you 
        Flux<User> findByFirstName(String firstName);
    }
    ```
+
+   The `ReactiveCosmosRepository` interface replaces the `DocumentDbRepository` interface from the previous version of the starter. The new interface provides synchronous and asynchronous APIs for basic save, delete, and find operations.
 
 1. Save and close the *UserRepository.java* file.
 
