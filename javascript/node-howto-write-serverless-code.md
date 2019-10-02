@@ -8,9 +8,10 @@ ms.topic: article
 ms.service: azure-nodejs
 ms.date: 08/19/2019
 ms.author: kraigb
+ms.custom: seo-javascript-september2019
 ---
 
-# How to write serverless Node.js code on Azure
+# Use Azure Functions to write serverless Node.js code on Azure
 
 Serverless code allows you to create responsive, on-demand endpoints on the Internet without having to concern yourself with provisioning or managing infrastructure. Serverless code is composed to scripts or other bits of code that are run in response to various events. On Azure, the serverless offering is called Azure Functions.
 
