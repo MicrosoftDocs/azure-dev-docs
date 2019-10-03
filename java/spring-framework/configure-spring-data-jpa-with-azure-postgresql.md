@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 ## Overview
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [PostgreSQL](https://www.postgresql.org/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create a PostgreSQL database for Azure
 
-### Create a PostgreSQL database server using the Azure Portal
+### Create a PostgreSQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -58,7 +58,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. When you have entered all of the above information, click **Create**.
 
-### Configure a firewall rule for your PostgreSQL database server using the Azure Portal
+### Configure a firewall rule for your PostgreSQL database server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -70,7 +70,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Configure connection security][POSTGRESQL04]
 
-### Retrieve the connection string for your PostgreSQL server using the Azure Portal
+### Retrieve the connection string for your PostgreSQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
