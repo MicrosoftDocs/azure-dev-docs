@@ -23,7 +23,7 @@ landingContent:
           - text: Quickly deploy a Node.js sample in Azure App Service
             url: https://aka.ms/try-azure-node
           - text: Browse all available Azure SDK for JavaScript samples
-            url: /resources/samples/?sort=0&platform=nodejs
+            url: /samples/browse/?languages=javascript%2Cnodejs
   - title: Host applications on Azure
     linkLists:
       - linkListType: overview
