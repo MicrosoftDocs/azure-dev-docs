@@ -1,25 +1,22 @@
 ---
 title: How to use Spring Data JPA with Azure PostgreSQL
-description: Learn how to use Spring Data JPA with an Azure PostgreSQL database.
-services: postgresql
+description: Learn how to configure and use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
 author: bmitchell287
 manager: douge
-editor: ''
-ms.assetid:
 ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
-ms.topic: article
+ms.topic: conceptual
 ---
 
 # How to use Spring Data JPA with Azure PostgreSQL
 
 ## Overview
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [PostgreSQL]https://www.postgresql.org/ database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [PostgreSQL](https://www.postgresql.org/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
 
 ## Prerequisites
 
