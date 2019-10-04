@@ -1,5 +1,5 @@
 ---
-title: How to use Spring Data JPA with Azure MySQL
+title: How to use Spring Data JPA with Azure Database for MySQL
 description: Learn how to configure and use Spring Data JPA with an Azure Database for MySQL.
 documentationcenter: java
 author: bmitchell287
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.topic: conceptual
 ---
 
-# How to use Spring Data JPA with Azure MySQL
+# How to use Spring Data JPA with Azure Database for MySQL
 
 ## Overview
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [MySQL](https://www.mysql.com/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure Database for MySQL](/azure/mysql/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
 
 ## Prerequisites
 
@@ -29,23 +29,23 @@ The following prerequisites are required in order to complete the steps in this 
 * The [mysql](https://dev.mysql.com/downloads/) command-line utility.
 * A [Git](https://git-scm.com/downloads) client.
 
-## Create a MySQL database for Azure
+## Create a Azure Database for MySQL server
 
-### Create a MySQL database server using the Azure portal
+### Create a server using the Azure portal
 
 > [!NOTE]
 > 
 > You can read more detailed information about creating MySQL databases in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
+1. Browse to the [Azure portal](https://portal.azure.com) and sign in.
 
-1. Click **+Create a resource**, then **Databases**, and then click **Azure Database for MySQL**.
+1. Select **+Create a resource**, then **Databases**, and then select **Azure Database for MySQL**.
 
    ![Create a MySQL database][MYSQL01]
 
 1. Enter the following information:
 
-   - **Server name**: Choose a unique name for your MySQL server; this will be used to create a fully-qualified domain name like *wingtiptoysmysql.mysql.database.azure.com*.
+   - **Server name**: Choose a unique name for your Azure Database for MySQL server; this will be used to create a fully-qualified domain name like *wingtiptoysmysql.mysql.database.azure.com*.
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
    - **Select source**: For this tutorial, select `Blank` to create a new database.
@@ -59,7 +59,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. When you have entered all of the above information, click **Create**.
 
-### Configure a firewall rule for your MySQL database server using the Azure portal
+### Configure a firewall rule for your server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -71,11 +71,11 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Configure connection security][MYSQL04]
 
-### Retrieve the connection string for your MySQL server using the Azure portal
+### Retrieve the connection string for your server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **All Resources**, then click the MySQL database you just created.
+1. Click **All Resources**, then click the Azure Database for MySQL resource you just created.
 
    ![Select your MySQL database][MYSQL03]
 
@@ -83,9 +83,9 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Retrieve your JDBC connection string][MYSQL05]
 
-### Create MySQL database using the `mysql` command-line utility
+### Create a database using the `mysql` command-line utility
 
-1. Open a command shell and connect to your MySQL server by entering a `mysql` command like the following example:
+1. Open a command shell and connect to your Azure Database for MySQL server by entering a `mysql` command like the following example:
 
    ```shell
    mysql --host wingtiptoysmysql.mysql.database.azure.com --user wingtiptoysuser@wingtiptoysmysql -p
@@ -224,7 +224,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Summary
 
-In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information in an Azure MySQL database using JPA.
+In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information in an Azure Database for MySQL using JPA.
 
 ## Next steps
 
