@@ -1,25 +1,21 @@
 ---
-title: How to use Spring Data JDBC with Azure MySQL
-description: Learn how to use Spring Data JDBC with an Azure MySQL database.
-services: mysql
+title: How to use Spring Data JDBC with Azure Database for MySQL
+description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
 documentationcenter: java
 author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
 ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: mysql
 ms.tgt_pltfrm: multiple
-ms.topic: article
+ms.topic: conceptual
 ---
 
 # How to use Spring Data JDBC with Azure MySQL
 
 ## Overview
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [MySQL](https://www.mysql.com/) database using [Java Database Connectivity (JDBC)](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure Database for MySQL](/azure/mysql/) database using [Java Database Connectivity (JDBC)](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/).
 
 ## Prerequisites
 
@@ -32,9 +28,9 @@ The following prerequisites are required in order to complete the steps in this 
 * The [mysql](https://dev.mysql.com/downloads/) command-line utility.
 * A [Git](https://git-scm.com/downloads) client.
 
-## Create a MySQL database for Azure
+## Create an Azure Database for MySQL 
 
-### Create a MySQL database server using the Azure Portal
+### Create a server using the Azure portal
 
 > [!NOTE]
 > 
@@ -62,11 +58,11 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. When you have entered all of the above information, click **Create**.
 
-### Configure a firewall rule for your MySQL database server using the Azure Portal
+### Configure a firewall rule for your server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **All Resources**, then click the MySQL database you just created.
+1. Click **All Resources**, then click the Azure Database for MySQL resources you just created.
 
    ![Select your MySQL database][MYSQL03]
 
@@ -74,11 +70,11 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Configure connection security][MYSQL04]
 
-### Retrieve the connection string for your MySQL server using the Azure Portal
+### Retrieve the connection string for your server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **All Resources**, then click the MySQL database you just created.
+1. Click **All Resources**, then select the Azure Database for MySQL you just created.
 
    ![Select your MySQL database][MYSQL03]
 
@@ -86,7 +82,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Retrieve your JDBC connection string][MYSQL05]
 
-### Create MySQL database using the `mysql` command-line utility
+### Create a database using the `mysql` command-line utility
 
 1. Open a command shell and connect to your MySQL server by entering a `mysql` command like the following example:
 
@@ -224,7 +220,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Summary
 
-In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information in an Azure MySQL database using JDBC.
+In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information in an Azure Database for MySQL database using JDBC.
 
 ## Next steps
 
