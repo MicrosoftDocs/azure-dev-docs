@@ -121,7 +121,7 @@ export AZURE_AUTH_LOCATION=/Users/raisa/azureauth.properties
 Create the entry point `Azure` object to start working with the libraries. Read the location of the properties file through the environment variable.
 
 ```java
-// pull in the location of the authenticaiton properties file from the environment 
+// pull in the location of the authentication properties file from the environment 
 final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
 
 Azure azure = Azure
