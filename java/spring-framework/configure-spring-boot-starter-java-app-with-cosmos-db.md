@@ -398,13 +398,9 @@ In this section you create two Java classes for storing user data, and then you 
     > [INFO] Total time:  02:18 min
     > [INFO] Finished at: 2019-10-04T15:20:05-07:00
     > [INFO] ------------------------------------------------------------------------
-        ```
+    ```
 
     The `Saving user` and `Found user` messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
-
-1. OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the properties page for your database by clicking  **Data Explorer**, and then selecting and item from the displayed list to view the contents.
-
-    ![Using the Document Explorer to view your data][JV03]
 
 ## Next steps
 
