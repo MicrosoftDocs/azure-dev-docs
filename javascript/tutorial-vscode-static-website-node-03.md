@@ -16,7 +16,7 @@ ms.author: kraigb
 
 In this step, you create an Azure Storage account, which serves as a simple file store (or CDN) with a built-in web server. This built-in server makes Azure Storage a great choice for quickly hosting static sites.
 
-1. From the `my-react-app` folder created in the previous step, start Visual Studio Code so that it opens that folder automatically:
+1. From the `my-static-app` folder created in the previous step, start Visual Studio Code so that it opens that folder automatically:
 
     ```bash
     code .
