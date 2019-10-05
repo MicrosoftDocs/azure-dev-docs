@@ -213,7 +213,7 @@ In this section you create two Java classes for storing user data, and then you 
             return String.format("%s %s, %s", firstName, lastName, address);
         }
     }
-        ```
+    ```
 
 1. Save and close the *User.java* file.
 
@@ -236,7 +236,7 @@ In this section you create two Java classes for storing user data, and then you 
     }
     ```
 
-    The `ReactiveCosmosRepository` interface replaces the `DocumentDbRepository` interface from the previous version of the starter. The new interface provides synchronous and asynchronous APIs for basic save, delete, and find operations.
+    The `ReactiveCosmosRepository` interface replaces the `DocumentDbRepository` interface from the previous version of the starter. The new interface provides synchronous and reactive APIs for basic save, delete, and find operations.
 
 1. Save and close the *UserRepository.java* file.
 
@@ -400,6 +400,8 @@ In this section you create two Java classes for storing user data, and then you 
     > [INFO] ------------------------------------------------------------------------
     ```
 
+    ![Successful output from the application][JV02]
+
     The `Saved user` and `Found user` messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
 
 ## Next steps
@@ -455,4 +457,4 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 [SI01]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/SI01.png
 
-[JV03]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/JV03.png
+[JV02]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/JV02.png
