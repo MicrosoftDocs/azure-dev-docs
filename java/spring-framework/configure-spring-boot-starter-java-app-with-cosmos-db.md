@@ -400,7 +400,7 @@ In this section you create two Java classes for storing user data, and then you 
     > [INFO] ------------------------------------------------------------------------
     ```
 
-    The `Saving user` and `Found user` messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
+    The `Saved user` and `Found user` messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
 
 ## Next steps
 
