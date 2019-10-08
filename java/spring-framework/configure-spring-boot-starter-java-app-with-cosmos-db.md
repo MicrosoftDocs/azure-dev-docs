@@ -402,6 +402,10 @@ In this section you create two Java classes for storing user data, and then you 
 
     The `Saved user` and `Found user` messages indicate that the data was successfully saved to Cosmos DB and then retrieved again.
 
+## Clean up resources
+
+If you're not going to continue to use this application, be sure to delete the resource group containing the Cosmos DB you created earlier. You can do this from the Azure portal.
+
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
