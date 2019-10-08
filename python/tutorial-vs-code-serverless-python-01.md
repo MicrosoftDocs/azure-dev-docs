@@ -1,5 +1,5 @@
 ---
-title: Create and deploy serverless Azure Functions in Python with Visual Studio Code
+title: "Tutorial: Create and deploy serverless Azure Functions in Python with Visual Studio Code"
 description: Tutorial step 1, introduction and prerequisites.
 services: functions
 author: kraigb
@@ -8,11 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
 # Deploy Python to Azure Functions with Visual Studio Code
 
-In this tutorial, you use Visual Studio Code and the Azure Functions extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. Azure Functions runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for Visual Studio Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+In this article, you use Visual Studio Code and the Azure Functions extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. Azure Functions runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for Visual Studio Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** button at the end of each article to submit feedback.
 

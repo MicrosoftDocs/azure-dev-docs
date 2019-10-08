@@ -1,5 +1,5 @@
 ---
-title: Add a second Python function to Azure Functions with Visual Studio Code
+title: "Tutorial: Add a second Python function to Azure Functions with Visual Studio Code"
 description: Tutorial step 6, expanding an Azure Functions project by adding a second function.
 services: functions
 author: kraigb
@@ -8,6 +8,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
 # Add a second function

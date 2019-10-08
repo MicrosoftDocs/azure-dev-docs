@@ -1,5 +1,5 @@
 ---
-title: Configure a customs startup file for Python apps on Azure App Service on Linux
+title: "Tutorial: Configure a customs startup file for Python apps on Azure App Service on Linux"
 description: Tutorial step 4, instructing App Service how to start the web app.
 services: app-service
 author: kraigb
@@ -8,6 +8,7 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
 # Configure a custom startup file
