@@ -1,5 +1,5 @@
 ---
-title: Clean up Azure resources
+title: "Tutorial: Clean up Azure resources"
 description: Tutorial step 5, cleaning up Azure resources to avoid incurring ongoing charges.
 services: app-service
 author: kraigb
@@ -8,6 +8,7 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
 # Clean up resources

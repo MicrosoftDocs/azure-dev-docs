@@ -1,5 +1,5 @@
 ---
-title: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code
+title: "Tutorial: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code"
 description: Tutorial step 2, set up your application
 services: app-service
 author: kraigb
@@ -8,6 +8,7 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
 # Prepare your app
