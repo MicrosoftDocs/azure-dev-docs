@@ -13,7 +13,7 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Stream logs from Azure App Service into Visual Studio Code
 
-[Previous step: deploy the app](tutorial-deploy-app-service-on-linux-05.md)
+Use this procedure to stream logs from an Azure App Service to Visual Studio Code.
 
 1. In Visual Studio Code, open the **Azure: App Service** explorer, right-click the App Service, and select **Start streaming logs**:
 

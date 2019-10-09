@@ -13,9 +13,9 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Create a Python function for Azure Functions
 
-[Previous step: prerequisites](tutorial-vs-code-serverless-python-01.md)
+In this article, you create a Python function for Azure Functions with Visual Studio Code. Code for Azure Functions is managed within a Functions _project_, which you create first before creating the code.
 
-1. Code for Azure Functions is managed within a Functions _project_, which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette (F1) and select **Azure Functions: Create New Project**.
+1. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette (F1) and select **Azure Functions: Create New Project**.
 
     ![Create new project button in the Functions explorer](media/tutorial-vs-code-serverless-python/project-create-new.png)
 

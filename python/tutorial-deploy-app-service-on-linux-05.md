@@ -13,7 +13,7 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Deploy your Python web app to Azure App Service on Linux
 
-[Previous step: configure a custom startup file](tutorial-deploy-app-service-on-linux-04.md)
+Use this procedure to deploy your Python app to an Azure App Service.
 
 1. In Visual Studio Code, open the **Azure: App Service** explorer and select the blue up arrow:
 

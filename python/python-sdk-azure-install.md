@@ -12,6 +12,8 @@ ms.custom: seo-python-october2019
 
 # Install the Azure SDK for Python
 
+This article helps you install the Azure SDK for Python. You can use pip to install an older version, check you installation, and uninstall the Azure SDK for Python.
+
 ## Which Python and which version to use
 
 There are several Python interpreters available - examples include:
