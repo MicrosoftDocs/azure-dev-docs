@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Add a second function
+# Tutorial: Add a second Python function to Azure Functions
 
 [Previous step: deploy to Azure](tutorial-vs-code-serverless-python-05.md)
 

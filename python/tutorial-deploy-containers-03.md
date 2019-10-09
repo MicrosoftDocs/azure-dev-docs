@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Make changes and redeploy
+# Tutorial: Redeploy a container to Azure App Service after making changes
 
 [Previous step: deploy the image to Azure](tutorial-deploy-containers-02.md)
 

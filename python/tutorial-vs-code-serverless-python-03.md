@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Examine the code files
+# Tutorial: Examine the Python code files in Visual Studio Code
 
 [Previous step: create the function](tutorial-vs-code-serverless-python-02.md)
 

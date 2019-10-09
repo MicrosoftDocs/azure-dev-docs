@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Deploy the image to Azure
+# Tutorial: Deploy a container image to Azure App Service
 
 [Previous step: prerequisites](tutorial-deploy-containers-01.md)
 

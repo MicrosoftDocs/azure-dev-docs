@@ -10,7 +10,7 @@ ms.devlang: python
 ms.custom: seo-python-october2019
 ---
 
-# Installation
+# Install the Azure SDK for Python
 
 ## Which Python and which version to use
 

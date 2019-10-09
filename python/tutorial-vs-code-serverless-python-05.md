@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Deploy to Azure Functions
+# Tutorial: Deploy Azure Functions in Python
 
 [Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
 

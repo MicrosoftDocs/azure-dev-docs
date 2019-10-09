@@ -10,7 +10,7 @@ ms.devlang: python
 ms.custom: seo-python-october2019
 ---
 
-# Operation config 
+# Parameters for operation configuration
 
 Methods on operations have extra parameters which can be provided in the `kwargs`. This is called operation_config.
 

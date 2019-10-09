@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Stream logs from Azure App Service
+# Tutorial: Stream logs from Azure App Service for a container
 
 [Previous step: make changes and redeploy](tutorial-deploy-containers-03.md)
 

@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Prepare your app
+# Tutorial: Prepare your app for deployment to Azure App Service
 
 [Previous step: prerequisites](tutorial-deploy-app-service-on-linux-01.md)
 

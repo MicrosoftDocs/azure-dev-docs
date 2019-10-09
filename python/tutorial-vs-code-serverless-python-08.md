@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Clean up Azure resources Azure Functions in Python"
+title: "Tutorial: Clean up Azure resources - Azure Functions in Python"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
 services: functions
 author: kraigb
@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Clean up resources
+# Tutorial: Clean up Azure resources for Azure Functions
 
 [Previous step: add a storage binding](tutorial-vs-code-serverless-python-07.md)
 

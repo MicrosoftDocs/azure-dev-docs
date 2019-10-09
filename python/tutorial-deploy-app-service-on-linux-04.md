@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Configure a custom startup file
+# Tutorial: Configure a customs startup file for Python apps on Azure App Service on Linux
 
 [Previous step: create the App Service](tutorial-deploy-app-service-on-linux-02.md)
 
