@@ -1,5 +1,5 @@
 ---
-title: Multi-cloud 
+title: Connect to all regions - Azure SDK for Python Multi-cloud 
 description: use Azure on all regions
 author: sptramer 
 ms.author: sttramer
@@ -7,9 +7,10 @@ manager: carmonm
 ms.date: 02/22/2018
 ms.topic: conceptual
 ms.devlang: python
+ms.custom: seo-python-october2019
 ---
 
-# Multi-cloud - use Azure on all regions
+# Multi-cloud: Connect to all regions with the Azure SDK for Python
 
 You can use the Azure SDK for Python to connect to all regions where Azure is [available](https://azure.microsoft.com/regions/services).
 

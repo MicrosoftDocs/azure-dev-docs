@@ -1,5 +1,5 @@
 ---
-title: Add a storage binding for Azure Functions in Python with Visual Studio Code
+title: "Tutorial: Add a storage binding for Azure Functions in Python with Visual Studio Code"
 description: Tutorial step 7, adding a binding in Python to write messages to Azure storage.
 services: functions
 author: kraigb
@@ -8,9 +8,10 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Add a binding to write messages to Azure storage
+# Tutorial: Add a storage binding for Azure Functions in Python
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 

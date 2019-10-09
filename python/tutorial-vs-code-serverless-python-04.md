@@ -1,5 +1,5 @@
 ---
-title: Debug the Azure Functions Python code locally with Visual Studio Code
+title: "Tutorial: Debug the Azure Functions Python code locally with Visual Studio Code"
 description: Tutorial step 4, running the VS Code debugger locally to check your Python code.
 services: functions
 author: kraigb
@@ -8,9 +8,10 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Debug the function code locally
+# Tutorial: Debug the Azure Functions Python code locally
 
 [Previous step: examine the code files](tutorial-vs-code-serverless-python-03.md)
 

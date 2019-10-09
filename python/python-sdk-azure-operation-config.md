@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for Python operations configuration 
+title: Parameters for operation configuration - Azure SDK for Python
 description: C thrown by the Azure SDK for Python
 author: sptramer
 ms.author: sttramer
@@ -7,9 +7,10 @@ manager: carmonm
 ms.date: 03/07/2018
 ms.topic: conceptual
 ms.devlang: python
+ms.custom: seo-python-october2019
 ---
 
-# Operation config 
+# Parameters for operation configuration
 
 Methods on operations have extra parameters which can be provided in the `kwargs`. This is called operation_config.
 

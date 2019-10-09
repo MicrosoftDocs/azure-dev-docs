@@ -1,5 +1,5 @@
 ---
-title: Deploy a Python web app to Azure App Service on Linux using VS Code
+title: "Tutorial: Deploy a Python web app to Azure App Service on Linux using VS Code"
 description: Tutorial step 5, deploying the web app code
 services: app-service
 author: kraigb
@@ -8,9 +8,10 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Deploy your app
+# Tutorial: Deploy your Python web app to Azure App Service on Linux
 
 [Previous step: configure a custom startup file](tutorial-deploy-app-service-on-linux-04.md)
 

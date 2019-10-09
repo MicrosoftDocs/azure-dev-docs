@@ -1,5 +1,5 @@
 ---
-title: Stream logs from Azure App Service into VS Code
+title: "Tutorial: Stream logs from Azure App Service into VS Code"
 description: Tutorial step 6, streaming app logs into Visual Studio Code
 services: app-service
 author: kraigb
@@ -8,9 +8,10 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Stream logs from the running app
+# Tutorial: Stream logs from Azure App Service into Visual Studio Code
 
 [Previous step: deploy the app](tutorial-deploy-app-service-on-linux-05.md)
 

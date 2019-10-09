@@ -1,5 +1,5 @@
 ---
-title: Create a Python function for Azure Functions with Visual Studio Code
+title: "Tutorial: Create a Python function for Azure Functions with Visual Studio Code"
 description: Tutorial, step 2, demonstrating the use of the Azure Functions extension for VS Code.
 services: functions
 author: kraigb
@@ -8,9 +8,10 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Create the Python function
+# Tutorial: Create a Python function for Azure Functions
 
 [Previous step: prerequisites](tutorial-vs-code-serverless-python-01.md)
 

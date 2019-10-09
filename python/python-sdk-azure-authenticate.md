@@ -7,9 +7,10 @@ manager: carmonm
 ms.date: 04/11/2019
 ms.topic: conceptual
 ms.devlang: python
+ms.custom: seo-python-october2019
 ---
 
-# Authenticate with the Azure Management Libraries for Python
+# Authenticate with the Azure  management libraries for Python
 
 Several options are available to authenticate your application with Azure when using the Python management libraries to create and manage resources.
 
