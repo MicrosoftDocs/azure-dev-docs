@@ -10,7 +10,7 @@ ms.devlang: python
 ms.custom: seo-python-october2019
 ---
 
-# Multi-cloud - use Azure on all regions
+# Multi-cloud: Connect to all regions with the Azure SDK for Python
 
 You can use the Azure SDK for Python to connect to all regions where Azure is [available](https://azure.microsoft.com/regions/services).
 

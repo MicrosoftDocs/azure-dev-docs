@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Debug the function code locally
+# Tutorial: Debug the Azure Functions Python code locally
 
 [Previous step: examine the code files](tutorial-vs-code-serverless-python-03.md)
 

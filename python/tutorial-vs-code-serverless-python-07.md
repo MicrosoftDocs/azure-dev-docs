@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Add a binding to write messages to Azure storage
+# Tutorial: Add a storage binding for Azure Functions in Python
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 

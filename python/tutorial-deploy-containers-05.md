@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Clean up resources
+# Tutorial: Clean up Azure resources
 
 The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, it's best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 

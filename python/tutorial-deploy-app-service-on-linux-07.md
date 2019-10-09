@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Clean up resources
+# Tutorial: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code
 
 [Previous step: stream logs](tutorial-deploy-app-service-on-linux-06.md)
 

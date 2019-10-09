@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Stream logs from the running app
+# Tutorial: Stream logs from Azure App Service into Visual Studio Code
 
 [Previous step: deploy the app](tutorial-deploy-app-service-on-linux-05.md)
 

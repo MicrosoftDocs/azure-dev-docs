@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Create the Python function
+# Tutorial: Create a Python function for Azure Functions
 
 [Previous step: prerequisites](tutorial-vs-code-serverless-python-01.md)
 

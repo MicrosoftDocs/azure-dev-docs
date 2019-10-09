@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Deploy to Azure App Service on Linux
+# Tutorial: Deploy Python apps to Azure App Service on Linux from Visual Studio Code
 
 This article walks you through using Visual Studio Code to deploy a Python application to Azure App Service on Linux using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 

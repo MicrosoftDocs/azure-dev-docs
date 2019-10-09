@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Deploy containers to Azure App Service
+# Tutorial: Deploy Docker containers to Azure App Service with Visual Studio Code
 
 This article walks you through the process of using Visual Studio Code to deploy a container image from a container registry to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code.
 

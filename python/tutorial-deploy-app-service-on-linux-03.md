@@ -11,7 +11,7 @@ ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
-# Create the App Service
+# Tutorial: Create the App Service from Visual Studio Code
 
 [Previous step: prepare your app](tutorial-deploy-app-service-on-linux-01.md)
 
