@@ -13,7 +13,7 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Create the App Service from Visual Studio Code
 
-[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-02)
+[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-02.md)
 
 In this step, create the instance of Azure App Service to which you deploy your app.
 
