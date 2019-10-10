@@ -19,7 +19,7 @@ In this step, you use the React utility CLI, [create-react-app](https://github.c
 1. Use the create-react-app tool to scaffold a new React app called `my-react-app` by running the following command:
 
     ```bash
-    npm create react-app my-react-app
+    npx create react-app my-react-app
     ```
 
 1. Build the application by switching to the new folder and running `npm run build`:
