@@ -23,7 +23,7 @@ In this section, you add a storage binding to the HttpExample function created e
 
 1. In the `HttpExample` folder, right-click the *function.json*, select **Add binding**:
 
-    ![Add binding command in the Visual Studio Code explorer](media/tutorial-vs-code-serverless-python/add-binding-command.png)
+    ![Add binding command in the Visual Studio Code explorer](media/tutorial-vs-code-serverless-python/add-binding-command-to-azure-functions-in-visual-studio-code.png)
 
 1. In the prompts that follow in Visual Studio Code, select or provide the following values:
 

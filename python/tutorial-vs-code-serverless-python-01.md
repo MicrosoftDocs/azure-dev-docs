@@ -51,7 +51,7 @@ Follow the instructions for your operating system on [Work with Azure Functions 
 
 To verify that all the Azure Functions tools are installed, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func`:
 
-![Checking Azure Functions core tools prerequisites](media/tutorial-vs-code-serverless-python/check-prereqs.png)
+![Check Azure Functions core tools prerequisites](media/tutorial-vs-code-serverless-python/check-azure-functions-tools-prerequisites-in-visual-studio-code.png)
 
 The output that starts with the Azure Functions logo (you need to scroll the output upwards) indicates that the Azure Functions Core Tools are present.
 

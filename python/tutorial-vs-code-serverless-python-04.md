@@ -17,7 +17,7 @@ ms.custom: seo-python-october2019
 
 1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
 
-    ![Debug explorer showing the Functions launch configuration](media/tutorial-vs-code-serverless-python/launch-configuration.png)
+    ![Configuration for Debug explorer to start a Python project](media/tutorial-vs-code-serverless-python/configuration-to-start-a-python-project-for-debugging.png)
 
 1. When you start the debugger, a terminal opens showing output from Azure Functions, including a summary of the available endpoints. Your URL might be different if you used a name other than "HttpExample":
 

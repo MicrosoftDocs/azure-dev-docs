@@ -17,7 +17,7 @@ ms.custom: seo-python-october2019
 
 1. In Visual Studio Code, open the **Azure: App Service** explorer, right-click the App Service, and select **Start streaming logs**:
 
-   ![Start streaming logs command](media/deploy-azure/start-streaming-logs-command.png)
+   ![Start Streaming Logs from App Service explorer](media/deploy-azure/start-streaming-logs-in-visual-studio-code.png)
 
 1. When prompted to enable file logging and restart the web app, select **Yes**. While the app restarts, the **Output** window in VS Code shows progress. Enable logging is a one-time process.
 

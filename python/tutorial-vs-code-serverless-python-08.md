@@ -31,7 +31,7 @@ To learn more about Azure services that you can use from Python, including data 
 
 There are also other Azure extensions for Visual Studio Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
-![Azure extensions for Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-extensions.png)
+![Azure extensions for Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-extensions-for-visual-studio-code.png)
 
 Some popular extensions are:
 
