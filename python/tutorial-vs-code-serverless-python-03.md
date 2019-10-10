@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Examine the Python code files in Visual Studio Code
 
+[Previous step: create the function](tutorial-vs-code-serverless-python-02.md)
+
 Look at the Python files in the function folder by using Visual Studio Code.
 
 In the newly created function subfolder are three files: *\_\_init\_\_.py* contains the function's code, *function.json* describes the function to Azure Functions, and *sample.dat* is a sample data file. You can delete *sample.dat* if you want, as it exists only to show that you can add other files to the subfolder.

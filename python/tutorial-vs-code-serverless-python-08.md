@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Clean up Azure resources for Azure Functions
 
+[Previous step: add a storage binding](tutorial-vs-code-serverless-python-07.md)
+
 This article shows you how to remove Azure resources created in this tutorial. The Azure Function App you created with Visual Studio Code includes resources that can incur minimal costs.
 
 To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. For more information, see [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/).

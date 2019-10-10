@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Add a storage binding for Azure Functions in Python
 
+[Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
+
 You can add a storage binding for Azure Functions. A _binding_ lets you connect your function code to resources, such as Azure storage, without writing any data access code.
 
 A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings).

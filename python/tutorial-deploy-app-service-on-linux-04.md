@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Configure a custom startup file for Python apps on Azure App Service
 
+[Previous step: create the App Service](tutorial-deploy-app-service-on-linux-03.md)
+
 This article shows you have to configure a custom startup file for a Python app on an Azure App Service.
 
 Depending on how you've structured your app, you may need to create a custom startup command file for your app as described on [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python) in the Azure docs.

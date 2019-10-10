@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Deploy Azure Functions in Python
 
+[Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
+
 In this article, you use the Azure Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
 
 A function app requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale#hosting-plan-support). All of these resources are organized within a single resource group.

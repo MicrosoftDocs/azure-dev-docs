@@ -13,6 +13,8 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Stream logs from Azure App Service for a container
 
+[Previous step: make changes and redeploy](tutorial-deploy-containers-03.md)
+
 Use this procedure to stream logs from an Azure App Service  for a container to Visual Studio Code.
 
 From within VS Code, you can view (or "tail") logs from the running site on Azure App Service, which captures any output to the console as from `print` statements and routes them to the VS Code **Output** panel.
