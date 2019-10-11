@@ -9,59 +9,11 @@ metadata:
   description: Get started developing with Python and Azure for Python.
   author: kraigb
   ms.author: kraigb
-  ms.date: 10/01/2019
+  ms.date: 10/11/2019
   ms.topic: landing-page
   ms.collection: collection
 
 landingContent:
-  - title: Host applications in Azure
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Introduction to Azure App Service on Linux
-            url: /azure/app-service/containers/app-service-linux-intro?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-      - linkListType: quickstart
-        links:
-          - text: Build, deploy, and scale Python web apps
-            url: /azure/app-service/containers/quickstart-python?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: Deploy containerized apps in Azure Kubernetes Service
-            url: /azure/aks/kubernetes-walkthrough?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json 
-          - text: Create a serverless Python app in Azure Functions with Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
-          - text: Build and deploy a Python app with Azure Pipelines
-            url: /azure/devops/pipelines/languages/python-webapp?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: Add sign-in with Microsoft to a Python web application
-            url: /azure/active-directory/develop/quickstart-v2-python-webapp?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-  - title: Services for Data Science, AI, and Machine Learning
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About Azure Machine Learning services
-            url: /azure/machine-learning/service?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: About Azure Cognitive Services
-            url: /azure/cognitive-services?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json            
-      - linkListType: quickstart
-        links:
-          - text: Use Azure Machine Learning tools in a Jupyter notebook
-            url: /azure/notebooks/use-machine-learning-services-jupyter-notebooks?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: Use a managed Azure HDInsights cluster for data processing
-            url: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: Create an Azure virtual machine for data science tasks
-            url: /azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-          - text: Use Jupyter notebooks in Azure Notebooks
-            url: https://notebooks.azure.com/
-  - title: Get started with developer tools
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Python in Visual Studio Code
-            url: https://code.visualstudio.com/docs/languages/python  
-          - text: Azure extensions for Visual Studio Code
-            url: https://code.visualstudio.com/docs/azure/extensions
-          - text: Install the Azure CLI
-            url: /azure/install-azure-cli?view=azure-cli-latest?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
-          - text: Run Linux applications natively on Windows 10 with a range of distributions
-            url: /windows/wsl/install-win10?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
   - title: Get started with the Azure SDK for Python
     linkLists:
       - linkListType: overview
@@ -80,6 +32,64 @@ landingContent:
         links:
           - text: Azure SDK for Python API reference
             url: /python/api?view=azure-python
+  - title: Host applications in Azure
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Build, deploy, and scale Python web apps
+            url: /azure/app-service/containers/quickstart-python?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: Create a serverless Python app in Azure Functions with Visual Studio Code
+            url: tutorial-vs-code-serverless-python-01.md
+          - text: Deploy containerized apps in Azure Kubernetes Service
+            url: /azure/aks/kubernetes-walkthrough?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json 
+          - text: Build and deploy a Python app with Azure Pipelines
+            url: /azure/devops/pipelines/languages/python-webapp?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: Add sign-in with Microsoft to a Python web application
+            url: /azure/active-directory/develop/quickstart-v2-python-webapp?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+      - linkListType: overview
+        links:
+          - text: Introduction to Azure App Service on Linux
+            url: /azure/app-service/containers/app-service-linux-intro?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+  - title: Get started with developer tools
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Python in Visual Studio Code
+            url: https://code.visualstudio.com/docs/languages/python  
+      - linkListType: tutorial
+        links:
+          - text: Create a serverless Python app in Azure Functions with Visual Studio Code
+            url: tutorial-vs-code-serverless-python-01.md
+          - text: Create and deploy a web app to Azure with Visual Studio Code
+            url: tutorial-deploy-app-service-on-linux-01.md
+          - text: Create and deploy containers to Azure with Visual Studio Code
+            url: tutorial-deploy-containers-01.md
+      - linkListType: download
+        links:
+          - text: Azure extensions for Visual Studio Code
+            url: https://code.visualstudio.com/docs/azure/extensions
+          - text: Install the Azure CLI
+            url: /azure/install-azure-cli?view=azure-cli-latest?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: Run Linux applications natively on Windows 10 with a range of distributions
+            url: /windows/wsl/install-win10?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+  - title: Services for Data Science, AI, and Machine Learning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Machine Learning services
+            url: /azure/machine-learning/service?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: About Azure Cognitive Services
+            url: /azure/cognitive-services?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json            
+      - linkListType: quickstart
+        links:
+          - text: Use Azure Machine Learning tools in a Jupyter notebook
+            url: /azure/notebooks/use-machine-learning-services-jupyter-notebooks?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: Use a managed Azure HDInsights cluster for data processing
+            url: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+          - text: Create an Azure virtual machine for data science tasks
+            url: /azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+          - text: Use Jupyter notebooks in Azure Notebooks
+            url: https://notebooks.azure.com/
   - title: Storage, messaging, and database solutions on Azure
     linkLists:
       - linkListType: overview
