@@ -15,7 +15,9 @@ ms.custom: seo-python-october2019
 
 [Previous step: add a storage binding](tutorial-vs-code-serverless-python-07.md)
 
-The Function App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**.
+This article shows you how to remove Azure resources created in this tutorial. The Azure Function App you created with Visual Studio Code includes resources that can incur minimal costs.
+
+To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. For more information, see [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
@@ -31,7 +33,7 @@ To learn more about Azure services that you can use from Python, including data 
 
 There are also other Azure extensions for Visual Studio Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
-![Azure extensions for Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-extensions.png)
+![Azure extensions for Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-extensions-for-visual-studio-code.png)
 
 Some popular extensions are:
 

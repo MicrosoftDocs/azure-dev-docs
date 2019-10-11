@@ -15,7 +15,7 @@ ms.custom: seo-python-october2019
 
 [Previous step: deploy to Azure](tutorial-vs-code-serverless-python-05.md)
 
-After your first deployment, you can make changes to your code, such as adding additional functions, and redeploy to the same Functions App.
+After your first deployment, you can make changes to your code, such as adding additional Python functions, and redeploy to the same Azure Functions app.
 
 1. In the **Azure: Functions** explorer, select the **Create Function** command or use **Azure Functions: Create Function** from the Command Palette. Specify the following details for the function:
 

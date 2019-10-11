@@ -13,6 +13,10 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Clean up Azure resources
 
+[Previous step: stream logs](tutorial-deploy-containers-04.md)
+
+This article shows you how to remove Azure resources that you created while deploying an app to Azure App Service with Visual Studio Code.
+
 The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, it's best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
 ## Next steps
@@ -23,14 +27,14 @@ To learn more about Azure services that you can use from Python, including data 
 
 There are also other Azure extensions for VS Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
-![Azure extensions for VS Code](media/deploy-containers/azure-extensions.png)
+![Azure extensions for VS Code](media/deploy-containers/azure-extensions-for-visual-studio-code.png)
 
 Some popular extensions are:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-- [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+- [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
 > [I'm done](https://docs.microsoft.com/python/azure/?view=azure-python)

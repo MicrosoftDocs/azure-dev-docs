@@ -15,11 +15,13 @@ ms.custom: seo-python-october2019
 
 [Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
 
-In these steps, you use the Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. It also requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale#hosting-plan-support). All of these resources are organized within a single resource group.
+In this article, you use the Azure Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
+
+A function app requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale#hosting-plan-support). All of these resources are organized within a single resource group.
 
 1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or open the Command Palette (**F1**) and select the **Azure Functions: Deploy to Function App** command. Again, the function app is where your Python project runs in Azure.
 
-    ![Deploy to Function App command](media/tutorial-vs-code-serverless-python/deploy-command.png)
+    ![Deploy your Python function to an Azure Function App](media/tutorial-vs-code-serverless-python/deploy-a-python-fuction-to-azure-function-app.png)
 
 1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens). If you previously created a Function App, its name appears in this list of options.
 
@@ -31,11 +33,11 @@ In these steps, you use the Functions extension to create a function app in Azur
 
     The **Azure: Functions** explorer also shows progress:
 
-    ![Deployment progress indicator in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/deploy-progress.png)
+    ![Deployment progress indicator in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/deployment-progress-indicator-in-azure-function-explorer.png)
 
 1. Once deployment is complete, the Azure Functions extension displays a message with buttons for three additional actions:
 
-    ![Message indicating successful deployment with additional actions](media/tutorial-vs-code-serverless-python/deployment-popup.png)
+    ![Message indicating successful deployment with additional actions](media/tutorial-vs-code-serverless-python/azure-functions-deployment-success-with-additional-actions.png)
 
     For **Stream logs** and **Upload settings**, see the next sections. For **View output**, see step 5 that follows.
 

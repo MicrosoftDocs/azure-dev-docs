@@ -15,7 +15,9 @@ ms.custom: seo-python-october2019
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 
-A _binding_ let you connect your function code to resources, such as Azure storage, without writing any data access code. A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings).
+You can add a storage binding for Azure Functions. A _binding_ lets you connect your function code to resources, such as Azure storage, without writing any data access code.
+
+A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings).
 
 In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request. The storage in question uses the same default storage account used by the function app. If you plan on making heavy use of storage, however, you would want to consider creating a separate account.
 
@@ -23,7 +25,7 @@ In this section, you add a storage binding to the HttpExample function created e
 
 1. In the `HttpExample` folder, right-click the *function.json*, select **Add binding**:
 
-    ![Add binding command in the Visual Studio Code explorer](media/tutorial-vs-code-serverless-python/add-binding-command.png)
+    ![Add binding command in the Visual Studio Code explorer](media/tutorial-vs-code-serverless-python/add-binding-command-to-azure-functions-in-visual-studio-code.png)
 
 1. In the prompts that follow in Visual Studio Code, select or provide the following values:
 

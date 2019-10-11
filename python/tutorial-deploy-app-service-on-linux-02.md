@@ -15,6 +15,8 @@ ms.custom: seo-python-october2019
 
 [Previous step: prerequisites](tutorial-deploy-app-service-on-linux-01.md)
 
+In this article, you prepare an app to deploy to the Azure App Service for this tutorial. You can use an existing app or create or download an app.
+
 If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file that describes your dependencies, including frameworks like Flask or Django.
 
 If you don't already have an app, use one of the options below. Be sure to verify that the app runs locally.

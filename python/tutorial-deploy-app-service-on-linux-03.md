@@ -13,13 +13,15 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Create the App Service from Visual Studio Code
 
-[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-01.md)
+[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-02.md)
 
-In this step you create the instance of Azure App Service to which you deploy your app. You do this step before deploying your code so you can configure a custom startup file if necessary in the next step.
+In this step, create the instance of Azure App Service to which you deploy your app.
+
+You do this step before deploying your code so you can configure a custom startup file if necessary in the next step.
 
 1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (**F1**) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 
-    ![Create new App Service button in the App Service explorer](media/deploy-azure/app-service-create-new.png)
+    ![Create new App Service in the App Service explorer](media/deploy-azure/create-new-app-service-in-app-service-explorer.png)
 
 1. In the prompts that follow:
 
@@ -28,15 +30,15 @@ In this step you create the instance of Azure App Service to which you deploy yo
 
 1. When a message appears indicating that the new App Service was created, select **View Output** to switch to the **Output** window in VS Code. The output shows the names of the Azure resource group and App Service Plan that were created, along with the URL for the App Service.
 
-    ![Message that appears after the App Service is created](media/deploy-azure/app-service-created.png)
+    ![URL, resource group, and App Service Plan for your App Service](media/deploy-azure/url-for-your-new-app-service-and-resource-group-and-plan.png)
 
 1. To confirm that the App Service is running properly, expand your subscription in the **Azure: App Service** explorer, right-click the App Service name, and select **Browse website**:
 
-    ![Browse Website command on an App Service in the App Service explorer](media/deploy-azure/browse-website-command.png)
+    ![Browse Website command on an App Service in the App Service explorer](media/deploy-azure/select-command-to-browse-website-in-app-service.png)
 
 1. Because you haven't deployed your own code to the App Service yet (which you do in the next step), only a default app appears:
 
-    ![Default Python app on App Service on Linux](media/deploy-azure/default-python-app.png)
+    ![Default Python app on App Service on Linux](media/deploy-azure/default-python-app-on-app-service-on-linux.png)
 
 ## (Optional) Upload an environment variable definitions file
 
