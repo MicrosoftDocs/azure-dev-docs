@@ -13,9 +13,11 @@ ms.custom: seo-python-october2019
 
 # Tutorial: Create the App Service from Visual Studio Code
 
-[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-01.md)
+[Previous step: prepare your app](tutorial-deploy-app-service-on-linux-02.md)
 
-In this step you create the instance of Azure App Service to which you deploy your app. You do this step before deploying your code so you can configure a custom startup file if necessary in the next step.
+In this step, create the instance of Azure App Service to which you deploy your app.
+
+You do this step before deploying your code so you can configure a custom startup file if necessary in the next step.
 
 1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (**F1**) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 

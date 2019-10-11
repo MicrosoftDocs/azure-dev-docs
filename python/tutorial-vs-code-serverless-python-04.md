@@ -15,6 +15,8 @@ ms.custom: seo-python-october2019
 
 [Previous step: examine the code files](tutorial-vs-code-serverless-python-03.md)
 
+You can debug your Azure Functions Python code locally in Visual Studio Code.
+
 1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
 
     ![Configuration for Debug explorer to start a Python project](media/tutorial-vs-code-serverless-python/configuration-to-start-a-python-project-for-debugging.png)
