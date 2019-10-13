@@ -19,7 +19,7 @@ The following tools are recommended for developing JavaScript apps on Azure.
 ## Azure CLI
 Azure CLI is optimized for managing Azure resources from the command line.
 
-![Azure CLI for managing Azure Resources](media/node-azure-tools/cli.png)
+![Azure CLI for managing Azure Resources](media/node-azure-tools/azure-cli.png)
  
 > [!div class="nextstepaction"]
 > [Install the Azure CLI 2.0](/cli/azure/install-az-cli2)
