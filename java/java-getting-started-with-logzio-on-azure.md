@@ -39,9 +39,9 @@ For advanced usage, you could group your Java applications into different types,
 
 ## Library installation and configuration for Log4J
 
-Those instructions are for people using Log4J, if you use Logback, go to the next section.
+These instructions are for people using Log4J, if you use Logback, go to the next section.
 
-[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
+[Logz.io](https://logz.io/) provides their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
 
 If you are using Maven, add the following dependency to your `pom.xml`:
 
@@ -79,7 +79,7 @@ Once the library is installed, you must configure its usage in your Log4J config
 
 ## Library installation and configuration for Logback
 
-[Logz.io](https://logz.io/) provide their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
+[Logz.io](https://logz.io/) provides their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
 
 If you are using Maven, add the following dependency to your `pom.xml`:
 
