@@ -1,6 +1,6 @@
 ---
 title: Tools for JavaScript developers on Azure
-description: Install individual tools for JavaScript development on Azure
+description: Install individual tools for Node.js and JavaScript development on Azure
 services: multiple
 author: karlerickson
 manager: douge
