@@ -61,6 +61,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "javascript/node-tutorials-services-databases.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-tutorials-services-enterprise.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-tutorials-services-messaging-and-iot.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "javascript/node-tutorials-services-storage.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "python/python-sdk-azure-sql-database-samples.md",
       "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database",
       "redirect_document_id": true
