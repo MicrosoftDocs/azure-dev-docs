@@ -34,6 +34,10 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-angular.png)
 
+[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
+
+    ![Static website running in Azure](media/static-website/azure-app-vue.png)
+
 # [React](#tab/react)
 
 1. Select the **Files** explorer, right-click on your _build_ folder, and choose **Deploy to Static Website**:
@@ -46,7 +50,7 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
 [!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
 
-    ![Static website running in Azure](media/static-website/azure-app-vue.png)
+![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 # [Vue](#tab/vue)
 
@@ -64,7 +68,7 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
 [!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
 
-    ![Static website running in Azure](media/static-website/azure-app-vue.png)
+![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 ---
 
