@@ -9,7 +9,9 @@ manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: kraigb, buhollan
+ms.author: 
+    - kraigb
+    - buhollan
 ---
 
 # Make changes and redeploy
