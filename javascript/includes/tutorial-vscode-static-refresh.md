@@ -1,1 +1,0 @@
-1. Once your deployment is complete, refresh the site in the browser to observe changes:

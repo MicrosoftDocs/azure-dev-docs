@@ -34,9 +34,13 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-angular.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
+1. When prompted, choose the Storage account that you created previously.
 
-    ![Static website running in Azure](media/static-website/azure-app-vue.png)
+1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
+
+   ![Deployment complete message](media/static-website/deployment-complete.png)
+
+   ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 # [React](#tab/react)
 
@@ -48,9 +52,13 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-react.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
+1. When prompted, choose the Storage account that you created previously.
 
-![Static website running in Azure](media/static-website/azure-app-vue.png)
+1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
+
+   ![Deployment complete message](media/static-website/deployment-complete.png)
+
+   ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 # [Vue](#tab/vue)
 
@@ -58,17 +66,25 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-vue.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
+1. When prompted, choose the Storage account that you created previously.
 
-    ![Static website running in Azure](media/static-website/azure-app-vue.png)
+1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
+
+   ![Deployment complete message](media/static-website/deployment-complete.png)
+
+   ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 1. Select the **Files** explorer, right-click on your _dist_ folder, and choose **Deploy to Static Website**:
 
    ![Deploy to Static Website command](media/static-website/deploy-build-vue.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
+1. When prompted, choose the Storage account that you created previously.
 
-![Static website running in Azure](media/static-website/azure-app-vue.png)
+1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
+
+   ![Deployment complete message](media/static-website/deployment-complete.png)
+
+   ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 ---
 

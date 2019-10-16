@@ -2,16 +2,16 @@
 title: Create the static Node.js app in Visual Studio Code
 description: Tutorial part 2, create the sample app
 services: app-service
-author: 
-    - kraigb
-    - burkeholland
+author:
+  - kraigb
+  - burkeholland
 manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: 
-    - kraigb
-    - buhollan
+ms.author:
+  - kraigb
+  - buhollan
 ---
 
 # Create the app
@@ -22,7 +22,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
 
 # [Angular](#tab/angular)
 
-[!INCLUDE [tutorial-vscode-static-scaffold](includes/tutorial-vscode-static-scaffold.md)]
+1. Use the CLI to scaffold out a new app called "my-static-app" by running the following command:
 
 ```bash
 npx @angular/cli new my-static-app
@@ -30,41 +30,59 @@ npx @angular/cli new my-static-app
 
 When the CLI asks any configuration questions, press enter to select the default options.
 
-[!INCLUDE [tutorial-vscode-static-build](includes/tutorial-vscode-static-build.md)]
+1. Build the application by switching to the new folder and running `npm run build`:
+
+```bash
+cd my-static-app
+npm run build
+```
 
 1. You should now have a _dist_ folder in the _my-static-app_ folder. Inside that _dist_ folder, there will be a folder with the same name as your project - _my-static-app_. The _build/my-static-app_ folder contains the HTML, CSS, and JavaScript files that you deploy to Azure Storage.
 
-[!INCLUDE [tutorial-vscode-static-run](includes/tutorial-vscode-static-run.md)]
+1. Run the app by using the following command:
+
+```bash
+npm start
+```
 
 1. Open a browser to [http://localhost:3000](http://localhost:3000) to verify that the app is running:
 
    ![The running sample Angular app](media/static-website/local-app-angular.png)
 
-[!INCLUDE [tutorial-vscode-static-stop](includes/tutorial-vscode-static-stop.md)]
+1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
 # [React](#tab/react)
 
-[!INCLUDE [tutorial-vscode-static-scaffold](includes/tutorial-vscode-static-scaffold.md)]
+1. Use the CLI to scaffold out a new app called "my-static-app" by running the following command:
 
 ```bash
 npx create-react-app my-static-app
 ```
 
-[!INCLUDE [tutorial-vscode-static-build](includes/tutorial-vscode-static-build.md)]
+1. Build the application by switching to the new folder and running `npm run build`:
+
+```bash
+cd my-static-app
+npm run build
+```
 
 1. You should now have a _build_ folder in the _my-static-app_ folder. The _build_ folder contains the HTML, CSS, and JavaScript files that you deploy to Azure Storage.
 
-[!INCLUDE [tutorial-vscode-static-run](includes/tutorial-vscode-static-run.md)]
+1. Run the app by using the following command:
+
+```bash
+npm start
+```
 
 1. Open a browser to [http://localhost:3000](http://localhost:3000) to verify that the app is running:
 
    ![The running sample React app](media/static-website/local-app-react.png)
 
-[!INCLUDE [tutorial-vscode-static-stop](includes/tutorial-vscode-static-stop.md)]
+1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
 # [Vue](#tab/vue)
 
-[!INCLUDE [tutorial-vscode-static-scaffold](includes/tutorial-vscode-static-scaffold.md)]
+1. Use the CLI to scaffold out a new app called "my-static-app" by running the following command:
 
 ```bash
 npx @vue/cli create my-static-app
@@ -72,7 +90,12 @@ npx @vue/cli create my-static-app
 
 When the CLI asks any configuration questions, press enter to select the default options.
 
-[!INCLUDE [tutorial-vscode-static-build](includes/tutorial-vscode-static-build.md)]
+1. Build the application by switching to the new folder and running `npm run build`:
+
+```bash
+cd my-static-app
+npm run build
+```
 
 1. You should now have a _dist_ folder in the _my-static-app_ folder. The _dist_ folder contains the HTML, CSS, and JavaScript files that you deploy to Azure Storage.
 
@@ -86,7 +109,7 @@ When the CLI asks any configuration questions, press enter to select the default
 
    ![The running sample Vue app](media/static-website/local-app-vue.png)
 
-[!INCLUDE [tutorial-vscode-static-stop](includes/tutorial-vscode-static-stop.md)]
+1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
 ---
 
