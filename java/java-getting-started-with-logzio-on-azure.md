@@ -19,6 +19,8 @@ ms.custom:
 
 In this getting started guide, we will learn how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. This guide should work for most Java applications running on Azure, as it uses the two most widely used Java logging libraries, Log4J and Logback.
 
+If you are already using the Elastic stack to monitor your Java application today, this content makes it easy to understand what needs to be (re)configured to target the Logz.io endpoint.
+
 ## Supported JDK runtimes
 
 Libraries used here require Java 8 and up.
