@@ -2,7 +2,9 @@
 title: Deploy the static Node.js app files to Azure Storage from Visual Studio Code
 description: Tutorial part 4, deploy the files to Azure Storage
 services: app-service
-author: kraigb, burkeholland
+author: 
+    - kraigb
+    - burkeholland
 manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
@@ -20,7 +22,7 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
 
-# [Angular](#tabs/angular)
+# [Angular](#tab/angular)
 
 1. Select the **Files** explorer, right-click on your _dist/my-static-app_ folder, and choose **Deploy to Static Website**:
 
@@ -30,7 +32,7 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-angular.png)
 
-# [React](#tabs/react)
+# [React](#tab/react)
 
 1. Select the **Files** explorer, right-click on your _build_ folder, and choose **Deploy to Static Website**:
 
@@ -40,17 +42,17 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-react.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](/includes/tutorial-vscode-static-browse.md)]
+[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
 
     ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
-# [Vue](#tabs/vue)
+# [Vue](#tab/vue)
 
 1. Select the **Files** explorer, right-click on your _dist_ folder, and choose **Deploy to Static Website**:
 
    ![Deploy to Static Website command](media/static-website/deploy-build-vue.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](/includes/tutorial-vscode-static-browse.md)]
+[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
 
     ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
@@ -58,7 +60,7 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
    ![Deploy to Static Website command](media/static-website/deploy-build-vue.png)
 
-[!INCLUDE [tutorial-vscode-static-browse](/includes/tutorial-vscode-static-browse.md)]
+[!INCLUDE [tutorial-vscode-static-browse](includes/tutorial-vscode-static-browse.md)]
 
     ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
