@@ -278,7 +278,7 @@ Switch back to the **Extensions** tab, search for `docker`, and select the **Doc
 
 Install the Docker extension, and then reload Visual Studio Code.
 
-![Installing the Docker extention for Visual Studio Code](./media/node-howto-e2e/visual-studio-code-docker-extension.png)
+![Installing the Docker extension for Visual Studio Code](./media/node-howto-e2e/visual-studio-code-docker-extension.png)
 
 The Docker extension for Visual Studio Code includes a command for generating a *Dockerfile* and the `docker-compose.yml` file for an existing project. 
 
