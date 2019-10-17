@@ -7,9 +7,7 @@ manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author:
-  - kraigb
-  - buhollan
+ms.author: buhollan
 ---
 
 # Make changes and redeploy
@@ -38,7 +36,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. In Visual Studio Code, open the _src/app.js_ file change line 11 to match the following:
 
-    ```js
+    ```html
     <h1 className="App-title">Welcome to Azure!</h1>
     ```
 
