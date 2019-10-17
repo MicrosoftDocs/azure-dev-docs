@@ -27,7 +27,7 @@ Azure CLI is optimized for managing Azure resources from the command line.
 ## Visual Studio Code
 Edit and debug JavaScript apps on any OS.
 
-![User Visual Studio Code to edit JavaScript](media/node-azure-tools/visual-studio-code-debug-javascript.png)
+![Use Visual Studio Code to edit JavaScript](media/node-azure-tools/visual-studio-code-debug-javascript.png)
 
 > [!div class="nextstepaction"]
 > [Download Visual Studio Code](https://code.visualstudio.com)
