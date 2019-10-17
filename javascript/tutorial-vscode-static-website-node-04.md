@@ -18,11 +18,11 @@ ms.author:
 
 In this step, you use Visual Studio Code to deploy the static website files created in the previous steps to Azure Storage, which then hosts and serves those files.
 
+# [Angular](#tab/angular)
+
 1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
 
    ![Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
-
-# [Angular](#tab/angular)
 
 1. Select the **Files** explorer, right-click on your _dist/my-static-app_ folder, and choose **Deploy to Static Website**:
 
@@ -42,6 +42,10 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
 # [React](#tab/react)
 
+1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
+
+   ![Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
+
 1. Select the **Files** explorer, right-click on your _build_ folder, and choose **Deploy to Static Website**:
 
     ![Deploy to Static Website command](media/static-website/deploy-build-react.png)
@@ -59,6 +63,10 @@ In this step, you use Visual Studio Code to deploy the static website files crea
     ![Static website running in Azure](media/static-website/azure-app-vue.png)
 
 # [Vue](#tab/vue)
+
+1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
+
+   ![Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
 
 1. Select the **Files** explorer, right-click on your _dist_ folder, and choose **Deploy to Static Website**:
 
