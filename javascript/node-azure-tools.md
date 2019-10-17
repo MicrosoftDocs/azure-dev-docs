@@ -4,7 +4,8 @@ description: Install individual tools for JavaScript development on Azure
 services: multiple
 author: karlerickson
 manager: douge
-ms.service: azure-nodejs
+ms.service: app-service
+ms.prod: azure-nodejs
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
