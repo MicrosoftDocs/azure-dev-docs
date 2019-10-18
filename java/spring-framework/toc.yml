@@ -1,4 +1,4 @@
-- name: Spring on Azure Documentation
+- name: Spring on Azure
   href: ./index.yml
   expanded: true
   items:

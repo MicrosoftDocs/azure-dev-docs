@@ -4,13 +4,13 @@ description: Complete end-to-end tutorial illustrating how create, dockerize, an
 services: multiple
 author: karlerickson
 manager: douge
-ms.service: azure-nodejs
+ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: karler
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
 # Develop and deploy a containerized Node.js app with Visual Studio Code and Azure
@@ -42,13 +42,13 @@ To get started, download the sample project using the following steps:
 
 1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, and press **&lt;Enter>**.
 
-    ![gitcl command in the Visual Studio Code command palette prompt](./media/node-howto-e2e/git-clone.png)
+    ![gitcl command in the Visual Studio Code command palette prompt](./media/node-howto-e2e/visual-studio-code-git-clone.png)
 
 1. When prompted for the **Repository URL**, enter `https://github.com/scotch-io/node-todo`, then press **&lt;Enter>**.
 
 1. Select (or create) the local directory into which you want to clone the project.
 
-    ![Visual Studio Code explorer](./media/node-howto-e2e/explorer.png)
+    ![Visual Studio Code explorer](./media/node-howto-e2e/visual-studio-code-explorer.png)
 
 ## Integrated terminal
 
@@ -58,7 +58,7 @@ Since this is a Node.js project, the first thing you need to do is ensure that a
 
 1. Enter `yarn`, and press **&lt;Enter>**.  
 
-	![Running the yarn command within Visual Studio Code](./media/node-howto-e2e/terminal.png)
+	![Running the yarn command within Visual Studio Code](./media/node-howto-e2e/visual-studio-code-install-yarn.png)
 
 ## Integrated Git version control
 
@@ -70,7 +70,7 @@ The following steps illustrate how to check the `yarn.lock` file into source con
 
 1. In the **Message** box, enter a commit message, and press **&lt;Ctrl>&lt;Enter>**. 
 
-	![Adding the yarn.lock file to Git](./media/node-howto-e2e/git.png)
+	![Adding the yarn.lock file to Git](./media/node-howto-e2e/visual-studio-code-add-yarn-lock.png)
 
 ## Project and code navigation
 
@@ -80,21 +80,21 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
 1. Enter `.js` to display all the JavaScript/JSON files in the project along with each file's parent directory 
 
-    ![Display all .js* files](./media/node-howto-e2e/git-output.png)
+    ![Display all .js* files in Visual Studio Code](./media/node-howto-e2e/visual-studio-code-javascript-json-file-list.png)
 
 1. Select `server.js`, which is the startup script for the app. 
 
 1. Hover your mouse over the **database** variable (imported on line 6) to see its type. This ability to quickly inspect variables/modules/types within a file is very useful during the development of your projects. 
 
-    ![Discover type](./media/node-howto-e2e/hover-help.png)
+    ![Discover type in Visual Studio Code with hover help](./media/node-howto-e2e/visual-studio-code-hover-help.png)
 
 1. Clicking your mouse within the span of a variable - such as **database** - allows you to see all references to that variable within the same file. To view all references to a variable within the project, right-click the variable, and from the context menu, and select **Find All References**.
 
-    ![Find references to a variable](./media/node-howto-e2e/word-hilight.png)
+    ![Find all references with Visual Studio Code](./media/node-howto-e2e/visual-studio-code-find-all-references.png)
 
 1. In addition to being to hover your mouse over a variable to discover its type, you can also inspect the definition of a variable, even if it's in another file. To see this in action, right-click **database.localUrl** (line 12), and, from the context menu, select **Peek Definition**. 
 
-    ![Peek at a variable's definition](./media/node-howto-e2e/code-peek.png)
+    ![Peek at variable's definition in Visual Studio Code](./media/node-howto-e2e/visual-studio-code-peek-definition.png)
 
 ## Modifying the code and using autocompletion
 
@@ -116,7 +116,7 @@ The MongoDB connection string is hard-coded in declaration of the **database.loc
 
 Note that if you type the code in manually (instead of copy and paste), when you type the period after `process`, Visual Studio Code displays the available members of the Node.js **process** global API.
 
-![Autocomplete automatically shows the members of an API](./media/node-howto-e2e/process-env.png)
+![Autocomplete automatically shows the members of an API](./media/node-howto-e2e/visual-studio-code-process-env.png)
 
 Autocompetion works because Visual Studio Code uses TypeScript behind the scenes - even for JavaScript - to provide type information that can then be used to inform the completion list as you type. Visual Studio Code is able to detect that this is a Node.js project, and as a result, automatically downloaded the TypeScript typings file for [Node.js from NPM](https://www.npmjs.com/package/@types/node). The typings file allows you to get autocompletion for other Node.js globals - such as **Buffer** and **setTimeout** - as well as all of the built-in modules such as **fs** and **http**.
 
@@ -128,7 +128,7 @@ mongoose.connection.on("error", () => { console.log("DB connection error"); });
 
 As with the previous code, you'll notice that you get autocompletion without any work on your part.
 
-![Autocomplete automatically shows the members of an API](./media/node-howto-e2e/mongoose.png)
+![Autocomplete automatically shows the members of an API](./media/node-howto-e2e/visual-studio-code-autocomplete-mongoose.png)
 
 You can see which modules support this auto-complete capability by browsing the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) project, which is the community-driven source of all TypeScript type definitions.
 
@@ -136,19 +136,19 @@ You can see which modules support this auto-complete capability by browsing the 
 
 Once you've explored the code a bit, it's time to run the app. To run the app from Visual Studio Code, press **&lt;F5>**. When running the code via **&lt;F5>** (debug mode), Visual Studio Code launches the app and displays the **Debug Console** window that displays stdout for the app.
 
-![Monitoring an app's stdout via the Debug console](./media/node-howto-e2e/console.png)
+![Monitoring an app's stdout via the Debug console](./media/node-howto-e2e/visual-studio-code-debug-console.png)
 
 Additionally, the **Debug Console** is attached to the newly running app so you can type JavaScript expressions, which will be evaluated in the app, and also includes auto-completion. To see this in action, type `process.env` in the console:
 
-![Typing code into the Debug console](./media/node-howto-e2e/console-code.png)
+![Typing code into the Debug console](./media/node-howto-e2e/visual-studio-code-debug-console-autocomplete.png)
 
 You were able to press **&lt;F5>** to run the app because the currently open file is a JavaScript file (`server.js`). As a result, Visual Studio Code assumes that the project is a Node.js app. If you close all JavaScript files in Visual Studio Code, and then press **&lt;F5>**, Visual Studio Code will query you as the environment:
 
-![Specifying the runtime environment](./media/node-howto-e2e/select-env.png)
+![Specifying the runtime environment](./media/node-howto-e2e/visual-studio-code-select-environment.png)
 
 Open a browser, and navigate to `http://localhost:8080` to see the running app. Type a message into the textbox and add/remove a few todos to get a feel for how the app works.
 
-![Todo app running](./media/node-howto-e2e/todo.png)
+![Add or remove todos with the app](./media/node-howto-e2e/add-remove-todos-app.png)
 
 ## Debugging
 
@@ -156,7 +156,7 @@ In addition to being able to run the app and interact with it via the integrated
 
 Set a breakpoint on line 28, which represents the Express route that is called when the app tries to add a todo entry. To set a breakpoint, simply click the area to the left of the line number within the editor as shown in the following figure.
 
-![Setting a breakpoint within Visual Studio Code](./media/node-howto-e2e/breakpoint.png)
+![Setting a breakpoint within Visual Studio Code](./media/node-howto-e2e/visual-studio-code-set-breakpoint.png)
 
 > [!NOTE]
 > In addition to standard breakpoints, Visual Studio Code supports conditional breakpoints that allow you to customize when the app should suspend execution. To set a conditional breakpoint, right-click the area to the left of the line on which you wish to pause execution, select **Add Conditional Breakpoint...**, and specify either a JavaScript expression (e.g. `foo = "bar"`) or execution count that defines the condition under which you want to pause execution.
@@ -165,7 +165,7 @@ Set a breakpoint on line 28, which represents the Express route that is called w
 
 Once the breakpoint has been set, return to the running app and add a todo entry. Adding a todo entry immediately causes the app to suspend execution on line 28 where you set the breakpoint:
 
-![Visual Studio Code pausing execution on a breakpoint](./media/node-howto-e2e/debugger.png)
+![Visual Studio Code pausing execution on a breakpoint](./media/node-howto-e2e/visual-studio-code-pause-breakpoint-execution.png)
 
 Once the application has been paused, you can hover your mouse over the code's expressions to view their current value, inspect the locals/watches and call stack, and use the debug toolbar to step through the code execution. Press **&lt;F5>** to resume execution of the app.
 
@@ -175,17 +175,17 @@ As mentioned earlier in the topic, the TODO app is a MEAN app - meaning that its
 
 Switch to the **Extensions** tab, and type `chrome` into the search box:
 
-![Chrome debugging extension for Visual Studio Code](./media/node-howto-e2e/chrome.png)
+![Chrome debugging extension for Visual Studio Code](./media/node-howto-e2e/visual-studio-code-chrome-extension.png)
 
 Select the extension named **Debugger for Chrome**, and select **Install**. After installing the Chrome debugging extension, select **Reload** to close and reopen Visual Studio Code in order to activate the extension. 
 
-![Reloading Visual Studio Code after installing the Chrome debugging extension](./media/node-howto-e2e/chrome-extension-reload-vscode.png)
+![Reloading Visual Studio Code after installing the Chrome debugging extension](./media/node-howto-e2e/visual-studio-code-reload-extension.png)
 
 While you were able to run and debug the Node.js code without any Visual Stdio Code-specific configuration, in order to debug a front-end web app, you need to generate a `launch.json` file that instructs Visual Studio Code how to run the app. 
 
 To generate the `launch.json` file, switch to the **Debug** tab, click the gear icon (which should have a little red dot on top of it), and select the **node.js** environment.
 
-![Visual Studio Code option to configure the launch.json file](./media/node-howto-e2e/debug-gear.png)
+![Visual Studio Code option to configure the launch.json file](./media/node-howto-e2e/visual-studio-code-debug-gear.png)
 
 Once created, the `launch.json` file looks similar to the following, and tells Visual Studio Code how to launch and/or attach to the app in order to debug it. 
 
@@ -214,7 +214,7 @@ Note that Visual Studio Code was able to detect that the app's startup script is
 
 With the `launch.json` file open, select **Add Configuration** (bottom right), and select **Chrome: Launch with userDataDir**.
 
-![Adding a Chrome configuration to Visual Studio Code](./media/node-howto-e2e/add-chrome-config.png)
+![Adding a Chrome configuration to Visual Studio Code](./media/node-howto-e2e/visual-studio-code-add-chrome-config.png)
 
 Adding a new run configuration for Chrome allows you to debug the front-end JavaScript code. 
 
@@ -246,7 +246,7 @@ Add the following snippet as a top-level property within the `launch.json` file 
 
 The string values specified in the **compounds.configurations** array refer to the **name** of individual entries in the list of **configurations**. If you've modfied those names, you'll need to make the appropriate changes in the array. To see this in action, switch to the debug tab, and change the selected configuration to **Full-Stack** (the name of the compound configuration), and press **&lt;F5>** to run it.
 
-![Running a configuration in Visual Studio Code](./media/node-howto-e2e/full-stack-profile.png)
+![Running a configuration in Visual Studio Code](./media/node-howto-e2e/visual-studio-code-full-stack-configuration.png)
 
 Running the configuration launches the Node.js app (as can be seen in the debug console output) and Chrome (configured to navigate to the Node.js app at `http://localhost:8080`).
 
@@ -256,7 +256,7 @@ Set a breakpoint on line 11, which is the entry-point for a new todo entry being
 
 Return to the running app, add a new todo entry, and notice that Visual Studio Code has now suspended execution within the Angular code.
 
-![Debuggging front-end code in Visual Studio Code](./media/node-howto-e2e/chrome-pause.png)
+![Debugging front-end code in Visual Studio Code](./media/node-howto-e2e/visual-studio-code-chrome-pause.png)
 
 Like Node.js debugging, you can hover your mouse over expressions, view locals/watches, evaluate expressions in the console, and so on. 
 
@@ -278,19 +278,19 @@ Switch back to the **Extensions** tab, search for `docker`, and select the **Doc
 
 Install the Docker extension, and then reload Visual Studio Code.
 
-![Installing the Docker extenion for Visual Studio Code](./media/node-howto-e2e/docker-search.png)
+![Installing the Docker extension for Visual Studio Code](./media/node-howto-e2e/visual-studio-code-docker-extension.png)
 
 The Docker extension for Visual Studio Code includes a command for generating a *Dockerfile* and the `docker-compose.yml` file for an existing project. 
 
 To see the available Docker commands, display the command palette - via **&lt;F1>** - and type `docker`.
 
-![Commands supported by the Docker extension for Visual Studio ](./media/node-howto-e2e/docker-commands.png)
+![Commands supported by the Docker extension for Visual Studio Code ](./media/node-howto-e2e/visual-studio-code-available-docker-codes.png)
 
 Select **Docker: Add docker files to workspace**, select **Node.js** as the app platform, and specify that the app exposes port `8080`. 
 
 The Docker command generates a complete `Dockerfile` and Docker-compose files that you can begin using immediately.
 
-![Generated Dockerfile](./media/node-howto-e2e/docker-file.png)
+![Generated Dockerfile in Visual Studio Code](./media/node-howto-e2e/visual-studio-code-complete-dockerfile.png)
 
 The Docker extension also provides auto-completion for your `Dockerfiles` and `docker-compose.yml` files. 
 
@@ -308,7 +308,7 @@ FROM mhart
 
 With your cursor positioned after the `t` in `mhart`, press **&lt;Ctrl>&lt;Space>** to view all the image repositories that `mhart` has published on DockerHub.
 
-![Docker extension auto-completion](./media/node-howto-e2e/docker-completion.png)
+![View image repositories in DockerHub](./media/node-howto-e2e/visual-studio-code-dockerhub-image-repositories.png)
 
 Select `mhart/alpine-node`, which provides everything that this app needs. 
 
@@ -316,7 +316,7 @@ Smaller images are typically better since you want your app builds and deploymen
 
 Now, that you have generated the `Dockerfile`, you need to build the actual Docker image. Once again, you can use a command that the Docker extension installed in Visual Studio Code. Press **&lt;F1>**, enter `dockerb` at the command palette, and select the **Docker: Build Image** command. Choose the `/Dockerfile` that you just generated and modified. Specify a tag that includes your DockerHub username (e.g. `lostintangent/node`). Press **&lt;ENTER>** to launch the integrated terminal window that displays the output of your Docker image being built.
 
-![Docker image build status](./media/node-howto-e2e/docker-build.png)
+![Docker image build output](./media/node-howto-e2e/docker-build-image-output.png)
 
 Notice that the command automated the process of running `docker build` for you, which is another example of a productivity enhancer that you can either choose to use, or you can just use the Docker CLI directly. 
 
@@ -376,7 +376,7 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
     az webapp browse
     ```
 
-    ![Todo app running in the browser](./media/node-howto-e2e/browse-app.png)
+    ![Todo app running in the browser](./media/node-howto-e2e/deployed-container-app.png)
 
     > [!NOTE]
     > It may take few minutes to load app the first time as App Service has to pull the Docker image from DockerHub and then start it.
@@ -409,7 +409,7 @@ While you could configure a MongoDB server, or replica set, and manage that infr
 
 4. Return to your browser and refresh it. Try adding and removing a todo item to prove that the app now works without needing to change anything! Set the environment variable to the created Cosmos DB instance, which is fully emulating a MongoDB database.
 
-    ![Demo app after connected to a database](./media/node-howto-e2e/finished-demo.png)
+    ![Demo app after connected to a database](./media/node-howto-e2e/finish-demo-walkthrough.png)
 
 When needed, you can switch back to the Cosmos DB instance and scale up (or down) the reserved throughput that the MongoDB instance needs, and benefit from the added traffic without needing to manage any infrastructure manually.
 
