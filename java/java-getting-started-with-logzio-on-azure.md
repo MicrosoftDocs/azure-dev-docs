@@ -141,3 +141,54 @@ Now start your application, or use it in order to produce some logs. They should
 ```
 
 As your logs are now processed by Logz.io, you can benefit from all the platform's services.
+
+# Ship Azure VM log data to Logz.io
+
+Here we will learn how to send logs from your Azure resources to Logz.io.
+
+## Deploy the template
+
+The first step is to deploy the Logz.io - Azure integration template. The integration is based on a ready-made Azure deployment template that sets up all the necessary building blocks of the pipeline — an Event Hub namespace, an Event Hub, 2 storage blobs, and all the correct permissions and connections required. The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
+
+Find the **Deploy to Azure** button displayed in the [first step of the repo’s readme](https://github.com/logzio/logzio-azure-serverless).
+
+Once clicked, the Custom Deployment page in the Azure portal will be displayed with a list of pre-filled fields.
+
+You can leave most of the fields as-is but be sure to enter the following settings:
+
+* **Resource group**: Either select an existing group or create a new one.
+* **Logzio Logs Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL – if it’s app.logz.io, use listener.logz.io (this is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
+* **Logzio Logs Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
+
+Agree to the terms at the bottom of the page, and click Purchase. Azure will then deploy the template. This may take a minute or two - you will eventually see the Deployment succeeded message at the top of the portal.
+
+You can visit the defined resource group to review the deployed resources.
+
+To learn how to configure logzio-azure-serverless to back up logs to Azure Blob Storage, [click here](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
+
+## Streaming Azure Log Data to Logz.io
+Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will forward that data to Logz.io.
+
+In the search bar, type “Diagnostics”, and then click **Diagnostics settings**. This brings you to the _Diagnostics settings_ page.
+
+Choose a VM (or any other resource) from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
+
+Give your diagnostic settings a **Name**.
+
+Select **Stream to an Event Hub**, and then click **Configure** to open the _Select Event Hub_ panel.
+
+Choose your Event Hub:
+
+* **Event Hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
+* **Event Hub name**: Choose **insights-operational-logs**
+* **Event Hub policy name**: Choose **LogzioSharedAccessKey**
+* Click **OK** to return to Diagnostics settings.
+
+Click **OK** to return to the _Diagnostics settings_ panel.
+In the Log section, select the data you want to stream, and then click **Save**. The selected data will now stream to the Event Hub.
+To find additional information on how to stream log or metric data from Event Hub to an external tool, see this page: [Stream Azure monitoring data to an Event Hub for consumption by an external tool](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/stream-monitoring-data-event-hubs).
+
+## Visualize your data
+Now comes the fun part. Give your data some time to get from your system to Logz.io, and then open Kibana. You should see logs (with the type _eventhub_) filling up your dashboards (for more information on how to create dashboards, [click here!](https://logz.io/blog/perfect-kibana-dashboard/)).
+
+From there, you can query for specific log data in the “Discover” tab, or create Kibana objects to visualize your data in the “Visualize” tab.
