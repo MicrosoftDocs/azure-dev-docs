@@ -2,7 +2,7 @@
 
 title: Azure for Python Developers
 summary: |
-  Learn about what Azure offers for Python developers. Get started with useful Azure features like app hosting, support for open-source databases like mySQL and PostgreSQL, and working with big data for machine learning and other applications.
+  Azure offers extensive services for Python developers including app hosting, storage, open-source databases like mySQL and PostgreSQL, and data science, machine learning, and AI. The Azure SDK for Python helps developers be highly productive when using these services.
 
 metadata:
   title: Azure for Python developers
