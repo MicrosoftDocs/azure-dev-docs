@@ -4,7 +4,7 @@ description: Learn how to configure a Spring Boot Initializer app with the Azure
 services: storage
 documentationcenter: java
 author: bmitchell287
-manager: douge
+manager: JeanPaul.Connock
 editor: ''
 ms.assetid:
 ms.author: brendm
@@ -44,29 +44,21 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Create Azure Storage Account][IMG01]
 
-1. On the **Create Namespace** page, enter the following information:
+1. On the **Create storage account** page, enter the following information:
 
-   * Enter a unique **Name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
-   * Choose **Blob storage** for the **Account kind**.
+   * Select **Subscription**.
+   * Select **Resource group**, or create a new resource group.
+   * Enter a unique **Storage account name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
    * Specify the **Location** for your storage account.
-   * Choose the **Subscription** you want to use for your storage account.
-   * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
-
-   ![Specify Azure Storage Account options][IMG02]
-
-1. When you have specified the options listed above, click **Create** to create your storage account.
-
-1. When the Azure portal has created your storage account, click **Blobs**, then click **+Container**.
-
-   ![Create blob container][IMG03]
-
-1. Enter a **Name** for your blob container, and then click **OK**.
-
-   ![Specify blob container options][IMG04]
+1. When you have specified the options listed above, click **Review + create** to create your storage account.
+1. When the deployment is complete, click **Go to resource**.
+1. Click **Containers**.
+1. Click **+ Container**.
+   * Name the container.
+   * Select *Blob* from the drop-down list.
+   ![Create blob container][IMG02]
 
 1. The Azure portal will list your blob container after is has been created.
-
-   ![Reviewing the list of blob containers][IMG05]
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
@@ -74,7 +66,8 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Specify the following options:
 
-   * Generate a **Maven** project with **Java**.
+   * Generate a **Maven** project.
+   * Specify **Java**.
    * Specify a **Spring Boot** version that is equal to or greater than 2.0.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Web** dependency.
@@ -86,13 +79,11 @@ The following prerequisites are required in order to follow the steps in this ar
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
    >
 
-1. When you have specified the options listed above, click **Generate Project**.
+1. When you have specified the options listed above, click **Generate**.
 
 1. When prompted, download the project to a path on your local computer.
 
-   ![Download Spring project][SI02]
-
-1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
+1. After you have extracted the files on your local system, your simple Spring Boot application will be ready to edit.
 
 ## Configure your Spring Boot app to use the Azure Storage starter
 
