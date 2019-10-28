@@ -228,7 +228,7 @@ In this section, you create the necessary Java classes for storing a blob in you
 
    `/users/example/home/storage/src/main/java/com/wingtiptoys/storage/StorageApplication.java`
 
-1. Open the main application Java file in a text editor, and add the following lines to the file:
+1. Open the main application Java file in a text editor, and add the following lines to the file. Replace wingtiptoys with your values:
 
    ```java
    package com.wingtiptoys.storage;
@@ -256,7 +256,7 @@ In this section, you create the necessary Java classes for storing a blob in you
 
    `/users/example/home/storage/src/main/java/com/wingtiptoys/storage/WebController.java`
 
-1. Open the web controller Java file in a text editor, and add the following lines to the file:
+1. Open the web controller Java file in a text editor, and add the following lines to the file.  Change wingtiptoys to your name.
 
    ```java
    package com.wingtiptoys.storage;
