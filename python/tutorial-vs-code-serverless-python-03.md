@@ -52,7 +52,7 @@ The `scriptFile` property identifies the startup file for the code, and that cod
 
 The `bindings` element contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
 
-## \_\_init.py\_\_
+## \_\_init\_\_.py
 
 When you create a new function, Azure Functions provides default Python code in *\_\_init\_\_.py*:
 
