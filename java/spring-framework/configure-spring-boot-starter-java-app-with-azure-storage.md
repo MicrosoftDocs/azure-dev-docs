@@ -27,7 +27,7 @@ This article walks you through creating a custom application using the **Spring 
 The following prerequisites are required in order to follow the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-* The [Azure Command-Line Interface (CLI)](http://docs.microsoft.com/cli/azure/overview).
+* The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/index).
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 
@@ -56,6 +56,7 @@ The following prerequisites are required in order to follow the steps in this ar
 1. Click **+ Container**.
    * Name the container.
    * Select *Blob* from the drop-down list.
+
    ![Create blob container][IMG02]
 
 1. The Azure portal will list your blob container after is has been created.
