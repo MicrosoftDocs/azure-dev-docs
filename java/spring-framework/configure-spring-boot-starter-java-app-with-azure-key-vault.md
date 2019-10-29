@@ -34,9 +34,11 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Aritifact** names for your application.
+1. Specify that you want to generate a **Maven** project with **Java**.  
 
-1. Scroll down to the **Dependencies** section and enter **Azure Key Vault**.
+1. Enter the **Group** and **Artifact** names for your application.
+
+1. In the **Dependencies** section, enter **Azure Key Vault**.
 
 1. Scroll to the bottom of the page and click **Generate**.
 
