@@ -184,7 +184,7 @@ Choose your Event Hub:
 
 Click **OK** to return to the _Diagnostics settings_ panel.
 In the Log section, select the data you want to stream, and then click **Save**. The selected data will now stream to the Event Hub.
-To find additional information on how to stream log or metric data from Event Hub to an external tool, see this page: [Stream Azure monitoring data to an Event Hub for consumption by an external tool](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/stream-monitoring-data-event-hubs).
+To find additional information on how to stream log or metric data from Event Hub to an external tool, see [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs).
 
 ## Visualize your data
 
