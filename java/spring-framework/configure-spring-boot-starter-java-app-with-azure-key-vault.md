@@ -108,7 +108,7 @@ Follow the instructions to complete the sign-in process.
 
    ```json
    {
-     "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/wingtiptoysresources",
+     "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/vged-rg2",
      "location": "westus",
      "managedBy": null,
      "name": "vged-rg2",
@@ -142,9 +142,11 @@ Follow the instructions to complete the sign-in process.
    ```
 
 3. Create a new key vault in the resource group; for example:
+
    ```azurecli
    az keyvault create --name vgedkeyvault --resource-group vged-rg2 --location westus --enabled-for-deployment true --enabled-for-disk-encryption true --enabled-for-template-deployment true --sku standard --query properties.vaultUri
    ```
+
    Where:
 
    | Parameter | Description |
@@ -159,14 +161,17 @@ Follow the instructions to complete the sign-in process.
 
    The Azure CLI will display the URI for key vault, which you will use later; for example:  
 
-   ```
-   "https://wingtiptoyskeyvault.vault.azure.net"
+   ```azurecli
+   "https://vgedkeyvault.vault.azure.net"
+
    ```
 
 4. Set the access policy for the Azure service principal you created earlier; for example:
+
    ```azurecli
    az keyvault set-policy --name vgedkeyvault --secret-permission set get list delete --spn "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii"
    ```
+
    Where:
 
    | Parameter | Description |
@@ -239,7 +244,7 @@ Follow the instructions to complete the sign-in process.
 3. Add the values for your key vault using values from the steps that you completed earlier in this tutorial; for example:
 
    ```yaml
-   azure.keyvault.uri=https://wingtiptoyskeyvault.vault.azure.net/
+   azure.keyvault.uri=https://vgedkeyvault.vault.azure.net/
    azure.keyvault.client-id=iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii
    azure.keyvault.client-key=pppppppp-pppp-pppp-pppp-pppppppppppp
    ```
