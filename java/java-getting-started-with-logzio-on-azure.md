@@ -1,44 +1,44 @@
 ---
 title: Getting started with Logz.io for Java projects running on Azure
-description: Integration and configuration of Logz.io for Java projects running on Azure.
-author: judubois
+description: This tutorial shows how to integrate and configure Logz.io for Java projects running on Azure.
+author: jdubois
 manager: bborges
-ms.assetid: 
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.service: azure
-
 ms.date: 09/19/2019
 ms.author: judubois
-ms.custom: 
 ---
 
-# Getting started with Logz.io for Java projects running on Azure
+# Tutorial: getting started with Logz.io for Java projects running on Azure
 
-This tutorial shows you how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service, where they will be ingested and analyzed. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
+This tutorial shows you how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
 
 This tutorial uses Log4J and Logback, the two most widely used Java logging libraries, so it should work for most Java applications running on Azure. If you are already using the Elastic stack to monitor your Java application, this tutorial shows you how to reconfigure to target the Logz.io endpoint.
+
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> * Send logs from an existing Java application to Logz.io
+> * Send diagnostic logs from Azure services to Logz.io
 
 ## Prerequisites
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or greater
 * A [Logz.io](https://logz.io/) account
+* An existing Java application that uses Log4J or Logback
 
-## Get your Logz.io access token
+## Send Java application logs to Logz.io
 
-You will need an access token to send logs to your Logz.io instance. To get your token, log in to your Logz.io account, select the cog icon in the right-hand corner, then select **Settings > General**. Copy the access token displayed in your account settings so you can use it when configuring the Logz.io Java library.
+First, you'll learn how to configure your Java application with a token that gives it access to your Logz.io account.
 
-## Understand Logz.io's "Type" selection
+### Get your Logz.io access token
 
-A "Type" is a logical field in Elasticsearch that is used to separate different documents from one another. It is essential to configure this parameter properly in order to get the most of Logz.io.
+To get your token, log in to your Logz.io account, select the cog icon in the right-hand corner, then select **Settings > General**. Copy the access token displayed in your account settings so you can use it later.
 
-A "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example, it's not: server1, server2, server3). As we are configuring Java applications in this quickstart, and we expect those applications will all have the same format, we are calling our type "java-application".
+### Install and configure the Logz.io library for Log4J or Logback
 
-For advanced usage, you could group your Java applications into different types, which all have their own specific log format (log formatting is configurable with Log4J and Logback), so you could have a "spring-boot-monolith" type and "spring-boot-microservice" type, for example.
-
-## Install and configure the Logz.io library for Log4J or Logback
-
-[Logz.io](https://logz.io/) provides their own Java library, which is available on Maven Central. It is therefore straightforward to use it, but check if a newer library version is available when doing this setup.
+The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your project configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
 
 If you are using Maven, add the following dependency to your `pom.xml` file:
 
@@ -117,19 +117,25 @@ You must also configure its usage in your Log4J or Logback configuration file:
 </configuration>
 ```
 
-## Configure test and log analysis on Logz.io
+The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most of Logz.io.
 
-After the Logz.io library is configured, your application should now send logs directly to it: in order to test that everything works correctly, go to the Logz.io console and select the "Live tail" tab. Click on the "run" button, and you should have a message telling you the connection is working:
+A Logz.io "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example: server1, server2, server3). For this tutorial, we are calling the type `java-application` because we are configuring Java applications, and we expect those applications will all have the same format.
 
-```
+For advanced usage, you could group your Java applications into different types, which all have their own specific log format (configurable with Log4J and Logback). For example, you could have a "spring-boot-monolith" type and a "spring-boot-microservice" type.
+
+### Test your configuration and log analysis on Logz.io
+
+After the Logz.io library is configured, your application should now send logs directly to it. To test that everything works correctly, go to the Logz.io console, select the **Live tail** tab, then select **run**. You should see a message similar to the following, telling you the connection is working:
+
+```output
 Requesting Live Tail access...
 Access granted. Opening connection...
 Connected. Tailing...
 ````
 
-Now start your application, or use it in order to produce some logs. They should appear directly on your screen. For example, here are the first startup messages of a Spring Boot application:
+Next, start your application, or use it in order to produce some logs. They should appear directly on your screen. For example, here are the first startup messages of a Spring Boot application:
 
-```
+```output
 2019-09-19 12:54:40.685Z Starting JavaApp on javaapp-default-9-5cfcb8797f-dfp46 with PID 1 (/workspace/BOOT-INF/classes started by cnb in /workspace)
 2019-09-19 12:54:40.686Z The following profiles are active: prod
 2019-09-19 12:54:42.052Z Bootstrapping Spring Data repositories in DEFAULT mode.
@@ -137,19 +143,19 @@ Now start your application, or use it in order to produce some logs. They should
 2019-09-19 12:54:43.426Z Bean 'spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties' of type [org.springframework.boot.autoconfigure.task.TaskExecutionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 ```
 
-As your logs are now processed by Logz.io, you can benefit from all the platform's services.
+Now that your logs are processed by Logz.io, you can benefit from all the platform's services.
 
-## Ship Azure VM log data to Logz.io
+## Send Azure services log data to Logz.io
 
-Here we will learn how to send logs from your Azure resources to Logz.io.
+Next you will learn how to send logs from your Azure resources to Logz.io.
 
-## Deploy the template
+### Deploy the template
 
 The first step is to deploy the Logz.io - Azure integration template. The integration is based on a ready-made Azure deployment template that sets up all the necessary building blocks of the pipeline — an Event Hub namespace, an Event Hub, 2 storage blobs, and all the correct permissions and connections required. The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
 
 Find the **Deploy to Azure** button displayed in the [first step of the repo’s readme](https://github.com/logzio/logzio-azure-serverless).
 
-Once clicked, the Custom Deployment page in the Azure portal will be displayed with a list of pre-filled fields.
+When you select **Deploy to Azure**, the **Custom Deployment** page in the Azure portal will appear with a list of pre-filled fields.
 
 You can leave most of the fields as-is but be sure to enter the following settings:
 
@@ -161,36 +167,39 @@ Agree to the terms at the bottom of the page, and click Purchase. Azure will the
 
 You can visit the defined resource group to review the deployed resources.
 
-To learn how to configure logzio-azure-serverless to back up logs to Azure Blob Storage, [click here](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
+To learn how to configure logzio-azure-serverless to back up logs to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
 
-## Stream Azure Log Data to Logz.io
+### Stream Azure Log Data to Logz.io
 
-Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will forward that data to Logz.io.
+Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
 
-In the search bar, type “Diagnostics”, and then click **Diagnostics settings**. This brings you to the _Diagnostics settings_ page.
+1. In the search bar, type “Diagnostics”, then select **Diagnostics settings**. This brings you to the **Diagnostics settings** page.
 
-Choose a VM (or any other resource) from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
+2. Choose a resource from the list of resources, then select **Turn on diagnostics settings** to open the **Diagnostics settings** panel for that resource.
 
-Give your diagnostic settings a **Name**.
+3. Give your diagnostic settings a **Name**.
 
-Select **Stream to an Event Hub**, and then click **Configure** to open the _Select Event Hub_ panel.
+4. Select **Stream to an Event Hub**, then select **Configure** to open the **Select Event Hub** panel.
 
-Choose your Event Hub:
+5. Choose your Event Hub:
 
-* **Event Hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
-* **Event Hub name**: Choose **insights-operational-logs**
-* **Event Hub policy name**: Choose **LogzioSharedAccessKey**
-* Click **OK** to return to Diagnostics settings.
+    * **Event Hub namespace**: Choose the namespace that starts with **LogzioNS** (`LogzioNS6nvkqdcci10p`, for example)
+    * **Event Hub name**: Choose **insights-operational-logs**
+    * **Event Hub policy name**: Choose **LogzioSharedAccessKey**
 
-Click **OK** to return to the _Diagnostics settings_ panel.
-In the Log section, select the data you want to stream, and then click **Save**. The selected data will now stream to the Event Hub.
+6. Select **OK** to return to the **Diagnostics settings** panel.
+
+7. In the Log section, select the data you want to stream, then select **Save**. 
+
+The selected data will now stream to the Event Hub.
+
 To find additional information on how to stream log or metric data from Event Hub to an external tool, see [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs).
 
-## Visualize your data
+### Visualize your data
 
-Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see logs (with the type _eventhub_) filling up your dashboards (for more information on how to create dashboards, [click here!](https://logz.io/blog/perfect-kibana-dashboard/)).
+Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see logs (with the type _eventhub_) filling up your dashboards. For more information on how to create dashboards, see [Creating the Perfect Kibana Dashboard](https://logz.io/blog/perfect-kibana-dashboard/).
 
-From there, you can query for specific log data in the “Discover” tab, or create Kibana objects to visualize your data in the “Visualize” tab.
+From there, you can query for specific log data in the **Discover** tab, or create Kibana objects to visualize your data in the **Visualize** tab.
 
 ## Clean up resources
 
