@@ -4,11 +4,11 @@ description: Configure a Spring Boot application created with Spring Initializr 
 services: Application-Insights
 documentationcenter: java
 author: dhaval24
-manager: alexklim
+manager: jeanpaul.Connock
 editor: ''
 ms.assetid:
 ms.author: dhdoshi
-ms.date: 12/19/2018
+ms.date: 11/29/2019
 ms.devlang: java
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
@@ -39,41 +39,36 @@ The following prerequisites are required in order to complete the steps in this 
 
    > [!NOTE]
    >
-   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.example.demo*.
+   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*.
    >
 
-1. Click the button to **Generate Project**.
+1. Click the **Generate** button.
 
 1. When prompted, download the project to a path on your local computer.
 
 1. After you have extracted the files on your local system, your custom Spring Boot application will be ready for editing.
 
-   ![Custom Spring Boot project files][SI02]
-
 ## Create an Application Insights Resource on Azure
 
 1. Browse to Azure at <https://portal.azure.com/> and click **+New**.
 
-   ![Azure][AZ01]
-
-1. Click **Management Tools**, and then click **Application Insights**.
-
-   ![Azure][AZ02]
+1. Click **IT & Management Tools**, and then click **Application Insights**.
 
 1. On the **New Application Insights Resource** page, specify the following information:
 
-   * Enter the **Name** for your Application Insights resource.
-   * Choose the **Application Type** to Java Web Application.
-   * Specify your **Subscription**, **Resource group** and **Location**.
-   * Select Pin to dashboard option, if you would like to pin the resource on your Azure.
+  * Specify your **Subscription** and **Resource group**.
+  * Enter the **Name** for your Application Insights resource.
+  * Select **Region**.
 
-   When you have specified these options, click **Create** to create your Application Insights resource.
+   When you have specified these options, click **Review and create**.
 
    ![Azure][AZ03]
- 
-1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From this overview page please copy the **instrumentation key**.
+
+1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From the overview page copy the **instrumentation key**.
 
    ![Azure][AZ04]
+
+Review the specifications, and click **Create**.
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
