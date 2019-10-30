@@ -12,9 +12,9 @@ ms.author: judubois
 
 # Tutorial: getting started with Logz.io for Java projects running on Azure
 
-This tutorial shows you how to configure a classical Java application using either Log4J or Logback to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
+This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
 
-This tutorial uses Log4J and Logback, the two most widely used Java logging libraries, so it should work for most Java applications running on Azure. If you are already using the Elastic stack to monitor your Java application, this tutorial shows you how to reconfigure to target the Logz.io endpoint.
+The tutorial assumes you're using Log4J or Logback. These libraries are the two most widely used for logging in Java, so the tutorial should work for most applications running on Azure. If you're already using the Elastic stack to monitor your Java application, this tutorial shows you how to reconfigure to target the Logz.io endpoint.
 
 In this tutorial, you'll learn how to:
 
@@ -40,7 +40,7 @@ To get your token, log in to your Logz.io account, select the cog icon in the ri
 
 The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your project configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
 
-If you are using Maven, add the following dependency to your `pom.xml` file:
+If you're using Maven, add the following dependency to your `pom.xml` file:
 
 **Log4J:**
 
@@ -62,7 +62,7 @@ If you are using Maven, add the following dependency to your `pom.xml` file:
 </dependency>
 ```
 
-If you are using Gradle, add the following dependency to your build script:
+If you're using Gradle, add the following dependency to your build script:
 
 **Log4J:**
 
@@ -76,7 +76,7 @@ implementation 'io.logz.log4j:logzio-log4j-appender:1.0.11'
 implementation 'io.logz.logback:logzio-logback-appender:1.0.22'
 ```
 
-You must also configure its usage in your Log4J or Logback configuration file:
+Next, update your Log4J or Logback configuration file:
 
 **Log4J:**
 
@@ -133,7 +133,7 @@ Access granted. Opening connection...
 Connected. Tailing...
 ````
 
-Next, start your application, or use it in order to produce some logs. They should appear directly on your screen. For example, here are the first startup messages of a Spring Boot application:
+Next, start your application, or use it in order to produce some logs. The logs should appear directly on your screen. For example, here are the first startup messages of a Spring Boot application:
 
 ```output
 2019-09-19 12:54:40.685Z Starting JavaApp on javaapp-default-9-5cfcb8797f-dfp46 with PID 1 (/workspace/BOOT-INF/classes started by cnb in /workspace)
@@ -147,11 +147,11 @@ Now that your logs are processed by Logz.io, you can benefit from all the platfo
 
 ## Send Azure services log data to Logz.io
 
-Next you will learn how to send logs from your Azure resources to Logz.io.
+Next you'll learn how to send logs from your Azure resources to Logz.io.
 
 ### Deploy the template
 
-The first step is to deploy the Logz.io - Azure integration template. The integration is based on a ready-made Azure deployment template that sets up all the necessary building blocks of the pipeline — an Event Hub namespace, an Event Hub, 2 storage blobs, and all the correct permissions and connections required. The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
+The first step is to deploy the Logz.io - Azure integration template. The integration is based on a ready-made Azure deployment template that sets up all the necessary building blocks of the pipeline. The template creates an Event Hub namespace, an Event Hub, two storage blobs, and all the correct permissions and connections required. The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
 
 Find the **Deploy to Azure** button displayed in the [first step of the repo’s readme](https://github.com/logzio/logzio-azure-serverless).
 
@@ -160,10 +160,10 @@ When you select **Deploy to Azure**, the **Custom Deployment** page in the Azure
 You can leave most of the fields as-is but be sure to enter the following settings:
 
 * **Resource group**: Either select an existing group or create a new one.
-* **Logzio Logs Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL – if it’s app.logz.io, use listener.logz.io (this is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
+* **Logzio Logs Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL. If it’s app.logz.io, use listener.logz.io (which is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
 * **Logzio Logs Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
 
-Agree to the terms at the bottom of the page, and select **Purchase**. Azure will then deploy the template. This may take a minute or two - you will eventually see the "Deployment succeeded" message at the top of the portal.
+Agree to the terms at the bottom of the page, and select **Purchase**. Azure will then deploy the template, which may take a minute or two. You'll eventually see the "Deployment succeeded" message at the top of the portal.
 
 You can visit the defined resource group to review the deployed resources.
 
@@ -173,7 +173,7 @@ To learn how to configure logzio-azure-serverless to back up logs to Azure Blob 
 
 Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
 
-1. In the search bar, type “Diagnostics”, then select **Diagnostics settings**. This brings you to the **Diagnostics settings** page.
+1. In the search bar, type “Diagnostics”, then select **Diagnostics settings**. The **Diagnostics settings** page will appear.
 
 2. Choose a resource from the list of resources, then select **Turn on diagnostics settings** to open the **Diagnostics settings** panel for that resource.
 
