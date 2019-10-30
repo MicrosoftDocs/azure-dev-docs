@@ -38,7 +38,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
     ```bash
     # Mac OS/Linux: modify the URL if you're using a different function name
     curl --header "Content-Type: application/json" --request POST \
-        --data {"name":"Visual Studio Code"} http://localhost:7071/api/HttpExample
+        --data '{"name":"Visual Studio Code"}' http://localhost:7071/api/HttpExample
     ```
 
     ```ps
