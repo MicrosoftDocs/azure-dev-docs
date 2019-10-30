@@ -54,7 +54,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **IT & Management Tools**, and then click **Application Insights**.
 
-1. On the **New Application Insights Resource** page, specify the following information:
+1. On the **New Application Insights Resource** page, enter the following information:
 
   * Specify your **Subscription** and **Resource group**.
   * Enter the **Name** for your Application Insights resource.
@@ -64,15 +64,17 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Azure][AZ03]
 
-1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From the overview page copy the **instrumentation key**.
+* Review the specifications, and click **Create**.
+
+After your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource.
+
+From the overview page copy the **instrumentation key**.
 
    ![Azure][AZ04]
 
-Review the specifications, and click **Create**.
-
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
-1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section. 
+1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section.
 
 ```XML
  <dependency>
