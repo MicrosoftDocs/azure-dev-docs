@@ -117,7 +117,7 @@ You must also configure its usage in your Log4J or Logback configuration file:
 </configuration>
 ```
 
-The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most of Logz.io.
+The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most out of Logz.io.
 
 A Logz.io "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example: server1, server2, server3). For this tutorial, we are calling the type `java-application` because we are configuring Java applications, and we expect those applications will all have the same format.
 
@@ -163,7 +163,7 @@ You can leave most of the fields as-is but be sure to enter the following settin
 * **Logzio Logs Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL – if it’s app.logz.io, use listener.logz.io (this is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
 * **Logzio Logs Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
 
-Agree to the terms at the bottom of the page, and click Purchase. Azure will then deploy the template. This may take a minute or two - you will eventually see the Deployment succeeded message at the top of the portal.
+Agree to the terms at the bottom of the page, and select **Purchase**. Azure will then deploy the template. This may take a minute or two - you will eventually see the "Deployment succeeded" message at the top of the portal.
 
 You can visit the defined resource group to review the deployed resources.
 
@@ -189,11 +189,9 @@ Now that you’ve deployed the integration template, you’ll need to configure 
 
 6. Select **OK** to return to the **Diagnostics settings** panel.
 
-7. In the Log section, select the data you want to stream, then select **Save**. 
+7. In the Log section, select the data you want to stream, then select **Save**.
 
 The selected data will now stream to the Event Hub.
-
-To find additional information on how to stream log or metric data from Event Hub to an external tool, see [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs).
 
 ### Visualize your data
 
@@ -211,8 +209,7 @@ az group delete --name <resource group>
 
 ## Next steps
 
-In this tutorial, you learned how to ... Next, learn how to ...:
+In this tutorial, you learned how to configure your Java application and Azure services to send logs to Logz.io. Next, learn more about using Event Hub to monitor your application:
 
 > [!div class="nextstepaction"]
-> [Azure](/azure)
-
+> [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
