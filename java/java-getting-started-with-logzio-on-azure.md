@@ -173,9 +173,9 @@ To learn how to configure logzio-azure-serverless to back up logs to Azure Blob 
 
 Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
 
-1. In the search bar, type “Diagnostics”, then select **Diagnostics settings**. The **Diagnostics settings** page will appear.
+1. In the search bar, type “Diagnostic”, then select **Diagnostic settings**.
 
-2. Choose a resource from the list of resources, then select **Turn on diagnostics settings** to open the **Diagnostics settings** panel for that resource.
+2. Choose a resource from the list of resources, then select **Add diagnostic setting** to open the **Diagnostics settings** panel for that resource.
 
 3. Give your diagnostic settings a **Name**.
 
