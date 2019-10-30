@@ -169,7 +169,7 @@ You can visit the defined resource group to review the deployed resources.
 
 To learn how to configure logzio-azure-serverless to back up logs to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
 
-### Stream Azure Log Data to Logz.io
+### Stream Azure logs and metrics to Logz.io
 
 Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
 
