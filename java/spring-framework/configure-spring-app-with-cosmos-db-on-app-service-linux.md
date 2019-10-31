@@ -7,7 +7,7 @@ ms.author: brendm
 ms.reviewer: joshuapa 
 ms.date: 4/24/2019
 ms.devlang: java
-ms.service: app-service, cosmos-db
+ms.service: app-service-cosmos-db
 ms.topic: article
 ---
 
