@@ -38,7 +38,7 @@ For example, if you're primarily using Azure Storage, you might install only the
 If you need to install a specific version of a library, specify the version on the command line:
 
 ```bash
-pip install azure-storage-blob==1.3
+pip install azure-storage-blob==12.0.0
 ```
 
 ### Install preview packages

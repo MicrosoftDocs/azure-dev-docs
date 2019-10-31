@@ -23,7 +23,7 @@ For more details instructions for installing libraries and importing them into p
 
 ## Connect and use Azure services
 
-A number of libraries in the SDK help you connect to existing Azure resources and use them in your apps, such as uploading files, accessing table data, or working with the various Azure Cognitive Services. With the SDK you work with those resources using familiar Python programming paradigms rather than using the service's generic REST API.
+A number of *client libraries* in the SDK help you connect to existing Azure resources and use them in your apps, such as uploading files, accessing table data, or working with the various Azure Cognitive Services. With the SDK you work with those resources using familiar Python programming paradigms rather than using the service's generic REST API.
 
 For example, suppose you want to upload a blob to an Azure Storage account that you've previously provisioned. The first step is to install the appropriate library:
 
@@ -57,14 +57,13 @@ We are currently updating our Python client libraries to share core functionalit
 The libraries that currently work with the Core library are as follows:
 
 - `azure-storage-blob`
-- `azure-storage-file`
 - `azure-storage-queue`
 - `azure-keyvault-keys`
 - `azure-keyvault-secrets`
 
 ## Manage Azure resources
 
-Alongside the libraries with which you use Azure resources from Python code, the Azure SDK for Python also includes many libraries to help you create, provision, and manage Azure resources themselves. Each management library is named `azure-mgmt-<service name>`. With the management libraries, you can write Python code to accomplish the same tasks that you can using the [Azure portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The Azure SDK for Python also includes many libraries to help you create, provision, and otherwise manage Azure resources themselves. We refer to these as *management libraries*. Each management library is named `azure-mgmt-<service name>`. With the management libraries, you can write Python code to accomplish the same tasks that you can using the [Azure portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 For example, suppose you want to create a SQL Server instance. First, install the appropriate management library:
 
