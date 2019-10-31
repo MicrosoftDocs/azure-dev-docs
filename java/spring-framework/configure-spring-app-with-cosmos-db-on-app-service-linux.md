@@ -86,7 +86,7 @@ The name of the Cosmos DB must use only lower case letters. Make sure to note th
 4. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
 
     ```bash
-    az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
+    az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
 ## Build and Run the App Locally
