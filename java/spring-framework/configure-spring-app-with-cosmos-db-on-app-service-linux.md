@@ -4,10 +4,11 @@ description: This article will walk you through the process of building, configu
 documentationcenter: java
 author: bmitchell287
 ms.author: brendm
+manager: JeanPaul.Connock
 ms.reviewer: joshuapa 
 ms.date: 4/24/2019
 ms.devlang: java
-ms.service: app-service-cosmos-db
+ms.service: cosmos-db
 ms.topic: article
 ---
 
