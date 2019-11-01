@@ -67,8 +67,6 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then click the Azure Cosmos DB account you just created.
 
-   ![Select your Azure Cosmos DB account][COSMOSDB04]
-
 1. Click **Data Explorer**, then click **New Keyspace**. Enter a unique identifier for your **Keyspace id**, then click **OK**.
 
    ![Create a Cosmos DB keyspace][COSMOSDB05]
