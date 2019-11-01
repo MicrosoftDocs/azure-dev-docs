@@ -77,11 +77,9 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then click the Azure Cosmos DB account you just created.
 
-   ![Select your Azure Cosmos DB account][COSMOSDB04]
-
 1. Click **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
 
-   ![Retrieve your Cosmos DB connection settings][COSMOSDB05]
+   ![Retrieve your Cosmos DB connection settings][COSMOSDB06]
 
 ## Configure the sample application
 
