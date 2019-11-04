@@ -50,7 +50,8 @@ The following prerequisites are required in order to follow the steps in this ar
    * Select **Resource group**, or create a new resource group.
    * Enter a unique **Storage account name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
    * Specify the **Location** for your storage account.
-1. When you have specified the options listed above, click **Review + create** to create your storage account.
+1. When you have specified the options listed above, click **Review + create**. 
+1. Review the specification, then click **Create** to create your storage account.
 1. When the deployment is complete, click **Go to resource**.
 1. Click **Containers**.
 1. Click **+ Container**.
