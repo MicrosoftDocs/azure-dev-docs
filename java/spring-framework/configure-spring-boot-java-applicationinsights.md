@@ -250,13 +250,10 @@ Click on the **Application Map** tile to view high-level components and their in
   </Loggers>
 </Configuration>
 ```
-4. Build and run the Spring Boot application again as shown above. 
 
-Within a few seconds, you should see all the spring logs being available on Azure. 
+4. Build and run the Spring Boot application again as shown above.
 
-![Azure][AZ06]
-
-You can even look at the detailed log messages and do analysis on Analytics Portal. 
+Within a few seconds, you should see all the spring logs being available on Azure. You can look at the detailed log messages and do analysis on Analytics Portal.
 
 ![Azure][AZ07]
 
