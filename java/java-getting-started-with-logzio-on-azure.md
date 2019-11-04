@@ -145,7 +145,7 @@ Next, start your application, or use it in order to produce some logs. The logs 
 
 Now that your logs are processed by Logz.io, you can benefit from all the platform's services.
 
-## Send Azure services log data to Logz.io
+## Send Azure services data to Logz.io
 
 Next you'll learn how to send logs from your Azure resources to Logz.io.
 
@@ -160,18 +160,18 @@ When you select **Deploy to Azure**, the **Custom Deployment** page in the Azure
 You can leave most of the fields as-is but be sure to enter the following settings:
 
 * **Resource group**: Either select an existing group or create a new one.
-* **Logzio Logs Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL. If it’s app.logz.io, use listener.logz.io (which is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
-* **Logzio Logs Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
+* **Logzio Logs/Metrics Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL. If it’s app.logz.io, use listener.logz.io (which is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
+* **Logzio Logs/Metrics Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
 
 Agree to the terms at the bottom of the page, and select **Purchase**. Azure will then deploy the template, which may take a minute or two. You'll eventually see the "Deployment succeeded" message at the top of the portal.
 
 You can visit the defined resource group to review the deployed resources.
 
-To learn how to configure logzio-azure-serverless to back up logs to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
+To learn how to configure logzio-azure-serverless to back up data to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
 
 ### Stream Azure logs and metrics to Logz.io
 
-Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic logs to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
+Now that you’ve deployed the integration template, you’ll need to configure Azure to stream diagnostic data to the Event Hub you just deployed. When data comes into the Event Hub, the function app will then forward that data to Logz.io.
 
 1. In the search bar, type “Diagnostic”, then select **Diagnostic settings**.
 
@@ -183,9 +183,9 @@ Now that you’ve deployed the integration template, you’ll need to configure 
 
 5. Choose your Event Hub:
 
-    * **Event Hub namespace**: Choose the namespace that starts with **LogzioNS** (`LogzioNS6nvkqdcci10p`, for example)
-    * **Event Hub name**: Choose **insights-operational-logs**
-    * **Event Hub policy name**: Choose **LogzioSharedAccessKey**
+    * **Event Hub namespace**: Choose the namespace that starts with **Logzio** (`LogzioNS6nvkqdcci10p`, for example).
+    * **Event Hub name**: For logs choose **insights-operational-logs** and for metrics choose **insights-operational-metrics**.
+    * **Event Hub policy name**: Choose **LogzioSharedAccessKey**.
 
 6. Select **OK** to return to the **Diagnostics settings** panel.
 
@@ -195,9 +195,9 @@ The selected data will now stream to the Event Hub.
 
 ### Visualize your data
 
-Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see logs (with the type _eventhub_) filling up your dashboards. For more information on how to create dashboards, see [Creating the Perfect Kibana Dashboard](https://logz.io/blog/perfect-kibana-dashboard/).
+Next, give your data some time to get from your system to Logz.io, and then open Kibana. You should see data (with the type _eventhub_) filling up your dashboards. For more information on how to create dashboards, see [Creating the Perfect Kibana Dashboard](https://logz.io/blog/perfect-kibana-dashboard/).
 
-From there, you can query for specific log data in the **Discover** tab, or create Kibana objects to visualize your data in the **Visualize** tab.
+From there, you can query for specific data in the **Discover** tab, or create Kibana objects to visualize your data in the **Visualize** tab.
 
 ## Clean up resources
 
