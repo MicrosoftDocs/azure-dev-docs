@@ -179,13 +179,15 @@ Now that you’ve deployed the integration template, you’ll need to configure 
 
 3. Give your diagnostic settings a **Name**.
 
-4. Select **Stream to an Event Hub**, then select **Configure** to open the **Select Event Hub** panel.
+4. Select **Stream to an event hub**, then select **Configure** to open the **Select Event Hub** panel.
+
+    ![Diagnostics settings panel](media/java-get-started-with-logzio/diagnostics-settings.png)
 
 5. Choose your Event Hub:
 
-    * **Event Hub namespace**: Choose the namespace that starts with **Logzio** (`LogzioNS6nvkqdcci10p`, for example).
-    * **Event Hub name**: For logs choose **insights-operational-logs** and for metrics choose **insights-operational-metrics**.
-    * **Event Hub policy name**: Choose **LogzioSharedAccessKey**.
+    * **Select event hub namespace**: Choose the namespace that starts with **Logzio** (`LogzioNS6nvkqdcci10p`, for example).
+    * **Select event hub name**: For logs choose **insights-operational-logs** and for metrics choose **insights-operational-metrics**.
+    * **Select event hub policy name**: Choose **LogzioSharedAccessKey**.
 
 6. Select **OK** to return to the **Diagnostics settings** panel.
 
