@@ -177,11 +177,11 @@ Now that you’ve deployed the integration template, you’ll need to configure 
 
 2. Choose a resource from the list of resources, then select **Add diagnostic setting** to open the **Diagnostics settings** panel for that resource.
 
+    ![Diagnostics settings panel](media/java-get-started-with-logzio/diagnostics-settings.png)
+
 3. Give your diagnostic settings a **Name**.
 
 4. Select **Stream to an event hub**, then select **Configure** to open the **Select Event Hub** panel.
-
-    ![Diagnostics settings panel](media/java-get-started-with-logzio/diagnostics-settings.png)
 
 5. Choose your Event Hub:
 
