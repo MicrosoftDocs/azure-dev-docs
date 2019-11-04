@@ -4,9 +4,6 @@ description: Learn how to configure a Java-based Spring Cloud Stream Binder appl
 services: event-hubs
 documentationcenter: java
 author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
 ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
@@ -41,41 +38,21 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+Create a resource**, then **Internet of Things**, and then click **Event Hubs**.
+1. Click **+Create a resource**, then **Internet of Things**, and then click **IOT Hub**.
 
    ![Create Azure Event Hub Namespace][IMG01]
 
 1. On the **Create Namespace** page, enter the following information:
 
-   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
-   * Choose a **Pricing tier** for your event hub namespace.
    * Choose the **Subscription** you want to use for your namespace.
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
    * Specify the **Location** for your event hub namespace.
+   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
 
    ![Specify Azure Event Hub Namespace options][IMG02]
 
-1. When you have specified the options listed above, click **Create** to create your namespace.
-
-### Create an Azure Event Hub in your namespace
-
-1. Browse to the Azure portal at <https://portal.azure.com/>.
-
-1. Click **All resources**, and then click the namespace that you created.
-
-   ![Select Azure Event Hub Namespace][IMG03]
-
-1. Click **Event Hubs**, and then click **+Event Hub**.
-
-   ![Add New Azure Event Hub][IMG04]
-
-1. On the **Create Event Hub** page, enter a unique **Name** for your Event Hub, and then click **Create**.
-
-   ![Create Azure Event Hub][IMG05]
-
-1. When your Event Hub has been created, it will be listed on the **Event Hubs** page.
-
-   ![Create Azure Event Hub][IMG06]
+1. When you have specified the options listed above, click **Review + create** to create your namespace.
+1. Review the options, and click create.
 
 ### Create an Azure Storage Account for your Event Hub checkpoints
 
@@ -87,11 +64,11 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. On the **Create Namespace** page, enter the following information:
 
+   * Choose the **Subscription** you want to use for your storage account.
+   * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
    * Enter a unique **Name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.core.windows.net*.
    * Choose **Blob storage** for the **Account kind**.
    * Specify the **Location** for your storage account.
-   * Choose the **Subscription** you want to use for your storage account.
-   * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
 
    ![Specify Azure Storage Account options][IMG08]
 
@@ -118,8 +95,6 @@ The following prerequisites are required in order to follow the steps in this ar
 1. When you have specified the options listed above, click **Generate Project**.
 
 1. When prompted, download the project to a path on your local computer.
-
-   ![Download Spring project][SI02]
 
 1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
 
@@ -240,7 +215,6 @@ The following prerequisites are required in order to follow the steps in this ar
    spring.cloud.azure.eventhub.checkpoint-storage-account=wingtiptoysstorage
    spring.cloud.stream.bindings.input.destination=wingtiptoyshub
    spring.cloud.stream.bindings.input.group=$Default
-   spring.cloud.stream.bindings.output.destination=wingtiptoyshub
    spring.cloud.stream.eventhub.bindings.input.consumer.checkpoint-mode=MANUAL
    ```
    Where:
