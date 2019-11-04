@@ -345,7 +345,7 @@ In this tutorial, you created a new Java application using the **[Spring Initial
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault?view=azure-java-stable)
+> [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault?view=azure-java-stable)
 
 ### Additional Resources
 
