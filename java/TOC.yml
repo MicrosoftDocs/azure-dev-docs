@@ -142,7 +142,7 @@
         - name: Deploy to App Service from Azure Container Registry
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Use Logz.io with Java on Azure
-          href: java-getting-started-with-logzio-on-azure.md
+          href: java-getting-started-with-logzio.md
     - name: How-to Articles
       items:
         - name: Add Root Certificate
