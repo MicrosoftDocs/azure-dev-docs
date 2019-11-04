@@ -19,8 +19,8 @@ The tutorial assumes you're using Log4J or Logback. These libraries are the two 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Send logs from an existing Java application to Logz.io
-> * Send diagnostic logs from Azure services to Logz.io
+> * Send logs from an existing Java application to Logz.io.
+> * Send diagnostic logs and metrics from Azure services to Logz.io.
 
 ## Prerequisites
 
@@ -147,7 +147,7 @@ Now that your logs are processed by Logz.io, you can benefit from all the platfo
 
 ## Send Azure services data to Logz.io
 
-Next you'll learn how to send logs from your Azure resources to Logz.io.
+Next you'll learn how to send logs and metrics from your Azure resources to Logz.io.
 
 ### Deploy the template
 
@@ -161,7 +161,7 @@ You can leave most of the fields as-is but be sure to enter the following settin
 
 * **Resource group**: Either select an existing group or create a new one.
 * **Logzio Logs/Metrics Host**: Enter the URL of the Logz.io listener. If you’re not sure what this URL is, check your login URL. If it’s app.logz.io, use listener.logz.io (which is the default setting). If it’s app-eu.logz.io, use listener-eu.logz.io.
-* **Logzio Logs/Metrics Token**: Enter the token of the Logz.io account you want to ship Azure logs to. You can find this token on the account page in the Logz.io UI.
+* **Logzio Logs/Metrics Token**: Enter the token of the Logz.io account you want to ship Azure logs or metrics to. You can find this token on the account page in the Logz.io UI.
 
 Agree to the terms at the bottom of the page, and select **Purchase**. Azure will then deploy the template, which may take a minute or two. You'll eventually see the "Deployment succeeded" message at the top of the portal.
 
@@ -209,7 +209,7 @@ az group delete --name <resource group>
 
 ## Next steps
 
-In this tutorial, you learned how to configure your Java application and Azure services to send logs to Logz.io. Next, learn more about using Event Hub to monitor your application:
+In this tutorial, you learned how to configure your Java application and Azure services to send logs and metrics to Logz.io. Next, learn more about using Event Hub to monitor your application:
 
 > [!div class="nextstepaction"]
 > [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
