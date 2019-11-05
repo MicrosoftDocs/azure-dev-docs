@@ -6,7 +6,7 @@ manager: bborges
 ms.devlang: java
 ms.topic: tutorial
 ms.service: azure
-ms.date: 09/19/2019
+ms.date: 11/05/2019
 ms.author: judubois
 ---
 
