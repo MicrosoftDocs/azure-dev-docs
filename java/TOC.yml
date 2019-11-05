@@ -143,6 +143,8 @@
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Java Functions with Event Hub and Cosmos DB
           href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Use Logz.io with Java on Azure
+          href: java-get-started-with-logzio.md
     - name: How-to Articles
       items:
         - name: Add Root Certificate

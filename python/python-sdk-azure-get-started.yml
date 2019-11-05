@@ -3,39 +3,34 @@ title: Get started with cloud development using the Azure libraries for Python
 metadata:
   title: Get started with Azure libraries for Python
   description: Learn how to create Azure cloud resources and connect and use them in your python applications. 
-  author: sptramer
-  ms.author: sttramer
-  manager: carmonm
+  author: kraigb
+  ms.author: kraigb
+  manager: barbkess
   audience: Developer
   level: Beginner
   nextTutorialHref: /python/api/overview/azure/?view=azure-python
   nextTutorialTitle: python SDK reference
   displayType: two-column
   interactive: azurecli
-  ms.date: 11/30/2017
+  ms.date: 10/18/2019
 items:
 - durationInMinutes: 1
   content: |
-   This guide demonstrates the usage of several Azure libraries for Python.  
+   This guide demonstrates the usage of several libraries in the Azure SDK for Python.  
 - title: Prerequisites
   durationInMinutes: 5
   content: |
     - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-    - [Python](https://www.python.org/downloads/)
-    - [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+    - [The latest Python 3.x interpreter](https://www.python.org/downloads/)
+    - The [Azure CLI 2.0](/azure/install-az-cli2) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
 - title: Set up authentication
   durationInMinutes: 5
   content: |
-    > [!IMPORTANT]
-    > This should be used as quick start developer experience. For production purposes, use 
-    > [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-python) or your own credentials system.
-    > Any change to your CLI configuration will impact the SDK execution.
-
-    The SDK is able to create a client using your CLI active subscription.
-
-    To define active credentials, use [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+    The SDK is able to create a client using your CLI active subscription. For production purposes, however, use [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-python) or your own credentials system.
+    
+    To define active credentials, use [az login](/azure/authenticate-azure-cli).
     Default subscription ID is either the only one you have, or you can define it using 
-    [az account](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli).
+    [az account](/azure/manage-azure-subscriptions-azure-cli).
 
     ```python
     from azure.common.client_factory import get_client_from_cli_profile
@@ -46,9 +41,8 @@ items:
 - title: Create a virtual environment
   durationInMinutes: 5
   content: |
-    > [!IMPORTANT]
-    > Create a virtual environment is optional, but we strongly suggest you to do it.
-
+    A virtual environment keeps the SDK libraries in an isolated location for your project, which makes it easy to uninstall the SDK as needed by deleting the environment folder.
+    
     Create a virtual environment in Bash (Linux or [Bash for Windows](https://msdn.microsoft.com/commandline/wsl/about)):
     ```bash
     pip install virtualenv

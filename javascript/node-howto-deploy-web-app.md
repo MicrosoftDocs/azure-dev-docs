@@ -25,7 +25,7 @@ On Azure, you have several options for deploying and hosting web apps:
 
 - You can build your own containers and deploy them to Azure using the Azure Container Registry and Azure Kubernetes Service. For details see [How to deploy Node.js containers to Azure](node-howto-deploy-containers.md).
 
-- If you're like to work primarily with serverless code, refer to [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md).
+- If you like to work primarily with serverless code, refer to [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md).
 
 - For details on creating a JAMstack (static) site, see [How to build JAMstack (static site) web apps with Azure](node-howto-create-static-site-jamstack.md).
 
