@@ -10,9 +10,9 @@ ms.date: 11/05/2019
 ms.author: judubois
 ---
 
-# Tutorial: getting started with Logz.io for Java projects running on Azure
+# Tutorial: Getting started with monitoring and logging using Logz.io for Java projects running on Azure
 
-This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
+This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch/Logstash/Kibana (ELK) and Grafana.
 
 The tutorial assumes you're using Log4J or Logback. These libraries are the two most widely used for logging in Java, so the tutorial should work for most applications running on Azure. If you're already using the Elastic stack to monitor your Java application, this tutorial shows you how to reconfigure to target the Logz.io endpoint.
 
