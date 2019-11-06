@@ -96,14 +96,13 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
    <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.6.0</version>
+    <version>1.8.0</version>
    </plugin>
    ```
 
 3. Then you can configure the deployment, run the maven command `mvn azure-webapp:config` in the Command Prompt and use the **number** to choose these options in the prompt:
     * **OS**: linux  
-    * **javaVersion**: jre8
-    * **runtimeStack**: jre8
+    * **javaVersion**: Java 8    
 
 When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
 
@@ -122,16 +121,10 @@ Define value for OS(Default: Linux):
 2. windows
 3. docker
 Enter index to use:
-Define value for javaVersion(Default: jre8):
-1. jre8 [*]
-2. java11
+Define value for javaVersion(Default: Java 8):
+1. Java 11
+2. Java 8 [*]
 Enter index to use:
-Define value for runtimeStack(Default: TOMCAT 8.5):
-1. TOMCAT 9.0
-2. jre8
-3. TOMCAT 8.5 [*]
-4. WILDFLY 14
-Enter index to use: 2
 Please confirm webapp properties
 AppName : gs-spring-boot-1559091271202
 ResourceGroup : gs-spring-boot-1559091271202-rg
@@ -149,14 +142,18 @@ Confirm (Y/N)? : Y
    <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.6.0</version>
+       <version>1.8.0</version>
        <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>gs-spring-boot-1559091271202-rg</resourceGroup>
           <appName>gs-spring-boot-1559091271202</appName>
           <region>westeurope</region>
           <pricingTier>P1V2</pricingTier>
-
+          <runtime>
+            <os>linux</os>
+            <javaVersion>jre8</javaVersion>
+            <webContainer>jre8</webContainer>
+          </runtime>
           <!-- Begin of App Settings  -->
           <appSettings>
              <property>
