@@ -8,8 +8,8 @@ summary: |
 
 # Search & metrics meta
 metadata:
-  title: Azure for JavaScript and Node.js developers - Tutorials, tools, and SDK reference
-  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js.
+  title: Azure for JavaScript and Node.js developers
+  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: sptramer
   ms.author: sttramer
   ms.date: 09/15/2019
