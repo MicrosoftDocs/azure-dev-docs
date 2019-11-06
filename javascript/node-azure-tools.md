@@ -2,14 +2,14 @@
 title: Tools for JavaScript developers on Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 services: multiple
-author: karlerickson
-manager: douge
+author: kraigb
+manager: barbkess
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/07/2017 
-ms.author: karler
+ms.author: kraigb
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
