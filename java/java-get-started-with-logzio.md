@@ -1,6 +1,6 @@
 ---
-title: Getting started with Logz.io for Java projects running on Azure
-description: This tutorial shows how to integrate and configure Logz.io for Java projects running on Azure.
+title: Getting started with Logz.io for Java apps running on Azure
+description: This tutorial shows how to integrate and configure Logz.io for Java apps running on Azure.
 author: jdubois
 manager: bborges
 ms.devlang: java
@@ -10,7 +10,7 @@ ms.date: 11/05/2019
 ms.author: judubois
 ---
 
-# Tutorial: Getting started with monitoring and logging using Logz.io for Java projects running on Azure
+# Tutorial: Getting started with monitoring and logging using Logz.io for Java apps running on Azure
 
 This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch/Logstash/Kibana (ELK) and Grafana.
 
@@ -38,7 +38,7 @@ To get your token, log in to your Logz.io account, select the cog icon in the ri
 
 ### Install and configure the Logz.io library for Log4J or Logback
 
-The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your project configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
+The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your app configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
 
 If you're using Maven, add the following dependency to your `pom.xml` file:
 
