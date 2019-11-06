@@ -158,7 +158,7 @@ Confirm (Y/N)? : Y
           <appSettings>
              <property>
                    <name>JAVA_OPTS</name>
-                   <value>-Dserver.port=80</value>
+                   <value>-D server.port=80</value>
              </property>
           </appSettings>
           <!-- End of App Settings  -->
@@ -181,7 +181,7 @@ Once you have configured all of the settings in the preceding sections of this a
    mvn azure-webapp:deploy
    ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you.
+Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the message displayed: Greetings from Spring Boot!
 
 When your web has been deployed, you will be able to manage it through the [Azure portal].
 
