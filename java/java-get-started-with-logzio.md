@@ -6,7 +6,7 @@ manager: bborges
 ms.devlang: java
 ms.topic: tutorial
 ms.service: azure
-ms.date: 09/19/2019
+ms.date: 11/05/2019
 ms.author: judubois
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or greater
-* A [Logz.io](https://logz.io/) account
+* A [Logz.io](https://logz.io/) account. Alternately, you can buy Logz.io from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro).
 * An existing Java application that uses Log4J or Logback
 
 ## Send Java application logs to Logz.io
@@ -211,7 +211,9 @@ az group delete --name <resource group>
 
 ## Next steps
 
-In this tutorial, you learned how to configure your Java application and Azure services to send logs and metrics to Logz.io. Next, learn more about using Event Hub to monitor your application:
+In this tutorial, you learned how to configure your Java application and Azure services to send logs and metrics to Logz.io.
+
+Next, learn more about using Event Hub to monitor your application:
 
 > [!div class="nextstepaction"]
 > [Stream Azure monitoring data to an Event Hub for consumption by an external tool](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
