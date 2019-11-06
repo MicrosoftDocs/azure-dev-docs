@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or greater
-* A [Logz.io](https://logz.io/) account. Alternately, you can buy Logz.io from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro).
+* A Logz.io account from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 * An existing Java application that uses Log4J or Logback
 
 ## Send Java application logs to Logz.io
