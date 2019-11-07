@@ -100,9 +100,13 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
    </plugin>
    ```
 
-3. Then you can configure the deployment, run the maven command `mvn azure-webapp:config` in the Command Prompt and use the **number** to choose these options in the prompt:
+3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
     * **OS**: linux  
     * **javaVersion**: Java 8    
+    
+```cmd
+mvn azure-webapp:config
+```
 
 When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
 
@@ -162,7 +166,16 @@ Confirm (Y/N)? : Y
              </property>
           </appSettings>
           <!-- End of App Settings  -->
-          ...
+          <deployment>
+            <resources>
+              <resource>
+                <directory>${project.basedir}/target</directory>
+                <includes>
+                  <include>*.jar</include>
+                </includes>
+              </resource>
+            </resources>
+          </deployment>
          </configuration>
    </plugin>
    ```
