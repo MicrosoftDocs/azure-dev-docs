@@ -106,7 +106,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
     
 ```cmd
 mvn azure-webapp:config
-```cmd
+```
 
 When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
 
