@@ -88,8 +88,6 @@ Configure the application using the following procedure.
 
 1. Locate the *application.properties* file in the *resources* directory of your app, or create the file if it does not already exist.
 
-   ![Locate the application.properties file][RE01]
-
 1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties with appropriate credentials:
 
    ```yaml
