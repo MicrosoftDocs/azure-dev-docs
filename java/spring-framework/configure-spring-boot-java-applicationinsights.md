@@ -4,16 +4,12 @@ description: Configure a Spring Boot application created with Spring Initializr 
 services: Application-Insights
 documentationcenter: java
 author: dhaval24
-manager: jeanpaul.Connock
-editor: ''
-ms.assetid:
 ms.author: dhdoshi
 ms.date: 11/29/2019
 ms.devlang: java
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
-ms.workload: na
 ---
 
 # Configure a Spring Boot Initializer app to use Application Insights
@@ -30,6 +26,8 @@ The following prerequisites are required in order to complete the steps in this 
 * Web Flux and Netty APIs are **not currently supported** with the Application Insights Spring Boot starter.
 
 ## Create a custom application using Spring Initializr
+
+Create an application with the following procedure.
 
 1. Browse to [https://start.spring.io/](https://start.spring.io/).
 
@@ -50,15 +48,17 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Application Insights Resource on Azure
 
+Create an application insights resource using the following procedure.
+
 1. Browse to Azure at <https://portal.azure.com/> and click **+New**.
 
 1. Click **IT & Management Tools**, and then click **Application Insights**.
 
 1. On the **New Application Insights Resource** page, enter the following information:
 
-  * Specify your **Subscription** and **Resource group**.
-  * Enter the **Name** for your Application Insights resource.
-  * Select **Region**.
+* Specify your **Subscription** and **Resource group**.
+* Enter the **Name** for your Application Insights resource.
+* Select **Region**.
 
    When you have specified these options, click **Review and create**.
 
@@ -73,6 +73,8 @@ From the overview page copy the **instrumentation key**.
    ![Azure][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
+
+Configure the application using the following procedure.
 
 1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section.
 
@@ -182,6 +184,8 @@ Click on the **Application Map** tile to view high-level components and their in
    ![Azure][AZ08] 
 
 ## Configure Springboot Application to send log4j logs to Application Insights
+
+Configure the application to send logs using the following procedure.
 
 1. Modify the POM.xml file of the project and add/modify the dependencies section with following. 
 
