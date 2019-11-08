@@ -21,7 +21,7 @@ You can also use the app from the [Visual Studio Code Node.js tutorial](https://
 1. In a terminal or command prompt, use the following command to run the Express Generator and scaffold a new Express app called "myExpressApp". (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
 
     ```bash
-    npx express-generator myExpressApp --view pug –git
+    npx express-generator myExpressApp --view pug -–git
     ```
 
 1. Install the application's dependencies by running `npm install` in the app folder:
