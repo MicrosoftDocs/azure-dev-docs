@@ -53,7 +53,7 @@ In this section, you will clone a completed Spring Boot application and test it 
    ```
    -- or --
    ```shell
-   md ~/SpringBoot
+   mkdir ~/SpringBoot
    cd ~/SpringBoot
    ```
 
@@ -118,7 +118,7 @@ When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration i
 [INFO] Building gs-spring-boot 0.1.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ gs-spring-boot ---
+[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ gs-spring-boot ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
