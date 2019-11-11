@@ -13,8 +13,6 @@ ms.topic: article
 
 # How to use Spring and Cosmos DB with App Service on Linux
 
-## Overview
-
 This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 
 It will demonstrate the usage of the following components:
@@ -33,6 +31,7 @@ The following prerequisites are required in order to follow the steps in this ar
 - [Maven 3](http://maven.apache.org/)
 
 ## Clone the Sample Java Web App Repository
+
 For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction).
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
@@ -53,8 +52,11 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
 
    ```bash
    cd initial\spring-todo-app
-   ``` 
+   ```
+
 ## Create an Azure Cosmos DB from Azure CLI
+
+The following procedure creates Azure Cosmos database using CLI.
 
 1. Login to your Azure CLI, and set your subscription id.
 
@@ -63,6 +65,7 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
     ```
 
 2. Set the subscription id if needed.
+
     ```bash
     az account set -s <your-subscription-id>
     ```
@@ -83,13 +86,15 @@ The name of the Cosmos DB must use only lower case letters. Make sure to note th
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
      ```
 
-4. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
+5. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
 
     ```bash
     az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
 ## Build and Run the App Locally
+
+The following procedure runs the application on the development computer.
 
 1. Within your console of choice configure the environment variables shown in the following code sections with the Azure and Cosmos DB connection information you gathered previously in this article. You'll need to provide a unique name for **WEBAPP_NAME** and value for the **REGION** variables.
 
@@ -134,6 +139,8 @@ set REGION=<put-your-REGION-here>
  ![Spring app running locally][SCDB01]
 
 ## Deploy to App Service Linux
+
+The following procedure deploys the application to Linux on Azure.
 
 1. Open the pom.xml file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the pom.xml file below. If the version is not set to **1.6.0** then update the value.
 
@@ -226,6 +233,8 @@ bash-3.2$ mvn azure-webapp:deploy
 
 ## Troubleshoot Spring Todo App on Azure by Viewing Logs
 
+The following procedure opens log files on Azure.
+
 1. Configure logs for the deployed Java Web app in Azure App Service in Linux:
 
     ```bash
@@ -278,6 +287,8 @@ bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEG
 
 
 ## Scale out the Spring Todo App
+
+Use the following procedure to scale the application.
 
 1. Scale out Java Web app using Azure CLI:
 
