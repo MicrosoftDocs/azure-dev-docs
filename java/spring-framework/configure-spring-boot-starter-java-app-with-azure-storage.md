@@ -4,21 +4,15 @@ description: Learn how to configure a Spring Boot Initializer app with the Azure
 services: storage
 documentationcenter: java
 author: bmitchell287
-manager: JeanPaul.Connock
-editor: ''
-ms.assetid:
 ms.author: brendm
 ms.date: 12/19/2018
 ms.devlang: java
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage
 ---
 
 # How to use the Spring Boot Starter for Azure Storage
-
-## Overview
 
 This article walks you through creating a custom application using the **Spring Initializr**, then adding the Azure storage starter to your application, and then using your application to upload a blob to your Azure storage account.
 
@@ -37,6 +31,8 @@ The following prerequisites are required in order to follow the steps in this ar
 >
 
 ## Create an Azure Storage Account and blob container for your application
+
+The following procedure creates an Azure storage account and container.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -64,6 +60,8 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
+The following procedure creates the Spring boot application.
+
 1. Browse to <https://start.spring.io/>.
 
 1. Specify the following options:
@@ -89,6 +87,8 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Configure your Spring Boot app to use the Azure Storage starter
 
+The following procedure configures the Spring boot application to use Azure storage.
+
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
    `C:\SpringBoot\storage\pom.xml`
@@ -112,6 +112,8 @@ The following prerequisites are required in order to follow the steps in this ar
 1. Save and close the *pom.xml* file.
 
 ## Create an Azure Credential File
+
+The following procedure creates the Azure credential file.
 
 1. Open a command prompt.
 
@@ -187,6 +189,8 @@ The following prerequisites are required in order to follow the steps in this ar
    ```
 
 ## Configure your Spring Boot app to use your Azure Storage account
+
+The following procedure configures the Spring boot application to use your Azure storage account.
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
