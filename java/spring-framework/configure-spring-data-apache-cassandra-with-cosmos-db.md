@@ -17,8 +17,6 @@ ms.topic: article
 
 # How to use Spring Data Apache Cassandra API with Azure Cosmos DB
 
-## Overview
-
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction).
 
 ## Prerequisites
