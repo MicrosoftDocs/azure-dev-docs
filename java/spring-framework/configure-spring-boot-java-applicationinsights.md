@@ -50,7 +50,7 @@ Create an application with the following procedure.
 
 Create an application insights resource using the following procedure.
 
-1. Browse to Azure at <https://portal.azure.com/> and click **+New**.
+1. Browse to Azure at <https://portal.azure.com/> and click **+ Create a new resource**.
 
 1. Click **IT & Management Tools**, and then click **Application Insights**.
 
