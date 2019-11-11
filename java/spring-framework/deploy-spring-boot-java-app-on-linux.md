@@ -70,7 +70,7 @@ The following steps walk you through the steps that are required to create a sim
 1. Once the web app has been created, change directory to the `target` directory where the JAR file is located and start the web app; for example:
    ```
    cd target
-   java -jar gs-spring-boot-docker-0.1.0.jar
+   java -jar gs-spring-boot-docker-0.1.0.jar --server.port=80
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
@@ -78,7 +78,7 @@ The following steps walk you through the steps that are required to create a sim
    curl http://localhost
    ```
 
-1. You should see the following message displayed: **Hello Docker World!**
+1. You should see the following message displayed: **Hello Docker World**
 
    ![Browse Sample App Locally][SB01]
 
