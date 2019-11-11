@@ -85,7 +85,7 @@ Next, update your Log4J or Logback configuration file:
     <LogzioAppender name="Logzio">
         <logzioToken>{{your-logz-io-token}}</logzioToken>
         <logzioType>java-application</logzioType>
-        <logzioUrl>https://listener-wa.logz.io:8071</logzioUrl>
+        <logzioUrl>https://{{your-logz-io-listener-host}}:8071</logzioUrl>
     </LogzioAppender>
 </Appenders>
 
@@ -104,7 +104,7 @@ Next, update your Log4J or Logback configuration file:
     <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
     <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
         <token>{{your-logz-io-token}}</token>
-        <logzioUrl>https://listener-wa.logz.io:8071</logzioUrl>
+        <logzioUrl>https://{{your-logz-io-listener-host}}:8071</logzioUrl>
         <logzioType>java-application</logzioType>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
@@ -116,6 +116,8 @@ Next, update your Log4J or Logback configuration file:
     </root>
 </configuration>
 ```
+
+Replace the `listener-host` with your region’s listener host (for example, listener.logz.io). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most out of Logz.io.
 
