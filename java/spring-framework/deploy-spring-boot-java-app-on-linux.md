@@ -119,7 +119,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    ```xml
    <properties>
-      <jib-maven-plugin.version>1.2.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>1.7.0</jib-maven-plugin.version>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
       <java.version>1.8</java.version>
       <username>wingtiptoysregistry</username>
