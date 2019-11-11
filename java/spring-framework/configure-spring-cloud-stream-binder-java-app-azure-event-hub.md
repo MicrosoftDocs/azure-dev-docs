@@ -15,8 +15,6 @@ ms.workload: na
 
 # How to create a Spring Cloud Stream Binder application with Azure Event Hubs
 
-## Overview
-
 This article demonstrates how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializer with Azure Event Hubs.
 
 ## Prerequisites
@@ -34,47 +32,69 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Create an Azure Event Hub using the Azure portal
 
+The following procedure creates an Azure event hub.
+
 ### Create an Azure Event Hub Namespace
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+Create a resource**, then **Internet of Things**, and then click **IOT Hub**.
+1. Click **+Create a resource**, then search for *Event Hubs**.
+
+1. Click **Create**.
 
    ![Create Azure Event Hub Namespace][IMG01]
 
 1. On the **Create Namespace** page, enter the following information:
 
+   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
+   * Pricing tier.
    * Choose the **Subscription** you want to use for your namespace.
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
    * Specify the **Location** for your event hub namespace.
-   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
+   * You can also specify the **Throughput units** for the namespace.
 
    ![Specify Azure Event Hub Namespace options][IMG02]
 
-1. When you have specified the options listed above, click **Review + create** to create your namespace.
-1. Review the options, and click create.
+1. When you have specified the options listed above, click **Create** to create your namespace.
+
+## Create an Azure Event Hub in your namespace
+
+After your namespace is deployed, you can create an event hub in the namespace.
+
+1. Navigate to the namespace created in the previous step.
+
+1. Click **+ Event Hub** in top menu bar.
+
+1. Name the event hub.
+
+1. Click **Create**.
+
+   ![Create Event Hub][IMG05]
 
 ### Create an Azure Storage Account for your Event Hub checkpoints
 
+The following procedure creates a storage account for event hub checkpoints.
+
 1. Browse to the Azure portal at <https://portal.azure.com/>.
 
-1. Click **+Create a resource**, then **Storage**, and then click **Storage Account**.
+1. Click **+Create**, then **Storage**, and then click **Storage Account**.
 
-   ![Create Azure Storage Account][IMG07]
-
-1. On the **Create Namespace** page, enter the following information:
+1. On the **Create storage account** page, enter the following information:
 
    * Choose the **Subscription** you want to use for your storage account.
    * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
-   * Enter a unique **Name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.core.windows.net*.
-   * Choose **Blob storage** for the **Account kind**.
+   * Enter a unique **Name** for the storage account.
    * Specify the **Location** for your storage account.
 
    ![Specify Azure Storage Account options][IMG08]
 
-1. When you have specified the options listed above, click **Create** to create your storage account.
+1. When you have specified the options listed above, click **Review + create** to create your storage account.
+
+1. Review the specifications and click **Create**.  The deployment will take several minutes.
 
 ## Create a simple Spring Boot application with the Spring Initializr
+
+The following procedure creates a Spring boot application.
 
 1. Browse to <https://start.spring.io/>.
 
