@@ -4,9 +4,6 @@ description: Learn how to configure a Spring Boot Initializer app with the Azure
 services: key-vault
 documentationcenter: java
 author: bmitchell287
-manager: jeanpaul.Connock
-editor: ''
-ms.assetid:
 ms.author: brendm
 ms.date: 10/29/2019
 ms.devlang: java
@@ -17,8 +14,6 @@ ms.workload: identity
 ---
 
 # How to use the Spring Boot Starter for Azure Key Vault
-
-## Overview
 
 This article demonstrates creating an app with the **[Spring Initializr]** that uses the Spring Boot Starter for Azure Key Vault to retrieve a connection string that is stored as a secret in a key vault.
 
@@ -31,6 +26,8 @@ The following prerequisites are required in order to complete the steps in this 
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create an app using Spring Initializr
+
+The following procedure creates the application using Spring Initializr.
 
 1. Browse to <https://start.spring.io/>.
 
@@ -47,6 +44,8 @@ The following prerequisites are required in order to complete the steps in this 
 1. When prompted, download the project to a path on your local computer.
 
 ## Sign into Azure
+
+The following procedure authenticates the user in Azure CLI.
 
 1. Open a command prompt.
 
@@ -90,6 +89,8 @@ Follow the instructions to complete the sign-in process.
    ```
 
 ## Create a new Azure Key Vault
+
+The following procedure creates and initializes the key vault.
 
 1. Create a resource group for the Azure resources you will use for your key vault; for example:
 
@@ -237,6 +238,8 @@ Follow the instructions to complete the sign-in process.
 
 ## Configure and compile your app
 
+Use the following procedure to configure and compile your application.
+
 1. Extract the files from the Spring Boot project archive files that you downloaded earlier into a directory.
 
 2. Navigate to the *src/main/resources* folder in your project and open the *application.properties* file in a text editor.
@@ -290,6 +293,8 @@ Follow the instructions to complete the sign-in process.
 6. Save and close the Java file.
 
 ## Build and test your app
+
+Use the following procedure to test your application.
 
 1. Navigate to the directory where the *pom.xml* file for your Spring Boot app is located:
 
