@@ -31,6 +31,8 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure Cosmos DB account
 
+The following procedure creates a Cosmos account in the Azure Portal.
+
 ### Create a Cosmos DB account using the Azure Portal
 
 > [!NOTE]
@@ -109,6 +111,8 @@ The following prerequisites are required in order to complete the steps in this 
 1. Save and close the *application.properties* file.
 
 ## Package and test the sample application 
+
+Browse to the directory that contains the .pom file to build the application.
 
 1. Build the sample application with Maven; for example:
 
