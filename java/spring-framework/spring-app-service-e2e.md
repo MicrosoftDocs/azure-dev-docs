@@ -4,7 +4,7 @@ description: End-to-end tutorial for Java App Service with MySQL
 author: KarlErickson
 manager: barbkess
 ms.author: karler
-ms.date: 08/38/2019
+ms.date: 11/12/2019
 ms.service: app-service
 ms.devlang: java
 ms.topic: article
@@ -18,7 +18,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 ## Prerequisites
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview)
 * [Java 8](http://java.oracle.com/)
 * [Maven 3](http://maven.apache.org/)
 * [Git](https://github.com/)
