@@ -213,7 +213,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
    spring.cloud.azure.credential-file-path=my.azureauth
    spring.cloud.azure.resource-group=wingtiptoysresources
    spring.cloud.azure.region=West US
-   spring.cloud.azure.eventhub.namespace=wingtiptoysnamespace
+   spring.cloud.azure.eventhub.namespace=wingtiptoys
 
    spring.cloud.stream.bindings.input.destination=wingtiptoyshub
    spring.cloud.stream.bindings.input.group=$Default
