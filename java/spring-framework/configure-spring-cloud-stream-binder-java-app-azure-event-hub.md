@@ -354,6 +354,8 @@ In this section, you create the necessary Java classes for sending events to you
 
 ## Build and test your application
 
+Use the following procedures to build and test your application.
+
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
    `cd C:\SpringBoot\eventhub`
