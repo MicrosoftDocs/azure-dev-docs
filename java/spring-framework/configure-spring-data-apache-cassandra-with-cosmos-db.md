@@ -116,7 +116,7 @@ The following procedure configures the test application.
 
 ## Package and test the sample application 
 
-Browse to the directory that contains the .pom file to build the application.
+Browse to the directory that contains the .pom file to build and test the application.
 
 1. Build the sample application with Maven; for example:
 
