@@ -38,7 +38,7 @@ The following procedure creates an Azure event hub.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+Create a resource**, then search for *Event Hubs**.
+1. Click **+ Create a resource**, then search for *Event Hubs**.
 
 1. Click **Create**.
 
