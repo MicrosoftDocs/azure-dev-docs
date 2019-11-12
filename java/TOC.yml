@@ -42,7 +42,7 @@
                 - name: MongoDB API
                   href: /azure/cosmos-db/create-mongodb-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Storage Blobs
-          href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Redis Cache
           href: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Service Fabric
