@@ -8,7 +8,7 @@ manager: douge
 editor: ''
 ms.assetid: 
 ms.author: brendm
-ms.date: 12/19/2018
+ms.date: 11/12/2019
 ms.devlang: java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
