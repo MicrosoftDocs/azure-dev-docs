@@ -31,7 +31,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure Cosmos DB account
 
-The following procedure creates a Cosmos account in the Azure Portal.
+The following procedure creates and configures a Cosmos account in the Azure Portal.
 
 ### Create a Cosmos DB account using the Azure Portal
 
@@ -61,6 +61,8 @@ The following procedure creates a Cosmos account in the Azure Portal.
 
    ![Review your Cosmos DB account settings][COSMOSDB03]
 
+It will take a few minutes to deploy the database.
+
 ### Add a keyspace to your Azure Cosmos DB account
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
@@ -82,6 +84,8 @@ The following procedure creates a Cosmos account in the Azure Portal.
    ![Retrieve your Cosmos DB connection settings][COSMOSDB06]
 
 ## Configure the sample application
+
+The following procedure configures the test application.
 
 1. Open a command shell and clone the sample project using a git command like the following example:
 
@@ -129,9 +133,9 @@ Browse to the directory that contains the .pom file to build the application.
 1. Create new records using `curl` from a command prompt like the following examples:
 
    ```shell
-   curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   curl -s -d "{\"name\":\"dog\",\"species\":\"canine\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
 
-   curl -s -d '{"name":"cat","species":"feline"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
    Your application should return values like the following:
@@ -147,7 +151,7 @@ Browse to the directory that contains the .pom file to build the application.
    ```shell
    curl -s http://localhost:8080/pets
    ```
-    
+
    Your application should return values like the following:
 
    ```json
