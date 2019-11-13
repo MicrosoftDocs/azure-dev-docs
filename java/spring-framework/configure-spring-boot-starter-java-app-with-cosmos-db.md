@@ -49,8 +49,6 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
-    ![Azure portal][AZ04]
-
 1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
     ![Azure portal][AZ05]
