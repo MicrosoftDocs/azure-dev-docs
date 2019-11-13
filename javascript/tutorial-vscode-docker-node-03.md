@@ -22,7 +22,7 @@ If you don't already have an app for this walkthrough, use the app from the [Vis
 
 1. In Visual Studio Code, open the **Command Palette** (**F1**), type `add docker files to workspace`, then select the **Docker: Add Docker files to workspace** command.
 
-1. When prompted, select **Node.js** for the application type, then select the post on which your application listens.
+1. When prompted, select **Node.js** for the application type, then select the port on which your application listens.
 
 1. The command creates a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
