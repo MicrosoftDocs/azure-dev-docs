@@ -31,8 +31,6 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click **Create a resource**.
 
-    ![Azure portal][AZ01]
-
 1. Click **Databases**, and then click **Azure Cosmos DB**.
 
     ![Azure portal][AZ02]
@@ -45,7 +43,7 @@ The following prerequisites are required in order to follow the steps in this ar
     * Choose **Core (SQL)** for the API.
     * Specify the **Location** for your database.
 
-    When you have specified these options, click **Review + create** to create your database.
+    When you have specified these options, click **Review + create**, review your specifications, and click **Create**.
 
     ![Azure portal][AZ03]
 
