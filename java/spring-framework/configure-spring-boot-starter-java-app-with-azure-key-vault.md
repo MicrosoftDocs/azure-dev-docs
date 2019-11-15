@@ -130,7 +130,7 @@ The following procedure creates and initializes the key vault.
    |---|---|
    | `name` | Specifies the name for your Azure service principal. |
 
-   The Azure CLI will return a JSON status message that contains the *appId* and *password*, which you will use later as the client id and client password; for example:
+   The Azure CLI will return a JSON status message that contains the *appId* and *password*, which you will use later as the client ID and client password; for example:
 
    ```json
    {
