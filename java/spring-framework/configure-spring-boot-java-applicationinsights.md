@@ -4,16 +4,12 @@ description: Configure a Spring Boot application created with Spring Initializr 
 services: Application-Insights
 documentationcenter: java
 author: dhaval24
-manager: alexklim
-editor: ''
-ms.assetid:
 ms.author: dhdoshi
-ms.date: 12/19/2018
+ms.date: 11/29/2019
 ms.devlang: java
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
-ms.workload: na
 ---
 
 # Configure a Spring Boot Initializer app to use Application Insights
@@ -31,6 +27,8 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create a custom application using Spring Initializr
 
+Create an application with the following procedure.
+
 1. Browse to [https://start.spring.io/](https://start.spring.io/).
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select web dependency in the dependencies section.
@@ -39,45 +37,46 @@ The following prerequisites are required in order to complete the steps in this 
 
    > [!NOTE]
    >
-   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.example.demo*.
+   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*.
    >
 
-1. Click the button to **Generate Project**.
+1. Click the **Generate** button.
 
 1. When prompted, download the project to a path on your local computer.
 
 1. After you have extracted the files on your local system, your custom Spring Boot application will be ready for editing.
 
-   ![Custom Spring Boot project files][SI02]
-
 ## Create an Application Insights Resource on Azure
 
-1. Browse to Azure at <https://portal.azure.com/> and click **+New**.
+Create an application insights resource using the following procedure.
 
-   ![Azure][AZ01]
+1. Browse to Azure at <https://portal.azure.com/> and click **+ Create a new resource**.
 
-1. Click **Management Tools**, and then click **Application Insights**.
+1. Click **IT & Management Tools**, and then click **Application Insights**.
 
-   ![Azure][AZ02]
+1. On the **New Application Insights Resource** page, enter the following information:
 
-1. On the **New Application Insights Resource** page, specify the following information:
+* Specify your **Subscription** and **Resource group**.
+* Enter the **Name** for your Application Insights resource.
+* Select **Region**.
 
-   * Enter the **Name** for your Application Insights resource.
-   * Choose the **Application Type** to Java Web Application.
-   * Specify your **Subscription**, **Resource group** and **Location**.
-   * Select Pin to dashboard option, if you would like to pin the resource on your Azure.
-
-   When you have specified these options, click **Create** to create your Application Insights resource.
+   When you have specified these options, click **Review and create**.
 
    ![Azure][AZ03]
- 
-1. Once your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource. From this overview page please copy the **instrumentation key**.
+
+* Review the specifications, and click **Create**.
+
+After your resource has been created, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources** pages. You can click on your resource on any of those locations to open the overview page of the Application Insights resource.
+
+From the overview page copy the **instrumentation key**.
 
    ![Azure][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
-1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section. 
+Configure the application using the following procedure.
+
+1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section.
 
 ```XML
  <dependency>
@@ -88,8 +87,6 @@ The following prerequisites are required in order to complete the steps in this 
 ```
 
 1. Locate the *application.properties* file in the *resources* directory of your app, or create the file if it does not already exist.
-
-   ![Locate the application.properties file][RE01]
 
 1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties with appropriate credentials:
 
@@ -186,6 +183,8 @@ Click on the **Application Map** tile to view high-level components and their in
 
 ## Configure Springboot Application to send log4j logs to Application Insights
 
+Configure the application to send logs using the following procedure.
+
 1. Modify the POM.xml file of the project and add/modify the dependencies section with following. 
 
 ```xml
@@ -253,13 +252,10 @@ Click on the **Application Map** tile to view high-level components and their in
   </Loggers>
 </Configuration>
 ```
-4. Build and run the Spring Boot application again as shown above. 
 
-Within a few seconds, you should see all the spring logs being available on Azure. 
+4. Build and run the Spring Boot application again as shown above.
 
-![Azure][AZ06]
-
-You can even look at the detailed log messages and do analysis on Analytics Portal. 
+Within a few seconds, you should see all the spring logs being available on Azure. You can look at the detailed log messages and do analysis on Analytics Portal.
 
 ![Azure][AZ07]
 
@@ -313,7 +309,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ07]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/traces_details.png
 [AZ08]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/AppMap.png
 
-[SI01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.png
+[SI01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.PNG
 [SI02]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/After_extract.png
 
 [RE01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationproperties_loc.png
