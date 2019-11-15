@@ -104,9 +104,9 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
     * **OS**: linux  
     * **javaVersion**: Java 8    
     
-```cmd
-mvn azure-webapp:config
-```
+   ```cmd
+   mvn azure-webapp:config
+   ```
 
    When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
 
