@@ -32,6 +32,9 @@ In this article, you create a Python function for Azure Functions with Visual St
     | Authorization level | **Anonymous** | Anonymous authorization makes the function publicly accessible to anyone. |
     | Select how you would like to open your project | **Open in current window** | Opens the project in the current Visual Studio Code window. |
 
+    > [!NOTE]
+    > If you have both Python 3.6 and 3.7 installed, Visual Studio Code uses Python 3.6 by default for the Azure Functions project. To use Python 3.7 at present, first create and activate a Python 3.7 environment, then use the `func init` command from a terminal. Then restart Visual Studio Code from that folder using the `code .` command.
+
 1. After a short time, a message to indicate that the new project was created. In the **Explorer**, there's the subfolder created for the function, and Visual Studio Code opens the *\_\_init\_\_.py* file that contains the default function code:
 
     ![Result of creating a new Python project in Azure Functions](media/tutorial-vs-code-serverless-python/display-results-of-new-python-project-in-azure-functions.png)

@@ -8,7 +8,7 @@ manager: douge
 editor: ''
 ms.assetid: 
 ms.author: brendm
-ms.date: 12/19/2018
+ms.date: 11/12/2019
 ms.devlang: java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
@@ -118,7 +118,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```xml
    <properties>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.2.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>1.7.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```

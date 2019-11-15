@@ -1,6 +1,6 @@
 ---
-title: Getting started with Logz.io for Java projects running on Azure
-description: This tutorial shows how to integrate and configure Logz.io for Java projects running on Azure.
+title: Getting started with Logz.io for Java apps running on Azure
+description: This tutorial shows how to integrate and configure Logz.io for Java apps running on Azure.
 author: jdubois
 manager: bborges
 ms.devlang: java
@@ -10,9 +10,9 @@ ms.date: 11/05/2019
 ms.author: judubois
 ---
 
-# Tutorial: getting started with Logz.io for Java projects running on Azure
+# Tutorial: Getting started with monitoring and logging using Logz.io for Java apps running on Azure
 
-This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch, Logstash, Kibana, and Grafana.
+This tutorial shows you how to configure a classical Java application to send logs to the [Logz.io](https://logz.io/) service for ingestion and analysis. Logz.io provides a full monitoring solution based on Elasticsearch/Logstash/Kibana (ELK) and Grafana.
 
 The tutorial assumes you're using Log4J or Logback. These libraries are the two most widely used for logging in Java, so the tutorial should work for most applications running on Azure. If you're already using the Elastic stack to monitor your Java application, this tutorial shows you how to reconfigure to target the Logz.io endpoint.
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or greater
-* A [Logz.io](https://logz.io/) account. Alternately, you can buy Logz.io from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro).
+* A Logz.io account from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 * An existing Java application that uses Log4J or Logback
 
 ## Send Java application logs to Logz.io
@@ -38,7 +38,7 @@ To get your token, log in to your Logz.io account, select the cog icon in the ri
 
 ### Install and configure the Logz.io library for Log4J or Logback
 
-The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your project configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
+The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your app configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
 
 If you're using Maven, add the following dependency to your `pom.xml` file:
 
@@ -83,9 +83,9 @@ Next, update your Log4J or Logback configuration file:
 ```xml
 <Appenders>
     <LogzioAppender name="Logzio">
-        <logzioToken>{{your-logz-io-token}}</logzioToken>
+        <logzioToken><your-logz-io-token></logzioToken>
         <logzioType>java-application</logzioType>
-        <logzioUrl>https://listener-wa.logz.io:8071</logzioUrl>
+        <logzioUrl>https://<your-logz-io-listener-host>:8071</logzioUrl>
     </LogzioAppender>
 </Appenders>
 
@@ -103,8 +103,8 @@ Next, update your Log4J or Logback configuration file:
     <!-- Use shutdownHook so that we can close gracefully and finish the log drain -->
     <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
     <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
-        <token>{{your-logz-io-token}}</token>
-        <logzioUrl>https://listener-wa.logz.io:8071</logzioUrl>
+        <token><your-logz-io-token></token>
+        <logzioUrl>https://<your-logz-io-listener-host>:8071</logzioUrl>
         <logzioType>java-application</logzioType>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
@@ -116,6 +116,8 @@ Next, update your Log4J or Logback configuration file:
     </root>
 </configuration>
 ```
+
+Replace the `<your-logz-io-token>` placeholder with your access token and the `<your-logz-io-listener-host>` placeholder with your region’s listener host (for example, listener.logz.io). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most out of Logz.io.
 
