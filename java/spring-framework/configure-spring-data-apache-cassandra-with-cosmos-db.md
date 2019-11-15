@@ -31,9 +31,9 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure Cosmos DB account
 
-The following procedure creates and configures a Cosmos account in the Azure Portal.
+The following procedure creates and configures a Cosmos account in the Azure portal.
 
-### Create a Cosmos DB account using the Azure Portal
+### Create a Cosmos DB account using the Azure portal
 
 > [!NOTE]
 > 
