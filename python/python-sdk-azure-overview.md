@@ -16,7 +16,7 @@ The Azure SDK for Python simplifies using and managing Azure resources from Pyth
 
 You install the SDK by installing any of its individual component libraries by using `pip install <library>`. You can see the list of libraries on the [Azure SDK for Python package index](https://github.com/Azure/azure-sdk-for-python/blob/master/packages.md)
 
-For more details instructions for installing libraries and importing them into projects, see [Install the SDK](python-sdk-azure-install.md). Then review the [Get started with the SDK](python-sdk-azure-get-started.yml) to set up your authentication and run sample code against your own Azure subscription.
+For more detailed instructions for installing libraries and importing them into projects, see [Install the SDK](python-sdk-azure-install.md). Then review the [Get started with the SDK](python-sdk-azure-get-started.yml) to set up your authentication and run sample code against your own Azure subscription.
 
 > [!TIP]
 > For information on changes in the SDK, see the [SDK release notes](https://azure.github.io/azure-sdk/).
