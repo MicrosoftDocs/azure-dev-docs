@@ -147,7 +147,8 @@ Note that the JVM sets GC defaults for the average use-case. Often,
 these defaults, and other GC settings, need to be tuned for optimum
 throughput or latency, according to the application's requirements.
 Properly tuning the GC requires deep knowledge of the GC, expertise
-that the Java Platform Group provides to our customers.
+that the [Microsoft Java Engineering Group](mailto:javaplatformgroup@microsoft.com)
+provides.
 
 #### G1GC
 
@@ -271,198 +272,6 @@ performance of new or modified code.
     client API that implements HTTP/2 and WebSocket and can replace the
     legacy HttpURLConnection API.
 
-## Appendix A: New Language Features
-
-There are many language features that have been added to Java since JDK 8. 
-Most of these new features are aimed squarely at developer
-productivity (think "less typing"). There are also many new APIs that
-make it easier to write code and make the code more readable.
-
-While it is not necessary to refactor existing code to run on JDK 11,
-these features should be considered when making bug fixes or doing new
-development.
-
-### Local-Variable Type Inference \[[23](#ref23)\] \[[24](#ref24)\]
-
-In JDK 11, the var identifier can be used when declaring a local
-variable with a non-null initializer. This reduces the amount of
-redundant code that must be written to declare a variable. For
-example, in JDK 8, one would write:
-
-```java
-Map\<String,MyObject\> myObjectMap = new HashMap\<\>();
-```
-
-But in JDK 11, the type can be inferred from the initializer and the
-redundant Map\<String,MyObject\> becomes unnecessary. In JDK 11, the
-code can be simplified with the var identifier:
-
-```java
-var myObjectMap = new HashMap\<String,MyObject\>();
-```
-
-Local-Variable type inference is useful in for loops indexes,
-try-with-resources variables, and formal parameters of a lambda
-expression.
-
-```java
-for(var index=0; index \< 10; index++ {...} // index infers as int                                                               
-for(var s: Arrays.asList(\"1\", \"2\", \"3\")) { sum += Integer.valueOf(s); }                                                     Function\<Number,Integer\> toInt = (var n) -\> n.intValue();          
-```
-
-Note that the type of a lambda parameter is inferred regardless of the
-var identifier. Using var with the formal parameters of a lambda
-expression allows the parameters to be annotated:
-
-```java
-Function\<Number,Integer\> toInt = (@NotNull var n) -\> n.intValue();
-```
-
-### Convenience Factory Methods for Collections \[[25](#ref25)\]
-
-Static factory methods were added to the List, Set and Map interfaces
-to make it convenient to create unmodifiable instances of collections
-with a small number of elements. This simplifies the pattern of having
-to create and populate a collection to use the
-Collections.unmodifiableXXX APIs.
-
-One possible way to create an unmodifiable List in Java 8 is to write
-the code:
-
-```java
- List\<String\> list = new ArrayList\<\>();
- list.add(\"one\");
- list.add(\"two\");
- list.add(\"three\");
- List\<String,Integer\> unmodifiableList =                             
- Collections.unmodifiableList(List);                                   
-```
-
-In Java 11, this can be written more succinctly as:
-
-```java
-List\<String\> unmodifiableList = List.of(\"one\", \"two\", \"three\");
-```
-
-Note that the unmodifiable view of a collection returned by
-Collections.unmodifableXXX is "read through". This means that
-modifications to the original collection are seen by the unmodifiable
-collection. The of API does not suffer from this short-coming.
-
-In addition to the of API There is also a copyOf API that returns an
-unmodifiable copy of the List, Set or Map.
-
-### More Concise try-with-resources \[[26](#ref26)\]
-
-In JDK 8, try-with-resource required a fresh variable declaration for
-a resource. JDK 11 allows a final, or effectively final variable to be
-used for the resource. This gives the developer more freedom in how
-resource variables are declared and initialized.
-
-```java
- MyResource resource = new MyResource(path);
- ...\                                        
- try (resource) {
- ...
- }                                           
-```
-
-### Allow Diamond Operator for Anonymous Inner Classes \[[26](#ref26)\]
-
-The restriction on using the diamond operator for anonymous inner
-classes has been relaxed.
-
-```java
- interface NumConsumer\<N extends Number\> { void consume(N n); }\     
- // JDK 8 requires type
- NumConsumer\<Integer\> intConsumer8 = new NumConsumer\<Integer\>() {  
- \@Override void consumer(Integer I) {...}};
- // JDK 11 allows diamond operator
- NumConsumer\<Integer\> intConsumer11 = new NumConsumer\<\>() {        
- \@Override void consumer(Integer I) {...}};                           
-```
-
-The use of the diamond operator requires that the type be denotable. A
-type which is non-denotable cannot be written explicitly in code.
-
-Appendix B: Future Enhancements
-===============================
-
-Placeholder for summaries of future enhancements to be added in a future
-revision of this document.
-
--   Vector API
-
--   Project Valhalla (Value Types)
-
--   Project Panama
-
--   Project Loom
-
-Appendix C: BACKLOG 
-====================
-
-Items to be considered for future revisions of this document. This list
-may not be complete. Items with strikethrough have been addressed.
-
-Added in 9:
-
--   ~~JEP 238 - Multi-release jar files. Extend the JAR file format to
-    allow multiple, Java-release-specific versions of class files to
-    coexist in a single archive.~~
-
--   JEP 266 - Reactive streams (java.util.concurrent.Flow API),
-    CompletableFuture additional API
-
--   Optional::stream, ifPresentOrElse, or
-
--   Stream API additions -- takeWhile, dropWhile, ofNullable, iterate
-
--   JEP 280 - Indify string concatenation
-
--   JEP 274 -- Enhanced Method Handles
-
--   ~~JEP 285 -- Spin wait hints - Thread.onSpinWait() API.~~
-
-Added in 10:
-
--   Optional.orElseThrow()
-
--   ~~JEP 269 - Unmodifiable collection API -- e.g., List\<E\>
-    copyOf(Collection\<? Extends E\>), Collectors.toUnmodifiableXXX~~
-
--   ~~JEP 286 - Local-variable type inference~~
-
--   ~~JEP 307 -- Parallel full GC for G1~~
-
--   ~~JEP 310 - Application class data sharing. Improves startup
-    footprint by sharing common class metadata across different java
-    processes.~~
-
--   ~~JEP 312 - Thread-local handshakes. Improves performance by making
-    it possible to execute a callback on threads without a global VM
-    safepoint.~~
-
--   JEP 316 - Heap allocation on alternative memory devices
-
-Added in 11:
-
--   ~~JEP 321 - Standardized HTTP Client~~
-
--   toArray(IntFunction\<A\[\]\>) - instead of typical toArray(new
-    Foo\[0\]), can do toArray(Foo\[\]::new) or whatever so long as a
-    Foo\[\] is returned.
-
--   ~~JEP 323 - Local-variable syntax for lambda parameters~~
-
-Benchmarks
-
-Provide our own benchmarks:
-
--   Throughput, Latency, Footprint, Cold start, warm start
-
--   Load, underutilization, endurance etc.
-
 References
 ==========
 <a id="ref1">\[1\]</a> Oracle Corporation, \"Java Development Kit 9 Release Notes,\"
@@ -489,72 +298,72 @@ http://openjdk.java.net/jeps/328. (Accessed 13/11/2019).
 
 <a id="ref6">\[6\]</a> Oracle
 Corporation, \"Mission Control,\" 25/4/2019. (Online). Available:
-https://wiki.openjdk.java.net/display/jmc/Main. \[Accessed 13/11/2019\].
+https://wiki.openjdk.java.net/display/jmc/Main. (Accessed 13/11/2019).
 
-\[7\] Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 14 02
+<a id="ref10">\[7\]</a> Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 14 02
 2019. (Online). Available: http://openjdk.java.net/jeps/158.
 (Accessed 13/11/2019).
 
-\[8\] Oracle Corporation, \"JEP 331:
+<a id="ref10">\[8\]</a> Oracle Corporation, \"JEP 331:
 Low-Overhead Heap Profiling,\" 5/9/2018. (Online). Available:
 http://openjdk.java.net/jeps/331. (Accessed 13/11/2019).
-\\[9\\] Oracle
+
+<a id="ref10">\[9\]</a> Oracle
 Corporation, \"JEP 259: Stack-Walking API,\" 18/07/2017. (Online).
-Available: http://openjdk.java.net/jeps/259. \[Accessed 13/11/2019\].
+Available: http://openjdk.java.net/jeps/259. (Accessed 13/11/2019).
 
 <a id="ref10">\[10\]</a> Oracle Corporation, \"JEP 248: Make G1 the Default Garbage
 Collector,\" 12/9/2017. (Online). Available:
 http://openjdk.java.net/jeps/248. (Accessed 13/11/2019).
+
 <a id="ref11">\[11\]</a> Oracle
 Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" 24/9/2018.
-(Online). Available: http://openjdk.java.net/jeps/318. \[Accessed 13/11/2019\].
+(Online). Available: http://openjdk.java.net/jeps/318. (Accessed 13/11/2019).
+
 <a id="ref12">\[12\]</a> Oracle Corporation, \"JDK-8146115 : Improve docker
 container detection and resource configuration usage,\" 16/9/2019.
 (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=JDK-8146115.
 (Accessed 13/11/2019).
+
 <a id="ref13">\[13\]</a> Oracle Corporation, \"JEP 238:
 Multi-Release JAR Files,\" 22/6/2017. (Online). Available:
 http://openjdk.java.net/jeps/238. (Accessed 13/11/2019).
+
 <a id="ref14">\[14\]</a> Oracle
 Corporation, \"JEP 197: Segmented Code Cache,\" 28/04/2017. (Online).
-Available: http://openjdk.java.net/jeps/197. \[Accessed 13/11/2019\].
+Available: http://openjdk.java.net/jeps/197. (Accessed 13/11/2019).
+
 <a id="ref15">\[15\]</a> Oracle Corporation, \"JEP 254: Compact Strings,\" 18 05
 2019. (Online). Available: http://openjdk.java.net/jeps/254.
 (Accessed 13/11/2019).
+
 <a id="ref16">\[16\]</a> Oracle Corporation, \"JEP 310:
 Application Class-Data Sharing,\" 17/8/2018. (Online). Available:
 https://openjdk.java.net/jeps/310. (Accessed 13/11/2019).
+
 <a id="ref17">\[17\]</a> Oracle
 Corporation, \"JEP 312: Thread-Local Handshakes,\" 21/8/2019.
-(Online). Available: https://openjdk.java.net/jeps/312. \[Accessed 13/11/2019\].
+(Online). Available: https://openjdk.java.net/jeps/312. (Accessed 13/11/2019).
+
 <a id="ref18">\[18\]</a> Oracle Corporation, \"JDK-8198756 : Lazy allocation of
 compiler threads,\" 29/10/2018. (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=8198756.
 (Accessed 13/11/2019).
+
 <a id="ref19">\[19\]</a> Oracle Corporation, \"JEP 193: Variable
 Handles,\" 17/8/2017. (Online). Available:
 https://openjdk.java.net/jeps/193. (Accessed 13/11/2019).
+
 <a id="ref20">\[20\]</a> Oracle
 Corporation, \"JEP 269: Convenience Factory Methods for Collections,\"
 26/6/2017. (Online). Available: https://openjdk.java.net/jeps/269.
 (Accessed 13/11/2019).
+
 <a id="ref21">\[21\]</a> Oracle Corporation, \"JEP 285: Spin-Wait
 Hints,\" 20/8/2017. (Online). Available:
 https://openjdk.java.net/jeps/285. (Accessed 13/11/2019).
+
 <a id="ref22">\[22\]</a> Oracle
 Corporation, \"JEP 321: HTTP Client (Standard),\" 27/9/2018. (Online).
-Available: https://openjdk.java.net/jeps/321. \[Accessed 13/11/2019\].
-<a id="ref23">\[23\]</a> Oracle Corporation, \"JEP 286: Local-Variable Type
-Inference,\" 12/10/2018. (Online). Available:
-https://openjdk.java.net/jeps/286. (Accessed 13/11/2019).
-<a id="ref24">\[24\]</a> Oracle
-Corporation, \"JEP 323: Local-Variable Syntax for Lambda Parameters,\"
-23/8/2018. (Online). Available: https://openjdk.java.net/jeps/323.
-(Accessed 13/11/2019).
-<a id="ref25">\[25\]</a> Oracle Corporation, \"JEP 269:
-Convenience Factory Methods for Collections,\" 26/6/2017. (Online).
-Available: https://openjdk.java.net/jeps/269. \[Accessed 13/11/2019\].
-<a id="ref26">\[26\]</a> Oracle Corporation, \"JEP 213: Milling Project Coin,\" 9 3
-2017. (Online). Available: https://openjdk.java.net/jeps/213.
-(Accessed 13/11/2019).
+Available: https://openjdk.java.net/jeps/321. (Accessed 13/11/2019).
