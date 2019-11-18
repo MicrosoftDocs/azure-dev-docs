@@ -104,45 +104,45 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
     * **OS**: linux  
     * **javaVersion**: Java 8    
     
-```cmd
-mvn azure-webapp:config
-```
+   ```cmd
+   mvn azure-webapp:config
+   ```
 
-When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
+   When you get the **Confirm (Y/N)** prompt, press **'y'** and the configuration is done.
 
-```cmd
-~@Azure:~/gs-spring-boot/complete$ mvn azure-webapp:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] -----------------< org.springframework:gs-spring-boot >-----------------
-[INFO] Building gs-spring-boot 0.1.0
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ gs-spring-boot ---
-[WARNING] The plugin may not work if you change the os of an existing webapp.
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use:
-Define value for javaVersion(Default: Java 8):
-1. Java 11
-2. Java 8 [*]
-Enter index to use:
-Please confirm webapp properties
-AppName : gs-spring-boot-1559091271202
-ResourceGroup : gs-spring-boot-1559091271202-rg
-Region : westeurope
-PricingTier : Premium_P1V2
-OS : Linux
-RuntimeStack : JAVA 8-jre8
-Deploy to slot : false
-Confirm (Y/N)? : Y
-```
+   ```cmd
+   ~@Azure:~/gs-spring-boot/complete$ mvn azure-webapp:config
+   [INFO] Scanning for projects...
+   [INFO]
+   [INFO] -----------------< org.springframework:gs-spring-boot >-----------------
+   [INFO] Building gs-spring-boot 0.1.0
+   [INFO] --------------------------------[ jar ]---------------------------------
+   [INFO]
+   [INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ gs-spring-boot ---
+   [WARNING] The plugin may not work if you change the os of an existing webapp.
+   Define value for OS(Default: Linux):
+   1. linux [*]
+   2. windows
+   3. docker
+   Enter index to use:
+   Define value for javaVersion(Default: Java 8):
+   1. Java 11
+   2. Java 8 [*]
+   Enter index to use:
+   Please confirm webapp properties
+   AppName : gs-spring-boot-1559091271202
+   ResourceGroup : gs-spring-boot-1559091271202-rg
+   Region : westeurope
+   PricingTier : Premium_P1V2
+   OS : Linux
+   RuntimeStack : JAVA 8-jre8
+   Deploy to slot : false
+   Confirm (Y/N)? : Y
+   ```
 
 4. Add the `<appSettings>` section to the `<configuration>` section of `<azure-webapp-maven-plugin>` to listen on the *80* port.
 
-    ```xml
+   ```xml
    <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
@@ -162,7 +162,7 @@ Confirm (Y/N)? : Y
           <appSettings>
              <property>
                    <name>JAVA_OPTS</name>
-                   <value>-Dserver.port=80</value>
+                   <value>-D server.port=80</value>
              </property>
           </appSettings>
           <!-- End of App Settings  -->
@@ -194,7 +194,7 @@ Once you have configured all of the settings in the preceding sections of this a
    mvn azure-webapp:deploy
    ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you.
+Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the message displayed: Greetings from Spring Boot!
 
 When your web has been deployed, you will be able to manage it through the [Azure portal].
 
@@ -223,7 +223,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](/azure/java/spring-framework)
 
-### Additional Resources
+### Additional esources
 
 For more information about the various technologies discussed in this article, see the following articles:
 
