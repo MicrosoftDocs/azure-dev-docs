@@ -48,7 +48,7 @@ performance, diagnostics, and productivity are highlighted.
 ### Modules \[[4](#ref4)\]
 
 Modules address issues of configuration and encapsulation that are
-difficult to manage in large scale applications running on the
+difficult to manage in large-scale applications running on the
 *classpath*. A *module* is a self-describing collection of Java
 classes and interfaces, and related resources.
 
@@ -155,7 +155,7 @@ The default garbage collector in Java 11 is the G1 garbage collector
 throughput. The G1 garbage collector attempts to achieve high
 throughput by meeting pause time goals with high probability. G1GC is
 designed to avoid full collections, but when the concurrent
-collections can\'t reclaim memory fast enough a fall back full GC will
+collections can\'t reclaim memory fast enough a fallback full GC will
 occur. The full GC uses the same number of parallel worker threads as
 the young and mixed collections.
 
@@ -273,94 +273,94 @@ performance of new or modified code.
 
 <a id="ref1">\[1\]</a> Oracle Corporation, \"Java Development Kit 9 Release Notes,\"
 (Online). Available: https://www.oracle.com/technetwork/java/javase/9u-relnotes-3704429.html.
-(Accessed 13-Nov-2019).
+(Accessed November 13, 2019).
 
 <a id="ref2">\[2\]</a> Oracle Corporation, \"Java Development Kit
 10 Release Notes,\" (Online). Available:
 https://www.oracle.com/technetwork/java/javase/10u-relnotes-4108739.html.
-(Accessed 13-Nov-2019).
+(Accessed November 13, 2019).
 
 <a id="ref3">\[3\]</a> Oracle Corporation, \"Java Development Kit
 11 Release Notes,\" (Online). Available:
 https://www.oracle.com/technetwork/java/javase/11u-relnotes-5093844.html.
-(Accessed 13-Nov-2019).
+(Accessed November 13, 2019).
 
-<a id="ref4">\[4\]</a> Oracle Corporation, \"Project Jigsaw,\" 22
-9 2017. (Online). Available: http://openjdk.java.net/projects/jigsaw/.
-(Accessed 13-Nov-2019).
+<a id="ref4">\[4\]</a> Oracle Corporation, \"Project Jigsaw,\" September 22, 
+2017. (Online). Available: http://openjdk.java.net/projects/jigsaw/.
+(Accessed November 13, 2019).
 
 <a id="ref5">\[5\]</a> Oracle Corporation, \"JEP 328: Flight
-Recorder,\" 9-Sep-2018. (Online). Available:
-http://openjdk.java.net/jeps/328. (Accessed 13-Nov-2019).
+Recorder,\" September 9, 2018. (Online). Available:
+http://openjdk.java.net/jeps/328. (Accessed November 13, 2019).
 
 <a id="ref6">\[6\]</a> Oracle
-Corporation, \"Mission Control,\" 25-Apr-2019. (Online). Available:
-https://wiki.openjdk.java.net/display/jmc/Main. (Accessed 13-Nov-2019).
+Corporation, \"Mission Control,\" April 25, 2019. (Online). Available:
+https://wiki.openjdk.java.net/display/jmc/Main. (Accessed November 13, 2019).
 
-<a id="ref7">\[7\]</a> Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 14 02
-2019. (Online). Available: http://openjdk.java.net/jeps/158.
-(Accessed 13-Nov-2019).
+<a id="ref7">\[7\]</a> Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 
+February 14, 2019. (Online). Available: http://openjdk.java.net/jeps/158.
+(Accessed November 13, 2019).
 
 <a id="ref8">\[8\]</a> Oracle Corporation, \"JEP 331:
-Low-Overhead Heap Profiling,\" 5-Sep-2018. (Online). Available:
-http://openjdk.java.net/jeps/331. (Accessed 13-Nov-2019).
+Low-Overhead Heap Profiling,\" September 5, 2018. (Online). Available:
+http://openjdk.java.net/jeps/331. (Accessed November 13, 2019).
 
 <a id="ref9">\[9\]</a> Oracle
-Corporation, \"JEP 259: Stack-Walking API,\" 18-Jul-2017. (Online).
-Available: http://openjdk.java.net/jeps/259. (Accessed 13-Nov-2019).
+Corporation, \"JEP 259: Stack-Walking API,\" July 18, 2017. (Online).
+Available: http://openjdk.java.net/jeps/259. (Accessed November 13, 2019).
 
 <a id="ref10">\[10\]</a> Oracle Corporation, \"JEP 248: Make G1 the Default Garbage
-Collector,\" 12-Sep-2017. (Online). Available:
-http://openjdk.java.net/jeps/248. (Accessed 13-Nov-2019).
+Collector,\" September 12, 2017. (Online). Available:
+http://openjdk.java.net/jeps/248. (Accessed November 13, 2019).
 
 <a id="ref11">\[11\]</a> Oracle
-Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" 24-Sep-2018.
-(Online). Available: http://openjdk.java.net/jeps/318. (Accessed 13-Nov-2019).
+Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" September 24, 2018.
+(Online). Available: http://openjdk.java.net/jeps/318. (Accessed November 13, 2019).
 
-<a id="ref12">\[12\]</a> Oracle Corporation, \"JDK-8146115 : Improve docker
-container detection and resource configuration usage,\" 16-Sep-2019.
+<a id="ref12">\[12\]</a> Oracle Corporation, \"JDK-8146115: Improve docker
+container detection and resource configuration usage,\" September 16, 2019.
 (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=JDK-8146115.
-(Accessed 13-Nov-2019).
+(Accessed November 13, 2019).
 
 <a id="ref13">\[13\]</a> Oracle Corporation, \"JEP 238:
-Multi-Release JAR Files,\" 22-Jun-2017. (Online). Available:
-http://openjdk.java.net/jeps/238. (Accessed 13-Nov-2019).
+Multi-Release JAR Files,\" June 22, 2017. (Online). Available:
+http://openjdk.java.net/jeps/238. (Accessed November 13, 2019).
 
 <a id="ref14">\[14\]</a> Oracle
-Corporation, \"JEP 197: Segmented Code Cache,\" 28-Apr-2017. (Online).
-Available: http://openjdk.java.net/jeps/197. (Accessed 13-Nov-2019).
+Corporation, \"JEP 197: Segmented Code Cache,\" April 28, 2017. (Online).
+Available: http://openjdk.java.net/jeps/197. (Accessed November 13, 2019).
 
-<a id="ref15">\[15\]</a> Oracle Corporation, \"JEP 254: Compact Strings,\" 18 05
-2019. (Online). Available: http://openjdk.java.net/jeps/254.
-(Accessed 13-Nov-2019).
+<a id="ref15">\[15\]</a> Oracle Corporation, \"JEP 254: Compact Strings,\" 
+May 18, 2019. (Online). Available: http://openjdk.java.net/jeps/254.
+(Accessed November 13, 2019).
 
 <a id="ref16">\[16\]</a> Oracle Corporation, \"JEP 310:
-Application Class-Data Sharing,\" 17-Aug-2018. (Online). Available:
-https://openjdk.java.net/jeps/310. (Accessed 13-Nov-2019).
+Application Class-Data Sharing,\" August 17, 2018. (Online). Available:
+https://openjdk.java.net/jeps/310. (Accessed November 13, 2019).
 
 <a id="ref17">\[17\]</a> Oracle
-Corporation, \"JEP 312: Thread-Local Handshakes,\" 21-Aug-2019.
-(Online). Available: https://openjdk.java.net/jeps/312. (Accessed 13-Nov-2019).
+Corporation, \"JEP 312: Thread-Local Handshakes,\" August 21, 2019.
+(Online). Available: https://openjdk.java.net/jeps/312. (Accessed November 13, 2019).
 
-<a id="ref18">\[18\]</a> Oracle Corporation, \"JDK-8198756 : Lazy allocation of
-compiler threads,\" 29-Oct-2018. (Online). Available:
+<a id="ref18">\[18\]</a> Oracle Corporation, \"JDK-8198756: Lazy allocation of
+compiler threads,\" Oct 29, 2018. (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=8198756.
-(Accessed 13-Nov-2019).
+(Accessed November 13, 2019).
 
 <a id="ref19">\[19\]</a> Oracle Corporation, \"JEP 193: Variable
-Handles,\" 17-Aug-2017. (Online). Available:
-https://openjdk.java.net/jeps/193. (Accessed 13-Nov-2019).
+Handles,\" August 17, 2017. (Online). Available:
+https://openjdk.java.net/jeps/193. (Accessed November 13, 2019).
 
 <a id="ref20">\[20\]</a> Oracle
 Corporation, \"JEP 269: Convenience Factory Methods for Collections,\"
-26-Jun-2017. (Online). Available: https://openjdk.java.net/jeps/269.
-(Accessed 13-Nov-2019).
+June 26, 2017. (Online). Available: https://openjdk.java.net/jeps/269.
+(Accessed November 13, 2019).
 
 <a id="ref21">\[21\]</a> Oracle Corporation, \"JEP 285: Spin-Wait
-Hints,\" 20-Aug-2017. (Online). Available:
-https://openjdk.java.net/jeps/285. (Accessed 13-Nov-2019).
+Hints,\" August 20, 2017. (Online). Available:
+https://openjdk.java.net/jeps/285. (Accessed November 13, 2019).
 
 <a id="ref22">\[22\]</a> Oracle
-Corporation, \"JEP 321: HTTP Client (Standard),\" 27-Sep-2018. (Online).
-Available: https://openjdk.java.net/jeps/321. (Accessed 13-Nov-2019).
+Corporation, \"JEP 321: HTTP Client (Standard),\" September 27, 2018. (Online).
+Available: https://openjdk.java.net/jeps/321. (Accessed November 13, 2019).
