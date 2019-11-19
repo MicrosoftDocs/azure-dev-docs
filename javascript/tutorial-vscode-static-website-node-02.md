@@ -1,10 +1,6 @@
 ---
 title: Create the static Node.js app in Visual Studio Code
 description: Tutorial part 2, create the sample app
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan

@@ -1,13 +1,8 @@
 ---
 title: Run the Azure Functions application locally in Visual Studio Code
 description: Tutorial part 3, run the app locally to test it.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: kraigb
 ---
 
 # Test the function locally

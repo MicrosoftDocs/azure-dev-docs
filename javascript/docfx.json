@@ -50,7 +50,23 @@
         }
       }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author": {
+        "javascript/**/*.md": "kraigb"        
+      },
+      "manager": {
+        "javascript/**/*.md": "barbkess"        
+      },
+      "ms.author": {
+        "javascript/**/*.md": "kraigb"        
+      },      
+      "ms.devlang": {
+        "javascript/**/*.md": "nodejs"
+      },      
+      "ms.service": {
+        "javascript/**/*.md": "azure-nodejs"        
+      }      
+    },
     "template": [],
     "dest": "azure-javascript",
     "markdownEngineName": "markdig"

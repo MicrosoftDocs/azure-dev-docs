@@ -1,13 +1,8 @@
 ---
 title: Use a container registry from Visual Studio Code
 description: Tutorial part 2, use a container registry
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Use a container registry

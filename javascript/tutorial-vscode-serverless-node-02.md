@@ -1,13 +1,8 @@
 ---
 title: Create the Azure Functions application from Visual Studio Code
 description: Tutorial part 2, create the Azure Functions app
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: kraigb
 ---
 
 # Create the local Functions app

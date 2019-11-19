@@ -1,13 +1,8 @@
 ---
 title: Deploy a container image for a Node.js app from Visual Studio Code
 description: Tutorial part 4, deploy the image to Azure App Service
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Deploy the image to Azure App Service

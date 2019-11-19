@@ -1,13 +1,8 @@
 ---
 title: Create the Azure App Service from Visual Studio Code
 description: Tutorial part 2, create the Node.js app
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Create your Node.js application

@@ -1,13 +1,8 @@
 ---
 title: Deploy Azure Functions in Node.js from Visual Studio Code
 description: Tutorial part 1, introduction and prerequisites.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: kraigb
 ---
 
 # Deploy Azure Functions from Visual Studio Code

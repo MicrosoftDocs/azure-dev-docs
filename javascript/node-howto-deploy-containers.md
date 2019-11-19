@@ -1,13 +1,8 @@
 ---
 title: Deploy Node.js containers to Azure
-description: Use Docker containser to deploy Node.js web apps to Azure
-author: kraigb
-manager: barbkess
-ms.devlang: nodejs
+description: Use Docker container to deploy Node.js web apps to Azure
 ms.topic: article
-ms.service: azure-nodejs
 ms.date: 08/20/2019
-ms.author: kraigb
 ms.custom: seo-javascript-september2019
 ---
 
