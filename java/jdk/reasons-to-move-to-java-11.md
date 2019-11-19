@@ -3,13 +3,12 @@ title: Reasons to move to Java 11
 description: A summary-level document intended for decision makers who are weighing the benefits of moving from Java 8 to Java 11. 
 author: dsgrieve
 manager: maverberg
-editor: ''
 tags: java
-
+ms.service: azure
+ms.devlang: java
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: dagrieve
-
 ---
 
 # Reasons to move to Java 11
