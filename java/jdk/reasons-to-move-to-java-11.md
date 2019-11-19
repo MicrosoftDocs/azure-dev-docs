@@ -118,7 +118,7 @@ its potential use with Azure performance monitoring tools.
 
 Getting a snapshot of the stack for the current thread is often used
 when logging. The problem is how much of the stack trace to log, and
-whether log the stack trace at all. For example, one may want to see
+whether to log the stack trace at all. For example, one may want to see
 the stack trace only for a certain exception from a method. The
 StackWalker class (added in Java 9) gives a snapshot of the stack and
 provides methods that give the programmer fine-grained control over
