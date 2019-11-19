@@ -7,8 +7,8 @@ editor: ''
 tags: java
 
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: David.Grieve@Microsoft.com
+ms.date: 11/19/2019
+ms.author: dagrieve
 
 ---
 
@@ -26,9 +26,9 @@ are enhancements that improve startup, performance, and memory usage.
 ## Transitioning to Java 11
 
 Transitioning to Java 11 can be done in a stepwise fashion. It is *not*
-required for code to use Java modules to run on Java 11. Code can
-continue to be developed and built with JDK 8 while being run on Java 11
-but there are some potential issues, primarily concerning deprecated
+required for code to use Java modules to run on Java 11. Development and
+can continue with JDK 8, with the JDK 8 build being run on Java 11.
+But there are some potential issues, primarily concerning deprecated
 API, class loaders, and reflection.
 
 A comprehensive guide to transitioning from Java 8 to Java 11 will be
@@ -42,8 +42,8 @@ Migration](http://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--mi
 ## High-Level Changes between Java 8 and 11
 
 This section does not enumerate all the changes made in Java versions 9 \[[1](#ref1)\], 
-10 \[[2](#ref2)\], and 11 \[[3](#ref3)\], but seeks to highlight those that have an impact on
-performance, diagnostics, and productivity.
+10 \[[2](#ref2)\], and 11 \[[3](#ref3)\]. Changes that have an impact on
+performance, diagnostics, and productivity are highlighted.
 
 ### Modules \[[4](#ref4)\]
 
@@ -53,16 +53,14 @@ difficult to manage in large scale applications running on the
 classes and interfaces, and related resources.
 
 Modules make it possible to customize runtime configurations that
-contain only the components required by an application. This creates a
+contain only the components required by an application. This customization creates a
 smaller footprint and allows an application to be statically linked, using
 [jlink](https://docs.oracle.com/en/java/javase/11/tools/jlink.html),
-into a custom runtime for deployment. This can be particularly useful
-in a microservices architecture., into a custom runtime for
-deployment. This can be particularly useful in a microservices
-architecture.
+into a custom runtime for deployment. This smaller footprint can be particularly useful
+in a microservices architecture.
 
 Internally, the JVM is able to take advantage of modules in a way that
-makes class-loading more efficient, resulting in a runtime that is
+makes class-loading more efficient. The result is a runtime that is
 smaller, lighter, and faster to start. Optimization techniques used by
 the JVM to improve application performance can be more effective
 because modules encode which components a class requires.
@@ -81,8 +79,8 @@ to transition to modules as a requisite for running on Java 11.
 #### Java Flight Recorder \[[5](#ref5)\]
 
 Java Flight Recorder (JFR) gathers diagnostic and profiling data from
-a running Java application with very little impact on a running Java
-application. The collected data can then be analyzed with JMC Java
+a running Java application. JFR has little impact on a running Java
+application. The collected data can then be analyzed with Java
 Mission Control (JMC) and other tools. Whereas JFR and JMC were
 commercial features in Java 8, both are open source in Java 11.
 
@@ -91,9 +89,9 @@ commercial features in Java 8, both are open source in Java 11.
 Java Mission Control (JMC) provides a graphical display of data
 collected by the Java Flight Recorder (JFR) and is open source in Java
 11. In addition to general information about the running application,
-JMC allows the user to drill down into the data to diagnose runtime
-issues such as memory leaks, GC overhead, hot methods, thread
-bottlenecks, and blocking I/O.
+JMC allows the user to drill down into the data. JFR and JMC can
+be used to diagnose runtime issues such as memory leaks, GC overhead, 
+hot methods, thread bottlenecks, and blocking I/O.
 
 #### Unified Logging \[[7](#ref7)\]
 
@@ -109,8 +107,8 @@ New API has been added to the Java Virtual Machine Tool Interface
 (JVMTI) for sampling Java heap allocations. The sampling has
 low-overhead and can be enabled continuously. While heap allocation
 can be monitored with Java Flight Recorder (JFR), the sampling method
-in JFR only works on allocation implementations and it may also miss
-allocations. Furthermore, the sampling in Java 11 can provide
+in JFR only works on allocations. The JFR implementation may also miss
+allocations. In contrast, heap sampling in Java 11 can provide
 information about both live and dead objects.
 
 Application Performance Monitoring (APM) vendors are starting to
@@ -143,7 +141,7 @@ Shenandoah is an experimental feature in Java 12, but there are
 backports to Java 11. The Concurrent Mark and Sweep collector (CMS) is
 available but has been deprecated since Java 9.
 
-Note that the JVM sets GC defaults for the average use-case. Often,
+The JVM sets GC defaults for the average use-case. Often,
 these defaults, and other GC settings, need to be tuned for optimum
 throughput or latency, according to the application's requirements.
 Properly tuning the GC requires deep knowledge of the GC, expertise
@@ -163,7 +161,7 @@ the young and mixed collections.
 
 #### Parallel GC
 
-The parallel collector is the default collector in Java 8. This is a
+The parallel collector is the default collector in Java 8. Parallel GC is a
 throughput collector that uses multiple threads to speed up garbage
 collection.
 
@@ -176,15 +174,13 @@ are known to be garbage-free.
 
 #### Improvements for Docker Containers \[[12](#ref12)\]
 
-Prior to Java 10, running Java in a container could cause performance
-issues because memory and CPU constraints set on the container were
-not recognized by the JVM. For example, if a Docker container is run
-with a memory limit (e.g., -m2G), the JVM will default the maximum
-heap size to ¼ of the physical memory of the underlying host. Since
+Prior to Java 10, memory and CPU constraints set on a container were
+not recognized by the JVM. In Java 8, for example, the JVM will default the maximum
+heap size to ¼ of the physical memory of the underlying host. Starting with
 Java 10, the JVM uses constraints set by container control groups
-(cgroups) and sets memory and CPU limits accordingly (see note below).
-In the example given, for Java 10+, the JVM will default the maximum
-heap size to ¼ of the container's memory limit.
+(cgroups) to set memory and CPU limits (see note below).
+For example, the default maximum heap size is ¼ of the container's memory limit 
+(e.g., 500MB for -m2G).
 
 JVM Options were also added to give Docker container users
 fine-grained control over the amount of system memory that will be
@@ -200,7 +196,7 @@ Linux-based platforms.
 #### Multi-Release jar files \[[13](#ref13)\]
 
 It is possible in Java 11 to create a jar file that contains multiple,
-Java-release-specific versions of class files. This makes it possible
+Java-release-specific versions of class files. Multi-release jar files make it possible
 for library developers to support multiple versions of Java without
 having to ship multiple versions of jar files. For the consumer of
 these libraries, multi-release jar files solves the issue of having to
@@ -225,7 +221,7 @@ The following changes to the JVM have a direct impact on performance.
 -   **JEP 310: Application Class-Data Sharing** \[[16](#ref16)\] - Class-Data
     Sharing decreases startup time by allowing archived classes to be
     memory-mapped at runtime. Application Class-Data Sharing extends
-    this by allowing application classes to be placed in the CDS
+    class-data sharing by allowing application classes to be placed in the CDS
     archive. When multiple JVMs share the same archive file, memory is
     saved, and the overall system response time improves.
 
@@ -235,14 +231,16 @@ The following changes to the JVM have a direct impact on performance.
     number of global safepoints.
 
 -   **Lazy Allocation of Compiler Threads** \[[18](#ref18)\] - In tiered
-    compilation mode, which is on by default, the VM starts a large
-    number of compiler threads on systems with many CPUs regardless of
-    the available memory and the number of compilation requests. Because
-    the threads consume memory even when they are idle (which is almost
-    all the time), this leads to an inefficient use of resources. To
+    compilation mode, the VM starts a large number of compiler threads.
+    This mode is the default on systems with many CPUs. These threads
+    are created regardless of the available memory or the number of 
+    compilation requests. Threads
+    consume memory even when they are idle (which is almost
+    all the time), which leads to an inefficient use of resources. To
     address this issue, the implementation has been changed to start
-    only one compiler thread of each type during startup and to handle
-    the start and shutdown of further threads dynamically.
+    only one compiler thread of each type during startup. Starting
+    additional threads, and shutting down unused threads, is handled
+    dynamically. 
 
 The following changes to the core libraries have an impact on
 performance of new or modified code.
@@ -259,9 +257,8 @@ performance of new or modified code.
     collections and maps with small numbers of elements. The static
     factory methods on the collection interfaces that create compact,
     unmodifiable collection instances. These instances are inherently
-    more efficient because the APIs create collections that are
-    compactly represented and do not have the indirection of a wrapper
-    class.
+    more efficient. The APIs create collections that are
+    compactly represented and do not have a wrapper class.
 
 -   **JEP 285: Spin-Wait Hints** \[[21](#ref21)\] - Provides API that allows Java
     to hint to the run-time system that it is in a spin loop. Certain
@@ -272,98 +269,98 @@ performance of new or modified code.
     client API that implements HTTP/2 and WebSocket and can replace the
     legacy HttpURLConnection API.
 
-References
-==========
+## References
+
 <a id="ref1">\[1\]</a> Oracle Corporation, \"Java Development Kit 9 Release Notes,\"
 (Online). Available: https://www.oracle.com/technetwork/java/javase/9u-relnotes-3704429.html.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref2">\[2\]</a> Oracle Corporation, \"Java Development Kit
 10 Release Notes,\" (Online). Available:
 https://www.oracle.com/technetwork/java/javase/10u-relnotes-4108739.html.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref3">\[3\]</a> Oracle Corporation, \"Java Development Kit
 11 Release Notes,\" (Online). Available:
 https://www.oracle.com/technetwork/java/javase/11u-relnotes-5093844.html.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref4">\[4\]</a> Oracle Corporation, \"Project Jigsaw,\" 22
 9 2017. (Online). Available: http://openjdk.java.net/projects/jigsaw/.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref5">\[5\]</a> Oracle Corporation, \"JEP 328: Flight
-Recorder,\" 9/9/2018. (Online). Available:
-http://openjdk.java.net/jeps/328. (Accessed 13/11/2019).
+Recorder,\" 9-Sep-2018. (Online). Available:
+http://openjdk.java.net/jeps/328. (Accessed 13-Nov-2019).
 
 <a id="ref6">\[6\]</a> Oracle
-Corporation, \"Mission Control,\" 25/4/2019. (Online). Available:
-https://wiki.openjdk.java.net/display/jmc/Main. (Accessed 13/11/2019).
+Corporation, \"Mission Control,\" 25-Apr-2019. (Online). Available:
+https://wiki.openjdk.java.net/display/jmc/Main. (Accessed 13-Nov-2019).
 
-<a id="ref10">\[7\]</a> Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 14 02
+<a id="ref7">\[7\]</a> Oracle Corporation, \"JEP 158: Unified JVM Logging,\" 14 02
 2019. (Online). Available: http://openjdk.java.net/jeps/158.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
-<a id="ref10">\[8\]</a> Oracle Corporation, \"JEP 331:
-Low-Overhead Heap Profiling,\" 5/9/2018. (Online). Available:
-http://openjdk.java.net/jeps/331. (Accessed 13/11/2019).
+<a id="ref8">\[8\]</a> Oracle Corporation, \"JEP 331:
+Low-Overhead Heap Profiling,\" 5-Sep-2018. (Online). Available:
+http://openjdk.java.net/jeps/331. (Accessed 13-Nov-2019).
 
-<a id="ref10">\[9\]</a> Oracle
-Corporation, \"JEP 259: Stack-Walking API,\" 18/07/2017. (Online).
-Available: http://openjdk.java.net/jeps/259. (Accessed 13/11/2019).
+<a id="ref9">\[9\]</a> Oracle
+Corporation, \"JEP 259: Stack-Walking API,\" 18-Jul-2017. (Online).
+Available: http://openjdk.java.net/jeps/259. (Accessed 13-Nov-2019).
 
 <a id="ref10">\[10\]</a> Oracle Corporation, \"JEP 248: Make G1 the Default Garbage
-Collector,\" 12/9/2017. (Online). Available:
-http://openjdk.java.net/jeps/248. (Accessed 13/11/2019).
+Collector,\" 12-Sep-2017. (Online). Available:
+http://openjdk.java.net/jeps/248. (Accessed 13-Nov-2019).
 
 <a id="ref11">\[11\]</a> Oracle
-Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" 24/9/2018.
-(Online). Available: http://openjdk.java.net/jeps/318. (Accessed 13/11/2019).
+Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" 24-Sep-2018.
+(Online). Available: http://openjdk.java.net/jeps/318. (Accessed 13-Nov-2019).
 
 <a id="ref12">\[12\]</a> Oracle Corporation, \"JDK-8146115 : Improve docker
-container detection and resource configuration usage,\" 16/9/2019.
+container detection and resource configuration usage,\" 16-Sep-2019.
 (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=JDK-8146115.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref13">\[13\]</a> Oracle Corporation, \"JEP 238:
-Multi-Release JAR Files,\" 22/6/2017. (Online). Available:
-http://openjdk.java.net/jeps/238. (Accessed 13/11/2019).
+Multi-Release JAR Files,\" 22-Jun-2017. (Online). Available:
+http://openjdk.java.net/jeps/238. (Accessed 13-Nov-2019).
 
 <a id="ref14">\[14\]</a> Oracle
-Corporation, \"JEP 197: Segmented Code Cache,\" 28/04/2017. (Online).
-Available: http://openjdk.java.net/jeps/197. (Accessed 13/11/2019).
+Corporation, \"JEP 197: Segmented Code Cache,\" 28-Apr-2017. (Online).
+Available: http://openjdk.java.net/jeps/197. (Accessed 13-Nov-2019).
 
 <a id="ref15">\[15\]</a> Oracle Corporation, \"JEP 254: Compact Strings,\" 18 05
 2019. (Online). Available: http://openjdk.java.net/jeps/254.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref16">\[16\]</a> Oracle Corporation, \"JEP 310:
-Application Class-Data Sharing,\" 17/8/2018. (Online). Available:
-https://openjdk.java.net/jeps/310. (Accessed 13/11/2019).
+Application Class-Data Sharing,\" 17-Aug-2018. (Online). Available:
+https://openjdk.java.net/jeps/310. (Accessed 13-Nov-2019).
 
 <a id="ref17">\[17\]</a> Oracle
-Corporation, \"JEP 312: Thread-Local Handshakes,\" 21/8/2019.
-(Online). Available: https://openjdk.java.net/jeps/312. (Accessed 13/11/2019).
+Corporation, \"JEP 312: Thread-Local Handshakes,\" 21-Aug-2019.
+(Online). Available: https://openjdk.java.net/jeps/312. (Accessed 13-Nov-2019).
 
 <a id="ref18">\[18\]</a> Oracle Corporation, \"JDK-8198756 : Lazy allocation of
-compiler threads,\" 29/10/2018. (Online). Available:
+compiler threads,\" 29-Oct-2018. (Online). Available:
 https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=8198756.
-(Accessed 13/11/2019).
+(Accessed 13-Nov-2019).
 
 <a id="ref19">\[19\]</a> Oracle Corporation, \"JEP 193: Variable
-Handles,\" 17/8/2017. (Online). Available:
-https://openjdk.java.net/jeps/193. (Accessed 13/11/2019).
+Handles,\" 17-Aug-2017. (Online). Available:
+https://openjdk.java.net/jeps/193. (Accessed 13-Nov-2019).
 
 <a id="ref20">\[20\]</a> Oracle
 Corporation, \"JEP 269: Convenience Factory Methods for Collections,\"
-26/6/2017. (Online). Available: https://openjdk.java.net/jeps/269.
-(Accessed 13/11/2019).
+26-Jun-2017. (Online). Available: https://openjdk.java.net/jeps/269.
+(Accessed 13-Nov-2019).
 
 <a id="ref21">\[21\]</a> Oracle Corporation, \"JEP 285: Spin-Wait
-Hints,\" 20/8/2017. (Online). Available:
-https://openjdk.java.net/jeps/285. (Accessed 13/11/2019).
+Hints,\" 20-Aug-2017. (Online). Available:
+https://openjdk.java.net/jeps/285. (Accessed 13-Nov-2019).
 
 <a id="ref22">\[22\]</a> Oracle
-Corporation, \"JEP 321: HTTP Client (Standard),\" 27/9/2018. (Online).
-Available: https://openjdk.java.net/jeps/321. (Accessed 13/11/2019).
+Corporation, \"JEP 321: HTTP Client (Standard),\" 27-Sep-2018. (Online).
+Available: https://openjdk.java.net/jeps/321. (Accessed 13-Nov-2019).
