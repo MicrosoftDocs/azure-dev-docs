@@ -25,8 +25,8 @@ are enhancements that improve startup, performance, and memory usage.
 ## Transitioning to Java 11
 
 Transitioning to Java 11 can be done in a stepwise fashion. It is *not*
-required for code to use Java modules to run on Java 11. Development and
-can continue with JDK 8, with the JDK 8 build being run on Java 11.
+required for code to use Java modules to run on Java 11. Java 11 can be
+used to run code developed and built with JDK 8.
 But there are some potential issues, primarily concerning deprecated
 API, class loaders, and reflection.
 
