@@ -62,8 +62,6 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Review and create**.
 
-   ![Create your SQL database][SQL04]
-
 ### Configure a firewall rule for your SQL server using the Azure Portal
 
 After your SQL database and server are created, you can configure security settings.
