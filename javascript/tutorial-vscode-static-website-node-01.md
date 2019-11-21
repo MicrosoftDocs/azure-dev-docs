@@ -23,7 +23,7 @@ In this tutorial, you create and deploy a static website to Azure using [Azure S
 
 ### Azure subscription
 
-If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-static-website&mktingSource=vscode-tutorial-static-website) for a free account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-static-website&mktingSource=vscode-tutorial-static-website) for a free account with $200 in Azure credits to try out any combination of services.
 
 ## Sign in to Azure
 
