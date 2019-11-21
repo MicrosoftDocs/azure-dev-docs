@@ -52,19 +52,19 @@
     },
     "fileMetadata": {
       "author": {
-        "javascript/**/*.md": "kraigb"        
+        "*.md": "kraigb"        
       },
       "manager": {
-        "javascript/**/*.md": "barbkess"        
+        "*.md": "barbkess"        
       },
       "ms.author": {
-        "javascript/**/*.md": "kraigb"        
+        "*.md": "kraigb"        
       },      
       "ms.devlang": {
-        "javascript/**/*.md": "nodejs"
+        "*.md": "nodejs"
       },      
       "ms.service": {
-        "javascript/**/*.md": "azure-nodejs"        
+        "*.md": "azure-nodejs"        
       }      
     },
     "template": [],
