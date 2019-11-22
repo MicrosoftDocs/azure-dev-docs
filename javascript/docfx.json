@@ -63,7 +63,7 @@
       "ms.devlang": {
         "*.md": "nodejs"
       },      
-      "ms.service": {
+      "ms.prod": {
         "*.md": "azure-nodejs"        
       }      
     },
