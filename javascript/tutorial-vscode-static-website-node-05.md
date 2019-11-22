@@ -1,10 +1,6 @@
 ---
 title: Deploy changes to a static Node.js website from Visual Studio Code
 description: Tutorial part 5, make changes and redeploy
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan

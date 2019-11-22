@@ -1,13 +1,8 @@
 ---
 title: Create an Azure Storage account for a static Node.js website from Visual Studio Code
 description: Tutorial part 3, create an Azure Storage account
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: kraigb
 ---
 
 # Create an Azure Storage account

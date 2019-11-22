@@ -1,13 +1,8 @@
 ---
 title: Stream logs from Azure App Service
 description: Tutorial part 5, view logs
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: kraigb
 ---
 
 # Stream logs from App Service

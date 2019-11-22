@@ -1,13 +1,8 @@
 ---
 title: Clean up resource after deploying the Azure Functions application to azure
 description: Tutorial part 5, clean up resources.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: kraigb
 ---
 
 # Clean up resources
