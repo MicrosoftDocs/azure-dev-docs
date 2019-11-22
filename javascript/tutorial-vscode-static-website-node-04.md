@@ -1,10 +1,6 @@
 ---
 title: Deploy the static Node.js app files to Azure Storage from Visual Studio Code
 description: Tutorial part 4, deploy the files to Azure Storage
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan

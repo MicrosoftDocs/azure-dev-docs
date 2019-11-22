@@ -1,13 +1,8 @@
 ---
 title: Use a container registry from Visual Studio Code
 description: Tutorial part 2, use a container registry
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Use a container registry
@@ -16,7 +11,7 @@ ms.author: kraigb
 
 In this step, you set up a suitable container registry for your app image. Container-capable hosting services like Azure App Service then pull the images from the registry.
 
-This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR), a private, secure, hosted registry for your images. The tools and processes shown here, however, also work with other registries like [Docker Hub](https://hub.docker.com/).
+This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR), a private, secure, hosted registry for your images. The tools and processes shown here, however, also work with other registries like [Docker Hub](https://hub.docker.com/).
 
 ## Create an Azure Container Registry
 

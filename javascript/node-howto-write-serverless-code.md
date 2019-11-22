@@ -1,13 +1,8 @@
 ---
 title: Write serverless Node.js code with Azure Functions
 description: Guidance on how to use Azure Functions to create and deploy serverless code using Azure Functions.
-author: kraigb
-manager: barbkess
-ms.devlang: nodejs
 ms.topic: article
-ms.service: azure-nodejs
 ms.date: 08/19/2019
-ms.author: kraigb
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 

@@ -1,13 +1,8 @@
 ---
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Tutorial part 3, create a Node.js application image
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Create your Node.js application image

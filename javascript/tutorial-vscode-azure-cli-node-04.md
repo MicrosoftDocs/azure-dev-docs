@@ -1,13 +1,8 @@
 ---
 title: Deploy the app code to Azure App Service using the Azure CLI
 description: Tutorial part 4, deploy the website
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: kraigb
 ---
 
 # Deploy the app to App Service

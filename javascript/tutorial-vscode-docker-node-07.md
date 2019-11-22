@@ -1,13 +1,8 @@
 ---
 title: Clean up resources after deploying a containerized Node.js app from Visual Studio Code
 description: Tutorial part 6, clean up resources
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Clean up resources

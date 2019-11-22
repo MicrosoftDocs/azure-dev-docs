@@ -1,13 +1,8 @@
 ---
 title: Deploy the Azure Functions application from Visual Studio Code
 description: Tutorial part 4, deploy the Functions app to the cloud.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: kraigb
 ---
 
 # Deploy the Functions app
@@ -24,7 +19,7 @@ ms.author: kraigb
 
 1. At the next prompt, enter a globally unique name for your Function App and press **Enter**. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
-1. At the next prompt, select an Azure [region](https://azure.microsoft.com/en-us/regions/) close to you.
+1. At the next prompt, select an Azure [region](https://azure.microsoft.com/regions/) close to you.
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress:
 

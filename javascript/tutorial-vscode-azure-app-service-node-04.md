@@ -1,13 +1,8 @@
 ---
 title: Stream logs from Azure App Service into Visual Studio Code
 description: Tutorial part 4, view or tail logs.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: kraigb
 ---
 
 # Stream logs from Azure App Service
