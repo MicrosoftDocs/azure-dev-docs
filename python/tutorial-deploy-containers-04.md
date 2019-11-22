@@ -1,13 +1,8 @@
 ---
 title: "Tutorial: Stream logs from Azure App Service for a container into Visual Studio Code"
 description: Tutorial part 4, viewing logs from Azure App Service to monitor its behavior.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 

@@ -3,9 +3,6 @@ title: Get started with cloud development using the Azure libraries for Python
 metadata:
   title: Get started with Azure libraries for Python
   description: Learn how to create Azure cloud resources and connect and use them in your python applications. 
-  author: kraigb
-  ms.author: kraigb
-  manager: barbkess
   audience: Developer
   level: Beginner
   nextTutorialHref: /python/api/overview/azure/?view=azure-python

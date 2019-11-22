@@ -1,12 +1,8 @@
 ---
 title: Connect to all regions - Azure SDK for Python Multi-cloud 
 description: use Azure on all regions
-author: sptramer 
-ms.author: sttramer
-manager: carmonm
 ms.date: 02/22/2018
 ms.topic: conceptual
-ms.devlang: python
 ms.custom: seo-python-october2019
 ---
 

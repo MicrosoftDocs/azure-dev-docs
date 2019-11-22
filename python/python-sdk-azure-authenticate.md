@@ -1,12 +1,8 @@
 ---
 title: Authenticate with the Azure management libraries for Python
 description: Authenticate with a service principal into the Azure management libraries for Python
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.date: 04/11/2019
 ms.topic: conceptual
-ms.devlang: python
 ms.custom: seo-python-october2019
 ---
 

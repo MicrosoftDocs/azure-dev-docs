@@ -1,12 +1,8 @@
 ---
 title: Managed Disks
 description: Create, resizing, and updating a managed disk.
-author: sptramer
-manager: carmonm
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 6/15/2017
-ms.author: sttramer
 ---
 
 # Managed Disks
