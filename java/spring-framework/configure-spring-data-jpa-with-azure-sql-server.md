@@ -30,7 +30,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure SQL Database
 
-### Create a SQL database server using the Azure Portal
+### Create a SQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -62,7 +62,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Review and create**.
 
-### Configure a firewall rule for your SQL server using the Azure Portal
+### Configure a firewall rule for your SQL server using the Azure portal
 
 After your SQL database and server are created, you can configure security settings.
 
@@ -78,7 +78,7 @@ After your SQL database and server are created, you can configure security setti
 
    ![Configure firewall settings][SQL07]
 
-### Retrieve the connection string for your SQL server using the Azure Portal
+### Retrieve the connection string for your SQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
