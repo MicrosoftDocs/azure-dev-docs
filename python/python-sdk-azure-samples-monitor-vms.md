@@ -1,12 +1,8 @@
 ---
 title: Azure Monitor
 description: Inspect and configure metrics reporting from Azure Monitor.
-author: sptramer
-manager: carmonm
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 6/15/2017
-ms.author: sttramer
 ---
 
 # Azure Monitor
@@ -14,7 +10,7 @@ ms.author: sttramer
 This sample get the metrics of a resource on Azure (VMs, etc.).
 
 A complete list of available keywords for filters is available
-[here](https://msdn.microsoft.com/en-us/library/azure/mt743622.aspx)
+[here](https://msdn.microsoft.com/library/azure/mt743622.aspx)
 
 ```python
 import datetime

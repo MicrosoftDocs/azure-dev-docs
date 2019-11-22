@@ -1,13 +1,8 @@
 ---
 title: Azure SDK for Python
 description: Overview of the features and capabilities of the Azure SDK for Python that helps developers be more productive when working with Azure services.
-author: kraigb
-ms.author: kraigb
-manager: barbkess
-ms.service: multiple
 ms.date: 10/30/2019
 ms.topic: conceptual
-ms.devlang: python
 ---
 
 # Azure SDK for Python

@@ -96,6 +96,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "python/python-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/python/python-sdk-azure-overview",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/go/azure-sdk-go-auth-aad-samples",
       "redirect_document_id": true

@@ -1,13 +1,8 @@
 ---
 title: "Tutorial: Clean up Azure resources - Azure Functions in Python"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
-services: functions
-author: kraigb
-manager: barbkess
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 

@@ -1,19 +1,15 @@
 ---
 title: Azure tools for Python developers | Microsoft Docs
 description: IDE integrations and command-line interfaces for Python developers working on Azure.
-author: sptramer
-manager: carmonm
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 06/21/2017
-ms.author: sttramer
 ---
 
 # Azure tools for Python developers
 
 ## Azure CLI 2.0
 
-The Azure 2.0 CLI provides a command line interface to create and configure Azure resources in your subscriptions. The Azure CLI 2.0 is cross-platform and has query and filtering features so you can pipe output directly to your favorite command line tools. 
+The Azure 2.0 CLI provides a command-line interface to create and configure Azure resources in your subscriptions. The Azure CLI 2.0 is cross-platform and has query and filtering features so you can pipe output directly to your favorite command-line tools.
 
 [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -28,6 +24,6 @@ Visual Studio on Windows provides open-source support for the Python language th
 [Install Python support in Visual Studio](https://docs.microsoft.com/visualstudio/python/installation)
 
 ## Azure Notebooks (Preview)
-Azure Notebooks is a hosted service for Jupyter Notebooks that requires no installation. It enables you to get started quickly on prototyping, data science, academic research, or learning to program Python, R and F#. You can combine code, markdown, images, videos, graphs, all in one format.
+Azure Notebooks is a hosted service for Jupyter Notebooks that requires no installation. It enables you to get started quickly on prototyping, data science, academic research, or learning to program Python, R, and F#. You can combine code, markdown, images, videos, graphs, all in one format.
 
 [Get started with Azure Notebooks](https://notebooks.azure.com/)
