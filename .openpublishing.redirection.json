@@ -97,7 +97,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-release-notes.md",
-      "redirect_url": "/azure/python/python-azure-sdk-overview",
+      "redirect_url": "/azure/python/python-sdk-azure-overview",
       "redirect_document_id": true
     },    
     {
