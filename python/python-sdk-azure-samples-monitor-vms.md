@@ -10,7 +10,7 @@ ms.date: 6/15/2017
 This sample get the metrics of a resource on Azure (VMs, etc.).
 
 A complete list of available keywords for filters is available
-[here](https://msdn.microsoft.com/en-us/library/azure/mt743622.aspx)
+[here](https://msdn.microsoft.com/library/azure/mt743622.aspx)
 
 ```python
 import datetime
