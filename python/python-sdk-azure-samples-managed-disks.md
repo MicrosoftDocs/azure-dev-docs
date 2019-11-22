@@ -7,9 +7,9 @@ ms.date: 6/15/2017
 
 # Managed Disks
 
-Azure Managed Disks provide a simplified disk Management, enhanced Scalability, better Security and Scale. It takes away the notion of storage account for disks, enabling customers to scale without worrying about the limitations associated with storage accounts. This post provides a quick introduction and reference on consuming the service from Python.
+Azure Managed Disks provide a simplified disk Management, enhanced Scalability, better Security, and Scale. It takes away the notion of storage account for disks, enabling customers to scale without worrying about the limitations associated with storage accounts. This post provides a quick introduction and reference on consuming the service from Python.
 
-From a developer perspective, the Managed Disks experience in Azure CLI is idomatic to the CLI experience in other cross-platform tools. You can use the [Azure Python](https://azure.microsoft.com/develop/python/) SDK and the [azure-mgmt-compute package 0.33.0](https://pypi.python.org/pypi/azure-mgmt-compute) to administer Managed Disks. You can create a compute client using this [tutorial](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python).
+From a developer perspective, the Managed Disks experience in Azure CLI is idiomatic to the CLI experience in other cross-platform tools. You can use the [Azure Python](https://azure.microsoft.com/develop/python/) SDK and the [azure-mgmt-compute package 0.33.0](https://pypi.python.org/pypi/azure-mgmt-compute) to administer Managed Disks. You can create a compute client using this [tutorial](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python).
 
 ## Standalone Managed Disks
 
@@ -115,7 +115,7 @@ storage_profile = azure.mgmt.compute.models.StorageProfile(
 )
 ```
 
-This ``storage_profile`` parameter is now valid. To get a complete example on how to create a VM in Python (including network, etc), check the full [VM tutorial in Python](https://github.com/Azure-Samples/virtual-machines-python-manage).
+This ``storage_profile`` parameter is now valid. To get a complete example on how to create a VM in Python (including network, etc.), check the full [VM tutorial in Python](https://github.com/Azure-Samples/virtual-machines-python-manage).
 
 You can also create a ``storage_profile`` from your own image:
 
@@ -153,11 +153,11 @@ async_update = compute_client.virtual_machines.create_or_update(
 async_update.wait()
 ```
 
-## Virtual machine Scale Sets with Managed Disks
+## Virtual machine scale sets with Managed Disks
 
 Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter ``vhd_containers`` to provide all the storage account name to the Scale Set RestAPI. The official transition guide is available in this article `<https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md>`.
 
-Now with Managed Disk, you don't have to manage any storage account at all. If you're are used to the VMSS Python SDK, your ``storage_profile`` can now be exactly the same as the one used in VM creation:
+Now with Managed Disk, you don't have to manage any storage account at all. If you're used to the virtual machine scale set Python SDK, your ``storage_profile`` can now be exactly the same as the one used in VM creation:
 
 ```python
 'storage_profile': {

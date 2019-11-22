@@ -71,7 +71,7 @@ credentials = ServicePrincipalCredentials(
 
 If you need more control, it is recommended to use [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-python)
 and the SDK ADAL wrapper. Please refer to the ADAL website for all the available scenarios
-list and samples. For instance for service principal authentication:
+list and samples. For instance, for service principal authentication:
 
 ```python
 import adal
@@ -215,9 +215,9 @@ client = get_client_from_cli_profile(ComputeManagementClient)
 
 ## <a name="mgmt-auth-legacy"></a>Authenticate with token credentials (legacy)
 
-In previous version of the SDK, ADAL was not yet available and we provided a `UserPassCredentials` class. This is considered deprecated and should not be used anymore.
+In previous version of the SDK, ADAL was not yet available and we provided a `UserPassCredentials` class. Using this class is considered deprecated and should not be used anymore.
 
-This sample shows user/password scenario. This does not support 2FA.
+This sample shows user/password scenario, which does not support 2FA.
 
 ```python
 from azure.common.credentials import UserPassCredentials
