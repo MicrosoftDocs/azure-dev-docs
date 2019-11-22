@@ -65,7 +65,8 @@
       },      
       "ms.prod": {
         "*.md": "azure-python"        
-      }  
+      }
+    },
     "template": [],
     "dest": "azure-python",
     "markdownEngineName": "markdig"
