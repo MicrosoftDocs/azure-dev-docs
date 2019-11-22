@@ -67,11 +67,9 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Connection security**.
 
+1. Create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
+
    ![Select your PostgreSQL database][POSTGRESQL03]
-
-1. In the **Firewall rules**, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
-
-   ![Configure connection security][POSTGRESQL04]
 
 ### Retrieve the connection string for your PostgreSQL server using the Azure portal
 
