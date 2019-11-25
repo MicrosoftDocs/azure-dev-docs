@@ -1,13 +1,8 @@
 ---
 title: "Tutorial: Create the App Service from Visual Studio Code"
 description: Tutorial step 3, creating the App Service from the VS Code extension.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 

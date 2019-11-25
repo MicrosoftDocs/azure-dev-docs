@@ -1,13 +1,8 @@
 ---
 title: "Tutorial: Deploy a container image to Azure App Service with Visual Studio Code"
 description: Tutorial step 2, deploying the actual Docker image to Azure App Service from a container registry.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: kraigb
 ms.custom: seo-python-october2019
 ---
 
