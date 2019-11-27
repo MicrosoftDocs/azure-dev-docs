@@ -53,8 +53,10 @@ The libraries that currently work with the Core library are as follows:
 
 - `azure-storage-blob`
 - `azure-storage-queue`
+- `azure-storage-file-share`
 - `azure-keyvault-keys`
 - `azure-keyvault-secrets`
+- `azure-identity`
 
 ## Manage Azure resources
 
