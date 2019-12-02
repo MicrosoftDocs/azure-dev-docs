@@ -5,7 +5,7 @@ documentationcenter: java
 author: bmitchell287
 manager: douge
 ms.author: brendm
-ms.date: 12/19/2018
+ms.date: 11/27/2019
 ms.devlang: java
 ms.service: mysql
 ms.tgt_pltfrm: multiple
@@ -13,8 +13,6 @@ ms.topic: conceptual
 ---
 
 # How to use Spring Data JPA with Azure Database for MySQL
-
-## Overview
 
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure Database for MySQL](/azure/mysql/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
 
@@ -45,27 +43,24 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Enter the following information:
 
-   - **Server name**: Choose a unique name for your Azure Database for MySQL server; this will be used to create a fully-qualified domain name like *wingtiptoysmysql.mysql.database.azure.com*.
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
+   - **Server name**: Choose a unique name for your MySQL server; this will be used to create a fully-qualified domain name like *wingtiptoysmysql.mysql.database.azure.com*.
    - **Select source**: For this tutorial, select `Blank` to create a new database.
    - **Server admin login**: Specify the database administrator name.
    - **Password** and **Confirm password**: Specify the password for your database administrator.
    - **Location**: Specify the closest geographic region for your database.
    - **Version**: Specify the most-up-to-date database version.
-   - **Pricing tier**: For this tutorial, specify the least-expensive pricing tier.
 
    ![Create your MySQL database properties][MYSQL02]
 
-1. When you have entered all of the above information, click **Create**.
+1. When you have entered all of the above information, click **Review + create**.
 
 ### Configure a firewall rule for your server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the MySQL database you just created.
-
-   ![Select your MySQL database][MYSQL03]
 
 1. Click **Connection security**, and in the **Firewall rules**, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
 
@@ -76,8 +71,6 @@ The following prerequisites are required in order to complete the steps in this 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the Azure Database for MySQL resource you just created.
-
-   ![Select your MySQL database][MYSQL03]
 
 1. Click **Connection strings**, and copy the value in the **JDBC** text field.
 
@@ -252,6 +245,5 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 [MYSQL01]: media/configure-spring-data-jpa-with-azure-mysql/create-mysql-01.png
 [MYSQL02]: media/configure-spring-data-jpa-with-azure-mysql/create-mysql-02.png
-[MYSQL03]: media/configure-spring-data-jpa-with-azure-mysql/create-mysql-03.png
 [MYSQL04]: media/configure-spring-data-jpa-with-azure-mysql/create-mysql-04.png
 [MYSQL05]: media/configure-spring-data-jpa-with-azure-mysql/create-mysql-05.png
