@@ -1,5 +1,6 @@
 ---
-title: Deploy a Hello World web app running in a Linux container in the cloud using the Azure Toolkit for Eclipse
+title: Deploy a Hello World app to a Linux cloud container
+titleSuffix: Azure Toolkit for Eclipse 
 description: Run a basic Hello World web app in a Linux container and deploy it to the cloud using the Azure Toolkit for Eclipse.
 services: app-service\web
 documentationcenter: java
