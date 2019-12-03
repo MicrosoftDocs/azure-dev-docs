@@ -2,14 +2,9 @@
 title: Configure webapp deployments using Java | Microsoft Docs
 description: Sample Java code to configure Git or FTP Azure App Service deployments  using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: 833e9c78-1e50-4c23-a611-f73a2f0c2983
-ms.service: azure
-ms.devlang: java
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: brendm;asirveda
-
 ---
 
 # Configure Azure App Service deployment sources from your Java applications

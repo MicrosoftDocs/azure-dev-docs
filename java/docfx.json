@@ -50,7 +50,23 @@
         }
       }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "ms.devlang": {
+        "**/*.md": "java"
+      },
+      "ms.service": {
+        "**/*.md": "azure-java"
+      },
+      "manager": {
+        "**/*.md": "barbkess"
+      },
+      "ms.author": {
+        "**/*.md": "brendm"
+      },
+      "author": {
+        "**/*.md": "bmitchell287"
+      }
+    },
     "template": [],
     "markdownEngineName": "markdig"
   }

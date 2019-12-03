@@ -1,20 +1,11 @@
 ---
 title: Manage virtual machines with Azure Explorer for Eclipse
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for Eclipse.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.author: brendm
 ms.date: 11/13/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Manage virtual machines by using the Azure Explorer for Eclipse

@@ -2,11 +2,8 @@
 title: How to use Spring and Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
-author: bmitchell287
-ms.author: brendm
 ms.reviewer: joshuapa 
 ms.date: 4/24/2019
-ms.devlang: java
 ms.service: cosmos-db
 ms.topic: article
 ---
@@ -259,7 +256,7 @@ bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEG
 2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
 2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
 2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: http://aka.ms/webapp-linux
+2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
 2018-10-28T22:44:56.266260910Z Setup openrc ...
 2018-10-28T22:44:57.396926506Z Service `hwdrivers needs non existent service dev
 2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]

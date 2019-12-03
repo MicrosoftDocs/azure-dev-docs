@@ -6,7 +6,6 @@ documentationcenter: java
 author: dhaval24
 ms.author: dhdoshi
 ms.date: 11/29/2019
-ms.devlang: java
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article

@@ -2,14 +2,9 @@
 title: Manage SQL database elastic pools with Java | Microsoft Docs
 description: Sample code to create and configure Azure SQL databases using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: 9b461de8-46bc-4650-8e9e-59531f4e2a53
 ms.topic: article
-ms.service: azure
-ms.devlang: java
-
 ms.date: 3/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
 ---
 
