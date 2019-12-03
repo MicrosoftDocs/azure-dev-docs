@@ -4,8 +4,6 @@ description: A summary-level document intended for decision makers who are weigh
 author: dsgrieve
 manager: maverberg
 tags: java
-ms.service: azure
-ms.devlang: java
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: dagrieve

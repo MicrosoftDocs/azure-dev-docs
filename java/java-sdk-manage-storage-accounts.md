@@ -2,15 +2,9 @@
 title: Manage Azure storage accounts with Java | Microsoft Docs
 description: Sample code to manage Azure storage accounts using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: 49be8b66-3b56-4c10-8f14-9d326d815cb4
-ms.devlang: java
 ms.topic: article
-ms.service: azure
-ms.devlang: java
-
 ms.date: 3/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
 ---
 

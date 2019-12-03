@@ -5,8 +5,6 @@ author: seanli1988
 manager: kyliel
 ms.author: Sean.Li
 ms.date: 08/21/2019
-ms.devlang: java
-ms.service: azure-java
 ms.topic: article
 ---
 

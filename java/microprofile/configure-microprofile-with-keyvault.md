@@ -4,13 +4,8 @@ description: Learn how to inject secrets into a MicroProfile web service with Az
 services: key-vault
 documentationcenter: java
 author: jonathangiles
-manager: douge
-editor: jonathangiles
-
-ms.assetid:
 ms.author: jogiles
 ms.date: 09/07/2018
-ms.devlang: java
 ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: article

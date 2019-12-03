@@ -2,20 +2,11 @@
 title: Publish a Spring Boot app as a Docker container 
 titleSuffix: Azure Toolkit for IntelliJ
 description: Learn how to publish a web app to Microsoft Azure as a Docker container by using the Azure Toolkit for IntelliJ.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.author: brendm
 ms.date: 11/13/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ

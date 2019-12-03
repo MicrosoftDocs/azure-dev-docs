@@ -1,20 +1,11 @@
 ---
 title: Sign-in instructions for the Azure Toolkit for IntelliJ
 description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit for IntelliJ.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.author: brendm
 ms.date: 02/01/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Sign-in instructions for the Azure Toolkit for IntelliJ

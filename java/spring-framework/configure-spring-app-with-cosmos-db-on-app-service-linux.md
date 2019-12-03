@@ -2,11 +2,8 @@
 title: How to use Spring and Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
-author: bmitchell287
-ms.author: brendm
 ms.reviewer: joshuapa 
 ms.date: 4/24/2019
-ms.devlang: java
 ms.service: cosmos-db
 ms.topic: article
 ---

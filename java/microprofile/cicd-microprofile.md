@@ -5,13 +5,9 @@ services: devops
 documentationcenter: MicroProfile
 author: ruyakubu
 manager: brunoborges
-editor: ruyakubu
-
-ms.assetid:
 ms.author: ruyakubu
 ms.date: 07/31/2019
-ms.devlang: Java
-ms.service: Azure DevOps
+ms.service: devops
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web

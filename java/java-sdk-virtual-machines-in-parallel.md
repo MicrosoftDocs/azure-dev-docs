@@ -2,15 +2,10 @@
 title: Create VMs across regions in parallel | Microsoft Docs
 description: Sample code to create virtual machines across different Azure regions in parallel using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: e5a36699-2d96-4571-84f9-a6af13f3c067
-ms.service: azure
-ms.devlang: java
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
-
 ---
 
 # Create virtual machines across multiple regions from your Java applications
