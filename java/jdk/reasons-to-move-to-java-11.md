@@ -31,14 +31,14 @@ But there are some potential issues, primarily concerning deprecated
 API, class loaders, and reflection.
 
 A comprehensive guide to transitioning from Java 8 to Java 11 will be
-forthcoming from the Microsoft Java Platform Group. Meanwhile, there are
+forthcoming from the Microsoft Java Engineering Group. Meanwhile, there are
 many guides for transitioning from Java 8 to Java 9 that can get you
 started. For example, [Java Platform, Standard Edition Oracle JDK 9
 Migration Guide](https://docs.oracle.com/javase/9/migrate/toc.htm) and
 [The State of the Module System: Compatibility and
 Migration](http://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--migration).
 
-## High-Level Changes between Java 8 and 11
+## High-level changes between Java 8 and 11
 
 This section does not enumerate all the changes made in Java versions 9 \[[1](#ref1)\], 
 10 \[[2](#ref2)\], and 11 \[[3](#ref3)\]. Changes that have an impact on
@@ -73,7 +73,7 @@ easier to maintain.
 An application can continue to use the *classpath* and does not have
 to transition to modules as a requisite for running on Java 11.
 
-### Profiling and Diagnostics
+### Profiling and diagnostics
 
 #### Java Flight Recorder \[[5](#ref5)\]
 
@@ -92,7 +92,7 @@ JMC allows the user to drill down into the data. JFR and JMC can
 be used to diagnose runtime issues such as memory leaks, GC overhead, 
 hot methods, thread bottlenecks, and blocking I/O.
 
-#### Unified Logging \[[7](#ref7)\]
+#### Unified logging \[[7](#ref7)\]
 
 Java 11 has a common logging system for all components of the JVM.
 This unified logging system allows the user to define what components
@@ -100,7 +100,7 @@ to log, and to what level. This fine-grained logging is useful for
 performing root-cause analysis on JVM crashes and for diagnosing
 performance issues in a production environment.
 
-#### Low-Overhead Heap Profiling \[[8](#ref8)\]
+#### Low-overhead heap profiling \[[8](#ref8)\]
 
 New API has been added to the Java Virtual Machine Tool Interface
 (JVMTI) for sampling Java heap allocations. The sampling has
@@ -111,7 +111,7 @@ allocations. In contrast, heap sampling in Java 11 can provide
 information about both live and dead objects.
 
 Application Performance Monitoring (APM) vendors are starting to
-utilize this new feature and the Java Platform Group is investigating
+utilize this new feature and the Java Engineering Group is investigating
 its potential use with Azure performance monitoring tools.
 
 #### StackWalker \[[9](#ref9)\]
@@ -124,7 +124,7 @@ StackWalker class (added in Java 9) gives a snapshot of the stack and
 provides methods that give the programmer fine-grained control over
 how to consume the stack trace.
 
-### Garbage Collection \[[10](#ref10)\]
+### Garbage collection \[[10](#ref10)\]
 
 The following garbage collectors are available in Java 11: Serial,
 Parallel, Garbage-First, and Epsilon. The default garbage collector in
@@ -171,7 +171,7 @@ any memory. When the heap is exhausted, the JVM will shut down.
 Epsilon is useful for short-lived services and for applications that
 are known to be garbage-free.
 
-#### Improvements for Docker Containers \[[12](#ref12)\]
+#### Improvements for docker containers \[[12](#ref12)\]
 
 Prior to Java 10, memory and CPU constraints set on a container were
 not recognized by the JVM. In Java 8, for example, the JVM will default the maximum
@@ -192,7 +192,7 @@ Linux-based platforms.
 > Most of the cgroup enablement work was backported to Java 8 as of
 > jdk8u191. Further improvements may not necessarily be backported to 8.
 
-#### Multi-Release jar files \[[13](#ref13)\]
+#### Multi-release jar files \[[13](#ref13)\]
 
 It is possible in Java 11 to create a jar file that contains multiple,
 Java-release-specific versions of class files. Multi-release jar files make it possible
@@ -201,7 +201,7 @@ having to ship multiple versions of jar files. For the consumer of
 these libraries, multi-release jar files solves the issue of having to
 match specific jar files to specific runtime targets.
 
-## Miscellaneous Performance Improvements
+## Miscellaneous performance improvements
 
 The following changes to the JVM have a direct impact on performance.
 
