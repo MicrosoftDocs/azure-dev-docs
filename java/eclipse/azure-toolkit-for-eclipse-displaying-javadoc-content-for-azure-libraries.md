@@ -1,5 +1,6 @@
 ---
-title: Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
+title: Display Javadoc Content in Eclipse
+titleSuffix: Azure Libraries for Java 
 description: How to display the Javadoc content for the Azure Libraries in Eclipse.
 services: ''
 documentationcenter: java

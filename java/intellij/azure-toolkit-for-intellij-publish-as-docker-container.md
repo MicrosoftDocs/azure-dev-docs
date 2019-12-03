@@ -1,5 +1,6 @@
 ---
-title: Publish a Docker container by using the Azure Toolkit for IntelliJ
+title: Publish a web app as a Docker container
+titleSuffix: Azure Toolkit for IntelliJ
 description: Learn how to publish a web app to Microsoft Azure as a Docker container by using the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java

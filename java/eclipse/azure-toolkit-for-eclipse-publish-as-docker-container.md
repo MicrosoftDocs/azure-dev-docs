@@ -1,5 +1,6 @@
 ---
-title: Publish a Docker container by using the Azure Toolkit for Eclipse
+title: Publish a web app as a Docker container
+titleSuffix: Azure Toolkit for Eclipse
 description: Learn how to publish a web app to Microsoft Azure as a Docker container by using the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
