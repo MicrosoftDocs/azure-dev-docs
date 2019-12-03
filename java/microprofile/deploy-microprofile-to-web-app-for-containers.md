@@ -7,7 +7,7 @@ documentationcenter: java
 author: jonathangiles
 ms.author: jogiles
 ms.date: 09/07/2018
-ms.service: [container-registry, app-service]
+ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
