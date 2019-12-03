@@ -261,7 +261,7 @@ In this section, you create the necessary Java classes for sending messages to y
 
 ## Clean up resources
 
-When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 

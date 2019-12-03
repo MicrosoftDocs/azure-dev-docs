@@ -7,7 +7,6 @@ author: ruyakubu
 manager: brunoborges
 ms.author: ruyakubu
 ms.date: 07/31/2019
-ms.service: devops
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web

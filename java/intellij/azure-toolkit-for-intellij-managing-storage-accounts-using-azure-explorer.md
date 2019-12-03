@@ -106,7 +106,7 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 [About Azure storage accounts]: /azure/storage/storage-create-storage-account
 [Azure storage replication]: /azure/storage/storage-redundancy
 [Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets
-[Naming and referencing containers, blobs, and metadata]: http://go.microsoft.com/fwlink/?LinkId=255555
+[Naming and referencing containers, blobs, and metadata]: https://go.microsoft.com/fwlink/?LinkId=255555
 
 [Sizes for Windows storage accounts in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Sizes for Linux storage accounts in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes

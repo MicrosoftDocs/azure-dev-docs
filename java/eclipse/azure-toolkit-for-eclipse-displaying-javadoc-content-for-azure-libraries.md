@@ -26,7 +26,7 @@ This procedure assumes you have already added the Azure Library for Java to your
 
 1. You can specify a **Javadoc URL**, or a **Javadoc in archive**.
 
-   * If you choose to specify a **Javadoc URL**, use the URLs such as **http://dl.windowsazure.com/javadoc** or **http://dl.windowsazure.com/storage/javadoc**.
+   * If you choose to specify a **Javadoc URL**, use the URLs such as **https://dl.windowsazure.com/javadoc** or **https://dl.windowsazure.com/storage/javadoc**.
 
    * If you choose to use **Javadoc in archive**, you can specify an external file, or a workspace file.
 
