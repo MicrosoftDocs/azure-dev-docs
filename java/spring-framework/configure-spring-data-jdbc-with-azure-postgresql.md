@@ -3,13 +3,7 @@ title: How to use Spring Data JDBC with Azure PostgreSQL
 description: Learn how to use Spring Data JDBC with an Azure PostgreSQL database.
 services: postgresql
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -34,7 +28,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create a PostgreSQL database for Azure
 
-### Create a PostgreSQL database server using the Azure Portal
+### Create a PostgreSQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -62,7 +56,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. When you have entered all of the above information, click **Create**.
 
-### Configure a firewall rule for your PostgreSQL database server using the Azure Portal
+### Configure a firewall rule for your PostgreSQL database server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -74,7 +68,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Configure connection security][POSTGRESQL04]
 
-### Retrieve the connection string for your PostgreSQL server using the Azure Portal
+### Retrieve the connection string for your PostgreSQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 

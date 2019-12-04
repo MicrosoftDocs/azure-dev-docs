@@ -1,20 +1,12 @@
 ---
 title: Installing the Azure Toolkit for IntelliJ
 description: Learn how to install the Azure Toolkit for IntelliJ plug-in to create and deploy cloud applications to Azure.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
 ms.assetid: c6817c7b-f28c-4c06-8216-41c7a8117de3
-ms.author: brendm
 ms.date: 02/01/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Installing the Azure Toolkit for IntelliJ
@@ -47,7 +39,7 @@ The Azure Toolkit for IntelliJ requires to the following software components:
 > 
 > If you are using the Azure Toolkit for IntelliJ on Windows, the toolkit requires installing the Azure SDK 2.9.6 or later in order to use the Azure emulator. You have two options for installing the Azure SDK:
 > 
-> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
+> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](https://go.microsoft.com/fwlink/?LinkID=252838).
 > * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
 > Note that the Azure SDK is only required on Windows.

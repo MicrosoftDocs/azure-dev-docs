@@ -5,14 +5,9 @@ services: app-service
 keywords: java, eclipse, web app, azure app service, hello world, quick start
 documentationcenter: java
 author: selvasingh
-manager: douge
-editor: ''
-
 ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
-ms.author: brendm
 ms.reviewer: asirveda
 ms.date: 02/01/2018
-ms.devlang: java
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article

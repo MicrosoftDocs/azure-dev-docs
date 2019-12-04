@@ -1,13 +1,8 @@
 ---
 title: Review data with Java Flight Recorder and Mission Control
 description: Guidance for using Java Flight Recorder and Mission Control to collect and review app data.
-author: bmitchell287
-manager: douge
-ms.author: brendm 
 ms.date: 04/09/2019
-ms.devlang: java
 ms.topic: conceptual
-ms.service: azure
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 

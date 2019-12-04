@@ -5,14 +5,9 @@ description: Learn how to deploy a MicroProfile service using Docker and Azure W
 services: container-registry;app-service
 documentationcenter: java
 author: jonathangiles
-manager: douge
-editor: jonathangiles
-
-ms.assetid:
 ms.author: jogiles
 ms.date: 09/07/2018
-ms.devlang: java
-ms.service: container-registry;app-service
+ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
@@ -34,9 +29,9 @@ We will work through this tutorial firstly by creating and running the code loca
 
 ## Creating an Azure Container Registry
 
-We will use the [Azure Portal](http://portal.azure.com) for creating the Azure Container Registry, but note that there are alternate choices such as the Azure CLI. Follow the steps below to create a new Azure Container Registry:
+We will use the [Azure portal](https://portal.azure.com) for creating the Azure Container Registry, but note that there are alternate choices such as the Azure CLI. Follow the steps below to create a new Azure Container Registry:
 
-1. Log in to the [Azure Portal](http://portal.azure.com) and create a new Azure Container Registry resource. Provide a registry name (note that this is the name that should be set as the `docker.registry` property in `pom.xml`). Change the defaults as you wish, and then click 'create'.
+1. Log in to the [Azure portal](https://portal.azure.com) and create a new Azure Container Registry resource. Provide a registry name (note that this is the name that should be set as the `docker.registry` property in `pom.xml`). Change the defaults as you wish, and then click 'create'.
 
 1. Once the container registry is live (which is about 30 seconds after clicking 'create'), click on the container registry, and click on the 'Access keys' link in the left-menu area. In here, you need to enable the 'admin user' setting, so that this container registry can be accessed from our machines (to push docker containers into), and also to enable access from the Azure Web Apps for Containers instance we will setup soon.
 
@@ -141,7 +136,7 @@ running as we now have to deploy it into an Azure Web App for Containers instanc
 
 ## Creating an Azure Web App for Containers instance
 
-1. Return to the [Azure Portal](http://portal.azure.com) and create a new Web App for Containers instance (located under the 'Web + Mobile' heading in the menu). A few pointers:
+1. Return to the [Azure portal](https://portal.azure.com) and create a new Web App for Containers instance (located under the 'Web + Mobile' heading in the menu). A few pointers:
 
    1. The name you specify here will be the public URL of the web app (although a custom domain can be added later if desired), so it is a good idea to pick a name that you can easily remember.
 

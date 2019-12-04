@@ -3,17 +3,10 @@ title: Deploy a Spring Boot app using the Fabric8 Maven Plugin
 description: This tutorial walks you though the steps to deploy a Spring Boot application on Microsoft Azure using the Fabric8 Plugin for Apache Maven.
 services: container-service
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid: 
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Deploy a Spring Boot app using the Fabric8 Maven Plugin

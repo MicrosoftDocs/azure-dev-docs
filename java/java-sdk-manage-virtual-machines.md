@@ -2,14 +2,9 @@
 title: Manage Azure virtual machines with Java | Microsoft Docs
 description: Sample code to manage Azure virtual machines using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: 88629aee-6279-433e-a08b-4f8e290446d0
-ms.devlang: java
 ms.topic: article
-ms.service: azure
-
 ms.date: 3/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
 ---
 

@@ -2,14 +2,9 @@
 title: Manage virtual machine scale sets with Java | Microsoft Docs
 description: Sample code to manage Azure virtual machine scale sets using the Azure SDK for Java
 author: rloutlaw
-manager: douge
 ms.assetid: b55923b7-d60a-460d-b77c-af5fac67f1cc
-ms.devlang: java
 ms.topic: article
-ms.service: azure
-
 ms.date: 3/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
 ---
 

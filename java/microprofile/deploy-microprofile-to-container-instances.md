@@ -4,12 +4,8 @@ description: Learn how to deploy a MicroProfile app to the cloud using Docker an
 services: container-instances;container-retistry
 documentationcenter: java
 author: brunoborges
-manager: douge
-editor: brunoborges
-ms.assetid:
 ms.author: brborges
 ms.date: 11/21/2018
-ms.devlang: java
 ms.service: container-instances
 ms.tgt_pltfrm: multiple
 ms.topic: article

@@ -5,11 +5,8 @@ services: active-directory-b2c
 documentationcenter: java
 author: panli
 manager: kevinzha
-editor: 'panli'
-ms.assetid:
 ms.author: panli
 ms.date: 02/28/2019
-ms.devlang: java
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
