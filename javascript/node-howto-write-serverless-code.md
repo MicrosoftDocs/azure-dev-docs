@@ -12,7 +12,7 @@ On Azure, the serverless offering is called Azure Functions. Serverless code all
 
 First, jump right in:
 
-- [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code). This article introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+- [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code). This article introduces you to Azure Functions in the context of Visual Studio Code, which simplifies many of the details.
 
 Next, expand your understanding of what Azure Functions can do by reviewing the following articles:
 
