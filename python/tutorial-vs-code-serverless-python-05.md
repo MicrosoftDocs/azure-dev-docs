@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy Azure Functions in Python with Visual Studio Code"
+title: "Tutorial: Deploy Azure Functions in Python with VS Code"
 description: Tutorial step 5, deploying Python function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
 ms.date: 09/02/2019

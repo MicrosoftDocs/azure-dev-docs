@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create and deploy serverless Azure Functions in Python with Visual Studio Code"
+title: "Tutorial: Create and deploy serverless Azure Functions in Python with VS Code"
 description: Tutorial step 1, introduction and prerequisites.
 ms.topic: conceptual
 ms.date: 09/02/2019
@@ -38,7 +38,9 @@ Install the following software:
 
 ### Azure Functions Core Tools
 
-Follow the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2). The tools themselves are written in .NET Core, and the Core Tools package is best installed using the Node.js package manager, npm, which is why you need to install .NET Core and Node.js at present, even for Python code. You can, however bypass the .NET Core requirement using "extension bundles" as described in the aforementioned documentation. Whatever the case, you need install these components only once, after which Visual Studio Code automatically prompts you to install any updates.
+Follow the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2).
+
+The tools are written in .NET Core, and the Core Tools package is best installed using the Node.js package manager, npm, which is why you need to install .NET Core and Node.js at present, even for working with Azure Functions in Python. You can, however bypass the .NET Core requirement using "extension bundles" as described in the aforementioned documentation. Whatever the case, you need install these components only once, after which Visual Studio Code automatically prompts you to install any updates.
 
 ### Sign in to Azure
 
@@ -52,7 +54,9 @@ To verify that all the Azure Functions tools are installed, open the Visual Stud
 
 The output that starts with the Azure Functions logo (you need to scroll the output upwards) indicates that the Azure Functions Core Tools are present.
 
-If the `func` command isn't recognized, then verify that the folder where you installed the Azure Functions Core Tools is included in your PATH environment variable.
+If the `func` command isn't recognized, then run `npm install -g azure-functions-core-tools` again and verify that the install succeeds. Make sure also that you use the `-g` switch with the install command; otherwise npm installs the package in the current folder only.
+
+The `func` command works through the *func.cmd* file that's installed in the Node.js global folder. To see the location of this folder, run `npm -l` and examine the location at the end of the output.
 
 > [!div class="nextstepaction"]
 > [I signed into Azure](tutorial-vs-code-serverless-python-02.md)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Examine the Python code files for Azure Functions in Visual Studio Code"
+title: "Tutorial: Examine the Python code files for Azure Functions in VS Code"
 description: Tutorial step 3, understanding the template Python code provided by Azure Functions.
 ms.topic: conceptual
 ms.date: 09/02/2019
