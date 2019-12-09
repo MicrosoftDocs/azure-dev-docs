@@ -14,7 +14,7 @@ The Azure SDK for Python is tested and supported with CPython versions 2.7 and 3
 
 ## Install SDK libraries using pip
 
-The Azure SDK for Python is composed of a number of individual libraries that each provision or work with specific Azure services. You can install each one using `pip install <library>` with the names shown in the [SDK library list](https://github.com/Azure/azure-sdk-for-python/blob/master/packages.md). (That list provides links to helpful README files for each library.)
+The Azure SDK for Python is composed of a number of individual libraries that each provision or work with specific Azure services. You can install each one using `pip install <library>`. Refer to the [SDK release page](https://azure.github.io/azure-sdk/releases/latest/python.html) for specific instructions and documentation for each library.
 
 For example, if you're using Azure Storage, you might install the `azure-storage-file`, `azure-storage-blob`, or `azure-storage-queue` library. If you're using Azure Cosmos DB tables, install `azure-cosmosdb-table`. Azure Functions is supported through the `azure-functions` library, and so on. Those libraries that begin with `azure-mgmt-` provide you with the API for provisioning Azure resources.
 
