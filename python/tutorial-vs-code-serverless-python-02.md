@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a Python function for Azure Functions with Visual Studio Code"
+title: "Tutorial: Create a Python function for Azure Functions with VS Code"
 description: Tutorial, step 2, demonstrating the use of the Azure Functions extension for VS Code.
 ms.topic: conceptual
 ms.date: 09/02/2019

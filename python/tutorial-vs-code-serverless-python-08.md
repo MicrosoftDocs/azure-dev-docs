@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Clean up Azure resources - Azure Functions in Python"
+title: "Tutorial: Clean up resources used with Python code in Azure Functions"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
 ms.topic: conceptual
 ms.date: 09/12/2019
