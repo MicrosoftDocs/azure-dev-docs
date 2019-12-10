@@ -1,5 +1,5 @@
 ---
-title: Configure a Spring Boot Initializer app to use Azure Redis Cache
+title: Configure a Spring Boot Initializer app - Azure Redis Cache
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Redis Cache.
 services: redis-cache
 documentationcenter: java
