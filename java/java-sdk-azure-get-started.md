@@ -14,6 +14,8 @@ ms.custom: seo-java-august2019
 
 This guide walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect them to to perform some basic tasks, like uploading a file or deploying a web application. When you're done, you'll be ready to start using Azure services in your own Java applications.
 
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
+
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/)

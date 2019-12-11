@@ -10,6 +10,8 @@ ms.custom: seo-python-october2019
 
 This article shows you how to authenticate your application when using the Python management libraries. You have several options to authenticate your application with Azure.
 
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
+
 ## <a name="mgmt-auth-token"></a>Authenticate with token credentials
 
 Store the credentials securely in a configuration file, the registry, or Azure KeyVault.
