@@ -16,6 +16,8 @@ For more detailed instructions for installing libraries and importing them into 
 > [!TIP]
 > For information on changes in the SDK, see the [SDK release notes](https://azure.github.io/azure-sdk/).
 
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
+
 ## Connect and use Azure services
 
 A number of *client libraries* in the SDK help you connect to existing Azure resources and use them in your apps, such as uploading files, accessing table data, or working with the various Azure Cognitive Services. With the SDK you work with those resources using familiar Python programming paradigms rather than using the service's generic REST API.

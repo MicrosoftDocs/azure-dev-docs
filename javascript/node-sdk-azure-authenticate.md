@@ -15,6 +15,8 @@ credentials via the Azure SDK for Node.js:
 - Interactive login
 - Service principal authentication
 
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
+
 ## Basic authentication
 
 To programmatically authenticate using your Azure account credentials, use the `loginWithUsernamePassword` function. The following JavaScript code snippet illustrates how to use basic authentication using credentials that are stored as environment variables. 
