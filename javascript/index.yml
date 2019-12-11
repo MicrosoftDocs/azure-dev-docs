@@ -6,8 +6,6 @@ summary: |
   Learn about the Azure SDK for JavaScript and Node.js, how to get started using it, and what it offers for developers. Get started with useful
   Azure features like application hosting, DevOps tasks, persistent storage and databases, and working with Internet of Things devices.
 
-  [!INCLUDE [chrome-note](includes/chrome-note.md)]
-
 # Search & metrics meta
 metadata:
   title: Azure for JavaScript and Node.js developers
