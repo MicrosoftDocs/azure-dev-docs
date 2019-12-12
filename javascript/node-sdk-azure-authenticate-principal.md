@@ -19,6 +19,8 @@ This topic shows you three techniques for creating a service principal.
 - Azure CLI 2.0
 - Azure SDK for Node.js
 
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
+
 ## Create a service principal using the Azure portal
 
 Follow the steps outlined in the topic, 
