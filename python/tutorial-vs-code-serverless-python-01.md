@@ -24,7 +24,7 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 
 If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
-# Azure Functions Core Tools
+### Azure Functions Core Tools
 
 Install the Azure Functions Core Tools by following the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2). Ignore the comments in the article about the Chocolately package manager, which are not necessary to complete this tutorial.
 
