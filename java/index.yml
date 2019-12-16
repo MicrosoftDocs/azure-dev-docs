@@ -74,9 +74,9 @@ sections:
       title: Deploy to Kubernetes
       href: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
     - image:
-        src: /azure/media/index/fabric.svg
-      title: Microservices with Service Fabric
-      href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        src: /azure/media/index/spring.svg
+      title: Microservices with Azure Spring Cloud
+      href: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
     - image:
         src: /java/media/jenkins_logo.svg
       title:  CI/CD to App Service with Jenkins®
