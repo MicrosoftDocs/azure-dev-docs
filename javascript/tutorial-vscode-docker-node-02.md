@@ -50,6 +50,8 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/se
     docker login <registry_name>.azurecr.io -u <username> -p <password>
     ```
 
+    For greater security, use `--password-stdin` instead of `-p <password>` and then paste in the password when prompted.
+
 1. In Visual Studio Code, open the **Docker** explorer and ensure that the registry endpoint that you just setup is visible under **Registries**:
 
     ![Verifying that the registry appears in the Docker explorer](media/deploy-containers/registries.png)
