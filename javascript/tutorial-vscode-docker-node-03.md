@@ -17,7 +17,7 @@ If you don't already have an app for this walkthrough, use the app from the [Vis
 
 1. In Visual Studio Code, open the **Command Palette** (**F1**), type `add docker files to workspace`, then select the **Docker: Add Docker files to workspace** command.
 
-1. When prompted, select **Node.js** for the application type, then select the port on which your application listens.
+1. When prompted, select **Node.js** for the application type, answer **No** for Docker compose files, then select the port on which your application listens.
 
 1. The command creates a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
@@ -31,19 +31,7 @@ The `Dockerfile` describe the environment for your app including the location of
 > [!TIP]
 > Containers versus images: A container is an instance of an image.
 
-1. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image.
-
-1. When prompted, choose the `Dockerfile` that was just created then give the image a name. The name must include your target registry or Docker Hub account:
-
-    `[registry or username]/[image name]:[tag]`
-
-    In this tutorial, which uses the Azure Container Registry, the image name is as follows:
-
-    `msdocsvscodereg.azurecr.io/myexpressapp:latest`
-
-    If you are using Docker Hub, use your Docker Hub username. For example:
-
-    `fiveisprime/myexpressapp:latest`
+1. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image. VS Code uses the Dockerfile in the current folder and gives the image the same name as the current folder.
 
 1. Once completed, the **Terminal** panel of Visual Studio Code opens to run the `docker build` command. The output also shows each step, or layer, that makes up the app environment.
 
@@ -53,9 +41,31 @@ The `Dockerfile` describe the environment for your app including the location of
 
 ## Push the image to a registry
 
-1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Push** and choose the image you just built. The **Terminal** panel shows the `docker push` commands used for this operation.
+1. To push the image to a registry, you must first tag it with the registry name. In the **DOCKER** explorer, right-click the **latest** image.
 
-1. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
+    ![Image tag command in Visual Studio Code](media/deploy-containers/tag-command.png)
+
+1. In the prompt that follows, complete the tags and press **Enter**.
+
+    By convention, tagging uses the following format:
+
+    `[registry or username]/[image name]:[tag]`
+
+    If you're using the Azure Container Registry, your image name would be similar to the following:
+
+    `msdocsvscodereg.azurecr.io/myexpressapp:latest`
+
+    If you are using Docker Hub, use your Docker Hub username. For example:
+
+    `fiveisprime/myexpressapp:latest`
+
+1. The newly-tagged image appears now in a node under **Images** that includes the registry name. Expand that node, right-click **latest**, and select **Push**.
+
+    ![Push image command in Visual Studio Code](media/deploy-containers/push-command.png)
+
+1. The **Terminal** panel shows the `docker push` commands used for this operation. The target registry is determined by the registry specified in the image name.
+
+1. Once completed, expand the **Registries** node in the Docker extension explorer to see your image in the registry.
 
     ![Pushed image appearing in the Azure Container Registry](media/deploy-containers/image-in-acr.png)
 

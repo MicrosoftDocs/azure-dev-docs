@@ -15,9 +15,13 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/se
 
 ## Create an Azure Container Registry
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Create a resource** > **Containers** > **Container Registry**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Create a resource**.
 
-    ![Creating a container registry on the Azure portal](media/deploy-containers/portal-01.png)
+    ![Creating a new resource on the Azure portal](media/deploy-containers/portal-01a.png)
+
+1. On the next page, select  **Containers** > **Container Registry**.
+
+    ![Creating a container registry on the Azure portal](media/deploy-containers/portal-01b.png)
 
 1. In the **Create container registry** form that appears, enter appropriate values:
 
@@ -45,6 +49,8 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/se
     ```bash
     docker login <registry_name>.azurecr.io -u <username> -p <password>
     ```
+
+    For greater security, use `--password-stdin` instead of `-p <password>` and then paste in the password when prompted.
 
 1. In Visual Studio Code, open the **Docker** explorer and ensure that the registry endpoint that you just setup is visible under **Registries**:
 
