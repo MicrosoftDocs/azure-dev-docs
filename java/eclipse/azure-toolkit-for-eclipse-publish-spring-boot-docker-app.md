@@ -9,7 +9,7 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ---
 
-# Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse
+# Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse (DEPRECATED)
 
 The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
 
