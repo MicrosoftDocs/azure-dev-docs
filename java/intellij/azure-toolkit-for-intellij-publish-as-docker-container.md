@@ -9,7 +9,7 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ---
 
-# Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ
+# Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ (DEPRECATED)
 
 Docker containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding *Publish as Docker Container* features for deployment to Microsoft Azure. This article walks you through the steps required to publish your applications to Azure as Docker containers.
 
