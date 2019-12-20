@@ -157,7 +157,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
           <appSettings>
              <property>
                    <name>JAVA_OPTS</name>
-                   <value>-D server.port=80</value>
+                   <value>-Dserver.port=80</value>
              </property>
           </appSettings>
           <!-- End of App Settings  -->
