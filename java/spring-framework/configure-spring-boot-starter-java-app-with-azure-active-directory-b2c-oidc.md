@@ -1,5 +1,5 @@
 ---
-title: How to use the Spring Boot Starter for Azure Active Directory B2C
+title: Use the Spring Boot Starter for Azure Active Directory B2C
 description: Learn how to configure a Spring Boot Initializer app with the Azure Active Directory B2C starter.
 services: active-directory-b2c
 documentationcenter: java
