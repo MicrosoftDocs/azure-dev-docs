@@ -48,20 +48,19 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Specify your SQL database properties][SQL02]
    
-1. Click **Server**, then **Create a new server**, and then specify the following information:
+1. Click **Server**, then **Create new**, and then specify the following information:
 
    - **Server name**: Choose a unique name for your SQL server; this will be used to create a fully-qualified domain name like *wingtiptoyssql.database.windows.net*.
    - **Server admin login**: Specify the database administrator name.
    - **Password** and **Confirm password**: Specify the password for your database administrator.
    - **Location**: Specify the closest geographic region for your database.
 
-   ![Specify your SQL server][SQL03]
 
-1. When you have entered all of the above information, click **Select**.
+1. When you have entered all of the above information, click **OK**.
 
-1. For this tutorial, specify the least-expensive **Pricing tier**, and then click **Create**.
+1. Click **Review and create**.
 
-   ![Create your SQL database][SQL04]
+1. Review the settings, and click **Create**.
 
 ### Configure a firewall rule for your SQL server using the Azure portal
 
@@ -69,9 +68,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then click the SQL server you just created.
 
-   ![Select your SQL server][SQL05]
-
-1. In the **Overview** section, click **Show firewall settings**
+1. In the left navigation pane, click **Overview** section, click **Set server firewall**
 
    ![Show firewall settings][SQL06]
 
@@ -84,8 +81,6 @@ The following prerequisites are required in order to complete the steps in this 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the SQL database you just created.
-
-   ![Select your SQL database][SQL08]
 
 1. Click **Connection strings**, then click **JDBC**, and copy the value in the JDBC text field.
 
