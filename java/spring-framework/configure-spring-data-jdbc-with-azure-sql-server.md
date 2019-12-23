@@ -25,7 +25,7 @@ The following prerequisites are required in order to complete the steps in this 
 * [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
 * A [Git](https://git-scm.com/downloads) client.
 
-## Create an Azure SQL Satabase
+## Create an Azure SQL Database
 
 ### Create a SQL database server using the Azure portal
 
