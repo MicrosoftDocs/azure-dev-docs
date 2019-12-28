@@ -26,7 +26,7 @@ There are [multiple download package types supported for each client OS](https:/
 
 ## Download and install the Azul Zulu for Azure - Enterprise Edition JDK builds for Windows 
 
-1. [Download the 64-bit Azul Zulu JDK 8 as an MSI](https://repos.azul.com/azure-only/zulu/packages/zulu-11/11.0.3/zulu-11-azure-jdk_11.31.11-11.0.3-win_x64.msi) to a location on your client, such as `C:\Users\<your_login>\Downloads`. (.ZIP packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
+1. [Download the 64-bit Azul Zulu JDK 8 as an MSI](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u232/zulu-8-azure-jdk_8.42.0.23-8.0.232-win_x64.msi) to a location on your client, such as `C:\Users\<your_login>\Downloads`. (.ZIP packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
 
 2. Navigate to the directory and double-click the downloaded MSI file to begin installation.
 
@@ -34,7 +34,7 @@ There are [multiple download package types supported for each client OS](https:/
 
 These steps download a ZIP file to your Mac. There is also a DMG version available.
 
-1. [Download the 64-bit Azul Zulu JDK 8 as a ZIP file](https://repos.azul.com/azure-only/zulu/packages/zulu-11/11.0.3/zulu-11-azure-jdk_11.31.11-11.0.3-macosx_x64.zip) to a location on your client, such as `/Library/Java/JavaVirtualMachines/`. (.DMG packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
+1. [Download the 64-bit Azul Zulu JDK 8 as a ZIP file](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u232/zulu-8-azure-jdk_8.42.0.23-8.0.232-macosx_x64.zip) to a location on your client, such as `/Library/Java/JavaVirtualMachines/`. (.DMG packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
 
 2. Launch Finder, navigate to the download directory, and double-click the ZIP file. Alternatively, you can launch a terminal command window, navigate to the directory, and run:
 
@@ -44,7 +44,7 @@ unzip <name_of_zulu_package>.zip
 
 ## Download and install the Azul Zulu for Azure - Enterprise Edition JDK builds for Alpine Linux
 
-1. [Download the 64-bit Azul Zulu JDK 8 as a TAR file](https://repos.azul.com/azure-only/zulu/packages/zulu-11/11.0.3/zulu-11-azure-jdk_11.31.11-11.0.3-linux_x64.tar.gz) to a location on your client, such as `/usr/lib/jvm`. (.RPM and .DEB packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
+1. [Download the 64-bit Azul Zulu JDK 8 as a TAR file](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u232/zulu-8-azure-jdk_8.42.0.23-8.0.232-linux_x64.tar.gz) to a location on your client, such as `/usr/lib/jvm`. (.RPM and .DEB packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).)
 
 2. Go to your directory and run the following command to unzip and expand the file:
 
