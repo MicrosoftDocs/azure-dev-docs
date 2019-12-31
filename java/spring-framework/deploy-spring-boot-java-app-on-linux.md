@@ -189,13 +189,13 @@ Specify the username and password from registry pane in `<to>/<auth>`. For examp
    
    e. Once you have entered all of the above information, click **Review + create**.
 
-   ![Configure web app settings][LX02A]
+   ![Configure web app settings][LX02-A]
 
 Review the information and click **Create**.
 
 When the deployment is complete, click **Got to resource**.  The deployment page displays the URL to access the application.
 
-   ![Configure web app settings][LX02B]
+   ![Configure web app settings][LX02-B]
 
 > [!NOTE]
 >
@@ -207,7 +207,7 @@ When the deployment is complete, click **Got to resource**.  The deployment page
 >
 > 4. Click **Configuration** in the left navigation pane.
 >
-> 5. In the **Application settings** section, add a new setting named **PORT** and enter your custom port number for the value. 
+> 5. In the **Application settings** section, add a new setting named **PORT** and enter your custom port number for the value.
 >
 > 6. Click **OK**. Then click **Save**.
 >
