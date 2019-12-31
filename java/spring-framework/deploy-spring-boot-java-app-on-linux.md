@@ -3,7 +3,7 @@ title: Deploy a Spring Boot Web App on Azure App Service for Container
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: azure app service
 documentationcenter: java
-ms.date: 11/12/2019
+ms.date: 12/31/2019
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -93,11 +93,7 @@ The following steps walk you through using the Azure portal to create an Azure C
    
    ![Create a new Azure Container Registry][AR01]
 
-1. When the information page for the Azure Container Registry template is displayed, click **Create**. 
-
-   ![Create a new Azure Container Registry][AR02]
-
-1. When the **Create container registry** page is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
+1. When the **Create container registry** page is displayed, enter your **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**, and then click **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
@@ -121,7 +117,8 @@ The following steps walk you through using the Azure portal to create an Azure C
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file, specify the base image at `<from>/<image>` and  final image name `<to>/<image>`, specify the username and password from previous section at `<to>/<auth>`. For example:
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file, specify the base image at `<from>/<image>` and  final image name `<to>/<image>`.  The `{docker.image.prefix}` is the Login Server on the registry page shown previously. The `{project.artifactId}` is the name and version number from the Mavin build of the project.
+Specify the username and password from registry pane in `<to>/<auth>`. For example:
 
    ```xml
    <plugin>
@@ -133,10 +130,10 @@ The following steps walk you through using the Azure portal to create an Azure C
             <image>openjdk:8-jre-alpine</image>
         </from>
         <to>
-            <image>${docker.image.prefix}/${project.artifactId}</image>
+            <image>{docker.image.prefix}/{project.artifactId}</image>
             <auth>
-               <username>${username}</username>
-               <password>${password}</password>
+               <username>{username}</username>
+               <password>{password}</password>
             </auth>
         </to>
      </configuration>
@@ -164,9 +161,9 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 3. When the **Web App on Linux** page is displayed, enter the following information:
 
-   a. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
+   a. Choose your **Subscription** from the drop-down list.
 
-   b. Choose your **Subscription** from the drop-down list.
+   b. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
 
    c. Choose an existing **Resource Group**, or specify a name to create a new resource group.
 
@@ -174,23 +171,31 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    e. Click **App Service plan/Location** and choose an existing app service plan, or click **Create new** to create a new app service plan.
 
-   f. Click **Configure container** and enter the following information:
-
-   * Choose **Single Container** and  **Azure Container Registry**.
-
-   * **Registry**: Choose your container name created earlier; for example: "*wingtiptoysregistry*"
-
-   * **Image**: Choose the image name; for example: "*gs-spring-boot-docker*"
+   f. Click **Next: Docker**.
    
+   ![Configure web app settings][LX02]
+   
+   On the **Web App** page select **Docker**, and enter the following information:
+
+   * Select **Single Container**.
+
+   * **Registry**: Choose your container, for example: "*wingtiptoysregistry*"
+
+   * **Image**: Select the image created previously, for example: "*gs-spring-boot-docker*"
+
    * **Tag**: Choose the tag for the image; for example: "*latest*"
    
-   * **Startup File**: Keep it blank since the image already has the start up command
+   * **Startup Command**: Keep it blank since the image already has the start up command
    
-   e. Once you have entered all of the above information, click **Apply**.
+   e. Once you have entered all of the above information, click **Review + create**.
 
-   ![Configure web app settings][LX02]
+   ![Configure web app settings][LX02A]
 
-4. Click **Create**.
+Review the information and click **Create**.
+
+When the deployment is complete, click **Got to resource**.  The deployment page displays the URL to access the application.
+
+   ![Configure web app settings][LX02B]
 
 > [!NOTE]
 >
@@ -198,13 +203,13 @@ The following steps walk you through using the Azure portal to create an Azure C
 >
 > 1. Browse to the [Azure portal] and sign in.
 > 
-> 2. Click the icon for **App Services**, and select your web app from the list.
+> 2. Click the icon for **Web Apps**, and select your app from the **App Services** page.
 >
-> 4. Click **Configuration**. (Item #1 in the image below.)
+> 4. Click **Configuration** in the left navigation pane.
 >
-> 5. In the **Application settings** section, add a new setting named **PORT** and enter your custom port number for the value. (Item #2, #3, #4 in the image below.)
+> 5. In the **Application settings** section, add a new setting named **PORT** and enter your custom port number for the value. 
 >
-> 6. Click **Save**. (Item #5 in the image below.)
+> 6. Click **OK**. Then click **Save**.
 >
 > ![Saving a custom port number in the Azure portal][LX03]
 >
