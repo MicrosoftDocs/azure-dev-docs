@@ -193,7 +193,7 @@ Specify the username and password from registry pane in `<to>/<auth>`. For examp
 
 Review the information and click **Create**.
 
-When the deployment is complete, click **Got to resource**.  The deployment page displays the URL to access the application.
+When the deployment is complete, click **Go to resource**.  The deployment page displays the URL to access the application.
 
    ![Get URL of deployment][LX02-B]
 
