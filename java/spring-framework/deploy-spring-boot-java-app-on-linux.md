@@ -195,7 +195,7 @@ Review the information and click **Create**.
 
 When the deployment is complete, click **Got to resource**.  The deployment page displays the URL to access the application.
 
-   ![Configure web app settings][LX02-B]
+   ![Get URL of deployment][LX02-B]
 
 > [!NOTE]
 >
@@ -292,4 +292,6 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 
 [LX01]: ./media/deploy-spring-boot-java-app-on-linux/LX01.png
 [LX02]: ./media/deploy-spring-boot-java-app-on-linux/LX02.png
+[LX02-A]: ./media/deploy-spring-boot-java-app-on-linux/LX02-A.png
+[LX02-B]: ./media/deploy-spring-boot-java-app-on-linux/LX02-B.png
 [LX03]: ./media/deploy-spring-boot-java-app-on-linux/LX03.png
