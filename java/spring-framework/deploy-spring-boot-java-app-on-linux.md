@@ -180,7 +180,7 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
    * Accept **Linux Plan** and choose an existing **App Service Plan**, or click **Create new** to create a new app service plan.
 
-   * Click **Docker: next**.
+   * Click **Next: Docker**.
 
    ![Configure web app settings][LX02]
 
