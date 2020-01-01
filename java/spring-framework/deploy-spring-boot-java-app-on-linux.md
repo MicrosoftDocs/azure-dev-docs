@@ -129,7 +129,7 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
    <plugin>
      <artifactId>jib-maven-plugin</artifactId>
      <groupId>com.google.cloud.tools</groupId>
-     <version>$jib-maven-plugin.1.8.0</version>
+     <version>jib-maven-plugin.1.8.0</version>
      <configuration>
         <from>
             <image>openjdk:8-jre-alpine</image>
