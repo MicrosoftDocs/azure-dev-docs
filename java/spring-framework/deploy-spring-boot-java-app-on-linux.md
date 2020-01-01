@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Deploy a Spring Boot application on Azure App Service for Container
 
-This tutorial walks you through using [Docker] to containerize your [Spring Boot] application and deploy your own docker image to a Linux host in the [Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
+This tutorial walks through using [Docker] to containerize your [Spring Boot] application and deploy your own docker image to a Linux host in the [Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 
 ## Create the Spring Boot on Docker Getting Started web app
 
-The following steps walk you through the steps that are required to create a simple Spring Boot web application and test it locally.
+The following steps walk through the steps that are required to create a simple Spring Boot web application and test it locally.
 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
    ```
@@ -78,7 +78,7 @@ The following steps walk you through the steps that are required to create a sim
 
 ## Create an Azure Container Registry to use as a Private Docker Registry
 
-The following steps walk you through using the Azure portal to create an Azure Container Registry.
+The following steps walk through using the Azure portal to create an Azure Container Registry.
 
 > [!NOTE]
 >
@@ -87,17 +87,17 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 1. Browse to the [Azure portal] and sign in.
 
-   Once you have signed in to your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+   Once you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
-1. Click the menu icon for **+ New**, then click **Containers**, and then click **Azure Container Registry**.
+1. Click the menu icon for **+ New**, click **Containers**, and then click **Azure Container Registry**.
    
    ![Create a new Azure Container Registry][AR01]
 
-1. When the **Create container registry** page is displayed, enter your **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**, and then click **Create**.
+1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**. Then click **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
-1. Once your container registry has been created, navigate to your container registry in the Azure portal, and then click **Access Keys**. Take note of the username and password for the next steps.
+1. Once your container registry has been created, navigate to your container registry in the Azure portal, and click **Access Keys**. Take note of the username and password for the next steps.
 
    ![Azure Container Registry access keys][AR04]
 
@@ -105,7 +105,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
-1. Update the `<properties>` collection in the *pom.xml* file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) and login server value and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
+1. Update the `<properties>` collection in the *pom.xml* file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
 
    ```xml
    <properties>
@@ -117,8 +117,8 @@ The following steps walk you through using the Azure portal to create an Azure C
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file, specify the base image at `<from>/<image>` and  final image name `<to>/<image>`.  The `{docker.image.prefix}` is the Login Server on the registry page shown previously. The `{project.artifactId}` is the name and version number from the Mavin build of the project.
-Specify the username and password from registry pane in `<to>/<auth>`. For example:
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  Specify the base image at `<from>/<image>` and  final image name `<to>/<image>`.  The `{docker.image.prefix}` is the Login Server on the registry page shown previously. The `{project.artifactId}` is the name and version number from the Mavin build of the project.
+Specify the username and password from registry pane in the `<to>/<auth>` node. For example:
 
    ```xml
    <plugin>
@@ -148,30 +148,30 @@ Specify the username and password from registry pane in `<to>/<auth>`. For examp
 
 > [!NOTE]
 >
-> When you are using Jib to push your image to the Azure Container Registry, the image will not honor *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
+> When you are using Jib to push your image to the Azure Container Registry, the image will not use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
 ## Create a web app on Linux on Azure App Service using your container image
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, then click **Web**, and then click **Web App for Containers**.
+2. Click the menu icon for **+ Create a resource**, click **Web**, and then click **Web App for Containers**.
    
    ![Create a new web app in the Azure portal][LX01]
 
 3. When the **Web App on Linux** page is displayed, enter the following information:
 
-   a. Choose your **Subscription** from the drop-down list.
+   * Choose your **Subscription** from the drop-down list.
 
-   b. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
+   * Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
 
-   c. Choose an existing **Resource Group**, or specify a name to create a new resource group.
+   * Choose an existing **Resource Group**, or specify a name to create a new resource group.
 
-   d. Choose *Linux* as the **OS**.
+   * Choose *Linux* as the **OS**.
 
-   e. Click **App Service plan/Location** and choose an existing app service plan, or click **Create new** to create a new app service plan.
+   * Click **App Service plan/Location** and choose an existing app service plan, or click **Create new** to create a new app service plan.
 
-   f. Click **Next: Docker**.
+   * Click **Next: Docker**.
    
    ![Configure web app settings][LX02]
    
@@ -187,7 +187,7 @@ Specify the username and password from registry pane in `<to>/<auth>`. For examp
    
    * **Startup Command**: Keep it blank since the image already has the start up command
    
-   e. Once you have entered all of the above information, click **Review + create**.
+   After you have entered all of the above information, click **Review + create**.
 
    ![Configure web app settings][LX02-A]
 
