@@ -182,6 +182,8 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
    * Click **Docker: next**.
 
+   ![Configure web app settings][LX02]
+
       On the **Web App** page select **Docker**, and enter the following information:
 
    * Select **Single Container**.
@@ -199,8 +201,6 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
    ![Configure web app settings][LX02-A]
 
    * Click **Review + create**.
-   
-   ![Configure web app settings][LX02]
    
 Review the information and click **Create**.
 
