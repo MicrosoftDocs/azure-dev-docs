@@ -129,7 +129,7 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
    <plugin>
      <artifactId>jib-maven-plugin</artifactId>
      <groupId>com.google.cloud.tools</groupId>
-     <version>jib-maven-plugin.1.8.0</version>
+     <version>1.8.0</version>
      <configuration>
         <from>
             <image>openjdk:8-jre-alpine</image>
@@ -168,19 +168,21 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
    * Choose your **Subscription** from the drop-down list.
 
-   * Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
-
    * Choose an existing **Resource Group**, or specify a name to create a new resource group.
 
-   * Choose *Linux* as the **OS**.
+   * Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
 
-   * Click **App Service plan/Location** and choose an existing app service plan, or click **Create new** to create a new app service plan.
+   * Specify `Docker Container` to **Publish**.
 
-   * Click **Next: Docker**.
-   
-   ![Configure web app settings][LX02]
-   
-   On the **Web App** page select **Docker**, and enter the following information:
+   * Choose *Linux* as the **Operating System**.
+
+   * Select **Region**.
+
+   * Accept **Linux Plan** and choose an existing **App Service Plan**, or click **Create new** to create a new app service plan.
+
+   * Click **Docker: next**.
+
+      On the **Web App** page select **Docker**, and enter the following information:
 
    * Select **Single Container**.
 
@@ -196,6 +198,10 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
    ![Configure web app settings][LX02-A]
 
+   * Click **Review + create**.
+   
+   ![Configure web app settings][LX02]
+   
 Review the information and click **Create**.
 
 When the deployment is complete, click **Go to resource**.  The deployment page displays the URL to access the application.
