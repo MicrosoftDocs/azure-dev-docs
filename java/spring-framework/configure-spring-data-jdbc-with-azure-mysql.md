@@ -72,8 +72,6 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then select the Azure Database for MySQL you just created.
 
-   ![Select your MySQL database][MYSQL03]
-
 1. Click **Connection strings**, and copy the value in the **JDBC** text field.
 
    ![Retrieve your JDBC connection string][MYSQL05]
@@ -244,6 +242,5 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 [MYSQL01]: media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-01.png
 [MYSQL02]: media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-02.png
-[MYSQL03]: media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-03.png
 [MYSQL04]: media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-04.png
 [MYSQL05]: media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-05.png
