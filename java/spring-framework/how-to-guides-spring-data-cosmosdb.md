@@ -1,8 +1,8 @@
 # Developer's Guide
 
-[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+[Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
-[**Spring Data Azure Cosmos DB**](https://github.com/microsoft/spring-data-cosmosdb) provides initial Spring Data support for Azure Cosmos DB using the [SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-introduction), based on Spring Data framework. Currently it only supports SQL API, the other APIs are in the plan. 
+[**Spring Data Azure Cosmos DB**](https://github.com/microsoft/spring-data-cosmosdb) provides initial Spring Data support for Azure Cosmos DB using the [SQL API](/azure/cosmos-db/sql-api-introduction), based on Spring Data framework. Currently it only supports SQL API, the other APIs are in the plan. 
 
 This article covers features, common issues, workarounds, diagnostic steps, and tools when you use Spring Data CosmosDb SDK. This article describes tools and approaches to help you if you run into any issues.
 
@@ -26,8 +26,7 @@ public interface SampleRepository extends CosmosRepository<SampleEntity, String>
 
 //  To extend ReactiveCosmosRepository
 @Repository
-public interface ReactiveSampleRepository extends ReactiveCosmosRepository<SampleEntity, String> {
-    Flux<SampleEntity> findByName(String name);
+public interface ReactiveSampleRepository extends ReactiveCosmosRepository<SampleEntity, String> {    Flux<SampleEntity> findByName(String name);
 }
 ``` 
 - Depending upon the usage, both of the repositories need to be enabled separately in the Configuration class. 
@@ -70,7 +69,7 @@ class MyDocument {
      String[] includePaths; // Included paths for indexing
      String[] excludePaths; // Excluded paths for indexing
   ```
-- Supports [Azure Cosmos DB partition](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. When you do CRUD operation, pls specify your partition value. For more sample on partition CRUD, pls refer to [test here](./src/test/java/com/microsoft/azure/spring/data/cosmosdb/repository/integration/AddressRepositoryIT.java)
+- Supports [Azure Cosmos DB partition](/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. When you do CRUD operation, pls specify your partition value. For more sample on partition CRUD, pls refer to [test here](./src/test/java/com/microsoft/azure/spring/data/cosmosdb/repository/integration/AddressRepositoryIT.java)
 - Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation, e.g., `findByAFieldAndBField`
 
 ## Best Practices
