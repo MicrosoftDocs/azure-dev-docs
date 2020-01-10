@@ -72,7 +72,7 @@ Review the specification and click **Create** to create your database.
    * Specify a unique **Database id** for your database.
    * You can choose to specify your **Storage capacity**, or you can accept the default.
    * Specify a unique **Graph id** for your graph.
-   * Specify a **Partition key**. For more information see [Using a partitioned graph in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-partitioning).
+   * Specify a **Partition key**. For more information see [Using a partitioned graph in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 Click **OK**.
    
    When you have specified these options, click **OK** to create your graph.
