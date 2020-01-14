@@ -100,6 +100,8 @@ The following prerequisites are required in order to complete the steps in this 
    
    postgres=>
    ```
+   > Note:
+   > If you get an error that the server doesn't recognize this IP address, the IP address your client is using will be shown in the error.  Go back and assign it as described previously: *Configure a firewall rule for your server using the Azure portal*.
 
 1. Create a database named *mypgsqldb* by entering a `psql` command like the following example:
 
