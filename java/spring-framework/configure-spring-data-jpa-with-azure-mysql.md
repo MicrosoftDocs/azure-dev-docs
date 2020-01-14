@@ -106,7 +106,7 @@ The following prerequisites are required in order to complete the steps in this 
    mysql>
    ```
    > Note:
-   > If you get an error that the server doesn't recognize this IP address, the IP address your client is using is shown in the error.  Go back and assign it as described previously: *Configure a firewall rule for your server using the Azure portal*.
+   > If you get an error that the server doesn't recognize this IP address, the IP address your client is using will be shown in the error.  Go back and assign it as described previously: *Configure a firewall rule for your server using the Azure portal*.
 
 1. Create a database named *mysqldb* by entering a `mysql` command like the following example:
 
