@@ -72,7 +72,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Show firewall settings][SQL06]
 
-1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
+1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
 
    ![Configure firewall settings][SQL07]
 
