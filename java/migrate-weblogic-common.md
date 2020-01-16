@@ -19,9 +19,6 @@ If there are any pre-migration requirements that you can't meet, see the followi
 * Migrate WebLogic to Virtual Machines (forthcoming)
 * [Migrate WebLogic applications to WildFly on Azure App Service](migrate-weblogic-to-wildfly.md)
 
-* WebLogic to Containers (forthcoming)
-* WebLogic to Virtual Machines (forthcoming)
-
 ## Pre-migration
 
 As the list below can seem a bit daunting, we have ordered it with the most common steps at the top of the list.
