@@ -15,9 +15,12 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If there are any pre-migration requirements that you can't meet, see the following companion migration guides:
 
-* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
-* [WebLogic to Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+* Migrate WebLogic applications to Azure containers (forthcoming)
+* Migrate WebLogic to Virtual Machines (forthcoming)
 * [Migrate WebLogic applications to WildFly on Azure App Service](migrate-weblogic-to-wildfly.md)
+
+* WebLogic to Containers (forthcoming)
+* WebLogic to Virtual Machines (forthcoming)
 
 ## Pre-migration
 
@@ -161,6 +164,6 @@ If you have any processes running outside the application server, such as monito
 
 Continue with the migration guidance in the following scenarios:
 
-* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
-* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+* Migrate WebLogic applications to Azure containers (forthcoming)
+* Migrate WebLogic applications to Azure Virtual Machines (forthcoming)
 * [Migrate WebLogic applications to WildFly on Azure App Service](migrate-weblogic-to-wildfly.md)
