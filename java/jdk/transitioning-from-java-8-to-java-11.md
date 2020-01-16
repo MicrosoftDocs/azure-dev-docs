@@ -20,11 +20,124 @@ to Java 11 is worth the effort. Since Java 8, new features have been added and
 enhancements have been made. There are noticeable additions and modifications to API,
 and there are enhancements that improve startup, performance, and memory usage.
 
+There is no one-size-fits-all solution to transitioning from Java 8 to Java 11. 
+In general, the choices are to try to run on Java 11 without recompiling, or to
+compile with JDK 11 first. If the goal is to get anapplication up and running as 
+quickly as possible, just trying to run on Java 11 is often the best approach. 
+For a library, the goal will be to publish an artifcat that is compiled and tested
+with JDK 11.
+
+Java 11 has two tools to use if you want to get a feel for the issues you may enocounter.
+The first is [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html), which 
+can scan a `jar` file or set of class files for use of deprecated or removed API.
+```console
+jdeprscan --release 11 my-application.jar
+```
+Use of deprecated API is not a blocking issue, but is something to look into. Is there an 
+updated jar file? Do you need to log an issue to address the use of deprecated API? Use of 
+removed API, on the other hand, is a blocking issue that has to be addressed before you try
+to run on Java 11.
+
+The `jdeprscan` tool spits out an error message if it has trouble resolving a dependent class.
+For example, `error: cannot find class org/apache/logging/log4j/Logger`. Adding dependent 
+classes to the `--class-path` is recommended, but the tool will continue the scan without it.
+Note that the argument is *&#8209;&#8209;class&#8209;path*. Frustratingly, no other variations
+of the classpath argument will work. 
+```console
+jdeprscan --release 11 --class-path log4j-api-2.13.0.jar my-application.jar
+error: cannot find class sun/misc/BASE64Encoder
+class com/company/Util uses deprecated method java/lang/Double::<init>(D)V
+```
+This output tells us that the `com.company.Util` class is calling a deprecated constructor of the
+`java.lang.Double` class. The javadoc will recommend API to use in place of deprecated API. 
+Note that no amount of work will resolve the `error: cannot find class sun/misc/BASE64Encoder`
+because it is API that has been removed. More on that later. 
+
+Using the `--release 11` option is recommended since that will give the most complete list
+of deprecated API. If you want to prioritize which deprecated API to go after, dial the setting
+back to `--release 8`. API that was deprecated in Java 8 is likely to be removed sooner than
+API that was deprecated after Java 8. 
+
+Run `jdeprscan --release 11 --list` to get a sense of what API has been deprecated since Java 8.
+To get a list of API that has been removed, run run `jdeprscan --release 11 --list --for-removal`.
+
+The other tool that is useful for sniffing out potential problems is 
+[jdeps](https://docs.oracle.com/en/java/javase/11/tools/jdeps.html), which is a Java class
+dependency analyzer. 
+Use *jdeps* with the `--jdk-internals` option to find dependencies on JDK internal API.
+```console
+jdeps --jdk-internals --multi-release 11 --class-path log4j-api-2.13.0.jar my-application.jar
+Util.class -> JDK removed internal API
+Util.class -> jdk.base
+Util.class -> jdk.unsupported
+   com.company.Util        -> sun.misc.BASE64Encoder        JDK internal API (JDK removed internal API)
+   com.company.Util        -> sun.misc.Unsafe               JDK internal API (jdk.unsupported)
+   com.company.Util        -> sun.nio.ch.Util               JDK internal API (java.base)
+
+Warning: JDK internal APIs are unsupported and private to JDK implementation that are
+subject to be removed or changed incompatibly and could break your application.
+Please modify your code to eliminate dependence on any JDK internal APIs.
+For the most recent update on JDK internal API replacements, please check:
+https://wiki.openjdk.java.net/display/JDK8/Java+Dependency+Analysis+Tool
+
+JDK Internal API                         Suggested Replacement
+----------------                         ---------------------
+sun.misc.BASE64Encoder                   Use java.util.Base64 @since 1.8
+sun.misc.Unsafe                          See http://openjdk.java.net/jeps/260   
+
+```
+The jdeps tool tells you which class depends on which internal API and gives suggested replacements 
+for some, but not all, internal API. The OpenJDK wiki page 
+[Java Dependency Analysis Tool](https://wiki.openjdk.java.net/display/JDK8/Java+Dependency+Analysis+Tool)
+has recommended replacements for some commonly used JDK internal APIs. 
+
+You can continue to use internal API in Java 11, but replacing the usage should be a priority. 
+The internal APIs are encapsulated in the module given in the parentheses. For example, 
+*sun.nio.ch.Util* is encapsulated in the module *java.base*. The `--add-exports` command line
+option can be used to [break encapsulation](http://openjdk.java.net/jeps/261). 
+
+What *jdeprscan* and *jdeps* cannot do is warn about the use of reflection to access to encapsulated API. 
+Reflective access is checked at runtime. The default behavior is to permit the access and generate a warning. 
+This can be controlled with the `--illegal-access` command line option. Ultimately, in order to know if there
+is any use of internal or removed API, you have to run the code on Java 11. 
+
+It is worth mentioning that the same warnings and errors regarding deprecated API will come out of 
+running *javac* from JDK 11. But *jdeprscan* and *jdeps* let you continue to compile with JDK 8. 
+
+
 Most applications should run on Java 11 without modification. The first thing to try
-is to use a version 11 `java` without recompiling the code and without making any
-changes to the command line. The point of doing this is to see what warnings
-and errors come out of the execution. This approach gets an application to run on 
-Java 11 more quickly by focusing on the minimum that needs to be done.
+is to use a version 11 `java` without recompiling the code, and without making any
+changes to the command line or library dependencies. The point of doing this is to
+see what warnings and errors come out of the execution. This approach gets an  
+application to run on Java 11 more quickly by focusing on the minimum that needs 
+to be done. 
+
+Compiling on Java 11 will require updates to build scripts, tools, test frameworks, 
+and included libraries. Compiler warnings and errors have to be addressed.
+Some of the warnings will also be issues at runtime `TODO: example here`. 
+
+Libraries should consider packaging as a 
+[multi-release jar file](https://docs.oracle.com/en/java/javase/11/docs/specs/jar/jar.html#multi-release-jar-files). 
+Multi-release jar files allow you to support both Java 8 and Java 11 runtimes 
+from the same jar file. They do, however, add some build complexity which is 
+beyond the scope of this document. 
+
+
+
+Once the application runs on Java 11, the next step would be to upgrade
+third party libraries. Look for updated versions of the libraries your 
+application depends on. Choose modular libraries, if possible, and move
+those libraries off the class-path and onto the module-path. Use the  
+module-path as much as possible, even if you don't plan on using modules
+in your application. Using the module-path has better performance for 
+class loading than the class-path does. 
+
+
+
+If you get the application to run on Java 11 first, then upgrade third party
+libraries, run first, then upgrade third party libraries,  
+
+Compiling first 
 
 The other approach is to use tools like 
 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html)
@@ -179,7 +292,7 @@ To mimic the future behavior, set `--illegal-access=deny` on the command line.
 
 ### java.lang.NoClassDefFoundError
 
-#### Caused by split-packages
+#### NoClassDefFoundError caused by split-packages
 
 A split package is when a package is found in more than one library. The symptom of a split-package 
 problem is that a class you know to be on the class-path is not found. 
@@ -190,7 +303,17 @@ module-path over the class-path when doing a class lookup. If a package is split
 a module and the class-path, only the module is used to do the class lookup. This can lead 
 to `NoClassDefFound` errors. 
 
-#### Caused by using Java EE or CORBA modules
+An easy way to check for a split package is to plug your module path and class path into [jdeps](https://docs.oracle.com/en/java/javase/11/tools/jdeps.html) 
+and use the path to your application class files as the &lt;path&gt;. If there is a split package,
+jdeps will print out a warning: `Warning: split package: <package-name> <module-path> <split-path>`. 
+
+This issue can be resolved by using `--patch-module <module-name>=<path>[,<path>]` to add the split package into the named module. 
+```
+├ com.sample.module
+└
+```
+
+#### NoClassDefFoundError caused by using Java EE or CORBA modules
 
 If the application runs on Java 8 but throws a `java.lang.NoClassDefFoundError` or a 
 `java.lang.NoClassDefFoundError`, then it is
@@ -223,3 +346,5 @@ This exception means that you are trying to run code that was compiled with a la
 | 11 | 55 |
 | 12 | 56 |
 | 13 | 57 |
+
+### 
