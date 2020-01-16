@@ -17,23 +17,23 @@ Carefully consider the guidance that applies to all WebLogic to Azure migrations
 
 If any of the pre-migration requirements can't be met, see the companion migration guides:
 
-* Migrate WebLogic applications to Azure containers (forthcoming)
-* WebLogic to Virtual Machines (forthcoming)
+* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
+* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 ## Pre-migration
 
 As the list below can seem a bit daunting, we've ordered it with the most common steps at the top of the list.
 
 1. [Validate that the supported Java version works correctly](#validate-that-the-supported-java-version-works-correctly)
-1. [Determine whether the application relies on scheduled jobs](#determine-whether-the-application-relies-on-scheduled-jobs)
+1. [Determine whether your application relies on scheduled jobs](#determine-whether-your-application-relies-on-scheduled-jobs)
 1. [Determine whether JCA connectors are used](#determine-whether-jca-connectors-are-used)
 1. [Determine whether JAAS is used](#determine-whether-jaas-is-used)
 1. [Determine whether WebLogic clustering is used](#determine-whether-weblogic-clustering-is-used)
-1. [Determine whether the application uses a Resource Adapter](#determine-whether-the-application-uses-a-resource-adapter)
+1. [Determine whether your application uses a Resource Adapter](#determine-whether-your-application-uses-a-resource-adapter)
 
 ### Validate that the supported Java version works correctly
 
-Using WildFly on Azure App Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
+Using WildFly on Azure App Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current version, sign in to your production server and run
 
@@ -41,30 +41,30 @@ To obtain your current version, sign in to your production server and run
 java -version
 ```
 
-### Determine whether the application relies on scheduled jobs
+### Determine whether your application relies on scheduled jobs
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if the application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
 
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. Instead, the function can invoke a URL in the application to trigger the job.
+To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. Instead, the function can invoke a URL in your application to trigger the job.
 
 > [!NOTE]
 > To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
 
 ### Determine whether WLST is used
 
-If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of the application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
+If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
 
 1. They are externalized as app settings.
-2. They are embedded in the application.
+2. They are embedded in your application.
 3. They are using the JBoss CLI during deployment.
 
 If WLST is doing more than what is mentioned above, you will have some additional work to do during migration.
 
-### Determine whether the application uses WebLogic specific APIs
+### Determine whether your application uses WebLogic specific APIs
 
-If the application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
+If your application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
 
-### Determine whether the application uses Entity Beans or EJB 2.x-style CMP Beans
+### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
 
 If your application uses Entity Beans or EJB 2.x style CMP beans, you will need to refactor your application to NOT use them.
 
@@ -74,11 +74,11 @@ If you have client applications that connect to your (server) application using 
 
 ### Determine whether a deployment plan was used
 
-If a deployment plan was used to perform the deployment, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy the web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure the application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor the application in such a way that a deployment plan is no longer needed.
+If a deployment plan was used to perform the deployment, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor your application in such a way that a deployment plan is no longer needed.
 
 ### Determine whether EJB timers are in use
 
-If the application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each WildFly instance independently. This validation is needed because, in the App Service deployment scenario, each EJB timer will be triggered on its own WildFly instance.
+If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each WildFly instance independently. This validation is needed because, in the App Service deployment scenario, each EJB timer will be triggered on its own WildFly instance.
 
 ### Validate if and how the file system is used
 
@@ -86,27 +86,27 @@ Any usage of the file system on the application server will require reconfigurat
 
 #### Read-only static content
 
-If the application currently serves static content, an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
+If your application currently serves static content, an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
 
 #### Dynamically published static content
 
-If the application allows for static content that is uploaded/produced by the application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We have provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We have provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 #### Dynamic or internal content
 
-For files that are frequently written and read by the application (such as temporary data files), or static files that are visible only to the application, Azure Storage can be [mounted into the App Service file system](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Storage can be [mounted into the App Service file system](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
 
 ### Determine whether JCA connectors are used
 
-If the application uses JCA connectors you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
-#### Determine whether the application uses a Resource Adapter
+#### Determine whether your application uses a Resource Adapter
 
-If the application needs a Resource Adapter (RA), it needs to be compatible with WildFly. Determine whether the RA works fine on a standalone instance of WildFly by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the App Service instance and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application needs a Resource Adapter (RA), it needs to be compatible with WildFly. Determine whether the RA works fine on a standalone instance of WildFly by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the App Service instance and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
 ### Determine whether JAAS is used
 
-If the application is using JAAS, then you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
+If your application is using JAAS, then you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
 
 ### Determine whether WebLogic clustering is used
 
@@ -143,7 +143,7 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy the application.
+Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy your application.
 
 ### Migrate JVM runtime options
 
@@ -159,7 +159,7 @@ If the original application used a custom startup script, you'll need to migrate
 
 ### Populate secrets
 
-Use Application Settings to store any secrets specific to the application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
+Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
 ### Configure Custom Domain and SSL
 
@@ -180,11 +180,11 @@ Migrate any additional [shared server-level JDNI resources](/azure/app-service/c
 Migrate any JCA connectors and JAAS modules by following the instructions at [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
 
 > [!NOTE]
-> If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into the application. This will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.
+> If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into your application. This will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.
 
 ### Migrate scheduled jobs
 
-At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of the application. Or you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, Event Hubs, etc.
+At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of your application. Or you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, Event Hubs, and so on.
 
 ### Restart and smoke-test
 
@@ -192,7 +192,7 @@ Finally, you'll need to restart your Web App to apply all configuration changes.
 
 ## Post-migration
 
-Now that you have the application migrated to Azure App Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 ### Recommendations
 
@@ -202,6 +202,6 @@ Now that you have the application migrated to Azure App Service you should verif
 
 1. Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
-1. Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If you're using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) and the subsequent slot swap.
+1. Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If you're using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) and the subsequent slot swap.
 
 1. Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).

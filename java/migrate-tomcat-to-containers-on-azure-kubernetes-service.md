@@ -168,7 +168,7 @@ Clone Azure's [Tomcat On Containers GitHub repository](https://github.com/Azure/
 
 #### Open ports for clustering, if needed
 
-[Tomcat clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) can be used on AKS, but is not formally supported by Microsoft. If you use it, ensure that the necessary port ranges are exposed in the Dockerfile. If you specify the server IP address in *server.xml*, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
+If you intend to use [Tomcat Clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) on AKS, ensure that the necessary port ranges are exposed in the Dockerfile. In order to specify the server IP address in `server.xml`, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
 
 Alternatively, session state can be [persisted to an alternate location](#identify-session-persistence-mechanism) to be available across replicas.
 

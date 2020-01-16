@@ -15,8 +15,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If there are any pre-migration requirements that you can't meet, see the following companion migration guides:
 
-* Migrate WebLogic applications to Azure containers (forthcoming)
-* Migrate WebLogic to Virtual Machines (forthcoming)
+* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
+* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 * [Migrate WebLogic applications to WildFly on Azure App Service](migrate-weblogic-to-wildfly.md)
 
 ## Pre-migration
@@ -135,7 +135,7 @@ If you're using the Shared Java EE library feature, you have two options:
 
 ### Determine whether OSGi bundles are used
 
-If you used OSGi bundles added to the WebLogic server, you'll need to add the equivalent JAR files directly to the web application.
+If you used OSGi bundles added to the WebLogic server, you'll need to add the equivalent JAR files directly to your web application.
 
 ### Determine whether your application contains OS-specific code
 
@@ -161,6 +161,6 @@ If you have any processes running outside the application server, such as monito
 
 Continue with the migration guidance in the following scenarios:
 
-* Migrate WebLogic applications to Azure containers (forthcoming)
-* Migrate WebLogic applications to Azure Virtual Machines (forthcoming)
+* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
+* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 * [Migrate WebLogic applications to WildFly on Azure App Service](migrate-weblogic-to-wildfly.md)

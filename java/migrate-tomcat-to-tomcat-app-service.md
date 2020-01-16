@@ -13,10 +13,10 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Before you start
 
-If any of the pre-migration requirements can't be met, see the companion migration guides:
+If any of the pre-migration requirements can't be met, see the following companion migration guides:
 
-* [Tomcat to Containers](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Tomcat to Azure VMs (forthcoming)
+* [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
+* [Migrate Tomcat Applications to Azure Virtual Machines](migrate-tomcat-to-azure-vms.md)
 
 ## Pre-migration steps
 
@@ -57,7 +57,7 @@ To obtain the current version used by Azure App Service, download [Tomcat 8.5](h
 
 External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI). Some such resources may require migration or reconfiguration.
 
-#### Inside the application
+#### Inside your application
 
 Inspect the *META-INF/context.xml* file. Look for `<Resource>` elements inside the `<Context>` element.
 
@@ -101,15 +101,15 @@ Any usage of the file system on the application server will require reconfigurat
 
 #### Read-only static content
 
-If the application currently serves static content (for example, via an Apache integration), an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
+If your application currently serves static content (for example, via an Apache integration), an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
 
 #### Dynamically-published static content
 
-If the application allows for static content that is uploaded/produced by the application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 #### Dynamic or internal content
 
-For files that are frequently written and read by the application (such as temporary data files), or static files that are visible only to the application, Azure Storage can be [mounted into the App Service file system](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Storage can be [mounted into the App Service file system](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
 
 ### Identify session persistence mechanism
 
@@ -129,13 +129,13 @@ Certain production scenarios may require additional changes or impose additional
 
 #### Determine whether application relies on scheduled jobs
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if the application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
 
 Inventory any scheduled jobs, inside or outside the application server.
 
-#### Determine whether the application contains OS-specific code
+#### Determine whether your application contains OS-specific code
 
-If the application contains any code that is accommodating the OS the application is running on, then the application needs to be refactored to NOT rely on the underlying OS. For instance, any uses of `/` or `\` in file system paths may need to be replaced with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Path.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
+If your application contains any code that is accommodating the OS the application is running on, then your application needs to be refactored to NOT rely on the underlying OS. For instance, any uses of `/` or `\` in file system paths may need to be replaced with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Path.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
 
 #### Determine whether Tomcat clustering is used
 
@@ -229,7 +229,7 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy the application.
+Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy your application.
 
 ### Migrate JVM runtime options
 
@@ -237,7 +237,7 @@ If your application requires specific runtime options, [use the most appropriate
 
 ### Populate secrets
 
-Use Application Settings to store any secrets specific to the application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
+Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
 ### Configure Custom Domain and SSL
 
@@ -254,7 +254,7 @@ Migrate any additional server-level classpath dependencies by following [the sam
 Migrate any additional [Shared server-level JDNI resources](/azure/app-service/containers/configure-language-java#shared-server-level-resources).
 
 > [!NOTE]
-> If you're following the recommended architecture of one WAR per webapp, consider migrating server-level classpath libraries and JNDI resources into the application. This will significantly simplify component governance and change management.
+> If you're following the recommended architecture of one WAR per webapp, consider migrating server-level classpath libraries and JNDI resources into your application. This will significantly simplify component governance and change management.
 
 ### Migrate remaining configuration
 
@@ -264,7 +264,7 @@ Complete the migration by copying any additional configuration (such as [realms]
 
 ### Migrate scheduled jobs
 
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. The function can simply invoke a URL in the application to trigger the job.
+To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. The function can simply invoke a URL in your application to trigger the job.
 
 Alternatively, you can create a [Logic app](/azure/logic-apps/logic-apps-overview) with a [Recurrence trigger](/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow#add-the-recurrence-trigger) to invoke the URL without writing any code outside your application.
 
@@ -277,7 +277,7 @@ Finally, you'll need to restart your Web App to apply all configuration changes.
 
 ## Post-migration steps
 
-Now that you have the application migrated to Azure App Service you should verify that it works as you expect. Once you've done that we have some recommendations for you that can make your application more Cloud native.
+Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that we have some recommendations for you that can make your application more Cloud native.
 
 ### Recommendations
 

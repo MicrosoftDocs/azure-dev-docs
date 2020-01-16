@@ -62,38 +62,42 @@ These applications are packaged into archives with the *.jar* extension (JAR fil
 
 ## Selecting the target architecture
 
-Use the [feature grid](#feature-grid) below to identify the all the architectures that provide the features you require, including the ability to run the application type identified in the previous section. Then, use the [ongoing responsibility grid](#ongoing-responsibility-grid) to aid in understanding the responsibility each architecture places on your team post-migration.
+The following sections show you which service architectures meet your application requirements, and what responsibilities they entail.
 
 ### Feature grid
 
-|   | App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+Use the following grid to identify the architectures that support the application types and features you require.
+
+|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications |&#x2714;| | | |&#x2714;|&#x2714;|
-| Spring Cloud / microservices | | | |&#x2714;|&#x2714;|&#x2714;|
-| Web applications | |&#x2714;|&#x2714;| |&#x2714;|&#x2714;|
-| Java EE applications | | |&#x2714;| |&#x2714;|&#x2714;|
-| Commercial application servers<br> (such as WebLogic or WebSphere) | | | | |&#x2714;|&#x2714;|
-| Long-term persistence on local filesystem |&#x2714;|&#x2714;|&#x2714;| |&#x2714;|&#x2714;|
-| Application server-level clustering | | | | |&#x2714;|&#x2714;|
-| Batch / scheduled jobs | | | |&#x2714;|&#x2714;|&#x2714;|
+| Spring Boot / JAR applications                                    |&#x2714;|        |        |        |&#x2714;|&#x2714;|
+| Spring Cloud / microservices                                      |        |        |        |&#x2714;|&#x2714;|&#x2714;|
+| Web applications                                                  |        |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
+| Java EE applications                                              |        |        |&#x2714;|        |&#x2714;|&#x2714;|
+| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |        |&#x2714;|&#x2714;|
+| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
+| Application server-level clustering                               |        |        |        |        |&#x2714;|&#x2714;|
+| Batch / scheduled jobs                                            |        |        |        |&#x2714;|&#x2714;|&#x2714;|
 
 ### Ongoing responsibility grid
 
-Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;" in the grid below. We recommend implementing a robust, highly automated process for fulfilling all such responsibilities. This isn't an exhaustive list of responsibilities.
+Use the following grid to understand the responsibility each architecture places on your team following migration.
+
+Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities. Note that this isn't an exhaustive list of responsibilities.
 
 |   | App Service | Azure Spring Cloud | AKS | Virtual Machines |
 |---|---|---|---|---|
-| Updating libraries<br>(including vulnerability remediation) |&#x1F449;|&#x1F449;|&#x1F449;|&#x1F449;|
-| Updating the application server<br>(including vulnerability remediation) | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg) |&#x1F449;|&#x1F449;|
-| Updating the Java Runtime<br>(including vulnerability remediation) | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg) |&#x1F449;|&#x1F449;|
-| Triggering Kubernetes updates<br>(Performed by Azure with a manual trigger) |N/A|N/A|&#x1F449;|N/A|
-| Reconciling non-backward-compatible Kubernetes API changes |N/A|N/A|&#x1F449;|N/A|
-| Updating container base image<br>(including vulnerability remediation) |N/A|N/A|&#x1F449;|N/A|
-| Updating the operating system<br>(including vulnerability remediation) | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg)| ![Azure](media/migration-overview/logo_azure.svg) |&#x1F449;|
-| Detecting and restarting failed instances | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg)| ![Azure](media/migration-overview/logo_azure.svg)|&#x1F449;|
-| Implementing draining and rolling restart for updates | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg) |&#x1F449;|
-| Infrastructure management |  ![Azure](media/migration-overview/logo_azure.svg) | ![Azure](media/migration-overview/logo_azure.svg) |&#x1F449;|&#x1F449;|
-| Monitoring and alert management |&#x1F449;|&#x1F449;|&#x1F449;|&#x1F449;|
+| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449; | &#x1F449; | &#x1F449; | &#x1F449; |
+| Updating the application server<br>(including vulnerability remediation)    |![Azure][1]|![Azure][1]| &#x1F449; | &#x1F449; |
+| Updating the Java Runtime<br>(including vulnerability remediation)          |![Azure][1]|![Azure][1]| &#x1F449; | &#x1F449; |
+| Triggering Kubernetes updates<br>(Performed by Azure with a manual trigger) | N/A       | N/A       | &#x1F449; | N/A       |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A       | N/A       | &#x1F449; | N/A       |
+| Updating container base image<br>(including vulnerability remediation)      | N/A       | N/A       | &#x1F449; | N/A       |
+| Updating the operating system<br>(including vulnerability remediation)      |![Azure][1]|![Azure][1]|![Azure][1]| &#x1F449; |
+| Detecting and restarting failed instances                                   |![Azure][1]|![Azure][1]|![Azure][1]| &#x1F449; |
+| Implementing draining and rolling restart for updates                       |![Azure][1]|![Azure][1]|![Azure][1]| &#x1F449; |
+| Infrastructure management                                                   |![Azure][1]|![Azure][1]| &#x1F449; | &#x1F449; |
+| Monitoring and alert management                                             | &#x1F449; | &#x1F449; | &#x1F449; | &#x1F449; |
 
 If you deploy the servlet container (such as Spring Boot) as part of your application, you should consider it a library and, as such, it's always your responsibility.
 
@@ -109,28 +113,16 @@ Document the hardware of the current production server(s) as well as the average
 
 ## Migration guidance
 
-You can find migration guidance by application type in order to target Azure services. 
+Use the following grid to find migration guidance by application type and targeted Azure service architecture.
 
-In the following tables, "TBS" means "to be supplied" and "N/A" means "not applicable".
+|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|---|---|---|---|---|---|---|
+| Spring Boot /<br>JAR applications | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming |
+| Spring Cloud /<br>microservices   | N/A         | N/A         | N/A         | forthcoming | forthcoming | forthcoming |
+| Web applications<br>on Tomcat     | N/A         | forthcoming | N/A         | N/A         | forthcoming | forthcoming |
+| WildFly /<br>JBoss AS             | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
+| WebLogic                          | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
+| WebSphere                         | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
+| JBoss EAP                         | N/A         | N/A         | forthcoming | N/A         | N/A         | forthcoming |
 
-**Java applications**
-
-| Application type -><br>Azure service | Spring Boot /<br>JAR applications​ | Spring Cloud /<br>microservices​ | Web applications<br>on Tomcat​ |
-|---|---|---|---|
-| App Service – Java SE  | TBS | N/A | N/A |
-| App Service - Tomcat   | TBS | N/A | TBS |
-| App Service - WildFly  | TBS | N/A | N/A |
-| Azure Spring Cloud​     | TBS | TBS | N/A |
-| Linux Virtual Machines​ | TBS | TBS | TBS |
-| AKS                    | TBS | TBS | TBS |
-
-**Java EE applications**
-
-| Application type -> Azure service | WildFly / JBoss AS​ | WebLogic​ | WebSphere​ | JBoss EAP​ |
-|---|---|---|---|---|
-| App Service – Java SE  | N/A | N/A | N/A | N/A |
-| App Service - Tomcat   | N/A | N/A | N/A | N/A |
-| App Service - WildFly  | TBS | TBS | TBS | TBS |
-| Azure Spring Cloud​     | N/A | N/A | N/A | N/A |
-| Linux Virtual Machines​ | TBS | TBS | TBS | TBS |
-| AKS                    | TBS | TBS | TBS | N/A |
+[1]: media/migration-overview/logo_azure.svg
