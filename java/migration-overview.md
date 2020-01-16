@@ -113,13 +113,20 @@ Document the hardware of the current production server(s) as well as the average
 
 ## Migration guidance
 
-Use the following grid to find migration guidance by application type and targeted Azure service architecture.
+Use the following grids to find migration guidance by application type and targeted Azure service architecture.
+
+**Java applications**
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot /<br>JAR applications | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming |
 | Spring Cloud /<br>microservices   | N/A         | N/A         | N/A         | forthcoming | forthcoming | forthcoming |
 | Web applications<br>on Tomcat     | N/A         | forthcoming | N/A         | N/A         | forthcoming | forthcoming |
+
+**Java EE applications**
+
+|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|---|---|---|---|---|---|---|
 | WildFly /<br>JBoss AS             | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
 | WebLogic                          | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
 | WebSphere                         | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
