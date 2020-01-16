@@ -119,9 +119,9 @@ Use the following grids to find migration guidance by application type and targe
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming | forthcoming |
-| Spring Cloud /<br>microservices   | N/A         | N/A         | N/A         | forthcoming | forthcoming | forthcoming |
-| Web applications<br>on Tomcat     | N/A         | forthcoming | N/A         | N/A         | forthcoming | forthcoming |
+| Spring Boot /<br>JAR applications | forthcoming | forthcoming  | forthcoming | forthcoming | forthcoming  | forthcoming |
+| Spring Cloud /<br>microservices   | N/A         | N/A          | N/A         | forthcoming | forthcoming  | forthcoming |
+| Web applications<br>on Tomcat     | N/A         |[available][2]| N/A         | N/A         |[available][3]| forthcoming |
 
 **Java EE applications**
 
@@ -132,4 +132,7 @@ Use the following grids to find migration guidance by application type and targe
 | WebSphere                         | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
 | JBoss EAP                         | N/A         | N/A         | forthcoming | N/A         | N/A         | forthcoming |
 
+<!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
+[2]: migrate-tomcat-to-tomcat-app-service.md
+[3]: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
