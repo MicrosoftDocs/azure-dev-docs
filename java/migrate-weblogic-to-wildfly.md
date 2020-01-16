@@ -17,8 +17,8 @@ Carefully consider the guidance that applies to all WebLogic to Azure migrations
 
 If any of the pre-migration requirements can't be met, see the companion migration guides:
 
-* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
-* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+* Migrate WebLogic applications to Azure containers (forthcoming)
+* Migrate WebLogic applications to Azure Virtual Machines (forthcoming)
 
 ## Pre-migration
 
