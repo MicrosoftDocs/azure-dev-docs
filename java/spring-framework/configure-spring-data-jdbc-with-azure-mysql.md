@@ -62,7 +62,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then click the Azure Database for MySQL resources you just created.
 
-1. Click **Connection security**, and in the **Firewall rules**, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
+1. Click **Connection security**, and in the **Firewall rules**, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
 
    ![Configure connection security][MYSQL04]
 
@@ -108,6 +108,8 @@ The following prerequisites are required in order to complete the steps in this 
    
    mysql>
    ```
+   > Note:
+   > If you get an error that the server doesn't recognize this IP address, the IP address your client is using will be shown in the error.  Go back and assign it as described previously: *Configure a firewall rule for your server using the Azure portal*.
 
 1. Create a database named *mysqldb* by entering a `mysql` command like the following example:
 
