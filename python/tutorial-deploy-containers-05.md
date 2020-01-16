@@ -10,9 +10,9 @@ ms.custom: seo-python-october2019
 
 [Previous step: stream logs](tutorial-deploy-containers-04.md)
 
-This article shows you how to remove Azure resources that you created while deploying an app to Azure App Service with Visual Studio Code.
+The Azure resources that you created in this tutorial can incur ongoing costs. To avoid such costs, delete the resource group that contains all those resources.
 
-The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, it's best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+[!INCLUDE [delete-resource-group](includes/delete-resource-group.md)]
 
 ## Next steps
 
