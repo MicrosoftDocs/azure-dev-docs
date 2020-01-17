@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 1/20/2020
 ---
 
 # Migrate Tomcat applications to Tomcat on Azure App Service
