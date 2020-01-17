@@ -86,7 +86,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Retrieve your JDBC connection string][SQL09]
 
-*** Create test table in database
+### Create test table in database
 In order to run a client application against this database, use the following SQL command to create a new table.
 
 ``` SQL
