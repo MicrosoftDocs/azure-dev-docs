@@ -16,7 +16,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 If any of the pre-migration requirements can't be met, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Migrate Tomcat Applications to Azure Virtual Machines (forthcoming)
+* [Migrate Tomcat Applications to Azure Virtual Machines](migrate-tomcat-to-azure-vms.md)
 
 ## Pre-migration steps
 
@@ -117,11 +117,7 @@ To identify the session persistence manager in use, inspect the *context.xml* fi
 
 Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as  [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or  [FileBasedStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed to be used with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
-If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as one of the following:
-
-* [Pivotal Session Manager with Redis Cache](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat)
-* [CosmosDB Session Manager](https://github.com/mnriem/microsoft-azure-cosmosdb-httpsession#using-tomcat)
-<!-- TODO: make sure this link is live. Should point to an official repo. -->
+If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as [Pivotal Session Manager with Redis Cache](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
 ### Special Cases
 

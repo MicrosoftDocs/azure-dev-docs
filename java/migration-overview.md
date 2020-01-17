@@ -49,9 +49,9 @@ Java EE applications can be packaged as archives with the *.ear* extension (EAR 
 
 Java EE applications must be deployed onto Java EE-compliant application servers (such as WebLogic, WebSphere, WildFly, GlassFish, Payara, and others).
 
-Applications that rely only on features provided by the Java EE specification (that is, app-server-independent applications) can be migrated from one compliant application server onto another. If your application is dependent on a specific application server (app-server-dependent), you may need to select an architecture that permits you to host that application server.
+Applications that rely only on features provided by the Java EE specification (that is, app-server-independent applications) can be migrated from one compliant application server onto another. If your application is dependent on a specific application server (app-server-dependent), you may need to select an Azure service destination that permits you to host that application server.
 
-## Batch / scheduled jobs
+### Batch / scheduled jobs
 
 Some applications are intended to run briefly, execute a particular workload, and then exit rather than wait for requests or user input. Sometimes such jobs need to run once or at regular, scheduled intervals. On premises, such jobs are often invoked from a server's crontab.
 
@@ -60,13 +60,13 @@ These applications are packaged into archives with the *.jar* extension (JAR fil
 > [!NOTE]
 > If your application uses a scheduler (such as Spring Batch or Quartz) to run scheduled tasks, we strongly recommend that you factor such tasks to run outside of the application. If your application scales to multiple instances in the cloud, the same job will run more than once. Furthermore, if your scheduling mechanism uses the host's local time zone, you may experience undesirable behavior when scaling your application across regions.
 
-## Selecting the target architecture
+## Selecting the target Azure service destination
 
-The following sections show you which service architectures meet your application requirements, and what responsibilities they entail.
+The following sections show you which service destinations meet your application requirements, and what responsibilities they entail.
 
 ### Feature grid
 
-Use the following grid to identify the architectures that support the application types and features you require.
+Use the following grid to identify the destinations that support the application types and features you require.
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
@@ -81,7 +81,7 @@ Use the following grid to identify the architectures that support the applicatio
 
 ### Ongoing responsibility grid
 
-Use the following grid to understand the responsibility each architecture places on your team following migration.
+Use the following grid to understand the responsibility each destination places on your team following migration.
 
 Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities. Note that this isn't an exhaustive list of responsibilities.
 
@@ -109,15 +109,17 @@ You should complete this effort before you start any migration.
 
 ## Inventory current capacity and utilization
 
-Document the hardware of the current production server(s) as well as the average and peak request counts and resource utilization. You'll need this information to provision resources in the target architecture.
+Document the hardware of the current production server(s) as well as the average and peak request counts and resource utilization. You'll need this information to provision resources in the service destination.
 
 ## Migration guidance
 
-Use the following grids to find migration guidance by application type and targeted Azure service architecture.
+Use the following grids to find migration guidance by application type and targeted Azure service destination.
 
 **Java applications**
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+Use the rows below to find your application type and the columns to find the Azure service destination that will host your app.
+
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot /<br>JAR applications | forthcoming | forthcoming  | forthcoming | forthcoming | forthcoming  | forthcoming |
 | Spring Cloud /<br>microservices   | N/A         | N/A          | N/A         | forthcoming | forthcoming  | forthcoming |
@@ -125,7 +127,9 @@ Use the following grids to find migration guidance by application type and targe
 
 **Java EE applications**
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+Use the rows below to find your Java EE applicaton type running on a specific app server and the columns to find the Azure service destination that will host your app.
+
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
 | WildFly /<br>JBoss AS             | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
 | WebLogic                          | N/A         | N/A         | forthcoming | N/A         | forthcoming | forthcoming |
