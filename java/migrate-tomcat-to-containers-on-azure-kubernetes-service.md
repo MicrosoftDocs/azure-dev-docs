@@ -164,7 +164,7 @@ az aks create -g $resourceGroup -n $aksName --attach-acr $acrName --network-plug
 
 ### Prepare the deployment artifacts
 
-Clone Azure's [Tomcat On Containers GitHub repository](https://github.com/Azure/tomcat-container-quickstart). It contains a Dockerfile and Tomcat configuration files with a number of recommended optimizations. In the steps below, we outline modifications you'll likely need to make to these files before building the container image and deploying to AKS.
+Clone [Tomcat On Containers Quickstart GitHub repository](https://github.com/Azure/tomcat-container-quickstart). It contains a Dockerfile and Tomcat configuration files with a number of recommended optimizations. In the steps below, we outline modifications you'll likely need to make to these files before building the container image and deploying to AKS.
 
 #### Open ports for clustering, if needed
 
