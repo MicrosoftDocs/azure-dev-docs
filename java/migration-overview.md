@@ -120,7 +120,7 @@ Use the following grids to find migration guidance by application type and targe
 
 **Java applications**
 
-Use the rows below to find your Java application type and the columns to find the Azure service destination that will host your app.
+Use the rows below to find your Java application type and the columns to find the Azure service destination that will host your application.
 
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
@@ -130,9 +130,9 @@ Use the rows below to find your Java application type and the columns to find th
 
 **Java EE applications**
 
-Use the rows below to find your Java EE application type or app server. Use the columns to find the Azure service destination that will host your app.
+Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
 | WildFly /<br>JBoss AS | N/A | N/A | planned | N/A | planned | planned |
 | WebLogic              | N/A | N/A | planned | N/A | planned | planned |
