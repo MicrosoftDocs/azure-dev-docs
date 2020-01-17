@@ -156,9 +156,9 @@ IF NOT EXISTS (SELECT 1 FROM sysobjects WHERE NAME='pet' and XTYPE='U')
    curl -s -d '{"name":"dog","species":"canine"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
-   or: shell
+   or:
 
-```
+``` shell
    curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
