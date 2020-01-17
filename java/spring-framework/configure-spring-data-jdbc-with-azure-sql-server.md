@@ -153,7 +153,7 @@ IF NOT EXISTS (SELECT 1 FROM sysobjects WHERE NAME='pet' and XTYPE='U')
 1. Create new records using `curl` from a command prompt like the following examples:
 
    ```shell
-   curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   curl -s -d '{"name":"dog","species":"canine"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
    or: shell
