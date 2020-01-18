@@ -217,7 +217,7 @@ You might want to [create a Persistent Volume using Azure Files](/azure/aks/azur
 
 ### Configure KeyVault FlexVolume
 
-[Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
+[Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
 
 You'll need to modify the startup script (*startup.sh* in the [Tomcat on Containers](https://github.com/Azure/tomcat-container-quickstart) GitHub repository) to import the certificates into the local keystore on the container.
 
