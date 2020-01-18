@@ -13,10 +13,10 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Before you start
 
-If any of the pre-migration requirements can't be met, see the following companion migration guides:
+If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Migrate Tomcat Applications to Azure Virtual Machines (forthcoming)
+* [Migrate Tomcat Applications to Azure Virtual Machines](migrate-tomcat-to-azure-vms.md)
 
 ## Pre-migration steps
 
@@ -28,12 +28,12 @@ If any of the pre-migration requirements can't be met, see the following compani
 
 ### Switch to a supported platform
 
-App Service offers specific versions of Tomcat on Specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment prior to proceeding with any of the remaining steps. Be sure to fully test the resulting configuration. Use [Red Hat Enterprise Linux 8](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux80-ARM) as the operating system in such tests.
+App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment prior to proceeding with any of the remaining steps. Be sure to fully test the resulting configuration. Use [Red Hat Enterprise Linux 8](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux80-ARM) as the operating system in such tests.
 
 #### Java
 
 > [!NOTE]
-> This validation is especially important if your current server is not using a supported JDK (such as Oracle JDK or IBM OpenJ9).
+> This validation is especially important if your current server is running on an unsupported JDK (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current Java version, sign in to your production server and run the following command:
 
@@ -53,73 +53,26 @@ ${CATALINA_HOME}/bin/version.sh
 
 To obtain the current version used by Azure App Service, download [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi#8.5.50) or [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
 
-### Inventory external resources
+[!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
-External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI). Some such resources may require migration or reconfiguration.
+[!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
 
-#### Inside your application
+[!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
 
-Inspect the *META-INF/context.xml* file. Look for `<Resource>` elements inside the `<Context>` element.
-
-#### On the application server(s)
-
-Inspect the *$CATALINA_BASE/conf/context.xml* and *$CATALINA_BASE/conf/server.xml* files as well as the *.xml* files found in *$CATALINA_BASE/conf/[engine-name]/[host-name]* directories.
-
-In *context.xml* files, JNDI resources will be described by the `<Resource>` elements inside the top-level `<Context>` element.
-
-In *server.xml* files, JNDI resources will be described by the `<Resource>` elements inside the `<GlobalNamingResources>` element.
-
-#### Datasources
-
-Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataSource`. For each datasource, document the following:
-
-* What is the datasource name?
-* What is the connection pool configuration?
-* Where can I find the JDBC driver JAR file?
-
-#### All other external resources
-
-It isn't feasible to document every possible external dependency in this guide. it's your team's responsibility to verify that every external dependency of your application can be satisfied after an App Service migration.
-
-### Inventory secrets
-
-#### Passwords and secure strings
-
-Check all properties and configuration files on the production server(s) for any secret strings and passwords. Be sure to check `server.xml` and `context.xml` in $CATALINA_BASE/conf. Configuration files containing passwords or credentials may also be found inside your application. These may include `META-INF/context.xml`, and, for Spring Boot applications, `application.properties` or `application.yml` files.
-
-#### Certificates
-
-Document all the certificates used for public SSL endpoints. You can view all certificates on the production server(s) by running
-
-```bash
-keytool -list -v -keystore <path to keystore>
-```
-
-### Inventory Persistence Usage
-
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by Tomcat modules or by your application code. You may identify some or all of the following scenarios.
-
-#### Read-only static content
-
-If your application currently serves static content (for example, via an Apache integration), an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
-
-#### Dynamically-published static content
-
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
-
+<!-- App-Service-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Storage can be [mounted into the App Service file system](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into the App Service file system. For more information, see [Serve content from Azure Storage in App Service on Linux](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
 
 ### Identify session persistence mechanism
 
 To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
-Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as  [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or  [FileBasedStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed to be used with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
+Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as  [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
-If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as [Pivotal Session Manager with Redis Cache](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
+If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as Pivotal Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
-### Special Cases
+### Special cases
 
 Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it is important to ensure that they are either inapplicable to your application or correctly resolved.
 
@@ -131,19 +84,17 @@ Inventory any scheduled jobs, inside or outside the application server.
 
 #### Determine whether your application contains OS-specific code
 
-If your application contains any code that is accommodating the OS the application is running on, then your application needs to be refactored to NOT rely on the underlying OS. For instance, any uses of `/` or `\` in file system paths may need to be replaced with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Path.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
+If your application contains any code with dependencies on the host OS, then you'll need to refactor it to remove those dependencies. For example, you may need to replace any use of `/` or `\` in file system paths with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Paths.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
 
 #### Determine whether Tomcat clustering is used
 
-[Tomcat clustering](https://tomcat.apache.org/tomcat-8.5-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, scaling and load balancing can be configured and managed through Azure App Service without Tomcat-specific functionality. Session state can be [persisted to an alternate location](#identify-session-persistence-mechanism) to be available across replicas.
+[Tomcat clustering](https://tomcat.apache.org/tomcat-8.5-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, you can configure and manage scaling and load balancing through Azure App Service without Tomcat-specific functionality. You can persist session state to an alternate location to make it available across replicas. For more information, see [Identify session persistence mechanism](#identify-session-persistence-mechanism).
 
 To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
 
 #### Identify all outside processes/daemons running on the production server(s)
 
-Processes running outside of Application Server, such as monitoring daemons, will need to be migrated elsewhere or eliminated.
-
-<!-- Tomcat-specific:-->
+You will need to migrate elsewhere or eliminate any processes running outside of Application Server, such as monitoring daemons.
 
 #### Determine whether non-HTTP connectors are used
 
@@ -153,21 +104,21 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 #### Determine whether MemoryRealm is used
 
-[MemoryRealm](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, this file will need to be uploaded to the */home* directory or a subdirectory thereof or to mounted storage. The `pathName` parameter will have to be modified accordingly.
+[MemoryRealm](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you will need to upload this file to the */home* directory or a subdirectory thereof or to mounted storage. You will have to modify the `pathName` parameter accordingly.
 
 To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 #### Determine whether SSL session tracking is used
 
-App Service performs session offloading outside of the Tomcat runtime. [SSL session tracking](https://tomcat.apache.org/tomcat-8.5-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL) therefore can't be used. Use a different session tracking mode instead (`COOKIE` or `URL`). If SSL session tracking is required, don't use App Service.
+App Service performs session offloading outside of the Tomcat runtime. Therefore, you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-8.5-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). Use a different session tracking mode instead (`COOKIE` or `URL`). If you need SSL session tracking, don't use App Service.
 
 #### Determine whether AccessLogValve is used
 
-If [AccessLogValve](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/AccessLogValve.html) is used, the `directory` parameter should be set to `/home/LogFiles` or a subdirectory thereof.
+If you use [AccessLogValve](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/AccessLogValve.html), you should set the `directory` parameter to `/home/LogFiles` or a subdirectory thereof.
 
 ## Migration
 
-### Parametrize the Configuration
+### Parametrize the configuration
 
 In the pre-migration you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string or URL with an environment variable.
 
@@ -199,14 +150,14 @@ In this case, you could change it as shown in the following example:
 
 ### Provision an App Service plan
 
-From the [list of available service plans](https://azure.microsoft.com/pricing/details/app-service/linux/), select the plan whose specifications meet or exceed those of the current production hardware.
+From the list of available service plans at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), select the plan whose specifications meet or exceed those of the current production hardware.
 
 > [!NOTE]
-> If you plan to run staging/canary deployments or use [deployment slots](/azure/app-service/deploy-staging-slots), the App Service plan must include that additional capacity. We recommend using Premium or higher plans for Java applications.
+> If you plan to run staging/canary deployments or use deployment slots, the App Service plan must include that additional capacity. We recommend using Premium or higher plans for Java applications. For more information, see [Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots).
 
-[Create the App Service plan](/azure/app-service/app-service-plan-manage#create-an-app-service-plan).
+Then, create the App Service plan. For more information, see [Manage an App Service plan in Azure](/azure/app-service/app-service-plan-manage).
 
-### Create and Deploy Web App(s)
+### Create and deploy web app(s)
 
 you'll need to create a Web App on your App Service Plan for every WAR file deployed to your Tomcat server.
 
@@ -235,7 +186,7 @@ If your application requires specific runtime options, [use the most appropriate
 
 Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
-### Configure Custom Domain and SSL
+### Configure custom domain and SSL
 
 If your application will be visible on a custom domain, you'll need to [map your web application to it](/azure/app-service/app-service-web-tutorial-custom-domain).
 

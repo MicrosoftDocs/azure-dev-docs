@@ -13,79 +13,34 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration steps
 
-* [Inventory JNDI Resources](#inventory-jndi-resources)
-* [Inventory Secrets](#inventory-secrets)
-* [Inventory Persistence Usage](#inventory-persistence-usage)
-* [Special Cases](#special-cases)
-* [In-Place Testing](#in-place-testing)
+* [Inventory external resources](#inventory-external-resources)
+* [Inventory secrets](#inventory-secrets)
+* [Inventory persistence usage](#inventory-persistence-usage)
+* [Special cases](#special-cases)
+* [In-place testing](#in-place-testing)
 
-### Inventory JNDI resources
+[!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
-Inventory all JNDI resources. Some, such as JMS message brokers, may require migration or reconfiguration.
+[!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
 
-#### Inside your application
+[!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
 
-Inspect the *META-INF/context.xml* file. Look for `<Resource>` elements inside the `<Context>` element.
-
-#### On the application server(s)
-
-Inspect the *$CATALINA_BASE/conf/context.xml* and *$CATALINA_BASE/conf/server.xml* files and the *.xml* files found in *$CATALINA_BASE/conf/[engine-name]/[host-name]* directories.
-
-In *context.xml* files, JNDI resources will be described by the `<Resource>` elements inside the top level `<Context>` element.
-
-In *server.xml* files, JNDI resources will be described by the `<Resource>` elements inside the `<GlobalNamingResources>` element.
-
-#### Datasources
-
-Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataSource`. For each datasource, document the following information:
-
-* What is the datasource name?
-* What is the connection pool configuration?
-* Where can I find the JDBC driver JAR file?
-
-#### All other JNDI resources
-
-It isn't feasible to document every possible external dependency in this guide. It's your team's responsibility to verify that every external dependency of your application can be satisfied after the migration.
-
-### Inventory Secrets
-
-#### Passwords and secure strings
-
-Check all properties and configuration files on the production server(s) for any secret strings and passwords. Be sure to check *server.xml* and *context.xml* in *$CATALINA_BASE/conf*. Configuration files containing passwords or credentials may also be found inside your application. These files may include *META-INF/context.xml*, and, for Spring Boot applications, *application.properties* or *application.yml* files.
-
-#### Certificates
-
-Document all the certificates used for public SSL endpoints. You can view all certificates on the production server(s) by running the following command:
-
-```bash
-keytool -list -v -keystore <path to keystore>
-```
-
-### Inventory Persistence Usage
-
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by Tomcat modules or by your application code. You may identify some or all of the following scenarios.
-
-#### Read-only static content
-
-If your application currently serves static content (for example, via an Apache integration), an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
-
-#### Dynamically published static content
-
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
-
+<!-- AKS-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Storage shares can be [mounted as persistent volumes](/azure/aks/azure-files-dynamic-pv).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
 ### Identify session persistence mechanism
 
 To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
-Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileBasedStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as Kubernetes. AKS may load balance among several pods and transparently restart any pod at any time, persisting mutable state to a file system isn't recommended.
+Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as Kubernetes. AKS may load balance among several pods and transparently restart any pod at any time, persisting mutable state to a file system isn't recommended.
 
-If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as the [Pivotal Session Manager with Redis Cache](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
+If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as Pivotal Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
 ### Special Cases
+
+Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it is important to ensure that they are either inapplicable to your application or correctly resolved.
 
 #### Determine whether application relies on scheduled jobs
 
@@ -111,11 +66,11 @@ In containerized deployments, SSL sessions are typically offloaded outside the a
 
 If [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/AccessLogValve.html) is used, the `directory` parameter should be set to a [mounted Azure Files share](/azure/aks/azure-files-dynamic-pv) or one of its subdirectories.
 
-### In-Place Testing
+### In-place testing
 
 Before you create container images, migrate your application to the JDK and Tomcat that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
 
-### Parametrize the Configuration
+### Parametrize the configuration
 
 In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
@@ -152,7 +107,7 @@ With the exception of the first step ("Provision Container Registry and AKS"), w
 > [!NOTE]
 > Some Tomcat deployments may have multiple applications running on a single Tomcat server. If this is the case in your deployment, we strongly recommend running each application in a separate pod. This enables you to optimize resource utilization for each application while minimizing complexity and coupling.
 
-### Provision Container Registry and AKS
+### Provision container registry and AKS
 
 Create a container registry and an Azure Kubernetes cluster whose Service Principal has the Reader role on the registry. Be sure to [choose the appropriate network model](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) for your cluster's networking requirements.
 
@@ -208,7 +163,7 @@ For example:
 </GlobalNamingResources>
 ```
 
-### Build and Push the Image
+### Build and push the image
 
 The simplest way to build and upload the image to Azure Container Registry (ACR) for use by AKS is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile above and the application package *petclinic.war* in the current directory, you can build the container image in ACR with one step:
 
@@ -238,7 +193,7 @@ sudo docker push "${acrName}.azurecr.io/petclinic:1"
 
 For more in-depth information on building and storing container images in Azure, see the respective [Microsoft Learn course](/learn/modules/build-and-store-container-images/).
 
-### Provision a Public IP Address
+### Provision a public IP address
 
 If your application is to be accessible from outside your internal or virtual network(s), a public static IP address will be required. This IP address should be provisioned inside cluster's node resource group.
 
@@ -254,7 +209,7 @@ echo "Your public IP address is ${publicIp}."
 
 Include [externalized parameters as environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/). Don't include secrets (such as passwords, API keys, and JDBC connection strings). Secrets are covered in the [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) section.
 
-### Configure Persistent Storage
+### Configure persistent storage
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 

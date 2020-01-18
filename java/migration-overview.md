@@ -93,20 +93,20 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
 | Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Triggering Kubernetes updates<br>(Performed by Azure with a manual trigger) | N/A         | N/A         | &#x1F449;   | N/A       |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | N/A         | &#x1F449;   | N/A       |
 | Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | N/A         | &#x1F449;   | N/A       |
 | Updating container base image<br>(including vulnerability remediation)      | N/A         | N/A         | &#x1F449;   | N/A       |
-| Updating the operating system<br>(including vulnerability remediation)      |![Azure][1]  | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Detecting and restarting failed instances                                   |![Azure][1]  | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Implementing draining and rolling restart for updates                       |![Azure][1]  | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Infrastructure management                                                   |![Azure][1]  | ![Azure][1] | &#x1F449;   | &#x1F449; |
+| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
+| Detecting and restarting failed instances                                   | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
+| Implementing draining and rolling restart for updates                       | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
+| Infrastructure management                                                   | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
 | Monitoring and alert management                                             | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 
 If you deploy the servlet container (such as Spring Boot) as part of your application, you should consider it a library and, as such, it's always your responsibility.
 
 ## Ensuring on-premises connectivity
 
-If your application needs to access any of your on-premises services, you'll need to provision one of [Azure's connectivity services](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
+If your application needs to access any of your on-premises services, you'll need to provision one of Azure's connectivity services. For more information, see [Choose a solution for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
 
 You should complete this effort before you start any migration.
 
