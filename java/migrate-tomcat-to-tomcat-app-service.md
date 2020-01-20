@@ -190,7 +190,7 @@ Use Application Settings to store any secrets specific to your application. If y
 
 If your application will be visible on a custom domain, you'll need to [map your web application to it](/azure/app-service/app-service-web-tutorial-custom-domain).
 
-you'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
+You'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### Migrate data sources, libraries, and JNDI resources
 
