@@ -16,7 +16,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Migrate Tomcat Applications to Azure Virtual Machines (forthcoming)
+* [Migrate Tomcat Applications to Azure Virtual Machines](migrate-tomcat-to-azure-vms.md)
 
 ## Pre-migration steps
 
@@ -157,9 +157,9 @@ From the list of available service plans at [App Service pricing](https://azure.
 
 Then, create the App Service plan. For more information, see [Manage an App Service plan in Azure](/azure/app-service/app-service-plan-manage).
 
-### Create and deploy web app(s)
+### Create and deploy Web App(s)
 
-you'll need to create a Web App on your App Service Plan for every WAR file deployed to your Tomcat server.
+You'll need to create a Web App on your App Service Plan for every WAR file deployed to your Tomcat server.
 
 > [!NOTE]
 > While it's possible to deploy multiple WAR files to a single web app, this is highly undesirable. Deploying multiple WAR files to a single web app prevents each application from scaling according to its own usage demands. It also adds complexity to subsequent deployment pipelines. If multiple applications need to be available on a single URL, consider using a routing solution such as [Azure Application Gateway](/azure/application-gateway/).

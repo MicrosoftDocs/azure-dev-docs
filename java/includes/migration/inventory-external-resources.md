@@ -1,3 +1,10 @@
+---
+author: yevster
+ms.author: yebronsh
+ms.topic: include
+ms.date: 1/20/2020
+---
+
 ### Inventory external resources
 
 External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI). Some such resources may require migration or reconfiguration.
