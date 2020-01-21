@@ -42,12 +42,16 @@ This section describes the minimal Flask app used in this walkthrough.
 1. To run this app, use the following commands (depending on your operating system). The FLASK_APP environment variable tells Flask where to find the app object.
 
     ```ps
-    set FLASK_APP=hello:myapp
-    flask run
+    $env:FLASK_APP = "hello:myapp"
     ```
 
     ```bash
     export FLASK_APP=hello:myapp
+    flask run
+    ```
+
+    ```cmd
+    set FLASK_APP=hello:myapp
     flask run
     ```
 
