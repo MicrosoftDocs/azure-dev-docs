@@ -149,6 +149,8 @@ Once you've reached the migration goals you defined in the Pre-migration step, p
 
 * Enhance your network topology with advanced load balancing services. See [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
-* Leverage Azure Managed Identities to allow cloud-scale authentication and authorization. See [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+* Leverage Azure Managed Identities to managed secrets and assign role based access to Azure resources.  See [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+
+* Integrate WebLogic Java EE authentication and authorization with Azure Active Directory.  See [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 
 * Use Azure Key Vault to store any information that functions as a "secret". See [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
