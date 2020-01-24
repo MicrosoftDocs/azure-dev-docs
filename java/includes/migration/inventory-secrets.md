@@ -1,7 +1,6 @@
 ---
 author: yevster
 ms.author: yebronsh
-ms.topic: include
 ms.date: 1/20/2020
 ---
 
