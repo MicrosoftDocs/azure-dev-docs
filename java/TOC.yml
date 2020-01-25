@@ -158,6 +158,8 @@
           items:
             - name: Overview
               href: migration-overview.md
+            - name: Spring to Java SE on Azure App Service
+              href: migrate-java-se-to-java-se-app-service.md
             - name: Tomcat to Azure App Service
               href: migrate-tomcat-to-tomcat-app-service.md
             - name: Tomcat to containers on AKS
