@@ -20,32 +20,13 @@ If you can't meet any of the pre-migration requirements, see the following compa
 
 ## Pre-migration steps
 
-* [Switch to a supported platform](#switch-to-a-supported-platform)
-* [Inventory external resources](#inventory-external-resources)
-* [Inventory secrets](#inventory-secrets)
-* [Inventory persistence usage](#inventory-persistence-usage)
-* [Special cases](#special-cases)
-
 ### Switch to a supported platform
 
-App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment prior to proceeding with any of the remaining steps. Be sure to fully test the resulting configuration. Use [Red Hat Enterprise Linux 8](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux80-ARM) as the operating system in such tests.
+App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment before you proceed with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
-#### Java
+[!INCLUDE [note-obtain-your-current-java-version](includes/migration/note-obtain-your-current-java-version.md)]
 
-> [!NOTE]
-> This validation is especially important if your current server is running on an unsupported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current Java version, sign in to your production server and run the following command:
-
-```bash
-java -version
-```
-
-To obtain the current version used by Azure App Service, download [Zulu 8](https://www.azul.com/downloads/zulu-community/?&version=java-8-lts&os=&os=linux&architecture=x86-64-bit&package=jdk) if you intend to use the Java 8 runtime or [Zulu 11](https://www.azul.com/downloads/zulu-community/?&version=java-11-lts&os=&os=linux&architecture=x86-64-bit&package=jdk) if you intend to use the Java 11 runtime.
-
-#### Tomcat
-
-To determine your current Tomcat version, sign in to your production server and run the following command:
+To obtain your current Tomcat version, sign in to your production server and run the following command:
 
 ```bash
 ${CATALINA_HOME}/bin/version.sh
@@ -56,6 +37,8 @@ To obtain the current version used by Azure App Service, download [Tomcat 8.5](h
 [!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
 [!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
+
+[!INCLUDE [inventory-certificates](includes/migration/inventory-certificates.md)]
 
 [!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
 
@@ -68,7 +51,7 @@ For files that are frequently written and read by your application (such as temp
 
 To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
-Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as  [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
+Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
 If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as Pivotal Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
@@ -118,7 +101,7 @@ If you use [AccessLogValve](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apa
 
 ## Migration
 
-### Parametrize the configuration
+### Parameterize the configuration
 
 In the pre-migration you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string or URL with an environment variable.
 
@@ -159,7 +142,7 @@ Then, create the App Service plan. For more information, see [Manage an App Serv
 
 ### Create and deploy Web App(s)
 
-You'll need to create a Web App on your App Service Plan for every WAR file deployed to your Tomcat server.
+You'll need to create a Web App on your App Service Plan (choosing a version of Tomcat as the runtime stack) for every WAR file deployed to your Tomcat server.
 
 > [!NOTE]
 > While it's possible to deploy multiple WAR files to a single web app, this is highly undesirable. Deploying multiple WAR files to a single web app prevents each application from scaling according to its own usage demands. It also adds complexity to subsequent deployment pipelines. If multiple applications need to be available on a single URL, consider using a routing solution such as [Azure Application Gateway](/azure/application-gateway/).
@@ -186,17 +169,15 @@ If your application requires specific runtime options, [use the most appropriate
 
 Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
-### Configure custom domain and SSL
+[!INCLUDE [configure-custom-domain-and-ssl](includes/migration/configure-custom-domain-and-ssl.md)]
 
-If your application will be visible on a custom domain, you'll need to [map your web application to it](/azure/app-service/app-service-web-tutorial-custom-domain).
-
-You'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
+[!INCLUDE [import-backend-certificates](includes/migration/import-backend-certificates.md)]
 
 ### Migrate data sources, libraries, and JNDI resources
 
 Follow [these steps to migrate data sources](/azure/app-service/containers/configure-language-java#tomcat).
 
-Migrate any additional server-level classpath dependencies by following [the same steps as for data source jar files](/azure/app-service/containers/configure-language-java#finalize-configuration).
+Migrate any additional server-level classpath dependencies by following [the same steps as for data source JAR files](/azure/app-service/containers/configure-language-java#finalize-configuration).
 
 Migrate any additional [Shared server-level JDNI resources](/azure/app-service/containers/configure-language-java#shared-server-level-resources).
 
@@ -209,14 +190,7 @@ Upon completing the preceding section, you should have your customizable server 
 
 Complete the migration by copying any additional configuration (such as [realms](https://tomcat.apache.org/tomcat-8.5-doc/config/realm.html), [JASPIC](https://tomcat.apache.org/tomcat-8.5-doc/config/jaspic.html))
 
-### Migrate scheduled jobs
-
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. The function can simply invoke a URL in your application to trigger the job.
-
-Alternatively, you can create a [Logic app](/azure/logic-apps/logic-apps-overview) with a [Recurrence trigger](/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow#add-the-recurrence-trigger) to invoke the URL without writing any code outside your application.
-
-> [!NOTE]
-> To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
+[!INCLUDE [migrate-scheduled-jobs](includes/migration/migrate-scheduled-jobs.md)]
 
 ### Restart and smoke-test
 
