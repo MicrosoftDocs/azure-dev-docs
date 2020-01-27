@@ -21,4 +21,4 @@ To obtain your current Java version, sign in to your production server and run t
 java -version
 ```
 
-To obtain the current version used by Azure App Service, download [Zulu 8](https://www.azul.com/downloads/zulu-community/?&version=java-8-lts&os=&os=linux&architecture=x86-64-bit&package=jdk) if you intend to use the Java 8 runtime or [Zulu 11](https://www.azul.com/downloads/zulu-community/?&version=java-11-lts&os=&os=linux&architecture=x86-64-bit&package=jdk) if you intend to use the Java 11 runtime.
+To obtain the current version used by Azure App Service, download [Zulu 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 8 runtime or [Zulu 11](https://www.azul.com/downloads/azure-only/zulu/?&version=java-11-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 11 runtime.

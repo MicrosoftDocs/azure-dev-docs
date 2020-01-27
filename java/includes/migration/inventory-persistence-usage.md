@@ -6,7 +6,7 @@ ms.date: 1/20/2020
 
 ### Inventory persistence usage
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by Tomcat modules or by your application code. You may identify some or all of the following scenarios.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. You may identify some or all of the following scenarios.
 
 #### Read-only static content
 
