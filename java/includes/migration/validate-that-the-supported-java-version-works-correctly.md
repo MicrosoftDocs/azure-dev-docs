@@ -16,4 +16,3 @@ java -version
 
 > [!NOTE]
 > When migrating to WebLogic on Azure virtual machines, the requirements for the specific Java versions are determined by the pre-installed Java on the virtual machines.
-

@@ -11,4 +11,3 @@ Document all the certificates used for public SSL endpoints. You can view all ce
 ```bash
 keytool -list -v -keystore <path to keystore>
 ```
-

@@ -23,7 +23,7 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 Oracle and Microsoft have partnered to bring a set of Azure solution templates to the Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers [in the Oracle documentation](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/select-required-oracle-weblogic-server-offer-azure-marketplace.html#GUID-187739C5-EE7A-47C6-B3BA-C0A0333DC398)
 
-If none of the existing offers are a good starting point, you'll have to reproduce the deployment by hand using Azure Virtual Machine resources. For more information, see [the Azure documentation](https://azure.microsoft.com/overview/what-is-iaas/).
+If none of the existing offers are a good starting point, you'll have to reproduce the deployment by hand using Azure Virtual Machine resources. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/).
 
 ### Determine whether the WebLogic version is compatible
 
@@ -51,7 +51,7 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-[!INCLUDE [determine-whether-jms-queues-or-topics-are-being-used-virtual-machines](includes/migration/determine-whether-jms-queues-or-topics-are-being-used-virtual-machines.md)]
+[!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use-virtual-machines](includes/migration/determine-whether-jms-queues-or-topics-are-in-use-virtual-machines.md)]
 
 [!INCLUDE [determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries](includes/migration/determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries.md)]
 
@@ -59,7 +59,7 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
 
-[!INCLUDE [determine-whether-oracle-service-bus-is-being-used](includes/migration/determine-whether-oracle-service-bus-is-being-used.md)]
+[!INCLUDE [determine-whether-oracle-service-bus-is-in-use](includes/migration/determine-whether-oracle-service-bus-is-in-use.md)]
 
 [!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/migration/determine-whether-your-application-is-composed-of-multiple-wars.md)]
 
@@ -69,7 +69,7 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [determine-whether-wlst-is-used](includes/migration/determine-whether-wlst-is-used.md)]
 
-[!INCLUDE [validate-if-and-how-the-file-system-is-used](includes/migration/validate-if-and-how-the-file-system-is-used.md)]
+[!INCLUDE [validate-whether-and-how-the-file-system-is-used](includes/migration/validate-whether-and-how-the-file-system-is-used.md)]
 
 [!INCLUDE [determine-the-network-topology](includes/migration/determine-the-network-topology.md)]
 
@@ -87,7 +87,7 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 The following offers are available for WebLogic on Azure Virtual Machines.
 
-During the deployment of an offer, you'll be asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. See [the documentation for the offers](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/deploy-oracle-weblogic-server-administration-server-single-node.html) and also the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
+During the deployment of an offer, you'll be asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see [the documentation for the offers](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/deploy-oracle-weblogic-server-administration-server-single-node.html) and also the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
 
 #### WebLogic Server Single Node with no Admin Server
 
@@ -107,15 +107,15 @@ This offer creates a highly available and scalable dynamic cluster of WebLogic S
 
 ### Provision the offer
 
-Onc. you've selected which offer to start with, follow the instructions in [documentation for the offers](https://wls-eng.github.io/arm-oraclelinux-wls/) to provision that offer. Make sure to choose the domain name that matches your existing domain name. You can even match the domain password with your existing domain password.
+After you've selected which offer to start with, follow the instructions in [documentation for the offers](https://wls-eng.github.io/arm-oraclelinux-wls/) to provision that offer. Make sure to choose the domain name that matches your existing domain name. You can even match the domain password with your existing domain password.
 
 ### Migrate the domains
 
-Once the offer has been provisioned, you can examine the domain config and follow [this guidance](https://support.oracle.com/knowledge/Middleware/2336356_1.html) for details on how to migrate the domains.
+After you've provisioned the offer, you can examine the domain configuration and follow [this guidance](https://support.oracle.com/knowledge/Middleware/2336356_1.html) for details on how to migrate the domains.
 
 ### Connect the databases
 
-Once the domains have been migrated, you can connect the databases by following the instructions [in the offer documentation](https://wls-eng.github.io/arm-oraclelinux-wls/#connecting-a-database-to-a-cluster). These instructions will help you account for any database secrets and access strings involved.
+After youve' migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://wls-eng.github.io/arm-oraclelinux-wls/#connecting-a-database-to-a-cluster). These instructions will help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 
@@ -123,11 +123,11 @@ You must account for the migration of any SSL KeyStores used by your application
 
 ### Connect the JMS sources
 
-Once the databases have been connected, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
+After you've connected the databases, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
 
 ### Account for Logging
 
-The existing logging configuration should be carried over when the domain is migrated. See [Configure java.util.logging logger levels](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/taskhelp/logging/ConfigureJavaLoggingLevels.html) and [Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wllog/index.html)
+The existing logging configuration should be carried over when the domain is migrated. For more information, see [Configure java.util.logging logger levels](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/taskhelp/logging/ConfigureJavaLoggingLevels.html) and [Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wllog/index.html)
 
 ### Migrating your application(s)
 
@@ -141,16 +141,16 @@ Any in-container tests against applications must be configured to access the new
 
 ## Post-migration
 
-Once you've reached the migration goals you defined in the Pre-migration step, perform some end-to-end acceptance testing to verify everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following.
+After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following:
 
-* Using Azure Storage to serve static content mounted to the virtual machines. See [Attach or detach a data disk to a virtual machine](/azure/lab-services/devtest-lab-attach-detach-data-disk).
+* Using Azure Storage to serve static content mounted to the virtual machines. For more information, see [Attach or detach a data disk to a virtual machine](/azure/lab-services/devtest-lab-attach-detach-data-disk).
 
-* Deploy your applications to your migrated WebLogic cluster with Azure DevOps. See [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+* Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
 
-* Enhance your network topology with advanced load balancing services. See [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
+* Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
-* Leverage Azure Managed Identities to managed secrets and assign role based access to Azure resources.  See [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+* Leverage Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-* Integrate WebLogic Java EE authentication and authorization with Azure Active Directory.  See [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
+* Integrate WebLogic Java EE authentication and authorization with Azure Active Directory. For more information, see [Integrating Azure Active Directory getting started guide](/azure/active-directory/manage-apps/plan-an-application-integration).
 
-* Use Azure Key Vault to store any information that functions as a "secret". See [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
+* Use Azure Key Vault to store any information that functions as a "secret". For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).

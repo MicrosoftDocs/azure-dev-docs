@@ -11,4 +11,3 @@ Determine which of the following customizations have been made, and capture what
 * Have the startup scripts been changed? Such scripts include *setDomainEnv*, *commEnv*, *startWebLogic*, and *stopWebLogic*.
 * Are there any specific parameters passed to the JVM?
 * Are there JARs added to the server classpath?
-
