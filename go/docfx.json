@@ -54,7 +54,7 @@
         "**/*.md": "go"
       },
       "ms.service": {
-        "**/*.md": "azure-go"
+        "**/*.md": "azure"
       },
       "manager": {
         "**/*.md": "carmonm"
