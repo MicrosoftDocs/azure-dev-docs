@@ -1,12 +1,8 @@
 ---
 title: Deploy an Azure virtual machine from Go 
 description: Deploy a virtual machine using the Azure SDK for Go.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.date: 09/05/2018
 ms.topic: quickstart
-ms.devlang: go
 ---
 # Quickstart: Deploy an Azure virtual machine from a template with the Azure SDK for Go
 

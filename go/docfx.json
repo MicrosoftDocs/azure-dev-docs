@@ -49,7 +49,26 @@
         }
       }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "ms.devlang": {
+        "**/*.md": "go"
+      },
+      "ms.service": {
+        "**/*.md": "azure-go"
+      },
+      "manager": {
+        "**/*.md": "carmonm"
+      },
+      "ms.author": {
+        "**/*.md": "barbkess"
+      },
+      "author": {
+        "**/*.md": "barbkess"
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include"
+      }
+    },
     "template": [],
     "dest": "azure-go",
     "markdownEngineName": "markdig"
