@@ -91,7 +91,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
    <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
    </plugin>
    ```
 
@@ -113,7 +113,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
    [INFO] Building gs-spring-boot 0.1.0
    [INFO] --------------------------------[ jar ]---------------------------------
    [INFO]
-   [INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ gs-spring-boot ---
+   [INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ gs-spring-boot ---
    [WARNING] The plugin may not work if you change the os of an existing webapp.
    Define value for OS(Default: Linux):
    1. linux [*]
@@ -141,7 +141,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
    <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.8.0</version>
+       <version>1.9.0</version>
        <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>gs-spring-boot-1559091271202-rg</resourceGroup>
