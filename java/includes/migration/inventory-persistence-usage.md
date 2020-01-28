@@ -1,17 +1,16 @@
 ---
 author: yevster
 ms.author: yebronsh
-ms.topic: include
 ms.date: 1/20/2020
 ---
 
 ### Inventory persistence usage
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by Tomcat modules or by your application code. You may identify some or all of the following scenarios.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. You may identify some or all of the following scenarios.
 
 #### Read-only static content
 
-If your application currently serves static content (for example, via an Apache integration), you'll need an alternate location for that static content. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Enable Azure CDN for the storage account](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account).
+If your application currently serves static content (for example, via an Apache integration), you'll need an alternate location for that static content. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account).
 
 #### Dynamically published static content
 

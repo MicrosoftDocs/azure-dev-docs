@@ -13,12 +13,6 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration steps
 
-* [Inventory external resources](#inventory-external-resources)
-* [Inventory secrets](#inventory-secrets)
-* [Inventory persistence usage](#inventory-persistence-usage)
-* [Special cases](#special-cases)
-* [In-place testing](#in-place-testing)
-
 [!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
 [!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
@@ -38,7 +32,7 @@ Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/c
 
 If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as Pivotal Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
-### Special Cases
+### Special cases
 
 Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it is important to ensure that they are either inapplicable to your application or correctly resolved.
 
@@ -70,7 +64,7 @@ If [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/cata
 
 Before you create container images, migrate your application to the JDK and Tomcat that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
 
-### Parametrize the configuration
+### Parameterize the configuration
 
 In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
@@ -102,7 +96,7 @@ In this case, you could change it as shown in the following example:
 
 ## Migration
 
-With the exception of the first step ("Provision Container Registry and AKS"), we recommend that you follow the steps below individually for each application (WAR file) you wish to migrate.
+With the exception of the first step ("Provision container registry and AKS"), we recommend that you follow the steps below individually for each application (WAR file) you wish to migrate.
 
 > [!NOTE]
 > Some Tomcat deployments may have multiple applications running on a single Tomcat server. If this is the case in your deployment, we strongly recommend running each application in a separate pod. This enables you to optimize resource utilization for each application while minimizing complexity and coupling.
@@ -119,11 +113,11 @@ az aks create -g $resourceGroup -n $aksName --attach-acr $acrName --network-plug
 
 ### Prepare the deployment artifacts
 
-Clone [Tomcat On Containers Quickstart GitHub repository](https://github.com/Azure/tomcat-container-quickstart). It contains a Dockerfile and Tomcat configuration files with a number of recommended optimizations. In the steps below, we outline modifications you'll likely need to make to these files before building the container image and deploying to AKS.
+Clone the [Tomcat On Containers Quickstart GitHub repository](https://github.com/Azure/tomcat-container-quickstart). It contains a Dockerfile and Tomcat configuration files with a number of recommended optimizations. In the steps below, we outline modifications you'll likely need to make to these files before building the container image and deploying to AKS.
 
 #### Open ports for clustering, if needed
 
-If you intend to use [Tomcat Clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) on AKS, ensure that the necessary port ranges are exposed in the Dockerfile. In order to specify the server IP address in `server.xml`, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
+If you intend to use [Tomcat Clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) on AKS, ensure that the necessary port ranges are exposed in the Dockerfile. In order to specify the server IP address in *server.xml*, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
 
 Alternatively, session state can be [persisted to an alternate location](#identify-session-persistence-mechanism) to be available across replicas.
 
@@ -213,7 +207,7 @@ Include [externalized parameters as environment variables](https://kubernetes.io
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
-You might want to [create a Persistent Volume using Azure Files](/azure/aks/azure-files-dynamic-pv) mounted to the Tomcat logs directory (*/tomcat_logs*) to retain logs centrally.
+You might want to create a Persistent Volume using Azure Files mounted to the Tomcat logs directory (*/tomcat_logs*) to retain logs centrally. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](/azure/aks/azure-files-dynamic-pv).
 
 ### Configure KeyVault FlexVolume
 
@@ -231,7 +225,7 @@ Now that you've migrated your application to AKS, you should verify that it work
 
 1. Consider [adding a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) to the IP address allocated to your ingress controller or application load balancer.
 
-1. Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parametrize your application deployment for use and customization by a more diverse set of customers.
+1. Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
 
 1. Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 
