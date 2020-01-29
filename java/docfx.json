@@ -66,6 +66,9 @@
       },
       "author": {
         "**/*.md": "bmitchell287"
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include"
       }
     },
     "template": [],
