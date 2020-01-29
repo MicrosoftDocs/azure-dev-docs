@@ -5,7 +5,7 @@ ms.author: barbkess
 manager: carmonm
 ms.service: azure
 ms.topic: article
-ms.date: 1/28/20
+ms.date: 01/28/20
 ---
 
 # Welcome to azure-dev-docs!
