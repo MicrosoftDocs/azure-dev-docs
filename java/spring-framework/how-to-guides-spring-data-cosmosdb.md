@@ -9,18 +9,18 @@ ms.date: 1/9/2019
 
 # Spring Data Azure Cosmos DB developer's guide
 
-[Spring Data for Azure Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration of spring data repository with [Azure Cosmos DB](/azure/cosmos-db/introduction) using the SQL API. Azure Cosmos DB is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table. In addition to SQL API, Spring Data integration with Azure Cosmos DB also supports [Mongo](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db), [Cassandra](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db), and [Gremlin](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db) APIs.  
+[Spring Data for Azure Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration with [Azure Cosmos DB](/azure/cosmos-db/introduction) using the following APIs:
+
+- [SQL](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)
+- [Mongo](/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+- [Cassandra](/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+- [Gremlin](/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+
+Azure Cosmos DB is a globally distributed database service that allows developers to work with data using a variety of standard APIs.
 
 This topic covers the features of the Spring Data Cosmos DB SDK and describes common issues, workarounds, and diagnostic steps.
 
-Start with this list:
-
-- Review the [available features](#available-features), and follow the [best practices](#best-practices).
-- Go through [Common issues and workarounds](#common-issues-and-workarounds) section in this article.
-- Take a look at [how to troubleshoot](#how-to-troubleshoot) section and troubleshoot the problem.
-- Look at the SDK, which is available [open source on GitHub](https://github.com/microsoft/spring-data-cosmosdb). It has an [issues section](https://github.com/microsoft/spring-data-cosmosdb/issues), which is actively monitored. Check to see if any similar issue with a workaround has already been filed.
-- Refer to [releases](https://github.com/microsoft/spring-data-cosmosdb/releases) to make sure if the problem is already a fixed bug in another version.
-- If you don't find a solution, then file a [GitHub issue](https://github.com/microsoft/spring-data-cosmosdb/issues).
+The SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version.
 
 ## Available features
 
@@ -95,10 +95,10 @@ class MyDocument {
 
 - Supports [Azure Cosmos DB partition](/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. On performing CRUD operations, specify your partition value.
 - Sample code below shows how to use `@PartitionKey` annotation while performing CRUD operations.  
+
 ```java
 @Document(ru = "400")
 public class Address {
-    
     @Id
     String postalCode;
 
@@ -112,14 +112,14 @@ public class Address {
 }
 
 class AddressService {
-    
+
     @Autowired
     AddressRepository repository;
-    
+
     final Address newAddress = new Address("12345", "city");
     //  No need to specify partition key in save operation. 
     repository.save(updatedAddress);
-    
+
     //  Provide partition key when performing find by id operation.
     final Optional<Address> addressById = repository.findById("12345", new PartitionKey("city"));
     final Address foundAddress = addressById.get();
@@ -127,7 +127,6 @@ class AddressService {
     //  Provide partition key when using delete by id API
     repository.deleteById(foundAddress.getPostalCode(), new PartitionKey(foundAddress.getCity())); 
 }
-
 ```
 
 - Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation, e.g., `findByAFieldAndBField`
