@@ -9,7 +9,7 @@ ms.date: 1/9/2019
 
 # Spring Data Azure Cosmos DB developer's guide
 
-[Spring Data for Azure Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) is based on the Spring Data framework and provides initial Spring Data support for [Azure Cosmos DB](/azure/cosmos-db/introduction) using the SQL API. Azure Cosmos DB is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table. Currently, Spring Data for Azure Cosmos DB supports only the SQL API, but the other APIs are planned.
+[Spring Data for Azure Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration of spring data repository with [Azure Cosmos DB](/azure/cosmos-db/introduction) using the SQL API. Azure Cosmos DB is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table. In addition to SQL API, Spring Data integration with Azure Cosmos DB also supports [Mongo](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db), [Cassandra](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db), and [Gremlin](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db) APIs.  
 
 This topic covers the features of the Spring Data Cosmos DB SDK and describes common issues, workarounds, and diagnostic steps.
 
@@ -93,7 +93,43 @@ class MyDocument {
   String[] excludePaths; // Excluded paths for indexing.
   ```
 
-- Supports [Azure Cosmos DB partition](/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. When you do CRUD operation, pls specify your partition value. For more sample on partition CRUD, pls refer to [test here](https://github.com/microsoft/spring-data-cosmosdb/blob/master/src/test/java/com/microsoft/azure/spring/data/cosmosdb/repository/integration/AddressRepositoryIT.java)
+- Supports [Azure Cosmos DB partition](/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. On performing CRUD operations, specify your partition value.
+- Sample code below shows how to use `@PartitionKey` annotation while performing CRUD operations.  
+```java
+@Document(ru = "400")
+public class Address {
+    
+    @Id
+    String postalCode;
+
+    @PartitionKey
+    String city;
+
+    String street;
+    String country;
+    String phoneNumber;
+    ...
+}
+
+class AddressService {
+    
+    @Autowired
+    AddressRepository repository;
+    
+    final Address newAddress = new Address("12345", "city");
+    //  No need to specify partition key in save operation. 
+    repository.save(updatedAddress);
+    
+    //  Provide partition key when performing find by id operation.
+    final Optional<Address> addressById = repository.findById("12345", new PartitionKey("city"));
+    final Address foundAddress = addressById.get();
+
+    //  Provide partition key when using delete by id API
+    repository.deleteById(foundAddress.getPostalCode(), new PartitionKey(foundAddress.getCity())); 
+}
+
+```
+
 - Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation, e.g., `findByAFieldAndBField`
 
 ## Best practices
@@ -132,12 +168,13 @@ The following sections describe best practices when using the SDK.
   
       private CosmosKeyCredential cosmosKeyCredential;
   
+      @Bean
       public CosmosDBConfig getConfig() {
           this.cosmosKeyCredential = new CosmosKeyCredential(key);
           CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri,
               this.cosmosKeyCredential, dbName).build();
           cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-          cosmosdbConfig.setResponseDiagnosticsProcessor(new   ResponseDiagnosticsProcessorImplementation());
+          cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
           return cosmosdbConfig;
       }
   
@@ -178,6 +215,7 @@ The following sections describe best practices when using the SDK.
 - Spring-data-cosmosdb SDK v2.2.x supports Response Diagnostics String and Query Metrics.
 - Set `populateQueryMetrics` flag to true in application.properties to enable query metrics.
 - In addition to setting the flag, implement `ResponseDiagnosticsProcessor` to log diagnostics information, as shown in the following example.
+- Implemented `ResponseDiagnosticsProcessor` needs to be set in cosmosDbConfig using `setResponseDiagnosticsProcessor` API.
 
   ```java
   @Configuration
@@ -195,6 +233,15 @@ The following sections describe best practices when using the SDK.
               log.info("Response Diagnostics {}", responseDiagnostics);
           }
       }
+  
+      @Bean
+      public CosmosDBConfig getConfig() {
+      this.cosmosKeyCredential = new CosmosKeyCredential(key);
+      CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
+      cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
+      cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
+      return cosmosdbConfig;
+    }
   }
   ```
 
