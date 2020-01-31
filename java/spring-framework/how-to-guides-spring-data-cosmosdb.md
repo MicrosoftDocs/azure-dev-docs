@@ -75,6 +75,7 @@ class MyDocument {
 
     @PartitionKey
     private String data;
+
     @Version
     private String _etag;
 }
@@ -105,6 +106,7 @@ public class Address {
     String street;
     String country;
     String phoneNumber;
+
     ...
 }
 
@@ -115,15 +117,15 @@ class AddressService {
 
     final Address newAddress = new Address("12345", "city");
 
-    //  There's no need to specify a partition key in the save operation.
+    // There's no need to specify a partition key in the save operation.
     repository.save(updatedAddress);
 
-    //  Provide a partition key when performing a find-by-id operation.
+    // Provide a partition key when performing a find-by-id operation.
     final Optional<Address> addressById = repository.findById("12345", new PartitionKey("city"));
 
     final Address foundAddress = addressById.get();
 
-    //  Provide a partition key when performing a delete-by-id operation.
+    // Provide a partition key when performing a delete-by-id operation.
     repository.deleteById(foundAddress.getPostalCode(), new PartitionKey(foundAddress.getCity())); 
 }
 ```
@@ -142,7 +144,9 @@ Use the following steps to configure the application:
 1. Add the `@Configuration` annotation.
 1. Depending on your repository usage, add one or both of the `@EnableCosmosRepositories` and `@EnableReactiveCosmosRepositories` annotations.
 
-The `CosmosKeyCredential` feature provides the capability to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method, as shown in the following example:
+The `CosmosKeyCredential` feature provides the capability to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
+
+The following example code shows an application configuration and usage of `switchToSecondaryKey`.
 
 ```java
 @Configuration
@@ -190,16 +194,16 @@ public CosmosDBConfig getConfig() {
     this.cosmosKeyCredential = new CosmosKeyCredential(key);
     ConnectionPolicy customizedConnectionPolicy = new ConnectionPolicy();
 
-    //  Connection mode is Direct mode (TCP)
+    // Set the connection mode to Direct (TCP).
     customizedConnectionPolicy.setConnectionMode(ConnectionMode.DIRECT);
 
-    //  Max http / tcp connections 1000 per application
+    // Set the maximum number of HTTP/TCP connections to 1000 per application.
     customizedConnectionPolicy.setMaxPoolSize(1000);
 
-    //  Request timeout to 10 seconds.
+    // Set the request timeout to 10 seconds.
     customizedConnectionPolicy.requestTimeoutInMillis(10000);
 
-    //  Idle connection timeout to 2 minutes
+    // Set the idle connection timeout to two minutes.
     customizedConnectionPolicy.idleConnectionTimeoutInMillis(120000);
     CosmosDBConfig cosmosDbConfig = CosmosDBConfig.builder(uri,   this.cosmosKeyCredential, dbName)
                                                   .connectionPolicy  (customizedConnectionPolic  y)
@@ -210,19 +214,17 @@ public CosmosDBConfig getConfig() {
 
 ### Response diagnostics and query metrics
 
-The Spring Data Cosmos DB SDK v2.2.x supports response diagnostics string and query metrics.
+Version 2.2.x of the Spring Data Cosmos DB SDK supports response diagnostics string and query metrics.
 
-To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information.
-
-<!-- TODO need to rewrite the following sentence -->
-
-Implemented `ResponseDiagnosticsProcessor` needs to be set in cosmosDbConfig using `setResponseDiagnosticsProcessor` API.
+To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
 
 ```java
 @Configuration
 @EnableCosmosRepositories
 public class AppConfiguration extends AbstractCosmosConfiguration {
+
     ...
+
     @Value("${azure.cosmosdb.populateQueryMetrics}")
     private boolean populateQueryMetrics;
 
@@ -236,12 +238,12 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
 
     @Bean
     public CosmosDBConfig getConfig() {
-    this.cosmosKeyCredential = new CosmosKeyCredential(key);
-    CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
-    cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-    cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
-    return cosmosdbConfig;
-  }
+        this.cosmosKeyCredential = new CosmosKeyCredential(key);
+        CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
+        cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
+        cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
+        return cosmosdbConfig;
+    }
 }
 ```
 
@@ -249,9 +251,9 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
 
 The Spring Data Cosmos DB SDK supports Spring Data paging and sorting. For more information, see [Special parameter handling](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters) in the Spring documentation.
 
-Based on available request units (RUs) on the database account, Cosmos DB can return documents less than or equal to the requested size. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
+Based on the available request units (RUs) on the database account, Cosmos DB can return documents less than or equal to the requested size. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
-Due to the variable number of returned documents in every iteration, you should not rely on the `totalPageSize` value. Instead, you should iterate over `pageable` as shown in the following example.
+Due to the variable number of returned documents in every iteration, you should not rely on the `totalPageSize` value. Instead, you should iterate over a `Pageable` object as shown in the following example.
 
 ```java
 final Sort sort = Sort.by(Sort.Direction.DESC, "name");
@@ -267,15 +269,13 @@ while(page.hasNext()) {
 
 ## Common issues and workarounds
 
-### Getting correct CosmosDB configuration
+The following sections describe issues you should be aware of when using the Spring Data Cosmos DB SDK.
 
-Extending `AbstractCosmosConfiguration` can be tricky because of various annotations and configurations present in the class. The most common issue is with the `Enable Repositories` annotation.
+### Getting the correct Cosmos DB configuration
 
-If the repositories extend `CosmosRepository`, be sure to add the annotation `@EnableCosmosRepositories`.
+Extending the `AbstractCosmosConfiguration` interface can be tricky because of various annotations and configurations present in the class. The most common issue is with the `Enable Repositories` annotation.
 
-If the repositories extend `ReactiveCosmosRepository`, be sure to add the annotation `@EnableReactiveCosmosRepositories`
-
-The following code shows an example using these annotations.
+If the repositories extend `CosmosRepository`, be sure to add the annotation `@EnableCosmosRepositories`. If the repositories extend `ReactiveCosmosRepository`, be sure to add the annotation `@EnableReactiveCosmosRepositories`. The following example demonstrates the use of these annotations.
 
 ```java
 @Configuration
@@ -295,23 +295,23 @@ The `CosmosKeyCredential` should be a singleton object because the Cosmos DB SDK
 
 ### Custom query execution
 
-The query annotation feature is not yet supported by spring-data-cosmosdb SDK. Until then, you can execute custom and complex queries directly on the `cosmosClient` bean exposed by the Spring application context.
+The query annotation feature is not yet supported by the Spring Data Cosmos DB SDK. Until then, you can execute custom and complex queries directly on the `cosmosClient` bean exposed by the Spring application context.
 
-The following code shows a simple example oF how to execute offset and limit queries using the `cosmosClient` bean.
+The following code shows a simple example of how to execute offset and limit queries using the `cosmosClient` bean.
 
 ```java
 final FeedOptions feedOptions = new FeedOptions();
 
-//  cross partition query
+// Enable cross-partition queries.
 feedOptions.enableCrossPartitionQuery(true);
 
-//  page size
+// Set the page size.
 feedOptions.maxItemCount(20);
 
-//  number of parallel operations on client-side SDK when executing parallel queries
+// Set the number of parallel operations on the client-side SDK when executing parallel queries.
 feedOptions.maxDegreeOfParallelism(2);
 
-//  populate query metrics from cosmosdb
+// Populate query metrics from Cosmos DB.
 feedOptions.populateQueryMetrics(true);
 
 final String query = "SELECT * from c OFFSET " + skipCount + " LIMIT " + takeCount;
@@ -334,15 +334,11 @@ Flux<FeedResponse<CosmosItemProperties>> feedResponseFlux =
 
 ### Enable diagnostics and query metrics
 
-When debugging, it is helpful to have the diagnostics string and query metrics from the CosmosDB SDK.
+When debugging, it's helpful to have the response diagnostics string and query metrics from the Cosmos DB SDK.
 
-Response diagnostics strings are logged by the CosmosDB SDK whereas query metrics are logged by the backend and are provided to CosmosDB SDK through `Query Response`.
+Response diagnostics string is logged by the Cosmos DB SDK on the client side, whereas query metrics are logged by the backend and are provided to the Cosmos DB SDK.
 
-The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the spring-data-cosmosdb SDK. Be sure to have a bug-free implementation of this interface. It is important to have a simple and optimal implementation because it can affect application performance if you implement it with too much complexity.
-
-Logging complete diagnostics can be costly as it contains numerous information, therefore should not be logged for all API calls.
-
-You should use the `Debug` logging level so it doesn't affect the application performance.
+The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Cosmos DB SDK. Therefore, it's important that your implementation ensures high performance by being bug-free and avoiding complexity. For example, you should not log the complete set of diagnostics information in this method because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
 
 The following code shows an example of how to implement the `ResponseDiagnosticsProcessor` interface.
 
@@ -352,24 +348,24 @@ private static class ResponseDiagnosticsProcessorImplementation implements Respo
     @Override
     public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
 
-        //  To log everything
+        // To log everything:
         if (log.isDebugEnabled()) {
-            log.debug("Response Diagnostics {}", responseDiagnostics);
+            log.debug("Response diagnostics {}", responseDiagnostics);
         }
 
-        //  To log cosmos response diagnostics
+        // To log Cosmos DB response diagnostics:
         if (responseDiagnostics != null && log.isDebugEnabled()) {
             CosmosResponseDiagnostics cosmosResponseDiagnostics = responseDiagnostics.getCosmosResponseDiagnostics();
-            log.debug("Cosmos Response Diagnostics {}", cosmosResponseDiagnostics);
+            log.debug("Cosmos DB response diagnostics {}", cosmosResponseDiagnostics);
         }
 
-        //  To log just request latency
+        // To log just the request latency:
         if (responseDiagnostics != null && log.isDebugEnabled()) {
             CosmosResponseDiagnostics cosmosResponseDiagnostics = responseDiagnostics.getCosmosResponseDiagnostics();
             log.debug("Request latency {}", cosmosResponseDiagnostics.requestLatency());
         }
 
-        //  To log query metrics
+        // To log query metrics:
         if (responseDiagnostics != null && log.isDebugEnabled()) {
             FeedResponseDiagnostics feedResponseDiagnostics =
                 responseDiagnostics.getFeedResponseDiagnostics();
@@ -385,13 +381,13 @@ The following sections describe ways of troubleshooting common issues.
 
 ### Connection issues
 
-If you experience connection issues, be sure all the required annotations in the configuration class are present and correct. Refer to [Getting correct CosmosDB configuration](#getting-correct-cosmosdb-configuration) to verify the annotations.
+If you experience connection issues, be sure all the required annotations in the configuration class are present and correct, as described in the [Getting the correct Cosmos DB configuration](#getting-the-correct-cosmos-db-configuration) section.
 
 ### API exceptions
 
-Version 2.2.1 of the spring-data-cosmosdb SDK provides the following improvements to exception handling:
+Version 2.2.1 of the Spring Data Cosmos DB SDK provides the following improvements to exception handling:
 
-- All the APIs throw `CosmosDBAccessException`, which exposes the field `cosmosClientException` through the get method.
+- All the APIs throw `CosmosDBAccessException`, which exposes a `cosmosClientException` field through a getter.
 - The Cosmos DB SDK throws `CosmosClientException`, which you can use to implement any retry logic on the client-side.
 - Common exceptions to retry are ones with the messages `Resource already exists`, `Request rate too large`, `Request timeout exception`, and so on.
 
