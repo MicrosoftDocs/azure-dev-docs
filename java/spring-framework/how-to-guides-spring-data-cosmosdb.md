@@ -17,7 +17,7 @@ This topic describes the features of [Spring Data Cosmos DB](https://github.com/
 - [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 - [How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 
-The Spring Data Cosmos DB SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version.
+The Spring Data Cosmos DB SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version. Spring Data Cosmos DB SDK 2.2.x release train supports spring-data-commons version 2.2.0.RELEASE, whereas 2.1.x release train of the SDK supports spring-data-common 2.1.0.RELEASE version 
 
 ## Available features
 
