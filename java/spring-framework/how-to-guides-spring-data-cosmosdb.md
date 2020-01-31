@@ -57,7 +57,7 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 
 You can define entities by adding the `@Document` annotation and specifying properties related to the collection, such as the collection name, request units (RUs), time to live, and auto-create collection flag.
 
-By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Document(collection="myCustomCollectionName")` annotation to the domain class. The collection field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions in order to provide collection names programmatically via configuration properties. For example, you can use expressions such as `collection = "${dynamic.collection.name}"` and `collection = "#{@someBean.getCollectionName()}"`.
+By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Document(collection="myCustomCollectionName")` annotation to the domain class. The collection field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `collection = "${dynamic.collection.name}"` and `collection = "#{@someBean.getCollectionName()}"`.
 
 There are two ways to map a field in a domain class to the `id` field of an Azure Cosmos DB document:
 
@@ -144,9 +144,9 @@ Use the following steps to configure the application:
 1. Add the `@Configuration` annotation.
 1. Depending on your repository usage, add one or both of the `@EnableCosmosRepositories` and `@EnableReactiveCosmosRepositories` annotations.
 
-The `CosmosKeyCredential` feature provides the capability to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
+The `CosmosKeyCredential` feature enables you to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
 
-The following example code shows an application configuration and usage of `switchToSecondaryKey`.
+The following example code shows an application configuration and demonstrates the use of `switchToSecondaryKey`.
 
 ```java
 @Configuration
@@ -253,7 +253,7 @@ The Spring Data Cosmos DB SDK supports Spring Data paging and sorting. For more 
 
 Based on the available request units (RUs) on the database account, Cosmos DB can return documents less than or equal to the requested size. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
-Due to the variable number of returned documents in every iteration, you should not rely on the `totalPageSize` value. Instead, you should iterate over a `Pageable` object as shown in the following example.
+You shouldn't rely on the `totalPageSize` value because the number of returned documents in each iteration is variable. Instead, you should iterate over a `Pageable` object as shown in the following example.
 
 ```java
 final Sort sort = Sort.by(Sort.Direction.DESC, "name");
@@ -289,7 +289,7 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 
 While creating or customizing a `CosmosDBConfig` bean, be sure to use the `CosmosKeyCredential` object instead of using the key directly.
 
-The `CosmosKeyCredential` feature provides the capability to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
+The `CosmosKeyCredential` feature enables you to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
 
 The `CosmosKeyCredential` should be a singleton object because the Cosmos DB SDK uses the same object internally to detect changes in the key value inside this object.
 
@@ -334,11 +334,9 @@ Flux<FeedResponse<CosmosItemProperties>> feedResponseFlux =
 
 ### Enable diagnostics and query metrics
 
-When debugging, it's helpful to have the response diagnostics string and query metrics from the Cosmos DB SDK.
+When debugging, it's helpful to have the response diagnostics string and query metrics from the Cosmos DB SDK. The Cosmos DB SDK logs the response diagnostics string on the client side. The back end logs the query metrics and provides them to the Cosmos DB SDK.
 
-Response diagnostics string is logged by the Cosmos DB SDK on the client side, whereas query metrics are logged by the backend and are provided to the Cosmos DB SDK.
-
-The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Cosmos DB SDK. Therefore, it's important that your implementation ensures high performance by being bug-free and avoiding complexity. For example, you should not log the complete set of diagnostics information in this method because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
+The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Cosmos DB SDK. Therefore, it's important that your implementation ensures high performance by being bug-free and avoiding complexity. For example, you shouldn't log the complete set of diagnostics information in this method because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
 
 The following code shows an example of how to implement the `ResponseDiagnosticsProcessor` interface.
 
