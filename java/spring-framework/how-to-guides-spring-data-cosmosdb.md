@@ -9,18 +9,15 @@ ms.date: 1/9/2019
 
 # Spring Data Azure Cosmos DB developer's guide
 
-[Spring Data for Azure Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration with [Azure Cosmos DB](/azure/cosmos-db/introduction) using the following APIs:
+This topic describes the features of [Spring Data Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) using the SQL API. This topic also includes guidance on common issues, workarounds, and diagnostic steps.
 
-- [SQL](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)
-- [Mongo](/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-- [Cassandra](/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-- [Gremlin](/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+[Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs. The Spring Data Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration with Azure Cosmos DB using the SQL API. You can find information on the support for other APIs in the following topics:
 
-Azure Cosmos DB is a globally distributed database service that allows developers to work with data using a variety of standard APIs.
+- [How to use Spring Data MongoDB API with Azure Cosmos DB](/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+- [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+- [How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 
-This topic covers the features of the Spring Data Cosmos DB SDK and describes common issues, workarounds, and diagnostic steps.
-
-The SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version.
+The Spring Data Cosmos DB SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version.
 
 ## Available features
 
@@ -28,16 +25,16 @@ The following sections describe the features currently available.
 
 ### CrudRepository and ReactiveCrudRepository support
 
-Spring Data supports both `CrudRepository` (`CosmosRepository`) and `ReactiveCrudRepository` (`ReactiveCosmosRepository`) API implementations.
+The Spring Data Cosmos DB SDK provides the `CosmosRepository` and `ReactiveCosmosRepository` interfaces, which extend the Spring Data `CrudRepository` and `ReactiveCrudRepository` interfaces.
+
+The following example shows how to extend these interfaces.
 
 ```java
-//  To extend CosmosRepository
 @Repository
 public interface SampleRepository extends CosmosRepository<SampleEntity, String> {
     List<SampleEntity> findByName(String name);
 }
 
-//  To extend ReactiveCosmosRepository
 @Repository
 public interface ReactiveSampleRepository extends ReactiveCosmosRepository<SampleEntity, String> {
     Flux<SampleEntity> findByName(String name);
@@ -58,14 +55,16 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 
 ### Define a simple entity
 
-You can define entities by adding the `@Document` annotation and specifying properties related to the collection, such as the collection name, request units, time to live, and auto-create collection flag.
+You can define entities by adding the `@Document` annotation and specifying properties related to the collection, such as the collection name, request units (RUs), time to live, and auto-create collection flag.
+
+By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Document(collection="myCustomCollectionName")` annotation to the domain class. The collection field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions in order to provide collection names programmatically via configuration properties. For example, you can use expressions such as `collection = "${dynamic.collection.name}"` and `collection = "#{@someBean.getCollectionName()}"`.
 
 There are two ways to map a field in a domain class to the `id` field of an Azure Cosmos DB document:
 
 - Annotate the field with `@Id`.
 - Set the name of the field to `id`.
 
-The following code shows an example using `@Id`.
+The following example shows the use of the `@Document` and `@Id` annotations.
 
 ```java
 @Document(collection = "myCollection")
@@ -81,20 +80,18 @@ class MyDocument {
 }
 ```
 
-- Custom collection Name.
-    By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Document(collection="myCustomCollectionName")` annotation to the domain class. The collection field also supports SpEL expressions (for example, `collection = "${dynamic.collection.name}"` or `collection = "#{@someBean.getCollectionName()}"`) in order to provide collection names programmatically via configuration properties.
-- Custom IndexingPolicy
-    By default, `IndexingPolicy` will be set by the Azure service. To customize it, add the annotation `@DocumentIndexingPolicy` to the domain class. This annotation has four attributes to customize:
+By default, `IndexingPolicy` is set by the Azure service. To customize it, add the annotation `@DocumentIndexingPolicy` to the domain class. This annotation has four attributes:
 
-  ```java
-  boolean automatic;     // Indicates whether the indexing policy is automatic.
-  IndexingMode mode;     // The indexing policy mode; the options are Consistent, Lazy, or None.
-  String[] includePaths; // Included paths for indexing.
-  String[] excludePaths; // Excluded paths for indexing.
-  ```
+```java
+boolean automatic;     // Indicates whether the indexing policy is automatic.
+IndexingMode mode;     // The indexing policy mode; the options are Consistent, Lazy, or None.
+String[] includePaths; // Included paths for indexing.
+String[] excludePaths; // Excluded paths for indexing.
+```
 
-- Supports [Azure Cosmos DB partition](/azure/cosmos-db/partition-data). To specify a field of domain class to be partition key field, just annotate it with `@PartitionKey`. On performing CRUD operations, specify your partition value.
-- Sample code below shows how to use `@PartitionKey` annotation while performing CRUD operations.  
+The SDK also supports partitioning. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data). To specify a field of a domain class to be partition key field, annotate it with `@PartitionKey`. Then, when you perform CRUD operations, specify your partition value.
+
+The following example shows how to use the `@PartitionKey` annotation when performing CRUD operations.
 
 ```java
 @Document(ru = "400")
@@ -117,19 +114,21 @@ class AddressService {
     AddressRepository repository;
 
     final Address newAddress = new Address("12345", "city");
-    //  No need to specify partition key in save operation. 
+
+    //  There's no need to specify a partition key in the save operation.
     repository.save(updatedAddress);
 
-    //  Provide partition key when performing find by id operation.
+    //  Provide a partition key when performing a find-by-id operation.
     final Optional<Address> addressById = repository.findById("12345", new PartitionKey("city"));
+
     final Address foundAddress = addressById.get();
 
-    //  Provide partition key when using delete by id API
+    //  Provide a partition key when performing a delete-by-id operation.
     repository.deleteById(foundAddress.getPostalCode(), new PartitionKey(foundAddress.getCity())); 
 }
 ```
 
-- Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation, e.g., `findByAFieldAndBField`
+The SDK also supports Spring Data custom query find operations, such as `findByAFieldAndBField`. For more information, see [Defining Query Methods](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) in the Spring documentation.
 
 ## Best practices
 
@@ -137,118 +136,120 @@ The following sections describe best practices when using the SDK.
 
 ### Configuring the application
 
-- Extend `AbstractCosmosConfiguration` to set up the application's configuration (Cosmosdb key, url, database name, etc.)
-- Should be annotated with `@Configuration` annotation.
-- Depending upon repository usage, specify `@EnableCosmosRepositories` or `@EnableReactiveCosmosRepositories` annotation.
-- Both of these annotations can be used simultaneously as well.
-- CosmosKeyCredential feature provides capability to rotate keys on the fly. You can switch keys using `switchToSecondaryKey()`, as shown in the following example:
+Use the following steps to configure the application:
 
-  ```java
-  @Configuration
-  @EnableCosmosRepositories
-  @Slf4j
-  public class AppConfiguration extends AbstractCosmosConfiguration {
-  
-      @Value("${azure.cosmosdb.uri}")
-      private String uri;
-  
-      @Value("${azure.cosmosdb.key}")
-      private String key;
-  
-      @Value("${azure.cosmosdb.secondaryKey}")
-      private String secondaryKey;
-  
-      @Value("${azure.cosmosdb.database}")
-      private String dbName;
-  
-      @Value("${azure.cosmosdb.populateQueryMetrics}")
-  
-      private boolean populateQueryMetrics;
-  
-      private CosmosKeyCredential cosmosKeyCredential;
-  
-      @Bean
-      public CosmosDBConfig getConfig() {
-          this.cosmosKeyCredential = new CosmosKeyCredential(key);
-          CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri,
-              this.cosmosKeyCredential, dbName).build();
-          cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-          cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
-          return cosmosdbConfig;
-      }
-  
-      public void switchToSecondaryKey() {
-          this.cosmosKeyCredential.key(secondaryKey);
-      }
-  }
-  ```
+1. Extend the `AbstractCosmosConfiguration` class to set up the application's configuration (Cosmos DB key, URL, database name, and so on).
+1. Add the `@Configuration` annotation.
+1. Depending on your repository usage, add one or both of the `@EnableCosmosRepositories` and `@EnableReactiveCosmosRepositories` annotations.
 
-- Customizing configuration to tweak connection mode, max connection pool size, request timeout, etc.
+The `CosmosKeyCredential` feature provides the capability to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method, as shown in the following example:
 
-  ```java
-  public CosmosDBConfig getConfig() {
-  
-      this.cosmosKeyCredential = new CosmosKeyCredential(key);
-      ConnectionPolicy customizedConnectionPolicy = new ConnectionPolicy();
-  
-      //  Connection mode is Direct mode (TCP)
-      customizedConnectionPolicy.setConnectionMode(ConnectionMode.DIRECT);
-  
-      //  Max http / tcp connections 1000 per application
-      customizedConnectionPolicy.setMaxPoolSize(1000);
-  
-      //  Request timeout to 10 seconds.
-      customizedConnectionPolicy.requestTimeoutInMillis(10000);
-  
-      //  Idle connection timeout to 2 minutes
-      customizedConnectionPolicy.idleConnectionTimeoutInMillis(120000);
-      CosmosDBConfig cosmosDbConfig = CosmosDBConfig.builder(uri,   this.cosmosKeyCredential, dbName)
-                                                    .connectionPolicy  (customizedConnectionPolic  y)
-                                                    .build();
-      return cosmosDbConfig;
-  }
-  ```
+```java
+@Configuration
+@EnableCosmosRepositories
+public class AppConfiguration extends AbstractCosmosConfiguration {
+
+    @Value("${azure.cosmosdb.uri}")
+    private String uri;
+
+    @Value("${azure.cosmosdb.key}")
+    private String key;
+
+    @Value("${azure.cosmosdb.secondaryKey}")
+    private String secondaryKey;
+
+    @Value("${azure.cosmosdb.database}")
+    private String dbName;
+
+    @Value("${azure.cosmosdb.populateQueryMetrics}")
+    private boolean populateQueryMetrics;
+
+    private CosmosKeyCredential cosmosKeyCredential;
+
+    @Bean
+    public CosmosDBConfig getConfig() {
+        this.cosmosKeyCredential = new CosmosKeyCredential(key);
+        CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri,
+            this.cosmosKeyCredential, dbName).build();
+        cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
+        cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
+        return cosmosdbConfig;
+    }
+
+    public void switchToSecondaryKey() {
+        this.cosmosKeyCredential.key(secondaryKey);
+    }
+}
+```
+
+You can also customize the configuration to change the connection mode, maximum connection pool size, request timeout, and so on, as shown in the following example.
+
+```java
+public CosmosDBConfig getConfig() {
+
+    this.cosmosKeyCredential = new CosmosKeyCredential(key);
+    ConnectionPolicy customizedConnectionPolicy = new ConnectionPolicy();
+
+    //  Connection mode is Direct mode (TCP)
+    customizedConnectionPolicy.setConnectionMode(ConnectionMode.DIRECT);
+
+    //  Max http / tcp connections 1000 per application
+    customizedConnectionPolicy.setMaxPoolSize(1000);
+
+    //  Request timeout to 10 seconds.
+    customizedConnectionPolicy.requestTimeoutInMillis(10000);
+
+    //  Idle connection timeout to 2 minutes
+    customizedConnectionPolicy.idleConnectionTimeoutInMillis(120000);
+    CosmosDBConfig cosmosDbConfig = CosmosDBConfig.builder(uri,   this.cosmosKeyCredential, dbName)
+                                                  .connectionPolicy  (customizedConnectionPolic  y)
+                                                  .build();
+    return cosmosDbConfig;
+}
+```
 
 ### Response diagnostics and query metrics
 
-- Spring-data-cosmosdb SDK v2.2.x supports Response Diagnostics String and Query Metrics.
-- Set `populateQueryMetrics` flag to true in application.properties to enable query metrics.
-- In addition to setting the flag, implement `ResponseDiagnosticsProcessor` to log diagnostics information, as shown in the following example.
-- Implemented `ResponseDiagnosticsProcessor` needs to be set in cosmosDbConfig using `setResponseDiagnosticsProcessor` API.
+The Spring Data Cosmos DB SDK v2.2.x supports response diagnostics string and query metrics.
 
-  ```java
-  @Configuration
-  @EnableCosmosRepositories
-  @Slf4j
-  public class AppConfiguration extends AbstractCosmosConfiguration {
-      ...
-      @Value("${azure.cosmosdb.populateQueryMetrics}")
-      private boolean populateQueryMetrics;
-  
-      private static class ResponseDiagnosticsProcessorImplementation implements ResponseDiagnosticsProcessor {
-  
-          @Override
-          public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
-              log.info("Response Diagnostics {}", responseDiagnostics);
-          }
-      }
-  
-      @Bean
-      public CosmosDBConfig getConfig() {
-      this.cosmosKeyCredential = new CosmosKeyCredential(key);
-      CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
-      cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-      cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
-      return cosmosdbConfig;
+To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information.
+
+<!-- TODO need to rewrite the following sentence -->
+
+Implemented `ResponseDiagnosticsProcessor` needs to be set in cosmosDbConfig using `setResponseDiagnosticsProcessor` API.
+
+```java
+@Configuration
+@EnableCosmosRepositories
+public class AppConfiguration extends AbstractCosmosConfiguration {
+    ...
+    @Value("${azure.cosmosdb.populateQueryMetrics}")
+    private boolean populateQueryMetrics;
+
+    private static class ResponseDiagnosticsProcessorImplementation implements ResponseDiagnosticsProcessor {
+
+        @Override
+        public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
+            log.info("Response Diagnostics {}", responseDiagnostics);
+        }
     }
+
+    @Bean
+    public CosmosDBConfig getConfig() {
+    this.cosmosKeyCredential = new CosmosKeyCredential(key);
+    CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
+    cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
+    cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
+    return cosmosdbConfig;
   }
-  ```
+}
+```
 
 ### Pagination and sorting
 
-The spring-data-cosmosdb SDK supports [Spring Data paging and sorting](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters). 
+The Spring Data Cosmos DB SDK supports Spring Data paging and sorting. For more information, see [Special parameter handling](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters) in the Spring documentation.
 
-Based on available RUs on the database account, Cosmos DB can return documents less than or equal to the requested size.
+Based on available request units (RUs) on the database account, Cosmos DB can return documents less than or equal to the requested size. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
 Due to the variable number of returned documents in every iteration, you should not rely on the `totalPageSize` value. Instead, you should iterate over `pageable` as shown in the following example.
 
@@ -390,14 +391,10 @@ If you experience connection issues, be sure all the required annotations in the
 
 Version 2.2.1 of the spring-data-cosmosdb SDK provides the following improvements to exception handling:
 
-- All the APIs return `CosmosDBAccessException`, which exposes `cosmosClientException` through getter.
-- The Cosmos DB SDK throws `CosmosClientException`, which you can use to implement any retriable logic on the client-side.
-- Common retriable exceptions are `Resource already exists`, `Request rate too large`, `Request timeout exception`, etc.
+- All the APIs throw `CosmosDBAccessException`, which exposes the field `cosmosClientException` through the get method.
+- The Cosmos DB SDK throws `CosmosClientException`, which you can use to implement any retry logic on the client-side.
+- Common exceptions to retry are ones with the messages `Resource already exists`, `Request rate too large`, `Request timeout exception`, and so on.
 
 ### API or query slowness
 
-If you experience high latencies on APIs or Query executions, try logging diagnostics strings and query metrics. Refer to [Enable Diagnostics and Query Metrics](#enable-diagnostics-and-query-metrics) to enable and log diagnostics strings and query metrics. Check for CPU usage, network bandwidth, and I/O disk space, which can be the root causes of client-side slowness.
-
-### Bug fixes
-
-Refer to [releases](https://github.com/microsoft/spring-data-cosmosdb/releases) to check for any bug fixes and new features.
+If you experience high latencies on APIs or query executions, try logging diagnostics strings and query metrics as described in the [Enable Diagnostics and Query Metrics](#enable-diagnostics-and-query-metrics) section. Check for CPU usage, network bandwidth, and I/O disk space, which can be the root causes of client-side slowness.
