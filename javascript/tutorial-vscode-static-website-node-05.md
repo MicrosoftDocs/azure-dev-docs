@@ -60,6 +60,37 @@ In this step, you make a simple change to the app's source code and redeploy the
 
     ![Changes in the app after redeployment](media/static-website/updated-azure-app-vue.png)
 
+# [Svelte](#tab/svelte)
+
+1. In Visual Studio Code, open the _src/main.js_ file change line 6 to match the following:
+
+    ```js
+    import App from './App.svelte';
+
+    const app = new App({
+	    target: document.body,
+	    props: {
+		    name: 'Welcome to Azure!'
+	    }
+    });
+
+    export default app;
+    ```
+
+2. Now, open the _src/App.svelte_ file change line 6 to match the following
+
+    ```html
+    <h1>{name}</h1>
+    ```
+
+1. At a terminal or command prompt, run `npm run build`.
+
+1. In VS Code, right-click your updated _public_ folder and again choose **Deploy to Static Website**. Choose your Storage account and confirm that you want to deploy your changes. (The Azure extension automatically deletes old files before deploying changes to avoid caching issues.)
+
+1. Once your deployment is complete, refresh the site in the browser to observe changes:
+
+    ![Changes in the app after redeployment](media/static-website/updated-azure-app-svelte.png)
+
 ---
 
 > [!div class="nextstepaction"]
