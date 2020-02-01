@@ -19,6 +19,10 @@ ms.date: 09/23/2019
 
 1. At the next prompt, enter a globally unique name for your Function App and press **Enter**. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
+1. Then choose the Node.js version/runtime 
+
+    ![VS Code output panel showing Node.js version/runtime](media/functions-extension/nodejs-runtime-version.png)
+
 1. At the next prompt, select an Azure [region](https://azure.microsoft.com/regions/) close to you.
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress:
