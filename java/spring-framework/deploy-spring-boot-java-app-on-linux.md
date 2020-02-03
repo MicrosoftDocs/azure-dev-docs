@@ -135,10 +135,10 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
             <image>openjdk:8-jre-alpine</image>
         </from>
         <to>
-            <image>{docker.image.prefix}/{project.artifactId}</image>
+            <image>${docker.image.prefix}/${project.artifactId}</image>
             <auth>
-               <username>{username}</username>
-               <password>{password}</password>
+               <username>${username}</username>
+               <password>${password}</password>
             </auth>
         </to>
      </configuration>
