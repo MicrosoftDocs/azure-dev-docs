@@ -32,7 +32,7 @@ With a container image in a registry, you can use the Docker extension in VS Cod
 
 1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
 
-1. Once completed, you **must** also add a setting named `WEBSITES_PORT` (notice the plural "WEBSITES") to the App Service to specify the port on which the container is listening. (If you're using an image from the [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-container) tutorial, for example, the port is 5000 for Flask and 8000 for Django ). To set `WEBSITES_PORT`, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts, enter `WEBSITES_PORT` as the key and the port number for the value.
+1. Once completed, you **must** also add a setting named `WEBSITES_PORT` (notice the plural "WEBSITES") to the App Service to specify the port on which the container is listening. (If you're using an image from the [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-containers) tutorial, for example, the port is 5000 for Flask and 8000 for Django ). To set `WEBSITES_PORT`, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts, enter `WEBSITES_PORT` as the key and the port number for the value.
 
     ![Add New Setting to an App Service that species a port](media/deploy-containers/add-new-setting-in-app-service-settings-explorer.png)
 

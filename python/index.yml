@@ -69,7 +69,7 @@ landingContent:
           - text: Azure extensions for Visual Studio Code
             url: https://code.visualstudio.com/docs/azure/extensions
           - text: Install the Azure CLI
-            url: /azure/install-azure-cli?view=azure-cli-latest?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+            url: /cli/azure/install-azure-cli?view=azure-cli-latest?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
           - text: Run Linux applications natively on Windows 10 with a range of distributions
             url: /windows/wsl/install-win10?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
   - title: Services for Data Science, AI, and Machine Learning
@@ -95,7 +95,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: About storage solutions on Azure
-            url: /storage/common/storage-introduction?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
+            url: /azure/storage/common/storage-introduction?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
           - text: Scalable NoSQL with Azure CosmosDB
             url: /azure/cosmos-db/introduction?toc=%2Fazure%2Fpython%2Ftoc.json&bc=%2Fazure%2Fpython%2Fbreadcrumb%2Ftoc.json
           - text: Inter-application messaging with Azure Service Bus
