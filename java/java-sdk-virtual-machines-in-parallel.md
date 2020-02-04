@@ -182,9 +182,9 @@ The `finally` block deletes the resources from your Azure subscription even in t
 |-------|-------|
 | [VirtualMachine](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachine) | Query properties and manage state of virtual machines. Retrieved in list form from `azure.virtualMachines().list()` or by name or ID `azure.virtualMachines().getByResourceGroup()`
 | [VirtualMachineSizeTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinesizetypes) | Static values that map to [virtual machine size options](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for use as a parameter to `withSize()` when defining a virtual machine.
-| [PublicIpAddress](https://docs.microsoft.com/java/api/com.microsoft.azure.management..network.publicipaddress) | Defined, but not immediately created, for each virtual machine through `azure.publicIpAddresses().define()`. Store the key for each `Creatable` and retrieve later through `createdRelatedResource()`
+| [PublicIpAddress](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.publicipaddress) | Defined, but not immediately created, for each virtual machine through `azure.publicIpAddresses().define()`. Store the key for each `Creatable` and retrieve later through `createdRelatedResource()`
 | [KnownLinuxVirtualMachineImage](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.knownlinuxvirtualmachineimage) | Set of Linux virtual machine options used as a parameter to `withPopularLinuxImage()` method when defining a virtual machine.
-| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management..network.network) | The sample defines one virtual network for each region through  `azure.networks().define()` . 
+| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.network) | The sample defines one virtual network for each region through  `azure.networks().define()` . 
 
 ## Next steps
 
