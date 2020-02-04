@@ -55,7 +55,7 @@ export AZURE_PASS password
 export AZURE_TENANT XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
 
-Get the ID for your subscription with [az account show](/cli/azure/account#show)
+Get the ID for your subscription with [az account show](/cli/azure/account#az-account-show).
 
 ```azurecli-interactive
 az account show
