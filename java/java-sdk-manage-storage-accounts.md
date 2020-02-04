@@ -70,7 +70,7 @@ for (StorageAccount sa : accounts) {
 }
 ```
 
-[com.microsoft.azure.management.storage.StorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage._storage_account) provides a set of useful methods to inspect the configuration of a storage account.
+[com.microsoft.azure.management.storage.StorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage.storageaccount) provides a set of useful methods to inspect the configuration of a storage account.
 
 ## Delete a storage account
 ```java
@@ -95,8 +95,8 @@ azure.storageAccounts().deleteByResourceGroup(rgName,accountName);
 
 | Class used in sample | Notes
 |-------|-------|
-| [StorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage._storage_account)  | Representation of an Azure storage account. Use the methods in the class to get information about the storage account.
-| [StorageAccountKey](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage._storage_account_key) | `StorageAccount.getKeys()` returns the storage account keys. Use the `regenerateKey` methods in `StorageAccount` to update the keys.
+| [StorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage.storageaccount)  | Representation of an Azure storage account. Use the methods in the class to get information about the storage account.
+| [StorageAccountKey](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage.storageaccountkey) | `StorageAccount.getKeys()` returns the storage account keys. Use the `regenerateKey` methods in `StorageAccount` to update the keys.
 
 ## Next steps
 
