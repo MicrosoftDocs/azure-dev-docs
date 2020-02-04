@@ -38,7 +38,7 @@ StorageAccount storageAccount = azure.storageAccounts().define(storageAccountNam
                     .create();
 ```
 
-The storage name provided must be unique across all names in Azure and contain only lowercase letters and numbers. The default performance and replication profile used for this account is [Standard_GRS](https://docs.microsoft.com/azure/storage/storage-redundancy#geo-redundant-storage).
+The storage name provided must be unique across all names in Azure and contain only lowercase letters and numbers. The default performance and replication profile used for this account is [Standard_GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs).
 
 ## List keys in a storage account
 ```java
