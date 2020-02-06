@@ -28,13 +28,13 @@ used to run code developed and built with JDK 8.
 But there are some potential issues, primarily concerning deprecated
 API, class loaders, and reflection.
 
-A comprehensive guide to transitioning from Java 8 to Java 11 will be
-forthcoming from the Microsoft Java Engineering Group. Meanwhile, there are
-many guides for transitioning from Java 8 to Java 9 that can get you
-started. For example, [Java Platform, Standard Edition Oracle JDK 9
+The Microsoft Java Engineering Group has a guide to
+[transitioning from Java 8 to Java 11](./transitioning-from-java-8-to-java-11.md). 
+The [Java Platform, Standard Edition Oracle JDK 9
 Migration Guide](https://docs.oracle.com/javase/9/migrate/toc.htm) and
 [The State of the Module System: Compatibility and
-Migration](http://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--migration).
+Migration](http://openjdk.java.net/projects/jigsaw/spec/sotms/#compatibility--migration)
+are other useful guides. 
 
 ## High-level changes between Java 8 and 11
 

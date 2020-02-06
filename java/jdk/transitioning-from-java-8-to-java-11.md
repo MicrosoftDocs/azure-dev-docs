@@ -189,7 +189,7 @@ For the most part, the defaults are the same from 8 to 11. Run with this flag on
 
 Setting the command line option `--illegal-access=warn` is recommended.
 In Java 11, using reflection to access to JDK-internal API will result in an
-[illegal reflective access warning](#warning:-an-illegal-reflective-access-operation-has-occurred).
+[illegal reflective access warning](#warning-an-illegal-reflective-access-operation-has-occurred).
 By default, the warning is only issued for
 the first illegal access. Setting `--illegal-access=warn` will cause a warning
 on *every* illegal reflective access. You will find more case if illegal access with the option set to *warn*. But you will also get a lot of redundant warnings.  
@@ -209,8 +209,8 @@ Here are some of the common issues you might come across. Follow the links for m
 - [VM Warning: Ignoring option](#vm-warnings)
 - [VM Warning: Option &lt;*option*&gt; was deprecated](#vm-warnings)
 - [WARNING: An illegal reflective access operation has occurred](#warning-an-illegal-reflective-access-operation-has-occurred)
-- [java.lang.NoClassDefFoundError](#java.lang.noclassdeffounderror)
-- [-Xbootclasspath/p is no longer a supported option](#xbootclasspathp-is-no-longer-a-supported-option)
+- [java.lang.NoClassDefFoundError](#javalangnoclassdeffounderror)
+- [-Xbootclasspath/p is no longer a supported option](#-xbootclasspathp-is-no-longer-a-supported-option)
 - [java.lang.UnsupportedClassVersionError](#unsupportedclassversionerror)
 
 
