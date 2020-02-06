@@ -208,10 +208,10 @@ Here are some of the common issues you might come across. Follow the links for m
 - [Unrecognized option](#unrecognized-options)
 - [VM Warning: Ignoring option](#vm-warnings)
 - [VM Warning: Option &lt;*option*&gt; was deprecated](#vm-warnings)
-- [WARNING: An illegal reflective access operation has occurred](#warning:-an-illegal-reflective-access-operation-has-occurred)
-- [java.lang.ClassNotFoundError](#java.lang.noclassdeffounderror)
+- [WARNING: An illegal reflective access operation has occurred](#warning-an-illegal-reflective-access-operation-has-occurred)
+- [java.lang.NoClassDefFoundError](#java.lang.noclassdeffounderror)
+- [-Xbootclasspath/p is no longer a supported option](#xbootclasspathp-is-no-longer-a-supported-option)
 - [java.lang.UnsupportedClassVersionError](#unsupportedclassversionerror)
-- [-Xbootclasspath/p is no longer a supported option](#--Xbootclasspath/p-is-no-longer-a-supported-option)
 
 
 ### Unrecognized options
@@ -232,7 +232,7 @@ from the command line. The exception is options for garbage collection logging. 
 Use of deprecated options will produce a warning. An option is deprecated when it has been replaced
 or is no longer useful. As with [removed options](#unrecognized-options), these options should be 
 removed from the command line.
-The warning `VM Warning: Option &lt;option&gt; was deprecated` means that the option is still supported,
+The warning `VM Warning: Option <option> was deprecated` means that the option is still supported,
 but that support may be removed in the future. 
 An option that is no longer supported and will generate the warning `VM Warning: Ignoring option`.
 Options that are no longer supported have no effect on the runtime.
@@ -287,6 +287,9 @@ exported by the `java.base` module. In other words, there is no `exports sun.nio
 file of module `java.base`. This can be resolved with `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`. 
 Classes that are not defined in a module implicitly belong to the *unnamed* module, literally named `ALL-UNNAMED`.
 
+### java.lang.NoClassDefFoundError
+
+*NoClassDefFoundError* is most likely caused by a split package, or by referencing removed modules. 
 
 #### NoClassDefFoundError caused by split-packages
 
@@ -315,7 +318,7 @@ These modules were deprecated in Java 9 and [removed in Java 11](https://openjdk
 
 To resolve the issue, add a runtime dependency to your project.
 
-[!div class="mx-tdBreakAll"].
+[!div class="mx-tdBreakAll"]
 |Removed module|Affected Package|Suggested dependency|
 |-|-|-|
 |Java API for XML Web Services (JAX-WS) |java.xml.ws |[JAX WS RI Runtime](https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt) |
