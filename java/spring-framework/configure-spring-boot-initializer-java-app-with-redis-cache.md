@@ -25,7 +25,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Aritifact** names for your application.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 
 1. Add dependencies for **Spring Web** section and check the box for **Web**, then scroll down to the **NoSQL** section and check the box for **Spring Data Reactive Redis**. 
 1. Scroll to the bottom of the page and click the button to **Generate Project**.
@@ -34,7 +34,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    > [!NOTE]
    >
-   > The Spring Initializr will use the **Group** and **Aritifact** names to create the package name; for example: *com.contoso.myazuredemo*.
+   > The Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.contoso.myazuredemo*.
    >
 
 1. When prompted, download the project to a path on your local computer.
