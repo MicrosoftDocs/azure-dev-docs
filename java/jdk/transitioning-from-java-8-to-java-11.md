@@ -58,6 +58,12 @@ has recommended replacements for some commonly used JDK internal APIs.
 There are *jdeps* and *jdeprscan* plugins for both Gradle and Maven. We recommend adding these
 tools to your build scripts. 
 
+[!div class="mx-tdBreakAll"]
+|Tool|Gradle Plugin|Maven Plugin|
+|-|-|-|
+|jdeps|[jdeps-gradle-plugin](https://github.com/kordamp/jdeps-gradle-plugin)|[Apache Maven JDeps Plugin](https://maven.apache.org/plugins/maven-jdeps-plugin/index.html)|
+|jdeprscan|[jdeprscan-gradle-plugin](https://github.com/kordamp/jdeprscan-gradle-plugin)|[Apache Maven JDeprScan Plugin](https://maven.apache.org/plugins/maven-jdeprscan-plugin/index.html)|
+
 The Java compiler itself, *javac*, is another tool in your toolbox. The warnings and errors you get from *jdeprscan* and *jdeps* will come out of the compiler.  The advantage of using
 *jdeprscan* and *jdeps* is that you can run these tools over existing jars and class files, including
 third-party libraries.
@@ -169,23 +175,59 @@ see what warnings and errors come out of the execution. This approach gets an
 application to run on Java 11 more quickly by focusing on the minimum that needs 
 to be done. 
 
+Most of the problems you may encounter can be resolved without having to recompile code.
+If an issue has to be fixed in the code, then make the fix but continue to compile 
+with JDK 8. If possible, work on getting the application to *run* with `java` 
+version 11 before *compiling* with JDK 11. 
+
+### Check command line options
+
 Before running on Java 11, do a quick scan of the command-line options. 
 [Options that have been removed](#unrecognized options) will cause the Java Virtual 
 Machine (JVM) to exit. This check is especially important if you use GC logging options since
 they have changed drastically from Java 8. The [JaCoLine](https://jacoline.dev/about) tool is a good one to use
 to detect problems with the command line options. 
 
-Parallel GC should be explicitly set with the command-line option `-XX:+UseParallelGC`,
-if the garbage collector has not been set in the VM options.
-The Parallel garbage collector (Parallel GC) is the default GC in Java 8. The default
-changed in Java 9 to the Garbage First garbage collector (G1GC). In order to make a 
+### Check third-party libraries
+
+A potential source of trouble is third-party libraries that you don't control. You can 
+proactively update third-party libraries to more recent versions. Or you can see 
+what falls out of running the application and only update those that are necessary. 
+The problem with updating all libraries to a recent version is that it makes it 
+harder to find root cause if there is some error in the application. Did the error happen
+because of some updated library? Or was the error caused by some change in
+the runtime? The problem with updating only what's necessary is that it may 
+take several iterations to resolve.
+
+The recommendation here is to make as few changes as possible and to update 
+third-party libraries as a [separate effort](#next-steps). If you do update a third-party library, 
+more often than not you will want the latest-and-greatest version that is compatible
+with Java 11. 
+Depending on how far behind your current version is, you may want to take 
+a more cautious approach and upgrade to the first Java 9+ compatible version. 
+
+In addition to looking at release notes, you can use *jdeps* and *jdeprscan* 
+to assess the jar file. Also, the OpenJDK Quality Group maintains a 
+[Quality Outreach](https://wiki.openjdk.java.net/display/quality/Quality+Outreach) 
+wiki page that lists the status of testing of many Free Open Source Software (FOSS)
+projects against versions of OpenJDK. 
+
+### Explicitly set garbage collection
+
+The Parallel garbage collector (Parallel GC) is the default GC in Java 8. If the application is using the
+default, then the GC should be explicitly set with the command-line option `-XX:+UseParallelGC`.
+The default changed in Java 9 to the Garbage First garbage collector (G1GC). In order to make a 
 fair comparison of an application running on Java 8 versus Java 11, the GC settings
 must be the same. Experimenting with the GC settings should be 
 deferred until the application has been validated on Java 11. 
 
-If running on the Hot Spot VM, setting the command line option `-XX:+PrintCommandLineFlags`
+### Explicitly set default options
+
+If running on the HotSpot VM, setting the command line option `-XX:+PrintCommandLineFlags`
 will dump the values of options set by the VM, particularly the defaults set by the GC.
-For the most part, the defaults are the same from 8 to 11. Run with this flag on Java 8 and use the printed options when running on Java 11. 
+Run with this flag on Java 8 and use the printed options when running on Java 11. 
+For the most part, the defaults are the same from 8 to 11. But using the settings from
+8 ensures parity.
 
 Setting the command line option `--illegal-access=warn` is recommended.
 In Java 11, using reflection to access to JDK-internal API will result in an
@@ -197,10 +239,7 @@ Once the application runs on Java 11, set `--illegal-access=deny` to mimic
 the future behavior of the Java runtime. Starting with Java 16, the default will 
 be `--illegal-access=deny`. 
 
-Most of the problems can be resolved without having to recompile code. If an 
-issue has to be fixed in the code, then make the fix but continue to compile 
-with JDK 8. If possible, work on getting the application to *run* with `java` 
-version 11 before *compiling* with JDK 11. 
+### Potential issues
 
 Here are some of the common issues you might come across. Follow the links for more details about these issues.
 
@@ -214,7 +253,7 @@ Here are some of the common issues you might come across. Follow the links for m
 - [java.lang.UnsupportedClassVersionError](#unsupportedclassversionerror)
 
 
-### Unrecognized options
+#### Unrecognized options
 
 If a command-line option has been removed, the application will print 
 `Unrecognized option:` or `Unrecognized VM option` followed by the name 
@@ -227,7 +266,7 @@ from the command line. The exception is options for garbage collection logging. 
 [reimplemented](http://openjdk.java.net/jeps/271) in Java 9 to use the 
 [unified JVM logging framework](http://openjdk.java.net/jeps/158). Refer to "Table 2-2 Mapping Legacy Garbage Collection Logging Flags to the Xlog Configuration" in the section [Enable Logging with the JVM Unified Logging Framework](https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-BE93ABDC-999C-4CB5-A88B-1994AAAC74D5) of the Java SE 11 Tools Reference. 
 
-### VM warnings
+#### VM warnings
 
 Use of deprecated options will produce a warning. An option is deprecated when it has been replaced
 or is no longer useful. As with [removed options](#unrecognized-options), these options should be 
@@ -240,11 +279,11 @@ Options that are no longer supported have no effect on the runtime.
 The web page [VM Options Explorer](https://chriswhocodes.com/hotspot_option_differences.html) provides an exhaustive
 list of options that have been added to or removed from Java since JDK 7. 
 
-### Error: Could not create the Java Virtual Machine
+#### Error: Could not create the Java Virtual Machine
 
 This error message is printed when the JVM encounters an [unrecognized option](#unrecognized-options).
 
-### WARNING: An illegal reflective access operation has occurred
+#### WARNING: An illegal reflective access operation has occurred
 
 When Java code uses reflection to access JDK-internal API, the runtime will issue an
 illegal reflective access warning.
@@ -287,11 +326,11 @@ exported by the `java.base` module. In other words, there is no `exports sun.nio
 file of module `java.base`. This can be resolved with `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`. 
 Classes that are not defined in a module implicitly belong to the *unnamed* module, literally named `ALL-UNNAMED`.
 
-### java.lang.NoClassDefFoundError
+#### java.lang.NoClassDefFoundError
 
 *NoClassDefFoundError* is most likely caused by a split package, or by referencing removed modules. 
 
-#### NoClassDefFoundError caused by split-packages
+##### NoClassDefFoundError caused by split-packages
 
 A split package is when a package is found in more than one library. The symptom of a split-package 
 problem is that a class you know to be on the class-path is not found. 
@@ -308,8 +347,7 @@ jdeps will print out a warning: `Warning: split package: <package-name> <module-
 
 This issue can be resolved by using `--patch-module <module-name>=<path>[,<path>]` to add the split package into the named module. 
 
-
-#### NoClassDefFoundError caused by using Java EE or CORBA modules
+##### NoClassDefFoundError caused by using Java EE or CORBA modules
 
 If the application runs on Java 8 but throws a `java.lang.NoClassDefFoundError` or a 
 `java.lang.ClassNotFoundError`, then it is
@@ -328,14 +366,14 @@ To resolve the issue, add a runtime dependency to your project.
 |Common Object Request Broker Architecture (CORBA) |java.corba | [GlassFish CORBA ORB](https://mvnrepository.com/artifact/org.glassfish.corba/glassfish-corba-orb) |
 |Java Transaction API (JTA) |java.transaction | [Java Transaction API](https://mvnrepository.com/artifact/javax.transaction/jta)|
 
-### -Xbootclasspath/p is no longer a supported option
+#### -Xbootclasspath/p is no longer a supported option
 
 Support for `-Xbootclasspath/p` has been removed. Use `--patch-module` instead. The *--patch-module* option is described in [JEP 261](http://openjdk.java.net/jeps/261). Look for the section labeled "Patching module content". *--patch-module* can be used with *javac* and with *java* to override or augment the classes in a module. 
 
 What *--patch-module* does, in effect, is insert the patch module into the module system's class lookup. The module system will 
 grab the class from the patch module first. This is the same effect as pre-pending the bootclasspath in Java 8. 
 
-### UnsupportedClassVersionError
+#### UnsupportedClassVersionError
 
 This exception means that you are trying to run code that was compiled with a later version of Java on an earlier version of Java. For example, you are running on Java 11 with a jar that was compiled with JDK 13. 
 
@@ -352,7 +390,7 @@ This exception means that you are trying to run code that was compiled with a la
 
 Once the application runs on Java 11, consider moving libraries off the 
 class-path and onto the module-path. Look for updated versions of the libraries your 
-application depends on. Choose modular libraries, if available. Use the  
+application depends on. Choose modular libraries, if available. Use the 
 module-path as much as possible, even if you don't plan on using modules
 in your application. Using the module-path has better performance for 
 class loading than the class-path does. 
