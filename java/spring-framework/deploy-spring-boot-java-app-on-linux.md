@@ -218,7 +218,7 @@ When the deployment is complete, click **Go to resource**.  The deployment page 
 >
 > 4. Click **Configuration** in the left navigation pane.
 >
-> 5. In the **Application settings** section, add a new setting named **PORT** and enter your custom port number for the value.
+> 5. In the **Application settings** section, add a new setting named **WEBSITES_PORT** and enter your custom port number for the value.
 >
 > 6. Click **OK**. Then click **Save**.
 >
