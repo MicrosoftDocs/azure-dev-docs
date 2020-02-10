@@ -1,12 +1,8 @@
 ---
 title: Install the Azure SDK for Go
 description: How to install, vendor, and configure the Azure SDK for Go.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.date: 03/14/2018
 ms.topic: conceptual
-ms.devlang: go
 ---
 
 # Install the Azure SDK for Go

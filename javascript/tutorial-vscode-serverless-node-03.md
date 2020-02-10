@@ -15,7 +15,7 @@ When you created the Functions app, the Azure Functions extension automatically 
 
 1. In Visual Studio Code, press **F5** (or use the **Debug** > **Start Debugging** menu command) to launch the debugger and attach to the Azure Functions host. (This command automatically uses the single debug configuration that Azure Functions created.)
 
-1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Ctrl**+click the local URL shown in the output to open the browser and run the function:
+1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Alt**+click the local URL shown in the output to open the browser and run the function:
 
     ![Output shown in VS Code Terminal panel when debugging locally](media/functions-extension/local-test-output.png)
 

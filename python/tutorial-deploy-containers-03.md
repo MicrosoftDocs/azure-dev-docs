@@ -14,7 +14,7 @@ This article explains how to redeploy a container to Azure App Service after mak
 
 Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
 
-1. Make changes to your app and test locally. (This step and the two that follow are explained in the tutorial, [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-container).)
+1. Make changes to your app and test locally. (This step and the two that follow are explained in the tutorial, [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-containers).)
 
 1. Rebuild the Docker image. If you change only app code, the build should take only a few seconds.
 

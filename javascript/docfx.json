@@ -52,19 +52,22 @@
     },
     "fileMetadata": {
       "author": {
-        "*.md": "btholt"        
+        "**/*.md": "btholt"        
       },
       "manager": {
-        "*.md": "barbkess"        
+        "**/*.md": "barbkess"        
       },
       "ms.author": {
-        "*.md": "brholt"        
+        "**/*.md": "brholt"
       },      
       "ms.devlang": {
-        "*.md": "nodejs"
+        "**/*.md": "nodejs"
       },      
       "ms.prod": {
-        "*.md": "azure-nodejs"        
+        "**/*.md": "azure-nodejs"        
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include"
       }      
     },
     "template": [],
