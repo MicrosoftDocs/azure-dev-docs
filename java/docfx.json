@@ -24,7 +24,8 @@
         "files": [
           "**/*.png",
           "**/*.jpg",
-          "**/*.gif"
+          "**/*.gif",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -65,6 +66,9 @@
       },
       "author": {
         "**/*.md": "bmitchell287"
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include"
       }
     },
     "template": [],

@@ -349,7 +349,7 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
     ```
 
     > [!NOTE]
-    > If instead of using a custom container, you'd prefer a Git deployment, refer to the article, [Create a Node.js web app in Azure](/azure/app-service-web/app-service-web-get-started-nodejs#configure-to-use-nodejs).
+    > If instead of using a custom container, you'd prefer a Git deployment, refer to the article, [Create a Node.js web app in Azure](/azure/app-service-web/app-service-web-get-started-nodejs).
 
 1. Set the web app as the default web instance:
 

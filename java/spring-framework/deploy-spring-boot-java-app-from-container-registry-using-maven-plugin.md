@@ -56,7 +56,7 @@ In this section, you clone a containerized Spring Boot application and test it l
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
    ```shell
-   git clone -b https://github.com/spring-guides/gs-spring-boot-docker
+   https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
 1. Change directory to the completed project; for example:
@@ -103,15 +103,9 @@ In this section, you create an Azure service principal that the Maven plugin use
 
 3. Create an Azure service principal:
    ```azurecli
-   az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
+   az ad sp create-for-rbac --name <ServicePrincipalName>
    ```
-   Where:
-
-   | Parameter  |                    Description                     |
-   |------------|----------------------------------------------------|
-   | `uuuuuuuu` | Specifies the user name for the service principal. |
-   | `pppppppp` | Specifies the password for the service principal.  |
-
+Without any authentication parameters, password-based authentication is used with a random password created for you.
 
 4. Azure responds with JSON that resembles the following example:
    ```json

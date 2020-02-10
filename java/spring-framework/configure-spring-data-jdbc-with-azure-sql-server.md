@@ -41,10 +41,10 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Specify the following information:
 
-   - **Database name**: Choose a unique name for your SQL database; this will be created in the SQL server that you will specify later.
-   - **Subscription**: Specify your Azure subscription to use.
-   - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Select source**: For this tutorial, select `Blank database` to create a new database.
+   * **Database name**: Choose a unique name for your SQL database; this will be created in the SQL server that you will specify later.
+   * **Subscription**: Specify your Azure subscription to use.
+   * **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
+   * **Select source**: For this tutorial, select `Blank database` to create a new database.
 
    ![Specify your SQL database properties][SQL02]
    
@@ -86,6 +86,19 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Retrieve your JDBC connection string][SQL09]
 
+### Create test table in database
+In order to run a client application against this database, use the following SQL command to create a new table.
+
+``` SQL
+IF NOT EXISTS (SELECT 1 FROM sysobjects WHERE NAME='pet' and XTYPE='U')
+  CREATE TABLE pet (
+    id      INT           IDENTITY  PRIMARY KEY,
+    name    VARCHAR(255),
+    species VARCHAR(255)
+  );
+
+```
+
 ## Configure the sample application
 
 1. Open a command shell and clone the sample project using a git command like the following example:
@@ -94,11 +107,21 @@ The following prerequisites are required in order to complete the steps in this 
    git clone https://github.com/Azure-Samples/spring-data-jdbc-on-azure.git
    ```
 
+1. Modify the POM file to include the following dependency:
+
+```
+ <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+    <version>7.4.1.jre11</version>
+ </dependency>
+```
 1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
 
 1. Open the *application.properties* file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
 
    ```yaml
+   spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
    spring.datasource.url=jdbc:sqlserver://wingtiptoyssql.database.windows.net:1433;database=wingtiptoys;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
    spring.datasource.username=wingtiptoysuser@wingtiptoyssql
    spring.datasource.password=********
@@ -131,8 +154,12 @@ The following prerequisites are required in order to complete the steps in this 
 
    ```shell
    curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   ```
 
-   curl -s -d '{"name":"cat","species":"feline"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   or:
+
+``` shell
+   curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
    Your application should return values like the following:

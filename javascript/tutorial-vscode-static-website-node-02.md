@@ -37,7 +37,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
     npm start
     ```
 
-1. Open a browser to [http://localhost:3000](http://localhost:3000) to verify that the app is running:
+1. Open a browser to [http://localhost:4200](http://localhost:4200) to verify that the app is running:
 
     ![The running sample Angular app](media/static-website/local-app-angular.png)
 
