@@ -37,17 +37,15 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then click the link to **Switch to the full version** of the Spring Initializr.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 
    ![Specify Group and Aritifact names][create-spring-app-01]
 
 1. Scroll down to the **Core** section and check the box for **Security**, and in the **Web** section check the box for **Web**, then scroll down to the **Azure** section and check the box for **Azure Active Directory**.
 
+1. At the bottom of the page and click the **Generate** button.
+
    ![Select Security, Web and Azure Active Directory starters][create-spring-app-02]
-
-1. Scroll to the top or bottom of the page and click the button to **Generate Project**.
-
-   ![Generate Spring Boot project][create-spring-app-03]
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -61,33 +59,31 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create new Azure Active Directory instance][create-directory-01]
 
-1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) When you have finished, click **Create**.
+1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) When you have finished, click **Create**. It will take a few minutes to create the new resource.
 
    ![Specify Azure Active Directory names][create-directory-02]
 
-1. Select your account name on the top-right of the Azure portal toolbar, then click **Switch directory**.
+1. When complete, click to access the new directory.
 
    ![Select your Azure account name][create-directory-03]
 
-1. Select your new Azure Active Directory from the drop-down menu.
+1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
 
-   ![Choose your Azure Active Directory][create-directory-04]
-
-1. Select **Azure Active Directory** from the portal menu, click **Properties**, and copy the **Directory ID**; you will use that value to configure your *application.properties* file later in this tutorial.
-
-   ![Copy your Azure Active Directory ID][create-directory-05]
+   ![Copy your Tenant ID][create-directory-05]
 
 ### Add an application registration for your Spring Boot app
 
-1. Select **Azure Active Directory** from the portal menu, click **App registrations**, and then click **New application registration**, .
+1. From the portal menu, click **App registrations**, and then click **Register an application**.
 
    ![Add a new app registration][create-app-registration-01]
 
-2. Specify your application **Name**, use http://localhost:8080 for the **Sign-on URL**, and then click **Create**.
+2. Specify your application, and then click **Register**.
 
    ![Create new app registration][create-app-registration-02]
 
-4. When the page for your app registration appears, copy your **Application ID**; you will use this value to configure your *application.properties* file later in this tutorial. Click **Settings**, and then click **Keys**.
+4. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial. 
+
+---> Instructions diverge to far from new UI here --> Click **Settings**, and then click **Keys**.
 
    ![Create app registration keys][create-app-registration-03]
 
