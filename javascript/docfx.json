@@ -52,13 +52,13 @@
     },
     "fileMetadata": {
       "author": {
-        "*.md": "kraigb"        
+        "*.md": "btholt"        
       },
       "manager": {
         "*.md": "barbkess"        
       },
       "ms.author": {
-        "*.md": "kraigb"        
+        "*.md": "brholt"        
       },      
       "ms.devlang": {
         "*.md": "nodejs"
