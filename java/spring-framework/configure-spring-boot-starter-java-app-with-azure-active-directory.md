@@ -67,6 +67,8 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Select your Azure account name][create-directory-03]
 
+   -----> Tenant ID is showing in current ID, but old ID asks for Directory ID
+
 1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
 
    ![Copy your Tenant ID][create-directory-05]
