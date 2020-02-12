@@ -43,7 +43,7 @@ Web applications are packaged into archives with the *.war* extension (WAR files
 
 ### Java EE applications
 
-Java EE applications (also referred to as J2EE applications or, more recently JakartaEE applications) can contain some, all, or none of the elements of web applications. They can also contain and consume many additional components as defined by the [Java EE specification](https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition).
+Java EE applications (also referred to as J2EE applications or, more recently Jakarta EE applications) can contain some, all, or none of the elements of web applications. They can also contain and consume many additional components as defined by the [Java EE specification](https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition).
 
 Java EE applications can be packaged as archives with the *.ear* extension (EAR files) or as archives with the *.war* extension (WAR files).
 
