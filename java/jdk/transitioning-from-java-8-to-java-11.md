@@ -39,7 +39,7 @@ for resolving them. You should also consult other guides, such as the
 
 ## The toolbox
 
-Java 11 has two tools, *jdeprscan* and *jdeps*, that are useful for sniffing out potential issues. These tools can be run against existing class or jar files. You can assess the transition effort without having to recompile.  t
+Java 11 has two tools, *jdeprscan* and *jdeps*, that are useful for sniffing out potential issues. These tools can be run against existing class or jar files. You can assess the transition effort without having to recompile. 
 
 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html) looks for use of deprecated or removed API.
 Use of deprecated API is not a blocking issue, but is something to look into. Is there an
