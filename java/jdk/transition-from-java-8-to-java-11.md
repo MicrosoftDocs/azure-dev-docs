@@ -59,11 +59,11 @@ has recommended replacements for some commonly used JDK internal APIs.
 There are *jdeps* and *jdeprscan* plugins for both Gradle and Maven. We recommend adding these
 tools to your build scripts. 
 
-[!div class="mx-tdBreakAll"]
-|Tool|Gradle Plugin|Maven Plugin|
-|-|-|-|
-|jdeps|[jdeps-gradle-plugin](https://github.com/kordamp/jdeps-gradle-plugin)|[Apache Maven JDeps Plugin](https://maven.apache.org/plugins/maven-jdeps-plugin/index.html)|
-|jdeprscan|[jdeprscan-gradle-plugin](https://github.com/kordamp/jdeprscan-gradle-plugin)|[Apache Maven JDeprScan Plugin](https://maven.apache.org/plugins/maven-jdeprscan-plugin/index.html)|
+> [!div class="mx-tdBreakAll"]
+> |Tool|Gradle Plugin|Maven Plugin|
+> |-|-|-|
+> |jdeps|[jdeps-gradle-plugin](https://github.com/kordamp/jdeps-gradle-plugin)|[Apache Maven JDeps Plugin](https://maven.apache.org/plugins/maven-jdeps-plugin/index.html)|
+> |jdeprscan|[jdeprscan-gradle-plugin](https://github.com/kordamp/jdeprscan-gradle-plugin)|[Apache Maven JDeprScan Plugin](https://maven.apache.org/plugins/maven-jdeprscan-plugin/index.html)|
 
 The Java compiler itself, *javac*, is another tool in your toolbox. The warnings and errors you get from *jdeprscan* and *jdeps* will come out of the compiler.  The advantage of using
 *jdeprscan* and *jdeps* is that you can run these tools over existing jars and class files, including
@@ -391,15 +391,15 @@ These modules were deprecated in Java 9 and [removed in Java 11](https://openjdk
 
 To resolve the issue, add a runtime dependency to your project.
 
-[!div class="mx-tdBreakAll"]
-|Removed module|Affected Package|Suggested dependency|
-|-|-|-|
-|Java API for XML Web Services (JAX-WS) |java.xml.ws |[JAX WS RI Runtime](https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt) |
-|Java Architecture for XML Binding (JAXB) |java.xml.bind |[JAXB Runtime](https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime)|
-|JavaBeans Activation Framework (JAV) |java.activation |[JavaBeans (TM) Activation Framework](https://mvnrepository.com/artifact/javax.activation/activation) |
-|Common Annotations |java.xml.ws.annotation |[Javax Annotation API](https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api)|
-|Common Object Request Broker Architecture (CORBA) |java.corba | [GlassFish CORBA ORB](https://mvnrepository.com/artifact/org.glassfish.corba/glassfish-corba-orb) |
-|Java Transaction API (JTA) |java.transaction | [Java Transaction API](https://mvnrepository.com/artifact/javax.transaction/jta)|
+> [!div class="mx-tdBreakAll"]
+> |Removed module|Affected Package|Suggested dependency|
+> |-|-|-|
+> |Java API for XML Web Services (JAX-WS) |java.xml.ws |[JAX WS RI Runtime](https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt) |
+> |Java Architecture for XML Binding (JAXB) |java.xml.bind |[JAXB Runtime](https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime)|
+> |JavaBeans Activation Framework (JAV) |java.activation |[JavaBeans (TM) Activation Framework](https://mvnrepository.com/artifact/javax.activation/activation) |
+> |Common Annotations |java.xml.ws.annotation |[Javax Annotation API](https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api)|
+> |Common Object Request Broker Architecture (CORBA) |java.corba | [GlassFish CORBA ORB](https://mvnrepository.com/artifact/org.glassfish.corba/glassfish-corba-orb) |
+> |Java Transaction API (JTA) |java.transaction | [Java Transaction API](https://mvnrepository.com/artifact/javax.transaction/jta)|
 
 #### -Xbootclasspath/p is no longer a supported option
 
