@@ -36,7 +36,7 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
     For **Stream logs** and **Upload settings**, see the next sections. For **View output**, see step 5 that follows.
 
-1. After deployment, the **Output** window also shows the public endpoint on Azure:
+1. After deployment, the **Output** window also shows the public endpoint on Azure (the URL of your specific enpoint will match the name you specified for the function app):
 
     ```output
     HTTP Trigger Urls:
