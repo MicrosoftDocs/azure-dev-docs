@@ -39,7 +39,7 @@ for resolving them. You should also consult other guides, such as the
 
 ## The toolbox
 
-Java 11 has two tools, *jdeprscan* and *jdeps*, that are useful for sniffing out potential issues. These tools can be run against existing class or jar files. You can assess the transition effort without having to recompile.  t
+Java 11 has two tools, *jdeprscan* and *jdeps*, that are useful for sniffing out potential issues. These tools can be run against existing class or jar files. You can assess the transition effort without having to recompile. 
 
 [jdeprscan](https://docs.oracle.com/en/java/javase/11/tools/jdeprscan.html) looks for use of deprecated or removed API.
 Use of deprecated API is not a blocking issue, but is something to look into. Is there an
@@ -146,7 +146,7 @@ this module will reference [JDK Enhancement Proposal (JEP) 260](http://openjdk.j
 as a suggested replacement.
 In a nutshell, JEP 260 says that the use of internal API will be supported until 
 replacement API is available. Even though your code 
-may use JDK internal API, it will continue to run. For a while at least. Do take a look at
+may use JDK internal API, it will continue to run, for a while at least. Do take a look at
 JEP 260 since it does point to replacements for some internal API. 
 [variable handles](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/invoke/VarHandle.html) 
 can be used in place of some *sun.misc.Unsafe* API, for example. 
