@@ -105,8 +105,8 @@
             href: jdk/java-jdk-flight-recorder-and-mission-control.md       
           - name: Reasons to move to Java 11
             href: jdk/reasons-to-move-to-java-11.md
-          - name: Transitioning from Java 8 to Java 11
-            href: jdk/transitioning-from-java-8-to-java-11.md
+          - name: Transition from Java 8 to Java 11
+            href: jdk/transition-from-java-8-to-java-11.md
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA

@@ -1,5 +1,6 @@
 ---
-title: Transitioning from Java 8 to Java 11
+title: Transition from Java 8 to Java 11
+titleSuffix: Azure
 description: A guide for managing the move from Java 8 to Java 11. 
 author: dsgrieve
 manager: maverbur
@@ -11,7 +12,7 @@ ms.date: 11/19/2019
 ms.author: dagrieve
 ---
 
-# Transitioning from Java 8 to Java 11
+# Transition from Java 8 to Java 11
 
 There's no one-size-fits-all solution to transition code from Java 8 to Java 11.
 For a non-trivial application, moving from Java 8 to Java 11 can be a significant 
