@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Examine the Python code files for Azure Functions in VS Code"
+title: "Step 3: Examine the Python code files for Azure Functions in VS Code"
 description: Tutorial step 3, understanding the template Python code provided by Azure Functions.
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Examine the Python code files in Visual Studio Code
+# 3: Examine the Python code files in Visual Studio Code
 
 [Previous step: create the function](tutorial-vs-code-serverless-python-02.md)
 
@@ -86,6 +86,6 @@ The important parts of the code are as follows:
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
 > [!div class="nextstepaction"]
-> [I examined the code files](tutorial-vs-code-serverless-python-04.md)
+> [I examined the code files - continue to step 4 >>>](tutorial-vs-code-serverless-python-04.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=03-examine-code-files)
