@@ -84,10 +84,10 @@ API that has been deprecated more recently.
 jdeprscan --release 11 my-application.jar
 ```
 
-The *jdeprscan* tool spits out an error message if it has trouble resolving a dependent class.
+The *jdeprscan* tool generates an error message if it has trouble resolving a dependent class.
 For example, `error: cannot find class org/apache/logging/log4j/Logger`. Adding dependent 
 classes to the `--class-path` or using the application class-path is recommended, but the tool will continue the scan without it.
-The argument is *&#8209;&#8209;class&#8209;path*. Frustratingly, no other variations
+The argument is *&#8209;&#8209;class&#8209;path*. No other variations
 of the class-path argument will work.
 
 ```console
@@ -192,7 +192,7 @@ to detect problems with the command line options.
 
 A potential source of trouble is third-party libraries that you don't control. You can 
 proactively update third-party libraries to more recent versions. Or you can see 
-what falls out of running the application and only update those that are necessary. 
+what falls out of running the application and only update those libraries that are necessary. 
 The problem with updating all libraries to a recent version is that it makes it 
 harder to find root cause if there is some error in the application. Did the error happen
 because of some updated library? Or was the error caused by some change in
@@ -239,6 +239,24 @@ Once the application runs on Java 11, set `--illegal-access=deny` to mimic
 the future behavior of the Java runtime. Starting with Java 16, the default will 
 be `--illegal-access=deny`. 
 
+### ClassLoader cautions
+
+In Java 8, you can cast the system class loader to a `URLClassLoader`. This is usually done by applications and libraries that 
+want to inject classes into the classpath at runtime. The class loader hierarchy has
+changed in Java 11. The system class loader (also known as the application class loader) is now an internal class. 
+Casting to a `URLClassLoader` will throw a `ClassCastException` at runtime. Java 11 does not have API 
+to dynamically augment the classpath at runtime but it can be done through reflection, with the obvious caveats
+about using internal API. 
+
+In Java 11, the boot class loader only loads core modules. If you create a class loader with 
+a null parent, it may not find all platform classes. In Java 11, you need to pass `ClassLoader.getPlatformClassLoader()`
+instead of `null` as the parent class loader in such cases. 
+
+### Locale data changes
+
+The default source for locale data in Java 11 was changed with [JEP 252](http://openjdk.java.net/jeps/252) to the Unicode Consortium's Common Locale Data Repository. 
+This may have an impact on localized formatting. Set the system property `java.locale.providers=COMPAT,SPI` to revert to the Java 8 locale behavior, if necessary. 
+
 ### Potential issues
 
 Here are some of the common issues you might come across. Follow the links for more details about these issues.
@@ -248,10 +266,10 @@ Here are some of the common issues you might come across. Follow the links for m
 - [VM Warning: Ignoring option](#vm-warnings)
 - [VM Warning: Option &lt;*option*&gt; was deprecated](#vm-warnings)
 - [WARNING: An illegal reflective access operation has occurred](#warning-an-illegal-reflective-access-operation-has-occurred)
+- [java.lang.reflect.InaccessibleObjectException](#javalanreflectinaccessibleobjectexception)
 - [java.lang.NoClassDefFoundError](#javalangnoclassdeffounderror)
 - [-Xbootclasspath/p is no longer a supported option](#-xbootclasspathp-is-no-longer-a-supported-option)
 - [java.lang.UnsupportedClassVersionError](#unsupportedclassversionerror)
-
 
 #### Unrecognized options
 
@@ -325,6 +343,22 @@ The warning in the example above is issued because the `sun.nio.ch` package is n
 exported by the `java.base` module. In other words, there is no `exports sun.nio.ch;` in the `module-info.java`
 file of module `java.base`. This can be resolved with `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`. 
 Classes that are not defined in a module implicitly belong to the *unnamed* module, literally named `ALL-UNNAMED`.
+
+#### java.lang.reflect.InaccessibleObjectException
+
+This exception indicates that you are trying to call `setAccessible(true)` on a field or method of an encapsulated class. 
+You may also get an [illegal reflective access warning](#warning-an-illegal-reflective-access-operation-has-occurred). Use the 
+[`--add-opens`](https://docs.oracle.com/javase/9/migrate/toc.htm#JSMIG-GUID-12F945EB-71D6-46AF-8C3D-D354FD0B1781) option 
+to give your code access to the non-public members of a package. The exception message will tell you the module "does not open" the
+package to the module that is trying to call *setAccessible*. If the module is "unnamed module", use `UNNAMED-MODULE`
+as the target-module in the *--add-opens* option.
+
+```shell
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.ArrayList jdk.internal.loader.URLClassPath.loaders accessible: 
+module java.base does not "opens jdk.internal.loader" to unnamed module @6442b0a6
+
+$ java --add-opens=java.base/jdk.internal.loader=UNNAMED-MODULE example.Main
+```
 
 #### java.lang.NoClassDefFoundError
 
