@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Add a storage binding for Azure Functions in Python with VS Code"
+title: "Step 7: Add a storage binding for Azure Functions in Python with VS Code"
 description: Tutorial step 7, adding a binding in Python to write messages to Azure storage.
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Add a storage binding for Azure Functions in Python
+# 7: Add a storage binding for Azure Functions in Python
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 
@@ -92,6 +92,6 @@ In this section, you add a storage binding to the HttpExample function created e
 1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
 
 > [!div class="nextstepaction"]
-> [I added a storage binding](tutorial-vs-code-serverless-python-08.md)
+> [I added a storage binding - continue to step 8 >>>](tutorial-vs-code-serverless-python-08.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)

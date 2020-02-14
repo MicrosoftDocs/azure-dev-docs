@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Add a second Python function to Azure Functions with VS Code"
+title: "Step 6: Add a second Python function to Azure Functions with VS Code"
 description: Tutorial step 6, expanding an Azure Functions project by adding a second function.
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Add a second Python function to Azure Functions
+# 6: Add a second Python function to Azure Functions
 
 [Previous step: deploy to Azure](tutorial-vs-code-serverless-python-05.md)
 
@@ -114,6 +114,6 @@ After your first deployment, you can make changes to your code, such as adding a
 1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
 
 > [!div class="nextstepaction"]
-> [I added a second functions](tutorial-vs-code-serverless-python-07.md)
+> [I added a second functions - continue to step 7 >>>](tutorial-vs-code-serverless-python-07.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=06-second-function)

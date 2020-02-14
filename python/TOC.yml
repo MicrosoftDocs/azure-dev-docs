@@ -64,49 +64,49 @@
   items:
     - name: Deploy to App Service with VS Code
       items:
-        - name: Introduction and prerequisites
+        - name: 1 Introduction and prerequisites
           href: tutorial-deploy-app-service-on-linux-01.md
-        - name: Prepare your app
+        - name: 2 Prepare your app
           href: tutorial-deploy-app-service-on-linux-02.md
-        - name: Create the App Service
+        - name: 3 Create the App Service
           href: tutorial-deploy-app-service-on-linux-03.md
-        - name: Configure the startup file
+        - name: 4 Configure the startup file
           href: tutorial-deploy-app-service-on-linux-04.md
-        - name: Deploy the app
+        - name: 5 Deploy the app
           href: tutorial-deploy-app-service-on-linux-05.md
-        - name: Stream logs
+        - name: 6 Stream logs
           href: tutorial-deploy-app-service-on-linux-06.md
-        - name: Clean up resources
+        - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
     - name: Deploy containers with VS Code
       items:
-        - name: Introduction and prerequisites
+        - name: 1 Introduction and prerequisites
           href: tutorial-deploy-containers-01.md
-        - name: Deploy the container image
+        - name: 2 Deploy the container image
           href: tutorial-deploy-containers-02.md
-        - name: Make changes and redeploy
+        - name: 3 Make changes and redeploy
           href: tutorial-deploy-containers-03.md
-        - name: Stream logs
+        - name: 4 Stream logs
           href: tutorial-deploy-containers-04.md
-        - name: Clean up resources
+        - name: 5 Clean up resources
           href: tutorial-deploy-containers-05.md
     - name: Deploy Azure Functions with VS Code
       items:
-        - name: Introduction and prerequisites
+        - name: 1 Introduction and prerequisites
           href: tutorial-vs-code-serverless-python-01.md
-        - name: Create the Python function
+        - name: 2 Create the Python function
           href: tutorial-vs-code-serverless-python-02.md
-        - name: Examine code files
+        - name: 3 Examine code files
           href: tutorial-vs-code-serverless-python-03.md
-        - name: Debug locally
+        - name: 4 Debug locally
           href: tutorial-vs-code-serverless-python-04.md
-        - name: Deploy to Azure
+        - name: 5 Deploy to Azure
           href: tutorial-vs-code-serverless-python-05.md
-        - name: Add a second function
+        - name: 6 Add a second function
           href: tutorial-vs-code-serverless-python-06.md
-        - name: Add a storage binding
+        - name: 7 Add a storage binding
           href: tutorial-vs-code-serverless-python-07.md
-        - name: Clean up resources
+        - name: 8 Clean up resources
           href: tutorial-vs-code-serverless-python-08.md
 - name: How-to guides
   items: 
