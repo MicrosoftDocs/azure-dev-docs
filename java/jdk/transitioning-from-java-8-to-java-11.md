@@ -266,7 +266,7 @@ Here are some of the common issues you might come across. Follow the links for m
 - [VM Warning: Ignoring option](#vm-warnings)
 - [VM Warning: Option &lt;*option*&gt; was deprecated](#vm-warnings)
 - [WARNING: An illegal reflective access operation has occurred](#warning-an-illegal-reflective-access-operation-has-occurred)
-- [java.lang.reflect.InaccessibleObjectException](#javalanreflectinaccessibleobjectexception)
+- [java.lang.reflect.InaccessibleObjectException](#javalangreflectinaccessibleobjectexception)
 - [java.lang.NoClassDefFoundError](#javalangnoclassdeffounderror)
 - [-Xbootclasspath/p is no longer a supported option](#-xbootclasspathp-is-no-longer-a-supported-option)
 - [java.lang.UnsupportedClassVersionError](#unsupportedclassversionerror)
