@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Deploy Azure Functions in Python with VS Code"
+title: "Step 5: Deploy Azure Functions in Python with VS Code"
 description: Tutorial step 5, deploying Python function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Deploy Azure Functions in Python
+# 5: Deploy Azure Functions in Python
 
 [Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
 
@@ -65,6 +65,6 @@ Uploading settings updates any existing settings and adds any new settings defin
 To apply any changes you make through the portal or through the **Azure Explorer** to the *local.settings.json* file, right-click the **Application Settings** node and select the **Download remote settings** command. You can also use the Command Palette to select the **Azure Functions: Download Remote Settings** command.
 
 > [!div class="nextstepaction"]
-> [I deployed the functions](tutorial-vs-code-serverless-python-06.md)
+> [I deployed the functions - continue to step 6 >>>](tutorial-vs-code-serverless-python-06.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=05-deploy)

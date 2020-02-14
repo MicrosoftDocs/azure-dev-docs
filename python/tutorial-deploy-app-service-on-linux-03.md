@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Create the App Service from Visual Studio Code"
+title: "Step 3: Create the App Service from Visual Studio Code"
 description: Tutorial step 3, creating the App Service from the VS Code extension.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Create the App Service from Visual Studio Code
+# 3: Create the App Service from Visual Studio Code
 
 [Previous step: prepare your app](tutorial-deploy-app-service-on-linux-02.md)
 
@@ -48,6 +48,6 @@ If you have an environment variable definitions file, you can use that file to c
 1. If you create settings directly on the Azure portal, you can save them in a definitions file by right-clicking the **Application Settings** node and selecting **Download Remote Settings**. This process makes sure that you have those settings in your repository and not only on the portal.
 
 > [!div class="nextstepaction"]
-> [I created the App Service](tutorial-deploy-app-service-on-linux-04.md)
+> [I created the App Service - continue to step 4 >>>](tutorial-deploy-app-service-on-linux-04.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-create-app-service)

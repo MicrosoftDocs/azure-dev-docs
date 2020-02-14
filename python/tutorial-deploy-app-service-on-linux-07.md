@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code"
+title: "Step 7: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code"
 description: Tutorial step 7, cleaning up Azure resources
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code
+# 7: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code
 
 [Previous step: stream logs](tutorial-deploy-app-service-on-linux-06.md)
 
@@ -34,6 +34,6 @@ Some popular extensions are:
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done](https://docs.microsoft.com/python/azure/?view=azure-python) 
+> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python) 
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=07-clean-up-resources)
