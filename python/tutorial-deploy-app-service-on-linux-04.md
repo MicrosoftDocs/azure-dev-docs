@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Configure a custom startup file for Python apps on Azure App Service on Linux"
+title: "Step 4: Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Tutorial step 4, instructing App Service how to start the web app.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Configure a custom startup file for Python apps on Azure App Service
+# 4: Configure a custom startup file for Python apps on Azure App Service
 
 [Previous step: create the App Service](tutorial-deploy-app-service-on-linux-03.md)
 
@@ -83,6 +83,6 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     ```
 
 > [!div class="nextstepaction"]
-> [I configured my startup file](tutorial-deploy-app-service-on-linux-05.md)
+> [I configured my startup file - continue to step 5 >>>](tutorial-deploy-app-service-on-linux-05.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=04-startup-command)

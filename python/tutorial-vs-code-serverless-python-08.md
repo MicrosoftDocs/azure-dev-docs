@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Clean up resources used with Python code in Azure Functions"
+title: "Step 8: Clean up resources used with Python code in Azure Functions"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Clean up Azure resources for Azure Functions
+# 8: Clean up Azure resources for Azure Functions
 
 [Previous step: add a storage binding](tutorial-vs-code-serverless-python-07.md)
 
@@ -40,6 +40,6 @@ Some popular extensions are:
 - [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done](https://docs.microsoft.com/python/azure/?view=azure-python)
+> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=08-clean-up-resources)

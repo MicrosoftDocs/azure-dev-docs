@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code"
+title: "Step 2: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code"
 description: Tutorial step 2, set up your application
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Prepare your app for deployment to Azure App Service
+# 2: Prepare your app for deployment to Azure App Service
 
 [Previous step: prerequisites](tutorial-deploy-app-service-on-linux-01.md)
 
@@ -70,6 +70,6 @@ If your Django app uses a local SQLite database like this sample, you need to in
 The best option in any case is to use a separate database that's deployed and initialized independently from the app code.
 
 > [!div class="nextstepaction"]
-> [I have my app ready](tutorial-deploy-app-service-on-linux-03.md)
+> [I have my app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-prepare-app)

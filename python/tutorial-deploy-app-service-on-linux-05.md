@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Deploy a Python web app to Azure App Service on Linux using VS Code"
+title: "Step 5: Deploy a Python web app to Azure App Service on Linux using VS Code"
 description: Tutorial step 5, deploying the web app code
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Deploy your Python web app to Azure App Service on Linux
+# 5: Deploy your Python web app to Azure App Service on Linux
 
 [Previous step: configure a custom startup file](tutorial-deploy-app-service-on-linux-04.md)
 
@@ -40,6 +40,6 @@ Use this procedure to deploy your Python app to an Azure App Service.
     The *antenv* folder is where App Service creates a virtual environment with your dependencies. If you expand this node, you can verify that the packages you named in *requirements.txt* are installed in *antenv/lib/python3.7/site-packages*.
 
 > [!div class="nextstepaction"]
-> [I deployed my app](tutorial-deploy-app-service-on-linux-06.md)
+> [I deployed my app - continue to step 6 >>>](tutorial-deploy-app-service-on-linux-06.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=05-deploy-app)

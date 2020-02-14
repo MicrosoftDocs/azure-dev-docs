@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Debug the Azure Functions Python code locally with VS Code"
+title: "Step 4: Debug the Azure Functions Python code locally with VS Code"
 description: Tutorial step 4, running the VS Code debugger locally to check your Python code.
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Debug the Azure Functions Python code locally
+# 4: Debug the Azure Functions Python code locally
 
 [Previous step: examine the code files](tutorial-vs-code-serverless-python-03.md)
 
@@ -54,6 +54,6 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
 > [!div class="nextstepaction"]
-> [I ran the debugger locally](tutorial-vs-code-serverless-python-05.md)
+> [I ran the debugger locally - continue to step 5 >>>](tutorial-vs-code-serverless-python-05.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=04-test-debug)
