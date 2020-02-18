@@ -184,7 +184,7 @@ version 11 before *compiling* with JDK 11.
 ### Check command line options
 
 Before running on Java 11, do a quick scan of the command-line options. 
-[Options that have been removed](#unrecognized options) will cause the Java Virtual 
+[Options that have been removed](#unrecognized-options) will cause the Java Virtual 
 Machine (JVM) to exit. This check is especially important if you use GC logging options since
 they have changed drastically from Java 8. The [JaCoLine](https://jacoline.dev/about) tool is a good one to use
 to detect problems with the command line options. 
