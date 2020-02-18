@@ -34,7 +34,7 @@ improve developer productivity.
 This document touches on tools to inspect code. It also covers
 issues that you may run into and recommendations
 for resolving them. You should also consult other guides, such as the
-[Oracle JDK Migration Guide](https://docs.oracle.com/en/java/javase/11/migrate/index.htm). How to make existing code 
+[Oracle JDK Migration Guide](https://docs.oracle.com/en/java/javase/11/migrate/index.html). How to make existing code 
 [modular](http://openjdk.java.net/projects/jigsaw) is not covered here.  
 
 
