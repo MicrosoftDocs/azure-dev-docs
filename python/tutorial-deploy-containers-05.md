@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Clean up Azure resources"
+title: "Step 5: Clean up Azure resources"
 description: Tutorial step 5, cleaning up Azure resources to avoid incurring ongoing charges.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: seo-python-october2019
 ---
 
-# Tutorial: Clean up Azure resources
+# 5: Clean up Azure resources
 
 [Previous step: stream logs](tutorial-deploy-containers-04.md)
 
@@ -32,6 +32,6 @@ Some popular extensions are:
 - [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done](https://docs.microsoft.com/python/azure/?view=azure-python)
+> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=07-clean-up-resources)

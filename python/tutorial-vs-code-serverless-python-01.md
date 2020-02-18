@@ -62,6 +62,6 @@ If the `func` command isn't recognized, then run `npm install -g azure-functions
 The `func` command works through the *func.cmd* file that's installed in the Node.js global folder. To see the location of this folder, run `npm -l` and examine the location at the end of the output.
 
 > [!div class="nextstepaction"]
-> [I signed into Azure](tutorial-vs-code-serverless-python-02.md)
+> [I signed into Azure - continue to step 2 >>>](tutorial-vs-code-serverless-python-02.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=01-verify-prerequisites)

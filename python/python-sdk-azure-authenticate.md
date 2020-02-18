@@ -40,7 +40,7 @@ In this method, you create a JSON file that contains the necessary credentials f
     ```
 
     > [!TIP]
-    > You can retrieve a credentials file with your subscription ID already in place by signing in to Azure using the [az login](/cli/azure/group#az-login) command followed by the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+    > You can retrieve a credentials file with your subscription ID already in place by signing in to Azure using the [az login](/cli/azure/reference-index#az-login) command followed by the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
     >
     > ```azurecli
     > az login

@@ -19,7 +19,7 @@ ms.date: 09/23/2019
 
 1. At the next prompt, enter a globally unique name for your Function App and press **Enter**. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
-1. Choose the Node.js version/runtime 
+1. Choose the Node.js version/runtime
 
     ![VS Code output panel showing Node.js version/runtime](media/functions-extension/nodejs-runtime-version.png)
 
