@@ -15,7 +15,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If any of the pre-migration requirements can't be met, see the companion migration guides:
 
-* [Migrate WebLogic applications to Azure containers](migrate-weblogic-to-containers.md)
+* Migrate WebLogic applications to Azure containers (planned)
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 ## Pre-migration
