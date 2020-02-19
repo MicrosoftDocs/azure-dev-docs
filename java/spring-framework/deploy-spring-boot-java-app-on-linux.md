@@ -121,7 +121,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 Specify the base image at `<from>/<image>`, here `openjdk:8-jre-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
-Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Mavin build of the project.
+Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
 
 Specify the username and password from registry pane in the `<to>/<auth>` node. For example:
 
