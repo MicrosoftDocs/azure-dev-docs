@@ -96,7 +96,7 @@ landingContent:
         links:
           - text: About storage solutions on Azure
             url: /azure/storage/common/storage-introduction?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
-          - text: Scalable NoSQL with Azure CosmosDB
+          - text: Scalable NoSQL with Azure Cosmos DB
             url: /azure/cosmos-db/introduction?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
       - linkListType: quickstart
         links:     
@@ -106,7 +106,7 @@ landingContent:
             url: /azure/postgresql/quickstart-create-server-database-portal?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
           - text: Create a MySQL instance on Azure and connect to it using Python.
             url: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
-          - text: Use SQL queries on an Azure CosmosDB account from Python
+          - text: Use SQL queries on an Azure Cosmos DB account from Python
             url: /azure/cosmos-db/create-sql-api-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
           - text: Set up a managed SQL server in Azure
             url: /azure/sql-database/sql-database-connect-query-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json            
