@@ -15,12 +15,9 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If any of the pre-migration requirements can't be met, see the companion migration guides:
 
-* Migrate WebLogic applications to Azure containers (planned)
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 ## Pre-migration
-
-As the list below can seem a bit daunting, we've ordered it with the most common steps at the top of the list.
 
 1. [Inventory server capacity](#inventory-server-capacity)
 1. [Inventory all secrets](#inventory-all-secrets)
@@ -46,6 +43,7 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 1. [Determine whether JAAS is used](#determine-whether-jaas-is-used)
 1. [Determine whether WebLogic clustering is used](#determine-whether-weblogic-clustering-is-used)
 1. [Determine whether your application uses a Resource Adapter](#determine-whether-your-application-uses-a-resource-adapter)
+1. [In-Place Testing](#in-place-testing)
 
 [!INCLUDE [inventory-server-capacity](includes/migration/inventory-server-capacity.md)]
 
@@ -164,45 +162,79 @@ If your application is using JAAS, then you'll need to capture how JAAS is confi
 
 Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure Kubernetes Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
 
+<!-- shared content -->
+### In-Place Testing
+
+Prior to creation of container images, migrate your application to the JDK and WildFly that you intend to use on AKS. Test the application thoroughly to ensure compatibility and performance.
+<!-- end shared content -->
+
 ## Migration
 
-Some of the migration steps mentioned below are covered in our self-guided training called [Learn how to migrate an existing Java EE app to Azure
-](https://github.com/microsoft/migrate-java-ee-app-to-azure-training).
+<!-- shared content -->
+### Provision Azure Container Registry and Azure Kubernetes Service
 
-### Provision an Azure Container Registry
+Create a container registry and an Azure Kubernetes cluster whose Service Principal has the Reader role on the registry. Be sure to [choose the appropriate network model](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model) for your cluster's networking requirements.
 
-Deploying an application onto Azure Kubernetes Service requires access to a Docker registry. If the image you are creating needs to stay private you will need to provision your own
-Azure Container Registry and setup your Azure Kubernetes Service cluster with the proper credentials so it can pull those private images.
-
-### Provision an Azure Kubernetes Service cluster
-
-If you have not done so already you will need to provision an Azure Kubernetes Service cluster.
+```bash
+az group create -g $resourceGroup -l eastus
+az acr create -g $resourceGroup -n $acrName --sku Standard
+az aks create -g $resourceGroup -n $aksName --attach-acr $acrName --network-plugin azure
+```
+<!-- end shared content -->
 
 ### Create a Docker image for WildFly
 
-You will need to create a Dockerfile that will contain/set the following:
+You will need to create a Dockerfile with the following:
 
 1. A supported JDK
 1. An install of WildFly
-1. A database driver (if the application uses a database)
-1. A way to pass in environment variables used for deployment
-1. A way to use secrets upon deployment
 1. JVM runtime options
-1. Setup datasources
-1. Setup JNDI resources
-1. Copy in additional server level libraries
+1. A way to pass in environment variables (if applicable)
+1. A way to use secrets upon deployment (if applicable)
+1. A database driver (if applicable)
+1. Setup datasources (if applicable)
+1. Setup JNDI resources (if applicable)
+1. Copy in additional server level libraries (if applicable)
 
 ### Build and push the Docker image to Azure Container Registry
 
-Once you have created the Dockerfile you will build the Docker image so it can be published onto Azure Container Registry.
+Once you have created the Dockerfile you will need to build the Docker image and publish it to your Azure Container Registry.
 
-### Write a deployment YAML
+<!-- shared content -->
+### Provision a Public IP Address
 
-For this migration it is recommended you  write a deployment YAML file that you will use to do the deployment to the Azure Kubernetes Service cluster.
+If your application is to be accessible from outside your internal or virtual network(s), a public static IP address will be required. This IP address should be provisioned inside cluster's node resource group.
 
+```bash
+nodeResourceGroup=$(az aks show -g $resourceGroup -n $aksName --query 'nodeResourceGroup' -o tsv)
+publicIp=$(az network public-ip create -g $nodeResourceGroup -n applicationIp --sku Standard --allocation-method Static --query 'publicIp.ipAddress' -o tsv)
+echo "Your public IP address is ${publicIp}."
+```
+<!-- end shared content -->
+
+<!-- shared content -->
+### Deploy to AKS
+
+[Create and apply your Kuberntes YAML file(s)](/azure/aks/kubernetes-walkthrough#run-the-application). If creating an external load balancer (whether to your application or to an ingress controller), be sure to provide the IP Address provisioned in the previous section as the `LoadBalancerIP`.
+
+Include [externalized parameters as environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/). Don't include secrets (such as passwords, API keys, and JDBC connection strings). These are covered in the following section.
+<!-- end shared content -->
+
+### Configure Persistent Storage
+
+If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
+
+### Configure KeyVault FlexVolume
+
+[Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
+
+You will need to make sure the startup script used to bootstrap WildFly imports the certificates into the keystore used by WildFly before starting the server.
+
+<!-- shared content -->
 ### Migrate scheduled jobs
 
-At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of your application. Or you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, Event Hubs, and so on.
+To execute scheduled jobs on your AKS cluster, define [Cron Jobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/) as needed.
+<!-- end shared content -->
 
 ## Post-migration
 
@@ -210,8 +242,29 @@ Now that you have your application migrated to Azure Kubernetes Service you shou
 
 ### Recommendations
 
-1. Consider creating a Helm chart for your deployment.
+ <!-- shared content -->
+1. Consider [adding a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) to your the IP address allocated to your ingress controller or application load balancer.
+
+1. Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parametrize your application deployment for use and customization by a more diverse set of customers.
+
+1. Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
+
+1. Enable [Azure Monitoring for the cluster](/azure/azure-monitor/insights/container-insights-enable-existing-clusters). This allows Azure monitor to collect container logs, track utilization, etc.
+
+1. Consider exposing application-specific metrics via Prometheus. Prometheus is an open-source metrics framework broadly adopted in the Kubernetes community. You can configure [Prometheus Metrics scraping in Azure Monitor](/azure/azure-monitor/insights/container-insights-prometheus-integration) instead of hosting your own Prometheus server to enable metrics aggregation from your applications and automated response to or escalation of aberrant conditions.
+
+1. Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/aks/operator-best-practices-multi-region).
+
+1. Review the [Kubernetes Version Support policy](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy). It's your responsibility to keep [updating your AKS cluster](/azure/aks/upgrade-cluster) to ensure it's always running a supported version.
+
+1. Review the [Kubernetes Version Support policy](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy). It's your responsibility to keep [updating your AKS cluster](/azure/aks/upgrade-cluster) to ensure it's always running a supported version.
+
+1. Have all team members responsible for cluster administration and application development review the pertinent [AKS best practices](/azure/aks/best-practices).<!-- end shared content -->
+
 1. Make sure your deployment file specifies how rolling updates are done.
-1. Install Application Insights for your Kubernetes Service cluster.
+
 1. Validate the minimal number of replicas needed for regular load.
+
 1. Setup a Horizontal Pod Autoscaler to deal with peek time loads.
+
+1. Consider [monitoring the code cache size](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/codecache.htm) and adding the JVM parameters `-XX:InitialCodeCacheSize` and `-XX:ReservedCodeCacheSize` in the Dockerfile to further optimize performance.
