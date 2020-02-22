@@ -148,7 +148,7 @@ credentials = UserPassCredentials(
 
 ## <a name="mgmt-auth-msi"></a>Authenticate with Azure Managed Identities
 
-Azure Managed Identity is a simple way for a resource in Azure to authenticate without using  specific credentials.
+Azure Managed Identity is a simple way for a resource in Azure to authenticate without using specific credentials.
 
 To use managed identities, you must be connecting to Azure from another Azure resource, such as an Azure Function or a virtual machine. To learn how to configure a managed identity for a resource, see [Configure managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) and [How to use managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
