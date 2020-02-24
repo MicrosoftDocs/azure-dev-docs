@@ -53,6 +53,8 @@ You should see the following message displayed: **Hello Docker World**
 
 ## Create an Azure Container Registry using the Azure CLI
 
+Next, you'll create an Azure resource group and your ACR using the following steps:
+
 1. Log in to your Azure account by using the following command:
 
    ```azurecli
@@ -84,6 +86,8 @@ You should see the following message displayed: **Hello Docker World**
    ```
 
 ## Push your app to the container registry via Jib
+
+Finally, you'll update your project configuration and use the command prompt to build and deploy your image.
 
 1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
