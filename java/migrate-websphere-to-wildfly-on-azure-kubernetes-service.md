@@ -13,9 +13,11 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
+<!-- shared content -->
 ### Inventory server capacity
 
-Document the hardware (memory, CPU, disk) of the current production server(s) as well as the average and peak request counts and resource utilization. This information will be necessary regardless of the migration path chosen. For example, it's useful to guide selection of the target service plan, VMs, Kubernetes memory, and CPU shares.
+Document the hardware (memory, CPU, disk) of the current production server(s) as well as the average and peak request counts and resource utilization. You'll need this information regardless of the migration path you choose. It is useful, for example, to help guide selection of the size of the VMs in your node pool, the amount of memory to be used by the container, and how many CPU shares the container would need.
+<!-- end shared content -->
 
 ### Inventory all secrets
 
@@ -121,7 +123,7 @@ If your application uses JCA connectors, you'll have to validate the JCA connect
 
 If your application is using JAAS, you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
 
-#### Determine whether your application uses a Resource Adapter
+### Determine whether your application uses a Resource Adapter
 
 If your application needs a Resource Adapter (RA), it needs to be compatible with WildFly. Determine whether the RA works fine on a standalone instance of WildFly by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the Docker image and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
@@ -129,9 +131,13 @@ If your application needs a Resource Adapter (RA), it needs to be compatible wit
 
 If your application is composed of multiple WARs, you should treat each of those WARs as separate applications and go through this guide for each of them.
 
+<!-- shared content -->
 ### Determine whether your application is packaged as an EAR
 
-If your application is packaged as an EAR file, be sure to examine the *application.xml* and *ibm-application-bnd.xml* files and capture their configurations.
+If your application is packaged as an EAR file, be sure to examine the *application.xml* and *weblogic-application.xml* files and capture their configurations.
+
+Note if you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
+<!-- shared content -->
 
 ### Identify all outside processes/daemons running on the production server(s)
 
@@ -190,9 +196,11 @@ echo "Your public IP address is ${publicIp}."
 <!-- shared content -->
 ### Deploy to AKS
 
-[Create and apply your Kuberntes YAML file(s)](/azure/aks/kubernetes-walkthrough#run-the-application). If creating an external load balancer (whether to your application or to an ingress controller), be sure to provide the IP Address provisioned in the previous section as the `LoadBalancerIP`.
+[Create and apply your Kubernetes YAML file(s)](/azure/aks/kubernetes-walkthrough#run-the-application). If creating an external load balancer (whether to your application or to an ingress controller), be sure to provide the IP Address provisioned in the previous section as the `LoadBalancerIP`.
 
 Include [externalized parameters as environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/). Don't include secrets (such as passwords, API keys, and JDBC connection strings). These are covered in the following section.
+
+Be sure to include memory and CPU settings when creating your deployment YAML so your containers are properly sized.
 <!-- end shared content -->
 
 ### Configure Persistent Storage
@@ -234,12 +242,11 @@ Now that you have your application migrated to Azure Kubernetes Service you shou
 
 1. Review the [Kubernetes Version Support policy](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy). It's your responsibility to keep [updating your AKS cluster](/azure/aks/upgrade-cluster) to ensure it's always running a supported version.
 
-1. Have all team members responsible for cluster administration and application development review the pertinent [AKS best practices](/azure/aks/best-practices).<!-- end shared content -->
+1. Have all team members responsible for cluster administration and application development review the pertinent [AKS best practices](/azure/aks/best-practices).
 
-1. Make sure your deployment file specifies how rolling updates are done.
+1. Make sure your deployment file specifies how rolling updates are done. See [Rolling Update Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment) for more information.
 
-1. Validate the minimal number of replicas needed for regular load.
-
-1. Setup a Horizontal Pod Autoscaler to deal with peek time loads.
+1. Setup auto scaling to deal with peek time loads. See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler)
 
 1. Consider [monitoring the code cache size](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/codecache.htm) and adding the JVM parameters `-XX:InitialCodeCacheSize` and `-XX:ReservedCodeCacheSize` in the Dockerfile to further optimize performance.
+<!-- end shared content -->
