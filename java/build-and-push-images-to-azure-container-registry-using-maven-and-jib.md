@@ -13,12 +13,12 @@ This tutorial shows you how to build a containerized Java app and push it to Azu
 
 ## Prerequisites
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* The [Azure Command-Line Interface (CLI)].
+* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial).
+* The [Azure Command-Line Interface (CLI)](/cli/azure/overview).
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven] build tool (Version 3 or above).
-* A [Git] client.
-* A [Docker] client.
+* Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
+* A [Git](https://git-scm.com) client.
+* A [Docker](https://www.docker.com) client.
 
 ## Create the Spring Boot on Docker Getting Started web app
 
@@ -31,12 +31,14 @@ The following steps walk you through building a Spring Boot web application and 
    cd C:\SpringBoot
    ```
 
+   -- or --
+
    ```bash
    md /users/robert/SpringBoot
    cd /users/robert/SpringBoot
    ```
 
-1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory.
+1. Clone the [Spring Boot on Docker Getting Started](https://github.com/spring-guides/gs-spring-boot-docker) sample project into the directory.
 
    ```bash
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
@@ -148,7 +150,7 @@ You should see the following message displayed: **Hello Docker World**
 
 > [!NOTE]
 >
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour, if you meet *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate.
+> For security reasons, the credential created by `az acr login` is valid for 1 hour only. If you receive a *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate.
 
 ## Verify your container image
 
@@ -157,3 +159,21 @@ Congratulations! Now you have your containerized Java App build on Azure support
 ```bash
 docker pull yuchenacr.azurecr.io/gs-spring-boot-docker:latest
 ```
+
+## Next steps
+
+To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
+
+> [!div class="nextstepaction"]
+> [Spring on Azure](/azure/java/spring-framework)
+
+### Additional Resources
+
+For more information, see the following resources:
+
+* [Azure for Java Developers](/azure/java)
+* [Working with Azure DevOps and Java](/azure/devops/java)
+* [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
+* [Spring Initializr](https://start.spring.io)
+* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Using a custom Docker image for Azure Web App on Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
