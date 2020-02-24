@@ -19,26 +19,13 @@ This tutorial shows you how to build a containerized Java app and push it to Azu
 * Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
 * A [Git](https://git-scm.com) client.
 * A [Docker](https://www.docker.com) client.
+* The [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper).
 
 ## Create the Spring Boot on Docker Getting Started web app
 
 The following steps walk you through building a Spring Boot web application and testing it locally.
 
-1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
-
-   ```powershell
-   md C:\SpringBoot
-   cd C:\SpringBoot
-   ```
-
-   -- or --
-
-   ```bash
-   md /users/robert/SpringBoot
-   cd /users/robert/SpringBoot
-   ```
-
-1. Clone the [Spring Boot on Docker Getting Started](https://github.com/spring-guides/gs-spring-boot-docker) sample project into the directory.
+1. From the command prompt, use the following command to clone the [Spring Boot on Docker Getting Started](https://github.com/spring-guides/gs-spring-boot-docker) sample project.
 
    ```bash
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
@@ -48,7 +35,6 @@ The following steps walk you through building a Spring Boot web application and 
 
    ```bash
    cd gs-spring-boot-docker/complete
-   cd complete
    ```
 
 1. Use Maven to build and run the sample app.
@@ -67,64 +53,60 @@ You should see the following message displayed: **Hello Docker World**
 
 ## Create an Azure Container Registry using the Azure CLI
 
-1. Open a command prompt and log in to your Azure account with Azure CLI:
+1. Log in to your Azure account by using the following command:
 
    ```azurecli
    az login
    ```
 
-1. Choose your Azure Subscription:
+1. Specify the Azure subscription to use:
 
    ```azurecli
-   az account set -s <YourSubscriptionID>
+   az account set -s <subscription ID>
    ```
 
-1. Create a resource group for the Azure resources used in this tutorial.
+1. Create a resource group for the Azure resources used in this tutorial. In the following command, be sure to replace the placeholders with your own resource name and a location such as `eastus`.
 
    ```azurecli
-   az group create --name=acr-rg --location=eastus
+   az group create \
+       --name=<your resource group name> \
+       --location=<location>
    ```
 
-1. Create a private Azure container registry in the resource group. The tutorial pushes the sample app as a Docker image to this registry in later steps. Replace `myacr` with a unique name for your registry.
+1. Create a private Azure container registry in the resource group, using the following command. Be sure to replace the placeholders with actual values. The tutorial pushes the sample app as a Docker image to this registry in later steps.
 
    ```azurecli
-   az acr create --resource-group acr-rg --location eastus \
-    --name myacr --sku Basic
+   az acr create \
+       --resource-group <your resource group name> \
+       --location <location> \
+       --name <your registry name> \
+       --sku Basic
    ```
 
 ## Push your app to the container registry via Jib
 
-1. Install the [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper) with the following script.
-
-   ```powershell
-   iex ([System.Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri https://aka.ms/acr/installaad/win).Content))
-   ```
-
-   ```bash
-   curl -L https://aka.ms/acr/installaad/bash | /bin/bash
-   ```
-
-1. Log in to your Azure Container Registry from the Azure CLI.
+1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
    ```azurecli
-   # set the default name for Azure Container Registry, otherwise you will need to specify the name in "az acr login"
-   az configure --defaults acr=myacr
+   az configure --defaults acr=<your registry name>
    az acr login
    ```
 
+   The `az configure` command sets the default registry name to use with `az acr` commands.
+
 1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
-1. Update the `<properties>` collection in the *pom.xml* file with the registry name for your Azure Container Registry and the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Update the `<properties>` collection in the *pom.xml* file with the following XML. Replace the placeholder with your registry name, and update the `<jib-maven-plugin.version>` value with the latest version of the [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
-      <docker.image.prefix>myacr.azurecr.io</docker.image.prefix>
+      <docker.image.prefix><your registry name>.azurecr.io</docker.image.prefix>
       <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the `jib-maven-plugin`. Note that we are using a [base image from MCR](https://docs.microsoft.com/java/azure/jdk/java-jdk-docker-images): `mcr.microsoft.com/java/jdk:8u212-zulu-alpine`, which contains an officially supported JDK for Azure.
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a [base image from MCR](https://hub.docker.com/_/microsoft-java-jdk): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure.
 
    ```xml
    <plugin>
@@ -133,7 +115,7 @@ You should see the following message displayed: **Hello Docker World**
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>mcr.microsoft.com/java/jdk:8u212-zulu-alpine</image>
+            <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
@@ -154,13 +136,20 @@ You should see the following message displayed: **Hello Docker World**
 
 ## Verify your container image
 
-Congratulations! Now you have your containerized Java App build on Azure supported JDK pushed to your ACR. You can now test the image by deploying it to Azure App Service, or pulling it to local with command:
+Congratulations! Now you have your containerized Java App build on Azure supported JDK pushed to your ACR. You can now test the image by deploying it to Azure App Service, or pulling it to local with command (replacing the placeholder):
 
 ```bash
-docker pull yuchenacr.azurecr.io/gs-spring-boot-docker:latest
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:latest
 ```
 
 ## Next steps
+
+For other versions of the official Microsoft-supported Java base images, see:
+
+* [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk)
+* [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre)
+* [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless)
+* [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven)
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
