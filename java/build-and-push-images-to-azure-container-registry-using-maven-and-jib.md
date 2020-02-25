@@ -1,5 +1,5 @@
 ---
-title: Build and push images to Azure Container Registry using Maven and Jib
+title: Build and push Java container images to Azure Container Registry using Maven and Jib
 description: This tutorial shows you how to build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 author: KarlErickson
 ms.author: karler
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ---
 
-# Tutorial: use Maven and Jib to build container images and push to Azure Container Registry
+# Tutorial: Build and push Java container images to Azure Container Registry
 
 This tutorial shows you how to build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 
@@ -110,7 +110,7 @@ Finally, you'll update your project configuration and use the command prompt to 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a [base image from MCR](https://hub.docker.com/_/microsoft-java-jdk): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure.
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
