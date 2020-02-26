@@ -92,9 +92,10 @@ If your application is using JMS Queues or Topics, you'll need to migrate them t
 
 If JMS persistent stores have been configured, their configuration must be captured and applied after the migration.
 
-### Determine whether your application uses WebSphere-specific APIs
+### Determine whether your application uses WebSphere specific APIs
 
-If your application uses WebSphere-specific APIs, you'll need to refactor your application to NOT use them.
+If your application uses WebSphere specific APIs, you'll need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [IBM WebSphere Application Server, Release 9.0
+API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/com.ibm.websphere.javadoc.doc/web/apidocs/overview-summary.html?view=embed), you have used a WebSphere specific API in your application.
 
 ### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
 
