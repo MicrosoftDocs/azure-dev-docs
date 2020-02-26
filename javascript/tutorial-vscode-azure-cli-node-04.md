@@ -33,11 +33,11 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 
     The output from the command is similar to the following:
 
-    ```output
+    <pre>
     {
       "url": "https://username@msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git"
     }
-    ```
+    </pre>
 
 1. Run the following command to set a new remote in Git named `azure`, using the URL from the previous step *omitting the username*. Using the example in the previous step, the command would be as follows:
 

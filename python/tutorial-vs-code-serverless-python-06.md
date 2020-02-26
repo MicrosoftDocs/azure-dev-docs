@@ -99,9 +99,11 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
+    <pre>
     Http Functions:
             DigitsOfPi: [GET] http://localhost:7071/api/DigitsOfPi
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    </pre>
 
 1. In a browser, or from curl, make a request to `http://localhost:7071/api/DigitsOfPi?digits=125` and observe the output. (You might notice that the code algorithm isn't entirely accurate, but we'll leave the improvements to you!) Stop the debugger when you're finished.
 

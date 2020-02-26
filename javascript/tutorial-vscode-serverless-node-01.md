@@ -36,7 +36,7 @@ To enable local debugging, you need to install the [Azure Functions Core Tools](
 
 1. To verify installation, select the menu command **Terminal** > **New Terminal** in VS Code, then run the command, `func`. The command should show output like that below (along with usage information).
 
-    ```output
+    <pre>
                       %%%%%%
                      %%%%%%
                 @   %%%%%%    @
@@ -51,7 +51,7 @@ To enable local debugging, you need to install the [Azure Functions Core Tools](
 
     Azure Functions Core Tools (2.4.419 Commit hash: c9c1724d002bd90b2e6b41393915ea3a26bcf0ce)
     Function Runtime Version: 2.0.12332.0
-    ```
+    </pre>
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
