@@ -28,7 +28,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
-    # [bash](#tab/bash)
+# [bash](#tab/bash)
 
     ```bash
     # Mac OS/Linux: modify the URL if you're using a different function name
@@ -36,7 +36,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
         --data '{"name":"Visual Studio Code"}' http://localhost:7071/api/HttpExample
     ```
 
-    # [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
     ```powershell
     # Windows (escaping on the quotes is necessary; also modify the URL
@@ -47,7 +47,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
     In PowerShell, you can also use the [Invoke-WebRequest cmdlet](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-6).
 
-    ---
+---
 
     Alternately, create a file like *data.json* that contains `{"name":"Visual Studio Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
