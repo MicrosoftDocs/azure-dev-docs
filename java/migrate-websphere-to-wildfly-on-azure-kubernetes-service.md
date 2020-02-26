@@ -367,9 +367,9 @@ The example below illustrates the steps needed to create the JNDI resource for J
 1. Create a `jndi.properties` file in `/opt/servicebus`.
 
     ```console
-    connectionfactory.${PROP_HELLOWORLDMDB_CONN}=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}
-    queue.${PROP_HELLOWORLDMDB_QUEUE}=${SB_QUEUE}
-    topic.${PROP_HELLOWORLDMDB_TOPIC}=${SB_TOPIC}
+    connectionfactory.${MDB_CONNECTION_FACTORY}=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}
+    queue.${MDB_QUEUE}=${SB_QUEUE}
+    topic.${MDB_TOPIC}=${SB_TOPIC}
     ```
 
 1. Create a file with a name like `servicebus-commands.cli` and add the following code.
@@ -378,13 +378,13 @@ The example below illustrates the steps needed to create the JNDI resource for J
     batch
 
     /subsystem=ee:write-attribute(name=annotation-property-replacement,value=true)
-    /system-property=property.helloworldmdb.queue:add(value=myqueue)
+    /system-property=property.mymdb.queue:add(value=myqueue)
     /system-property=property.connection.factory:add(value=java:global/remoteJMS/SBF)
     /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
     /subsystem=naming/binding="java:global/remoteJMS":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/opt/servicebus/jndi.properties])
     /subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/${PROP_HELLOWORLDMDB_CONN})
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=${PROP_HELLOWORLDMDB_CONN})
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/${MDB_CONNECTION_FACTORY})
+    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=${MDB_CONNECTION_FACTORY})
     /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value="java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/opt/servicebus/jndi.properties")
     /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)
     /subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)
@@ -406,7 +406,7 @@ The example below illustrates the steps needed to create the JNDI resource for J
     sleep 30
     ```
 
-1. When creating your deployment YAML at a later stage you will need to pass the following environment variables, `PROP_HELLOWORLDMDB_CONN`, `DEFAULT_SBNAMESPACE` and `SB_SAS_POLICY`, `SB_SAS_KEY`, `PROP_HELLOWORLDMDB_QUEUE`, `SB_QUEUE`, `PROP_HELLOWORLDMDB_TOPIC` and `SB_TOPIC` with the appropriate values.
+1. When creating your deployment YAML at a later stage you will need to pass the following environment variables, `MDB_CONNECTION_FACTORY`, `DEFAULT_SBNAMESPACE` and `SB_SAS_POLICY`, `SB_SAS_KEY`, `MDB_QUEUE`, `SB_QUEUE`, `MDB_TOPIC` and `SB_TOPIC` with the appropriate values.
 <!-- end shared content -->
 
 ### Build and push the Docker image to Azure Container Registry
