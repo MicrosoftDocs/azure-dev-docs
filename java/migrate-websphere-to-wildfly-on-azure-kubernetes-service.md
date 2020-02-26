@@ -171,11 +171,18 @@ You will need to create a Dockerfile with the following:
 1. An install of WildFly
 1. JVM runtime options
 1. A way to pass in environment variables (if applicable)
-1. A way to use secrets upon deployment (if applicable)
-1. A database driver (if applicable)
+1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) (if applicable)
 1. [Setup data sources](#setup-data-sources) (if applicable)
 1. [Setup JNDI resources](#setup-jndi-resources) (if applicable)
 1. Copy in additional server level libraries (if applicable)
+
+<!-- shared content -->
+### Configure KeyVault FlexVolume
+
+[Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
+
+You will need to make sure the startup script used to bootstrap WildFly imports the certificates into the keystore used by WildFly before starting the server.
+<!-- end shared content -->
 
 <!-- shared content -->
 #### Setup Data Sources
