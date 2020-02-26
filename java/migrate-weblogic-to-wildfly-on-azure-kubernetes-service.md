@@ -31,7 +31,12 @@ Document the hardware (memory, CPU, disk) of the current production server(s) as
 
 [!INCLUDE [inventory-jndi-resources](includes/migration/inventory-jndi-resources.md)]
 
-[!INCLUDE [determine-whether-session-replication-is-used](includes/migration/determine-whether-session-replication-is-used.md)]
+### Determine whether session replication is used
+
+If your application relies on session replication, with or without Oracle Coherence*Web, you have 2 options:
+
+1. Refactor your application to use a database for session management.
+2. Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
 
 [!INCLUDE [document-datasources](includes/migration/document-datasources.md)]
 

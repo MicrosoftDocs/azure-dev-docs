@@ -129,13 +129,11 @@ If your application needs a Resource Adapter (RA), it needs to be compatible wit
 
 If your application is composed of multiple WARs, you should treat each of those WARs as separate applications and go through this guide for each of them.
 
-<!-- shared content -->
 ### Determine whether your application is packaged as an EAR
 
-If your application is packaged as an EAR file, be sure to examine the *application.xml* and *weblogic-application.xml* files and capture their configurations.
+If your application is packaged as an EAR file, be sure to examine the *application.xml* and *application-bnd.xml* files and capture their configurations.
 
 Note if you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
-<!-- shared content -->
 
 ### Identify all outside processes/daemons running on the production server(s)
 
