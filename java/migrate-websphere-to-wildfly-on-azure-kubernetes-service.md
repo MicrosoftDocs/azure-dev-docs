@@ -172,7 +172,7 @@ You will need to create a Dockerfile with the following:
 1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) (if applicable)
 1. [Setup data sources](#setup-data-sources) (if applicable)
 1. [Setup JNDI resources](#setup-jndi-resources) (if applicable)
-1. Copy in additional server level libraries (if applicable)
+1. [Review WildFly configuration](#review-wildfly-configuration)
 
 <!-- shared content -->
 ### Configure KeyVault FlexVolume
@@ -412,6 +412,12 @@ The example below illustrates the steps needed to create the JNDI resource for J
     ```
 
 1. When creating your deployment YAML at a later stage you will need to pass the following environment variables, `MDB_CONNECTION_FACTORY`, `DEFAULT_SBNAMESPACE` and `SB_SAS_POLICY`, `SB_SAS_KEY`, `MDB_QUEUE`, `SB_QUEUE`, `MDB_TOPIC` and `SB_TOPIC` with the appropriate values.
+<!-- end shared content -->
+
+<!-- shared content -->
+### Review WildFly configuration
+
+Please review the [WildFly Admin Guide](https://docs.wildfly.org/18/Admin_Guide.html) to make sure eveyrthing you have discovered in the pre-migration step and has not be covered by any of the previous migration steps is taken care of as part of your migration.
 <!-- end shared content -->
 
 ### Build and push the Docker image to Azure Container Registry
