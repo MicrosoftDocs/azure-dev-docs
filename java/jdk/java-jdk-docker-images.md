@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.custom: seo-java-august2019, seo-java-september2019
 ---
 
-# Use Docker with a Java Development Kit (JDK) for Azure 
+# Use Docker with a Java Development Kit (JDK) for Azure
 
 This article describes how to use Docker with a Java Development Kit (JDK) for Azure. Pre-built Docker images for Java 7, 8, and 11 are available through [Docker Hub](https://hub.docker.com/_/microsoft-java-se).
 
@@ -22,7 +22,7 @@ Certified Docker container images for Zulu JDK, JRE, and JRE-headless on multipl
 Docker images can be run using the syntax `$ docker run mcr.microsoft.com/java/jdk:tag java` as shown in the following example.
 
 ```cli
-docker run mcr.microsoft.com/java/jdk:8u212-zulu-alpine java -version 
+docker run mcr.microsoft.com/java/jdk:8-zulu-alpine java -version
 ```
 
 ## Creating a Docker image
@@ -32,7 +32,7 @@ You can create an image using Microsoft's official Docker Hub images as shown in
 ### Create a Docker file
 
 ```cli
-FROM mcr.microsoft.com/java/jdk:8u212-zulu-alpine 
+FROM mcr.microsoft.com/java/jdk:8-zulu-alpine
   
 RUN echo $' \
   
