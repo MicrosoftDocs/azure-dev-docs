@@ -480,7 +480,7 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 Where `MY_ACR` is the name of your Azure Container Registry and `MY_APP_NAME` is the name of the web application you want to use on your Azure Container Registry.
 
-For more in-depth information on building and storing container images in Azure, see the respective [Microsoft Learn course](https://docs.microsoft.com/en-us/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see the respective [Microsoft Learn course](https://docs.microsoft.com/learn/modules/build-and-store-container-images/).
 <!-- end shared content -->
 
 <!-- shared content -->
