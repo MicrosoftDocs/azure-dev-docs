@@ -33,12 +33,9 @@ keytool -list -v -keystore <path to keystore>
 
 ### Validate that the supported Java version works correctly
 
-All of the migration paths for WebSphere to Azure require a specific Java version, which varies for each path. You'll need to validate that your application is able to run correctly using that supported version.
+Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-> [!NOTE]
-> This validation is especially important if your current server is running on an unsupported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current version, login to your production server and run this command:
+To obtain your current version, sign in to your production server and run
 
 ```bash
 java -version
