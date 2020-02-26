@@ -18,9 +18,9 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
 1. When you start the debugger, a terminal opens showing output from Azure Functions, including a summary of the available endpoints. Your URL might be different if you used a name other than "HttpExample":
 
-        Http Functions:
-    
-                HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    Http Functions:
+
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 
 1. Use **Ctrl+click** or **Cmd+click** on the URL in the Visual Studio Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
@@ -28,13 +28,17 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
+    # [bash](#tab/bash)
+
     ```bash
     # Mac OS/Linux: modify the URL if you're using a different function name
     curl --header "Content-Type: application/json" --request POST \
         --data '{"name":"Visual Studio Code"}' http://localhost:7071/api/HttpExample
     ```
 
-    ```ps
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
     # Windows (escaping on the quotes is necessary; also modify the URL
     # if you're using a different function name)
     curl --header "Content-Type: application/json" --request POST \
