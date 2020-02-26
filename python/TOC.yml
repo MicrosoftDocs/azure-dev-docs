@@ -20,7 +20,7 @@
       href: /azure/app-service/containers/quickstart-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Deplopy an Azure Container Instance
+    - name: Deploy an Azure Container Instance
       href: /azure/container-instances/container-instances-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Run an Azure Batch job
       href: /azure/batch/quick-run-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
@@ -38,7 +38,7 @@
       href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Use Table storage
       href: /azure/cosmos-db/create-table-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Use the Cosmos DB SQL API
+    - name: Use the Azure Cosmos DB SQL API
       href: /azure/cosmos-db/create-sql-api-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json      
     - name: Use Azure Cache for Redis
       href: /azure/azure-cache-for-redis/cache-python-get-started?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
@@ -46,7 +46,7 @@
       href: /azure/data-factory/quickstart-create-data-factory-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
   - name: Machine learning
     items:      
-    - name: Create a ML experiment      
+    - name: Create an ML experiment      
       href: /azure/machine-learning/tutorial-1st-experiment-sdk-setup?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
     - name: Train classification models
       href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
@@ -158,7 +158,7 @@
     items:
       - name: Azure Storage
         href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-storage
-      - name: Redis Cahe
+      - name: Redis Cache
         href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-redis-cache
   - name: Identity &  Security
     href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
