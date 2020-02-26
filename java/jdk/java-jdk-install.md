@@ -74,9 +74,9 @@ The output of the command should be similar to the following example:
 ```cli
 $ java -version
 
-openjdk version "1.8.0_212"
-OpenJDK Runtime Environment (Zulu 8.38.0.13-macosx)-Microsoft-Azure-restricted (build 1.8.0_212-b04)
-OpenJDK 64-Bit Server VM (Zulu 8.38.0.13-macosx)-Microsoft-Azure-restricted (build 25.212-b04, mixed mode)
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (Zulu 8.44.0.11-linux64)-Microsoft-Azure-restricted (build 1.8.0_242-b20)
+OpenJDK 64-Bit Server VM (Zulu 8.44.0.11-linux64)-Microsoft-Azure-restricted (build 25.242-b20, mixed mode)
 ```
 
 ## Download and install the Azul Zulu for Azure - Enterprise Edition JDKs from a Yum repository
@@ -101,13 +101,13 @@ sudo yum -q -y update
 sudo yum -q -y install zulu-11-azure-jdk
 ```
 
-For Java 12 (Preview), run:
+For Java 13 (Preview), run:
 
 ```cli
 sudo rpm --import http://repos.azul.com/azul-repo.key
 sudo curl http://repos.azul.com/azure-only/zulu-azure.repo -o /etc/yum.repos.d/zulu-azure.repo
 sudo yum -q -y update
-sudo yum -q -y install zulu-12-azure-jdk
+sudo yum -q -y install zulu-13-azure-jdk
 ```
 
 **To update a Zulu JDK 8 package from a Yum repository:**
@@ -148,13 +148,13 @@ sudo apt-get -q update
 sudo apt-get -y install zulu-11-azure-jdk
 ```
 
-For Java 12 (Preview), run:
+For Java 13 (Preview), run:
 
 ```cli
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
 sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
 sudo apt-get -q update
-sudo apt-get -y install zulu-12-azure-jdk
+sudo apt-get -y install zulu-13-azure-jdk
 ```
 
 **To update a Zulu JDK 8 package from an apt-get repository:**
