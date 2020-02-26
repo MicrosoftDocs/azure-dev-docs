@@ -449,7 +449,37 @@ az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} -f src/main/docker/Dockerfil
 
 Where `MY_ACR` is the name of your Azure Container Registry and `MY_APP_NAME` is the name of the web application you want to use on your Azure Container Registry.
 
-If you want to build your image locally using Docker see [Build and test your image](https://docs.docker.com/get-started/part2/#build-and-test-your-image) for more information.
+Or alternatively, you can use Docker CLI to first build and test the image locally. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires Docker CLI to be installed and Docker daemon to be running.
+
+Build the image:
+
+```shell
+docker build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME}
+```
+
+Run the image locally:
+
+```shell
+docker run -it -p 8080:8080 ${MY_ACR}.azurecr.io/${MY_APP_NAME}
+```
+
+Your application can now be accessed with a browser at http://localhost:8080.
+
+Log into your Azure Container Registry:
+
+```shell
+az acr login -n ${MY_ACR}
+```
+
+Push the image to your Azure Container Registry:
+
+```shell
+docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
+```
+
+Where `MY_ACR` is the name of your Azure Container Registry and `MY_APP_NAME` is the name of the web application you want to use on your Azure Container Registry.
+
+For more in-depth information on building and storing container images in Azure, see the respective [Microsoft Learn course](https://docs.microsoft.com/en-us/learn/modules/build-and-store-container-images/).
 <!-- end shared content -->
 
 <!-- shared content -->
