@@ -174,6 +174,8 @@ You will need to create a Dockerfile with the following:
 1. [Setup JNDI resources](#setup-jndi-resources) (if applicable)
 1. [Review WildFly configuration](#review-wildfly-configuration)
 
+> For your convenience we have created a quickstart in the [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) which you can use as a starting point for your Dockerfile and web application.
+
 <!-- shared content -->
 ### Configure KeyVault FlexVolume
 
@@ -420,9 +422,35 @@ The example below illustrates the steps needed to create the JNDI resource for J
 Please review the [WildFly Admin Guide](https://docs.wildfly.org/18/Admin_Guide.html) to make sure eveyrthing you have discovered in the pre-migration step and has not be covered by any of the previous migration steps is taken care of as part of your migration.
 <!-- end shared content -->
 
+<!-- shared content -->
 ### Build and push the Docker image to Azure Container Registry
 
 Once you have created the Dockerfile you will need to build the Docker image and publish it to your Azure Container Registry.
+
+If you used our [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) the process of building and pushing your image to your Azure Container Registry would be the equivalent of invoking the following 3 command lines below.
+
+Build the WAR file:
+
+```shell
+mvn package
+```
+
+Log into your Azure Container Registry:
+
+```shell
+az acr login -n ${MY_ACR}
+```
+
+Build and push he image:
+
+```shell
+az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} -f src/main/docker/Dockerfile .
+```
+
+Where `MY_ACR` is the name of your Azure Container Registry and `MY_APP_NAME` is the name of the web application you want to use on your Azure Container Registry.
+
+If you want to build your image locally using Docker see [Build and test your image](https://docs.docker.com/get-started/part2/#build-and-test-your-image) for more information.
+<!-- end shared content -->
 
 <!-- shared content -->
 ### Provision a Public IP Address
@@ -449,12 +477,6 @@ Be sure to include memory and CPU settings when creating your deployment YAML so
 ### Configure Persistent Storage
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
-
-### Configure KeyVault FlexVolume
-
-[Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
-
-You will need to make sure the startup script used to bootstrap WildFly imports the certificates into the keystore used by WildFly before starting the server.
 
 <!-- shared content -->
 ### Migrate scheduled jobs
