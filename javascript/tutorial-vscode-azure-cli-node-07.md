@@ -11,7 +11,7 @@ ms.date: 09/24/2019
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, run the following command at a terminal or command prompt:
 
-```bash
+```azurecli
 az group delete --name myResourceGroup
 ```
 
