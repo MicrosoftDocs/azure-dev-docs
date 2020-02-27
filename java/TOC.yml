@@ -15,6 +15,8 @@
             href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Container Registry
+          href: /azure/container-registry/container-registry-java-quickstart?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure Resource Manager
           href: /azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-intellij?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure DevOps Projects
@@ -146,8 +148,6 @@
           href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service from ACR
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-        - name: Build and push containers to ACR
-          href: build-and-push-images-to-azure-container-registry-using-maven-and-jib.md
         - name: Java Functions with Event Hub and Cosmos DB
           href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitoring and logging using Logz.io
