@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 Once the Azure CLI is installed, run the following command from a terminal or command prompt:
 
-```bash
+```azurecli
 az login
 ```
 

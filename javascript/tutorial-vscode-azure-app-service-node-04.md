@@ -21,11 +21,11 @@ In this step, you learn how to view or "tail" any output that the running websit
 
 1. Once the app is restarted, the VS Code **Output** window opens with a connection to the log stream that shows output.
 
-    ```bash
+    <pre>
     Connecting to log-streaming service...
     2019-09-20 17:33:51.428 INFO  - Container msdocs-vscode-node_2 for site msdocs-vscode-node initialized successfully.
     2019-09-20 17:33:56.500 INFO  - Container logs
-    ```
+    </pre>
 
 1. Refresh the web page a few times in the browser to see additional log output.
 

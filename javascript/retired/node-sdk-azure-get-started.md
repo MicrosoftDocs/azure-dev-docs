@@ -33,7 +33,7 @@ Your Node.js applications need read and create permissions in your Azure subscri
 
 [Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. You'll need to provide a [secure password](/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`.
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --name AzureNodeTest --password MY_SECURE_PASSWORD
 ```
 
@@ -57,7 +57,7 @@ export AZURE_TENANT XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 Get the ID for your subscription with [az account show](/cli/azure/account#az-account-show).
 
-```azurecli-interactive
+```azurecli
 az account show
 ```
 
@@ -176,7 +176,7 @@ node createVM.js
 
 Once the code completes, get the IP of your new virtual machine and log in with SSH using the value for `adminPass` from your code.
 
-```azurecli-interactive
+```azurecli
 az vm list-ip-addresses --name newLinuxVM
 ```
 
@@ -243,7 +243,7 @@ node uploadFile.js
 
 Delete the resource group to remove the resources created in this guide.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
