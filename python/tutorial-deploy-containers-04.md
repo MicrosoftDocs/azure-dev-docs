@@ -18,9 +18,9 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 
 1. Answer **Yes** when prompted to enable logging and restart the app. Once the app is restarted, the VS Code Output panel opens with a connection to the log stream.
 
-1. After a few seconds, you see a message indicating that you are connected to the log-streaming service.
+1. After a few seconds, you see a message in the output that indicates you are connected to the log-streaming service:
 
-    ```bash
+    <pre>
     Connecting to log stream...
     2018-09-27T20:14:26  Welcome, you are now connected to log-streaming service.
 
@@ -29,7 +29,7 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
     2018-09-27 20:14:59.270 INFO  - docker run -d -p 24138:8000 --name vsdocs-django-sample-container_0 -e WEBSITES_PORT=8000 -e WEBSITE_SITE_NAME=vsdocs-django-sample-container -e WEBSITE_AUTH_ENABLED=False -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_INSTANCE_ID=02c705ae24eaf5f298e553a9c2724b9fe4485707c2d1c36137cd02931091e561 -e HTTP_LOGGING_ENABLED=1 vsdocsregistry.azurecr.io/python-sample-vscode-django-tutorial:latest
 
     2018-09-27 20:15:06.216 INFO  - Container vsdocs-django-sample-container_0 for site vsdocs-django-sample-container initialized successfully.
-    ```
+    </pre>
 
 1. Navigate within the app to see additional output for various HTTP requests.
 

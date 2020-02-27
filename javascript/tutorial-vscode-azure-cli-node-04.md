@@ -21,13 +21,13 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 
 1. Run the following commands to set up deployment credentials in Azure, replacing `username` and `pPassword` with your credentials. The command displays JSON output upon success.
 
-    ```bash
+    ```azurecli
     az webapp deployment user set --user-name <username> --password <password>
     ```
 
 1. Run the following command to retrieve the Git endpoint to which we want to push the app code, replacing `<your_app_name>` with the name you used when creating the App Service in the previous step:
 
-    ```bash
+    ```azurecli
     az webapp deployment source config-local-git --name <your_app_name>
     ```
 
@@ -58,7 +58,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 > [!TIP]
 > If you encounter the error `Object #<eventemitter> has no method 'hrtime'`, you probably need to set the node runtime version on the site. The command below tells the site to use node version `6.9.1`. If your site requires a different or later version of node, specify the full semantic version `major.minor.patch`.
 >
-> ```bash
+> ```azurecli
 > az webapp config appsettings set --name <your_app_name> --settings
 > ```
 

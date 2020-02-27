@@ -13,7 +13,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
 1. At a terminal or command prompt, use the following command to create a **resource group** for the App Service. A resource group is essentially a named collection of an app's resources in Azure, such as a website, a database, Azure Functions, etc.
 
-    ```bash
+    ```azurecli
     az group create --name myResourceGroup --location westus
     ```
 
@@ -23,13 +23,13 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
 1. Run the following command to set the default resource group and region for subsequent commands. Doing so avoids the need to specify these values each time. (This command has no output on success.)
 
-    ```bash
+    ```azurecli
     az configure --defaults group=myResourceGroup location=westus
     ```
 
 1. Run the following command to create an **app service plan** that defines the underlying virtual machine used by the App Service:
 
-    ```bash
+    ```azurecli
     az appservice plan create --name myPlan --sku F1
     ```
 
@@ -37,7 +37,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
 1. Run the following command to create the App Service, replacing `<your_app_name>` with a unique name that becomes the URL, `http://<your_app_name>.azurewebsites.net`. Note that the PowerShell command is slightly different. The `--runtime "node|6.9"` argument tells Azure to use node version 6.9.x on the server.
 
-    ```bash
+    ```azurecli
     az webapp create --name <your_app_name> --plan myPlan --runtime "node|6.9"
     ```
 
@@ -52,7 +52,7 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
 1. Run the following command to open a browser to the newly created App Service, again replacing `<your_app_name>` with the name you used:
 
-    ```bash
+    ```azurecli
     az webapp browse --name <your_app_name>
     ```
 
