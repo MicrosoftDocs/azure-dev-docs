@@ -1,5 +1,5 @@
 ---
-title: Configure a Spring Boot Initializer app to use Azure Application Insights SpringBoot Starter
+title: Configure Initializer app for Spring Boot Starter - Azure Monitor
 description: Configure a Spring Boot application created with Spring Initializr to use Application Insights Spring Boot Starter.
 services: Application-Insights
 documentationcenter: java
