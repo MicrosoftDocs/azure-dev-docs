@@ -87,9 +87,9 @@ If WLST is doing more than what is mentioned above, you'll have some additional 
 
 If your application uses WebLogic-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
 
-[!INCLUDE [determine-whether-your-application-uses-entity-beans](determine-whether-your-application-uses-entity-beans.md)]
+[!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/migration/determine-whether-your-application-uses-entity-beans.md)]
 
-[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use.md)]
+[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use-aks](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use-aks.md)]
 
 ### Determine whether a deployment plan was used
 
@@ -119,7 +119,7 @@ If your application uses JCA connectors, you'll have to validate that the JCA co
 
 [!INCLUDE [determine-whether-your-application-uses-a-resource-adapter](includes/migration/determine-whether-your-application-uses-a-resource-adapter.md)]
 
-[!INCLUDE [determine-whether-jaas-is-in-use](include/migration/determine-whether-jaas-is-in-use.md)]
+[!INCLUDE [determine-whether-jaas-is-in-use](includes/migration/determine-whether-jaas-is-in-use.md)]
 
 ### Determine whether WebLogic clustering is used
 

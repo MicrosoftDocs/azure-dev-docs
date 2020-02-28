@@ -74,9 +74,9 @@ For files that are frequently written and read by your application (such as temp
 If your application uses WebSphere-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [IBM WebSphere Application Server, Release 9.0
 API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/com.ibm.websphere.javadoc.doc/web/apidocs/overview-summary.html?view=embed), you have used a WebSphere specific API in your application.
 
-[!INCLUDE [determine-whether-your-application-uses-entity-beans](determine-whether-your-application-uses-entity-beans.md)]
+[!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/migration/determine-whether-your-application-uses-entity-beans.md)]
 
-[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use.md)]
+[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use-aks](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use-aks.md)]
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
 
