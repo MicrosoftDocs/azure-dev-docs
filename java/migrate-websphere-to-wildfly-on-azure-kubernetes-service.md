@@ -13,7 +13,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
-[!INCLUDE [inventory-server-capacity-aks](inventory-server-capacity-aks.md)]
+[!INCLUDE [inventory-server-capacity-aks](includes/migration/inventory-server-capacity-aks.md)]
 
 ### Inventory all secrets
 
@@ -150,8 +150,8 @@ You will need to create a Dockerfile with the following:
 1. JVM runtime options
 1. A way to pass in environment variables (if applicable)
 1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) (if applicable)
-1. [Setup data sources](#setup-data-sources) (if applicable)
-1. [Setup JNDI resources](#setup-jndi-resources) (if applicable)
+1. [Setup data sources](#set-up-data-sources) (if applicable)
+1. [Setup JNDI resources](#set-up-jndi-resources) (if applicable)
 1. [Review WildFly configuration](#review-wildfly-configuration)
 
 > For your convenience we have created a quickstart in the [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) which you can use as a starting point for your Dockerfile and web application.
