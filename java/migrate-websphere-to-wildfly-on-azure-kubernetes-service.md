@@ -19,13 +19,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *ibm-web-bnd.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application. These files may include, for Spring (Boot) applications, *application.properties* or *application.yml* files.
 
-### Inventory all certificates
-
-Document all the certificates used for public SSL endpoints. You can view all certificates on the production server(s) by running the following command:
-
-```bash
-keytool -list -v -keystore <path to keystore>
-```
+[!INCLUDE [inventory-all-certificates](includes/migration/inventory-all-certificates.md)]
 
 ### Validate that the supported Java version works correctly
 
@@ -45,7 +39,7 @@ Inventory all JNDI resources. Some, such as JMS message brokers, may require mig
 
 Inspect the file *WEB-INF/ibm-web-bnd.xml* and/or *WEB-INF/web.xml*.
 
-### Determine whether databases are used
+### Document datasources
 
 If your application uses any databases, you need to capture the following information:
 
@@ -55,19 +49,19 @@ If your application uses any databases, you need to capture the following inform
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere modules or by your application code. You may identify some or all of the following scenarios.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 #### Read-only static content
 
-If your application currently serves static content, an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
+If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 #### Dynamically published static content
 
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We have provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Files can be [mounted into the Azure Kubernetes Service pod](/azure/aks/concepts-storage).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
 ### Determine whether your application relies on scheduled jobs
 

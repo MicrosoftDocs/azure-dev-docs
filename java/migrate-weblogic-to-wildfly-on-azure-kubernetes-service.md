@@ -13,7 +13,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Before you start
 
-If any of the pre-migration requirements can't be met, see the companion migration guides:
+If you can't meet any of the pre-migration requirements, see the companion migration guide:
 
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
@@ -29,7 +29,7 @@ If any of the pre-migration requirements can't be met, see the companion migrati
 
 ### Determine whether session replication is used
 
-If your application relies on session replication, with or without Oracle Coherence*Web, you have 2 options:
+If your application relies on session replication, with or without Oracle Coherence*Web, you have two options:
 
 1. Refactor your application to use a database for session management.
 2. Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
@@ -65,7 +65,7 @@ If your application relies on session replication, with or without Oracle Cohere
 
 Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-To obtain your current version, sign in to your production server and run
+To obtain your current version, sign in to your production server and run the following command:
 
 ```bash
 java -version
@@ -82,7 +82,7 @@ To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer
 
 ### Determine whether WLST is used
 
-If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
+If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you'll need to make sure those parameters conform to one of the following options:
 
 1. They are externalized as app settings.
 2. They are embedded in your application.
@@ -92,31 +92,31 @@ If WLST is doing more than what is mentioned above, you will have some additiona
 
 ### Determine whether your application uses WebLogic specific APIs
 
-If your application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
+If your application uses WebLogic-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
 
 ### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
 
-If your application uses Entity Beans or EJB 2.x style CMP beans, it is recommended you refactor your application to NOT use them.
+If your application uses Entity Beans or EJB 2.x style CMP beans, we recommend that you refactor your application to remove those dependencies.
 
 ### Determine whether the Java EE Application Client feature is used
 
-If you have client applications that connect to your (server) application using the Java EE Application Client feature, you will need to refactor both your client applications and your (server) application to use HTTP APIs.
+If you have client applications that connect to your (server) application using the Java EE Application Client feature, you'll need to refactor both your client applications and your (server) application to use HTTP APIs.
 
 ### Determine whether a deployment plan was used
 
-If a deployment plan was used to perform the deployment, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor your application in such a way that a deployment plan is no longer needed.
+If your app was deployed using a deployment plan, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor your application in such a way that a deployment plan is no longer needed.
 
 ### Determine whether EJB timers are in use
 
 If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each WildFly instance independently. This validation is needed because, in the Azure Kubernetes Service deployment scenario, each EJB timer will be triggered on its own WildFly instance.
 
-### Validate if and how the file system is used
+### Validate whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebLogic shared modules or by your application code. You may identify some or all of the following scenarios.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by WebLogic shared modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 #### Read-only static content
 
-If your application currently serves static content, an alternate location for that static content will be required. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
+If your application currently serves static content, you'll need an alternate location for that static content. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
 
 #### Dynamically published static content
 
@@ -128,7 +128,7 @@ For files that are frequently written and read by your application (such as temp
 
 ### Determine whether JCA connectors are used
 
-If your application uses JCA connectors you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors you'll have to validate that the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
 ### Determine whether your application uses a Resource Adapter
 
@@ -150,18 +150,14 @@ Most likely, you've deployed your application on multiple WebLogic servers to ac
 
 ### Create a Docker image for WildFly
 
-You will need to create a Dockerfile with the following:
+To create a Dockerfile, you'll need the following prerequisites:
 
 1. A supported JDK
 1. An install of WildFly
-1. JVM runtime options
-1. A way to pass in environment variables (if applicable)
-1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) (if applicable)
-1. [Set up data sources](#set-up-data-sources) (if applicable)
-1. [Set up JNDI resources](#set-up-jndi-resources) (if applicable)
-1. [Review WildFly configuration](#review-wildfly-configuration)
+1. Your JVM runtime options.
+1. A way to pass in environment variables (if applicable).
 
-For your convenience we have created a quickstart in the [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) which you can use as a starting point for your Dockerfile and web application.
+You can then perform the steps described in the following sections, where applicable. You can use the [WildFly Container Quickstart repo](https://github.com/Azure/wildfly-container-quickstart)  as a starting point for your Dockerfile and web application.
 
 [!INCLUDE [configure-keyvault-flexvolume](includes/migration/configure-keyvault-flexvolume.md)]
 
@@ -185,6 +181,6 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you have your application migrated to Azure Kubernetes Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you've migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, see the following recommendations to make your application more cloud-native.
 
 [!INCLUDE [recommendations-wildfly-on-aks](includes/migration/recommendations-wildfly-on-aks.md)]
