@@ -18,11 +18,11 @@ This article demonstrates creating a Java app with the **[Spring Initializr]** t
 
 In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-> * Create a Java application using the Spring Initializr
-> * Configure Azure Active Directory
-> * Secure the application with Spring Boot classes and annotations
-> * Build and test your Java application
+ [!div class="checklist"]
+ * Create a Java application using the Spring Initializr
+ * Configure Azure Active Directory
+ * Secure the application with Spring Boot classes and annotations
+ * Build and test your Java application
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,7 +41,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Specify Group and Aritifact names][create-spring-app-01]
 
-1. Scroll down to the **Core** section and check the box for **Security**, and in the **Web** section check the box for **Web**, then scroll down to the **Azure** section and check the box for **Azure Active Directory**.
+1. Scroll down and add **Dependencies** for **Security**, **Spring Web** section check the box for **Web**, and **Azure Active Directory**.
 
 1. At the bottom of the page and click the **Generate** button.
 
