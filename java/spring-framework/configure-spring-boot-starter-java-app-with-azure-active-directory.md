@@ -59,15 +59,17 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create new Azure Active Directory instance][create-directory-01]
 
-1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) When you have finished, click **Create**. It will take a few minutes to create the new resource.
+1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) 
+
+Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: wingtiptoysdirectory.onmicrosoft.com.).
+
+When you have finished, click **Create**. It will take a few minutes to create the new resource.
 
    ![Specify Azure Active Directory names][create-directory-02]
 
 1. When complete, click to access the new directory.
 
    ![Select your Azure account name][create-directory-03]
-
-   -----> Tenant ID is showing in current ID, but old ID asks for Directory ID
 
 1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
 
@@ -83,9 +85,10 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create new app registration][create-app-registration-02]
 
-4. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial. 
+4. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
 
----> Instructions diverge to far from new UI here --> Click **Settings**, and then click **Keys**.
+Click **Settings**, and then click **Keys**.
+---> Instructions diverge to far from new UI here --> 
 
    ![Create app registration keys][create-app-registration-03]
 
