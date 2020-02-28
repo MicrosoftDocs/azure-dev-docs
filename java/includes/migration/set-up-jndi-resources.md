@@ -6,16 +6,16 @@ ms.date: 2/28/2020
 
 ### Set up JNDI Resources
 
-Each JNDI resource you need to configure on WildFly will generally follow the following recipe:
+To set up each JNDI resource you need to configure on WildFly, you will generally use the following steps:
 
 1. Download the necessary JAR files and copy them into the Docker image.
-2. Create a WildFly module.xml referencing those JAR files.
+2. Create a WildFly *module.xml* file referencing those JAR files.
 3. Create any configuration needed by the specific JNDI resource.
 4. Create JBoss CLI script to be used during Docker build to register the JNDI resource.
 5. Add everything to Dockerfile.
 6. Pass the appropriate environment variables in your deployment YAML.
 
-The example below illustrates the steps needed to create the JNDI resource for JMS connectivity to Azure Service Bus.
+The example below shows the steps needed to create the JNDI resource for JMS connectivity to Azure Service Bus.
 
 1. Download the [Apache Qpid JMS provider](https://qpid.apache.org/components/jms/index.html)
 
@@ -63,7 +63,6 @@ The example below illustrates the steps needed to create the JNDI resource for J
 
     ```console
     batch
-
     /subsystem=ee:write-attribute(name=annotation-property-replacement,value=true)
     /system-property=property.mymdb.queue:add(value=myqueue)
     /system-property=property.connection.factory:add(value=java:global/remoteJMS/SBF)
@@ -75,13 +74,9 @@ The example below illustrates the steps needed to create the JNDI resource for J
     /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value="java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/opt/servicebus/jndi.properties")
     /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)
     /subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)
-
     run-batch
-
     reload
-
     shutdown
-
     ```
 
 1. Add the following to your `Dockerfile` so the JNDI resource is created when you build your Docker image

@@ -6,7 +6,7 @@ ms.date: 2/28/2020
 
 ### Set up data sources
 
-To configure WildFly to access a data source, you will need to add the JDBC driver JAR to your Docker image, and then execute the appropriate JBoss CLI commands. These commands must set up the data source when building your Docker image. 
+To configure WildFly to access a data source, you'll need to add the JDBC driver JAR to your Docker image, and then execute the appropriate JBoss CLI commands. These commands must set up the data source when building your Docker image.
 
 The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
@@ -35,36 +35,23 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
     ```console
     batch
-
     module add --name=org.postgres --resources=<JDBC .jar file path> --module-xml=<module file path>
-
     /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres,driver-module-name=org.postgres,driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
-
     data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=$DATABASE_CONNECTION_URL --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
-
     reload
-
     run batch
-
     shutdown
-
     ```
 
     **MySQL**
 
     ```console
     batch
-
     module add --name=com.mysql --resources=<JDBC .jar file path> --module-xml=<module file path>
-
     /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
-
     data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=$DATABASE_CONNECTION_URL --driver-name=mysql --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
-
     reload
-
     run batch
-
     shutdown
     ```
 
@@ -72,17 +59,11 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
     ```console
     batch
-
     module add --name=com.microsoft --resources=<JDBC .jar file path> --module-xml=<module file path>
-
     /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name=sqlserver,driver-module-name=com.microsoft,driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
-
     data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=$DATABASE_CONNECTION_URL --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
-
     reload
-
     run batch
-
     shutdown
     ```
 
