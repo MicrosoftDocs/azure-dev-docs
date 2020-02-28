@@ -41,7 +41,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Specify Group and Aritifact names][create-spring-app-01]
 
-1. Scroll down and add **Dependencies** for **Security**, **Spring Web** section check the box for **Web**, and **Azure Active Directory**.
+1. Scroll down and add **Dependencies** for **Security**, **Spring Web**, and **Azure Active Directory**.
 
 1. At the bottom of the page and click the **Generate** button.
 
