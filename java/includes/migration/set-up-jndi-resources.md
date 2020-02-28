@@ -4,7 +4,7 @@ ms.author: manriem
 ms.date: 2/28/2020
 ---
 
-#### Set up JNDI Resources
+### Set up JNDI Resources
 
 Each JNDI resource you need to configure on WildFly will generally follow the following recipe:
 

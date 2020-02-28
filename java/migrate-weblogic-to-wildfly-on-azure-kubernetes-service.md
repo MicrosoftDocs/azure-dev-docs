@@ -71,44 +71,31 @@ To obtain your current version, sign in to your production server and run the fo
 java -version
 ```
 
-### Determine whether your application relies on scheduled jobs
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/migration/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, should NOT be used with Azure Kubernetes Service. Azure Kubernetes Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+### Determine whether WebLogic Scripting Tool (WLST) is used
 
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. Instead, the function can invoke a URL in your application to trigger the job.
-
-> [!NOTE]
-> To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
-
-### Determine whether WLST is used
-
-If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you'll need to make sure those parameters conform to one of the following options:
+If you currently use WLST to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you'll need to make sure those parameters conform to one of the following options:
 
 1. They are externalized as app settings.
 2. They are embedded in your application.
 3. They are using the JBoss CLI during deployment.
 
-If WLST is doing more than what is mentioned above, you will have some additional work to do during migration.
+If WLST is doing more than what is mentioned above, you'll have some additional work to do during migration.
 
-### Determine whether your application uses WebLogic specific APIs
+### Determine whether your application uses WebLogic-specific APIs
 
 If your application uses WebLogic-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
 
-### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
+[!INCLUDE [determine-whether-your-application-uses-entity-beans](determine-whether-your-application-uses-entity-beans.md)]
 
-If your application uses Entity Beans or EJB 2.x style CMP beans, we recommend that you refactor your application to remove those dependencies.
-
-### Determine whether the Java EE Application Client feature is used
-
-If you have client applications that connect to your (server) application using the Java EE Application Client feature, you'll need to refactor both your client applications and your (server) application to use HTTP APIs.
+[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use.md)]
 
 ### Determine whether a deployment plan was used
 
 If your app was deployed using a deployment plan, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor your application in such a way that a deployment plan is no longer needed.
 
-### Determine whether EJB timers are in use
-
-If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each WildFly instance independently. This validation is needed because, in the Azure Kubernetes Service deployment scenario, each EJB timer will be triggered on its own WildFly instance.
+[!INCLUDE [determine-whether-ejb-timers-are-in-use](includes/migration/determine-whether-ejb-timers-are-in-use.md)]
 
 ### Validate whether and how the file system is used
 
@@ -116,27 +103,23 @@ Any usage of the file system on the application server will require reconfigurat
 
 #### Read-only static content
 
-If your application currently serves static content, you'll need an alternate location for that static content. You may wish to consider moving [static content to Azure Blob Storage](/azure/storage/blobs/storage-blob-static-website) and [adding Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn#enable-azure-cdn-for-the-storage-account) for lightning-fast downloads globally.
+If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 #### Dynamically published static content
 
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We have provided [a sample implementation for your use](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, Azure Files can be [mounted into the Azure Kubernetes Service pod](/azure/aks/concepts-storage).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
 ### Determine whether JCA connectors are used
 
-If your application uses JCA connectors you'll have to validate that the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors, you'll have to validate that the JCA connector can be used on WildFly. If the JCA implementation is tied to WebLogic, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
-### Determine whether your application uses a Resource Adapter
+[!INCLUDE [determine-whether-your-application-uses-a-resource-adapter](includes/migration/determine-whether-your-application-uses-a-resource-adapter.md)]
 
-If your application needs a Resource Adapter (RA), it needs to be compatible with WildFly. Determine whether the RA works fine on a standalone instance of WildFly by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the Docker image and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
-
-### Determine whether JAAS is used
-
-If your application is using JAAS, then you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
+[!INCLUDE [determine-whether-jaas-is-in-use](include/migration/determine-whether-jaas-is-in-use.md)]
 
 ### Determine whether WebLogic clustering is used
 
@@ -148,16 +131,7 @@ Most likely, you've deployed your application on multiple WebLogic servers to ac
 
 [!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/migration/provision-azure-container-registry-and-azure-kubernetes-service.md)]
 
-### Create a Docker image for WildFly
-
-To create a Dockerfile, you'll need the following prerequisites:
-
-1. A supported JDK
-1. An install of WildFly
-1. Your JVM runtime options.
-1. A way to pass in environment variables (if applicable).
-
-You can then perform the steps described in the following sections, where applicable. You can use the [WildFly Container Quickstart repo](https://github.com/Azure/wildfly-container-quickstart)  as a starting point for your Dockerfile and web application.
+[!INCLUDE [create-a-docker-image-for-wildfly](includes/migration/create-a-docker-image-for-wildfly.md)]
 
 [!INCLUDE [configure-keyvault-flexvolume](includes/migration/configure-keyvault-flexvolume.md)]
 
@@ -173,7 +147,7 @@ You can then perform the steps described in the following sections, where applic
 
 [!INCLUDE [deploy-to-aks](includes/migration/deploy-to-aks.md)]
 
-### Configure Persistent Storage
+### Configure persistent storage
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 

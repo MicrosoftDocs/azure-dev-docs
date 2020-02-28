@@ -4,7 +4,7 @@ ms.author: manriem
 ms.date: 2/28/2020
 ---
 
-#### Set up data sources
+### Set up data sources
 
 To configure WildFly to access a data source, you will need to add the JDBC driver JAR to your Docker image, and then execute the appropriate JBoss CLI commands. These commands must set up the data source when building your Docker image. 
 

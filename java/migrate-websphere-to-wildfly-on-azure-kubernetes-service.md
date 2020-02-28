@@ -63,71 +63,43 @@ If your application allows for static content that is uploaded/produced by your 
 
 For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
-### Determine whether your application relies on scheduled jobs
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/migration/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, should NOT be used with Azure Kubernetes Service. Azure Kubernetes Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. Instead, the function can invoke a URL in your application to trigger the job.
+[!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/migration/determine-whether-jms-queues-or-topics-are-in-use.md)]
 
-> [!NOTE]
-> To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
+### Determine whether your application uses WebSphere-specific APIs
 
-### Determine whether a connection to on-premises is needed
-
-If your application needs to access any of your on-premises services, you'll need to provision one of [Azure's connectivity services](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
-
-### Determine whether JMS Queues or Topics are in use
-
-If your application is using JMS Queues or Topics, you'll need to migrate them to an externally hosted JMS server (for example, to Azure Service Bus; for more information, see [Migrate a message-driven enterprise bean to Azure](/azure/service-bus-messaging/migrate-java-apps-wild-fly#migrate-a-message-driven-enterprise-bean-to-azure)).
-
-If JMS persistent stores have been configured, their configuration must be captured and applied after the migration.
-
-### Determine whether your application uses WebSphere specific APIs
-
-If your application uses WebSphere specific APIs, you'll need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [IBM WebSphere Application Server, Release 9.0
+If your application uses WebSphere-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [IBM WebSphere Application Server, Release 9.0
 API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/com.ibm.websphere.javadoc.doc/web/apidocs/overview-summary.html?view=embed), you have used a WebSphere specific API in your application.
 
-### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
+[!INCLUDE [determine-whether-your-application-uses-entity-beans](determine-whether-your-application-uses-entity-beans.md)]
 
-If your application uses Entity Beans or EJB 2.x style CMP beans, you'll need to refactor your application to NOT use them.
+[!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use.md)]
 
-### Determine whether the JavaEE Application Client feature is in use
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
 
-If you have client applications that connect to your (server) application using the JavaEE Application Client feature, you'll need to refactor both your client applications and your (server) application to use HTTP APIs.
-
-### Determine whether your application contains OS-specific code
-
-If your application contains any code with dependencies on the host OS, then you'll need to refactor it to remove those dependencies.
-
-### Determine whether EJB timers are in use
-
-If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each WildFly instance independently. This validation is needed because, in the Azure Kubernetes Service deployment scenario, each EJB timer will be triggered on its own WildFly instance.
+[!INCLUDE [determine-whether-ejb-timers-are-in-use](includes/migration/determine-whether-ejb-timers-are-in-use.md)]
 
 ### Determine whether JCA connectors are in use
 
-If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebSphere, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebSphere, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
-### Determine whether JAAS is in use
+[!INCLUDE [determine-whether-jaas-is-in-use](includes/migration/determine-whether-jaas-is-in-use.md)]
 
-If your application is using JAAS, you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
+[!INCLUDE [determine-whether-your-application-uses-a-resource-adapter](includes/migration/determine-whether-your-application-uses-a-resource-adapter.md)]
 
-### Determine whether your application uses a Resource Adapter
-
-If your application needs a Resource Adapter (RA), it needs to be compatible with WildFly. Determine whether the RA works fine on a standalone instance of WildFly by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the Docker image and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
-
-### Determine whether your application is composed of multiple WARs
-
-If your application is composed of multiple WARs, you should treat each of those WARs as separate applications and go through this guide for each of them.
+[!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/migration/determine-whether-your-application-is-composed-of-multiple-wars.md)]
 
 ### Determine whether your application is packaged as an EAR
 
 If your application is packaged as an EAR file, be sure to examine the *application.xml* and *application-bnd.xml* files and capture their configurations.
 
-Note if you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
+> [!NOTE]
+> If you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
 
-### Identify all outside processes/daemons running on the production server(s)
-
-Processes running outside of Application Server, such as monitoring daemons, will need to be migrated elsewhere or eliminated.
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/migration/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 [!INCLUDE [perform-in-place-testing](includes/migration/perform-in-place-testing.md)]
 
@@ -135,20 +107,7 @@ Processes running outside of Application Server, such as monitoring daemons, wil
 
 [!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/migration/provision-azure-container-registry-and-azure-kubernetes-service.md)]
 
-### Create a Docker image for WildFly
-
-You will need to create a Dockerfile with the following:
-
-1. A supported JDK
-1. An install of WildFly
-1. JVM runtime options
-1. A way to pass in environment variables (if applicable)
-1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) (if applicable)
-1. [Setup data sources](#set-up-data-sources) (if applicable)
-1. [Setup JNDI resources](#set-up-jndi-resources) (if applicable)
-1. [Review WildFly configuration](#review-wildfly-configuration)
-
-> For your convenience we have created a quickstart in the [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) which you can use as a starting point for your Dockerfile and web application.
+[!INCLUDE [create-a-docker-image-for-wildfly](includes/migration/create-a-docker-image-for-wildfly.md)]
 
 [!INCLUDE [configure-keyvault-flexvolume](includes/migration/configure-keyvault-flexvolume.md)]
 
