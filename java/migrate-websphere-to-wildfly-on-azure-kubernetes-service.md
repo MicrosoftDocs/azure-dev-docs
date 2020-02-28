@@ -82,7 +82,7 @@ To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer
 
 If your application needs to access any of your on-premises services, you'll need to provision one of [Azure's connectivity services](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
 
-### Determine whether JMS Queues or Topics are being used
+### Determine whether JMS Queues or Topics are in use
 
 If your application is using JMS Queues or Topics, you'll need to migrate them to an externally hosted JMS server (for example, to Azure Service Bus; for more information, see [Migrate a message-driven enterprise bean to Azure](/azure/service-bus-messaging/migrate-java-apps-wild-fly#migrate-a-message-driven-enterprise-bean-to-azure)).
 
@@ -97,7 +97,7 @@ API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/c
 
 If your application uses Entity Beans or EJB 2.x style CMP beans, you'll need to refactor your application to NOT use them.
 
-### Determine whether the JavaEE Application Client feature is used
+### Determine whether the JavaEE Application Client feature is in use
 
 If you have client applications that connect to your (server) application using the JavaEE Application Client feature, you'll need to refactor both your client applications and your (server) application to use HTTP APIs.
 
@@ -113,7 +113,7 @@ If your application uses EJB timers, you'll need to validate that the EJB timer 
 
 If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebSphere, you'll have to refactor your application to NOT use the JCA connector. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
-### Determine whether JAAS is being used
+### Determine whether JAAS is in use
 
 If your application is using JAAS, you'll need to capture how JAAS is configured. If it's using a database, you can convert it to a JAAS domain on WildFly. If it's a custom implementation, you'll need to validate that it can be used on WildFly.
 
@@ -170,7 +170,7 @@ You will need to create a Dockerfile with the following:
 
 [!INCLUDE [deploy-to-aks](includes/migration/deploy-to-aks.md)]
 
-### Configure Persistent Storage
+### Configure persistent storage
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
@@ -178,6 +178,6 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you have your application migrated to Azure Kubernetes Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you have migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 [!INCLUDE [recommendations-wildfly-on-aks](includes/migration/recommendations-wildfly-on-aks.md)]
