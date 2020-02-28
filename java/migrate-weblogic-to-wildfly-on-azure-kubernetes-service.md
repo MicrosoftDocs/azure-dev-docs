@@ -19,7 +19,7 @@ If any of the pre-migration requirements can't be met, see the companion migrati
 
 ## Pre-migration
 
-[!INCLUDE [inventory-server-capacity-aks](inventory-server-capacity-aks.md)]
+[!INCLUDE [inventory-server-capacity-aks](includes/migration/inventory-server-capacity-aks.md)]
 
 [!INCLUDE [inventory-all-secrets](includes/migration/inventory-all-secrets.md)]
 
@@ -142,11 +142,11 @@ If your application is using JAAS, then you'll need to capture how JAAS is confi
 
 Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure Kubernetes Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
 
-[!INCLUDE [perform-in-place-testing](perform-in-place-testing.md)]
+[!INCLUDE [perform-in-place-testing](includes/migration/perform-in-place-testing.md)]
 
 ## Migration
 
-[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](provision-azure-container-registry-and-azure-kubernetes-service.md)]
+[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/migration/provision-azure-container-registry-and-azure-kubernetes-service.md)]
 
 ### Create a Docker image for WildFly
 
@@ -163,28 +163,28 @@ You will need to create a Dockerfile with the following:
 
 For your convenience we have created a quickstart in the [WildFly Container Quickstart GitHub repository](https://github.com/Azure/wildfly-container-quickstart) which you can use as a starting point for your Dockerfile and web application.
 
-[!INCLUDE [configure-keyvault-flexvolume](configure-keyvault-flexvolume.md)]
+[!INCLUDE [configure-keyvault-flexvolume](includes/migration/configure-keyvault-flexvolume.md)]
 
-[!INCLUDE [set-up-data-sources](set-up-data-sources.md)]
+[!INCLUDE [set-up-data-sources](includes/migration/set-up-data-sources.md)]
 
-[!INCLUDE [set-up-jndi-resources](set-up-jndi-resources.md)]
+[!INCLUDE [set-up-jndi-resources](includes/migration/set-up-jndi-resources.md)]
 
-[!INCLUDE [review-wildfly-configuration](review-wildfly-configuration.md)]
+[!INCLUDE [review-wildfly-configuration](includes/migration/review-wildfly-configuration.md)]
 
-[!INCLUDE [build-and-push-the-docker-image-to-azure-container-registry](build-and-push-the-docker-image-to-azure-container-registry.md)]
+[!INCLUDE [build-and-push-the-docker-image-to-azure-container-registry](includes/migration/build-and-push-the-docker-image-to-azure-container-registry.md)]
 
-[!INCLUDE [provision-a-public-ip-address](provision-a-public-ip-address.md)]
+[!INCLUDE [provision-a-public-ip-address](includes/migration/provision-a-public-ip-address.md)]
 
-[!INCLUDE [deploy-to-aks](deploy-to-aks.md)]
+[!INCLUDE [deploy-to-aks](includes/migration/deploy-to-aks.md)]
 
 ### Configure Persistent Storage
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
-[!INCLUDE [migrate-scheduled-jobs-aks](migrate-scheduled-jobs-aks.md)]
+[!INCLUDE [migrate-scheduled-jobs-aks](includes/migration/migrate-scheduled-jobs-aks.md)]
 
 ## Post-migration
 
 Now that you have your application migrated to Azure Kubernetes Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
 
-[!INCLUDE [recommendations-wildfly-on-aks](recommendations-wildfly-on-aks.md)]
+[!INCLUDE [recommendations-wildfly-on-aks](includes/migration/recommendations-wildfly-on-aks.md)]
