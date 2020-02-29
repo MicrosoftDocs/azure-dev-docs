@@ -133,14 +133,6 @@ Most likely, you've deployed your application on multiple WebLogic servers to ac
 
 [!INCLUDE [create-a-docker-image-for-wildfly](includes/migration/create-a-docker-image-for-wildfly.md)]
 
-[!INCLUDE [configure-keyvault-flexvolume](includes/migration/configure-keyvault-flexvolume.md)]
-
-[!INCLUDE [set-up-data-sources](includes/migration/set-up-data-sources.md)]
-
-[!INCLUDE [set-up-jndi-resources](includes/migration/set-up-jndi-resources.md)]
-
-[!INCLUDE [review-wildfly-configuration](includes/migration/review-wildfly-configuration.md)]
-
 [!INCLUDE [build-and-push-the-docker-image-to-azure-container-registry](includes/migration/build-and-push-the-docker-image-to-azure-container-registry.md)]
 
 [!INCLUDE [provision-a-public-ip-address](includes/migration/provision-a-public-ip-address.md)]
