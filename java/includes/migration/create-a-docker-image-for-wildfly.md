@@ -15,6 +15,11 @@ To create a Dockerfile, you'll need the following prerequisites:
 
 You can then perform the steps described in the following sections, where applicable. You can use the [WildFly Container Quickstart repo](https://github.com/Azure/wildfly-container-quickstart) as a starting point for your Dockerfile and web application.
 
+1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume)
+2. [Set up data sources](#set-up-data-sources)
+3. [Set up JNDI resources](#set-up-jndi-resources)
+4. [Review WildFly configuration](#review-wildfly-configuration)
+
 #### Configure KeyVault FlexVolume
 
 Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
@@ -139,7 +144,7 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
 For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
-#### Set up JNDI Resources
+#### Set up JNDI resources
 
 To set up each JNDI resource you need to configure on WildFly, you will generally use the following steps:
 
