@@ -81,46 +81,51 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
    ![Add a new app registration][create-app-registration-01]
 
-2. Specify your application, and then click **Register**.
+1. Specify your application, and then click **Register**.
 
    ![Create new app registration][create-app-registration-02]
 
-4. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
-
-Click **Settings**, and then click **Keys**.
----> Instructions diverge to far from new UI here --> 
+1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
 
    ![Create app registration keys][create-app-registration-03]
 
-5. Add a **Description** and specify the **Duration** for a new key and click **Save**; the value for the key will be automatically filled in when you click the **Save** icon, and you need to copy down the value of the key to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
+1. Click **Certificates & secrets** in the left navigation pane.  Then click **New client secret**.
+
+   ![Create app registration keys][create-app-registration-03.5]
+
+1. Add a **Description** and select duration in the **Expires** list.  Click **Add**. The value for the key will be automatically filled in.
 
    ![Specify app registration key parameters][create-app-registration-04]
 
-6. From the main page for your app registration, click **Settings**, and then click **Required permissions**.
+1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
+
+   ![Specify app registration key parameters][create-app-registration-04.5]
+
+1. From the left navigation pane click **API permissions**.  Click **Grant admin consent for wingtiptoys**, and then accept the option in the dialog.
 
    ![App registration required permissions][create-app-registration-05]
 
-7. Click **Windows Azure Active Directory**.
+1. Click **Windows Azure Active Directory**.
 
    ![Select Windows Azure Active Directory][create-app-registration-06]
 
-8. Check the boxes for **Access the directory as the signed-in user** and **Sign in and read user profile**, and then click **Save**.
+1. Check the boxes for **Access the directory as the signed-in user** and **Sign in and read user profile**, and then click **Save**.
 
    ![Enable access permissions][create-app-registration-07]
 
-9. On the **Required permissions** page, click **Grant Permissions**, and click **Yes** when prompted.
+1. On the **Required permissions** page, click **Grant Permissions**, and click **Yes** when prompted.
 
    ![Grant access permissions][create-app-registration-08]
 
-10. From the main page for your app registration, click **Settings**, and then click **Reply URLs**.
+1. From the main page for your app registration, click **Settings**, and then click **Reply URLs**.
 
     ![Edit Reply URLs][create-app-registration-09]
 
-11. Enter "<http://localhost:8080/login/oauth2/code/azure>" as a new reply URL, and then click **Save**.
+1. Enter "<http://localhost:8080/login/oauth2/code/azure>" as a new reply URL, and then click **Save**.
 
     ![Add new Reply URL][create-app-registration-10]
 
-12. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowImplicitFlow` parameter to `true`, and then click **Save**.
+1. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowImplicitFlow` parameter to `true`, and then click **Save**.
 
     ![Configure app manifest][create-app-registration-11]
 
@@ -373,7 +378,9 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-01.png
 [create-app-registration-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-02.png
 [create-app-registration-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03.png
+[create-app-registration-03.5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03.5.png
 [create-app-registration-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.png
+[create-app-registration-04.5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.5.png
 [create-app-registration-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-05.png
 [create-app-registration-06]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-06.png
 [create-app-registration-07]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-07.png
