@@ -101,17 +101,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
    ![Specify app registration key parameters][create-app-registration-04.5]
 
-1. From the left navigation pane click **API permissions**.  Click **Grant admin consent for wingtiptoys**, and then accept the option in the dialog.
-
-   ![App registration required permissions][create-app-registration-05]
-
-1. Click **Windows Azure Active Directory**.
-
-   ![Select Windows Azure Active Directory][create-app-registration-06]
-
-1. Check the boxes for **Access the directory as the signed-in user** and **Sign in and read user profile**, and then click **Save**.
-
-   ![Enable access permissions][create-app-registration-07]
+----->>> Nothing equivalent to **Required Permissions**.  Where do we go from here?
 
 1. On the **Required permissions** page, click **Grant Permissions**, and click **Yes** when prompted.
 
