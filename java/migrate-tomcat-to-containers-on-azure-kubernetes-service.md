@@ -11,7 +11,7 @@ ms.date: 1/20/2020
 
 This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Kubernetes Service (AKS).
 
-## Pre-migration steps
+## Pre-migration
 
 [!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
@@ -219,7 +219,7 @@ You'll need to modify the startup script (*startup.sh* in the [Tomcat on Contain
 
 To execute scheduled jobs on your AKS cluster, define [Cron Jobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/) as needed.
 
-## Post-migration steps
+## Post-migration
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
