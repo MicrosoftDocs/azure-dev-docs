@@ -335,7 +335,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 In this tutorial, you created a new Java web application using the Azure Active Directory starter, configured a new Azure AD tenant and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
 
 ## See also
-*For information about new UI options see [New Azure portal app registration training guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users)
+* For information about new UI options see [New Azure portal app registration training guide](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users)
 
 ## Next steps
 
