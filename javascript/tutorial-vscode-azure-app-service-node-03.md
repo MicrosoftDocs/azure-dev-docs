@@ -64,6 +64,7 @@ In this step, you deploy your Node.js app to Azure using Visual Studio Code and 
         ![Restart app service command](media/deploy-azure/restart.png)
 
     1. Right-click the node for the app service once more and select **Browse Website**.
+    1. Note that Windows deployments require that the app has a *web.config* file. The sample repository used with this tutorial already includes such a file.
 
 ## Update the website
 
