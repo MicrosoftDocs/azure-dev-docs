@@ -101,17 +101,17 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
    ![Specify app registration key parameters][create-app-registration-04.5]
 
------>>> Nothing equivalent to **Required Permissions**.  Where do we go from here?
+1. Click **API permissions** in the left navigation pane. 
 
-1. On the **Required permissions** page, click **Grant Permissions**, and click **Yes** when prompted.
+1. On the **API permissions** page, click **Grant admin consent...**, and click **Yes** when prompted.
 
    ![Grant access permissions][create-app-registration-08]
 
-1. From the main page for your app registration, click **Settings**, and then click **Reply URLs**.
+1. From the main page for your app registration, click **Authentication**, and click **Add a platform**.  Then click **Web applications**.
 
     ![Edit Reply URLs][create-app-registration-09]
 
-1. Enter "<http://localhost:8080/login/oauth2/code/azure>" as a new reply URL, and then click **Save**.
+1. Enter "<http://localhost:8080/login/oauth2/code/azure>" as a new **Redirect URI**, and then click **Configure**.
 
     ![Add new Reply URL][create-app-registration-10]
 
@@ -130,7 +130,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
    ![Add a new user account][create-user-01]
 
-1. When the **User** panel is displayed, enter the **Name** and **User name**.
+1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then click **Create**.
 
    ![Enter user account information][create-user-02]
 
@@ -141,11 +141,13 @@ When you have finished, click **Create**. It will take a few minutes to create t
    > `wingtipuser@wingtiptoysdirectory.onmicrosoft.com`
    > 
 
-1. Click **Groups**, then select the groups that you will use for authorization in your application, and then click **Select**. (For the purposes of this tutorial, add the account to the _Users_ group.)
+1. Click **Groups**, then **Create a new group** that you will use for authorization in your application.
 
-   ![Select the user's groups][create-user-03]
+1. Then click **No members selected**. (For the purposes of this tutorial, add the account to the _Users_ group.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
 
-1. Click **Show password**, and copy the password; you will use this when you log into your application later in this tutorial. When you have copied the password, click **Create** to add the new user account to your directory.
+   ![Select the user for group][create-user-03]
+
+1. Go back to the **Users** panel, select your test user, and click **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial. 
 
    ![Show the password][create-user-04]
 
@@ -331,6 +333,9 @@ When you have finished, click **Create**. It will take a few minutes to create t
 ## Summary
 
 In this tutorial, you created a new Java web application using the Azure Active Directory starter, configured a new Azure AD tenant and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
+
+## See also
+*For information about new UI options see [New Azure portal app registration training guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users)
 
 ## Next steps
 
