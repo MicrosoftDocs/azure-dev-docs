@@ -1,19 +1,17 @@
 ---
 title: Clean up resources after deploying to Azure App Service into Visual Studio Code
 description: Tutorial part 5, clean up resources
-author: kraigb
-manager: barbkess
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 03/04/2020
 ---
 
 # Clean up resources
 
 [Previous step: Stream logs](tutorial-vscode-azure-app-service-node-04.md)
 
-The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**.
+The App Service you created includes a backing App Service Plan running on a free pricing tier, so you won't incur any ongoing costs.
 
-You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+When you want to clean up the resources, visit the [Azure portal](https://portal.azure.com), select **Resource groups**, locate and select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
 ## Next steps
 

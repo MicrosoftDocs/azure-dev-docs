@@ -2,18 +2,16 @@
 title: Deploy Node.js apps to Azure App Service from Visual Studio Code
 description: Tutorial part 3, deploy the website
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 03/04/2020
 ---
 
-# Deploy the website
+# Deploy the app to Azure
 
 [Previous step: Create the app](tutorial-vscode-azure-app-service-node-02.md)
 
-In this step, you deploy your Node.js website to using Visual Studio Code and the Azure App Service extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to Azure App Service on Linux.
+In this step, you deploy your Node.js app to Azure using Visual Studio Code and the Azure App Service extension.
 
-1. Before deploying the app, sure that it's listening on the port provided by the `PORT` environment variable: `process.env.PORT`.
-
-1. In your app folder (such as `myExpressApp` from the previous step), launch VS Code in that folder by using the following command:
+1. In the terminal, make sure you're in the *nodejs-docs-hello-world* folder, then start Visual Studio Code with the following command:
 
     ```bash
     code .
@@ -23,42 +21,53 @@ In this step, you deploy your Node.js website to using Visual Studio Code and th
 
     ![Deploy to Web App](media/deploy-azure/deploy.png)
 
-    > [!TIP]
-    > Alternately, open the **Command Palette** (**F1**), type 'deploy to web app', and select the **Azure App Service: Deploy to Web App** command.
+    You can also invoke the same command from the **Command Palette** (**Ctrl**+**Shift**+**P**) by typing 'deploy to web app' and choosing **Azure App Service: Deploy to Web App**.
 
-1. At the prompts, enter the following information:
+1. Choose the *nodejs-docs-hello-world* folder.
 
-    a. Select your current folder for the app (`myExpressApp` as used in this tutorial).
+1. Choose a creation option based on the operating system to which you want to deploy:
 
-    a. Select **Create new Web App**.
+    - Linux: Choose **Create new Web App**
+    - Windows: Choose **Create new Web App... Advanced**
 
-    a. Enter a globally unique name for your app and press **Enter**. Valid characters for an app name are 'a-z', '0-9', and '-'.
+1. Enter a globally unique name for your web app. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 
-    a. Choose a location in an Azure region (as explained on [Regions](https://azure.microsoft.com/regions/))near you or near other services you may need to access.
+1. If targeting Linux, select a Node.js version when prompted. An **LTS** version is recommended.
 
-    a. Choose your **Node.js version**; LTS is recommended.
+1. If targeting Windows, follow the additional prompts:
+    1. Select **Create a new resource group**, then enter a name for the resource group, such as `AppServiceQS-rg`.
+    1. Select **Windows** for the operating system.
+    1. Select **Create new App Service plan**, then enter a name for the plan (such as `AppServiceQS-plan`), then select **F1 Free** for the pricing tier.
+    1. Choose **Skip for now** when prompted about Application Insights.
+    1. Choose a region near you or near resources you wish to access.
 
-1. As the extension creates the app, progress appears in the **Output** window in VS Code (you may need to select the **Azure App Service** output).
+1. After you respond to all the prompts, VS Code shows the Azure resources that are being created for your app in its notification popup.
 
-    ![Visual Studio Code output window for Azure App Service](media/deploy-azure/output-window.png)
+    When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
 
-1. Select **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
+    ![Prompt to update configuration on the target Linux server](media/deploy-azure/server-build.png)
 
-    ![Configured deployment](media/deploy-azure/server-build.png)
+1. Select **Yes** when prompted with **Always deploy the workspace "nodejs-docs-hello-world" to (app name)"**. Selecting **Yes** tells VS Code to automatically target the same App Service Web App with subsequent deployments.
 
-1. Once the deployment starts, you're prompted to update your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
+1. If deploying to Linux, select **Browse Website** in the prompt to view your freshly deployed web app once deployment is complete. The browser should display "Hello World!"
 
-    ![Configured deployment](media/deploy-azure/save-configuration.png)
+1. If deploying to Windows, you must first set the Node.js version number for the web app:
 
-1. Once the deployment completes, select **Browse Website** in the prompt to view your freshly deployed website.
+    1. In VS Code, expand the node for the new app service, right-click **Application Settings**, and select **Add New Setting...**:
 
-## Troubleshooting
+        ![Add app setting command](media/deploy-azure/add-setting.png)
 
-The error "You do not have permission to view this directory or page" indicates that the app probably failed to start correctly. Viewing logs, as described in the [next step](tutorial-vscode-azure-app-service-node-04.md) can help to diagnose and fix the problem. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
+    1. Enter `WEBSITE_NODE_DEFAULT_VERSION` for the setting key.
+    1. Enter `10.15.2` for the setting value.
+    1. Right-click the node for the app service and select **Restart**
 
-## Updating the website
+        ![Restart app service command](media/deploy-azure/restart.png)
 
-You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
+    1. Right-click the node for the app service once more and select **Browse Website**.
+
+## Update the website
+
+You can deploy changes to this app by making edits in VS Code, saving your files, and then using the same process as before only choosing the existing app rather than creating a new one.
 
 ----
 

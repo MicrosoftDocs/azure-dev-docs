@@ -2,39 +2,36 @@
 title: Create the Azure App Service from Visual Studio Code
 description: Tutorial part 2, create the Node.js app
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 03/04/2020
 ---
 
-# Create your Node.js application
+# Clone and run a local Node.js application
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-azure-app-service-node-01.md)
 
-In this step, you create a simple Node.js app using the Express application generator that you can then deploy to Azure.
+In this step, you clone a simple Node.js sample app from GitHub and test it locally.
 
-You can also use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), in which case you can skip ahead to [Deploy the app](tutorial-vscode-azure-app-service-node-03.md).
-
-1. In a terminal or command prompt, use the following command to run the Express Generator and scaffold a new Express app called "myExpressApp". (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
+1. On your local computer, open a terminal and clone the sample repository:
 
     ```bash
-    npx express-generator myExpressApp --view pug -–git
+    git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
     ```
 
-1. Install the application's dependencies by running `npm install` in the app folder:
+1. Navigate into the new app folder:
 
     ```bash
-    cd myExpressApp
-    npm install
+    cd nodejs-docs-hello-world
     ```
 
-1. Start the server by running `npm start`:
+1. Start the app to test it locally:
 
     ```bash
     npm start
     ```
 
-1. Test the app by opening a browser to [http://localhost:3000](http://localhost:3000). The site should appear as follows:
+1. Open your browser and navigate to [http://localhost:1337](http://localhost:1337). The browser should display "Hello World!".
 
-    ![Running Express Application](media/deploy-azure/express.png)
+1. Press **Ctrl**+**C** in the terminal to stop the server.
 
 > [!div class="nextstepaction"]
 > [I created the  Node.js app](tutorial-vscode-azure-app-service-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
