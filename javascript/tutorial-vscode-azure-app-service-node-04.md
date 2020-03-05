@@ -2,18 +2,18 @@
 title: Stream logs from Azure App Service into Visual Studio Code
 description: Tutorial part 4, view or tail logs.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 03/04/2020
 ---
 
 # Stream logs from Azure App Service
 
 [Previous step: Deploy the website](tutorial-vscode-azure-app-service-node-03.md)
 
-In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
+In this step, you learn how to view or "tail" any output that the running app generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
 
 1. In the **Azure App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
 
-    ![View Streaming Logs](media/deploy-azure/view-logs.png)
+    ![View Streaming Logs](media/deploy-azure/start-streaming-logs.png)
 
 1. When prompted, choose to enable logging and restart the application.
 
@@ -22,9 +22,9 @@ In this step, you learn how to view or "tail" any output that the running websit
 1. Once the app is restarted, the VS Code **Output** window opens with a connection to the log stream that shows output.
 
     <pre>
-    Connecting to log-streaming service...
-    2019-09-20 17:33:51.428 INFO  - Container msdocs-vscode-node_2 for site msdocs-vscode-node initialized successfully.
-    2019-09-20 17:33:56.500 INFO  - Container logs
+    Connecting to log stream...
+    2020-03-04T19:29:44  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours.
+    Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).
     </pre>
 
 1. Refresh the web page a few times in the browser to see additional log output.
