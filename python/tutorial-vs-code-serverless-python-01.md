@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ### Azure Functions Core Tools
 
-Install the Azure Functions Core Tools by following the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2). Ignore the comments in the article about the Chocolately package manager, which are not necessary to complete this tutorial.
+Install the Azure Functions Core Tools by following the instructions for your operating system on [Work with Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2). Ignore the comments in the article about the Chocolatey package manager, which are not necessary to complete this tutorial.
 
 When installing Node.js, use the default options and do *not* select the option to automatically install necessary tools.  Also be sure to use the `-g` option with the `npm install` commands so that the Core Tools are available to subsequent commands.
 
