@@ -34,4 +34,3 @@ After signing in, verify that the email address of your Azure account (or "Signe
 > ```
 >
 > ---
-                                                                                                                                                                                                                        
