@@ -27,7 +27,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
     ![Complete an initial commit to the repository](media/deploy-azure/initial-commit.png)
 
-1. From the command pallette (**Ctrl**+**Shift**+**P**), type "create web" and select **Azure App Service: Create New Web App...Advanced**. You use the advanced command to have full control over the deployment including resource group, App Service Plan, and operating system rather than use Linux defaults.
+1. From the command palette (**Ctrl**+**Shift**+**P**), type "create web" and select **Azure App Service: Create New Web App...Advanced**. You use the advanced command to have full control over the deployment including resource group, App Service Plan, and operating system rather than use Linux defaults.
 
 1. Respond to the prompts as follows:
 
