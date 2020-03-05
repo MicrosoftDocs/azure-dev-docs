@@ -41,7 +41,8 @@ In this step, you create a simple Node.js app using the Express application gene
 
     ![Running Express Application](media/deploy-azure/express.png)
 
-1. Press **Ctrl**+**C** to stop the server.
+1. Press **Ctrl**+**C** in the terminal to stop the server.
 
 > [!div class="nextstepaction"]
 > [I created the  Node.js app](tutorial-vscode-azure-app-service-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
+                                                
