@@ -31,8 +31,8 @@ If you can't meet any of the pre-migration requirements, see the companion migra
 
 If your application relies on session replication, with or without Oracle Coherence*Web, you have two options:
 
-1. Refactor your application to use a database for session management.
-2. Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
+* Refactor your application to use a database for session management.
+* Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
 
 [!INCLUDE [document-datasources](includes/migration/document-datasources.md)]
 
@@ -77,9 +77,9 @@ java -version
 
 If you currently use WLST to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you'll need to make sure those parameters conform to one of the following options:
 
-1. They are externalized as app settings.
-2. They are embedded in your application.
-3. They are using the JBoss CLI during deployment.
+* They are externalized as app settings.
+* They are embedded in your application.
+* They are using the JBoss CLI during deployment.
 
 If WLST is doing more than what is mentioned above, you'll have some additional work to do during migration.
 
