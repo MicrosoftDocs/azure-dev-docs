@@ -28,7 +28,6 @@ After signing in, verify that the email address of your Azure account (or "Signe
 > # [Cmd](#tab/cmd)
 >
 > ```cmd
-> # Windows
 > set HTTPS_PROXY=https://username:password@proxy:8080
 > set HTTP_PROXY=http://username:password@proxy:8080
 > ```
