@@ -18,7 +18,6 @@ This article demonstrates creating a Java app with the **[Spring Initializr]** t
 
 In this tutorial, you learn how to:
 
- [!div class="checklist"]
  * Create a Java application using the Spring Initializr
  * Configure Azure Active Directory
  * Secure the application with Spring Boot classes and annotations
@@ -39,7 +38,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 
-   ![Specify Group and Aritifact names][create-spring-app-01]
+   ![Specify Group and Artifact names][create-spring-app-01]
 
 1. Scroll down and add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
 
@@ -111,7 +110,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
     ![Edit Reply URLs][create-app-registration-09]
 
-1. Enter "<http://localhost:8080/login/oauth2/code/azure>" as a new **Redirect URI**, and then click **Configure**.
+1. Enter <http:<span></span>//localhost:8080/login/oauth2/code/azure> as a new **Redirect URI**, and then click **Configure**.
 
     ![Add new Reply URL][create-app-registration-10]
 
@@ -143,7 +142,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
 1. Click **Groups**, then **Create a new group** that you will use for authorization in your application.
 
-1. Then click **No members selected**. (For the purposes of this tutorial, add the account to the _Users_ group.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
+1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
 
    ![Select the user for group][create-user-03]
 
@@ -310,7 +309,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
    ![Build your application][build-application]
 
-1. After your application is built and started by Maven, open <http://localhost:8080> in a web browser; you should be prompted for a user name and password.
+1. After your application is built and started by Maven, open http:<span></span>//localhost:8080 in a web browser; you should be prompted for a user name and password.
 
    ![Logging into your application][application-login]
 
