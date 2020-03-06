@@ -1,16 +1,9 @@
 ---
 title: Tools for JavaScript developers on Azure
-description: Install individual tools for JavaScript development on Azure
-services: multiple
-author: karlerickson
-manager: douge
-ms.service: azure-nodejs
-ms.tgt_pltfrm: na
-ms.devlang: nodejs
+description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: article
 ms.date: 11/07/2017 
-ms.author: karler
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
 # Azure tools for JavaScript developers
@@ -19,7 +12,7 @@ The following tools are recommended for developing JavaScript apps on Azure.
 ## Azure CLI
 Azure CLI is optimized for managing Azure resources from the command line.
 
-![CLI](media/node-azure-tools/cli.png)
+![Azure CLI for managing Azure Resources](media/node-azure-tools/azure-cli.png)
  
 > [!div class="nextstepaction"]
 > [Install the Azure CLI 2.0](/cli/azure/install-az-cli2)
@@ -27,7 +20,7 @@ Azure CLI is optimized for managing Azure resources from the command line.
 ## Visual Studio Code
 Edit and debug JavaScript apps on any OS.
 
-![Visual Studio Code](media/node-azure-tools/vs-code.png)
+![Use Visual Studio Code to edit JavaScript](media/node-azure-tools/visual-studio-code-debug-javascript.png)
 
 > [!div class="nextstepaction"]
 > [Download Visual Studio Code](https://code.visualstudio.com)

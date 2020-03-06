@@ -1,20 +1,16 @@
 ---
-title: Add a second Python function to Azure Functions with Visual Studio Code
+title: "Step 6: Add a second Python function to Azure Functions with VS Code"
 description: Tutorial step 6, expanding an Azure Functions project by adding a second function.
-services: functions
-author: kraigb
-manager: barbkess
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/02/2019
-ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Add a second function
+# 6: Add a second Python function to Azure Functions
 
 [Previous step: deploy to Azure](tutorial-vs-code-serverless-python-05.md)
 
-After your first deployment, you can make changes to your code, such as adding additional functions, and redeploy to the same Functions App.
+After your first deployment, you can make changes to your code, such as adding additional Python functions, and redeploy to the same Azure Functions app.
 
 1. In the **Azure: Functions** explorer, select the **Create Function** command or use **Azure Functions: Create Function** from the Command Palette. Specify the following details for the function:
 
@@ -103,13 +99,11 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
-    ```output
+    <pre>
     Http Functions:
-
             DigitsOfPi: [GET] http://localhost:7071/api/DigitsOfPi
-
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-    ```
+    </pre>
 
 1. In a browser, or from curl, make a request to `http://localhost:7071/api/DigitsOfPi?digits=125` and observe the output. (You might notice that the code algorithm isn't entirely accurate, but we'll leave the improvements to you!) Stop the debugger when you're finished.
 
@@ -118,6 +112,6 @@ After your first deployment, you can make changes to your code, such as adding a
 1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
 
 > [!div class="nextstepaction"]
-> [I added a second functions](tutorial-vs-code-serverless-python-07.md)
+> [I added a second functions - continue to step 7 >>>](tutorial-vs-code-serverless-python-07.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=06-second-function)

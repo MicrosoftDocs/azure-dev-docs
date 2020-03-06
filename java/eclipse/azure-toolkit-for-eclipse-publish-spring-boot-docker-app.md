@@ -1,23 +1,15 @@
 ---
-title: Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse
+title: Publish a Spring Boot app as a Docker container 
+titleSuffix: Azure Toolkit for Eclipse
 description: Learn how to publish a web app to Microsoft Azure as a Docker container by using the Azure Toolkit for Eclipse.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.author: brendm
 ms.date: 02/01/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
-# Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse
+# Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse (DEPRECATED)
 
 The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
 
@@ -205,7 +197,7 @@ For additional resources for Docker, see the official [Docker website](https://w
 
 <!-- URL List -->
 
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Management Portal]: https://go.microsoft.com/fwlink/?LinkID=512959
 [Deploy Spring Boot on Linux in AKS]: /azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: azure-toolkit-for-eclipse-publish-as-docker-container.md

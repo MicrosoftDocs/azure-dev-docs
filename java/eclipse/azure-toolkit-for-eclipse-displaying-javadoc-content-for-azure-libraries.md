@@ -1,20 +1,13 @@
 ---
-title: Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
+title: Display Javadoc Content in Eclipse
+titleSuffix: Azure Libraries for Java 
 description: How to display the Javadoc content for the Azure Libraries in Eclipse.
-services: ''
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-
 ms.assetid: 30f8b6a1-1d76-4d1c-861b-1db478c46e6b
-ms.author: brendm
 ms.date: 02/01/2018
-ms.devlang: Java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
@@ -33,7 +26,7 @@ This procedure assumes you have already added the Azure Library for Java to your
 
 1. You can specify a **Javadoc URL**, or a **Javadoc in archive**.
 
-   * If you choose to specify a **Javadoc URL**, use the URLs such as **http://dl.windowsazure.com/javadoc** or **http://dl.windowsazure.com/storage/javadoc**.
+   * If you choose to specify a **Javadoc URL**, use the URLs such as **https://dl.windowsazure.com/javadoc** or **https://dl.windowsazure.com/storage/javadoc**.
 
    * If you choose to use **Javadoc in archive**, you can specify an external file, or a workspace file.
 

@@ -1,19 +1,12 @@
 ---
-title: Configure a Spring Boot Initializer app to use Azure Redis Cache
+title: Create a Spring Boot Initializer app - Azure Redis Cache
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Redis Cache.
 services: redis-cache
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
-ms.date: 12/19/2018
-ms.devlang: java
+ms.date: 02/06/2020
 ms.service: cache
 ms.tgt_pltfrm: cache-redis
-ms.topic: article
-ms.workload: na
+ms.topic: conceptual
 ---
 
 # Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache
@@ -32,18 +25,17 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Aritifact** names for your application, and then click the link to **Switch to the full version** of the Spring Initializr.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
+
+1. Add dependencies for **Spring Web** section and check the box for **Web**, then scroll down to the **NoSQL** section and check the box for **Spring Data Reactive Redis**. 
+1. Scroll to the bottom of the page and click the button to **Generate Project**.
 
    ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
    >
-   > The Spring Initializr will use the **Group** and **Aritifact** names to create the package name; for example: *com.contoso.myazuredemo*.
+   > The Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.contoso.myazuredemo*.
    >
-
-1. Scroll down to the **Web** section and check the box for **Web**, then scroll down to the **NoSQL** section and check the box for **Redis**, then scroll to the bottom of the page and click the button to **Generate Project**.
-
-   ![Full Spring Initializr options][SI02]
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -56,8 +48,6 @@ The following prerequisites are required in order to complete the steps in this 
 ## Create a Redis cache on Azure
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click **+New**.
-
-   ![Azure portal][AZ01]
 
 1. Click **Database**, and then click **Redis Cache**.
 

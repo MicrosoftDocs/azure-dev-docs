@@ -2,14 +2,9 @@
 title: Manage Azure virtual networks with Java | Microsoft Docs
 description: Sample code to manage Azure virtual networks in your Java code
 author: rloutlaw
-manager: douge
 ms.assetid: 92736911-3df6-46e7-b751-25bb36bf89b9
-ms.devlang: java
 ms.topic: article
-ms.service: azure
-
 ms.date: 3/30/2017
-ms.author: brendm
 ms.reviewer: asirveda
 ---
 
@@ -173,9 +168,9 @@ This sample creates a virtual network with two subnets and with one virtual mach
 
 | Class used in sample | Notes
 |-------|-------|
-| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network._network) | Local object representation of the virtual network created from `azure.networks().define()...create()` . Use the `update()...apply()` fluent chain to update an existing virtual network.
-| [Subnet](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network._subnet) | Create subnets on the virtual network when defining or updating the network using `withSubnet()`. Get object representations of a subnet from `Network.subnets().get()` or `Network.subnets().entrySet()`. These objects have methods to query subnet properties.
-| [NetworkSecurityGroup](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network._network_security_group) | Created using the `azure.networkSecurityGroups().define()...create()` fluent chain and then applied to subnets through the updating or creating subnets in a virtual network. 
+| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.network) | Local object representation of the virtual network created from `azure.networks().define()...create()` . Use the `update()...apply()` fluent chain to update an existing virtual network.
+| [Subnet](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.subnet) | Create subnets on the virtual network when defining or updating the network using `withSubnet()`. Get object representations of a subnet from `Network.subnets().get()` or `Network.subnets().entrySet()`. These objects have methods to query subnet properties.
+| [NetworkSecurityGroup](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.networksecuritygroup) | Created using the `azure.networkSecurityGroups().define()...create()` fluent chain and then applied to subnets through the updating or creating subnets in a virtual network. 
 
 ## Next steps
 

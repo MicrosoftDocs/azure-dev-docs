@@ -1,22 +1,20 @@
 ---
-title: Redeploy a container to Azure App Service after making changes in Visual Studio Code
+title: "Step 3: Redeploy a container to Azure App Service after making changes in Visual Studio Code"
 description: Tutorial step 3, the simple steps to rebuild and redeploy a container image.
-services: app-service
-author: kraigb
-manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: kraigb
+ms.custom: seo-python-october2019
 ---
 
-# Make changes and redeploy
+# 2: Redeploy a container to Azure App Service after making changes
 
 [Previous step: deploy the image to Azure](tutorial-deploy-containers-02.md)
 
+This article explains how to redeploy a container to Azure App Service after making changes in Visual Studio Code.
+
 Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
 
-1. Make changes to your app and test locally. (This step and the two that follow are explained in the tutorial, [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-container).)
+1. Make changes to your app and test locally. (This step and the two that follow are explained in the tutorial, [Create a Python container in VS Code](https://code.visualstudio.com/docs/python/tutorial-create-containers).)
 
 1. Rebuild the Docker image. If you change only app code, the build should take only a few seconds.
 
@@ -27,6 +25,6 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
 > [!div class="nextstepaction"]
-> [I made changes and redeployed](tutorial-deploy-containers-04.md)
+> [I made changes and redeployed - continue to step 4 >>>](tutorial-deploy-containers-04.md)
 
 [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=03-make-changes-redeploy)

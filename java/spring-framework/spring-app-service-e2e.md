@@ -2,11 +2,9 @@
 title: Deploy a Spring/Tomcat app to App Service with Azure Database for MySQL
 description: End-to-end tutorial for Java App Service with MySQL
 author: KarlErickson
-manager: barbkess
 ms.author: karler
-ms.date: 08/38/2019
+ms.date: 11/12/2019
 ms.service: app-service
-ms.devlang: java
 ms.topic: article
 ---
 
@@ -18,7 +16,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 ## Prerequisites
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview)
 * [Java 8](http://java.oracle.com/)
 * [Maven 3](http://maven.apache.org/)
 * [Git](https://github.com/)
@@ -118,13 +116,18 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.7.0</version>
+    <version>1.9.0</version>
     <configuration>
+        <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
         <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
         <appName>${WEBAPP_NAME}</appName>
         <region>${REGION}</region>
-        <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
+        <runtime>
+            <os>linux</os>
+            <javaVersion>jre8</javaVersion>            
+            <webContainer>TOMCAT 8.5</webContainer>
+        </runtime>
     </configuration>
 </plugin>
 ```

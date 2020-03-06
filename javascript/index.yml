@@ -8,8 +8,8 @@ summary: |
 
 # Search & metrics meta
 metadata:
-  title: Azure for JavaScript and Node.js developers - Tutorials, tools, and SDK reference
-  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js.
+  title: Azure for JavaScript and Node.js developers
+  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: sptramer
   ms.author: sttramer
   ms.date: 09/15/2019
@@ -23,7 +23,7 @@ landingContent:
           - text: Quickly deploy a Node.js sample in Azure App Service
             url: https://aka.ms/try-azure-node
           - text: Browse all available Azure SDK for JavaScript samples
-            url: /resources/samples/?sort=0&platform=nodejs
+            url: /samples/browse/?languages=javascript,nodejs
   - title: Host applications on Azure
     linkLists:
       - linkListType: overview
@@ -37,13 +37,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy static web applications from Visual Studio Code
-            url: https://code.visualstudio.com/tutorials/static-website/getting-started
-          - text: Deploy full-stack Node.js applications from Visual Studio Code
-            url: https://code.visualstudio.com/tutorials/app-service-extension/getting-started
-          - text: Deploy containerized applications from Visual Studio Code
-            url: https://code.visualstudio.com/tutorials/docker-extension/getting-started
+            url: tutorial-vscode-static-website-node-01.md
           - text: Deploy serverless applications with Azure Functions from Visual Studio Code
-            url: https://code.visualstudio.com/tutorials/functions-extension/getting-started
+            url: tutorial-vscode-serverless-node-01.md
+          - text: Deploy full-stack Node.js applications from Visual Studio Code
+            url: tutorial-vscode-azure-app-service-node-01.md
+          - text: Deploy containerized applications from Visual Studio Code
+            url: tutorial-vscode-docker-node-01.md
   - title: Build, deploy, and monitor applications with Azure
     linkLists:
       - linkListType: overview

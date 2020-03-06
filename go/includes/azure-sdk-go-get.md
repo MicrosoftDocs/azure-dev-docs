@@ -1,10 +1,5 @@
 ---
-author: sptramer
-ms.author: sttramer
-manager: carmonm
 ms.date: 09/05/2018 
-ms.topic: include
-ms.prod: azure
 ms.technology: azure-cli
 ---
 The [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) is compatible with Go versions 1.8 and higher. For environments using

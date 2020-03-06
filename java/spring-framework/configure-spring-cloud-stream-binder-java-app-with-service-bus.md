@@ -3,10 +3,8 @@ title: How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
 author: seanli1988
 manager: kyliel
-ms.author: Sean.Li
+ms.author: seal
 ms.date: 08/21/2019
-ms.devlang: java
-ms.service: azure-java
 ms.topic: article
 ---
 
@@ -22,7 +20,7 @@ This article demonstrates how to use the Spring Cloud Stream Binder to send mess
 
 The following prerequisites are required for this article:
 
-1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.comfree/).
+1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 
 1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
@@ -31,7 +29,7 @@ The following prerequisites are required for this article:
 1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
     1. Allows access from all networks
-    1. Is Premium (or higher)
+    1. Is Standard (or higher)
     1. Has an access policy with read/write access for your queue and topic
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
@@ -263,7 +261,7 @@ In this section, you create the necessary Java classes for sending messages to y
 
 ## Clean up resources
 
-When no longer needed, use the [Azure portal](http://ms.portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 

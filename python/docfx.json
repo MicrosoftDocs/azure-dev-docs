@@ -50,7 +50,28 @@
         }
       }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author": {
+        "*.md": "kraigb"        
+      },
+      "manager": {
+        "*.md": "barbkess"        
+      },
+      "ms.author": {
+        "*.md": "kraigb"        
+      },      
+      "ms.devlang": {
+        "*.md": "python"
+      },      
+      "ms.prod": {
+        "*.md": "azure-python"        
+      },
+      "product_feedback_url": {
+        "tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+      }
+    },
     "template": [],
     "dest": "azure-python",
     "markdownEngineName": "markdig"

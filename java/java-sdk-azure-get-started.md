@@ -3,12 +3,8 @@ title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
 author: rloutlaw
-ms.author: brendm
-manager: douge
 ms.date: 04/16/2017
 ms.topic: article
-
-ms.devlang: java
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
 ms.custom: seo-java-august2019 
@@ -17,6 +13,8 @@ ms.custom: seo-java-august2019
 # Get started with cloud development using Java on Azure
 
 This guide walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect them to to perform some basic tasks, like uploading a file or deploying a web application. When you're done, you'll be ready to start using Azure services in your own Java applications.
+
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
 
 ## Prerequisites
 

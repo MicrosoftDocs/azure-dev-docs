@@ -11,9 +11,9 @@
 | [Create a virtual machine scale set with a load balancer][7] | Create a VM scale set, set up a load balancer, and get SSH connection strings to the scale set VMs. |
 
 [1]: ../java-sdk-manage-virtual-machines.md
-[2]: https://azure.microsoft.com/resources/samples/managed-disk-java-create-virtual-machine-using-custom-image/
-[3]: https://azure.microsoft.com/resources/samples/managed-disk-java-create-virtual-machine-using-specialized-disk-from-vhd/
-[4]: https://azure.microsoft.com/resources/samples/compute-java-manage-virtual-machines-in-parallel/
+[2]: https://github.com/Azure-Samples/managed-disk-java-create-virtual-machine-using-custom-image/
+[3]: https://github.com/Azure-Samples/managed-disk-java-create-virtual-machine-using-specialized-disk-from-vhd/
+[4]: https://github.com/Azure-Samples/compute-java-manage-virtual-machines-in-parallel/
 [5]: ../java-sdk-virtual-machines-in-parallel.md
 [6]: ../java-sdk-manage-virtual-networks.md
 [7]: ../java-sdk-manage-vm-scalesets.md

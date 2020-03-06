@@ -1,18 +1,11 @@
 ---
 title: Authenticate with the Azure management modules for Node.js
 description: Authenticate with a service principal into the Azure management modules for Node.js
-author: karlerickson
-manager: douge
-ms.author: karler
-ms.date: 06/17/2017
 ms.topic: article
-ms.prod: azure
-ms.devlang: nodejs
-ms.service: azure-nodejs
+ms.date: 06/17/2017
 ---
 
-
-# Authenticate with the Azure modules for Node.js 
+# Authenticate with the Azure modules for Node.js
 
 All service APIs require authentication via a `credentials` object when being
 instantiated. There are three ways of authenticating and creating the required
@@ -21,6 +14,8 @@ credentials via the Azure SDK for Node.js:
 - Basic authentication
 - Interactive login
 - Service principal authentication
+
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
 
 ## Basic authentication
 

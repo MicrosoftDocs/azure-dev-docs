@@ -1,22 +1,18 @@
 ---
 title: Write serverless Node.js code with Azure Functions
 description: Guidance on how to use Azure Functions to create and deploy serverless code using Azure Functions.
-author: kraigb
-manager: barbkess
-ms.devlang: nodejs
 ms.topic: article
-ms.service: azure-nodejs
 ms.date: 08/19/2019
-ms.author: kraigb
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
-# How to write serverless Node.js code on Azure
+# Use Azure Functions to write serverless Node.js code on Azure
 
-Serverless code allows you to create responsive, on-demand endpoints on the Internet without having to concern yourself with provisioning or managing infrastructure. Serverless code is composed to scripts or other bits of code that are run in response to various events. On Azure, the serverless offering is called Azure Functions.
+On Azure, the serverless offering is called Azure Functions. Serverless code allows you to create responsive, on-demand endpoints on the Internet without having to concern yourself with provisioning or managing infrastructure. Serverless code is composed of scripts or other bits of code that are run in response to various events. 
 
 First, jump right in:
 
-- [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code). This article introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+- [Create your first function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code). This article introduces you to Azure Functions in the context of Visual Studio Code, which simplifies many of the details.
 
 Next, expand your understanding of what Azure Functions can do by reviewing the following articles:
 
@@ -38,13 +34,13 @@ From here, you can enjoy a number other resources that help you explore serverle
   - [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
   - [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
 
-- [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](node-howto-integrate-databases.md)
+- [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](node-howto-integrate-databases.md)
 
 - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)
 
 - [Strategies for testing your code in Azure Functions](/azure/azure-functions/functions-test-a-function) and [Error handling](/azure/azure-functions/functions-bindings-error-pages)
 
-- [Configure authentication with Azure Active Directory](/azure/app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json)
+- [Configure authentication with Azure Active Directory](/azure/app-service/configure-authentication-provider-aad?toc=%2fazure%2fazure-functions%2ftoc.json)
 
 - [Set up continuous deployment with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops)
 

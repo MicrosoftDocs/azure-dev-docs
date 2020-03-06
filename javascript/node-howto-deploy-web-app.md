@@ -1,18 +1,14 @@
 ---
 title: Deploy Node.js web apps to Azure
 description: Getting started with Azure App Service and other hosting options for web apps, including progressive web apps (PWA)
-author: kraigb
-manager: barbkess
-ms.devlang: nodejs
 ms.topic: article
-ms.service: azure-nodejs
 ms.date: 08/20/2019
-ms.author: kraigb
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
-# How to deploy web apps to Azure
+# Deploy Node.js web apps to Azure App Service
 
-On Azure, you have several options for hosting web apps:
+On Azure, you have several options for deploying and hosting web apps:
 
 - The best hosting option for web apps is Azure App Service, a platform-as-a-service (PaaS) offering. To get started, try any of the following resources:
 
@@ -24,7 +20,7 @@ On Azure, you have several options for hosting web apps:
 
 - You can build your own containers and deploy them to Azure using the Azure Container Registry and Azure Kubernetes Service. For details see [How to deploy Node.js containers to Azure](node-howto-deploy-containers.md).
 
-- If you're like to work primarily with serverless code, refer to [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md).
+- If you like to work primarily with serverless code, refer to [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md).
 
 - For details on creating a JAMstack (static) site, see [How to build JAMstack (static site) web apps with Azure](node-howto-create-static-site-jamstack.md).
 

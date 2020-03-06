@@ -3,13 +3,7 @@ title: How to use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL database.
 services: sql-database
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -33,7 +27,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure SQL Database
 
-### Create a SQL database server using the Azure Portal
+### Create a SQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -61,39 +55,38 @@ The following prerequisites are required in order to complete the steps in this 
    - **Password** and **Confirm password**: Specify the password for your database administrator.
    - **Location**: Specify the closest geographic region for your database.
 
-   ![Specify your SQL server][SQL03]
+1. When you have entered all of the above information, click **OK**.
 
-1. When you have entered all of the above information, click **Select**.
+1. Click **Review and create**.
 
-1. For this tutorial, specify the least-expensive **Pricing tier**, and then click **Create**.
+### Configure a firewall rule for your SQL server using the Azure portal
 
-   ![Create your SQL database][SQL04]
-
-### Configure a firewall rule for your SQL server using the Azure Portal
+After your SQL database and server are created, you can configure security settings.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the SQL server you just created.
 
-   ![Select your SQL server][SQL05]
-
 1. In the **Overview** section, click **Show firewall settings**
 
    ![Show firewall settings][SQL06]
 
-1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
+1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
 
    ![Configure firewall settings][SQL07]
 
-### Retrieve the connection string for your SQL server using the Azure Portal
+### Retrieve the connection string for your SQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the SQL database you just created.
 
+1. Click **Connection strings**.
+
+
    ![Select your SQL database][SQL08]
 
-1. Click **Connection strings**, then click **JDBC**, and copy the value in the JDBC text field.
+1. Then click **JDBC**, and copy the value in the JDBC text field.
 
    ![Retrieve your JDBC connection string][SQL09]
 
@@ -135,15 +128,15 @@ The following prerequisites are required in order to complete the steps in this 
 1. Start the sample application; for example:
 
    ```shell
-   java -jar target/spring-data-jpa-on-azure-0.1.0-SNAPSHOT.jar
+   java -jar target/spring-data-jdbc-on-azure-0.1.0-SNAPSHOT.jar
    ```
 
 1. Create new records using `curl` from a command prompt like the following examples:
 
    ```shell
-   curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   curl -s -d "{\"name\":\"dog\",\"species\":\"canine\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
 
-   curl -s -d '{"name":"cat","species":"feline"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
    Your application should return values like the following:

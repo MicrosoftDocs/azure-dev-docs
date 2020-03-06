@@ -1,12 +1,8 @@
 ---
 title: Create a Logic App Workflow
 description: Create a Logic App workflow
-author: sptramer
-manager: carmonm
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 6/15/2017
-ms.author: sttramer
 ---
 
 # Create a Logic App Workflow

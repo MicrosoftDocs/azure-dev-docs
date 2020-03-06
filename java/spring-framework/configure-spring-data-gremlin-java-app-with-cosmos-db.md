@@ -3,10 +3,7 @@ title: How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL A
 description: Learn how to configure an application created with the Spring Boot Initializer with the Azure Cosmos DB SQL API.
 services: cosmos-db
 documentationcenter: java
-author: bmitchell287
-ms.author: brendm
-ms.date: 12/19/2018
-ms.devlang: java
+ms.date: 01/10/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -40,29 +37,27 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click **+Create a resource**.
 
-   ![Create a resource][AZ01]
-
 1. Click **Databases**, and then click **Azure Cosmos DB**.
 
    ![Create Azure Cosmos DB][AZ02]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
-   * Enter a unique **ID**, which you will use as part of the Gremlin URI for your database. For example: if you entered **wingtiptoysdata** for the **ID**, the Gremlin URI would be *wingtiptoysdata.gremlin.cosmosdb.azure.com*.
+   * Choose the **Subscription** that you want to use for your database.
+   * Specify whether to create a new **Resource Group** for your database, or choose an existing resource group.
+   * Enter a unique **Account Name** to use as part of the Gremlin URI for your database. For example: if you entered **wingtiptoysdata** for the **Account Name**, the Gremlin URI would be *wingtiptoysdata.gremlin.cosmosdb.azure.com*.
    * Choose **Gremlin (Graph)** for the API.
-   * Choose the **Subscription** you want to use for your database.
-   * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
    * Specify the **Location** for your database.
    
-   When you have specified these options, click **Create** to create your database.
+When you have specified these options, click **Review + create**.
 
    ![Specify Azure Cosmos DB options][AZ03]
 
-1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
+Review the specification and click **Create** to create your database.
 
-   ![All Resources][AZ04]
+1. When your database has been created, Click **Go to resource**. It is also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
-1. When the properties page for your database is displayed, click **Access keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
    ![Access keys][AZ05]
 
@@ -75,9 +70,10 @@ The following prerequisites are required in order to follow the steps in this ar
 1. When the **Add Graph** is displayed, enter the following information:
 
    * Specify a unique **Database id** for your database.
-   * Specify a unique **Graph id** for your graph.
    * You can choose to specify your **Storage capacity**, or you can accept the default.
-   * Specify your **Throughput**, and for this example you can choose 400 Request Units (RUs).
+   * Specify a unique **Graph id** for your graph.
+   * Specify a **Partition key**. For more information see [Using a partitioned graph in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+Click **OK**.
    
    When you have specified these options, click **OK** to create your graph.
 
@@ -102,8 +98,6 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. When prompted, download the project to a path on your local computer.
 
-   ![Download custom Spring Boot project][SI02]
-
 1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
 
    ![Custom Spring Boot project files][SI03]
@@ -117,8 +111,6 @@ The following prerequisites are required in order to follow the steps in this ar
    -or-
 
    `/users/example/home/wingtiptoysdata/pom.xml`
-
-   ![Locate the pom.xml file][PM01]
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Data Gremlin Starter to list of `<dependencies>`:
 
@@ -556,23 +548,19 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[AZ01]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ01.png
 [AZ02]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ02.png
 [AZ03]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ03.png
-[AZ04]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ04.png
 [AZ05]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ05.png
 [AZ06]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ06.png
 [AZ07]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ07.png
 [AZ08]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ08.png
 
 [SI01]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/SI01.png
-[SI02]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/SI02.png
 [SI03]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/SI03.png
 
 [RE01]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/RE01.png
 [RE02]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/RE02.png
 
-[PM01]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/PM01.png
 [PM02]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/PM02.png
 
 [JV01]: ./media/configure-spring-data-gremlin-java-app-with-cosmos-db/JV01.png

@@ -24,7 +24,8 @@
         "files": [
           "**/*.png",
           "**/*.jpg",
-          "**/*.gif"
+          "**/*.gif",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -50,7 +51,26 @@
         }
       }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "ms.devlang": {
+        "**/*.md": "java"
+      },
+      "ms.service": {
+        "**/*.md": "azure-java"
+      },
+      "manager": {
+        "**/*.md": "barbkess"
+      },
+      "ms.author": {
+        "**/*.md": "brendm"
+      },
+      "author": {
+        "**/*.md": "bmitchell287"
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include"
+      }
+    },
     "template": [],
     "markdownEngineName": "markdig"
   }

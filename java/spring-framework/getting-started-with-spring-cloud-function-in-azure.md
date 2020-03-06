@@ -1,18 +1,14 @@
 ---
 title: Getting started with Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
-services: ''
 documentationcenter: java
 author: judubois
 manager: brborges
-ms.assetid: 
 ms.author: judubois
 ms.date: 07/17/2019
-ms.devlang: Java
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ---
 
 # Getting started with Spring Cloud Function in Azure
@@ -64,7 +60,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <azure.functions.maven.plugin.version>1.3.2</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.4.0</azure.functions.maven.plugin.version>
     <azure.functions.java.library.version>1.3.0</azure.functions.java.library.version>
     <functionAppName>my-spring-function</functionAppName>
     <functionAppRegion>westus</functionAppRegion>
