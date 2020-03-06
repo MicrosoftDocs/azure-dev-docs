@@ -18,7 +18,7 @@ If you can't meet any of the pre-migration requirements, see the following compa
 * Migrate executable JAR applications to containers on Azure Kubernetes Service (planned)
 * Migrate executable JAR Applications to Azure Virtual Machines (planned)
 
-## Pre-migration steps
+## Pre-migration
 
 ### Switch to a supported platform
 
@@ -204,7 +204,7 @@ Follow [these steps to migrate connection strings and other settings](/azure/app
 
 Finally, you'll need to restart your Web App to apply all configuration changes. Upon completion of the restart, verify that your application is running correctly.
 
-## Post-migration steps
+## Post-migration
 
 Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that we have some recommendations for you that can make your application more cloud-native.
 

@@ -115,7 +115,7 @@ After you've provisioned the offer, you can examine the domain configuration and
 
 ### Connect the databases
 
-After youve' migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://wls-eng.github.io/arm-oraclelinux-wls/#connecting-a-database-to-a-cluster). These instructions will help you account for any database secrets and access strings involved.
+After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://wls-eng.github.io/arm-oraclelinux-wls/#connecting-a-database-to-a-cluster). These instructions will help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 
