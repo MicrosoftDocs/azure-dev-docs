@@ -2,25 +2,21 @@
 title: Deploy Node.js apps to Azure App Service from Visual Studio Code
 description: Tutorial part 1, introduction and prerequisites.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 03/04/2020
 ---
 
 # Deploy to Azure App Service using Visual Studio Code
 
-In this tutorial, you deploy a Node.js application to Azure App Service on Linux using the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+In this tutorial, you deploy a Node.js application to Azure App Service (on Linux or Windows) using the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
 ## Prerequisites
 
-- An [Azure subscription](#azure-subscription).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice)
+- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
-
-### Azure subscription
-
-If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
 ## Sign in to Azure
 
