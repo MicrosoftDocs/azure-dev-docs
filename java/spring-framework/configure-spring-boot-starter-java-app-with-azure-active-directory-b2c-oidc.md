@@ -6,7 +6,7 @@ documentationcenter: java
 author: panli
 manager: kevinzha
 ms.author: panli
-ms.date: 02/28/2019
+ms.date: 02/06/2020
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -53,24 +53,23 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Log into <https://portal.azure.com>.
 
-2. Click **+Create a resource**, then **Identity**, and then **Azure Active Directory B2C**.
+2. Click **+Create a resource**, then **Identity**, and then **See all**.  Search for **Azure Active Directory B2C**.
 
    ![Create new Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ1.png)
 
-3. Enter your **Organization name** and your **Initial domain name**, record the **domain name** as
-your `${your-tenant-name}` and click **Create**.
+3. Click **Create**.
 
    ![Get your B2C tenant name](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ5.png)
 
-4. Select your account name on the top-right of the Azure portal toolbar, then click **Switch directory**.
+4. Select **Create a new Azure AD B2C Tenant**.
 
-   ![Choose your Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ2.png)
+   ![Create new Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ2.png)
 
-5. Select your new Azure Active Directory from the drop-down menu.
+5. Enter your Organization name and your Initial domain name, and save the domain name for later reference.  Click **Create**.
 
    ![Choose your Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ3.png)
 
-6. Search `b2c` and click `Azure AD B2C` service.
+6. When the Active Directory creation is complete, navigate to the new directory.  Or search for `b2c` and click `Azure AD B2C` service.
 
    ![Locate the Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ4.png)
 
