@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Azure JDK for Java documentation
-summary: |
-  Learn about the Azure JDK for Java, what features the JDK provides, and development tools that make it easy to use Azure with Java.
+title: Azure for Java cloud developers
+summary: Learn about the Azure JDK for Java, what features the JDK provides, and development tools that make it easy to use Azure with Java.
 
 metadata:
-  title: Azure for Java developers
-  description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
-  author: rloutlaw 
+  title: Azure for Java cloud developers
+  description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
+  ms.service: azure-java
+  author: bmitchell287 
   ms.author: brendm
-  ms.date: 09/18/2019
+  ms.date: 03/05/2020
   ms.topic: landing-page
 
 landingContent:
