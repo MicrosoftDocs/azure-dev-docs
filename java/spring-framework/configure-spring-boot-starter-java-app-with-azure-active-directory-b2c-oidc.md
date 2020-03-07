@@ -93,7 +93,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Copy client secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C3.5.png)
 
-6. From the left navigation pane select **API permissions**, then click **Grant admin consent for ...**. Click **Yes** at the prompt.
+6. From the left navigation pane select **API permissions**, then click **Grant admin consent for ...**  And Click **Yes** at the prompt.
 
    ![Configure user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C4.png)
 
