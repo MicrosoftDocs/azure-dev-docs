@@ -31,6 +31,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
 1. Respond to the prompts as follows:
 
+    - Select your **Subscription** acount.
     - For **Enter a globally unique name**, enter a name that's unique across all of Azure. Use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-')
     - Select **Create new resource group** and provide a name like `AppServiceTutorial-rg`.
     - Select an operating system (Windows or Linux)
