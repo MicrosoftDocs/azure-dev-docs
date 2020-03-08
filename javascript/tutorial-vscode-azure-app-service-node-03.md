@@ -64,7 +64,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
     ![Deploy to Web App icon](media/deploy-azure/deploy.png)
 
-1. At the prompts, select the *expressApp1* folder, then select the name of the web app created earlier.
+1. At the prompts, select the *expressApp1* folder, select your **subscription** account again and then select the name of the web app created earlier.
 
 1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
 
