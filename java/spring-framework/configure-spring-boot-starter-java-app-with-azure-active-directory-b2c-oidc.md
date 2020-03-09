@@ -75,24 +75,25 @@ The following prerequisites are required in order to complete the steps in this 
 
 ### Add an application registration for your Spring Boot app
 
-1. Select **Azure AD B2C** from the portal menu, click **Applications**, and then click **Add**.
+1. Select **Azure AD B2C** from the portal menu, click **App registrations**, and then click **New registration**.
 
    ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C1.png)
 
-2. Specify your application **Name**, add `http://localhost:8080/home` for the **Reply URL**, record
-the **Application ID** as your `${your-client-id}` and then click **Save**.
+2. Specify your application **Name**, add `http://localhost:8080/home` for the **Redirect URL**, and then click **Register**.
 
    ![Add Application Reply URL](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C2.png)
 
-3. Select **Keys** from your application, click **Generate key** to generate `${your-client-secret}` and
-then **Save**.
+3. Select **Certificates & secrets** from your application, click **New client secret**.
 
-4. Select **User flows** on your left, and then **Click** **New user flow **.
+4. Enter **Description** on your left, and then **Click** **Add**.
 
    ![Create user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C3.png)
 
-5. Choose **Sign up or in**, **Profile editing** and **Password reset** to create user flows
-respectively. Specify your user flow **Name** and **User attributes and claims**, click **Create**.
+5. Copy and save the new client secret.
+
+   ![Copy client secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C3.5.png)
+
+6. From the left navigation pane select **API permissions**, then click **Grant admin consent for ...**  And Click **Yes** at the prompt.
 
    ![Configure user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C4.png)
 
