@@ -77,11 +77,11 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create new user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow1.png)
 
-8. Select **Sign up and sign in**.  Then click **Create**.
+8. Select **Sign up and sign in**.
 
    ![Sign up or sign in](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow2.png)
 
-9. Set **Name** and **Identity provider**.
+9. Set **Name** and **Identity provider**.  Then click **Create**.
 
    ![Name and Identity provider](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow3.png)
 
