@@ -40,7 +40,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-2. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select the **Web** and **Security** module of the Spring Initializr.
+2. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select the **Web** and **Security** modules as **Dependencies**.
 
    ![Specify Group and Aritifact names](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/SI.png)
 
