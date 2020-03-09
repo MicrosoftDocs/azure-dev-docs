@@ -385,7 +385,7 @@ This issue can be resolved by using `--patch-module <module-name>=<path>[,<path>
 ##### NoClassDefFoundError caused by using Java EE or CORBA modules
 
 If the application runs on Java 8 but throws a `java.lang.NoClassDefFoundError` or a 
-`java.lang.ClassNotFoundError`, then it is
+`java.lang.ClassNotFoundException`, then it is
 likely that the application is using a package from the Java EE or CORBA modules. 
 These modules were deprecated in Java 9 and [removed in Java 11](https://openjdk.java.net/jeps/320). 
 
