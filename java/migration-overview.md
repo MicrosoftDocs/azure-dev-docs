@@ -68,16 +68,16 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify the destinations that support the application types and features you require.
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |        |        |&#x2714;|&#x2714;|
-| Spring Cloud / microservices                                      |        |        |        |&#x2714;|&#x2714;|&#x2714;|
-| Web applications                                                  |        |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
-| Java EE applications                                              |        |        |&#x2714;|        |&#x2714;|&#x2714;|
-| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |        |&#x2714;|&#x2714;|
-| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
-| Application server-level clustering                               |        |        |        |        |&#x2714;|&#x2714;|
-| Batch / scheduled jobs                                            |        |        |        |&#x2714;|&#x2714;|&#x2714;|
+| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|
+| Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
+| Web applications                                                  |        |&#x2714;|        |&#x2714;|&#x2714;|
+| Java EE applications                                              |        |        |        |&#x2714;|&#x2714;|
+| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |&#x2714;|&#x2714;|
+| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
+| Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
+| Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
 
 ### Ongoing responsibility grid
 
@@ -126,22 +126,22 @@ If you would like to migrate a JBoss EAP app to Tomcat on App Service, first con
 
 If you would like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [available][5] | planned        | planned | planned | planned        | planned |
-| Spring Cloud /<br>microservices   | N/A            | N/A            | N/A     | planned | planned        | planned |
-| Web applications<br>on Tomcat     | N/A            | [available][2] | N/A     | N/A     | [available][3] | planned |
+| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | guidance<br>planned | guidance<br>planned |
+| Spring Cloud /<br>microservices   | N/A           | N/A                 | guidance<br>planned | guidance<br>planned | guidance<br>planned |
+| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A                 | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>WildFly|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | planned | N/A | planned        | planned        |
-| WebLogic              | N/A | N/A | planned | N/A | [available][6] | [available][4] |
-| WebSphere             | N/A | N/A | planned | N/A | [available][7] | planned        |
-| JBoss EAP             | N/A | N/A | planned | N/A | N/A            | planned        |
+| WildFly /<br>JBoss AS | N/A | N/A | N/A | guidance<br>planned | guidance<br>planned |
+| WebLogic              | N/A | N/A | N/A | [guidance][6]       | [guidance][4]       |
+| WebSphere             | N/A | N/A | N/A | [guidance][7]       | guidance<br>planned |
+| JBoss EAP             | N/A | N/A | N/A | N/A                 | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
