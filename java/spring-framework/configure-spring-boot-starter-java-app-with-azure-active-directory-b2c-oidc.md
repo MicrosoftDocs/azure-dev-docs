@@ -73,6 +73,18 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Locate the Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/AZ4.png)
 
+7. Select **User flows**, then **New user flow**.
+
+   ![Create new user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow1.png)
+
+8. Select **Sign up and sign in**.
+
+   ![Sign up or sign in](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow2.png)
+
+9. Set **Name** and **Identity provider**.
+
+   ![Name and Identity provider](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/user-flow3.png)
+
 ### Add an application registration for your Spring Boot app
 
 1. Select **Azure AD B2C** from the portal menu, click **App registrations**, and then click **New registration**.
