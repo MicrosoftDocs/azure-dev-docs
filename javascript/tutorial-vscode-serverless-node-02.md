@@ -43,7 +43,7 @@ In this step, you create a local Azure Functions application that contains a fun
     | Filename | Description |
     | --- | --- |
     | *index.js* |  The source code that responds to the HTTP request. |
-    | *functions.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
+    | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
     ![Result of creating a function app](media/functions-extension/create-function-app-results.png)
