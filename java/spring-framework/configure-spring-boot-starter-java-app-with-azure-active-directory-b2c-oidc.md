@@ -91,9 +91,9 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C1.png)
 
-2. Specify your application **Name**, add `http://localhost:8080/home` for the **Redirect URL**, and then click **Register**.
+2. Specify your application **Name**, add `http://localhost:8080/home` for the **Redirect URI**, and then click **Register**.
 
-   ![Add Application Reply URL](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C2.png)
+   ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/B2C2.png)
 
 3. Select **Certificates & secrets** from your application, click **New client secret**.
 
@@ -160,7 +160,7 @@ The following prerequisites are required in order to complete the steps in this 
    | `azure.activedirectory.b2c.tenant` | Contains your AD B2C's `${your-tenant-name` from earlier. |
    | `azure.activedirectory.b2c.client-id` | Contains the `${your-client-id}` from your application that you completed earlier. |
    | `azure.activedirectory.b2c.client-secret` | Contains the `${your-client-secret}` from your application that you completed earlier. |
-   | `azure.activedirectory.b2c.reply-url` | Contains one of the **Reply URL** from your application that you completed earlier. |
+   | `azure.activedirectory.b2c.reply-url` | Contains one of the **Redirect URI** from your application that you completed earlier. |
    | `azure.activedirectory.b2c.logout-success-url` | Specify the URL when your application logout successfully. |
    | `azure.activedirectory.b2c.user-flows` | Contains the name of the user flows that you completed earlier.
 
