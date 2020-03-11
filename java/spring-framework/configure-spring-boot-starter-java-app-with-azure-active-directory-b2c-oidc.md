@@ -63,7 +63,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 4. Select **Create a new Azure AD B2C Tenant**.
 
-   ![Create new Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az2.png)
+   ![Create new Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-2.png)
 
 5. Enter your Organization name and your Initial domain name, and save the domain name for later reference.  Click **Create**.
 
