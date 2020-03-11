@@ -42,7 +42,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 2. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then select the **Web** and **Security** modules as **Dependencies**.
 
-   ![Specify Group and Aritifact names](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/SI.png)
+   ![Specify Group and Artifact names](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/SI.png)
 
 
 3. Click `Generate Project`, download the project to a path on your local computer when prompted.
@@ -276,7 +276,7 @@ you should be redirected to login page.
 
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/LO1.png)
 
-4. Click linke with name of `${your-sign-up-or-in}` user flow, you should be rediected Azure AD B2C to start the authentication process.
+4. Click link with name of `${your-sign-up-or-in}` user flow, you should be redirected Azure AD B2C to start the authentication process.
 
    ![Azure AD B2C login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/LO2.png)
 
