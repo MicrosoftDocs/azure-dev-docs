@@ -1,12 +1,12 @@
 ### YamlMime:Landing
-title: Eclipse MicroProfile on Azure
+title: Eclipse MicroProfile on Azure  documentation
 summary: | 
   MicroProfile is an Eclipse Foundation project aimed at leveraging and evolving Enterprise Java technologies
   like Java EE toward distributed microservice architectures, by innovating across multiple implementations and collaborating on common
   areas of interest with a goal of standardization.
 
 metadata:
-  title: Eclipse MicroProfile on Azure
+  title: Eclipse MicroProfile on Azure  documentation
   description: Get started using Eclipse MicroProfile to develop apps on Azure.
   author: brborges
   ms.author: brborges

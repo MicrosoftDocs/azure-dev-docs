@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
-title: Azure Toolkit for IntelliJ
+title: Azure Toolkit for IntelliJ  documentation
 summary: |
   The Azure Toolkit for IntelliJ provides templates and functionality that you can use to easily create, develop, test, and deploy Azure applications by
   using the IntelliJ integrated development environment (IDE).
 
 metadata:
-  title: Azure Toolkit for IntelliJ
+  title: Azure Toolkit for IntelliJ  documentation
   description: Learn about the Azure Toolkit for IntelliJ.
   author: bmitchell287
   ms.author: brendm

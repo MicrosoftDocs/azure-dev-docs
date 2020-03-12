@@ -1,15 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure for Java cloud developers documentation
-summary: Learn about the Azure JDK for Java, what features the JDK provides, and development tools that make it easy to use Azure with Java.
 
 metadata:
   title: Azure for Java cloud developers documentation
-#  description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.service: azure-java
-  author: KarlErickson
-  ms.author: karler
-  ms.date: 03/11/2020
+  author: bmitchell287
+  ms.author: brendm
+  ms.date: 03/12/2020
   ms.topic: landing-page
 
 landingContent:
@@ -77,7 +75,7 @@ landingContent:
   #         text: Supported JDKs
   - title: Code samples
     linkLists:
-      - linkListType: download
+      - linkListType: sample
         links:
         - text: Create a Spring Boot app with Linux and Cosmos DB
           url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2

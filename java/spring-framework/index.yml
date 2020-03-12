@@ -1,21 +1,20 @@
 ### YamlMime:Landing
 
-title: Spring on Azure
+title: Spring on Azure documentation
 summary: |
   Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach
   for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:
-  title: Spring on Azure
-  description: Get started using Spring to develop apps on Azure.
+  title: Spring on Azure documentation
+  description: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
   author: bmitchell287
   ms.author: brendm
-  manager: douge
-  ms.date: 09/18/2019
+  ms.date: 03/12/2020
   ms.topic: landing-page
 
 landingContent:
-  - title: Get started with Spring on Azure
+  - title: Get started guides
     linkLists:
       - linkListType: quickstart
         links:
@@ -31,6 +30,8 @@ landingContent:
             url: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
           - text: Application Insights
             url: configure-spring-boot-java-applicationinsights.md
+  - title: Step-by-step tutorials
+    linkLists:
       - linkListType: tutorial
         links:
           - text: How to configure a Spring Boot Initializer app to use Redis Cache
@@ -57,17 +58,18 @@ landingContent:
         url: https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples
       - text: Spring Guides
         url: https://github.com/spring-guides/
-  - title: Spring reference
+  - title: Spring documentation
     linkLists:
-    - linkListType: reference
+    - linkListType: overview
       links:
       - text: Spring Framework
         url: https://spring.io/
       - text: Learn Spring
-        url: https://spring.io/docs
-      - text: Reference documentation
-        url: https://spring.io/docs/reference
+        url: https://spring.io/learn
       - text: Spring Boot
-        url: https://projects.spring.io/spring-boot/
+        url: https://spring.io/projects/spring-boot
+    linkLists:
+    - linkListType: quickstart
+      links:
       - text: Spring Initializr
         url: https://start.spring.io/

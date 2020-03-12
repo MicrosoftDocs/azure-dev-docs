@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
-title: Azure Toolkit for Eclipse
+title: Azure Toolkit for Eclipse  documentation
 summary: |
   The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy cloud applications to Azure
   from inside the Eclipse IDE.
 
 metadata:
-  title: Azure Toolkit for Eclipse
+  title: Azure Toolkit for Eclipse  documentation
   description: Learn how the Azure Toolkit for Eclipse plug-in helps you create and deploy cloud applications to Azure.
   author: bmitchell287
   ms.author: brendm
