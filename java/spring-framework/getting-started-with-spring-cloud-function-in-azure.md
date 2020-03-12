@@ -60,7 +60,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <azure.functions.maven.plugin.version>1.4.0</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.4.1</azure.functions.maven.plugin.version>
     <azure.functions.java.library.version>1.3.0</azure.functions.java.library.version>
     <functionAppName>my-spring-function</functionAppName>
     <functionAppRegion>westus</functionAppRegion>
