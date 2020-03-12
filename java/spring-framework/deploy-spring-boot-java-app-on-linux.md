@@ -160,7 +160,7 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, click **Web**, and then click **Web App for Containers**.
+2. Click the menu icon for **+ Create a resource**, click **Compute**, and then click **Web App for Containers**.
    
    ![Create a new web app in the Azure portal][LX01]
 
