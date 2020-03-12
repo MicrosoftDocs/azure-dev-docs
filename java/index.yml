@@ -39,7 +39,7 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-        - text: Java Long-Term Support for Azure and Azure Stack
+        - text: Java for Azure and Azure Stack
           url: /azure/java/jdk/
   - title: Azure SDKs for Java
     linkLists:
@@ -55,7 +55,7 @@ landingContent:
           url: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
         - text: Microservices with Azure Spring Cloud
           url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
-        - text: Upload and download blobs from Storage
+        - text: Manage Azure Storage blobs
           url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - text: Create a Java serverless function
           url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
@@ -77,12 +77,12 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-        - text: Create a Spring Boot app with Linux and Cosmos DB
+        - text: Create a Spring Boot app with Linux
           url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2
-        - text: Azure Blob Storage with Java
-          url: https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart
-        - text: Connect to Cosmos DB with the SQL API
-          url: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+        - text: Azure Storage
+          url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-storage&languages=java
+        - text: Cosmos DB with the SQL API
+          url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-cosmos-db%2Cazure-sql-database&languages=java
         - text: Java microservices with Service Fabric
           url: https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/
   # - title: Reference
