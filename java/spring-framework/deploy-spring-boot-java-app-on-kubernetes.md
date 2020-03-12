@@ -112,7 +112,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```xml
    <properties>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
@@ -159,13 +159,13 @@ The following steps walk you through building a Spring Boot web application and 
 
 ```bash
    # Get the id of the service principal configured for AKS
-   CLIENT_ID=$(az aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv)
+   CLIENT_ID=$(az.cmd aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv)
    
    # Get the ACR registry resource id
-   ACR_ID=$(az acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv)
+   ACR_ID=$(az.cmd acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv)
    
    # Create role assignment
-   az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
+   az.cmd role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 
   -- or --
