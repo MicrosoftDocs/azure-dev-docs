@@ -45,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-        - text: API Reference
+        - text: API browser
           url: /java/api/?view=azure-java
   - title: Get started guides
     linkLists:
