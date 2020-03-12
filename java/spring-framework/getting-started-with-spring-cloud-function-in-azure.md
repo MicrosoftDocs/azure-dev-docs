@@ -324,11 +324,19 @@ Here is a screenshot of the cURL request on the top of the screen, and the local
 
 Now you are going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>` and `<functionResourceGroup>` properties you have defined in your *pom.xml* will be used to configure your function.
 
+> [!NOTE]
+> The Maven plugin needs to authenticate with Azure, if you have Azure CLI installed, use `az login` before continuing.
+> Check here for more authentication options.
+
 Run Maven to deploy your function automatically:
 
 ```bash
 mvn azure-functions:deploy
 ```
+
+> [!NOTE]
+> Maven plugin need to authenticate with Azure, if you have Azure CLI installed, use `az login` before continuing.
+> Check [here](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) for more authentication options.
 
 Now go to the [Azure portal](https://portal.azure.com) to find the `Function App` that has been created.
 
