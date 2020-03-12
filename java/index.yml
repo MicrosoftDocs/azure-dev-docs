@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-        - text: IntelliJ, Maven, Eclipse, and VS Code plugins
+        - text: IntelliJ, Maven, Eclipse, and VS Code
           url: /azure/java/java-azure-tools
   - title: Supported JDKs
     linkLists:
