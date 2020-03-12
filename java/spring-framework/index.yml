@@ -38,7 +38,7 @@ landingContent:
             url: configure-spring-boot-initializer-java-app-with-redis-cache.md
           - text: Use the Spring Boot Starter with the Azure Cosmos DB SQL API
             url: configure-spring-boot-starter-java-app-with-cosmos-db.md
-          - text: Use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure
+          - text: Use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app
             url: deploy-spring-boot-java-app-with-maven-plugin.md
           - text: Deploy a Spring Boot App on Kubernetes in Azure Container Service
             url: deploy-spring-boot-java-app-on-kubernetes.md
@@ -48,7 +48,7 @@ landingContent:
             url: deploy-spring-boot-java-app-using-fabric8-maven-plugin.md
           - text: Deploy a containerized Spring Boot app to Azure
             url: deploy-containerized-spring-boot-java-app-with-maven-plugin.md
-          - text: Deploy a Spring Boot app in Azure Container Registry to Azure App Service
+          - text: Deploy a Spring Boot app in Azure Container Registry to Azure
             url: deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
   - title: Samples
     linkLists:
@@ -68,7 +68,6 @@ landingContent:
         url: https://spring.io/learn
       - text: Spring Boot
         url: https://spring.io/projects/spring-boot
-    linkLists:
     - linkListType: quickstart
       links:
       - text: Spring Initializr

@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Create a Hello World web app for Azure App Service
             url: azure-toolkit-for-eclipse-create-hello-world-web-app.md
+  - title: Step-by-step tutorials
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Publish a Spring Boot app as a Docker container
@@ -32,7 +34,7 @@ landingContent:
             url: azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
   - title: Manage Azure resources
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Redis caches
             url: azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md
