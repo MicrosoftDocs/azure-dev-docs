@@ -119,11 +119,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 1.8.0. 
 
-Specify the base image at `<from>/<image>`, here `openjdk:8-jre-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
+   Specify the base image at `<from>/<image>`, here `openjdk:8-jre-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
-Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
+   Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
 
-Specify the username and password from registry pane in the `<to>/<auth>` node. For example:
+   Specify the username and password from registry pane in the `<to>/<auth>` node. For example:
 
    ```xml
    <plugin>
@@ -160,7 +160,7 @@ Specify the username and password from registry pane in the `<to>/<auth>` node. 
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, click **Web**, and then click **Web App for Containers**.
+2. Click the menu icon for **+ Create a resource**, click **Compute**, and then click **Web App for Containers**.
    
    ![Create a new web app in the Azure portal][LX01]
 
@@ -253,7 +253,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](/azure/java/spring-framework)
 
-### Additional Resources
+### Additional resources
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
