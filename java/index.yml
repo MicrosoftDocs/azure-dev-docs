@@ -29,7 +29,7 @@ landingContent:
         links:
         - text: Azure services with Spring Boot
           url: /azure/java/spring-framework
-  - title: Tools and IDEsIntelliJ, Maven, Eclipse, and VS Code plugins
+  - title: Tools and IDEs
     linkLists:
       - linkListType: get-started
         links:
