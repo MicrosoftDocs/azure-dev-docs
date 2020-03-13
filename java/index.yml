@@ -15,7 +15,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-        - text: Cloud development using Java on Azure
+        - text: Cloud development on Azure
           url: java-sdk-azure-get-started.md
   - title: Azure App Service
     linkLists:
