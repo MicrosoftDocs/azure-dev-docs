@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Create a Hello World web app for Azure App Service
             url: azure-toolkit-for-intellij-create-hello-world-web-app.md
+  - title: Step-by-step tutorials
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Run a Hello World web app in a Linux container
