@@ -1,20 +1,19 @@
 ### YamlMime:Landing
 
-title: Azure Toolkit for Eclipse  documentation
-summary: |
-  The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy cloud applications to Azure
-  from inside the Eclipse IDE.
+title: Azure Toolkit for Eclipse documentation
+summary: The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy cloud applications to Azure from inside the Eclipse IDE.
 
 metadata:
-  title: Azure Toolkit for Eclipse  documentation
+  title: Azure Toolkit for Eclipse documentation
   description: Learn how the Azure Toolkit for Eclipse plug-in helps you create and deploy cloud applications to Azure.
+  ms.service: azure-java
   author: bmitchell287
   ms.author: brendm
-  ms.date: 09/18/2019
+  ms.date: 03/13/2020
   ms.topic: landing-page
 
 landingContent:
-  - title: Get started
+  - title: Get started guides
     linkLists:
       - linkListType: quickstart
         links:
@@ -42,14 +41,6 @@ landingContent:
             url: azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
           - text: Virtual machines
             url: azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
-  # - title: Give feedback and get help
-  #   linkLists:
-  #     - linkListType: concept
-  #       links:
-  #         - text: Report a bug
-  #           url: https://github.com/Microsoft/azure-tools-for-java/issues
-  #         - text: Azure tools for Java on Stack Overflow
-  #           url: https://stackoverflow.com/questions/tagged/azure-java-tools 
   - title: Supported JDKs
     linkLists:
       - linkListType: download

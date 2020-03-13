@@ -1,21 +1,21 @@
 ### YamlMime:Landing
-title: Eclipse MicroProfile on Azure  documentation
-summary: | 
-  MicroProfile is an Eclipse Foundation project aimed at leveraging and evolving Enterprise Java technologies
-  like Java EE toward distributed microservice architectures, by innovating across multiple implementations and collaborating on common
-  areas of interest with a goal of standardization.
+
+title: Eclipse MicroProfile on Azure documentation
+summary: MicroProfile is an Eclipse Foundation project aimed at leveraging and evolving Enterprise Java technologies like Java EE toward distributed microservice architectures, by innovating across multiple implementations and collaborating on common areas of interest with a goal of standardization.
 
 metadata:
-  title: Eclipse MicroProfile on Azure  documentation
+  title: Eclipse MicroProfile on Azure documentation
   description: Get started using Eclipse MicroProfile to develop apps on Azure.
+  ms.service: azure-java
   author: brborges
   ms.author: brborges
-  ms.date: 09/18/2019
+  ms.date: 03/13/2020
+  ms.topic: landing-page
 
 landingContent:
-- title: Get Started Guides
+- title: Get started guides
   linkLists:
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
       - text: Deploy to Azure Container Instances
         url: deploy-microprofile-to-container-instances.md
@@ -25,17 +25,17 @@ landingContent:
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps
         url: cicd-microprofile-vsts.md
-- title: Samples for Azure
+- title: Code samples
   linkLists:
-  - linkListType: concept
+  - linkListType: sample
     links:
-    - text: MicroProfile Samples for Azure
+    - text: MicroProfile samples for Azure
       url: https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue
-- title: Reference
+    - text: MicroProfile samples
+      url: https://microprofile.io/project/eclipse/microprofile-samples
+- title: MicroProfile resources
   linkLists:
-  - linkListType: reference
+  - linkListType: get-started
     links:
     - text: MicroProfile.io
       url: https://microprofile.io/
-    - text: Samples by MicroProfile.io
-      url: https://microprofile.io/project/eclipse/microprofile-samples

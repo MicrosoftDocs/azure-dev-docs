@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-java
   author: bmitchell287
   ms.author: brendm
-  ms.date: 03/12/2020
+  ms.date: 03/13/2020
   ms.topic: landing-page
 
 landingContent:
@@ -63,16 +63,6 @@ landingContent:
           url: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
         - text: CI/CD to App Service with Jenkins®
           url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-  # - title: Development tools
-  #   linkLists:
-  #     - linkListType: concept
-  #       links:
-  #       - url: /azure/java/spring-framework/
-  #         text: Azure services with Spring Boot
-  #       - url: java-azure-tools.md
-  #         text: IntelliJ, Maven, Eclipse, and VS Code plugins
-  #       - url: jdk/index.md 
-  #         text: Supported JDKs
   - title: Code samples
     linkLists:
       - linkListType: sample
@@ -85,9 +75,3 @@ landingContent:
           url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-cosmos-db%2Cazure-sql-database&languages=java
         - text: Java microservices with Service Fabric
           url: https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/
-  # - title: Reference
-  #   linkLists:
-  #     - linkListType: reference
-  #       links:
-  #       - url: /java/api/?view=azure-java
-  #         text: API Reference

@@ -1,16 +1,15 @@
 ### YamlMime:Landing
 
 title: Spring on Azure documentation
-summary: |
-  Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach
-  for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
+summary: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:
   title: Spring on Azure documentation
   description: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
+  ms.service: azure-java
   author: bmitchell287
   ms.author: brendm
-  ms.date: 03/12/2020
+  ms.date: 03/13/2020
   ms.topic: landing-page
 
 landingContent:
@@ -50,9 +49,9 @@ landingContent:
             url: deploy-containerized-spring-boot-java-app-with-maven-plugin.md
           - text: Deploy a Spring Boot app in Azure Container Registry to Azure
             url: deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
-  - title: Samples
+  - title: Code samples
     linkLists:
-    - linkListType: concept
+    - linkListType: sample
       links:
       - text: Spring Boot Samples for Azure
         url: https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples
