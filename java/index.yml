@@ -11,19 +11,37 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Azure Web App
+  - title: Overview
+    linkLists:
+      - linkListType: get-started
+        links:
+        - text: Cloud development using Java on Azure
+          url: java-sdk-azure-get-started.md
+  - title: Azure App Service
     linkLists:
       - linkListType: quickstart
         links:
         - text: Deploy your first web app to Azure
           url: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Azure Functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and publish a function to Azure
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Migrate to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Overview
+          url: migration-overview.md
   - title: Azure Spring Cloud
     linkLists:
       - linkListType: overview
         links:
         - text: Managed service for Spring Cloud
           url: /azure/spring-cloud
-  - title: Spring on Azure
+  - title: Spring on Azure integration
     linkLists:
       - linkListType: overview
         links:
@@ -73,5 +91,3 @@ landingContent:
           url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-storage&languages=java
         - text: Cosmos DB with the SQL API
           url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-cosmos-db%2Cazure-sql-database&languages=java
-        - text: Java microservices with Service Fabric
-          url: https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/
