@@ -22,17 +22,17 @@ landingContent:
             url: azure-toolkit-for-intellij-create-hello-world-web-app.md
       - linkListType: tutorial
         links:
-          - text: Run a Hello World web app in a Linux container by using the Azure Toolkit for IntelliJ
+          - text: Run a Hello World web app in a Linux container
             url: azure-toolkit-for-intellij-hello-world-web-app-linux.md
-          - text: Publish a Spring Boot app as a Docker container by using the Azure Toolkit for IntelliJ
+          - text: Publish a Spring Boot app as a Docker container
             url: azure-toolkit-for-intellij-publish-spring-boot-docker-app.md
-          - text: Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ
+          - text: Publish a web app as a Docker container
             url: azure-toolkit-for-intellij-publish-as-docker-container.md
-          - text: Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for an HDInsight Spark Linux cluster
+          - text: Create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
   - title: Manage Azure resources
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Redis caches
             url: azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md
@@ -40,19 +40,23 @@ landingContent:
             url: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
           - text: Virtual machines
             url: azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
-  - title: Give feedback and get help
+  # - title: Give feedback and get help
+  #   linkLists:
+  #     - linkListType: concept
+  #       links:
+  #         - text: Report a bug
+  #           url: https://github.com/Microsoft/azure-tools-for-java/issues
+  #         - text: Azure tools for Java on Stack Overflow
+  #           url: https://stackoverflow.com/questions/tagged/azure-java-tools 
+  - title: Supported JDKs
     linkLists:
-      - linkListType: concept
+      - linkListType: download
         links:
-          - text: Report a bug
-            url: https://github.com/Microsoft/azure-tools-for-java/issues
-          - text: Azure tools for Java on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/azure-java-tools 
-  - title: Reference
+        - text: Java for Azure and Azure Stack
+          url: /azure/java/jdk/
+  - title: Source code
     linkLists:
       - linkListType: reference
         links:
-          - text: JDK Downloads and support
-            url: https://aka.ms/azure-jdks 
-          - text: Azure Toolkit for IntelliJ source
+          - text: Azure Toolkits for Java
             url: https://github.com/microsoft/azure-tools-for-java

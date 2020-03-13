@@ -28,9 +28,9 @@ landingContent:
             url: azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md
           - text: Publish a web app as a Docker container
             url: azure-toolkit-for-eclipse-publish-as-docker-container.md
-          - text: Use HDInsight Tools Plugin for Eclipse to create Spark applications for an HDInsight Spark Linux cluster
+          - text: Create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
-          - text: Displaying Javadoc content in Eclipse for the Package for Azure Libraries for Java
+          - text: Displaying Javadoc content in Eclipse for the Azure Libraries for Java
             url: azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
   - title: Manage Azure resources
     linkLists:
@@ -42,19 +42,23 @@ landingContent:
             url: azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
           - text: Virtual machines
             url: azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
-  - title: Give feedback and get help
+  # - title: Give feedback and get help
+  #   linkLists:
+  #     - linkListType: concept
+  #       links:
+  #         - text: Report a bug
+  #           url: https://github.com/Microsoft/azure-tools-for-java/issues
+  #         - text: Azure tools for Java on Stack Overflow
+  #           url: https://stackoverflow.com/questions/tagged/azure-java-tools 
+  - title: Supported JDKs
     linkLists:
-      - linkListType: concept
+      - linkListType: download
         links:
-          - text: Report a bug
-            url: https://github.com/Microsoft/azure-tools-for-java/issues
-          - text: Azure tools for Java on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/azure-java-tools 
-  - title: Reference
+        - text: Java for Azure and Azure Stack
+          url: /azure/java/jdk/
+  - title: Source code
     linkLists:
       - linkListType: reference
         links:
-          - text: JDK Downloads and support
-            url: https://aka.ms/azure-jdks 
-          - text: Azure Toolkit for IntelliJ source
+          - text: Azure Toolkits for Java
             url: https://github.com/microsoft/azure-tools-for-java

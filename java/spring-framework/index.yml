@@ -58,9 +58,9 @@ landingContent:
         url: https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples
       - text: Spring Guides
         url: https://github.com/spring-guides/
-  - title: Spring documentation
+  - title: Spring resources
     linkLists:
-    - linkListType: overview
+    - linkListType: get-started
       links:
       - text: Spring Framework
         url: https://spring.io/
@@ -68,7 +68,5 @@ landingContent:
         url: https://spring.io/learn
       - text: Spring Boot
         url: https://spring.io/projects/spring-boot
-    - linkListType: quickstart
-      links:
       - text: Spring Initializr
         url: https://start.spring.io/
