@@ -63,6 +63,8 @@ landingContent:
       links:
       - text: Spring Framework
         url: https://spring.io/
+      - text: Spring Cloud Azure
+        url: https://spring.io/projects/spring-cloud-azure
       - text: Learn Spring
         url: https://spring.io/learn
       - text: Spring Boot
