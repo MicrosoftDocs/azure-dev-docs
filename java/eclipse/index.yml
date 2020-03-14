@@ -23,10 +23,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Publish a Spring Boot app as a Docker container
-            url: azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md
-          - text: Publish a web app as a Docker container
-            url: azure-toolkit-for-eclipse-publish-as-docker-container.md
           - text: Create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
           - text: Displaying Javadoc content in Eclipse for the Azure Libraries for Java

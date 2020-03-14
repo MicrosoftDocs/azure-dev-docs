@@ -25,10 +25,6 @@ landingContent:
         links:
           - text: Run a Hello World web app in a Linux container
             url: azure-toolkit-for-intellij-hello-world-web-app-linux.md
-          - text: Publish a Spring Boot app as a Docker container
-            url: azure-toolkit-for-intellij-publish-spring-boot-docker-app.md
-          - text: Publish a web app as a Docker container
-            url: azure-toolkit-for-intellij-publish-as-docker-container.md
           - text: Create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
   - title: Manage Azure resources

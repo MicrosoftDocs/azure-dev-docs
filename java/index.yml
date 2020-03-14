@@ -11,12 +11,6 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Overview
-    linkLists:
-      - linkListType: get-started
-        links:
-        - text: Cloud development on Azure
-          url: java-sdk-azure-get-started.md
   - title: Azure App Service
     linkLists:
       - linkListType: quickstart
