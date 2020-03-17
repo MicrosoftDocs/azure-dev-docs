@@ -65,7 +65,7 @@ server = sql_client.servers.create_or_update(
 )
 ```
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python).
+For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
 
 ## Connect and use Azure services with client libraries
 
@@ -92,7 +92,7 @@ with open("./SampleSource.txt", "rb") as data:
     blob.upload_blob(data)
 ```
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python).
+For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
 
 ### The Azure Core library
 
