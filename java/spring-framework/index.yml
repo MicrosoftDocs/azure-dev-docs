@@ -15,14 +15,16 @@ metadata:
 landingContent:
   - title: Get started guides
     linkLists:
-      - linkListType: quickstart
+      - linkListType: overview
         links:
           - text: Spring Boot Starters for Azure
             url: spring-boot-starters-for-azure.md
+          - text: Spring Data Azure Cosmos DB
+            url: how-to-guides-spring-data-cosmosdb.md
+      - linkListType: get-started
+        links:
           - text: Azure Storage
             url: configure-spring-boot-starter-java-app-with-azure-storage.md
-          - text: Azure Active Directory
-            url: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - text: Key Vault
             url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
           - text: Kafka and Event Hubs
@@ -33,21 +35,23 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Secure an app with Azure Active Directory
+            url: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - text: Configure an app to use Redis Cache
             url: configure-spring-boot-initializer-java-app-with-redis-cache.md
           - text: Use the Azure Cosmos DB SQL API
             url: configure-spring-boot-starter-java-app-with-cosmos-db.md
           - text: Deploy a Spring Boot app
             url: deploy-spring-boot-java-app-with-maven-plugin.md
-          - text: Deploy an app on Kubernetes in ACR
+          - text: Deploy an app to a cluster in AKS
             url: deploy-spring-boot-java-app-on-kubernetes.md
-          - text: Deploy an app on Linux in ACR
+          - text: Deploy an app to a Linux container
             url: deploy-spring-boot-java-app-on-linux.md
           - text: Deploy an app using Fabric8
             url: deploy-spring-boot-java-app-using-fabric8-maven-plugin.md
           - text: Deploy a containerized app to Azure
             url: deploy-containerized-spring-boot-java-app-with-maven-plugin.md
-          - text: Deploy an app in ACR to Azure
+          - text: Deploy an app from ACR to Azure
             url: deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
   - title: Code samples
     linkLists:
