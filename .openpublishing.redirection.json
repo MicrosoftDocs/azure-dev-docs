@@ -11,9 +11,29 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+        "redirect_url": "/azure/java/intellij",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
+        "redirect_url": "/azure/java/intellij",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
         "redirect_url": "/azure/java/eclipse",
         "redirect_document_id": true
+    },
+    {
+        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+        "redirect_url": "/azure/java/eclipse",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+        "redirect_url": "/azure/java/eclipse",
+        "redirect_document_id": false
     },
     {
       "source_path": "javascript/overview.md",
