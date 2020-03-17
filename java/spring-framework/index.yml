@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Spring on Azure documentation
+title: Spring on Azure integration documentation
 summary: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:
-  title: Spring on Azure documentation
+  title: Spring on Azure integration documentation
   description: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
   ms.service: azure-java
   author: bmitchell287
