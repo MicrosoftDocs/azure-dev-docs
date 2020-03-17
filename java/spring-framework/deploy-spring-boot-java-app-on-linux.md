@@ -159,8 +159,8 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, click **Web**, and then click **Web App for Containers**.
-
+2. Click the menu icon for **+ Create a resource**, click **Compute**, and then click **Web App for Containers**.
+   
    ![Create a new web app in the Azure portal][LX01]
 
 3. When the **Web App on Linux** page is displayed, enter the following information:
@@ -209,7 +209,7 @@ When the deployment is complete, click **Go to resource**.  The deployment page 
 
 > [!NOTE]
 >
-> Azure will automatically map Internet requests to embedded Tomcat server that is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, use the following steps:
+> Azure will automatically map Internet requests to embedded Tomcat server that is running on the port - 80. However, if you configured your embedded Tomcat server to run on port - 8080 or custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, use the following steps:
 >
 > 1. Browse to the [Azure portal] and sign in.
 >
@@ -251,7 +251,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](/azure/java/spring-framework)
 
-### Additional Resources
+### Additional resources
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 

@@ -16,7 +16,7 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- A suitable container that's been uploaded to a container registry. For example, details on creating a container with a Python web app and adding it to a registry can be found on [Create a container](https://code.visualstudio.com/docs/python/tutorial-create-containers).
+- A suitable container that's been uploaded to a container registry. Details on creating a container with a Python web app can be found on [Python in containers](https://code.visualstudio.com/docs/containers/quickstart-python).
 - The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 - The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
 
