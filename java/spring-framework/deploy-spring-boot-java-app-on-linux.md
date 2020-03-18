@@ -119,7 +119,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 1.8.0. 
 
-   Specify the base image at `<from>/<image>`, here `openjdk:8-jre-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
+   Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/java/jre:8-zulu-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
    Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
 
@@ -132,7 +132,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
      <version>1.8.0</version>
      <configuration>
         <from>
-            <image>openjdk:8-jre-alpine</image>
+            <image>mcr.microsoft.com/java/jre:8-zulu-alpine</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
