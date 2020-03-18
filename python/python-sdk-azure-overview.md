@@ -44,7 +44,7 @@ In your Python code, import the library:
 from azure.mgmt.sql import SqlManagementClient
 ```
 
-Next, create the management client object using your credentials (see [Authenticate with the SDK](pythion-sdk-azure-authenticate.md)) and Azure subscription ID:
+Next, create the management client object using your credentials (see [Authenticate with the SDK](python-sdk-azure-authenticate.md)) and Azure subscription ID:
 
 ```python
 sql_client = SqlManagementClient(credentials, subscription_id)
