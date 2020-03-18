@@ -31,6 +31,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
 1. Respond to the prompts as follows:
 
+    - Select your **Subscription** acount.
     - For **Enter a globally unique name**, enter a name that's unique across all of Azure. Use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-')
     - Select **Create new resource group** and provide a name like `AppServiceTutorial-rg`.
     - Select an operating system (Windows or Linux)
@@ -63,7 +64,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
     ![Deploy to Web App icon](media/deploy-azure/deploy.png)
 
-1. At the prompts, select the *expressApp1* folder, then select the name of the web app created earlier.
+1. At the prompts, select the *expressApp1* folder, select your **subscription** account again and then select the name of the web app created earlier.
 
 1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
 
