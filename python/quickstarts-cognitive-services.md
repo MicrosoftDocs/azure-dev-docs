@@ -1,6 +1,6 @@
 ---
 title: Quickstarts for cognitive services for Python apps on Azure
-description: List of getting started material in the Azure documentation for cognitives servicse for Python apps.
+description: List of getting started material in the Azure documentation for cognitive services for Python apps.
 ms.date: 03/17/2020
 ms.topic: conceptual
 ---

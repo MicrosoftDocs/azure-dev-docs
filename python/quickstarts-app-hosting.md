@@ -10,7 +10,7 @@ ms.topic: conceptual
 The following articles help you get started with various app hosting options on Azure:
 
 - [Create an Azure Functions project using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python)
-- [Create a function in Azure usnig the Azure CLI that responds to HTTP requests](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python)
+- [Create a function in Azure using the Azure CLI that responds to HTTP requests](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python)
 - [Create a Python app in Azure App Service on Linux](/azure/app-service/containers/quickstart-python)
 - [Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/kubernetes-walkthrough)
 - [Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart)
