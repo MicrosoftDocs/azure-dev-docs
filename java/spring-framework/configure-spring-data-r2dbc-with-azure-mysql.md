@@ -329,12 +329,12 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
-[MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
-[MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
-[MYSQL04]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-04.png
-[MYSQL05]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-05.png
-[MYSQL06]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-06.png
-[MYSQL07]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-07.png
-[MYSQL08]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-08.png
-[MYSQL09]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-09.png
+[R2DBC-MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
+[R2DBC-MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
+[R2DBC-MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
+[R2DBC-MYSQL04]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-04.png
+[R2DBC-MYSQL05]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-05.png
+[R2DBC-MYSQL06]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-06.png
+[R2DBC-MYSQL07]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-07.png
+[R2DBC-MYSQL08]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-08.png
+[R2DBC-MYSQL09]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-09.png
