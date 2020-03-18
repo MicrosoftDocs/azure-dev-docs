@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+        "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
+        "redirect_url": "/azure/java/spring-framework",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "java/intellij/azure-toolkit-for-intellij.md",
         "redirect_url": "/azure/java/intellij",
         "redirect_document_id": true
