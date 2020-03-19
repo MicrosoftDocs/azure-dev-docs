@@ -79,17 +79,16 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. Specify your application **Name**, add `http://localhost:8080/home` for the **Reply URL**, record
-the **Application ID** as your `${your-client-id}` and then click **Save**.
+2. Specify your application **Name**, add `http://localhost:8080/home` for the **Redirect URI**. Click **Save**.  Then record the **Application ID** as your `${your-client-id}`.  
 
-   ![Add Application Reply URL](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
+   ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
 
-3. Select **Keys** from your application, click **Generate key** to generate `${your-client-secret}` and
+3. Select **Certificates & secrets** from your application, click **Generate key** to generate `${your-client-secret}` and
 then **Save**.
 
-4. Select **User flows** on your left, and then **Click** **New user flow **.
-
    ![Create user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
+
+4. Select **User flows** on your left, and then **Click** **New user flow **.
 
 5. Choose **Sign up or in**, **Profile editing** and **Password reset** to create user flows
 respectively. Specify your user flow **Name** and **User attributes and claims**, click **Create**.
@@ -133,7 +132,7 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
          tenant: ${your-tenant-name}
          client-id: ${your-client-id}
          client-secret: ${your-client-secret}
-         reply-url: ${your-reply-url-from-aad} # should be absolute url.
+         reply-url: ${your-redirect-uri-from-aad} # should be absolute url.
          logout-success-url: ${you-logout-success-url}
          user-flows:
            sign-up-or-sign-in: ${your-sign-up-or-in-user-flow}
@@ -147,7 +146,7 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
    | `azure.activedirectory.b2c.tenant` | Contains your AD B2C's `${your-tenant-name` from earlier. |
    | `azure.activedirectory.b2c.client-id` | Contains the `${your-client-id}` from your application that you completed earlier. |
    | `azure.activedirectory.b2c.client-secret` | Contains the `${your-client-secret}` from your application that you completed earlier. |
-   | `azure.activedirectory.b2c.reply-url` | Contains one of the **Reply URL** from your application that you completed earlier. |
+   | `azure.activedirectory.b2c.reply-url` | Contains one of the **Redirect URI** from your application that you completed earlier. |
    | `azure.activedirectory.b2c.logout-success-url` | Specify the URL when your application logout successfully. |
    | `azure.activedirectory.b2c.user-flows` | Contains the name of the user flows that you completed earlier.
 
