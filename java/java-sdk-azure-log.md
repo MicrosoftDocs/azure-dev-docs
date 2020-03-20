@@ -3,16 +3,15 @@ title: Logging with the Azure SDK for Java
 description: Learn how to configure logging frameworks for the Azure SDK for Java client libraries
 keywords: Azure, Java, SDK, logging
 author: dsindona
-ms.author: dsindona
+ms.author: brendm
 ms.date: 03/19/2020
 ms.topic: article
 ms.service: multiple
-
 ---
 
 # Logging with the Azure SDK for Java
 
-The [Azure SDK](https://azure.microsoft.com/en-us/downloads/) for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment. 
+The [Azure SDK](https://azure.microsoft.com/downloads/) for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment. 
 
 This article gives example configurations for common SLF4J-supported logging frameworks. For more detail on configuration options, such as setting log levels or custom logging by class, refer to the documentation for your chosen logging framework.
 
@@ -29,8 +28,8 @@ You can configure Log4j and Log4j 2 logging in a properties file or an XML file.
 
 ### Use a properties file
 
-In the **./src/main/resource** directory of your project, create a new file named `log4j.properties` or `log4j2.properties` (the latter for Logj4 2). Use these examples to get started. 
- 
+In the **./src/main/resource** directory of your project, create a new file named `log4j.properties` or `log4j2.properties` (the latter for Logj4 2). Use these examples to get started.
+
 Log4j example:
 
 ```java
@@ -61,7 +60,7 @@ Log4j example:
 ```xml
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
- 
+
   <appender name="console" class="org.apache.log4j.ConsoleAppender">
     <param name="Target" value="System.out"/>
     <layout class="org.apache.log4j.PatternLayout">
@@ -77,7 +76,7 @@ Log4j example:
     <priority value ="info"></priority>
     <appender-ref ref="console"></appender>
   </root>
- 
+
 </log4j:configuration>
 ```
 
