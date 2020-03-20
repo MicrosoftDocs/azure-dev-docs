@@ -45,11 +45,9 @@ landingContent:
             url: deploy-spring-boot-java-app-with-maven-plugin.md
           - text: Deploy an app to a cluster in AKS
             url: deploy-spring-boot-java-app-on-kubernetes.md
-          - text: Deploy an app to a Linux container
+          - text: Deploy an app to Web Apps for Containers
             url: deploy-spring-boot-java-app-on-linux.md
-          - text: Deploy an app using Fabric8
-            url: deploy-spring-boot-java-app-using-fabric8-maven-plugin.md
-          - text: Deploy a containerized app to Azure
+          - text: Deploy using Maven to Web Apps for Containers
             url: deploy-containerized-spring-boot-java-app-with-maven-plugin.md
           - text: Deploy an app from ACR to Azure
             url: deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md
