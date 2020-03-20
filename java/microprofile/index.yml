@@ -1,58 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Eclipse MicroProfile on Azure
+### YamlMime:Landing
+
+title: Eclipse MicroProfile on Azure documentation
+summary: MicroProfile is an Eclipse Foundation project aimed at leveraging and evolving Enterprise Java technologies like Java EE toward distributed microservice architectures, by innovating across multiple implementations and collaborating on common areas of interest with a goal of standardization.
+
 metadata:
-  document_id: 
-  title: Eclipse MicroProfile on Azure
+  title: Eclipse MicroProfile on Azure documentation
   description: Get started using Eclipse MicroProfile to develop apps on Azure.
-  keywords: Azure, Java, Maven, MicroProfile, Jakarta EE, Java EE, Eclipse
+  ms.service: azure-java
   author: brborges
   ms.author: brborges
-  manager: brborges
-  ms.date: 02/01/2018
+  ms.date: 03/13/2020
   ms.topic: landing-page
-  
-  ms.devlang: java
-  ms.service: multiple
-  ms.custom: seo-java-july2019
-sections:
-- items:
-  -  type: markdown
-     text: | 
-       [MicroProfile](https://microprofile.io/) is an Eclipse Foundation project aimed at leveraging and evolving Enterprise Java technologies like Java EE toward distributed microservice architectures, by innovating across multiple implementations and collaborating on common areas of interest with a goal of standardization.
-- title: Get Started Guides
-  items:
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/media/index/ContainerInstances.svg
-      text: Deploy to Azure Container Instances
-      href: deploy-microprofile-to-container-instances.md
-    - image: 
-        src: https://docs.microsoft.com/azure/media/index/AppService.svg
-      text: Deploy to Azure Web Apps
-      href: deploy-microprofile-to-web-app-for-containers.md
-    - image: 
-        src: https://docs.microsoft.com/azure/media/index/keyvault.svg
-      text: Config Source for Azure Key Vault
-      href: configure-microprofile-with-keyvault.md
-    - image: 
-        src: https://docs.microsoft.com/azure/devops/_img/index/devopssuite.png
-      text: CI/CD for MicroProfile applications using Azure DevOps
-      href: cicd-microprofile-vsts.md
-- title: Samples for Azure
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue">MicroProfile Samples for Azure</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: MicroProfile Projects
-      html: <p><a href="https://microprofile.io/">MicroProfile.io</a></p><p><a href="https://microprofile.io/project/eclipse/microprofile-samples">Samples by MicroProfile.io</a></p>
+
+landingContent:
+- title: Get started guides
+  linkLists:
+  - linkListType: tutorial
+    links:
+      - text: Deploy to Azure Container Instances
+        url: deploy-microprofile-to-container-instances.md
+      - text: Deploy to Azure Web Apps
+        url: deploy-microprofile-to-web-app-for-containers.md
+      - text: Config Source for Azure Key Vault
+        url: configure-microprofile-with-keyvault.md
+      - text: CI/CD for MicroProfile applications using Azure DevOps
+        url: cicd-microprofile-vsts.md
+- title: Code samples
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: MicroProfile samples for Azure
+      url: https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue
+    - text: MicroProfile samples
+      url: https://microprofile.io/project/eclipse/microprofile-samples
+- title: MicroProfile resources
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: MicroProfile.io
+      url: https://microprofile.io/

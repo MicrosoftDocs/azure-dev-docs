@@ -1,5 +1,5 @@
 ---
-title: Deploy a Spring Boot Web App on Azure App Service for Container
+title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: azure app service
 documentationcenter: java
@@ -11,7 +11,7 @@ ms.workload: web
 ms.custom: mvc
 ---
 
-# Deploy a Spring Boot application on Azure App Service for Container
+# Deploy a Spring Boot application to Linux on Azure App Service
 
 This tutorial walks through using [Docker] to containerize your [Spring Boot] application and deploy your own docker image to a Linux host in the [Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
@@ -29,46 +29,46 @@ In order to complete the steps in this tutorial, you need to have the following 
 > [!NOTE]
 >
 > Due to the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
->
 
 ## Create the Spring Boot on Docker Getting Started web app
 
 The following steps walk through the steps that are required to create a simple Spring Boot web application and test it locally.
 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
-   ```
-   md C:\SpringBoot
-   cd C:\SpringBoot
-   ```
-   -- or --
-   ```
+
+   ```bash
    md /users/robert/SpringBoot
    cd /users/robert/SpringBoot
    ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
-   ```
+
+   ```bash
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
 1. Change directory to the completed project; for example:
-   ```
+
+   ```bash
    cd gs-spring-boot-docker/complete
    ```
 
 1. Build the JAR file using Maven; for example:
-   ```
+
+   ```bash
    mvn package
    ```
 
 1. Once the web app has been created, change directory to the `target` directory where the JAR file is located and start the web app; for example:
-   ```
+
+   ```bash
    cd target
    java -jar gs-spring-boot-docker-0.1.0.jar --server.port=80
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
-   ```
+
+   ```bash
    curl http://localhost
    ```
 
@@ -83,14 +83,13 @@ The following steps walk through using the Azure portal to create an Azure Conta
 > [!NOTE]
 >
 > If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0](/azure/container-registry/container-registry-get-started-azure-cli).
->
 
 1. Browse to the [Azure portal] and sign in.
 
    Once you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
 1. Click the menu icon for **+ New**, click **Containers**, and then click **Azure Container Registry**.
-   
+
    ![Create a new Azure Container Registry][AR01]
 
 1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**. Then click **Create**.
@@ -117,7 +116,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 1.8.0. 
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 1.8.0.
 
    Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/java/jre:8-zulu-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
@@ -147,7 +146,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
-   ```cmd
+   ```bash
    mvn compile jib:build
    ```
 
@@ -193,15 +192,15 @@ The following steps walk through using the Azure portal to create an Azure Conta
    * **Image**: Select the image created previously, for example: "*gs-spring-boot-docker*"
 
    * **Tag**: Choose the tag for the image; for example: "*latest*"
-   
+
    * **Startup Command**: Keep it blank since the image already has the start up command
-   
+
    After you have entered all of the above information, click **Review + create**.
 
    ![Configure web app settings][LX02-A]
 
    * Click **Review + create**.
-   
+
 Review the information and click **Create**.
 
 When the deployment is complete, click **Go to resource**.  The deployment page displays the URL to access the application.
@@ -213,17 +212,16 @@ When the deployment is complete, click **Go to resource**.  The deployment page 
 > Azure will automatically map Internet requests to embedded Tomcat server that is running on the port - 80. However, if you configured your embedded Tomcat server to run on port - 8080 or custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, use the following steps:
 >
 > 1. Browse to the [Azure portal] and sign in.
-> 
+>
 > 2. Click the icon for **Web Apps**, and select your app from the **App Services** page.
 >
-> 4. Click **Configuration** in the left navigation pane.
+> 3. Click **Configuration** in the left navigation pane.
 >
-> 5. In the **Application settings** section, add a new setting named **WEBSITES_PORT** and enter your custom port number for the value.
+> 4. In the **Application settings** section, add a new setting named **WEBSITES_PORT** and enter your custom port number for the value.
 >
-> 6. Click **OK**. Then click **Save**.
+> 5. Click **OK**. Then click **Save**.
 >
 > ![Saving a custom port number in the Azure portal][LX03]
->
 
 <!--
 ##  OPTIONAL: Configure the embedded Tomcat server to run on a different port

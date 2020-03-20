@@ -10,15 +10,10 @@ ms.topic: conceptual
 
 The Azul Zulu for Azure - Enterprise Edition JDK builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications.
 
-There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/zulu/). You can also get a virtual machine image from the Azure Marketplace Gallery for the following platforms:
-
-* [Azul Zulu: Java 8 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)
-* [Azul Zulu: Java 8 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-windows-2019)
-* [Azul Zulu: Java 11 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-1804)
-* [Azul Zulu: Java 11 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-windows-2019)
+There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/zulu/). You can also [get virtual machine images from the Azure Marketplace Gallery](#get-virtual-machine-images-from-the-azure-marketplace-gallery).
 
 > [!NOTE]
-> These instructions target the 64-bit Java 8 version of the JDK. Azul also provides the Java Run-time Environment (JRE) as a stand-alone installation. The JRE is included with the JDK install.
+> The following instructions target the 64-bit Java 8 version of the JDK. Azul also provides the Java Run-time Environment (JRE) as a stand-alone installation. The JRE is included with the JDK install.
 >
 > Java 11 packages are also provided on [Azul's Azure downloads page](https://www.azul.com/downloads/azure-only/zulu/).
 
@@ -78,6 +73,15 @@ openjdk version "1.8.0_242"
 OpenJDK Runtime Environment (Zulu 8.44.0.11-linux64)-Microsoft-Azure-restricted (build 1.8.0_242-b20)
 OpenJDK 64-Bit Server VM (Zulu 8.44.0.11-linux64)-Microsoft-Azure-restricted (build 25.242-b20, mixed mode)
 ```
+
+## Get virtual machine images from the Azure Marketplace Gallery
+
+You can get a virtual machine image for the following platforms:
+
+* [Azul Zulu: Java 8 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)
+* [Azul Zulu: Java 8 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-windows-2019)
+* [Azul Zulu: Java 11 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-1804)
+* [Azul Zulu: Java 11 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-windows-2019)
 
 ## Download and install the Azul Zulu for Azure - Enterprise Edition JDKs from a Yum repository
 

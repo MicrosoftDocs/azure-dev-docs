@@ -32,8 +32,7 @@ Your Java application needs read and create permissions in your Azure subscripti
 * Include lowercase characters
 * Include uppercase characters
 * Include numbers
-* Include one of the following symbols: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ‘ , . ? / ` ~ “ ( ) ;
-
+* Include one of the following symbols: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ? / ` ~ " ( ) ;
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name AzureJavaTest --password "MY_SECURE_PASSWORD"
@@ -200,12 +199,12 @@ public class AzureApp {
 
             // use the properties file with the service principal information to authenticate
             // change the name of the environment variable if you used a different name in the previous step
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));    
+            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
             Azure azure = Azure.configure()
                     .withLogLevel(LogLevel.BASIC)
                     .authenticate(credFile)
                     .withDefaultSubscription();
-           
+
             // create a Ubuntu virtual machine in a new resource group 
             VirtualMachine linuxVM = azure.virtualMachines().define("testLinuxVM")
                     .withRegion(Region.US_EAST)
@@ -218,7 +217,7 @@ public class AzureApp {
                     .withSsh(sshKey)
                     .withUnmanagedDisks()
                     .withSize(VirtualMachineSizeTypes.STANDARD_D3_V2)
-                    .create();   
+                    .create();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -304,7 +303,6 @@ Replace the current main method in `AzureApp.java` with the code below, setting 
 This code creates a new SQL database with a firewall rule allowing remote access,  and then connects to it using the SQL Database JBDC driver. 
 
 ```java
-
     public static void main(String args[])
     {
         // create the db using the management libraries
@@ -364,6 +362,7 @@ This code creates a new SQL database with a firewall rule allowing remote access
         }
     }
 ```
+
 Run the sample from the command line:
 
 ```shell
