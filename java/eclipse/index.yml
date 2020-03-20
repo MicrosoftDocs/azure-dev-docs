@@ -25,8 +25,6 @@ landingContent:
         links:
           - text: Create Spark applications for an HDInsight Spark Linux cluster
             url: /azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
-          - text: Displaying Javadoc content in Eclipse for the Azure Libraries for Java
-            url: azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
   - title: Manage Azure resources
     linkLists:
       - linkListType: how-to-guide

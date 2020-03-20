@@ -79,9 +79,11 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-        - text: Create a Spring Boot app with Linux
-          url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2
+        - text: Create a Spring Framework app on Linux
+          url: https://docs.microsoft.com/en-us/azure/java/spring-framework/spring-app-service-e2e
         - text: Azure Storage
           url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-storage&languages=java
+        - text: Externalize sessions to Redis Cache
+          url: https://github.com/azure-samples/scaling-stateful-java-web-app-on-azure
         - text: Cosmos DB with the SQL API
           url: https://docs.microsoft.com/en-us/samples/browse/?products=azure-cosmos-db%2Cazure-sql-database&languages=java
