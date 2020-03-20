@@ -3,12 +3,6 @@
   items:
   - name: Get Started
     href: azure-toolkit-for-eclipse-create-hello-world-web-app.md
-  - name: Tutorials
-    items:
-      - name: Deploy containers to Azure VMs
-        href: azure-toolkit-for-eclipse-publish-as-docker-container.md
-      - name: Publish a Spring Boot app as a Docker container
-        href: azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md
   - name: How-To
     items: 
     - name: Install the toolkit
