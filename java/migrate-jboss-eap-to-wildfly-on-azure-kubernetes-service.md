@@ -9,7 +9,7 @@ ms.date: 3/16/2020
 
 # Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
 
-This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on WildFly in an Azure Kubernetes Service container.
+This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
 
 ## Pre-migration
 
@@ -49,7 +49,7 @@ If your application uses any databases, you need to capture the following inform
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere modules or by your application code. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 #### Read-only static content
 
