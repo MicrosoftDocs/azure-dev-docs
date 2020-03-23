@@ -18,7 +18,7 @@ This article demonstrates creating a sample application that uses [Spring Data R
 
 ## Prerequisites
 
-The following prerequisites are required in order to complete the steps in this article:
+The following prerequisites are required to complete the steps in this article:
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [https://aka.ms/azure-jdks](https://aka.ms/azure-jdks).
@@ -26,7 +26,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Prepare the working environment
 
-The instructions below can be followed using a terminal on your local computer (Windows, Mac OS X or Linux), but we recommend you use the [Azure Shell](https://shell.azure.com/). Using that browser-based tool, you will be automatically logged in, and you will have access to all the tools that you will need.
+The instructions below can be followed using a terminal on your local computer (Windows, macOS, or Linux), but we recommend you use the [Azure Shell](https://shell.azure.com/). Using that browser-based tool, you'll be automatically logged in, and you'll have access to all the tools that you'll need.
 
 First, we will set up some environment variables:
 
@@ -42,11 +42,11 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 You will need to configure the following parameters:
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL Server instance. It should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: the Azure region you will use. You can use `eastus` by default, but we recommend you configure a region closer to where you live. You can have the full list of available regions by typing `az account list-locations`.
-- `<YOUR_MYSQL_PASSWORD>`: the password of your MySQL database server. That password should have a minimum of 8 characters, and characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.).
-- `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you will run your Spring Boot application. One convenient way to find it is to point your browser to [http://ipv4.icanhazip.com](http://ipv4.icanhazip.com).
+- `<YOUR_AZURE_REGION>`: the Azure region you'll use. You can use `eastus` by default, but we recommend you configure a region closer to where you live. You can have the full list of available regions by typing `az account list-locations`.
+- `<YOUR_MYSQL_PASSWORD>`: the password of your MySQL database server. That password should have a minimum of eight characters, and characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [http://ipv4.icanhazip.com](http://ipv4.icanhazip.com).
 
-Once those variables are set up, you can create the resource group in which we will work throughout this quick start:
+Once those variables are set up, you can create the resource group in which we will work throughout this quickstart:
 
 ```bash
 az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
@@ -57,7 +57,7 @@ az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
 > We use the `jq` utility, which is installed by default on [Azure Shell](https://shell.azure.com/), in order to display JSON data and make it more readable.
 > If you don't like that utility, you can safely remove the `| jq` part of all the commands we will use.
 
-In case you want to clean up any resources that you have used during this quick start, you will be able to delete everything at once, by deleting this resource group:
+In case you want to clean up any resources that you have used during this quickstart, you'll be able to delete everything at once, by deleting this resource group:
 
 ```bash
 az group delete --yes --name $AZ_RESOURCE_GROUP | jq
@@ -80,7 +80,7 @@ az mysql server create --name $AZ_DATABASE_NAME \
     --admin-user $AZ_MYSQL_USERNAME --admin-password $AZ_MYSQL_PASSWORD
 ```
 
-This will create a small MySQL Server instance.
+This command will create a small MySQL Server instance.
 
 ### Configure a firewall rule for your server using the Azure portal
 
@@ -98,7 +98,7 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that we created earlier is totally empty: it doesn't have any database that we can use with our Spring Boot application. Create a new database called `r2dbc`:
+The MySQL server that we created earlier is empty: it doesn't have any database that we can use with our Spring Boot application. Create a new database called `r2dbc`:
 
 ```bash
 az mysql db create \
@@ -183,7 +183,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-Stop the application and run it again: this should create the `r2dbc` database schema, as well as the `todo` table that it contains.
+Stop the application and run it again: this script should create the `r2dbc` database schema, as well as the `todo` table that it contains.
 
 ```bash
 ./mvnw spring-boot:run
@@ -323,7 +323,7 @@ curl  --header "Content-Type: application/json" \
           http://127.0.0.1:8080
 ```
 
-This should return the created item:
+This command should return the created item:
 
 ```json
 {"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}
@@ -335,7 +335,7 @@ Let's now request that data using a new cURL request:
 curl http://127.0.0.1:8080
 ```
 
-And this should return the list of "todos", including the item we have just created:
+And this command should return the list of "todos", including the item we have created:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
