@@ -9,7 +9,7 @@
 1. Navigate into the app folder:
 
     ```bash
-    cd expressApp1
+    cd myexpressapp
     ```
 
 1. Install the application's dependencies:
