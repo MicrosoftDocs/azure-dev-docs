@@ -14,4 +14,4 @@ In this step, you create a simple Node.js app using the Express application gene
 [!INCLUDE [create-node-app](includes/create-node-app.md)]
 
 > [!div class="nextstepaction"]
-> [I created the  Node.js app](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
+> [I've created the  Node.js app](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
