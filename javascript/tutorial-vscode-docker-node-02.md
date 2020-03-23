@@ -15,46 +15,25 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/se
 
 ## Create an Azure Container Registry
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Create a resource**.
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the **Command Palette**.
 
-    ![Creating a new resource on the Azure portal](media/deploy-containers/portal-01a.png)
+1. Type "registry" in the search box and select **Azure Container Registry: Create Registry**.
 
-1. On the next page, select  **Containers** > **Container Registry**.
+   ![The Docker explorer in VS Code](media/deploy-containers/docker-create-registry.jpg)
 
-    ![Creating a container registry on the Azure portal](media/deploy-containers/portal-01b.png)
-
-1. In the **Create container registry** form that appears, enter appropriate values:
+1. Provide the following values in the prompts...
 
     - **Registry name** must be unique across Azure and contain 5-50 alphanumeric characters.
-    - Select your subscription in **Subscription**.
+    - Select **Basic** for **SKU**.
     - **Resource group** needs to be unique only within your subscription.
     - In location, **Location**, selecting a region close to you.
-    - Set **Admin user** as **Enable**.
-    - Select **Basic** for **SKU**.
 
-    ![Values for the container registry form](media/deploy-containers/portal-02.png)
+    Visual Studio Code will begin the process of creating the registry in Azure. When complete, you will see a notification like the one below, confirming that the registry has been successfully created.
 
-1. Select **Create** to create the registry.
+   ![A confirmation in Visual Studio Code that the registry has been created](media/deploy-containers/registry-created.jpg)
 
-1. Once the registry is created, open the notifications on the portal and select **Go to Resource** for the registry:
+1. Open the **Docker** explorer and ensure that the registry endpoint that you just setup is visible under **Registries**:
 
-    ![Opening the newly created registry resource](media/deploy-containers/portal-03.png)
+   ![Verifying that the registry appears in the Docker explorer](media/deploy-containers/docker-explorer-registry.jpg)
 
-1. On the registry page, select **Access Keys** and note the admin credentials:
-
-    ![Registry credentials for the registry on the Azure portal](media/deploy-containers/portal-04.png)
-
-1. At a command prompt or terminal, log in to Docker using the command below, replacing `<registry_name>` with the name of your registry, and `<username>` and `<password>` from with the values shown in the Azure portal for the admin user:
-
-    ```bash
-    docker login <registry_name>.azurecr.io -u <username> -p <password>
-    ```
-
-    For greater security, use `--password-stdin` instead of `-p <password>` and then paste in the password when prompted.
-
-1. In Visual Studio Code, open the **Docker** explorer and ensure that the registry endpoint that you just setup is visible under **Registries**:
-
-    ![Verifying that the registry appears in the Docker explorer](media/deploy-containers/registries.png)
-
-> [!div class="nextstepaction"]
-> [I've created a registry](tutorial-vscode-docker-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)
+> [!div class="nextstepaction"][i've created a registry](tutorial-vscode-docker-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry) \*

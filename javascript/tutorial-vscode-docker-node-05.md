@@ -1,24 +1,35 @@
 ---
-title: Redeploy a container to Azure App Service after making changes in Visual Studio Code
-description: Tutorial step 5, the simple steps to rebuild and redeploy a container image.
+title: Deploy a container image for a Node.js app from Visual Studio Code
+description: Tutorial part 5, deploy the image to Azure App Service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ---
 
-# Make changes and redeploy
+# Deploy the image to Azure App Service
 
-[Previous step: Deploy the app image](tutorial-vscode-docker-node-04.md)
+[Previous step: Create the app image](tutorial-vscode-docker-node-04.md)
 
-Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
+In this step, you deploy the image that you pushed to a registry to [Azure App Service](https://azure.microsoft.com/services/app-service/) directly from Visual Studio Code.
 
-1. Make changes to your app and test locally.
+1. In the **DOCKER** explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
 
-1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to rebuild the image). If you change only app code, the build should take only a few seconds.
+    ![Deploy From the Explorer](media/deploy-containers/deploy-image-command.png)
 
-1. To push the image to the registry, open the **Command Palette** (**F1**) again and run **Docker Images: Push**, choosing the image you just built. As before, because a change to your app code is small, only that layer needs to be pushed and the process typically completes in a few seconds.
+1. When prompted, provide values for the App Service:
 
-1. In the **Azure: App Service** explorer, right-click the appropriate App Service and select **Restart**. Restarting an app service automatically pulls the latest container image from the registry.
+    - The name must be unique across Azure.
+    - Select an existing resource group or create a new one. (A **Resource Group** is essentially a named collection of an application's resources in Azure.)
+    - Select an existing App Service Plan or create a new one. (An **App Service Plan** defines the physical resources that host the website. You can use a basic or free plan tier for this tutorial.)
 
-1. After about 15-20 seconds, visit the App Service URL again to check the updates.
+1. When deployment is complete, Visual Studio Code shows a notification with the website URL:
 
-> [I see the changes](tutorial-vscode-docker-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=deploy-changes)
+    ![Successful deployment message](media/deploy-containers/deploy-successful.png)
+
+1. You can also see the results in the **Output** panel of Visual Studio Code, in the **Docker** section:
+
+    ![Successful deployment output](media/deploy-containers/deploy-output.png)
+
+1. To browse the deployed website, you can **Ctrl**+**Click** the URL in the **Output** panel. The new App Service also appears in the **AZURE** explorer in Visual Studio Code under the **APP SERVICE** section, where you can right-click the website and select **Browse Website**.
+
+> [!div class="nextstepaction"]
+> [My site is on Azure](tutorial-vscode-docker-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=deploy-app)
