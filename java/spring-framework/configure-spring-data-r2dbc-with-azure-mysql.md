@@ -168,7 +168,7 @@ Stop the application and run it again: this should create the `r2dbc` database s
 
 ## Code the application
 
-First, we need to reconfigure the `src/main/resources/application.properties` file, in order to use the database schema we just created.
+First, we need to reconfigure the *src/main/resources/application.properties* file, in order to use the database schema we just created.
 
 Open up that file again, and add the `r2dbc` schema at the end of the database URL, configured by the `spring.r2dbc.url` key:
 
