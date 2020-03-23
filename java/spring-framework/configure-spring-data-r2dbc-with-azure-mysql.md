@@ -26,6 +26,8 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure Database for MySQL
 
+The first thing we will create is a managed MySQL Server instance.
+
 > [!NOTE]
 > 
 > You can read more detailed information about creating MySQL databases in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
@@ -54,6 +56,8 @@ The following prerequisites are required in order to complete the steps in this 
 1. Review the specification and click **Create**.
 
 ### Configure a firewall rule for your server using the Azure portal
+
+Azure Database for MySQL instances are secured by default: they have a firewall that doesn't allow any incoming connection. In order to be able to use our database, we need to add a firewall rule that will allow our local IP address to access the database server.
 
 1. In the the Azure portal at <https://portal.azure.com/>, click **All Resources**, then select the Azure Database for MySQL resource you just created.
 
