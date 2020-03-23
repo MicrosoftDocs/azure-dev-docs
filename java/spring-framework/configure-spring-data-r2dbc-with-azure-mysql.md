@@ -330,7 +330,7 @@ And this should return the list of "todos", including the item we have just crea
 
    ![Test with cURL][R2DBC-MYSQL09]
 
-__Congratulations!__ You have created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
+Congratulations! You have created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
 ## Summary
 
