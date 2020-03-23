@@ -159,7 +159,6 @@ You should now be able to start your application using the provided Maven wrappe
 ./mvnw spring-boot:run
 ```
 
-   [!div class="mx-imgBorder"]
    ![Run the application][R2DBC-MYSQL01]
 
 ### Create the database schema
@@ -190,7 +189,6 @@ Stop the application and run it again: this script should create the `r2dbc` dat
 ./mvnw spring-boot:run
 ```
 
-   [!div class="mx-imgBorder"]
    ![Create the database schema][R2DBC-MYSQL02]
 
 ## Code the application
@@ -343,7 +341,6 @@ And this command should return the list of "todos", including the item we have c
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
 ```
 
-   [!div class="mx-imgBorder"]
    ![Test with cURL][R2DBC-MYSQL03]
 
 Congratulations! You have created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
