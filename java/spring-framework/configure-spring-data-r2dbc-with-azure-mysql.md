@@ -108,7 +108,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ### Configure Spring Boot to use the Azure Database for MySQL
 
-Open up the `src/main/resources/application.properties` file, and add:
+Open up the *src/main/resources/application.properties* file, and add:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
