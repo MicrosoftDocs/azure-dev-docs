@@ -22,7 +22,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [https://aka.ms/azure-jdks](https://aka.ms/azure-jdks).
-- cURL or similar HTTP utility to test functionality.
+- [cURL](https://curl.haxx.se) or similar HTTP utility to test functionality.
 
 ## Create an Azure Database for MySQL
 
