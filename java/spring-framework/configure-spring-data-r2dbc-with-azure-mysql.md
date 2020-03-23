@@ -149,7 +149,7 @@ Inside the main `DemoApplication` class, configure a new Spring bean that will c
     }
 ```
 
-That Spring bean uses a file called `schema.sql`, you need to create that file in the `src/main/resources` folder:
+That Spring bean uses a file called *schema.sql*, you need to create that file in the *src/main/resources* folder:
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS r2dbc;
