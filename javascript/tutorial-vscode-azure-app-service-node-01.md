@@ -9,6 +9,12 @@ ms.date: 03/04/2020
 
 In this tutorial, you deploy a Node.js application to Azure App Service (on Linux or Windows) using the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
+## Walkthrough video
+
+Watch this video for a complete walkthrough of the content in this article.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Create-a-Nodejs-app-in-Azure/player]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
