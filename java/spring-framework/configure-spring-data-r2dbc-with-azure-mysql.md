@@ -159,7 +159,8 @@ You should now be able to start your application using the provided Maven wrappe
 ./mvnw spring-boot:run
 ```
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png" alt-text="Run the application" border="false":::
+   [!div class="mx-imgBorder"]
+   ![Run the application][R2DBC-MYSQL01]
 
 ### Create the database schema
 
@@ -189,7 +190,8 @@ Stop the application and run it again: this script should create the `r2dbc` dat
 ./mvnw spring-boot:run
 ```
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png" alt-text="Create the database schema" border="false":::
+   [!div class="mx-imgBorder"]
+   ![Create the database schema][R2DBC-MYSQL02]
 
 ## Code the application
 
@@ -341,7 +343,8 @@ And this command should return the list of "todos", including the item we have c
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
 ```
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png" alt-text="Test with cURL" border="false":::
+   [!div class="mx-imgBorder"]
+   ![Test with cURL][R2DBC-MYSQL03]
 
 Congratulations! You have created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
@@ -359,3 +362,9 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 ### Additional Resources
 
 For more information about using Azure with Java, see the [Azure for Java Developers](/azure/java/) and the [Working with Azure DevOps and Java](/azure/devops/) pages.
+
+<!-- IMG List -->
+
+[R2DBC-MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
+[R2DBC-MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
+[R2DBC-MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
