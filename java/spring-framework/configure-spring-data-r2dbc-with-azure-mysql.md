@@ -69,6 +69,8 @@ Azure Database for MySQL instances are secured by default: they have a firewall 
 
 ### Retrieve the connection string for your server using the Azure portal
 
+In order for our Spring Boot application to connect to the database server, we will need a specific connection String.
+
 1. Still in the Azure Database for MySQL resource you just created, click **Connection strings**, and copy the value in the **JDBC** text field.
 
    ![Retrieve your JDBC connection string][R2DBC-MYSQL04]
