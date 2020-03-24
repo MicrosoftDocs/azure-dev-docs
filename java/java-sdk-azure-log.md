@@ -183,7 +183,7 @@ logging.config=classpath:logback.xml
 
 In scenarios where it’s not possible to redeploy your application with an SLF4J logger, you can use the fallback logger that is built into the Azure client libraries for Java. To enable this logger, you must first confirm there is no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. After you set the environment variable, you’ll need to restart your application to start generating logs.
 
-The following table shows the allowed values this environment variable.
+The following table shows the allowed values for this environment variable.
 
 |Log level   |Allowed environment variable values   |
 |----------|-----------|
