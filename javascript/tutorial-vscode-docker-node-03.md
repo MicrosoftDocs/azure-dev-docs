@@ -11,7 +11,7 @@ ms.date: 09/20/2019
 
 In this step, you use the Docker extension in Visual Studio Code to add the necessary files to create an image for your app, build the image, and push it to a registry.
 
-If you don't already have an app for this walkthrough, use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+If you don't already have an app for this walkthrough, use the app from the [Visual Studio Code Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial#_an-express-application).
 
 ## Add Docker files
 
