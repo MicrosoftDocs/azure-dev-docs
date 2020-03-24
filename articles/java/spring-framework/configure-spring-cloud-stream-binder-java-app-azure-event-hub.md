@@ -412,15 +412,15 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[IMG01]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-01.png
-[IMG02]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-02.png
-[IMG03]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-03.png
-[IMG04]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-04.png
-[IMG05]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-05.png
-[IMG06]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-06.png
-[IMG07]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-07.png
-[IMG08]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-08.png
+[IMG01]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-01.png
+[IMG02]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-02.png
+[IMG03]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-03.png
+[IMG04]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-04.png
+[IMG05]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-05.png
+[IMG06]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-06.png
+[IMG07]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-07.png
+[IMG08]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-08.png
 
-[SI01]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-01.png
-[SI02]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-02.png
-[SI03]: ./media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-03.png
+[SI01]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-01.png
+[SI02]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-02.png
+[SI03]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-03.png

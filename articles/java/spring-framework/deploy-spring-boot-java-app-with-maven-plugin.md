@@ -167,7 +167,7 @@ In this section, you will configure the Spring Boot project `pom.xml` so that Ma
                 <directory>${project.basedir}/target</directory>
                 <includes>
                   <include>*.jar</include>
-                </includes>
+               includes>
               </resource>
             </resources>
           </deployment>
@@ -251,5 +251,5 @@ For more information about the various technologies discussed in this article, s
 <!-- IMG List -->
 
 
-[AP01]: ./media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
-[AP02]: ./media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png
+[AP01]: media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
+[AP02]: media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png

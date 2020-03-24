@@ -439,12 +439,12 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[AZ01]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ01.png
-[AZ02]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png
-[AZ03]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png
-[AZ04]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ04.png
-[AZ05]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png
+[AZ01]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ01.png
+[AZ02]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png
+[AZ03]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png
+[AZ04]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ04.png
+[AZ05]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png
 
-[SI01]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/SI01.png
+[SI01]: media/configure-spring-boot-starter-java-app-with-cosmos-db/SI01.png
 
-[JV02]: ./media/configure-spring-boot-starter-java-app-with-cosmos-db/JV02.png
+[JV02]: media/configure-spring-boot-starter-java-app-with-cosmos-db/JV02.png

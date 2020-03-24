@@ -62,7 +62,7 @@ The Azure Toolkit for IntelliJ - April 2016 release includes the following enhan
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](../includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
 
 <!-- URL List -->
 

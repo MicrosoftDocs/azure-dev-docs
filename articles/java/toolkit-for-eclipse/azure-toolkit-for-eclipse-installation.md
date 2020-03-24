@@ -23,7 +23,7 @@ There are two ways to install Azure Toolkit for Eclipse:
 > <https://github.com/microsoft/azure-tools-for-java> 
 > 
 
-[!INCLUDE [azure-toolkit-for-eclipse-basic-prerequisites](../includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
 
 ## Eclipse marketplace
 
@@ -33,7 +33,7 @@ There are two ways to install Azure Toolkit for Eclipse:
 
 2. Otherwise, it is also possible to search and install the **Azure Toolkit for Eclipse plugin** at **Help/Eclipse Marketplace**.
 
-    ![Marketplace](./media/azure-toolkit-for-eclipse-installation/marketplace.png)
+    ![Marketplace](media/azure-toolkit-for-eclipse-installation/marketplace.png)
 
 ## Install new software
 
@@ -81,7 +81,7 @@ There are two ways to install Azure Toolkit for Eclipse:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](../includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 

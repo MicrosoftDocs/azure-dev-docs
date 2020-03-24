@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](../includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
+[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
 
 ## Create a virtual machine in IntelliJ
 
@@ -139,7 +139,7 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
   * [Windows virtual-machine pricing]
   * [Linux virtual-machine pricing]
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](../includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
 
 <!-- URL List -->
 

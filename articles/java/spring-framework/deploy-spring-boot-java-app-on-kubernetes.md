@@ -346,18 +346,18 @@ For more information about iteratively running and debugging containers directly
 [Get started on Azure Dev Spaces with Java]: https://docs.microsoft.com/azure/dev-spaces/get-started-java
 <!-- IMG List -->
 
-[SB01]: ./media/deploy-spring-boot-java-app-on-kubernetes/SB01.png
-[SB02]: ./media/deploy-spring-boot-java-app-on-kubernetes/SB02.png
+[SB01]: media/deploy-spring-boot-java-app-on-kubernetes/SB01.png
+[SB02]: media/deploy-spring-boot-java-app-on-kubernetes/SB02.png
 
-[AR01]: ./media/deploy-spring-boot-java-app-on-kubernetes/AR01.png
-[AR02]: ./media/deploy-spring-boot-java-app-on-kubernetes/AR02.png
-[AR03]: ./media/deploy-spring-boot-java-app-on-kubernetes/AR03.png
-[AR04]: ./media/deploy-spring-boot-java-app-on-kubernetes/AR04.png
+[AR01]: media/deploy-spring-boot-java-app-on-kubernetes/AR01.png
+[AR02]: media/deploy-spring-boot-java-app-on-kubernetes/AR02.png
+[AR03]: media/deploy-spring-boot-java-app-on-kubernetes/AR03.png
+[AR04]: media/deploy-spring-boot-java-app-on-kubernetes/AR04.png
 
-[KB01]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB01.png
-[KB02]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB02.png
-[KB03]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB03.png
-[KB04]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB04.png
-[KB05]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB05.png
-[KB06]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB06.png
-[KB07]: ./media/deploy-spring-boot-java-app-on-kubernetes/KB07.png
+[KB01]: media/deploy-spring-boot-java-app-on-kubernetes/KB01.png
+[KB02]: media/deploy-spring-boot-java-app-on-kubernetes/KB02.png
+[KB03]: media/deploy-spring-boot-java-app-on-kubernetes/KB03.png
+[KB04]: media/deploy-spring-boot-java-app-on-kubernetes/KB04.png
+[KB05]: media/deploy-spring-boot-java-app-on-kubernetes/KB05.png
+[KB06]: media/deploy-spring-boot-java-app-on-kubernetes/KB06.png
+[KB07]: media/deploy-spring-boot-java-app-on-kubernetes/KB07.png

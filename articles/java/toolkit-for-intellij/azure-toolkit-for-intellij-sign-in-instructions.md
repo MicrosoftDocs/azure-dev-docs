@@ -17,7 +17,7 @@ Once [installed](https://www.jetbrains.com/help/idea/managing-plugins.html), the
 
 [**Sign out**](#sign-out-of-your-azure-account) methods are also provided.
 
-[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](../includes/azure-toolkit-for-intellij-basic-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](includes/azure-toolkit-for-intellij-basic-prerequisites.md)]
 
 ## Sign in to your Azure account by Device Login
 
@@ -94,7 +94,7 @@ After you have configured your account by preceding steps, you will be automatic
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](../includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
 
 <!-- URL List -->
 

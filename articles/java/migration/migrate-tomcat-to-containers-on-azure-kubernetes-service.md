@@ -13,11 +13,11 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
-[!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
+[!INCLUDE [inventory-external-resources](includes/inventory-external-resources.md)]
 
-[!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
+[!INCLUDE [inventory-secrets](includes/inventory-secrets.md)]
 
-[!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
+[!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
 
 <!-- AKS-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content

@@ -360,12 +360,12 @@ For detailed information about additional Azure storage APIs that you can call f
 
 <!-- IMG List -->
 
-[IMG01]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png
-[IMG02]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png
-[IMG03]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-03.png
-[IMG04]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-04.png
-[IMG05]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-05.png
+[IMG01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png
+[IMG02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png
+[IMG03]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-03.png
+[IMG04]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-04.png
+[IMG05]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-05.png
 
-[SI01]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png
-[SI02]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-02.png
-[SI03]: ./media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-03.png
+[SI01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png
+[SI02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-02.png
+[SI03]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-03.png

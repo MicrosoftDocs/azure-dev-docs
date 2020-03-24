@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the Eclipse integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
 ## Create a storage account in Eclipse
 
@@ -97,7 +97,7 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
   * [Windows storage-account pricing]
   * [Linux storage-account pricing]
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](../includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 

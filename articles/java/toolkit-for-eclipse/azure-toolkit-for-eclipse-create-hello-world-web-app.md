@@ -22,12 +22,12 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 >
 > If you prefer using IntelliJ IDEA, check out our [similar tutorial for IntelliJ][intellij-hello-world].
 >
->[!INCLUDE [quickstarts-free-trial-note](../includes/quickstarts-free-trial-note.md)]
+>[!INCLUDE [quickstarts-free-trial-note](includes/quickstarts-free-trial-note.md)]
 >
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >
 
-[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](../includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
 
 ## Installation and sign-in
 
@@ -120,7 +120,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
    ![Browsing your web app][browse-web-app]
 
-[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
 ## Cleaning up resources
 
@@ -130,7 +130,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](../includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
@@ -151,17 +151,17 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [I04]: media/azure-toolkit-for-eclipse-sign-in-instructions/I04.png
 [I05]: media/azure-toolkit-for-eclipse-sign-in-instructions/I05.png
 
-[browse-web-app]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/browse-web-app.png
-[file-new-dynamic-web-project]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/file-new-dynamic-web-project.png
-[dynamic-web-project-properties]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/dynamic-web-project-properties.png
-[create-new-jsp-file]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-new-jsp-file.png
-[new-jsp-file-dialog]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/new-jsp-file-dialog.png
-[select-jsp-template]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-jsp-template.png
-[publish-as-azure-web-app]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-as-azure-web-app.png
-[deploy-web-app-dialog]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-web-app-dialog.png
-[select-app-service]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-app-service.png
-[create-app-service-dialog]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service-dialog.png
-[publish-status]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-status.png
-[create-app-service]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service.png
-[deploy-app-service]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-app-service.png
-[manage-app-service]: ./media/azure-toolkit-for-eclipse-create-hello-world-web-app/manage-app-service.png
+[browse-web-app]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/browse-web-app.png
+[file-new-dynamic-web-project]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/file-new-dynamic-web-project.png
+[dynamic-web-project-properties]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/dynamic-web-project-properties.png
+[create-new-jsp-file]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-new-jsp-file.png
+[new-jsp-file-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/new-jsp-file-dialog.png
+[select-jsp-template]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-jsp-template.png
+[publish-as-azure-web-app]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-as-azure-web-app.png
+[deploy-web-app-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-web-app-dialog.png
+[select-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-app-service.png
+[create-app-service-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service-dialog.png
+[publish-status]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-status.png
+[create-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service.png
+[deploy-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-app-service.png
+[manage-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/manage-app-service.png

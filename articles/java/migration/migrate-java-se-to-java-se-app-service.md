@@ -24,7 +24,7 @@ If you can't meet any of the pre-migration requirements, see the following compa
 
 App Service offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
-[!INCLUDE [note-obtain-your-current-java-version](includes/migration/note-obtain-your-current-java-version.md)]
+[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
 ### Inventory external resources
 
@@ -108,9 +108,9 @@ It isn't feasible to document every possible external dependency in this guide. 
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Boot application, such strings will likely be found in *application.properties* or *application.yml*.
 
-[!INCLUDE [inventory-certificates](includes/migration/inventory-certificates.md)]
+[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
-[!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
+[!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
 
 ### Special Cases
 
@@ -179,9 +179,9 @@ Once the Web App has been created, use one of the [available deployment mechanis
 
 If your application requires specific runtime options, [use the most appropriate mechanism to specify them](/azure/app-service/containers/configure-language-java#set-java-runtime-options).
 
-[!INCLUDE [configure-custom-domain-and-ssl](includes/migration/configure-custom-domain-and-ssl.md)]
+[!INCLUDE [configure-custom-domain-and-ssl](includes/configure-custom-domain-and-ssl.md)]
 
-[!INCLUDE [import-backend-certificates](includes/migration/import-backend-certificates.md)]
+[!INCLUDE [import-backend-certificates](includes/import-backend-certificates.md)]
 
 ### Migrate external resource coordinates and other settings
 
@@ -198,7 +198,7 @@ Follow [these steps to migrate connection strings and other settings](/azure/app
 
 ![App Service Application Configuration](media/migrate-java-se-to-java-se-app-service/app-service-parameterized-spring-boot-app-settings.png)
 
-[!INCLUDE [migrate-scheduled-jobs](includes/migration/migrate-scheduled-jobs.md)]
+[!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
 
 ### Restart and smoke-test
 

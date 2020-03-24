@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing redis caches in their Azure account from inside the IntelliJ IDE.
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](../includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
+[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
 
 ## Create a Redis Cache by using IntelliJ
 
@@ -84,7 +84,7 @@ For more information about Azure redis caches, configuration settings and pricin
 * [Redis Cache Pricing]
 * [How to configure Azure Redis Cache]
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](../includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
 
 <!-- URL List -->
 

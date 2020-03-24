@@ -78,7 +78,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     On Windows, *zmc.exe* will use the default JVM installation configured in the registry. Zulu Mission Control must be launched from a full JDK to be able to detect local JVM instances automatically. If this is a JRE, you will see the warning below:
 
     > [!div class="mx-imgBorder"]
-    ![Warning if JDK install is JRE-only](../media/jdk/jfr-jre-warning-message.png)
+    ![Warning if JDK install is JRE-only](media/jfr-jre-warning-message.png)
 
     To change the JVM used by Mission Control, follow these steps: 
     1.	Open *zmc.ini* configuration file, located in the same directory as the *zmc.exe*
@@ -91,7 +91,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     2.	Select and expand the list item in the upper left for your the JVM instance running your application.
 
     > [!div class="mx-imgBorder"]
-    ![Expand the list item in the upper-left for your JVM instance](../media/jdk/jfr-jvm-instance-dashboard.png)
+    ![Expand the list item in the upper-left for your JVM instance](media/jfr-jvm-instance-dashboard.png)
 
 
 8.	Start a Flight Recording, if necessary
@@ -99,7 +99,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     2.	Select either a fixed duration recording or a continuous recording, and either a Profiling configuration (fine-grained) or a Continuous configuration (lower overhead), then select **Finish**.
 
     > [!div class="mx-imgBorder"]
-    ![Start a Flight Recording](../media/jdk/jfr-start-flight-recording.png)
+    ![Start a Flight Recording](media/jfr-start-flight-recording.png)
 
 9.	Dump the Flight Recording
     1.	A Flight Recording should appear below the Flight Recorder line in the JVM Browser. Right-click on the line representing the Flight Recording and select **Dump whole recording**.
@@ -109,7 +109,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     1.	If not already activated, select the tab labelled **Outline** in the left pane of the Zulu Mission Control Window. This tab contains different views of the data collected in the Flight Recording.
  
     > [!div class="mx-imgBorder"]
-    ![Review the Flight Recording](../media/jdk/jfr-zulu-mission-control-data.png)
+    ![Review the Flight Recording](media/jfr-zulu-mission-control-data.png)
 
 ## Resources
 

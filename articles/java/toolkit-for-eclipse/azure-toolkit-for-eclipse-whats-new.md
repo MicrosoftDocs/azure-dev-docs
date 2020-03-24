@@ -304,7 +304,7 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](../includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 

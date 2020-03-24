@@ -412,8 +412,8 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[SB01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-sample-spring-boot-app.png
-[CR01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-azure-portal-docker-container.png
-[AP01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/web-app-listed-azure-portal.png
-[AP02]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/determine-web-app-url.png
-[TL01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/expose-docker-daemon-tcp-port.png
+[SB01]: media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-sample-spring-boot-app.png
+[CR01]: media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-azure-portal-docker-container.png
+[AP01]: media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/web-app-listed-azure-portal.png
+[AP02]: media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/determine-web-app-url.png
+[TL01]: media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/expose-docker-daemon-tcp-port.png

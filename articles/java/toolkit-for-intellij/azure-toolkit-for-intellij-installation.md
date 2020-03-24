@@ -109,7 +109,7 @@ The Azure Toolkit for IntelliJ requires to the following software components:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](../includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
 
 <!-- URL List -->
 

@@ -345,5 +345,5 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[AP01]: ./media/deploy-containerized-spring-boot-java-app-with-maven-plugin/AP01.png
-[AP02]: ./media/deploy-containerized-spring-boot-java-app-with-maven-plugin/AP02.png
+[AP01]: media/deploy-containerized-spring-boot-java-app-with-maven-plugin/AP01.png
+[AP02]: media/deploy-containerized-spring-boot-java-app-with-maven-plugin/AP02.png

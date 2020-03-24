@@ -299,17 +299,17 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[AZ01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource.png
-[AZ02]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource_2.png
-[AZ03]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource_3.png
-[AZ04]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/Get_IKey.png
-[AZ05]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/OverviewBladeResults.png
-[AZ06]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/Search_and_traces.png
-[AZ07]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/traces_details.png
-[AZ08]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/AppMap.png
+[AZ01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource.png
+[AZ02]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource_2.png
+[AZ03]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/Create_resource_3.png
+[AZ04]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/Get_IKey.png
+[AZ05]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/OverviewBladeResults.png
+[AZ06]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/Search_and_traces.png
+[AZ07]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/traces_details.png
+[AZ08]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/AppMap.png
 
-[SI01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.PNG
-[SI02]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/After_extract.png
+[SI01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.PNG
+[SI02]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/After_extract.png
 
-[RE01]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationproperties_loc.png
-[RE02]: ./media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationinsightsproperties.png
+[RE01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationproperties_loc.png
+[RE02]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationinsightsproperties.png

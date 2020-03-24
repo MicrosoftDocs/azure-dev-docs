@@ -291,13 +291,13 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 
 <!-- IMG List -->
 
-[SB01]: ./media/deploy-spring-boot-java-app-on-linux/SB01.png
-[SB02]: ./media/deploy-spring-boot-java-app-on-linux/SB02.png
-[AR01]: ./media/deploy-spring-boot-java-app-on-linux/AR01.png
-[AR03]: ./media/deploy-spring-boot-java-app-on-linux/AR03.png
-[AR04]: ./media/deploy-spring-boot-java-app-on-linux/AR04.png
-[LX01]: ./media/deploy-spring-boot-java-app-on-linux/LX01.png
-[LX02]: ./media/deploy-spring-boot-java-app-on-linux/LX02.png
-[LX02-A]: ./media/deploy-spring-boot-java-app-on-linux/LX02-A.png
-[LX02-B]: ./media/deploy-spring-boot-java-app-on-linux/LX02-B.png
-[LX03]: ./media/deploy-spring-boot-java-app-on-linux/LX03.png
+[SB01]: media/deploy-spring-boot-java-app-on-linux/SB01.png
+[SB02]: media/deploy-spring-boot-java-app-on-linux/SB02.png
+[AR01]: media/deploy-spring-boot-java-app-on-linux/AR01.png
+[AR03]: media/deploy-spring-boot-java-app-on-linux/AR03.png
+[AR04]: media/deploy-spring-boot-java-app-on-linux/AR04.png
+[LX01]: media/deploy-spring-boot-java-app-on-linux/LX01.png
+[LX02]: media/deploy-spring-boot-java-app-on-linux/LX02.png
+[LX02-A]: media/deploy-spring-boot-java-app-on-linux/LX02-A.png
+[LX02-B]: media/deploy-spring-boot-java-app-on-linux/LX02-B.png
+[LX03]: media/deploy-spring-boot-java-app-on-linux/LX03.png

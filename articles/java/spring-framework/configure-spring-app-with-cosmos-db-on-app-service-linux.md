@@ -332,5 +332,5 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[SCDB01]: ./media/configure-spring-app-with-cosmos-db-on-app-service-linux/SCDB01.png
-[SCDB02]: ./media/configure-spring-app-with-cosmos-db-on-app-service-linux/SCDB02.png
+[SCDB01]: media/configure-spring-app-with-cosmos-db-on-app-service-linux/SCDB01.png
+[SCDB02]: media/configure-spring-app-with-cosmos-db-on-app-service-linux/SCDB02.png

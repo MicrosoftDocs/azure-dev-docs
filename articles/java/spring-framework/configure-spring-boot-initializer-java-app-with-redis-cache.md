@@ -215,16 +215,16 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[AZ01]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ01.png
-[AZ02]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ02.png
-[AZ03]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ03.png
-[AZ04]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ04.png
-[AZ05]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
+[AZ01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ01.png
+[AZ02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ02.png
+[AZ03]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ03.png
+[AZ04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ04.png
+[AZ05]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
 
-[SI01]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/SI01.png
-[SI02]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png
-[SI03]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/SI03.png
-[SI04]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/SI04.png
+[SI01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI01.png
+[SI02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png
+[SI03]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI03.png
+[SI04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI04.png
 
-[RE01]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/RE01.png
-[RE02]: ./media/configure-spring-boot-initializer-java-app-with-redis-cache/RE02.png
+[RE01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/RE01.png
+[RE02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/RE02.png
