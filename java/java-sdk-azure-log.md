@@ -106,7 +106,7 @@ Log4j2 example:
 
 [Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks, and a native implementation of SLF4J. To configure Logback, create a new XML file named *logback.xml* in the *./src/main/resources* directory of your project. You can find more information on configuration options at the [Logback Project website](https://logback.qos.ch/manual/configuration.html).
 
-This example Logback configuration …
+Here's an example Logback configuration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
