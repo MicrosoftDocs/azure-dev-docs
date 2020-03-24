@@ -20,7 +20,7 @@ The Azure SDK for Java client libraries use the [Simple Logging Facade for Java]
 
 ## Declare a logging framework
 
-Before you implement these loggers, you must declare the relevant framework as a dependency in your project. See the  [SLF4J user manual](http://www.slf4j.org/manual.html#projectDep) for detailed information.
+Before you implement these loggers, you must declare the relevant framework as a dependency in your project. For more information, see the  [SLF4J user manual](http://www.slf4j.org/manual.html#projectDep).
 
 ## Configure Log4j or Log4j 2
 
@@ -32,7 +32,7 @@ In the *./src/main/resource* directory of your project, create a new file named 
 
 Log4j example:
 
-```java
+```properties
 log4j.rootLogger=INFO, A1
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 log4j.appender.A1.layout=org.apache.log4j.PatternLayout
@@ -42,7 +42,7 @@ log4j.logger.com.azure.core=ERROR
 
 Log4j2 example:
 
-```java
+```properties
 appender.console.type = Console
 appender.console.name = LogToConsole
 appender.console.layout.type = PatternLayout
@@ -53,7 +53,7 @@ logger.app.level=ERROR
 
 ### Use an XML file
 
-Alternatively, you can use an XML file to configure Log4j and Log4j2. In the *./src/main/resource* directory of your project, create a new file named *log4j.xml* or *log4j2.xml* (the latter for Logj4 2). Use these examples to get started. 
+Alternatively, you can use an XML file to configure Log4j and Log4j2. In the *./src/main/resource* directory of your project, create a new file named *log4j.xml* or *log4j2.xml* (the latter for Logj4 2). Use these examples to get started.
 
 Log4j example:
 
@@ -104,7 +104,7 @@ Log4j2 example:
 
 ## Configure Logback
 
-[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks, and a native implementation of SLF4J. To configure Logback, create a new XML file named `logback.xml`  in the **./src/main/resources** directory of your project. You can find more information on configuration options at the [Logback Project website](https://logback.qos.ch/manual/configuration.html).
+[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks, and a native implementation of SLF4J. To configure Logback, create a new XML file named *logback.xml* in the *./src/main/resources* directory of your project. You can find more information on configuration options at the [Logback Project website](https://logback.qos.ch/manual/configuration.html).
 
 This example Logback configuration …
 
@@ -175,7 +175,7 @@ Here's a configuration for logging to a file that is rolled over after each hour
 
 Spring looks for your project configurations, including logging, in the *application.properties* file, which is in the *./src/main/resources* directory. In the *application.properties* file, add the following line to link your *logback.xml* to your Spring Boot application:
 
-```java
+```properties
 logging.config=classpath:logback.xml
 ```
 
