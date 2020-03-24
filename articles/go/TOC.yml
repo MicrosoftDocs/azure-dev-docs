@@ -9,7 +9,7 @@ items:
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
-  - name: Go SDK Quickstarts
+  - name: Quickstarts
     items:
     - name: Virtual Machines and Resource Templates
       href: azure-sdk-qs-vm.md
@@ -21,7 +21,7 @@ items:
       href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Azure SQL Database 
       href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - name: Go Code Samples
+  - name: Samples
     items:
     - name: Authentication and Active Directory
       href: azure-sdk-auth-aad-samples.md
@@ -33,5 +33,5 @@ items:
       href: azure-sdk-sql-database-samples.md
     - name: All Go samples
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
-  - name: API reference
+  - name: Reference
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go
