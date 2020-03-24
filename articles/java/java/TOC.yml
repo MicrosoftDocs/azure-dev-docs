@@ -13,7 +13,7 @@
           - name: Linux and Tomcat
             href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
           - name: Linux and Java SE
-            href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+            href: ../spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure Container Registry
@@ -87,9 +87,9 @@
     - name: Frameworks and Platforms
       items:
       - name: Spring Framework & Spring Boot
-        href: /azure/java/spring-framework/index
+        href: ../spring-framework
       - name: Eclipse MicroProfile
-        href: /azure/java/microprofile/index
+        href: ../eclipse-microprofile
     - name: Developer Tools
       items:
         - name: Overview
@@ -97,23 +97,23 @@
         - name: Java Support
           items: 
           - name: Java Long-Term Support
-            href: jdk/index.md
+            href: ../jdk/index.md
           - name: Java JDK Installation
-            href: jdk/java-jdk-install.md
+            href: ../jdk/java-jdk-install.md
           - name: Java Docker images for Azure
-            href: jdk/java-jdk-docker-images.md
+            href: ../jdk/java-jdk-docker-images.md
           - name: Java Flight Recorder and Mission Control
-            href: jdk/java-jdk-flight-recorder-and-mission-control.md       
+            href: ../jdk/java-jdk-flight-recorder-and-mission-control.md       
           - name: Reasons to move to Java 11
-            href: jdk/reasons-to-move-to-java-11.md
+            href: ../jdk/reasons-to-move-to-java-11.md
           - name: Transition from Java 8 to Java 11
-            href: jdk/transition-from-java-8-to-java-11.md
+            href: ../jdk/transition-from-java-8-to-java-11.md
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
-          href: intellij/azure-toolkit-for-intellij.md
+          href: toolkit-for-intellij/azure-toolkit-for-intellij.md
         - name: Eclipse
-          href: eclipse/azure-toolkit-for-eclipse.md
+          href: ../toolkit-for-eclipse/azure-toolkit-for-eclipse.md
         - name: Maven Plugins
           href: /java/api/overview/azure/maven/README
           items:
@@ -142,11 +142,11 @@
         - name: Jenkins CI/CD to App Service
           href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service with Maven
-          href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: ../spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service
-          href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: ../spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service from ACR
-          href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: ../spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Java Functions with Event Hub and Cosmos DB
           href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitoring and logging using Logz.io

@@ -27,7 +27,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >
 
-[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [azure-toolkit-for-eclipse-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
 
 ## Installation and sign-in
 
@@ -137,8 +137,8 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]: ../intellij/azure-toolkit-for-intellij.md
-[intellij-hello-world]: ../intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md
+[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/azure-toolkit-for-intellij.md
+[intellij-hello-world]: ../toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
