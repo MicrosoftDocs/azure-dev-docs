@@ -43,7 +43,23 @@
       "extendBreadcrumb": true,
       "feedback_system": "None"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author": {
+        "go/*.md": "barbkess"        
+      },
+      "manager": {
+        "go/*.md": "barbkess"        
+      },
+      "ms.author": {
+        "go/*.md": "barbkess"        
+      },      
+      "ms.devlang": {
+        "go/*.md": "go"
+      },      
+      "ms.prod": {
+        "go/*.md": "azure-go"
+      }
+    },
     "template": [],
     "dest": "azure-dev-docs",
     "markdownEngineName": "markdig"

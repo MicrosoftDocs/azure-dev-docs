@@ -1,11 +1,7 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
   items:
-    - name: Azure 
-    tocHref: /azure
-    topicHref: /azure/index
-    items:
-    - name: Azure SDK for Go
-      tocHref: /azure/developer/go
-      topicHref: /azure/developer/go/index
+  - name: Azure SDK for Go
+    tocHref: /azure/developer/go
+    topicHref: /azure/developer/go/index
