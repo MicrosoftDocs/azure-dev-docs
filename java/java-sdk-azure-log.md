@@ -2,18 +2,18 @@
 title: Logging with the Azure SDK for Java
 description: Learn how to configure logging frameworks for the Azure SDK for Java client libraries
 keywords: Azure, Java, SDK, logging
-author: dsindona
+author: bmitchell287
 ms.author: brendm
-ms.date: 03/19/2020
+ms.date: 03/24/2020
 ms.topic: article
 ms.service: multiple
 ---
 
 # Logging with the Azure SDK for Java
 
-The [Azure SDK](https://azure.microsoft.com/downloads/) for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment. 
+This article gives example logging configurations for the [Azure SDK](https://azure.microsoft.com/downloads/) for Java. For more detail on configuration options, such as setting log levels or custom logging by class, refer to the documentation for your chosen logging framework.
 
-This article gives example configurations for common SLF4J-supported logging frameworks. For more detail on configuration options, such as setting log levels or custom logging by class, refer to the documentation for your chosen logging framework.
+The Azure SDK for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment.
 
 > [!NOTE]
 > This article applies to the most recent versions of the Azure SDK client libraries. To see if a library is supported, refer to the list of [Azure SDK latest releases](https://azure.github.io/azure-sdk/releases/latest/java.html). If your application is using an older version of the Azure SDK client libraries, refer to specific instructions in the applicable service documentation.
@@ -28,7 +28,7 @@ You can configure Log4j and Log4j 2 logging in a properties file or an XML file.
 
 ### Use a properties file
 
-In the **./src/main/resource** directory of your project, create a new file named `log4j.properties` or `log4j2.properties` (the latter for Logj4 2). Use these examples to get started.
+In the *./src/main/resource* directory of your project, create a new file named **log4j.properties* or *log4j2.properties* (the latter for Logj4 2). Use these examples to get started.
 
 Log4j example:
 
@@ -53,7 +53,7 @@ logger.app.level=ERROR
 
 ### Use an XML file
 
-Alternatively, you can use an XML file to configure Log4j and Log4j2. In the **./src/main/resource** directory of your project, create a new file named `log4j.xml` or `log4j2.xml` (the latter for Logj4 2). Use these examples to get started. 
+Alternatively, you can use an XML file to configure Log4j and Log4j2. In the *./src/main/resource* directory of your project, create a new file named *log4j.xml* or *log4j2.xml* (the latter for Logj4 2). Use these examples to get started. 
 
 Log4j example:
 
@@ -124,7 +124,8 @@ This example Logback configuration …
   </root>
 </configuration>
 ```
-Here is a simple Logback configuration to log to console:
+
+Here is a simple Logback configuration for logging to the console:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -144,7 +145,7 @@ Here is a simple Logback configuration to log to console:
 </configuration>
 ```
 
-The following configuration is to log to a file that is rolled over after each hour and archived in GZIP file format:
+Here's a configuration for logging to a file that is rolled over after each hour and archived in GZIP file format:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -172,7 +173,7 @@ The following configuration is to log to a file that is rolled over after each h
 
 ### Configure Logback for a Spring Boot application
 
-Spring looks for your project configurations, including logging, in the `application.properties` file, which is in the **./src/main/resources** directory. In the `application.properties` file, add the following line to link your `logback.xml` to your Spring Boot application:
+Spring looks for your project configurations, including logging, in the *application.properties* file, which is in the *./src/main/resources* directory. In the *application.properties* file, add the following line to link your *logback.xml* to your Spring Boot application:
 
 ```java
 logging.config=classpath:logback.xml
@@ -190,7 +191,6 @@ The following table shows the allowed values this environment variable.
 |INFORMATIONAL|"info", "information", "informational"  |
 |WARNING     |"warn", "warning"       |
 |ERROR    |"err", "error"  |
-
 
 ## Next steps
 
