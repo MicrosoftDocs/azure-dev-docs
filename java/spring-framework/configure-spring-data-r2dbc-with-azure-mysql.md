@@ -159,6 +159,8 @@ You should now be able to start your application using the provided Maven wrappe
 ./mvnw spring-boot:run
 ```
 
+Here is a screenshot of the application running for the first time:
+
    ![Run the application][R2DBC-MYSQL01]
 
 ### Create the database schema
@@ -189,7 +191,9 @@ Stop the application and run it again: this script should use the `r2dbc` databa
 ./mvnw spring-boot:run
 ```
 
-   ![Create the database schema][R2DBC-MYSQL02]
+Here is a screenshot of the database table being created:
+
+   ![Create the database table][R2DBC-MYSQL02]
 
 ## Code the application
 
@@ -340,6 +344,8 @@ And this command should return the list of "todos", including the item we have c
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
 ```
+
+Here is a screenshot of these cURL requests:
 
    ![Test with cURL][R2DBC-MYSQL03]
 
