@@ -82,7 +82,7 @@ az mysql server create --name $AZ_DATABASE_NAME \
 
 This command will create a small MySQL Server instance.
 
-### Configure a firewall rule for your server using the Azure portal
+### Configure a firewall rule for your MySQL Server instance
 
 Azure Database for MySQL instances are secured by default: they have a firewall that doesn't allow any incoming connection. In order to be able to use our database, we need to add a firewall rule that will allow our local IP address to access the database server.
 
