@@ -13,8 +13,8 @@ In this tutorial, you use Visual Studio Code to create a containerized Node.js a
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Docker extension](vscode:extension/ms-azuretools.vscode-docker)
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice)
+- The [Docker extension](vscode:extension/ms-azuretools.vscode-docker).
+- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 - [Docker](https://www.docker.com/community-edition).
 
