@@ -1,0 +1,189 @@
+### YamlMime:Hub 
+
+title: Azure for Java cloud developers 
+summary: Get started developing apps for the cloud with these great tutorials and tools for Java developers. 
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure for Java cloud developers documentation
+  description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
+  ms.service: multiple
+  ms.devlang: java
+  ms.topic: hub-page
+  author: barbkess
+  ms.author: barbkess
+  manager: barbkess
+  ms.date: 10/11/2019
+
+highlightedContent:
+# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Java support on Azure 
+      itemType: how-to-guide # controls the icon image and super-title text 
+      url: ./jdk
+    - title: Install the latest JDK 
+      itemType: how-to-guide 
+      url: ./jdk/java-jdk-install?view=azure-java-stable
+    - title: Not done 
+      itemType: how-to-guide
+      url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
+    - title: Not done 
+      itemType: how-to-guide
+      url: ./fundamentals/add-users-azure-active-directory.md
+    - title: Not done 
+      itemType: how-to-guide
+      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+    - title: Not done
+      itemType: how-to-guide 
+      url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+
+conceptualContent:
+# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items: 
+    - title: Spring framework 
+      links: 
+        - url: ./spring-framework/spring-boot-starters-for-azure?view=azure-java-stable
+          itemType: how-to-guide
+          text: Spring Boot Starters
+        - url: ./spring-framework/getting-started-with-spring-cloud-function-in-azure?view=azure-java-stable
+          itemType: how-to-guide
+          text: Spring Functions
+        - url: ./spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable
+          itemType: how-to-guide
+          text: Spring Data
+      footerLink: 
+        url: ./spring-framework/?view=azure-java-stable
+        text: See more
+
+    - title: Migrate Java apps to Azure
+      links: 
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text: Tomcat to Azure App Service
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide 
+          text: WebLogic to Azure App Service 
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text: Boss EAP/WildFly to Azure App Service 
+      footerLink: 
+        url: /azure/java/?view=azure-java-stable
+        text: See more
+
+    - title: Secure Java apps on Azure 
+      links: 
+        - url: ./b2b/what-is-b2b.md
+          itemType: overview
+          text: Not done 
+        - url: ./b2b/add-users-administrator.md
+          itemType: how-to-guide
+          text: Not done
+        - url: ./b2b/o365-external-user.md
+          itemType: how-to-guide
+          text: Not done
+      footerLink: 
+        url: ./b2b/index.yml
+        text: See more
+
+    - title: Performance best practices
+      links: 
+        - url: ../active-directory-b2c/active-directory-b2c-overview.md
+          itemType: overview
+          text:  Not done
+        - url: ../active-directory-b2c/tutorial-create-tenant.md
+          itemType: tutorial
+          text:  Not done
+        - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
+          itemType: how-to-guide
+          text:  Not done
+      footerLink: 
+        url: ../active-directory-b2c/index.yml
+        text: See more
+
+    - title: Monitor Java apps 
+      links: 
+        - url: ./azure-monitor/app/java-get-started?toc=%2Fazure%2Fjava%2Ftoc.json&bc=%2Fazure%2Fjava%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable
+          itemType: how-to-guide
+          text: Java and Application Insights
+        - url: /azure/java/?view=azure-java-stable
+          itemType: quickstart
+          text: Get started using Logz.io
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text: Guidance for the Elastic stack
+      footerLink: 
+        url: ./conditional-access/index.yml
+        text: See more
+
+    - title: Azure tools for Java
+      links: 
+        - url: https://code.visualstudio.com/docs/languages/java
+          itemType: overview
+          text: Java in Visual Studio Code
+        - url: ./java/api/overview/azure/maven/README?view=azure-java-stable
+          itemType: how-to-guide
+          text:  Maven Plugins for Azure services
+        - url: ./java/azure/intellij/azure-tooklit-for-intellij?view=azure-java-stable
+          itemType: overview
+          text:  Azure Toolkit for IntelliJ
+      footerLink: 
+        url: ./java-azure-tools.md
+        text: See more
+
+    - title: Setup
+      links: 
+        - url: /azure/java/?view=azure-java-stable
+          itemType: overview
+          text:  Not done
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text:  Not done
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text:  Not done
+      footerLink: 
+        url: ./b2b/index.yml
+        text: See more
+
+    - title: DevOps
+      links: 
+        - url: ./azure-devops-project/azure-devops-project-java?view=azure-java-stable
+          itemType: overview
+          text:  Azure Pipelines
+        - url: ./azure/devops/java/get-started?view=azure-devops
+          itemType: quickstart
+          text:  Java DevOps and Azure DevOps
+        - url: ./azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?view=azure-java-stable
+          itemType: how-to-guide
+          text:  Deploy a web app with Jenkins
+      footerLink: 
+        url: ./azure/devops/java/?view=azure-devops
+        text: See more
+
+    - title: Interacting with Azure Services
+      links: 
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text: NA
+        - url: /azure/java/?view=azure-java-stable
+          itemType: how-to-guide
+          text: NA
+        - url: /azure/java/?view=azure-java-stable
+          itemType: reference
+          text: NA
+      footerLink: 
+        url: ./b2b/index.yml
+        text: See more
+
+additionalContent:
+  sections:
+    - items:
+      - title: Microsoft 365
+        summary: Explore Microsoft 365, a complete solution that includes Azure AD.
+        url: https://docs.microsoft.com/microsoft-365/
+      - title: Azure AD PowerShell
+        summary: Learn how to install and use the Azure AD PowerShell module. 
+        url: https://docs.microsoft.com/powershell/module/azuread/
+      - title: Azure CLI commands for Azure AD
+        summary: Find the Azure AD commands in the CLI reference.
+        url: https://docs.microsoft.com/cli/azure/ad
