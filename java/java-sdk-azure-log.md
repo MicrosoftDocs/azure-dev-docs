@@ -125,7 +125,7 @@ Here's an example Logback configuration:
 </configuration>
 ```
 
-Here is a simple Logback configuration for logging to the console:
+Here's a simple Logback configuration for logging to the console:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
