@@ -28,7 +28,7 @@ You can configure Log4j and Log4j 2 logging in a properties file or an XML file.
 
 ### Use a properties file
 
-In the *./src/main/resource* directory of your project, create a new file named **log4j.properties* or *log4j2.properties* (the latter for Logj4 2). Use these examples to get started.
+In the *./src/main/resource* directory of your project, create a new file named *log4j.properties* or *log4j2.properties* (the latter for Logj4 2). Use these examples to get started.
 
 Log4j example:
 
