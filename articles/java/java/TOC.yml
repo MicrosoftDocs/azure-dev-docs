@@ -4,7 +4,6 @@
     - name: Get Started
       href: java-sdk-azure-get-started.md
     - name: Quickstarts
-      expanded: true
       items:
         - name: Deploy Web Apps
           items:
@@ -85,12 +84,14 @@
             - name: Bing Image Search
               href: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Frameworks and Platforms
+      expanded: true
       items:
       - name: Spring Framework & Spring Boot
         href: ../spring-framework
       - name: Eclipse MicroProfile
         href: ../eclipse-microprofile
     - name: Developer Tools
+      expanded: true
       items:
         - name: Overview
           href: java-azure-tools.md
