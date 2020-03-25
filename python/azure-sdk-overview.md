@@ -9,9 +9,9 @@ ms.topic: conceptual
 
 The open-source Azure SDK for Python simplifies provisioning, using, and managing Azure resources from Python application code. The SDK supports Python 2.7 and Python 3.5.3 or later.
 
-The SDK is made of individual component libraries, each of which you install by using `pip install <library>`. More detailed instructions are found on [Install the SDK](python-sdk-azure-install.md). The [Azure SDK for Python documentation](https://azure.github.io/azure-sdk-for-python/) provides the names of the libraries.
+The SDK is made of individual component libraries, each of which you install by using `pip install <library>`. More detailed instructions are found on [Install the SDK](azure-sdk-install.md). The [Azure SDK for Python documentation](https://azure.github.io/azure-sdk-for-python/) provides the names of the libraries.
 
-You can also follow the walkthrough, [Get started with the Azure SDK for Python](python-sdk-azure-get-started.yml), to experience the libraries for yourself.
+You can also follow the walkthrough, [Get started with the Azure SDK for Python](azure-sdk-get-started.yml), to experience the libraries for yourself.
 
 > [!TIP]
 > For information on changes in the SDK, see the [SDK release notes](https://azure.github.io/azure-sdk/).
@@ -44,7 +44,7 @@ In your Python code, import the library:
 from azure.mgmt.sql import SqlManagementClient
 ```
 
-Next, create the management client object using your credentials (see [Authenticate with the SDK](python-sdk-azure-authenticate.md)) and Azure subscription ID:
+Next, create the management client object using your credentials (see [Authenticate with the SDK](azure-sdk-authenticate.md)) and Azure subscription ID:
 
 ```python
 sql_client = SqlManagementClient(credentials, subscription_id)
