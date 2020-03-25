@@ -57,20 +57,6 @@
       "template_folder": "_themes"
     },
     {
-      "docset_name": "azure-java",
-      "build_source_folder": "articles/java",
-      "build_output_subfolder": "azure-java",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes"
-    },
-    {
       "docset_name": "azure-javascript",
       "build_source_folder": "javascript",
       "build_output_subfolder": "azure-javascript",
