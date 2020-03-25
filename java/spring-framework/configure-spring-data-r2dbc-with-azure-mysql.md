@@ -333,7 +333,7 @@ This command should return the created item:
 {"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}
 ```
 
-Let's now request that data using a new cURL request:
+Next, retrieve the data using a new cURL request:
 
 ```bash
 curl http://127.0.0.1:8080
