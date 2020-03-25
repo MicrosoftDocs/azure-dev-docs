@@ -1,5 +1,5 @@
 ---
-title: Logging with the Azure SDK for Java
+title: Configure logging with the Azure SDK for Java
 description: Learn how to configure logging frameworks for the Azure SDK for Java client libraries
 keywords: Azure, Java, SDK, logging
 author: bmitchell287
