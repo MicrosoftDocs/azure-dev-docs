@@ -41,7 +41,7 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/language/breadcrumb/toc.json",
+      "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "feedback_system": "None"
     },
@@ -63,6 +63,23 @@
       },
       "ms.topic": {
         "**/includes/**/*.md": "include"
+      "author": {
+        "**/go/*.md": "barbkess"        
+      },
+      "manager": {
+        "**/go/*.md": "barbkess"        
+      },
+      "ms.author": {
+        "**/go/*.md": "barbkess"        
+      },      
+      "ms.devlang": {
+        "**/go/*.md": "go"
+      },      
+      "ms.service": {
+        "**/go/*.md": "azure"
+      },
+      "ms.topic": {
+        "**/go/includes/**/*.md": "include"
       }
     },
     "template": [],

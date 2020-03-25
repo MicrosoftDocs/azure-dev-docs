@@ -24,7 +24,7 @@ If you use a local install of the Azure CLI, this quickstart requires CLI versio
 
 ## Install the Azure SDK for Go
 
-[!INCLUDE [azure-sdk-go-get](includes/azure-sdk-go-get.md)]
+[!INCLUDE [azure-sdk-go-get](includes/azure-sdk-get.md)]
 
 ## Create a service principal
 
@@ -302,4 +302,4 @@ In this quickstart, you took an existing template and deployed it through Go. Th
 
 To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/resources).
 
-To learn more about the available authentication methods in the SDK, and which authentication types they support, see [Authentication with the Azure SDK for Go](azure-sdk-go-authorization.md).
+To learn more about the available authentication methods in the SDK, and which authentication types they support, see [Authentication with the Azure SDK for Go](azure-sdk-authorization.md).
