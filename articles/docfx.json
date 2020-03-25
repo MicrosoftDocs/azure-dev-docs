@@ -24,7 +24,9 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -43,7 +45,25 @@
       "extendBreadcrumb": true,
       "feedback_system": "None"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "ms.devlang": {
+        "java/**/*.md": "java"
+      },
+      "ms.service": {
+        "java/**/*.md": "azure-java"
+      },
+      "manager": {
+        "java/**/*.md": "barbkess"
+      },
+      "ms.author": {
+        "java/**/*.md": "brendm"
+      },
+      "author": {
+        "java/**/*.md": "bmitchell287"
+      },
+      "ms.topic": {
+        "**/includes/**/*.md": "include"
+      }
     "template": [],
     "dest": "azure-dev-docs",
     "markdownEngineName": "markdig"
