@@ -70,7 +70,7 @@ async_creation = compute_client.images.create_or_update(
               'blob_uri': 'https://bg09.blob.core.windows.net/vm-images/non-existent.vhd',
               'caching': "ReadWrite",
            }
-        }        
+        }
     }
 )
 image_resource = async_creation.result()
@@ -253,7 +253,7 @@ async_update = self.compute_client.disks.create_or_update(
 async_update.wait()
 ```
 
-### Create an image from nlob storage
+### Create an image from blob storage
 
 ```python
 async_create_image = compute_client.images.create_or_update(
