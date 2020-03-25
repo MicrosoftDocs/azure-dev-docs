@@ -63,6 +63,7 @@
       },
       "ms.topic": {
         "**/includes/**/*.md": "include"
+      },
       "author": {
         "**/go/*.md": "barbkess"        
       },
