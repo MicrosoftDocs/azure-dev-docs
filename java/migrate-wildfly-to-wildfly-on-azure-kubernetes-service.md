@@ -1,15 +1,15 @@
 ---
-title: Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
+title: Migrate WildFly applications to WildFly on Azure Kubernetes Service
+description: This guide describes what you should be aware of when you want to migrate an existing WildFly application to run on WildFly in an Azure Kubernetes Service container.
 author: mriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 3/16/2020
 ---
 
-# Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
+# Migrate WildFly applications to WildFly on Azure Kubernetes Service
 
-This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
+This guide describes what you should be aware of when you want to migrate an existing WildFly application to run on WildFly in an Azure Kubernetes Service container.
 
 ## Pre-migration
 
@@ -55,11 +55,11 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the JDBC driver JAR file?
 
-For more information see [About JBoss EAP Datasources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management)
+For more information see [DataSource Configuration](http://docs.wildfly.org/19/Admin_Guide.html#DataSource)
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WildFly modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 #### Read-only static content
 
@@ -79,10 +79,6 @@ For files that are frequently written and read by your application (such as temp
 
 [!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/migration/determine-whether-jms-queues-or-topics-are-in-use.md)]
 
-### Determine whether your application uses JBoss EAP - specific APIs
-
-If your application uses JBoss EAP - specific APIs, you'll need to refactor it to remove those dependencies.
-
 [!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/migration/determine-whether-your-application-uses-entity-beans.md)]
 
 [!INCLUDE [determine-whether-the-java-ee-application-client-feature-is-in-use-aks](includes/migration/determine-whether-the-java-ee-application-client-feature-is-in-use-aks.md)]
@@ -93,7 +89,7 @@ If your application uses JBoss EAP - specific APIs, you'll need to refactor it t
 
 ### Determine whether JCA connectors are in use
 
-If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to JBoss EAP, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WildFly, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
 [!INCLUDE [determine-whether-jaas-is-in-use](includes/migration/determine-whether-jaas-is-in-use.md)]
 
