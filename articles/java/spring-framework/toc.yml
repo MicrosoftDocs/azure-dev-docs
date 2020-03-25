@@ -72,8 +72,6 @@
         href: deploy-spring-boot-java-app-on-linux.md
       - name: Azure Redis Cache 
         href: configure-spring-boot-initializer-java-app-with-redis-cache.md
-      - name: Deploy to Kubernetes with Fabric8 
-        href: deploy-spring-boot-java-app-using-fabric8-maven-plugin.md
       - name: Deploy a Docker container with Maven
         href: deploy-containerized-spring-boot-java-app-with-maven-plugin.md
       - name: Deploy from Azure Container Registry

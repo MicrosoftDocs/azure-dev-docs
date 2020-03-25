@@ -112,9 +112,9 @@
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
-          href: toolkit-for-intellij/azure-toolkit-for-intellij.md
+          href: ../toolkit-for-intellij
         - name: Eclipse
-          href: ../toolkit-for-eclipse/azure-toolkit-for-eclipse.md
+          href: ../toolkit-for-eclipse
         - name: Maven Plugins
           href: /java/api/overview/azure/maven/README
           items:
@@ -163,19 +163,19 @@
         - name: Migrate Java to Azure
           items:
             - name: Overview
-              href: migration-overview.md
+              href: ../migration/migration-overview.md
             - name: Spring to Azure App Service
-              href: migrate-java-se-to-java-se-app-service.md
+              href: ../migration/migrate-java-se-to-java-se-app-service.md
             - name: Tomcat to Azure App Service
-              href: migrate-tomcat-to-tomcat-app-service.md
+              href: ../migration/migrate-tomcat-to-tomcat-app-service.md
             - name: Tomcat to containers on AKS
-              href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
+              href: ../migration/migrate-tomcat-to-containers-on-azure-kubernetes-service.md
             - name: WebLogic to Azure Virtual Machines
-              href: migrate-weblogic-to-virtual-machines.md
+              href: ../migration/migrate-weblogic-to-virtual-machines.md
             - name: WebLogic to WildFly on AKS
-              href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+              href: ../migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
             - name: WebSphere to WildFly on AKS
-              href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
+              href: ../migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: Code Samples
       items:
         - name: Service Fabric

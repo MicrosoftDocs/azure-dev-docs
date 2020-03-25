@@ -7,7 +7,7 @@ ms.date: 04/16/2017
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
-ms.custom: seo-java-august2019 
+ms.custom: seo-java-august2019
 ---
 
 # Get started with cloud development using Java on Azure
@@ -73,7 +73,7 @@ Replace the top four values with the following:
 
 Save this file in a secure location on your system where your code can read it. You may use this file for future code so it's recommended to store it somewhere external to the application in this article.
 
-Set an environment variable `AZURE_AUTH_LOCATION` with the full path to the authentication file in your shell.   
+Set an environment variable `AZURE_AUTH_LOCATION` with the full path to the authentication file in your shell.
 
 ```bash
 export AZURE_AUTH_LOCATION=/Users/raisa/azureauth.properties
@@ -90,14 +90,14 @@ setx AZURE_AUTH_LOCATION "C:\<fullpath>\azureauth.properties" /m
 ### Create a new Maven project
 
 > [!NOTE]
-> This guide uses Maven build tool to build and run the sample code, but other build tools such as Gradle also work with the Azure libraries for Java. 
+> This guide uses Maven build tool to build and run the sample code, but other build tools such as Gradle also work with the Azure libraries for Java.
 
 Create a Maven project from the command line in a new directory on your system:
 
 ```shell
 mkdir java-azure-test
 cd java-azure-test
-mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp  \ 
+mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
@@ -139,9 +139,9 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 
 ### Install the Azure Toolkit for Intellij
 
-The [Azure toolkit](intellij/azure-toolkit-for-intellij-installation.md) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for IntelliJ quickstart](intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md).
+The [Azure toolkit](../toolkit-for-intellij/azure-toolkit-for-intellij-installation.md) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for IntelliJ quickstart](../toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md).
 
-- Select the **File** menu and then select **Settings...**. 
+- Select the **File** menu and then select **Settings...**.
 
 - Select **Browse repositories...** and then search "Azure" and install the **Azure toolkit for Intellij**.
 
@@ -149,7 +149,7 @@ The [Azure toolkit](intellij/azure-toolkit-for-intellij-installation.md) is nece
 
 ### Install the Azure Toolkit for Eclipse
 
-The [Azure toolkit](eclipse/azure-toolkit-for-eclipse.md) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for Eclipse quickstart](eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md).
+The [Azure toolkit](../toolkit-for-eclipse/azure-toolkit-for-eclipse.md) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for Eclipse quickstart](../toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md).
 
 - Select the **Help** menu and then select **Install New software**.
 
@@ -205,7 +205,7 @@ public class AzureApp {
                     .authenticate(credFile)
                     .withDefaultSubscription();
 
-            // create a Ubuntu virtual machine in a new resource group 
+            // create a Ubuntu virtual machine in a new resource group
             VirtualMachine linuxVM = azure.virtualMachines().define("testLinuxVM")
                     .withRegion(Region.US_EAST)
                     .withNewResourceGroup("sampleVmResourceGroup")
@@ -300,7 +300,7 @@ az group delete --name sampleWebResourceGroup
 ## Connect to an Azure SQL database
 
 Replace the current main method in `AzureApp.java` with the code below, setting a real value for the `dbPassword` variable.
-This code creates a new SQL database with a firewall rule allowing remote access,  and then connects to it using the SQL Database JBDC driver. 
+This code creates a new SQL database with a firewall rule allowing remote access,  and then connects to it using the SQL Database JBDC driver.
 
 ```java
     public static void main(String args[])

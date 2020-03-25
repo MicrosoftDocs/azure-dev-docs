@@ -15,9 +15,8 @@ The following web page contains information on the various releases and latest u
 
 <https://github.com/Microsoft/azure-tools-for-java/releases>
 
-> [!NOTE] 
-> There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse]. 
-> 
+> [!NOTE]
+> There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 
 <!--
 
@@ -66,10 +65,10 @@ The Azure Toolkit for IntelliJ - April 2016 release includes the following enhan
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: ../eclipse/azure-toolkit-for-eclipse.md
-[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[How to publish a Web App as a Docker Container using the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
-[Managing Storage Accounts using the Azure Explorer for IntelliJ]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
-[Managing Virtual Machines using the Azure Explorer for IntelliJ]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
-[Azure for Java Developers]: https://docs.microsoft.com/azure/java
+[Azure Toolkit for Eclipse]: ../toolkit-for-eclipse
+[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: azure-toolkit-for-intellij-sign-in-instructions.md
+[How to publish a Web App as a Docker Container using the Azure Toolkit for IntelliJ]: azure-toolkit-for-intellij-publish-as-docker-container.md
+[Managing Storage Accounts using the Azure Explorer for IntelliJ]: azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Managing Virtual Machines using the Azure Explorer for IntelliJ]: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
+[Azure for Java Developers]: ../java
 [HDInsight Tools Plugin for IntelliJ]: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
