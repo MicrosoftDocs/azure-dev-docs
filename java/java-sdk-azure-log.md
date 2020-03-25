@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: multiple
 ---
 
-# Logging with the Azure SDK for Java
+# Configure logging with the Azure SDK for Java
 
 This article gives example logging configurations for the [Azure SDK](https://azure.microsoft.com/downloads/) for Java. For more detail on configuration options, such as setting log levels or custom logging by class, refer to the documentation for your chosen logging framework.
 
