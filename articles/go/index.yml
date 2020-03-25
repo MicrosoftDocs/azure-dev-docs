@@ -20,27 +20,27 @@ landingContent:
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
-            url: azure-sdk-go-install.md
+            url: azure-sdk-install.md
           - text: Developer tools
-            url: azure-sdk-go-tools.md
+            url: azure-sdk-tools.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate your application
-            url: azure-sdk-go-authorization.md
+            url: azure-sdk-authorization.md
   - title: Azure SDK for Go examples
     linkLists:
       - linkListType: quickstart
         links:
           - text: Deploy a Virtual Machine from a template
-            url: azure-sdk-go-qs-vm.md
+            url: azure-sdk-qs-vm.md
           - text: Use Blob Storage with Go
-            url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=%2Fazure%2Fgo%2Ftoc.json&bc=%2Fazure%2Fgo%2Fbreadcrumb%2Ftoc.json
+            url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/develoer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Connect to an Azure Database for PostgreSQL
-            url: /azure/postgresql/connect-go?toc=%2Fazure%2Fgo%2Ftoc.json&bc=%2Fazure%2Fgo%2Fbreadcrumb%2Ftoc.json
+            url: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/develpoer/breadcrumb/toc.json
           - text: Connect to an Azure Database for MySQL
-            url: /azure/mysql/connect-go?toc=%2Fazure%2Fgo%2Ftoc.json&bc=%2Fazure%2Fgo%2Fbreadcrumb%2Ftoc.json
+            url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Query an Azure SQL database
-            url: /azure/sql-database/sql-database-connect-query-go?toc=%2Fazure%2Fgo%2Ftoc.json&bc=%2Fazure%2Fgo%2Fbreadcrumb%2Ftoc.json
+            url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Azure SDK for Go reference
     linkLists:
       - linkListType: reference

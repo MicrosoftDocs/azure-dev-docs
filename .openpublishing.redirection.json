@@ -137,47 +137,92 @@
     },    
     {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-auth-aad-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-authorization.md",
-      "redirect_url": "/azure/go/azure-sdk-go-authorization",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-compute-networking-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-compute-networking-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-networking-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-containers-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-containers-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-install.md",
-      "redirect_url": "/azure/go/azure-sdk-go-install",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-qs-vm.md",
-      "redirect_url": "/azure/go/azure-sdk-go-qs-vm",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-sql-database-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-sql-database-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-tools.md",
-      "redirect_url": "/azure/go/azure-sdk-go-tools",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/index.md",
-      "redirect_url": "/azure/go",
+      "redirect_url": "/azure/developer/go",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-auth-aad-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-authorization.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-compute-network-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-network-samples",
+      "redirect_document_id": true
+    },    
+    {
+      "source_path": "go/azure-sdk-go-containers-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-install.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-qs-vm.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-sql-database-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-tools.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/index.md",
+      "redirect_url": "/azure/developer/go",
       "redirect_document_id": true
     },
     {
