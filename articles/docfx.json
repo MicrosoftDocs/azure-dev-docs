@@ -64,6 +64,7 @@
       "ms.topic": {
         "**/includes/**/*.md": "include"
       }
+    },
     "template": [],
     "dest": "azure-dev-docs",
     "markdownEngineName": "markdig"
