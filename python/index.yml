@@ -22,15 +22,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: About the Azure SDK for Python
-            url: python-sdk-azure-overview.md
+            url: azure-sdk-overview.md
       - linkListType: download
         links:
           - text: Install the SDK
-            url: python-sdk-azure-install.md
+            url: azure-sdk-install.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate your application
-            url: python-sdk-azure-authenticate.md
+            url: azure-sdk-authenticate.md
       - linkListType: reference
         links:
           - text: Azure SDK for Python API reference

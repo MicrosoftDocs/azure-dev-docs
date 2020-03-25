@@ -412,6 +412,6 @@ items:
   content: |
     You've completed "Getting started with Azure libraries for python".
 
-    - To learn more about how to use the Azure management libraries for Python to manage resources and automate tasks, see our sample code for [virtual machines](python-sdk-azure-web-apps-samples.md), [web apps](python-sdk-azure-web-apps-samples.md) and [SQL database](python-sdk-azure-sql-database-samples.md).
+    - To learn more about how to use the Azure management libraries for Python to manage resources and automate tasks, see our sample code for [virtual machines](azure-sdk-web-apps-samples.md), [web apps](azure-sdk-web-apps-samples.md) and [SQL database](azure-sdk-sql-database-samples.md).
 
     - A [reference](/python/api/overview/azure/?view=azure-python) is available for all packages.
