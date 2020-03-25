@@ -349,7 +349,7 @@ Here is a screenshot of these cURL requests:
 
    ![Test with cURL][R2DBC-MYSQL03]
 
-Congratulations! You have created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
+Congratulations! You've created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
 ## Summary
 
