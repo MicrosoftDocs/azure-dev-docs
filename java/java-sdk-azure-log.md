@@ -4,7 +4,7 @@ description: Learn how to configure logging frameworks for the Azure SDK for Jav
 keywords: Azure, Java, SDK, logging
 author: bmitchell287
 ms.author: brendm
-ms.date: 03/24/2020
+ms.date: 03/25/2020
 ms.topic: article
 ms.service: multiple
 ---
