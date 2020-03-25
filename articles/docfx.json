@@ -74,15 +74,13 @@
       "ms.devlang": {
         "go/**/*.md": "go",
         "python/**/*.md": "python"
-      },      
-      "ms.service": {
-        "**/*.md": "azure"
       },
       "ms.topic": {
         "go/includes/**/*.md": "include",
         "python/includes/**/*.md": "include"
       },
-      "ms.prod" : {
+      "ms.service" : {
+        "/*.md": "azure",
         "go/**/*.md" : "azure-go",
         "python/**/*.md" : "azure-python"
       }
