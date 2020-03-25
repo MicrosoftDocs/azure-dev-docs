@@ -78,11 +78,6 @@
       "ms.topic": {
         "go/includes/**/*.md": "include",
         "python/includes/**/*.md": "include"
-      },
-      "ms.service" : {
-        "/*.md": "azure",
-        "go/**/*.md" : "azure-go",
-        "python/**/*.md" : "azure-python"
       }
     },
     "template": [],
