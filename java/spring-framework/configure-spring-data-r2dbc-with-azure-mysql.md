@@ -337,7 +337,7 @@ Next, retrieve the data using a new cURL request:
 curl http://127.0.0.1:8080
 ```
 
-And this command should return the list of "todos", including the item we have created:
+This command will return the list of "todos", including the item you've created:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
