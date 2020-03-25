@@ -47,19 +47,19 @@
     },
     "fileMetadata": {
       "ms.devlang": {
-        "java/**/*.md": "java"
+        "**/java/**/*.md": "java"
       },
       "ms.service": {
-        "java/**/*.md": "azure-java"
+        "**/java/**/*.md": "azure-java"
       },
       "manager": {
-        "java/**/*.md": "barbkess"
+        "**/java/**/*.md": "barbkess"
       },
       "ms.author": {
-        "java/**/*.md": "brendm"
+        "**/java/**/*.md": "brendm"
       },
       "author": {
-        "java/**/*.md": "bmitchell287"
+        "**/java/**/*.md": "bmitchell287"
       },
       "ms.topic": {
         "**/includes/**/*.md": "include"

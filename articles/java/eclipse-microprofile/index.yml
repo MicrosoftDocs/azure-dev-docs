@@ -24,7 +24,7 @@ landingContent:
       - text: Config Source for Azure Key Vault
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps
-        url: cicd-microprofile-vsts.md
+        url: cicd-microprofile.md
 - title: Code samples
   linkLists:
   - linkListType: sample
