@@ -53,22 +53,22 @@
     },
     "fileMetadata": {
       "ms.devlang": {
-        "**/**/*.md": "java"
+        "**/**.md": "java"
       },
       "ms.service": {
-        "**/**/*.md": "azure-java"
+        "**/**.md": "azure-java"
       },
       "manager": {
-        "**/**/*.md": "barbkess"
+        "**/**.md": "barbkess"
       },
       "ms.author": {
-        "**/**/*.md": "brendm"
+        "**/**.md": "brendm"
       },
       "author": {
-        "**/**/*.md": "bmitchell287"
+        "**/**.md": "bmitchell287"
       },
       "ms.topic": {
-        "**/includes/**/*.md": "include"
+        "**/includes/**/**.md": "include"
       }
     },
     "template": [],
