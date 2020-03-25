@@ -55,12 +55,6 @@ az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
 > We use the `jq` utility, which is installed by default on [Azure Shell](https://shell.azure.com/), in order to display JSON data and make it more readable.
 > If you don't like that utility, you can safely remove the `| jq` part of all the commands we will use.
 
-In case you want to clean up any resources that you have used during this quickstart, you'll be able to delete everything at once, by deleting this resource group:
-
-```bash
-az group delete --yes --name $AZ_RESOURCE_GROUP | jq
-```
-
 ## Create an Azure Database for MySQL
 
 The first thing we will create is a managed MySQL Server instance.
@@ -352,6 +346,14 @@ Congratulations! You've created a fully reactive Spring Boot application, that u
 ## Summary
 
 In this tutorial, you created a sample Java application that uses Spring Data R2DBC to store and retrieve information in an Azure Database for MySQL database using R2DBC.
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group:
+
+```bash
+az group delete --yes --name $AZ_RESOURCE_GROUP | jq
+```
 
 ## Next steps
 
