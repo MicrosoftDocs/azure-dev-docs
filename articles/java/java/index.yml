@@ -28,7 +28,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Overview
-          url: migration-overview.md
+          url: ../migration/migration-overview.md
   - title: Azure Spring Cloud
     linkLists:
       - linkListType: overview
