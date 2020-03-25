@@ -24,9 +24,7 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg",
-          "**/*.gif",
-          "**/*.svg"
+          "**/*.jpg"
         ],
         "exclude": [
           "**/obj/**",
@@ -46,24 +44,6 @@
       "feedback_system": "None"
     },
     "fileMetadata": {
-      "ms.devlang": {
-        "**/java/**/*.md": "java"
-      },
-      "ms.service": {
-        "**/java/**/*.md": "azure-java"
-      },
-      "manager": {
-        "**/java/**/*.md": "barbkess"
-      },
-      "ms.author": {
-        "**/java/**/*.md": "brendm"
-      },
-      "author": {
-        "**/java/**/*.md": "bmitchell287"
-      },
-      "ms.topic": {
-        "**/includes/**/*.md": "include"
-      },
       "author": {
         "**/go/*.md": "barbkess"        
       },
