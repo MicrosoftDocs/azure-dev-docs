@@ -58,7 +58,7 @@
     },
     {
       "docset_name": "azure-java",
-      "build_source_folder": "java",
+      "build_source_folder": "articles/java",
       "build_output_subfolder": "azure-java",
       "locale": "en-us",
       "monikers": [],
