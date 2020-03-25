@@ -133,12 +133,12 @@
     {
       "source_path": "python/python-sdk-azure-release-notes.md",
       "redirect_url": "/azure/python/azure-sdk-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "python/python-sdk-azure-tools.md",
       "redirect_url": "/azure/python/azure-tools",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "python/python-azure-tools.md",
