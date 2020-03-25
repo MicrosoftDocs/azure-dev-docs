@@ -53,7 +53,7 @@ async_creation = compute_client.disks.create_or_update(
 disk_resource = async_creation.result()
 ```
 
-### Create an image from blob storage
+### Create a Managed Disk image from blob storage
 
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
@@ -207,7 +207,7 @@ vmss_parameters = {
                     'name': naming_infix + 'ipconfig',
                     'subnet': {
                         'id': subnet.id
-                    } 
+                    }
                 }]
             }]
         }
