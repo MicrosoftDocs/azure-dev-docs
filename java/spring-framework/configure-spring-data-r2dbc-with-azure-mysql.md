@@ -344,10 +344,6 @@ Here is a screenshot of these cURL requests:
 
 Congratulations! You've created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
-## Summary
-
-In this tutorial, you created a sample Java application that uses Spring Data R2DBC to store and retrieve information in an Azure Database for MySQL database using R2DBC.
-
 ## Clean up resources
 
 To clean up all resources used during this quickstart, delete the resource group:
