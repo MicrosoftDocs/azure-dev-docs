@@ -96,6 +96,7 @@
         - name: Overview
           href: java-azure-tools.md
         - name: Java Support
+          expanded: true
           items: 
           - name: Java Long-Term Support
             href: ../jdk/index.md
