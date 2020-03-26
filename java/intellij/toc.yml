@@ -7,10 +7,6 @@
     items:
       - name: Deploy web app to a Linux container
         href: azure-toolkit-for-intellij-hello-world-web-app-linux.md
-      - name: Publish web app as a Docker container
-        href: azure-toolkit-for-intellij-publish-as-docker-container.md
-      - name: Publish Spring Boot app as a Docker container
-        href: azure-toolkit-for-intellij-publish-spring-boot-docker-app.md
   - name: How-To
     items: 
     - name: Sign in to your Azure account

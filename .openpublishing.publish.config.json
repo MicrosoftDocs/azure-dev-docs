@@ -1,13 +1,27 @@
 {
   "docsets_to_publish": [
     {
+      "docset_name": "azure-dev-docs",
+      "build_source_folder": "articles",
+      "build_output_subfolder": "azure-dev-docs",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    },
+    {
       "docset_name": "azure-dotnet",
-      "build_source_folder": "dotnet",
+      "build_source_folder": "dotnet-redirects",
       "build_output_subfolder": "azure-dotnet",
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -29,13 +43,27 @@
       "template_folder": "_themes"
     },
     {
+      "docset_name": "azure-go-redirect",
+      "build_source_folder": "go-redirects",
+      "build_output_subfolder": "azure-go-redirect",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": false,
+      "type_mapping": {
+        "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    },
+    {
       "docset_name": "azure-java",
       "build_source_folder": "java",
       "build_output_subfolder": "azure-java",
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -49,7 +77,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -63,7 +91,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -72,10 +100,16 @@
     }
   ],
   "notification_subscribers": [
-    "douge@microsoft.com"
+    "brendm@microsoft.com",
+    "karler@microsoft.com",
+    "kraigb@microsoft.com",
+    "Stephen.Tramer@microsoft.com",
+    "barbkess@microsoft.com"
   ],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-dev-docs",
+  "git_repository_branch_open_to_public_contributors": "master",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
@@ -88,5 +122,6 @@
     }
   ],
   "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false
+  "need_generate_pdf_url_template": false,
+  "targets": {}
 }

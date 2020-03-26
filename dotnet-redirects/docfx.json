@@ -1,0 +1,41 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "_themes.pdf/**",
+          "**/docfx.json",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices"
+        ]
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "feedback_system": "None",
+      "ms.topic": "conceptual",
+      "ms.devlang": "csharp",
+      "ms.date": "09/20/2018",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "Azure.azuredotnet",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      }
+    },
+    "fileMetadata": {},
+    "template": [],
+    "dest": "azure-dotnet",
+    "markdownEngineName": "markdig"
+  }
+}

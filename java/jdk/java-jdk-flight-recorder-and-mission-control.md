@@ -1,16 +1,14 @@
 ---
 title: Review data with Java Flight Recorder and Mission Control
 description: Guidance for using Java Flight Recorder and Mission Control to collect and review app data.
-author: bmitchell287
-manager: douge
-ms.author: brendm 
 ms.date: 04/09/2019
-ms.devlang: java
 ms.topic: conceptual
-ms.service: azure
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
-# Using Java Flight Recorder (JFR) and Mission Control
+
+# Monitor and manage Java workloads with Java Flight Recorder (JFR) and Zulu Mission Control
+
+This articles shows you how to monitor and manage Java workloads with Java Flight Recorder (JFR) and Zulu Mission Control.
 
 Zulu Mission Control is a fully-tested build of JDK Mission Control, which was open sourced by Oracle in 2018 and is managed as a project under the OpenJDK umbrella. Coupled with Flight Recorder, Mission Control delivers low-overhead, interactive monitoring and management capabilities for Java workloads.
 
@@ -80,7 +78,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     On Windows, *zmc.exe* will use the default JVM installation configured in the registry. Zulu Mission Control must be launched from a full JDK to be able to detect local JVM instances automatically. If this is a JRE, you will see the warning below:
 
     > [!div class="mx-imgBorder"]
-    ![Warning if JDK install is JRE-only](../media/jdk/azul-jfr-1.png)
+    ![Warning if JDK install is JRE-only](../media/jdk/jfr-jre-warning-message.png)
 
     To change the JVM used by Mission Control, follow these steps: 
     1.	Open *zmc.ini* configuration file, located in the same directory as the *zmc.exe*
@@ -89,19 +87,19 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
         * On the second line, write the path to your JDK installation. (For example, `C:\Program Files\Java\jdk1.8.0_212\bin\javaw.exe`).
 
 7.	Locate the JVM running your application
-    1.	In the upper left pane of the Zulu Mission Control window click on the tab labelled **JVM Browser**.
+    1.	In the upper left pane of the Zulu Mission Control window, select the tab labelled **JVM Browser**.
     2.	Select and expand the list item in the upper left for your the JVM instance running your application.
 
     > [!div class="mx-imgBorder"]
-    ![Expand the list item in the upper-left for your JVM instance](../media/jdk/azul-jfr-2.png)
+    ![Expand the list item in the upper-left for your JVM instance](../media/jdk/jfr-jvm-instance-dashboard.png)
 
 
 8.	Start a Flight Recording, if necessary
-    1.	If the Flight Recorder displays "No Recordings", start one by right-clicking on the Flight Recorder line in the JVM Browser tab and selecting **Start Flight Recording...**
-    2.	Select either a fixed duration recording or a continuous recording, and either a Profiling configuration (fine-grained) or a Continuous configuration (lower overhead), then click **Finish**.
+    1.	If the Flight Recorder displays "No Recordings", start one by right-clicking on the Flight Recorder line in the JVM Browser tab and selecting **Start Flight Recording**.
+    2.	Select either a fixed duration recording or a continuous recording, and either a Profiling configuration (fine-grained) or a Continuous configuration (lower overhead), then select **Finish**.
 
     > [!div class="mx-imgBorder"]
-    ![Start a Flight Recording](../media/jdk/azul-jfr-3.png)
+    ![Start a Flight Recording](../media/jdk/jfr-start-flight-recording.png)
 
 9.	Dump the Flight Recording
     1.	A Flight Recording should appear below the Flight Recorder line in the JVM Browser. Right-click on the line representing the Flight Recording and select **Dump whole recording**.
@@ -111,7 +109,7 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
     1.	If not already activated, select the tab labelled **Outline** in the left pane of the Zulu Mission Control Window. This tab contains different views of the data collected in the Flight Recording.
  
     > [!div class="mx-imgBorder"]
-    ![Review the Fliight Recording](../media/jdk/azul-jfr-4.png)
+    ![Review the Flight Recording](../media/jdk/jfr-zulu-mission-control-data.png)
 
 ## Resources
 

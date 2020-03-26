@@ -1,0 +1,70 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "_themes.pdf/**",
+          "**/docfx.json",
+          "_repo.en-us/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "_themes.pdf/**",
+          "**/docfx.json",
+          "_repo.en-us/**"
+        ]
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
+      "extendBreadcrumb": true,
+      "feedback_system": "None"
+    },
+    "fileMetadata": {
+      "author": {
+        "**/go/*.md": "barbkess"        
+      },
+      "manager": {
+        "**/go/*.md": "barbkess"        
+      },
+      "ms.author": {
+        "**/go/*.md": "barbkess"        
+      },      
+      "ms.devlang": {
+        "**/go/*.md": "go"
+      },      
+      "ms.service": {
+        "**/go/*.md": "azure"
+      },
+      "ms.topic": {
+        "**/go/includes/**/*.md": "include"
+      }
+    },
+    "template": [],
+    "dest": "azure-dev-docs",
+    "markdownEngineName": "markdig"
+  }
+}

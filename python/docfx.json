@@ -23,7 +23,8 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
@@ -39,9 +40,38 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure/python/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
+      "feedback_product_url": "https://github.com/Azure/azure-sdk-for-python/issues",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "MSDN.python-sdk",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      }
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author": {
+        "*.md": "kraigb"        
+      },
+      "manager": {
+        "*.md": "barbkess"        
+      },
+      "ms.author": {
+        "*.md": "kraigb"        
+      },      
+      "ms.devlang": {
+        "*.md": "python"
+      },      
+      "ms.prod": {
+        "*.md": "azure-python"        
+      },
+      "product_feedback_url": {
+        "tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+      }
+    },
     "template": [],
     "dest": "azure-python",
     "markdownEngineName": "markdig"

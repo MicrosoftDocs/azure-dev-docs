@@ -1,23 +1,17 @@
 ---
-title: Deploy a Spring Boot App on Kubernetes in Azure Kubernetes Service
+title: Deploy Spring Boot Application to the Azure Kubernetes Service
+titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 services: container-service
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid: 
-ms.author: brendm
-ms.date: 12/19/2018
-ms.devlang: java
+ms.date: 11/12/2019
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: na
 ms.custom: mvc
 ---
 
-# Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Kubernetes Service
+# Deploy Spring Boot Application to the Azure Kubernetes Service
 
 **[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
@@ -31,6 +25,7 @@ This tutorial walks you through combining these two popular, open-source technol
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
+* The [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper).
 
 > [!NOTE]
 >
@@ -118,12 +113,11 @@ The following steps walk you through building a Spring Boot web application and 
    ```xml
    <properties>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.2.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
-
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the `jib-maven-plugin`.
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
@@ -132,7 +126,7 @@ The following steps walk you through building a Spring Boot web application and 
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>openjdk:8-jre-alpine</image>
+            <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
@@ -165,13 +159,13 @@ The following steps walk you through building a Spring Boot web application and 
 
 ```bash
    # Get the id of the service principal configured for AKS
-   CLIENT_ID=$(az aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv)
+   CLIENT_ID=$(az.cmd aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv)
    
    # Get the ACR registry resource id
-   ACR_ID=$(az acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv)
+   ACR_ID=$(az.cmd acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv)
    
    # Create role assignment
-   az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
+   az.cmd role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 
   -- or --
@@ -221,9 +215,9 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ```
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command
+   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command.
 
-   * The `--type` parameter specifies that the cluster uses load balancer
+   * The `--type` parameter specifies that the cluster uses load balancer.
 
    * The `--port` parameter specifies the public-facing TCP port of 80. You access the app on this port.
 
@@ -248,7 +242,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    az aks browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster
    ```
 
-1. When the Kubernetes configuration website opens in your browser, click the link to **deploy a containerized app**:
+1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
 
    ![Kubernetes Configuration Website][KB01]
 
@@ -267,7 +261,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ![Kubernetes Configuration Website][KB02]
 
 
-1. Click **Deploy** to deploy the container.
+1. Select **Deploy** to deploy the container.
 
    ![Kubernetes Deploy][KB05]
 
@@ -275,7 +269,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    ![Kubernetes Services][KB06]
 
-1. If you click the link for **External endpoints**, you can see your Spring Boot application running on Azure.
+1. If you select the link for **External endpoints**, you can see your Spring Boot application running on Azure.
 
    ![Kubernetes Services][KB07]
 

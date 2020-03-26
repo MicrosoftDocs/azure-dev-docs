@@ -1,25 +1,16 @@
 ---
 title: How to use Spring Data JPA with Azure PostgreSQL
-description: Learn how to use Spring Data JPA with an Azure PostgreSQL database.
-services: postgresql
+description: Learn how to configure and use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
-ms.topic: article
+ms.topic: conceptual
 ---
 
 # How to use Spring Data JPA with Azure PostgreSQL
 
-## Overview
-
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an Azure [PostgreSQL]https://www.postgresql.org/ database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
+This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database using [Java Persistence API (JPA)](https://docs.oracle.com/javaee/7/tutorial/persistence-intro.htm).
 
 ## Prerequisites
 
@@ -28,13 +19,13 @@ The following prerequisites are required in order to complete the steps in this 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
-* [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality. or similar HTTP utility to test functionality.
+* [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
 * The [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility.
 * A [Git](https://git-scm.com/downloads) client.
 
 ## Create a PostgreSQL database for Azure
 
-### Create a PostgreSQL database server using the Azure Portal
+### Create a PostgreSQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -46,41 +37,40 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create a PostgreSQL database][POSTGRESQL01]
 
+1. Select **Single server** or **Hyperscale server group**.
+
+1. Click **Create**.
+
 1. Enter the following information:
 
-   - **Server name**: Choose a unique name for your PostgreSQL server; this will be used to create a fully-qualified domain name like *wingtiptoyspostgresql.postgres.database.azure.com*.
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Select source**: For this tutorial, select `Blank` to create a new database.
-   - **Server admin login**: Specify the database administrator name.
+   - **Server name**: Choose a unique name for your PostgreSQL server; this will be used to create a fully-qualified domain name like *wingtiptoyspostgresql.postgres.database.azure.com*.
+   - **Data source**: For this tutorial, select `Blank` to create a new database.
+   - **Admin username**: Specify the database administrator name.
    - **Password** and **Confirm password**: Specify the password for your database administrator.
    - **Location**: Specify the closest geographic region for your database.
    - **Version**: Specify the most-up-to-date database version.
-   - **Pricing tier**: For this tutorial, specify the least-expensive pricing tier.
 
    ![Create your PostgreSQL database properties][POSTGRESQL02]
 
-1. When you have entered all of the above information, click **Create**.
+1. When you have entered all of the above information, click **Review and create**.
 
-### Configure a firewall rule for your PostgreSQL database server using the Azure Portal
+1. Review and verify the selections, and click **Create**.
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
+### Configure a firewall rule for your PostgreSQL database server using the Azure portal
 
-1. Click **All Resources**, then click the PostgreSQL database you just created.
+1. When the deployment is complete, click **Go to resource**.
 
-   ![Select your PostgreSQL database][POSTGRESQL03]
+1. Click **Connection security**.
 
-1. Click **Connection security**, and in the **Firewall rules**, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
-
-   ![Configure connection security][POSTGRESQL04]
-
-### Retrieve the connection string for your PostgreSQL server using the Azure Portal
-
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
-
-1. Click **All Resources**, then click the PostgreSQL database you just created.
+1. Create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
 
    ![Select your PostgreSQL database][POSTGRESQL03]
+
+### Retrieve the connection string for your PostgreSQL server using the Azure portal
+
+1. On the **All Resources** page, click the PostgreSQL database you just created.
 
 1. Click **Connection strings**, and copy the value in the **JDBC** text field.
 
@@ -111,6 +101,8 @@ The following prerequisites are required in order to complete the steps in this 
    
    postgres=>
    ```
+   > Note:
+   > If you get an error that the server doesn't recognize this IP address, the IP address your client is using will be shown in the error.  Go back and assign it as described previously: *Configure a firewall rule for your server using the Azure portal*.
 
 1. Create a database named *mypgsqldb* by entering a `psql` command like the following example:
 

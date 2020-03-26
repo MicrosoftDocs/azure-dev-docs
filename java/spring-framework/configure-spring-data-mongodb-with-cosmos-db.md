@@ -3,13 +3,7 @@ title: How to use Spring Data MongoDB API with Azure Cosmos DB
 description: Learn how to use Spring Data MongoDB API with Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -32,7 +26,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an Azure Cosmos DB account
 
-### Create a Cosmos DB account using the Azure Portal
+### Create a Cosmos DB account using the Azure portal
 
 > [!NOTE]
 > 
@@ -66,8 +60,6 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **All Resources**, then click the Azure Cosmos DB account you just created.
 
-   ![Select your Azure Cosmos DB account][COSMOSDB04]
-
 1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you will use that value to configure your application later.
 
    ![Retrieve your Cosmos DB connection string][COSMOSDB06]
@@ -97,7 +89,9 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Save and close the *application.properties* file.
 
-## Package and test the sample application 
+## Package and test the sample application
+
+To build the application, browse to the directory */gs-accessing-data-mongodb/complete*, which contains the pom.xml file.
 
 1. Build the sample application with Maven, and configure Maven to skip tests; for example:
 
@@ -108,7 +102,7 @@ The following prerequisites are required in order to complete the steps in this 
 1. Start the sample application; for example:
 
    ```shell
-   java -jar target/gs-accessing-data-mongodb-0.1.0.jar
+   java -jar target/accessing-data-mongodb-0.0.1-SNAPSHOT.jar
    ```
     
    Your application should return values like the following:

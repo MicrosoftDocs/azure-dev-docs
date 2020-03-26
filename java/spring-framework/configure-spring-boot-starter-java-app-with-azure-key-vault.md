@@ -3,13 +3,7 @@ title: How to use the Spring Boot Starter for Azure Key Vault
 description: Learn how to configure a Spring Boot Initializer app with the Azure Key Vault starter.
 services: key-vault
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
-ms.date: 12/19/2018
-ms.devlang: java
+ms.date: 10/29/2019
 ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -17,8 +11,6 @@ ms.workload: identity
 ---
 
 # How to use the Spring Boot Starter for Azure Key Vault
-
-## Overview
 
 This article demonstrates creating an app with the **[Spring Initializr]** that uses the Spring Boot Starter for Azure Key Vault to retrieve a connection string that is stored as a secret in a key vault.
 
@@ -32,23 +24,25 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create an app using Spring Initializr
 
+The following procedure creates the application using Spring Initializr.
+
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Aritifact** names for your application, and then click the link to **Switch to the full version** of the Spring Initializr.
+1. Specify that you want to generate a **Maven** project with **Java**.  
 
-   ![Specify Group and Aritifact names][secrets-01]
+1. Enter the **Group** and **Artifact** names for your application.
 
-1. Scroll down to the **Azure** section and check the box for **Azure Key Vault**.
+1. In the **Dependencies** section, enter **Azure Key Vault**.
 
-   ![Select Azure Key Vault starter][secrets-02]
+1. Scroll to the bottom of the page and click **Generate**.
 
-1. Scroll to the bottom of the page and click the button to **Generate Project**.
-
-   ![Generate Spring Boot project][secrets-03]
+   ![Generate Spring Boot project][secrets-01]
 
 1. When prompted, download the project to a path on your local computer.
 
 ## Sign into Azure
+
+The following procedure authenticates the user in Azure CLI.
 
 1. Open a command prompt.
 
@@ -57,13 +51,15 @@ The following prerequisites are required in order to complete the steps in this 
    ```azurecli
    az login
    ```
-   Follow the instructions to complete the sign-in process.
+
+Follow the instructions to complete the sign-in process.
 
 1. List your subscriptions:
 
    ```azurecli
    az account list
    ```
+
    Azure will return a list of your subscriptions, and you will need to copy the GUID for the subscription that you want to use; for example:
 
    ```json
@@ -91,10 +87,14 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create a new Azure Key Vault
 
+The following procedure creates and initializes the key vault.
+
 1. Create a resource group for the Azure resources you will use for your key vault; for example:
+
    ```azurecli
-   az group create --name wingtiptoysresources --location westus
+   az group create --name vged-rg2 --location westus
    ```
+
    Where:
 
    | Parameter | Description |
@@ -106,10 +106,10 @@ The following prerequisites are required in order to complete the steps in this 
 
    ```json
    {
-     "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/wingtiptoysresources",
+     "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/vged-rg2",
      "location": "westus",
      "managedBy": null,
-     "name": "wingtiptoysresources",
+     "name": "vged-rg2",
      "properties": {
        "provisioningState": "Succeeded"
      },
@@ -119,7 +119,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 2. Create an Azure service principal from your application registration; for example:
    ```shell
-   az ad sp create-for-rbac --name "wingtiptoysuser"
+   az ad sp create-for-rbac --name "vgeduser"
    ```
    Where:
 
@@ -127,22 +127,24 @@ The following prerequisites are required in order to complete the steps in this 
    |---|---|
    | `name` | Specifies the name for your Azure service principal. |
 
-   The Azure CLI will return a JSON status message that contains the *appId* and *password*, which you will use later as the client id and client password; for example:
+   The Azure CLI will return a JSON status message that contains the *appId* and *password*, which you will use later as the client ID and client password; for example:
 
    ```json
    {
      "appId": "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii",
-     "displayName": "wingtiptoysuser",
-     "name": "http://wingtiptoysuser",
+     "displayName": "vgeduser",
+     "name": "http://vgeduser",
      "password": "pppppppp-pppp-pppp-pppp-pppppppppppp",
      "tenant": "tttttttt-tttt-tttt-tttt-tttttttttttt"
    }
    ```
 
 3. Create a new key vault in the resource group; for example:
+
    ```azurecli
-   az keyvault create --name wingtiptoyskeyvault --resource-group wingtiptoysresources --location westus --enabled-for-deployment true --enabled-for-disk-encryption true --enabled-for-template-deployment true --sku standard --query properties.vaultUri
+   az keyvault create --name vgedkeyvault --resource-group vged-rg2 --location westus --enabled-for-deployment true --enabled-for-disk-encryption true --enabled-for-template-deployment true --sku standard --query properties.vaultUri
    ```
+
    Where:
 
    | Parameter | Description |
@@ -157,14 +159,17 @@ The following prerequisites are required in order to complete the steps in this 
 
    The Azure CLI will display the URI for key vault, which you will use later; for example:  
 
-   ```
-   "https://wingtiptoyskeyvault.vault.azure.net"
+   ```azurecli
+   "https://vgedkeyvault.vault.azure.net"
+
    ```
 
 4. Set the access policy for the Azure service principal you created earlier; for example:
+
    ```azurecli
-   az keyvault set-policy --name wingtiptoyskeyvault --secret-permission set get list delete --spn "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii"
+   az keyvault set-policy --name vgedkeyvault --secret-permission set get list delete --spn "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii"
    ```
+
    Where:
 
    | Parameter | Description |
@@ -179,22 +184,24 @@ The following prerequisites are required in order to complete the steps in this 
    {
      "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/...",
      "location": "westus",
-     "name": "wingtiptoyskeyvault",
+     "name": "vgedkeyvault",
      "properties": {
        ...
        ... (A long list of values will be displayed here.)
        ...
      },
-     "resourceGroup": "wingtiptoysresources",
+     "resourceGroup": "vged-rg2",
      "tags": {},
      "type": "Microsoft.KeyVault/vaults"
    }
    ```
 
 5. Store a secret in your new key vault; for example:
+
    ```azurecli
-   az keyvault secret set --vault-name "wingtiptoyskeyvault" --name "connectionString" --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
+   az keyvault secret set --vault-name "vgedkeyvault" --name "connectionString" --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
    ```
+
    Where:
 
    | Parameter | Description |
@@ -216,28 +223,32 @@ The following prerequisites are required in order to complete the steps in this 
        "updated": "2017-12-01T09:00:16+00:00"
      },
      "contentType": null,
-     "id": "https://wingtiptoyskeyvault.vault.azure.net/secrets/connectionString/123456789abcdef123456789abcdef",
+     "id": "https://vgedkeyvault.vault.azure.net/secrets/connectionString/123456789abcdef123456789abcdef",
      "kid": null,
      "managed": null,
      "tags": {
        "file-encoding": "utf-8"
      },
-     "value": "jdbc:sqlserver://wingtiptoys.database.windows.net:1433;database=DATABASE;"
+     "value": "jdbc:sqlserver://.database.windows.net:1433;database=DATABASE;"
    }
    ```
 
 ## Configure and compile your app
+
+Use the following procedure to configure and compile your application.
 
 1. Extract the files from the Spring Boot project archive files that you downloaded earlier into a directory.
 
 2. Navigate to the *src/main/resources* folder in your project and open the *application.properties* file in a text editor.
 
 3. Add the values for your key vault using values from the steps that you completed earlier in this tutorial; for example:
+
    ```yaml
-   azure.keyvault.uri=https://wingtiptoyskeyvault.vault.azure.net/
+   azure.keyvault.uri=https://vgedkeyvault.vault.azure.net/
    azure.keyvault.client-id=iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii
    azure.keyvault.client-key=pppppppp-pppp-pppp-pppp-pppppppppppp
    ```
+
    Where:
 
    |          Parameter          |                                 Description                                 |
@@ -247,12 +258,12 @@ The following prerequisites are required in order to complete the steps in this 
    | `azure.keyvault.client-key` | Specifies the *password* GUID from when you created your service principal. |
 
 
-4. Navigate to the main source code file of your project; for example: */src/main/java/com/wingtiptoys/secrets*.
+4. Navigate to the main source code file of your project; for example: */src/main/java/com/vged/secrets*.
 
 5. Open the application's main Java file in a file in a text editor; for example: *SecretsApplication.java*, and add the following lines to the file:
 
    ```java
-   package com.wingtiptoys.secrets;
+   package com.vged.secrets;
 
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -279,6 +290,8 @@ The following prerequisites are required in order to complete the steps in this 
 6. Save and close the Java file.
 
 ## Build and test your app
+
+Use the following procedure to test your application.
 
 1. Navigate to the directory where the *pom.xml* file for your Spring Boot app is located:
 

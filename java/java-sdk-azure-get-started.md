@@ -1,21 +1,20 @@
 ---
-title: Get started with the Azure libraries for Java
+title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
 author: rloutlaw
-ms.author: brendm
-manager: douge
 ms.date: 04/16/2017
 ms.topic: article
-
-ms.devlang: java
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
+ms.custom: seo-java-august2019 
 ---
 
 # Get started with cloud development using Java on Azure
 
 This guide walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect them to to perform some basic tasks, like uploading a file or deploying a web application. When you're done, you'll be ready to start using Azure services in your own Java applications.
+
+[!INCLUDE [chrome-note](includes/chrome-note.md)]
 
 ## Prerequisites
 
@@ -33,8 +32,7 @@ Your Java application needs read and create permissions in your Azure subscripti
 * Include lowercase characters
 * Include uppercase characters
 * Include numbers
-* Include one of the following symbols: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ‘ , . ? / ` ~ “ ( ) ;
-
+* Include one of the following symbols: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ? / ` ~ " ( ) ;
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name AzureJavaTest --password "MY_SECURE_PASSWORD"
@@ -201,12 +199,12 @@ public class AzureApp {
 
             // use the properties file with the service principal information to authenticate
             // change the name of the environment variable if you used a different name in the previous step
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));    
+            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
             Azure azure = Azure.configure()
                     .withLogLevel(LogLevel.BASIC)
                     .authenticate(credFile)
                     .withDefaultSubscription();
-           
+
             // create a Ubuntu virtual machine in a new resource group 
             VirtualMachine linuxVM = azure.virtualMachines().define("testLinuxVM")
                     .withRegion(Region.US_EAST)
@@ -219,7 +217,7 @@ public class AzureApp {
                     .withSsh(sshKey)
                     .withUnmanagedDisks()
                     .withSize(VirtualMachineSizeTypes.STANDARD_D3_V2)
-                    .create();   
+                    .create();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -305,7 +303,6 @@ Replace the current main method in `AzureApp.java` with the code below, setting 
 This code creates a new SQL database with a firewall rule allowing remote access,  and then connects to it using the SQL Database JBDC driver. 
 
 ```java
-
     public static void main(String args[])
     {
         // create the db using the management libraries
@@ -365,6 +362,7 @@ This code creates a new SQL database with a firewall rule allowing remote access
         }
     }
 ```
+
 Run the sample from the command line:
 
 ```shell

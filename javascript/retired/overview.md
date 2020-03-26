@@ -1,14 +1,8 @@
 ---
 title: Azure modules for JavaScript
 description: Overview of the Azure management and service modules for JavaScript
-author: karlerickson
-ms.author: karler
-manager: douge
 ms.date: 06/17/2017
 ms.topic: article
-ms.prod: azure
-ms.devlang: nodejs
-ms.service: azure-nodejs
 ---
 
 # Azure modules for JavaScript

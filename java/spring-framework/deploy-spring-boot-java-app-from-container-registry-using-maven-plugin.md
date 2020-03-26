@@ -1,23 +1,18 @@
 ---
-title: Use Maven to deploy a Spring Boot app in Azure Container Registry
+title: Deploy a Spring Boot app in Azure Container Registry 
+titleSuffix: Azure App Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in Azure Container Registry to Azure to Azure App Service by using a Maven plugin.
 services: container-registry
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid: 
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: seo-java-july2019 
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019 
 ---
 
-# How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
+# Use Maven for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
 
 This article demonstrates how to deploy a sample [Spring Boot] application to Azure Container Registry, and then use the Maven Plugin for Azure Web Apps to deploy your application to Azure App Service.
 
@@ -61,7 +56,7 @@ In this section, you clone a containerized Spring Boot application and test it l
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
    ```shell
-   git clone -b https://github.com/spring-guides/gs-spring-boot-docker
+   https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
 1. Change directory to the completed project; for example:
@@ -108,15 +103,9 @@ In this section, you create an Azure service principal that the Maven plugin use
 
 3. Create an Azure service principal:
    ```azurecli
-   az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
+   az ad sp create-for-rbac --name <ServicePrincipalName>
    ```
-   Where:
-
-   | Parameter  |                    Description                     |
-   |------------|----------------------------------------------------|
-   | `uuuuuuuu` | Specifies the user name for the service principal. |
-   | `pppppppp` | Specifies the password for the service principal.  |
-
+Without any authentication parameters, password-based authentication is used with a random password created for you.
 
 4. Azure responds with JSON that resembles the following example:
    ```json
@@ -423,8 +412,8 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[SB01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/SB01.png
-[CR01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/CR01.png
-[AP01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/AP01.png
-[AP02]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/AP02.png
-[TL01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/TL01.png
+[SB01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-sample-spring-boot-app.png
+[CR01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/browse-azure-portal-docker-container.png
+[AP01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/web-app-listed-azure-portal.png
+[AP02]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/determine-web-app-url.png
+[TL01]: ./media/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin/expose-docker-daemon-tcp-port.png

@@ -1,9 +1,10 @@
-- name: Azure for Java developers
+- name: Azure for Java cloud developers
   href: index.yml
   items:
     - name: Get Started
       href: java-sdk-azure-get-started.md
     - name: Quickstarts
+      expanded: true
       items:
         - name: Deploy Web Apps
           items:
@@ -15,6 +16,10 @@
             href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Container Registry
+          href: /azure/container-registry/container-registry-java-quickstart?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Resource Manager
+          href: /azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-intellij?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure DevOps Projects
           href: /azure/devops-project/azure-devops-project-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Serverless Function
@@ -40,7 +45,7 @@
                 - name: MongoDB API
                   href: /azure/cosmos-db/create-mongodb-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Storage Blobs
-          href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Redis Cache
           href: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Service Fabric
@@ -80,26 +85,29 @@
             - name: Bing Image Search
               href: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Frameworks and Platforms
-      expanded: true
       items:
       - name: Spring Framework & Spring Boot
         href: /azure/java/spring-framework/index
       - name: Eclipse MicroProfile
         href: /azure/java/microprofile/index
     - name: Developer Tools
-      expanded: true
       items:
         - name: Overview
           href: java-azure-tools.md
-        - name: Java Long-Term Support
-          href: jdk/index.md  
+        - name: Java Support
           items: 
+          - name: Java Long-Term Support
+            href: jdk/index.md
           - name: Java JDK Installation
             href: jdk/java-jdk-install.md
           - name: Java Docker images for Azure
             href: jdk/java-jdk-docker-images.md
           - name: Java Flight Recorder and Mission Control
             href: jdk/java-jdk-flight-recorder-and-mission-control.md       
+          - name: Reasons to move to Java 11
+            href: jdk/reasons-to-move-to-java-11.md
+          - name: Transition from Java 8 to Java 11
+            href: jdk/transition-from-java-8-to-java-11.md
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
@@ -127,20 +135,46 @@
           href: /azure/service-fabric/service-fabric-tutorial-create-java-app?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Spring Boot on App Service with Cosmos DB
           href: /azure/app-service/containers/tutorial-java-spring-cosmosdb?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Pipelines CI/CD to App Service
+          href: /azure/devops/pipelines/languages/java-webapp?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Pipelines CI/CD to Azure Functions
+          href: /azure/devops/pipelines/languages/java-function?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Jenkins CI/CD to App Service
           href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy to App Service with Maven
           href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service
           href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-        - name: Deploy to App Service from Azure Container Registry
+        - name: Deploy to App Service from ACR
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Java Functions with Event Hub and Cosmos DB
+          href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Monitoring and logging using Logz.io
+          href: java-get-started-with-logzio.md
     - name: How-to Articles
       items:
         - name: Add Root Certificate
           href: java-sdk-add-certificate-ca-store.md
         - name: Authenticate
           href: java-sdk-azure-authenticate.md
+        - name: Configure logging
+          href: java-sdk-azure-log.md
+        - name: Migrate Java to Azure
+          items:
+            - name: Overview
+              href: migration-overview.md
+            - name: Spring to Azure App Service
+              href: migrate-java-se-to-java-se-app-service.md
+            - name: Tomcat to Azure App Service
+              href: migrate-tomcat-to-tomcat-app-service.md
+            - name: Tomcat to containers on AKS
+              href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
+            - name: WebLogic to Azure Virtual Machines
+              href: migrate-weblogic-to-virtual-machines.md
+            - name: WebLogic to WildFly on AKS
+              href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+            - name: WebSphere to WildFly on AKS
+              href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: Code Samples
       items:
         - name: Service Fabric

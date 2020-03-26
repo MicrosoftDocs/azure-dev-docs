@@ -1,23 +1,17 @@
 ---
-title: Use Maven for Azure Web Apps to deploy a Spring Boot app to Azure
+title: Deploy a Spring Boot app to Azure with Maven
 description: Learn how to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure.
 services: app-service
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
 
-# How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure
+# Use Maven for Azure Web Apps to deploy a containerized Spring Boot app to Azure
 
 This article demonstrates using the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) to deploy a sample Spring Boot application in a Docker container to Azure App Services.
 
@@ -225,7 +219,7 @@ There are several values that you can modify for the Maven plugin, and a detaile
 
 | Element | Description |
 |---|---|
-| `<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should check the version listed in the [Maven Central Respository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) to ensure that you are using the latest version. |
+| `<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should check the version listed in the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) to ensure that you are using the latest version. |
 | `<authentication>` | Specifies the authentication information for Azure, which in this example contains a `<serverId>` element that contains `azure-auth`; Maven uses that value to look up the Azure service principal values in your Maven *settings.xml* file, which you defined in an earlier section of this article. |
 | `<resourceGroup>` | Specifies the target resource group, which is `maven-plugin` in this example. The resource group will be created during deployment if it does not already exist. |
 | `<appName>` | Specifies the target name for your web app. In this example, the target name is `maven-linux-app-${maven.build.timestamp}`, where the `${maven.build.timestamp}` suffix is appended in this example to avoid conflict. (The timestamp is optional; you can specify any unique string for the app name.) |

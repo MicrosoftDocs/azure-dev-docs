@@ -3,13 +3,7 @@ title: How to use Spring Data JDBC with Azure SQL Database
 description: Learn how to use Spring Data JDBC with an Azure SQL Database.
 services: sql-database
 documentationcenter: java
-author: bmitchell287
-manager: douge
-editor: ''
-ms.assetid:
-ms.author: brendm
 ms.date: 12/19/2018
-ms.devlang: java
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -31,9 +25,9 @@ The following prerequisites are required in order to complete the steps in this 
 * [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
 * A [Git](https://git-scm.com/downloads) client.
 
-## Create an Azure SQL Satabase
+## Create an Azure SQL Database
 
-### Create a SQL database server using the Azure Portal
+### Create a SQL database server using the Azure portal
 
 > [!NOTE]
 > 
@@ -47,55 +41,63 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Specify the following information:
 
-   - **Database name**: Choose a unique name for your SQL database; this will be created in the SQL server that you will specify later.
-   - **Subscription**: Specify your Azure subscription to use.
-   - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Select source**: For this tutorial, select `Blank database` to create a new database.
+   * **Database name**: Choose a unique name for your SQL database; this will be created in the SQL server that you will specify later.
+   * **Subscription**: Specify your Azure subscription to use.
+   * **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
+   * **Select source**: For this tutorial, select `Blank database` to create a new database.
 
    ![Specify your SQL database properties][SQL02]
    
-1. Click **Server**, then **Create a new server**, and then specify the following information:
+1. Click **Server**, then **Create new**, and then specify the following information:
 
    - **Server name**: Choose a unique name for your SQL server; this will be used to create a fully-qualified domain name like *wingtiptoyssql.database.windows.net*.
    - **Server admin login**: Specify the database administrator name.
    - **Password** and **Confirm password**: Specify the password for your database administrator.
    - **Location**: Specify the closest geographic region for your database.
 
-   ![Specify your SQL server][SQL03]
 
-1. When you have entered all of the above information, click **Select**.
+1. When you have entered all of the above information, click **OK**.
 
-1. For this tutorial, specify the least-expensive **Pricing tier**, and then click **Create**.
+1. Click **Review and create**.
 
-   ![Create your SQL database][SQL04]
+1. Review the settings, and click **Create**.
 
-### Configure a firewall rule for your SQL server using the Azure Portal
+### Configure a firewall rule for your SQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the SQL server you just created.
 
-   ![Select your SQL server][SQL05]
-
-1. In the **Overview** section, click **Show firewall settings**
+1. In the left navigation pane, click **Overview** section, click **Set server firewall**
 
    ![Show firewall settings][SQL06]
 
-1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**.
+1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
 
    ![Configure firewall settings][SQL07]
 
-### Retrieve the connection string for your SQL server using the Azure Portal
+### Retrieve the connection string for your SQL server using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Click **All Resources**, then click the SQL database you just created.
 
-   ![Select your SQL database][SQL08]
-
 1. Click **Connection strings**, then click **JDBC**, and copy the value in the JDBC text field.
 
    ![Retrieve your JDBC connection string][SQL09]
+
+### Create test table in database
+In order to run a client application against this database, use the following SQL command to create a new table.
+
+``` SQL
+IF NOT EXISTS (SELECT 1 FROM sysobjects WHERE NAME='pet' and XTYPE='U')
+  CREATE TABLE pet (
+    id      INT           IDENTITY  PRIMARY KEY,
+    name    VARCHAR(255),
+    species VARCHAR(255)
+  );
+
+```
 
 ## Configure the sample application
 
@@ -105,11 +107,21 @@ The following prerequisites are required in order to complete the steps in this 
    git clone https://github.com/Azure-Samples/spring-data-jdbc-on-azure.git
    ```
 
+1. Modify the POM file to include the following dependency:
+
+```
+ <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+    <version>7.4.1.jre11</version>
+ </dependency>
+```
 1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
 
 1. Open the *application.properties* file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
 
    ```yaml
+   spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
    spring.datasource.url=jdbc:sqlserver://wingtiptoyssql.database.windows.net:1433;database=wingtiptoys;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
    spring.datasource.username=wingtiptoysuser@wingtiptoyssql
    spring.datasource.password=********
@@ -142,8 +154,12 @@ The following prerequisites are required in order to complete the steps in this 
 
    ```shell
    curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   ```
 
-   curl -s -d '{"name":"cat","species":"feline"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
+   or:
+
+``` shell
+   curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
    ```
 
    Your application should return values like the following:
