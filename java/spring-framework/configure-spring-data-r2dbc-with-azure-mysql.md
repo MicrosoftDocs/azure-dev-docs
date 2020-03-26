@@ -118,7 +118,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ### Add the reactive MySQL driver implementation
 
-Open up the generated project's `pom.xml` file to add the reactive MySQL driver from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
+Open up the generated project's *pom.xml* file to add the reactive MySQL driver from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
