@@ -45,7 +45,7 @@ You will need to configure the following parameters:
 - `<YOUR_MYSQL_PASSWORD>`: the password of your MySQL database server. That password should have a minimum of eight characters, and characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [http://ipv4.icanhazip.com](http://ipv4.icanhazip.com).
 
-Once those variables are set up, you can create the resource group in which we will work throughout this quickstart:
+Next, create a resource group.
 
 ```bash
 az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
