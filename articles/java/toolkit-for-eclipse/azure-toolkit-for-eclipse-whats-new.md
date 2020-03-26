@@ -305,7 +305,7 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 <!-- URL List -->
 
-[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/index
+[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/index.yml
 [Installing the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-installation.md
 
 [Azure Sign In Instructions for the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-sign-in-instructions.md

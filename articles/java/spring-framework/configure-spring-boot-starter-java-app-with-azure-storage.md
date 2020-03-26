@@ -18,7 +18,7 @@ This article walks you through creating a custom application using the **Spring 
 The following prerequisites are required in order to follow the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-* The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/index).
+* The [Azure Command-Line Interface (CLI)](/cli/azure/index).
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 
@@ -346,7 +346,7 @@ In this tutorial, you created a new Java application using the **[Spring Initial
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault?view=azure-java-stable)
+> [Spring on Azure](index.yml)
 
 ### Additional Resources
 

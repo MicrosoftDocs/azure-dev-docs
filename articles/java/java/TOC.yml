@@ -87,9 +87,9 @@
       expanded: true
       items:
       - name: Spring Framework & Spring Boot
-        href: ../spring-framework/index
+        href: ../spring-framework/index.yml
       - name: Eclipse MicroProfile
-        href: ../eclipse-microprofile/index
+        href: ../eclipse-microprofile/index.yml
     - name: Developer Tools
       expanded: true
       items:
@@ -112,9 +112,9 @@
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
-          href: ../toolkit-for-intellij/index
+          href: ../toolkit-for-intellij/index.yml
         - name: Eclipse
-          href: ../toolkit-for-eclipse/index
+          href: ../toolkit-for-eclipse/index.yml
         - name: Maven Plugins
           href: /java/api/overview/azure/maven/README
           items:
