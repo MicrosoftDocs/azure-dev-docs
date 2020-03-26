@@ -17,7 +17,7 @@ Python is fully supported in Visual Studio Code through the highly popular Pytho
 
 The Azure SDK for Python provides an API through which you can interact with Azure from Python code.
 
-[Install Azure SDK for Python libraries](python-sdk-azure-install.md)
+[Install Azure SDK for Python libraries](azure-sdk-install.md)
 
 ## Azure Command-Line Interface (CLI)
 

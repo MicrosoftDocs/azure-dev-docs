@@ -62,4 +62,4 @@ To uninstall an individual library, use `pip uninstall <library>`.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use the SDK](python-sdk-azure-get-started.yml)
+> [Learn how to use the SDK](azure-sdk-get-started.yml)

@@ -9,6 +9,6 @@ ms.topic: conceptual
 
 The following articles help you get started with various security options on Azure:
 
-- [Authenticate with Active Directory](python-sdk-azure-authenticate.md)
+- [Authenticate with Active Directory](azure-sdk-authenticate.md)
 - [Store and retrieve secrets wit Key Vault](/azure/key-vault/quick-create-python)
 - [Add sign-in with Microsoft to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)

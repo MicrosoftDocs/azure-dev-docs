@@ -11,7 +11,7 @@ Welcome to the Azure SDK for Go! The SDK allows you to manage and interact with 
 
 ## Get the Azure SDK for Go
 
-[!INCLUDE [azure-sdk-go-get](includes/azure-sdk-go-get.md)]
+[!INCLUDE [azure-sdk-go-get](includes/azure-sdk-get.md)]
 
 Some Azure services have their own Go SDK and aren't included in the core Azure SDK for Go package. The
 following table lists the services with their own SDKs and their package names. These packages are
@@ -83,9 +83,9 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/resources/mgmt/res
 
 To begin using the Azure SDK for Go, try out a quickstart.
 
-* [Deploy a virtual machine from a template](azure-sdk-go-qs-vm.md)
-* [Transfer objects to Azure Blob Storage with the Azure Blob SDK for Go](/azure/storage/blobs/storage-quickstart-blobs-go?toc=%2fgo%2fazure%2ftoc.json)
-* [Connect to Azure Database for PostgreSQL](/azure/postgresql/connect-go?toc=%2fgo%2fazure%2ftoc.json)
+* [Deploy a virtual machine from a template](azure-sdk-qs-vm.md)
+* [Transfer objects to Azure Blob Storage with the Azure Blob SDK for Go](/azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json)
+* [Connect to Azure Database for PostgreSQL](/azure/postgresql/connect-go?toc=/azure/developer/go/toc.json)
 
 If you want to get started with other services in the Go SDK immediately,
 take a look at some of the available sample code.

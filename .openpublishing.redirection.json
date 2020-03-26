@@ -132,52 +132,152 @@
     },
     {
       "source_path": "python/python-sdk-azure-release-notes.md",
-      "redirect_url": "/azure/python/python-sdk-azure-overview",
+      "redirect_url": "/azure/python/azure-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "python/python-sdk-azure-tools.md",
+      "redirect_url": "/azure/python/azure-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "python/python-azure-tools.md",
+      "redirect_url": "/azure/python/azure-tools",
       "redirect_document_id": true
-    },    
+    },
+    {
+      "source_path": "python/python-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/python/azure-sdk-authenticate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-get-started.yml",
+      "redirect_url": "/azure/python/azure-sdk-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-multi-cloud.md",
+      "redirect_url": "/azure/python/azure-sdk-multi-cloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-operation-config.md",
+      "redirect_url": "/azure/python/azure-sdk-operation-config",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-overview.md",
+      "redirect_url": "/azure/python/azure-sdk-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-samples-list-images.md",
+      "redirect_url": "/azure/python/azure-sdk-samples-list-images",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-samples-logic-app-workflow.md",
+      "redirect_url": "/azure/python/azure-sdk-samples-logic-app-workflow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-samples-managed-disks.md",
+      "redirect_url": "/azure/python/azure-sdk-samples-managed-disks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "python/python-sdk-azure-samples-monitor-vms.md",
+      "redirect_url": "/azure/python/azure-sdk-samples-monitor-vms",
+      "redirect_document_id": true
+    },
     {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-auth-aad-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-authorization.md",
-      "redirect_url": "/azure/go/azure-sdk-go-authorization",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-compute-networking-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-compute-networking-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-networking-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-containers-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-containers-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-install.md",
-      "redirect_url": "/azure/go/azure-sdk-go-install",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-qs-vm.md",
-      "redirect_url": "/azure/go/azure-sdk-go-qs-vm",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-sql-database-samples.md",
-      "redirect_url": "/azure/go/azure-sdk-go-sql-database-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-tools.md",
-      "redirect_url": "/azure/go/azure-sdk-go-tools",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/index.md",
-      "redirect_url": "/azure/go",
+      "redirect_url": "/azure/developer/go",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-auth-aad-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-authorization.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-compute-network-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-network-samples",
+      "redirect_document_id": true
+    },    
+    {
+      "source_path": "go/azure-sdk-go-containers-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-install.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-qs-vm.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-sql-database-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/azure-sdk-go-tools.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "go/index.md",
+      "redirect_url": "/azure/developer/go",
       "redirect_document_id": true
     },
     {
