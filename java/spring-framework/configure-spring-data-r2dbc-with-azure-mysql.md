@@ -153,7 +153,7 @@ You should now be able to start your application using the provided Maven wrappe
 
 Here is a screenshot of the application running for the first time:
 
-   ![Run the application][R2DBC-MYSQL01]
+![Run the application][R2DBC-MYSQL01]
 
 ### Create the database schema
 
