@@ -101,13 +101,13 @@ az mysql db create \
 
 ## Create a reactive Spring Boot application
 
-### Generate the application using Spring Initializr
-
 To create a reactive Spring Boot application, we will use [Spring Initializr](https://start.spring.io/). The application we will create uses:
 
 - Spring Boot 2.3.0 M3
 - Java 8 (but it will also work with newer versions like Java 11)
 - The following dependencies: Spring Reactive Web (also known as "Spring WebFlux") and Spring Data R2DBC.
+
+### Generate the application using Spring Initializr
 
 Generate this application using the command line, by typing:
 
