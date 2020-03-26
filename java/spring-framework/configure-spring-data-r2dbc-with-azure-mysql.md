@@ -310,7 +310,7 @@ Now that your code is finished, kill the application and start it up again:
 
 To test the application, we will use cURL.
 
-Let's first create a new "todo" item in the database:
+First, create a new "todo" item in the database:
 
 ```bash
 curl  --header "Content-Type: application/json" \
