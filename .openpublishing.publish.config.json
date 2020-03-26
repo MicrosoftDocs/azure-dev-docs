@@ -2,8 +2,8 @@
   "docsets_to_publish": [
     {
       "docset_name": "azure-dev-docs",
-      "build_source_folder": "articles",
-      "build_output_subfolder": "azure-dev-docs",
+      "build_source_folder": ".",
+      "build_output_subfolder": "developer",
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
