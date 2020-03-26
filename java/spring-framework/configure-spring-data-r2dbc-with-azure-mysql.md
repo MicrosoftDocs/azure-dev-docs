@@ -265,7 +265,7 @@ public interface TodoRepository extends ReactiveCrudRepository<Todo, Long> {
 }
 ```
 
-This repository is a reactive repository, that is managed by Spring Data R2DBC.
+This repository is a reactive repository managed by Spring Data R2DBC.
 
 Next, finish the application by creating a controller that can store and retrieve data. Implement a `TodoController` class in the same package, and add the following code:
 
