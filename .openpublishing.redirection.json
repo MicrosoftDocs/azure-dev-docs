@@ -41,6 +41,41 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-enable-session-affinity.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-role-properties.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+      "redirect_url": "/azure/java/eclipse",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "javascript/overview.md",
       "redirect_url": "/azure/javascript/",
       "redirect_document_id": false
