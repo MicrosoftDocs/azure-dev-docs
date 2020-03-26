@@ -53,7 +53,7 @@ az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
 
 > [!NOTE]
 > We use the `jq` utility, which is installed by default on [Azure Shell](https://shell.azure.com/), in order to display JSON data and make it more readable.
-> If you don't like that utility, you can safely remove the `| jq` part of all the commands we will use.
+> If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
 ## Create an Azure Database for MySQL
 
