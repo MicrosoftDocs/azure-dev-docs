@@ -308,7 +308,7 @@ Now that your code is finished, kill the application and start it up again:
 
 ## Test the application
 
-To test the application, we will use cURL.
+To test the application, you can use cURL.
 
 First, create a new "todo" item in the database:
 
