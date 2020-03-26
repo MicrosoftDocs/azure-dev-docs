@@ -29,7 +29,7 @@ The instructions in this quickstart can be followed using a terminal on your loc
 
 First, set up some environment variables using the following commands:
 
-```bash
+```azurecli-interactive
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
@@ -47,7 +47,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 Next, create a resource group.
 
-```bash
+```azurecli-interactive
 az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
 ```
 
@@ -65,7 +65,7 @@ The first thing we will create is a managed MySQL Server instance.
 
 Still in your [Azure Shell](https://shell.azure.com/) instance, execute the following script:
 
-```bash
+```azurecli-interactive
 az mysql server create --name $AZ_DATABASE_NAME \
     --sku-name B_Gen5_1 --storage-size 5120 \
     --resource-group $AZ_RESOURCE_GROUP --location $AZ_LOCATION \
@@ -80,7 +80,7 @@ Azure Database for MySQL instances are secured by default: they have a firewall 
 
 As we have configured our local IP address at the beginning of this article, you can open up the server's firewall by running:
 
-```bash
+```azurecli-interactive
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP --server $AZ_DATABASE_NAME \
     --name $AZ_DATABASE_NAME-database-allow-local-ip \
@@ -92,7 +92,7 @@ az mysql server firewall-rule create \
 
 The MySQL server that we created earlier is empty: it doesn't have any database that we can use with our Spring Boot application. Create a new database called `r2dbc`:
 
-```bash
+```azurecli-interactive
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_NAME --name r2dbc \
@@ -111,7 +111,7 @@ To create a reactive Spring Boot application, we will use [Spring Initializr](ht
 
 Generate this application using the command line, by typing:
 
-```bash
+```azurecli-interactive
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M3 -d javaVersion=8 | tar -xzvf -
 ```
 
@@ -147,7 +147,7 @@ spring.r2dbc.password=$AZ_MYSQL_USERNAME
 
 You should now be able to start your application using the provided Maven wrapper:
 
-```bash
+```azurecli-interactive
 ./mvnw spring-boot:run
 ```
 
@@ -179,7 +179,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Use the following command to stop the application and run it again. The application will now use the `r2dbc` database that you created earlier, and create a `todo` table inside it.
 
-```bash
+```azurecli-interactive
 ./mvnw spring-boot:run
 ```
 
@@ -302,7 +302,7 @@ public class TodoController {
 
 Finally, halt the application and start it up again:
 
-```bash
+```azurecli-interactive
 ./mvnw spring-boot:run
 ```
 
@@ -312,7 +312,7 @@ To test the application, you can use cURL.
 
 First, create a new "todo" item in the database:
 
-```bash
+```azurecli-interactive
 curl  --header "Content-Type: application/json" \
           --request POST \
           --data '{"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done": "true"}' \
@@ -327,7 +327,7 @@ This command should return the created item:
 
 Next, retrieve the data using a new cURL request:
 
-```bash
+```azurecli-interactive
 curl http://127.0.0.1:8080
 ```
 
@@ -347,7 +347,7 @@ Congratulations! You've created a fully reactive Spring Boot application, that u
 
 To clean up all resources used during this quickstart, delete the resource group:
 
-```bash
+```azurecli-interactive
 az group delete --yes --name $AZ_RESOURCE_GROUP | jq
 ```
 
