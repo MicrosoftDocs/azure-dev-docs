@@ -300,7 +300,7 @@ public class TodoController {
 }
 ```
 
-Now that your code is finished, kill the application and start it up again:
+Finally, halt the application and start it up again:
 
 ```bash
 ./mvnw spring-boot:run
