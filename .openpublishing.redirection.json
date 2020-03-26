@@ -2,43 +2,538 @@
   "redirections": [
     {
       "source_path": "java/microprofile/cicd-microprofile-vsts.md",
-      "redirect_url": "/azure/java/microprofile/cicd-microprofile",
+      "redirect_url": "articles/java/eclipse-microprofile/cicd-microprofile.md",
       "redirect_document_id": true
     },
     {
         "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
-        "redirect_url": "/azure/java/spring-framework",
+        "redirect_url": "articles/java/spring-framework/index.yml",
         "redirect_document_id": false
     },
     {
         "source_path": "java/intellij/azure-toolkit-for-intellij.md",
-        "redirect_url": "/azure/java/intellij",
+        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
         "redirect_document_id": true
     },
     {
         "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
-        "redirect_url": "/azure/java/intellij",
+        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
         "redirect_document_id": false
     },
     {
         "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
-        "redirect_url": "/azure/java/intellij",
+        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
         "redirect_document_id": false
     },
     {
         "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
-        "redirect_url": "/azure/java/eclipse",
+        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
         "redirect_document_id": true
     },
     {
         "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
-        "redirect_url": "/azure/java/eclipse",
+        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
         "redirect_document_id": false
     },
     {
         "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
-        "redirect_url": "/azure/java/eclipse",
+        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "java/index.yml",
+      "redirect_url": "articles/java/java/index.yml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-azure-tools.md",
+      "redirect_url": "articles/java/java/java-azure-tools.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-get-started-with-logzio.md",
+      "redirect_url": "articles/java/java/java-get-started-with-logzio.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-add-certificate-ca-store.md",
+      "redirect_url": "articles/java/java/java-sdk-add-certificate-ca-store.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-authenticate.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-authenticate.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-concepts.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-concepts.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-containers-samples.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-containers-samples.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-get-started.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-get-started.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-log.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-log.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-release-notes.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-release-notes.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-security-samples.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-security-samples.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-sql-database-samples.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-sql-database-samples.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-virtual-machine-samples.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-virtual-machine-samples.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-web-apps-samples.md",
+      "redirect_url": "articles/java/java/java-sdk-azure-web-apps-samples.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-configure-webapp-sources.md",
+      "redirect_url": "articles/java/java/java-sdk-configure-webapp-sources.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_url": "articles/java/java/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-storage-accounts.md",
+      "redirect_url": "articles/java/java/java-sdk-manage-storage-accounts.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-virtual-machines.md",
+      "redirect_url": "articles/java/java/java-sdk-manage-virtual-machines.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-virtual-networks.md",
+      "redirect_url": "articles/java/java/java-sdk-manage-virtual-networks.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-vm-scalesets.md",
+      "redirect_url": "articles/java/java/java-sdk-manage-vm-scalesets.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_url": "articles/java/java/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-java-se-to-java-se-app-service.md",
+      "redirect_url": "articles/java/migration/migrate-java-se-to-java-se-app-service.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-tomcat-to-containers-on-azure-kubernetes-service.md",
+      "redirect_url": "articles/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-tomcat-to-tomcat-app-service.md",
+      "redirect_url": "articles/java/migration/migrate-tomcat-to-tomcat-app-service.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-weblogic-to-virtual-machines.md",
+      "redirect_url": "articles/java/migration/migrate-weblogic-to-virtual-machines.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "articles/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "articles/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migration-overview.md",
+      "redirect_url": "articles/java/migration/migration-overview.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-role-properties.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-role-properties.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-enable-session-affinity.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-enable-session-affinity.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-hello-world-web-app-linux.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-hello-world-web-app-linux.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-installation.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-installation.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-sign-in-instructions.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-sign-in-instructions.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-whats-new.md",
+      "redirect_url": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-whats-new.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/index.yml",
+      "redirect_url": "articles/java/toolkit-for-eclipse/index.yml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-installation.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-installation.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-sign-in-instructions.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-sign-in-instructions.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-whats-new.md",
+      "redirect_url": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-whats-new.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/index.yml",
+      "redirect_url": "articles/java/toolkit-for-intellij/index.yml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/index.md",
+      "redirect_url": "articles/java/jdk/index.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-docker-images.md",
+      "redirect_url": "articles/java/jdk/java-jdk-docker-images.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-flight-recorder-and-mission-control.md",
+      "redirect_url": "articles/java/jdk/java-jdk-flight-recorder-and-mission-control.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-install.md",
+      "redirect_url": "articles/java/jdk/java-jdk-install.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/reasons-to-move-to-java-11.md",
+      "redirect_url": "articles/java/jdk/reasons-to-move-to-java-11.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/transition-from-java-8-to-java-11.md",
+      "redirect_url": "articles/java/jdk/transition-from-java-8-to-java-11.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/cicd-microprofile.md",
+      "redirect_url": "articles/java/eclipse-microprofile/cicd-microprofile.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/configure-microprofile-with-keyvault.md",
+      "redirect_url": "articles/java/eclipse-microprofile/configure-microprofile-with-keyvault.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/deploy-microprofile-to-container-instances.md",
+      "redirect_url": "articles/java/eclipse-microprofile/deploy-microprofile-to-container-instances.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/deploy-microprofile-to-web-app-for-containers.md",
+      "redirect_url": "articles/java/eclipse-microprofile/deploy-microprofile-to-web-app-for-containers.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/index.yml",
+      "redirect_url": "articles/java/eclipse-microprofile/index.yml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-postgresql.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-sql-server.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-mongodb-with-cosmos-db.md",
+      "redirect_url": "articles/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "articles/java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
+      "redirect_url": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-on-kubernetes.md",
+      "redirect_url": "articles/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-on-linux.md",
+      "redirect_url": "articles/java/spring-framework/deploy-spring-boot-java-app-on-linux.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "articles/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/getting-started-with-spring-cloud-function-in-azure.md",
+      "redirect_url": "articles/java/spring-framework/getting-started-with-spring-cloud-function-in-azure.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/how-to-guides-spring-data-cosmosdb.md",
+      "redirect_url": "articles/java/spring-framework/how-to-guides-spring-data-cosmosdb.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/index.yml",
+      "redirect_url": "articles/java/spring-framework/index.yml",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/spring-app-service-e2e.md",
+      "redirect_url": "articles/java/spring-framework/spring-app-service-e2e.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/spring-boot-starters-for-azure.md",
+      "redirect_url": "articles/java/spring-framework/spring-boot-starters-for-azure.md",
+      "redirect_document_id": true
     },
     {
       "source_path": "javascript/overview.md",
