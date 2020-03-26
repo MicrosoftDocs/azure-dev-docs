@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "articles/java",
+      "source_path": "articles/java/index.yml",
       "redirect_url": "articles/java/java",
       "redirect_document_id": false
     },
