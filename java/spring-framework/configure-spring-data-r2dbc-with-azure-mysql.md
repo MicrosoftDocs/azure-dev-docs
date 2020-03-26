@@ -27,7 +27,7 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 
 The instructions below can be followed using a terminal on your local computer (Windows, macOS, or Linux), but we recommend you use the [Azure Shell](https://shell.azure.com/). Using that browser-based tool, you'll be automatically logged in, and you'll have access to all the tools that you'll need.
 
-First, we will set up some environment variables:
+First, set up some environment variables using the following commands:
 
 ```bash
 export AZ_RESOURCE_GROUP=r2dbc-workshop
