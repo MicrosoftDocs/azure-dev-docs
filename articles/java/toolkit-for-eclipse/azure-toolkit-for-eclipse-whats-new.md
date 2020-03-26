@@ -15,9 +15,8 @@ The following web page contains information on the various releases and latest u
 
 <https://github.com/Microsoft/azure-tools-for-java/releases>
 
-> [!NOTE] 
-> There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ]. 
-> 
+> [!NOTE]
+> There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
 
 <!--
 
@@ -106,8 +105,6 @@ The Azure Toolkit for Eclipse - March 2015 release includes the following enhanc
 
 > [!NOTE]
 > This capability is in preview, and it is not recommended for use in production environments. There is no customer support Service Level Agreement (SLA), but all feedback is appreciated and encouraged.
-> 
-> 
 
 * **New Application Insights plugin**. Developers are now able to configure automatic server telemetry using Application Insights on Azure.
 * **Ant-based command line deployment automation**. This feature enables developers to automate the publishing for newer versions of their deployments using Ant outside of Eclipse. A pre-generated script is automatically configured for a project after the first time it is deployed from Eclipse, and subsequent deployments can use the script to fully automate deployments via the command line only.
@@ -117,7 +114,7 @@ The Azure Toolkit for Eclipse - March 2015 release includes the following enhanc
 ### January 30, 2015
 The Azure Toolkit for Eclipse - January 2015 release includes the following enhancements:
 
-* **Support for IBM® WebSphere® Application Server Liberty Core**. This release adds the IBM WebSphere Application Server Liberty Core to the list of supported application servers from which the toolkit is able to deploy to Azure. This latest addition expands the current list of application servers that are supported &quot;out-of-the-box&quot; by the Toolkit, which already included various versions of Tomcat, Jetty, JBoss and GlassFish.
+* **Support for IBM&reg; WebSphere&reg; Application Server Liberty Core**. This release adds the IBM WebSphere Application Server Liberty Core to the list of supported application servers from which the toolkit is able to deploy to Azure. This latest addition expands the current list of application servers that are supported &quot;out-of-the-box&quot; by the Toolkit, which already included various versions of Tomcat, Jetty, JBoss and GlassFish.
 * **Inclusion of Application Insights SDK**. This newly-released client API library (v0.9.0) is now part of the Package for Azure Libraries for Java.
 * **Updated Package for Azure Libraries for Java**. This update includes Azure Libraries for Java v0.7.0 and Storage Client API v2.0.0, as well as the newly-released Application Insights SDK v0.9.0.
 
@@ -175,7 +172,7 @@ The Azure Plugin for Eclipse - February 2014 Preview has released. This update i
 * **Azul Zulu OpenJDK package update 45.** Effective with this release, Azul System's Zulu (Open JDK v7 package) update 45 is now available; this is in addition to the previously available update 40 and update 25.
 * **Support for 'auto' for private endpoint ports.** You can set a private port to automatic for input endpoints and internal endpoints to let Azure assign a port to that endpoint automatically. Previously you could only assign a specific port number.
 * **Support for customizing the certificate name (CN) in the self-signed certificate creation UI.** Previously, the same hard-coded name was used for all new certificates; now you can specify your own certificate name to help distinguish among multiple certificates in the Azure portal used for different purposes.
-* **Azure toolbar:** The Azure toolbar has an updated with the following changes: 
+* **Azure toolbar:** The Azure toolbar has an updated with the following changes:
   * ![][ic710876] This icon was added for the **New Azure Deployment Project**.
   * ![][ic710877] This icon was added as a shortcut to the self-signed certificate creation dialog.
 * **Support for A5 Azure Virtual Machine size.** You can now deploy a cloud service to the high memory A5 Virtual Machine size. For more information about this VM size, see [Virtual Machine and Cloud Service Sizes for Azure].
@@ -282,7 +279,7 @@ Azure Plugin for Eclipse - June 2012 CTP has released. New features include:
 * **Microsoft JDBC Driver 4.0 for SQL Server available during plugin installation:** During installation of the new plugin, the newest version of the Microsoft JDBC Driver for SQL Server can be installed.
 * **Azure Access Control Service Filter available during plugin installation:** This new component, included as an Eclipse library in the toolkit, enables your Java web application to seamlessly take advantage of Azure Access Control Service (ACS) authentication using various identity providers, such as Google, Live.com, and Yahoo!. You won't need to write authentication logic yourself, just configure a few options and let the filter do the heavy lifting of enabling users to sign in using ACS. You can just focus on writing the code that gives users access to resources based on their identity, as returned to your application by the filter inside the Request object. For a tutorial on using the ACS filter, see [How to Authenticate Web Users with Azure Access Control Service Using Eclipse].
 * **Automatic detection of the Azure SDK 1.7 prerequisite:** When you create a new Azure Deployment Project, Azure SDK 1.7 will be automatically downloaded if it is not already installed.
-* **Instance endpoints:** Allows direct port endpoint access for communication with load balanced role instances. Instance endpoints can be added through the endpoints UI, available through the [Endpoints properties] page. This helps enable remote debugging and JMX diagnostics for specific compute instances running in the cloud in scenarios with multi -instance deployments. 
+* **Instance endpoints:** Allows direct port endpoint access for communication with load balanced role instances. Instance endpoints can be added through the endpoints UI, available through the [Endpoints properties] page. This helps enable remote debugging and JMX diagnostics for specific compute instances running in the cloud in scenarios with multi -instance deployments.
 * **Components UI:** Makes it easier for advanced users to set up project dependencies between individual Azure roles in the project and other external resources such as Java application projects; also makes it easy to describe their deployment logic. For more information, see [Components properties].
 * **Automatic upgrade of previous versions of projects:** When you open a workspace that has Azure project created with a previous version of the plugin, the old projects will be shown in Eclipse as closed, because previous versions of projects are not compatible with the new release. If you attempt to open one of these old projects, an upgrade wizard will start. If you agree to the upgrade, a new project, with **_Upgraded** appended to the name, will be created and automatically updated to work with the new release. You can rename the new project as needed. As part of the upgrade, your original project will not be modified (and will remain closed).
 
@@ -296,7 +293,7 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 * **Remote Java app debugging configuration UI:** Allows you to easily enable Eclipse's remote debugger to access your Java app running in the Emulator or the Azure cloud, so you can step through and debug your Java code in real time. For more information, see [Debugging Azure Applications in Eclipse].
 * **Local storage resource configuration UI:** So you no longer have to configure local resources by manipulating the XML directly. This feature also enables you to access to the effective file path of your local resource after it's deployed via an environment variable you can reference directly from your startup script. For more information, see [Local storage properties].
 * **Environment variable configuration UI:** So you no longer have to set environment variables via manual editing of the configuration XML. For more information, see [Environment variables properties].
-* **JDBC driver for SQL Azure:** Gets installed via the plugin as a seamlessly integrated Eclipse library, enabling easier programming against SQL Azure. 
+* **JDBC driver for SQL Azure:** Gets installed via the plugin as a seamlessly integrated Eclipse library, enabling easier programming against SQL Azure.
 * **Quick context-menu access to role configuration UI**: Just right-click on the role folder, and click **Properties**.
 * **Custom Azure project and role folder icons:** For better visibility and easier navigation within your workspace and project.
 
@@ -308,7 +305,7 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 <!-- URL List -->
 
-[Azure Toolkit for IntelliJ]: ../intellij/azure-toolkit-for-intellij.md
+[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/index
 [Installing the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-installation.md
 
 [Azure Sign In Instructions for the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-sign-in-instructions.md

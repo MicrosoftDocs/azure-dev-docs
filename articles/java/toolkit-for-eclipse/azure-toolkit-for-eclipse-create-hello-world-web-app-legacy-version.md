@@ -199,8 +199,8 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: .
-[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/azure-toolkit-for-intellij.md
+[Azure Toolkit for Eclipse]: index
+[Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/index
 [intellij-hello-world]: ../toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/

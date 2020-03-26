@@ -18,7 +18,7 @@ For more information about the supported JDKs available for use when developing 
 
 ## Eclipse and IntelliJ plugins
 
-Manage Azure resources and deploy apps from your IDE with The Azure toolkits for [Eclipse](../toolkit-for-eclipse) and [IntelliJ](../toolkit-for-intellij).
+Manage Azure resources and deploy apps from your IDE with The Azure toolkits for [Eclipse](../toolkit-for-eclipse/index) and [IntelliJ](../toolkit-for-intellij/index).
 
 ![IntelliJ toolkit showing the Azure Explorer](media/intelliJ-azure-explorer.png)
 
