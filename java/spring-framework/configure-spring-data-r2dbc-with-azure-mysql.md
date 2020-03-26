@@ -157,7 +157,7 @@ Here is a screenshot of the application running for the first time:
 
 ### Create the database schema
 
-Inside the main `DemoApplication` class, configure a new Spring bean that will create the database schema we will use:
+Inside the main `DemoApplication` class, configure a new Spring bean that will create the database schema you'll use:
 
 ```java
     @Bean
