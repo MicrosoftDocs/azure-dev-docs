@@ -183,7 +183,7 @@ Use the following command to stop the application and run it again. The applicat
 ./mvnw spring-boot:run
 ```
 
-Here is a screenshot of the database table being created:
+Here's a screenshot of the database table being created:
 
    ![Create the database table][R2DBC-MYSQL02]
 
