@@ -16,7 +16,7 @@
           "LICENSE-CODE",
           "ThirdPartyNotices.md"
         ],
-        "src": "articles",
+        "src": ".",
         "dest": "."
       }
     ],
