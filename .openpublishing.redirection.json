@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/java",
+      "redirect_url": "articles/java/java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "java/microprofile/cicd-microprofile-vsts.md",
       "redirect_url": "articles/java/eclipse-microprofile/cicd-microprofile.md",
       "redirect_document_id": true
