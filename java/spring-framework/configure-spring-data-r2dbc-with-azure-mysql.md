@@ -254,7 +254,7 @@ public class Todo {
 
 This class is a domain model, that is mapped on the `todo` table that we have created before.
 
-To manage that class, we will need a repository: create a new `TodoRepository` in the same package:
+To manage that class, you'll need a repository. Define a new `TodoRepository` interface in the same package:
 
 ```java
 package com.example.demo;
