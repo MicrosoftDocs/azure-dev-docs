@@ -120,7 +120,7 @@ Build ID: aa1 was successful after 1m2.674577892s
 
 #### Deploy Docker Image from Azure Container Registry (ACR) into Container Instances (ACI)
 
-Now that the image is available on your ACR, let's push and instanciate a container instance on ACI. But first, we need to make sure we can authenticate into the ACR:
+Now that the image is available on your ACR, let's push and instantiate a container instance on ACI. But first, we need to make sure we can authenticate into the ACR:
 
 ```bash
 export ACR_REPO=`az acr show --name $ACR -g $ARG --query loginServer -o tsv`
@@ -138,7 +138,7 @@ Your application should now be up and running. To test it from the command-line,
 curl http://$ACI_INSTANCE.$ADCL.azurecontainer.io:8080/api/hello
 ````
 
-Congratulations! You have successfuly built and deployed a MicroProfile application as a Docker container onto Microsoft Azure.
+Congratulations! You have successfully built and deployed a MicroProfile application as a Docker container onto Microsoft Azure.
 
 ## Next steps
 
@@ -150,7 +150,7 @@ For more information about the various technologies discussed in this article, s
 
 [Azure Container Registry Build]: https://docs.microsoft.com/azure/container-registry/container-registry-build-overview
 [MicroProfile.io]: https://microprofile.io
-[Azure Command-Line Interface (CLI)]: /cli/azure/overview
+[Azure Command Line Interface (CLI)]: /cli/azure/overview
 [Azure for Java Developers]: https://docs.microsoft.com/azure/java/
 [Azure portal]: https://portal.azure.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/

@@ -87,7 +87,7 @@ import javax.ws.rs.ApplicationPath;
 public class Application extends javax.ws.rs.core.Application { }
 ```
 
-The `@ApplicationPath("/api")` annotation specifies the base endpoint for this microservice - that is, that all endpoints will have `/api` preceed the rest of the URL required to access any specific REST endpoint.
+The `@ApplicationPath("/api")` annotation specifies the base endpoint for this microservice - that is, that all endpoints will have `/api` precede the rest of the URL required to access any specific REST endpoint.
 
 Inside the `api` package is a class named `API`, which contains the following code:
 

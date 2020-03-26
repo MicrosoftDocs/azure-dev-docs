@@ -17,7 +17,7 @@ Any breaking changes from Preview versions for those services are marked with th
 
 If you are migrating your code to 1.3.0, you can use [these notes](https://github.com/Azure/azure-sdk-for-java/blob/master/notes/prepare-for-1.3.0.md) to prepare your existing code for the 1.3 version.
 
-### Generally availabile in V1.3
+### Generally available in V1.3
 
 Some of the APIs that were still in Beta in previous releases are now GA, in particular:
 
