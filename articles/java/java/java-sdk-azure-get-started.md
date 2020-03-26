@@ -79,7 +79,7 @@ Set an environment variable `AZURE_AUTH_LOCATION` with the full path to the auth
 export AZURE_AUTH_LOCATION=/Users/raisa/azureauth.properties
 ```
 
-If you're working in a windows environment, add the variable to your system properties. Open a PowerShell window with administrator privledges and, after replacing the second variable with the path to your file, enter the following command:
+If you're working in a windows environment, add the variable to your system properties. Open a PowerShell window with administrator privleges and, after replacing the second variable with the path to your file, enter the following command:
 
 ```powershell
 setx AZURE_AUTH_LOCATION "C:\<fullpath>\azureauth.properties" /m
