@@ -23,9 +23,9 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 - [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell).
 - [cURL](https://curl.haxx.se) or similar HTTP utility to test functionality.
 
-## Prepare the working environment
+The instructions in this quickstart can be followed using a terminal on your local computer (Windows, macOS, or Linux), but we recommend you use the [Azure Cloud Shell](https://shell.azure.com/). Using that browser-based tool, you'll be automatically logged in, and you'll have access to all the tools that you'll need.
 
-The instructions below can be followed using a terminal on your local computer (Windows, macOS, or Linux), but we recommend you use the [Azure Shell](https://shell.azure.com/). Using that browser-based tool, you'll be automatically logged in, and you'll have access to all the tools that you'll need.
+## Prepare the working environment
 
 First, set up some environment variables using the following commands:
 
