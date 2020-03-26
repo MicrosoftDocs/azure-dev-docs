@@ -19,11 +19,9 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell).
 - [cURL](https://curl.haxx.se) or similar HTTP utility to test functionality.
-
-The instructions in this quickstart can be followed using a terminal on your local computer (Windows, macOS, or Linux), but we recommend you use the [Azure Cloud Shell](https://shell.azure.com/). Using that browser-based tool, you'll be automatically logged in, and you'll have access to all the tools that you'll need.
 
 ## Prepare the working environment
 
