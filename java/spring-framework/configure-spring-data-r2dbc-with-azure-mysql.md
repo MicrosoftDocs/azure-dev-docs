@@ -38,7 +38,7 @@ AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-You will need to configure the following parameters:
+Replace the placeholders with the following values, which are used throughout this topic:
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL Server instance. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: the Azure region you'll use. You can use `eastus` by default, but we recommend you configure a region closer to where you live. You can have the full list of available regions by typing `az account list-locations`.
