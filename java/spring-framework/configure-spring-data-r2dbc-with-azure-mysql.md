@@ -170,7 +170,7 @@ Inside the main `DemoApplication` class, configure a new Spring bean that will c
     }
 ```
 
-That Spring bean uses a file called *schema.sql*, you need to create that file in the *src/main/resources* folder:
+This Spring bean uses a file called *schema.sql*, so create that file in the *src/main/resources* folder:
 
 ```sql
 DROP TABLE IF EXISTS todo;
