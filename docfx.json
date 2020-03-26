@@ -9,15 +9,15 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**",
-          "_themes/**",
-          "_themes.pdf/**",
+          "**/_themes/**",
           "**/docfx.json",
-          "_repo.en-us/**",
           "README.md",
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices.md"
-        ]
+        ],
+        "src": "articles",
+        "dest": "."
       }
     ],
     "resource": [
@@ -47,40 +47,27 @@
     },
     "fileMetadata": {
       "author": {
-        "**/go/*.md": "barbkess"        
-      },
-      "manager": {
-        "**/go/*.md": "barbkess"        
-      },
-      "ms.author": {
-        "**/go/*.md": "barbkess"        
-      },      
-      "ms.devlang": {
-        "**/go/*.md": "go"
-      },      
-      "ms.service": {
-        "**/go/*.md": "azure"
-      },
-      "ms.topic": {
-        "**/go/includes/**/*.md": "include"
-      },
-      "ms.devlang": {
-        "articles/java/**/**.md": "java"
-      },
-      "ms.service": {
-        "articles/java/**/**.md": "azure-java"
-      },
-      "manager": {
-        "articles/java/**/**.md": "barbkess"
+        "articles/java/**/**.md": "bmitchell287"
+        "articles/go/**/**.md": "barbkess"        
       },
       "ms.author": {
         "articles/java/**/**.md": "brendm"
+        "articles/go/**/**.md": "barbkess"        
       },
-      "author": {
-        "articles/java/**/**.md": "bmitchell287"
+      "manager": {
+        "articles/java/**/**.md": "barbkess"
+        "articles/go/**/*.md": "barbkess"        
+      },
+      "ms.devlang": {
+        "articles/java/**/**.md": "java"
+        "articles/go/**/**.md": "go"
+      },
+      "ms.service": {
+        "articles/java/**/**.md": "azure-java"
+        "articles/go/**/**.md": "azure"
       },
       "ms.topic": {
-        "articles/java/**/includes/**/**.md": "include"
+        "articles/**/includes/**/**.md": "include"
       }
     },
     "template": [],
