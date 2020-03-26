@@ -30,12 +30,12 @@ The instructions below can be followed using a terminal on your local computer (
 First, set up some environment variables using the following commands:
 
 ```bash
-export AZ_RESOURCE_GROUP=r2dbc-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
-export AZ_LOCATION=<YOUR_AZURE_REGION>
-export AZ_MYSQL_USERNAME=r2dbc
-export AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
-export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+AZ_RESOURCE_GROUP=r2dbc-workshop
+AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+AZ_LOCATION=<YOUR_AZURE_REGION>
+AZ_MYSQL_USERNAME=r2dbc
+AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
+AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 You will need to configure the following parameters:
