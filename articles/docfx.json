@@ -47,27 +47,27 @@
     },
     "fileMetadata": {
       "author": {
-        "articles/java/**/**.md": "bmitchell287",
-        "articles/go/**/**.md": "barbkess"        
+        "java/**/**.md": "bmitchell287",
+        "go/**/**.md": "barbkess"        
       },
       "ms.author": {
-        "articles/java/**/**.md": "brendm",
-        "articles/go/**/**.md": "barbkess"        
+        "java/**/**.md": "brendm",
+        "go/**/**.md": "barbkess"        
       },
       "manager": {
-        "articles/java/**/**.md": "barbkess",
-        "articles/go/**/*.md": "barbkess"        
+        "java/**/**.md": "barbkess",
+        "go/**/*.md": "barbkess"        
       },
       "ms.devlang": {
-        "articles/java/**/**.md": "java",
-        "articles/go/**/**.md": "go"
+        "java/**/**.md": "java",
+        "go/**/**.md": "go"
       },
       "ms.service": {
-        "articles/java/**/**.md": "azure-java",
-        "articles/go/**/**.md": "azure"
+        "java/**/**.md": "azure-java",
+        "go/**/**.md": "azure"
       },
       "ms.topic": {
-        "articles/**/includes/**/**.md": "include"
+        "**/includes/**/**.md": "include"
       }
     },
     "template": [],
