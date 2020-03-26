@@ -15,7 +15,7 @@ Version 1.3.0 is backwards compatible with previous versions for services and fe
 
 Any breaking changes from Preview versions for those services are marked with the @Beta annotation.
 
-If you are migrating your code to 1.3.0, you can use [these notes](https://github.com/Azure/azure-sdk-for-java/blob/master/notes/prepare-for-1.3.0.md) to prepare your existing code for the 1.3 version.
+If you're migrating your code to 1.3.0, you can use [these notes](https://github.com/Azure/azure-sdk-for-java/blob/master/notes/prepare-for-1.3.0.md) to prepare your existing code for the 1.3 version.
 
 ### Generally available in V1.3
 
@@ -32,9 +32,9 @@ Service or feature | Available as GA | Available as Preview
 Compute  | Virtual machines and VM extensions, Virtual machine scale sets, managed disks   | Azure container service, Azure container registry 
 Storage   |  Storage accounts       |    Encryption     
 SQL Database  | Databases, firewalls, elastic pools              
-Networking    |  Virtual networks , network interfaces , IP addresses ,routing tables, network security groups , DNS, Traffic managers, Application gateways  |    Load balancers, Network peering, Virtual Network Gateway, Network watchers 
+Networking    |  Virtual networks, network interfaces, IP addresses, routing tables, network security groups, DNS, Traffic managers, Application gateways  |    Load balancers, Network peering, Virtual Network Gateway, Network watchers 
 More services    |  Resource Manager, Key Vault, Redis,  CDN, Batch       |  Web apps, Function apps, Service Bus, Graph RBAC, Cosmos DB, Search  
-Fundamentals     |   Authentication - core , Async methods , Managed Service Identity      |      |
+Fundamentals     |   Authentication - core, Async methods, Managed Service Identity      |      |
 
 > Preview features are marked with a `@Beta` annotation at the class or interface or method level in libraries. These features are subject to change. They can be modified in any way, or even removed, in the future.
 
@@ -50,6 +50,6 @@ Fundamentals     |   Authentication - core , Async methods , Managed Service Ide
 
 ### Get help and give feedback
 
-Check out the [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-java-sdk) community for help using the libraries in your own code. If you encounter any bugs or have suggestions to improve these libraries, please file issues via [GitHub](https://github.com/Azure/azure-sdk-for-java/issues).
+Check out the [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-java-sdk) community for help with using the libraries in your own code. If you find any bugs or have suggestions to improve these libraries, file issues via [GitHub](https://github.com/Azure/azure-sdk-for-java/issues).
 
 

@@ -15,10 +15,9 @@ ms.workload: web
 
 # Deploy a Java-based MicroProfile service to Azure Web App for Containers
 
-MicroProfile is a great way to build exceedingly tiny Java applications that can be quickly and easily deployed to services such as [Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). In this tutorial we will create a MicroProfile-based microservice that is then containerized into a Docker container, deployed into an [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), and then hosted using Azure Web App for Containers.
+MicroProfile is a great way to build exceedingly tiny Java applications that can be quickly and easily deployed to services such as [Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). In this tutorial, we will create a MicroProfile-based microservice that is then containerized into a Docker container, deployed into an [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), and then hosted using Azure Web App for Containers.
 
 > [!NOTE]
->
 > This procedure works with any implementation of MicroProfile.io as long the Docker container image is self-executable (i.e. includes the runtime).
 
 More concretely, this sample makes use of [Payara Micro](https://www.payara.fish/payara_micro) and [MicroProfile 1.3](https://microprofile.io/) to create a tiny Java war file (5,085 bytes on the author's machine), and then packages it up into a Docker image (which is approximately 174 megabytes). This Docker image contains everything necessary for a fully containerized deployment of this webapp.
@@ -31,11 +30,11 @@ We will work through this tutorial firstly by creating and running the code loca
 
 We will use the [Azure portal](https://portal.azure.com) for creating the Azure Container Registry, but note that there are alternate choices such as the Azure CLI. Follow the steps below to create a new Azure Container Registry:
 
-1. Log in to the [Azure portal](https://portal.azure.com) and create a new Azure Container Registry resource. Provide a registry name (note that this name is the one that should be set as the `docker.registry` property in `pom.xml`). Change the defaults as you wish, and then click 'create'.
+1. Log in to the [Azure portal](https://portal.azure.com) and create a new Azure Container Registry resource. Provide a registry name (note that this name is the one that should be set as the `docker.registry` property in *pom.xml*). Change the defaults as you wish, and then click **Create**.
 
-1. Once the container registry is live (which is about 30 seconds after clicking 'create'), click on the container registry, and click on the 'Access keys' link in the left-menu area. In here, you need to enable the 'admin user' setting, so that this container registry can be accessed from our machines (to push docker containers into), and also to enable access from the Azure Web Apps for Containers instance we will set up soon.
+1. Once the container registry is live (which is about 30 seconds after clicking **Create**), click on the container registry, and click on the **Access keys** link in the left-menu area. In here, you need to enable the **admin user** setting, so that this container registry can be accessed from our machines (to push docker containers into), and also to enable access from the Azure Web Apps for Containers instance we will set up soon.
 
-1. While you are in the 'Access keys' area, note the `username` and `password` values. We will copy / paste these values into our global Maven `settings.xml` file  (for more information on Maven settings, see the [Apache Maven Project](https://maven.apache.org/settings.html) website). For reference, here is an obfuscated version of the `${user.home}/.m2/settings.xml` file on the author's system:
+1. While you are in the **Access keys** area, note the `username` and `password` values. We will copy / paste these values into our global Maven *settings.xml* file  (for more information on Maven settings, see the [Apache Maven Project](https://maven.apache.org/settings.html) website). For reference, here is an obfuscated version of the *${user.home}/.m2/settings.xml* file on the author's system:
 
     ```xml
     <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -59,9 +58,10 @@ Now, we can move on with building and running our MicroProfile application local
 This example is based on a sample application available on GitHub, so we will clone that and then step through the code. Follow the steps below to get the code cloned onto your machine:
 
 1. `git clone https://github.com/Azure-Samples/microprofile-docker-helloworld.git`
+
 1. `cd microprofile-docker-helloworld`
 
-In this directory there is a `pom.xml` file that is used to specify the project in the format used by the Maven build tool. This file can be edited to suit your own needs. In particular, the `docker.registry` and `docker.name` properties should be changed to the `docker.registry` and `docker.name` created when the Azure Container Registry was set up.
+In this directory, there is a *pom.xml* file that is used to specify the project in the format used by the Maven build tool. This file can be edited to suit your own needs. In particular, the `docker.registry` and `docker.name` properties should be changed to the `docker.registry` and `docker.name` created when the Azure Container Registry was set up.
 
 Another file of note in this directory is the Dockerfile, which is reproduced below:
 
@@ -74,9 +74,9 @@ COPY target/${WAR_FILE} $DEPLOY_DIR
 EXPOSE 8080
 ```
 
-This Dockerfile simply creates a new Docker container based on the Payara Micro Docker Container, and copies in the .war file that is created as part of our build process. It also exposes port 8080 so that we may access the service once it is up and running within a Docker container.
+This Dockerfile simply creates a new Docker container based on the Payara Micro Docker Container, and copies in the *.war* file that is created as part of our build process. It also exposes port 8080 so that we may access the service once it is up and running within a Docker container.
 
-Diving into the `src` directory, we will eventually discover the `Application` class reproduced below:
+Diving into the *src* directory, we will eventually discover the `Application` class reproduced below:
 
 ```java
 package com.microsoft.azure.samples.microprofile.docker.helloworld;
@@ -129,6 +129,7 @@ We have now covered all the code required to create a microservice using MicroPr
 Now that we have successfully built and run our MicroProfile application on our local machine, the next step is to push this container into our container registry. In this tutorial, we are using the Azure Container Registry, but any container registry will work (as long as the `pom.xml` file is edited to point to the relevant location).
 
 1. Run `mvn clean package` to clean, compile, and create a local docker image.
+
 2. Run `mvn dockerfile:push` to push to the Azure Container Registry.
 
 At this stage you now have your docker container image uploaded to the Azure Container Registry, but it is not yet
