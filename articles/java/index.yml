@@ -1,0 +1,56 @@
+### YamlMime:Hub 
+
+title: Azure for Java cloud developers 
+summary: Get started developing apps for the cloud with these tutorials and tools for Java developers. 
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure for Java cloud developers documentation
+  description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
+  ms.service: azure-java
+  ms.topic: hub-page
+  ms.date: 03/26/2020
+
+highlightedContent:
+# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Java support on Azure 
+      itemType: how-to-guide # controls the icon image and super-title text 
+      url: jdk
+    - title: Install the latest JDK 
+      itemType: how-to-guide 
+      url: jdk/java-jdk-install.md
+
+conceptualContent:
+# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items: 
+    - title: Spring framework 
+      links: 
+        - url: spring-framework/spring-boot-starters-for-azure?view=azure-java-stable
+          itemType: how-to-guide
+          text: Spring Boot Starters
+        - url: spring-framework/getting-started-with-spring-cloud-function-in-azure
+          itemType: how-to-guide
+          text: Spring Functions
+        - url: spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+          itemType: how-to-guide
+          text: Spring Data
+      footerLink: 
+        url: spring-framework
+        text: See more
+
+    - title: Migrate Java apps to Azure
+      links: 
+        - url: /azure/java
+          itemType: how-to-guide
+          text: Tomcat to Azure App Service
+        - url: /azure/java
+          itemType: how-to-guide 
+          text: WebLogic to Azure App Service 
+        - url: /azure/java
+          itemType: how-to-guide
+          text: Boss EAP/WildFly to Azure App Service 
+      footerLink: 
+        url: migration
+        text: See more
+
