@@ -48,7 +48,10 @@ Replace the placeholders with the following values, which are used throughout th
 Next, create a resource group.
 
 ```azurecli
-az group create --name $AZ_RESOURCE_GROUP --location $AZ_LOCATION | jq
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION \
+    | jq
 ```
 
 > [!NOTE]
@@ -66,10 +69,15 @@ The first thing we will create is a managed MySQL Server instance.
 Still in your [Azure Shell](https://shell.azure.com/) instance, execute the following script:
 
 ```azurecli
-az mysql server create --name $AZ_DATABASE_NAME \
-    --sku-name B_Gen5_1 --storage-size 5120 \
-    --resource-group $AZ_RESOURCE_GROUP --location $AZ_LOCATION \
-    --admin-user $AZ_MYSQL_USERNAME --admin-password $AZ_MYSQL_PASSWORD
+az mysql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --sku-name B_Gen5_1 \
+    --storage-size 5120 \
+    --admin-user $AZ_MYSQL_USERNAME \
+    --admin-password $AZ_MYSQL_PASSWORD \
+    | jq
 ```
 
 This command will create a small MySQL Server instance.
@@ -82,9 +90,11 @@ As we have configured our local IP address at the beginning of this article, you
 
 ```azurecli
 az mysql server firewall-rule create \
-    --resource-group $AZ_RESOURCE_GROUP --server $AZ_DATABASE_NAME \
+    --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME-database-allow-local-ip \
-    --start-ip-address $AZ_LOCAL_IP_ADDRESS --end-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     | jq
 ```
 
@@ -95,7 +105,8 @@ The MySQL server that we created earlier is empty: it doesn't have any database 
 ```azurecli
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_NAME --name r2dbc \
+    --name r2dbc \
+    --server-name $AZ_DATABASE_NAME \
     | jq
 ```
 
@@ -348,7 +359,9 @@ Congratulations! You've created a fully reactive Spring Boot application, that u
 To clean up all resources used during this quickstart, delete the resource group:
 
 ```azurecli
-az group delete --yes --name $AZ_RESOURCE_GROUP | jq
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps
