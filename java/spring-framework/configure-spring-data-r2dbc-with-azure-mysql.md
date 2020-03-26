@@ -189,7 +189,7 @@ Here's a screenshot of the database table being created:
 
 ## Code the application
 
-We will now add the Java code that will use R2DBC to store and retrieve data from our MySQL Server instance.
+Next, add the Java code that will use R2DBC to store and retrieve data from your MySQL Server instance.
 
 Now, create a new `Todo` Java class, next to the `DemoApplication` class:
 
