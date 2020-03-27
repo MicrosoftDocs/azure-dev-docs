@@ -138,10 +138,10 @@ Use the rows below to find your Java EE application type running on a specific a
 
 |Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | N/A | guidance<br>planned | guidance<br>planned |
-| WebLogic              | N/A | N/A | N/A | [guidance][6]       | [guidance][4]       |
-| WebSphere             | N/A | N/A | N/A | [guidance][7]       | guidance<br>planned |
-| JBoss EAP             | N/A | N/A | N/A | N/A                 | guidance<br>planned |
+| WildFly /<br>JBoss AS | N/A | N/A | N/A | [guidance][9] | guidance<br>planned |
+| WebLogic              | N/A | N/A | N/A | [guidance][6] | [guidance][4]       |
+| WebSphere             | N/A | N/A | N/A | [guidance][7] | guidance<br>planned |
+| JBoss EAP             | N/A | N/A | N/A | [guidance][8] | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -151,3 +151,5 @@ Use the rows below to find your Java EE application type running on a specific a
 [5]: migrate-java-se-to-java-se-app-service.md
 [6]: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
 [7]: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
+[8]: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+[9]: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
