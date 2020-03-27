@@ -40,7 +40,7 @@ ms.date: 09/23/2019
 1. If you want, make some changes to the function code in *index.js* or add additional functions with other triggers. After testing locally, deploy the code again as in the earlier steps to test those changes in the cloud.
 
     > [!TIP]
-    > When deploying, the entire Functions application is deploy so changes to all individual Functions will be deployed at once.
+    > When deploying, the entire Functions application is deployed, so changes to all individual Functions are deployed at once.
 
 > [!div class="nextstepaction"]
 > [I deployed the Function app](tutorial-vscode-serverless-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)

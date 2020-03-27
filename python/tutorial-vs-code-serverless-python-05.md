@@ -36,12 +36,13 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
     For **Stream logs** and **Upload settings**, see the next sections. For **View output**, see step 5 that follows.
 
-1. After deployment, the **Output** window also shows the public endpoint on Azure (the URL of your specific enpoint will match the name you specified for the function app):
+1. After deployment, the **Output** window also shows the public endpoint on Azure (the URL of your specific endpoint will match the name you specified for the function app):
 
-    ```output
+    <pre>
     HTTP Trigger Urls:
-      HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
-    ```
+
+          HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
+    </pre>
 
     Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match the results of the local endpoint you tested previously in [part 4](tutorial-vs-code-serverless-python-04.md).
 
@@ -51,7 +52,7 @@ Support for log streaming is currently in development, as described on [Issue 58
 
 At present, however, these commands aren't yet operational. Log streaming is instead available in a browser by running the following command, replacing `<app_name>` with the name of your Functions app on Azure:
 
-```bash
+```
 # Replace <app_name> with the name of your Functions app on Azure
 func azure functionapp logstream <app_name> --browser
 ```

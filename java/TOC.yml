@@ -1,9 +1,10 @@
-- name: Azure for Java developers
+- name: Azure for Java cloud developers
   href: index.yml
   items:
     - name: Get Started
       href: java-sdk-azure-get-started.md
     - name: Quickstarts
+      expanded: true
       items:
         - name: Deploy Web Apps
           items:
@@ -15,6 +16,8 @@
             href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Monitor Web Apps
           href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - name: Azure Container Registry
+          href: /azure/container-registry/container-registry-java-quickstart?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure Resource Manager
           href: /azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-intellij?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Azure DevOps Projects
@@ -82,14 +85,12 @@
             - name: Bing Image Search
               href: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
     - name: Frameworks and Platforms
-      expanded: true
       items:
       - name: Spring Framework & Spring Boot
         href: /azure/java/spring-framework/index
       - name: Eclipse MicroProfile
         href: /azure/java/microprofile/index
     - name: Developer Tools
-      expanded: true
       items:
         - name: Overview
           href: java-azure-tools.md
@@ -144,7 +145,7 @@
           href: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Deploy containers to App Service
           href: spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-        - name: Deploy to App Service from Azure Container Registry
+        - name: Deploy to App Service from ACR
           href: spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
         - name: Java Functions with Event Hub and Cosmos DB
           href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
@@ -156,6 +157,8 @@
           href: java-sdk-add-certificate-ca-store.md
         - name: Authenticate
           href: java-sdk-azure-authenticate.md
+        - name: Configure logging
+          href: java-sdk-azure-log.md
         - name: Migrate Java to Azure
           items:
             - name: Overview

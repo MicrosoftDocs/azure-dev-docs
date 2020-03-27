@@ -17,7 +17,9 @@
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices.md"
-        ]
+        ],
+        "src": ".",
+        "dest": "."
       }
     ],
     "resource": [
@@ -39,11 +41,30 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/language/breadcrumb/toc.json",
+      "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "feedback_system": "None"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author": {
+        "**/go/*.md": "barbkess"        
+      },
+      "manager": {
+        "**/go/*.md": "barbkess"        
+      },
+      "ms.author": {
+        "**/go/*.md": "barbkess"        
+      },      
+      "ms.devlang": {
+        "**/go/*.md": "go"
+      },      
+      "ms.service": {
+        "**/go/*.md": "azure"
+      },
+      "ms.topic": {
+        "**/go/includes/**/*.md": "include"
+      }
+    },
     "template": [],
     "dest": "azure-dev-docs",
     "markdownEngineName": "markdig"

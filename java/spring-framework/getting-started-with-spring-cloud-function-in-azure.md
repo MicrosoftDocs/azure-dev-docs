@@ -60,7 +60,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <azure.functions.maven.plugin.version>1.4.0</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.4.1</azure.functions.maven.plugin.version>
     <azure.functions.java.library.version>1.3.0</azure.functions.java.library.version>
     <functionAppName>my-spring-function</functionAppName>
     <functionAppRegion>westus</functionAppRegion>
@@ -323,6 +323,10 @@ Here is a screenshot of the cURL request on the top of the screen, and the local
 ## Deploy the Function to Azure Functions
 
 Now you are going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>` and `<functionResourceGroup>` properties you have defined in your *pom.xml* will be used to configure your function.
+
+> [!NOTE]
+> The Maven plugin needs to authenticate with Azure, if you have Azure CLI installed, use `az login` before continuing.
+> Check [here](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) for more authentication options.
 
 Run Maven to deploy your function automatically:
 

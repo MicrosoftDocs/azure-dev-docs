@@ -3,63 +3,25 @@
 - name: Overview
   items:
   - name: About the Python SDK
-    href: python-sdk-azure-overview.md
+    href: azure-sdk-overview.md
+  - name: Developer Tools
+    href: azure-tools.md 
 - name: Quickstarts
   items: 
   - name: Python SDK
-    href: python-sdk-azure-get-started.yml
-  - name: Developer Tools
-    href: python-azure-tools.md 
+    href: azure-sdk-get-started.yml
   - name: App hosting
-    items:
-    - name: App Service
-      href: /azure/app-service/containers/quickstart-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Kubernetes
-      href: /azure/aks/kubernetes-walkthrough?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Linux VMs
-      href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Container instances
-      href: /azure/container-instances/container-instances-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Batch
-      href: /azure/batch/quick-run-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+    href: quickstarts-app-hosting.md
   - name: Data solutions
-    items:
-    - name: Blob Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Table Storage
-      href: /azure/cosmos-db/create-table-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Cosmos DB
-      href: /azure/cosmos-db/sql-api-python-application?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Redis Cache
-      href: /azure/redis-cache/cache-python-get-started?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: SQL Database
-      href: /azure/sql-database/sql-database-connect-query-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: PostgreSQL
-      href: /azure/app-service/containers/tutorial-docker-python-postgresql-app?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: MySQL
-      href: /azure/mysql/connect-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Data Factory
-      href: /azure/data-factory/quickstart-create-data-factory-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-  - name: AI and machine learning
-    items:      
-    - name: Machine Learning Services
-      href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Batch AI
-      href: /azure/batch-ai/quickstart-python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Computer Vision
-      href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Text Analytics
-      href: /azure/cognitive-services/Text-Analytics/quickstarts/python?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Azure Notebooks
-      href: https://notebooks.azure.com/liwong/libraries/iris1234/html/Data+Science+Quickstart.ipynb
+    href: quickstarts-data-solutions.md
+  - name: Machine learning
+    href: quickstarts-machine-learning.md
+  - name: Azure Cognitive Services
+    href: quickstarts-cognitive-services.md
+  - name: Messaging
+    href: quickstarts-messaging.md 
   - name: Security and integration
-    items:     
-    - name: Service Bus
-      href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Event Grid
-      href: /azure/event-grid/custom-event-quickstart?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
-    - name: Queue Storage
-      href: /azure/storage/queues/storage-python-how-to-use-queue-storage?toc=/azure/python/toc.json&bc=/azure/python/breadcrumb/toc.json
+    href: quickstarts-security-integration.md
 - name: Tutorials
   items:
     - name: Deploy to App Service with VS Code
@@ -111,13 +73,13 @@
 - name: How-to guides
   items: 
   - name: Install the SDK
-    href: python-sdk-azure-install.md   
+    href: azure-sdk-install.md   
   - name: Authentication
-    href: python-sdk-azure-authenticate.md
+    href: azure-sdk-authenticate.md
   - name: Operations config
-    href: python-sdk-azure-operation-config.md
+    href: azure-sdk-operation-config.md
   - name: Multi-cloud development
-    href: python-sdk-azure-multi-cloud.md
+    href: azure-sdk-multi-cloud.md
 - name: Samples
   items: 
   - name: Web apps & serverless
@@ -128,7 +90,7 @@
     items:
       - name: Azure Storage
         href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-storage
-      - name: Redis Cahe
+      - name: Redis Cache
         href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-redis-cache
   - name: Identity &  Security
     href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
