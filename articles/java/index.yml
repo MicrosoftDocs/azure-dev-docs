@@ -16,19 +16,19 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Deploy your first web app to Azure
-          url: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          url: /azure/app-service/containers/quickstart-java?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Azure Functions
     linkLists:
       - linkListType: quickstart
         links:
         - text: Create and publish a function to Azure
-          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/developer/breadcrumb/toc.json
   - title: Migrate to Azure
     linkLists:
       - linkListType: how-to-guide
         links:
         - text: Overview
-          url: ../migration/migration-overview.md
+          url: /azure/developer/java/migration/migration-overview
   - title: Azure Spring Cloud
     linkLists:
       - linkListType: overview
@@ -40,19 +40,19 @@ landingContent:
       - linkListType: overview
         links:
         - text: Azure services with Spring Boot
-          url: /azure/java/spring-framework
+          url: /azure/developer/java/spring-framework
   - title: Tools and IDEs
     linkLists:
       - linkListType: get-started
         links:
         - text: IntelliJ, Maven, Eclipse, and VS Code
-          url: /azure/java/java-azure-tools
+          url: /azure/developer/java/tools/java-azure-tools
   - title: Supported JDKs
     linkLists:
       - linkListType: download
         links:
         - text: Java for Azure and Azure Stack
-          url: /azure/java/jdk/
+          url: /azure/developer/java/jdk/
   - title: Azure SDKs for Java
     linkLists:
       - linkListType: reference
@@ -64,23 +64,23 @@ landingContent:
       - linkListType: get-started
         links:
         - text: Deploy a Spring Boot app with Maven
-          url: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
         - text: Microservices with Azure Spring Cloud
           url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
         - text: Manage Azure Storage blobs
-          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - text: Create a Java serverless function
-          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - text: Deploy to Kubernetes
-          url: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
         - text: CI/CD to App Service with Jenkins®
-          url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+          url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Code samples
     linkLists:
       - linkListType: sample
         links:
         - text: Create a Spring Framework app on Linux
-          url: /azure/java/spring-framework/spring-app-service-e2e
+          url: /azure/developer/java/spring-framework/spring-app-service-e2e
         - text: Create a Spring Boot app with Linux
           url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2
         - text: Externalize sessions to Redis Cache

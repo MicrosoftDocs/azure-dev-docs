@@ -1,44 +1,59 @@
 {
   "redirections": [
     {
+      "source_path": "articles/java/sdk",
+      "redirect_url": "articles/java/index.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/java/migration",
+      "redirect_url": "articles/java/migration/migration-overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/java/tools",
+      "redirect_url": "articles/java/tools/java-azure-tools.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "java/microprofile/cicd-microprofile-vsts.md",
       "redirect_url": "articles/java/eclipse-microprofile/cicd-microprofile.md",
       "redirect_document_id": true
     },
     {
-        "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
-        "redirect_url": "articles/java/spring-framework/index.yml",
-        "redirect_document_id": false
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
+      "redirect_url": "articles/java/spring-framework/index.yml",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij.md",
-        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
-        "redirect_document_id": true
+      "source_path": "java/intellij/azure-toolkit-for-intellij.md",
+      "redirect_url": "articles/java/tookit-for-intellij/index.yml",
+      "redirect_document_id": true
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
-        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
-        "redirect_document_id": false
+      "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+      "redirect_url": "articles/java/tookit-for-intellij/index.yml",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
-        "redirect_url": "articles/java/tookit-for-intellij/index.yml",
-        "redirect_document_id": false
+      "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
+      "redirect_url": "articles/java/tookit-for-intellij/index.yml",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
-        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
-        "redirect_document_id": true
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
+      "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
+      "redirect_document_id": true
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
-        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
-        "redirect_document_id": false
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+      "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
-        "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
-        "redirect_document_id": false
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+      "redirect_url": "articles/java/tookit-for-eclipse/index.yml",
+      "redirect_document_id": false
     },
     {
       "source_path": "java/index.yml",
