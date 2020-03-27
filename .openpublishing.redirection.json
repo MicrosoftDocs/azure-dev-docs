@@ -1,17 +1,17 @@
 {
   "redirections": [
     {
-      "source_path": "articles/java/sdk",
+      "source_path": "articles/java/sdk/index.yml",
       "redirect_url": "articles/java/index.yml",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/java/migration",
+      "source_path": "articles/java/migration/index.md",
       "redirect_url": "articles/java/migration/migration-overview.md",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/java/tools",
+      "source_path": "articles/java/tools/index.md",
       "redirect_url": "articles/java/tools/java-azure-tools.md",
       "redirect_document_id": false
     },
