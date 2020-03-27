@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 
-title: Azure for Java cloud developers
+title: Azure for Java cloud developers documentation
 summary: Get started developing apps for the cloud with these tutorials and tools for Java developers.
 brand: azure
 
@@ -15,14 +15,14 @@ metadata:
 
 highlightedContent:
   items:
-    - title: Java support on Azure
+    - title: Azure for Java documentation
+      itemType: overview
+      url: java/index.yml
+    - title: Java support for Azure
       itemType: download
       url: jdk/index.md
-    - title: Install the latest JDK
-      itemType: get-started
-      url: jdk/java-jdk-install.md
     - title: Tools and IDEs
-      itemType: overview
+      itemType: get-started
       url: java/java-azure-tools.md
 
 conceptualContent:
