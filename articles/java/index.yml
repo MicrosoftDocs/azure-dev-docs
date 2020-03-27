@@ -2,7 +2,7 @@
 
 title: Azure for Java cloud developers
 summary: Get started developing apps for the cloud with these tutorials and tools for Java developers.
-brand: azure ## Used for color theming of icons and hero area
+brand: azure
 
 metadata:
   title: Azure for Java cloud developers documentation
@@ -11,35 +11,54 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/26/2020
 
+# itemType: architecture | how-to-guide | deploy | download | get-started | learn | overview | quickstart | reference | tutorial | whats-new
+
 highlightedContent:
-# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Java support on Azure
-      itemType: how-to-guide # controls the icon image and super-title text
+      itemType: download
       url: jdk/index.md
     - title: Install the latest JDK
-      itemType: how-to-guide
+      itemType: get-started
       url: jdk/java-jdk-install.md
+    - title: Tools and IDEs
+      itemType: overview
+      url: java/java-azure-tools.md
 
 conceptualContent:
-# itemType: architecture | how-to-guide | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Spring framework
+
+    - title: Azure Spring cloud
+      links:
+        - text: What is Azure Spring Cloud?
+          itemType: overview
+          url: /azure/spring-cloud/spring-cloud-overview
+        - text: Launch a Spring app using Azure CLI
+          itemType: quickstart
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+        - text: Prepare a Spring app for deployment
+          itemType: tutorial
+          url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment
+      footerLink:
+          text: See more
+          url: /azure/spring-cloud
+
+    - title: Spring on Azure integration
       links:
         - text: Spring Boot Starters
-          itemType: how-to-guide
+          itemType: get-started
           url: spring-framework/spring-boot-starters-for-azure.md
-        - text: Spring Functions
+        - text: Spring Data Azure Cosmos DB
           itemType: how-to-guide
-          url: spring-framework/getting-started-with-spring-cloud-function-in-azure.md
-        - text: Spring Data
-          itemType: how-to-guide
-          url: spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+          url: spring-framework/how-to-guides-spring-data-cosmosdb.md
+        - text: Deploy a Spring Boot app
+          itemType: tutorial
+          url: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md
       footerLink:
-        url: spring-framework/index.yml
         text: See more
+        url: spring-framework/index.yml
 
-    - title: Migrate Java apps to Azure
+    - title: Migrate to Azure
       links:
         - text: Spring to Azure App Service
           itemType: how-to-guide
@@ -51,6 +70,5 @@ conceptualContent:
           itemType: how-to-guide
           url: migration/migrate-weblogic-to-virtual-machines.md
       footerLink:
-        url: migration/migration-overview.md
         text: See more
-
+        url: migration/migration-overview.md
