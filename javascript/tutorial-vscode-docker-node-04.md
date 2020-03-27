@@ -20,6 +20,8 @@ In this step, you deploy the image that you pushed to a registry to [Azure App S
     - The name must be unique across Azure.
     - Select an existing resource group or create a new one. (A **Resource Group** is essentially a named collection of an application's resources in Azure.)
     - Select an existing App Service Plan or create a new one. (An **App Service Plan** defines the physical resources that host the website. You can use a basic or free plan tier for this tutorial.)
+    - Select a pricing tier for the new App Service Plan.
+    - Select a location for new resources (close from you).
 
 1. When deployment is complete, Visual Studio Code shows a notification with the website URL:
 
