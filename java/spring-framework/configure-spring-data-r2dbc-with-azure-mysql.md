@@ -371,6 +371,8 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 ### Additional Resources
 
+For more information about Spring Data R2DBC, see Spring's [Reference Documentation](https://docs.spring.io/spring-data/r2dbc/docs/1.0.x/reference/html/#reference).
+
 For more information about using Azure with Java, see the [Azure for Java Developers](/azure/java/) and the [Working with Azure DevOps and Java](/azure/devops/) pages.
 
 <!-- IMG List -->
