@@ -16,7 +16,7 @@ highlightedContent:
   items:
     - title: Java support on Azure
       itemType: how-to-guide # controls the icon image and super-title text
-      url: jdk/index.yml
+      url: jdk/index.md
     - title: Install the latest JDK
       itemType: how-to-guide
       url: jdk/java-jdk-install.md
@@ -43,7 +43,7 @@ conceptualContent:
       links:
         - text: Spring to Azure App Service
           itemType: how-to-guide
-          url: migrate-java-se-to-java-se-app-service.md
+          url: migration/migrate-java-se-to-java-se-app-service.md
         - text: Tomcat to Azure App Service
           itemType: how-to-guide
           url: migration/migrate-tomcat-to-tomcat-app-service.md
@@ -51,6 +51,6 @@ conceptualContent:
           itemType: how-to-guide
           url: migration/migrate-weblogic-to-virtual-machines.md
       footerLink:
-        url: migration/index.yml
+        url: migration/migration-overview.md
         text: See more
 
