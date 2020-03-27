@@ -11,6 +11,20 @@ ms.date: 09/20/2019
 
 In this step, you deploy the image that you pushed to a registry to [Azure App Service](https://azure.microsoft.com/services/app-service/) directly from Visual Studio Code.
 
+## Enable Admin access on the registry
+
+In order to deploy your image to a web application, you need to enable "Admin" access on your registry in the Azure Portal.
+
+1. In the **Docker** explorer, right-click your registry name and select "Open in portal". 
+
+    ![Open in portal command in VS Code](media/deploy-containers/open-in-portal.png)
+
+    This will open your registry in the Azure Portal.
+
+1. Click on "Access keys" in the sidebar and then toggle the "Admin user" setting to "Enabled".  
+    
+    ![Enable admin user setting in Azure Portal](media/deploy-containers/access-keys.png)
+
 1. In the **DOCKER** explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
 
     ![Deploy From the Explorer](media/deploy-containers/deploy-image-command.png)
