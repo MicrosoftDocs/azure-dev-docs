@@ -36,5 +36,17 @@ This tutorial uses the [Azure Container Registry](https://azure.microsoft.com/se
 
    ![Verifying that the registry appears in the Docker explorer](media/deploy-containers/docker-explorer-registry.jpg)
 
+## Sign in to Azure Container Registry
+
+While you can see your Azure registries in the Docker extension, you won't be able to push images to them until you log-in to Azure Container Registry (ACR).
+
+1. Press <kbd>Ctrl + `</kbd> to open the **Integrated Terminal** in VS Code.
+
+1. Execute the following Azure CLI command to login to ACR. Replace "<your-registry-name>" with the name of the registry you just created.
+
+    ```bash
+    az acr login --name <your-registry-name>
+    ```
+
 > [!div class="nextstepaction"]
 > [I've created a registry](tutorial-vscode-docker-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)
