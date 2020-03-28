@@ -15,8 +15,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
-* Migrate executable JAR applications to containers on Azure Kubernetes Service (planned)
-* Migrate executable JAR Applications to Azure Virtual Machines (planned)
+* Migrate executable JAR applications to containers on Azure Kubernetes Service (guidance planned)
+* Migrate executable JAR Applications to Azure Virtual Machines (guidance planned)
 
 ## Pre-migration
 

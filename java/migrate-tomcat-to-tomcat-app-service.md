@@ -16,7 +16,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Migrate Tomcat Applications to Azure Virtual Machines (planned)
+* Migrate Tomcat Applications to Azure Virtual Machines (guidance planned)
 
 ## Pre-migration
 
