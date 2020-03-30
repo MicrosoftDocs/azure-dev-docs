@@ -168,7 +168,7 @@ subscription_id = subscription.subscription_id
 client = ResourceManagementClient(credentials, subscription_id)
 
 # List resource groups as an example. The only limit is what role and policy are assigned to this MSI token.
-for resource_group in resource_client.resource_groups.list():
+for resource_group in client.resource_groups.list():
     print(resource_group.name)
 ```
 
