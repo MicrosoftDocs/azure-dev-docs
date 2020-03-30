@@ -57,44 +57,44 @@
         "articles/python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
       },     
       "_op_documentIdPathDepotMapping": {
-        "articles/python": {
+        "python": {
           "depot_name": "MSDN.python-sdk",
           "folder_relative_path_in_docset": "docs-ref-conceptual"
         }
       },
       "author": {
-        "articles/go/**/*.md": "barbkess",
-        "articles/python/**/*.md": "kraigb"        
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb"        
       },
       "manager": {
-        "articles/go/**/*.md": "barbkess",
-        "articles/python/**/*.md": "barbkess" 
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "barbkess" 
       },
       "ms.author": {
-        "articles/go/**/*.md": "barbkess",
-        "articles/python/**/*.md": "kraigb"
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb"
       },      
       "ms.devlang": {
-        "articles/go/**/*.md": "go",
-        "articles/python/**/*.md": "python"
+        "**/go/**/*.md": "go",
+        "**/python/**/*.md": "python"
       },
       "ms.topic": {
-        "articles/go/includes/**/*.md": "include",
-        "articles/python/includes/**/*.md": "include"
+        "**/go/includes/**/*.md": "include",
+        "**/python/includes/**/*.md": "include"
       },
       "ms.service": {
-        "articles/*.md": "azure",
-        "articles/go/*.md": "azure"
+        "*.md": "azure",
+        "**/go/*.md": "azure"
       },
       "ms.prod": {
-        "articles/python/**/*.md": "azure-python"        
+        "**/python/**/*.md": "azure-python"        
       }
     },
     "template": [],
     "dest": {
-      "articles": "azure-dev-docs",
-      "articles/go": "azure-go",
-      "articles/python": "azure-python"
+      ".": "azure-dev-docs",
+      "go": "azure-go",
+      "python": "azure-python"
     },
     "markdownEngineName": "markdig"
   }
