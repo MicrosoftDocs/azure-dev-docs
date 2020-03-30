@@ -17,14 +17,17 @@
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices.md"
-        ]
+        ],
+        "src": ".",
+        "dest": "."
       }
     ],
     "resource": [
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
@@ -39,13 +42,60 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/language/breadcrumb/toc.json",
+      "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs"
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "feedback_product_url" : {
+        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues"
+      },
+      "product_feedback_url": {
+        "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "articles/python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "articles/python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+      },     
+      "_op_documentIdPathDepotMapping": {
+        "python": {
+          "depot_name": "MSDN.python-sdk",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      },
+      "author": {
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb"        
+      },
+      "manager": {
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "barbkess" 
+      },
+      "ms.author": {
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb"
+      },      
+      "ms.devlang": {
+        "**/go/**/*.md": "go",
+        "**/python/**/*.md": "python"
+      },
+      "ms.topic": {
+        "**/go/includes/**/*.md": "include",
+        "**/python/includes/**/*.md": "include"
+      },
+      "ms.service": {
+        "*.md": "azure",
+        "**/go/*.md": "azure"
+      },
+      "ms.prod": {
+        "**/python/**/*.md": "azure-python"        
+      }
+    },
     "template": [],
-    "dest": "azure-dev-docs",
+    "dest": {
+      ".": "azure-dev-docs",
+      "go": "azure-go",
+      "python": "azure-python"
+    },
     "markdownEngineName": "markdig"
   }
 }

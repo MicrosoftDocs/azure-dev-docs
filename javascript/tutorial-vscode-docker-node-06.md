@@ -21,4 +21,5 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
+> [!div class="nextstepaction"]
 > [I see the changes](tutorial-vscode-docker-node-07.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=deploy-changes)

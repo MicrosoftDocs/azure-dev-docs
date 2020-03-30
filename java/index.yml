@@ -1,92 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure for Java cloud developers
+### YamlMime:Landing
+
+title: Azure for Java cloud developers documentation
+
 metadata:
-  title: Azure for Java developers - Tutorials, API Reference
-  description: Get started developing apps for the cloud with these great tutorials and tools for Java developers.
-  keywords: Azure, Java, SDK, API, Maven, Spring
-  author: rloutlaw 
+  title: Azure for Java cloud developers documentation
+  ms.service: azure-java
+  author: bmitchell287
   ms.author: brendm
-  manager: douge
-  ms.date: 11/02/2017
-  ms.topic: article
-  ms.technology: azure
-  ms.devlang: java
-  ms.service: multiple
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-      html: <p>Deploy your first web app to App Service</p>
-      image:
-        src: /media/common/i_get-started.svg
-      title: Azure Web App
-    - href: https://docs.microsoft.com/en-us/azure/spring-cloud/
-      html: <p>Managed service for Spring Cloud</p>
-      image:
-        src: /java/media/spring.svg
-      title: Azure Spring Cloud
-    - href: /azure/java/spring-framework/
-      html: <p>Azure services with Spring Boot</p>
-      image:
-        src: /java/media/spring.svg
-      title: Spring on Azure
-    - href: java-azure-tools.md
-      html: <p>Tools and IDEs</p>
-      image:
-        src: /media/common/i_download-install.svg
-      title: IntelliJ, Maven, Eclipse, and VS Code plugins
-    - href: jdk/index.md 
-      html: <p>Supported JDKs</p>
-      image:
-        src: /media/common/i_download-install.svg
-      title: Supported JDKs
-    - href: /java/api/?view=azure-java
-      html: <p>API Reference</p>
-      image:
-        src: /media/common/i_api-reference.svg
-      title: Azure SDKs for Java
-- title: Get started guides
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items: 
-    - image:
-        src: /java/media/spring.svg
-      title: Deploy a Spring Boot app with Maven
-      href: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
-    - image:
-        src: /java/media/spring.svg
-      title: Microservices with Azure Spring Cloud
-      href: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
-    - image:
-        src: /azure/media/index/storage.svg
-      title: Upload and download blobs from Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-java-v10?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-    - image:
-        src: /azure/media/index/azurefunctions.svg
-      title: Create a Java serverless function
-      href: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-    - image:
-        src: /javascript/azure/media/k8s_logo.svg
-      title: Deploy to Kubernetes
-      href: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
-    - image:
-        src: /java/media/jenkins_logo.svg
-      title:  CI/CD to App Service with Jenkins®
-      href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2">Create a Spring Boot app with Linux and Cosmos DB</a>
-    - html: <a href="https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart">Azure Blob Storage with Java</a>
-    - html: <a href="https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started">Connect to Cosmos DB with the SQL API</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Java microservices with Service Fabric</a>
+  ms.date: 03/13/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Azure App Service
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Deploy your first web app to Azure
+          url: /azure/app-service/containers/quickstart-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Azure Functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and publish a function to Azure
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Migrate to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Overview
+          url: migration-overview.md
+  - title: Azure Spring Cloud
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Managed service for Spring Cloud
+          url: /azure/spring-cloud
+  - title: Spring on Azure integration
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Azure services with Spring Boot
+          url: /azure/java/spring-framework
+  - title: Tools and IDEs
+    linkLists:
+      - linkListType: get-started
+        links:
+        - text: IntelliJ, Maven, Eclipse, and VS Code
+          url: /azure/java/java-azure-tools
+  - title: Supported JDKs
+    linkLists:
+      - linkListType: download
+        links:
+        - text: Java for Azure and Azure Stack
+          url: /azure/java/jdk/
+  - title: Azure SDKs for Java
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: API browser
+          url: /java/api/?view=azure-java
+  - title: Get started guides
+    linkLists:
+      - linkListType: get-started
+        links:
+        - text: Deploy a Spring Boot app with Maven
+          url: /azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+        - text: Microservices with Azure Spring Cloud
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+        - text: Manage Azure Storage blobs
+          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - text: Create a Java serverless function
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+        - text: Deploy to Kubernetes
+          url: /azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes
+        - text: CI/CD to App Service with Jenkins®
+          url: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service?toc=/azure/java/toc.json&bc=/azure/java/breadcrumb/toc.json
+  - title: Code samples
+    linkLists:
+      - linkListType: sample
+        links:
+        - text: Create a Spring Framework app on Linux
+          url: /azure/java/spring-framework/spring-app-service-e2e
+        - text: Create a Spring Boot app with Linux
+          url: https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2
+        - text: Externalize sessions to Redis Cache
+          url: https://github.com/azure-samples/scaling-stateful-java-web-app-on-azure
+        - text: Azure Storage
+          url: /samples/browse/?products=azure-storage&languages=java
+        - text: Cosmos DB with the SQL API
+          url: /samples/browse/?products=azure-cosmos-db%2Cazure-sql-database&languages=java

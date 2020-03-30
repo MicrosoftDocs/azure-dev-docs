@@ -1,5 +1,5 @@
 ---
-title: Deploy a Spring Boot app on Kubernetes 
+title: Deploy Spring Boot Application to the Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 services: container-service
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: mvc
 ---
 
-# Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Kubernetes Service
+# Deploy Spring Boot Application to the Azure Kubernetes Service
 
 **[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
@@ -25,6 +25,7 @@ This tutorial walks you through combining these two popular, open-source technol
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
+* The [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper).
 
 > [!NOTE]
 >
@@ -116,8 +117,7 @@ The following steps walk you through building a Spring Boot web application and 
       <java.version>1.8</java.version>
    </properties>
    ```
-
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the `jib-maven-plugin`.
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
@@ -126,7 +126,7 @@ The following steps walk you through building a Spring Boot web application and 
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>openjdk:8-jre-alpine</image>
+            <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
