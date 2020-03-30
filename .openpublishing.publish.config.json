@@ -77,7 +77,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": true,
+      "open_to_public_contributors": false,
       "type_mapping": {
         "Conceptual": "Content"
       },
@@ -85,11 +85,13 @@
       "template_folder": "_themes"
     }
   ],
+  "docs_build_engine": {
+    "name": "docfx_v3"
+  },
   "notification_subscribers": [
     "brendm@microsoft.com",
     "karler@microsoft.com",
     "kraigb@microsoft.com",
-    "Stephen.Tramer@microsoft.com",
     "barbkess@microsoft.com"
   ],
   "sync_notification_subscribers": [],

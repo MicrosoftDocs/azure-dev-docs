@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure
-  topicHref: /azure/index
-  items:
-  - name: Azure for Python developers
-    tocHref: /azure/python
-    topicHref: /azure/python/index

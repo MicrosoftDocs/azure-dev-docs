@@ -39,23 +39,35 @@ This section describes the minimal Flask app used in this walkthrough.
 
 1. Follow the instructions in [Flask Tutorial - Create a project environment for Flask](https://code.visualstudio.com/docs/python/tutorial-flask#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
-1. To run this app, use the following commands (depending on your operating system). The FLASK_APP environment variable tells Flask where to find the app object.
+1. Set a FLASK_APP environment variable tells Flask where to find the app object:
+
+   # [bash](#tab/bash)
+
+    ```bash
+    export FLASK_APP=hello:myapp
+    ```
+
+    # [PowerShell](#tab/powershell)
 
     ```ps
     $env:FLASK_APP = "hello:myapp"
     ```
 
+    # [Cmd](#tab/cmd)
+
     ```bash
-    export FLASK_APP=hello:myapp
-    flask run
+    set FLASK_APP=hello:myapp
     ```
+
+    ---
+
+1. Run the app:
 
     ```cmd
-    set FLASK_APP=hello:myapp
     flask run
     ```
 
-    You can then open the app in a browser using the URL `http://127.0.0.1:5000/`.
+1. You can then open the app in a browser using the URL `http://127.0.0.1:5000/`.
 
 ## VS Code Flask tutorial sample
 
