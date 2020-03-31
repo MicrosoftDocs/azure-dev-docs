@@ -7,7 +7,13 @@ ms.date: 09/23/2019
 
 # Deploy Azure Functions from Visual Studio Code
 
-In this tutorial, you use Visual Studio Code and the Azure Functions extension to create and deploy an Azure Functions application written with JavaScript. 
+In this tutorial, you use Visual Studio Code and the Azure Functions extension to create and deploy an Azure Functions application written with JavaScript.
+
+## Walkthrough video
+
+Watch this video for a complete walkthrough of the content in this article.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-from-Visual-Studio-Code/player]
 
 ## Prerequisites
 
