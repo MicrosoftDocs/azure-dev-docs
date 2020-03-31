@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: Create a Hello World web app for Azure App Service
             url: azure-toolkit-for-intellij-create-hello-world-web-app.md
+          - text: Create a HTTP trigger Function for Azure Functions
+            url: azure-toolkit-for-intellij-quickstart-functions.md
   - title: Step-by-step tutorials
     linkLists:
       - linkListType: tutorial
