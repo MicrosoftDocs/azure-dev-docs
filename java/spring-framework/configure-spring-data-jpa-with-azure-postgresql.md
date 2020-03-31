@@ -160,6 +160,10 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Save and close the *application.properties* file.
 
+> [!NOTE]
+> The first property of the *application.properties* file is `spring.jpa.hibernate.ddl-auto=create`, which is a Hibernate property that will automatically drop and recreate your database schema at application start-up.
+> This is a useful configuration when doing development and test, but of course it shouldn't be used in production.
+
 ## Package and test the sample application 
 
 1. Build the sample application with Maven; for example:
