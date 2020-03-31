@@ -5,7 +5,7 @@
     href: azure-toolkit-for-intellij-create-hello-world-web-app.md
   - name: Get Started - Functions
     href: azure-toolkit-for-intellij-quickstart-functions.md
-    - name: Tutorials
+  - name: Tutorials
     items:
       - name: Deploy web app to a Linux container
         href: azure-toolkit-for-intellij-hello-world-web-app-linux.md
