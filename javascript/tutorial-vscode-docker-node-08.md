@@ -13,7 +13,7 @@ The App Service you created for the container includes a backing App Service Pla
 
 You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
-## Next steps
+### Next steps
 
 [!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
 

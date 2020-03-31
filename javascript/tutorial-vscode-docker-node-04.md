@@ -70,4 +70,3 @@ The `Dockerfile` describes the environment for your app including the location o
 
 > [!div class="nextstepaction"]
 > [I've created an image for my application](tutorial-vscode-docker-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)
-****
