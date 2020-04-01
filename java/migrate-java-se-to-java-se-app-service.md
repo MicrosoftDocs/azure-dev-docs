@@ -53,7 +53,7 @@ spring:
       uri: mongodb://mongouser:deepsecret@mongoserver.contoso.com:27017
 ```
 
-For more information, see [Working with Spring Data Repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories) and the [JDBC Reference Documentation](https://docs.spring.io/spring-data/jdbc/docs/2.0.0.M3/reference/html/#reference) in the Spring Data documentation.
+For more information, see [JPA Repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.repositories) and [JDBC Repositories](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories) in the Spring documentation.
 
 #### JMS Message Brokers
 
