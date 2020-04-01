@@ -211,6 +211,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "python/python-sdk-azure-install.md",
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-install",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "python/python-sdk-azure-samples-list-images.md",
       "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-samples-list-images",
       "redirect_document_id": true
