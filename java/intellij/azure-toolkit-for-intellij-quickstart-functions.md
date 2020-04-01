@@ -129,6 +129,13 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
     
     ![Add functions to the project output](media/azure-toolkit-for-intellij-quickstart-functions/add-functions-output.png)
 
+## Next steps
+
+You've created a Java functions project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
+
+> [!div class="nextstepaction"]
+> [Adding an Azure Storage queue output binding](functions-add-output-binding-storage-queue-java.md)
+
 
 [marketplace]:./media/azure-toolkit-for-intellij-create-hello-world-web-app/marketplace.png
 [I01]: media/azure-toolkit-for-intellij-sign-in-instructions/I01.png
