@@ -11,6 +11,10 @@ ms.date: 1/20/2020
 
 This topic provides an overview of recommended strategies for migrating Java applications to Azure.
 
+This migration guidance is designed to cover mainstream Java on Azure scenarios, and to provide high-level planning suggestions and considerations. If you'd like to discuss a specific Java app migration scenario with the Microsoft Java on Azure team, please fill out the following questionnaire and a representative will contact you.
+
+   [Java migration questionnaire](https://aka.ms/migrate-my-Java-app-requested-thru-docs)
+
 ## Identifying application type
 
 Before you select a cloud destination for your Java application, you'll need to identify its application type. Most Java applications are one of the following types:
