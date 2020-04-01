@@ -47,6 +47,8 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the JDBC driver JAR file?
 
+For more information, see [Configuring database connectivity](https://www.ibm.com/support/knowledgecenter/SSQP76_8.10.x/com.ibm.odm.distrib.config.was/config_dc_websphere/tpc_was_create_datasrc_cpl.html) in the WebSphere documentation.
+
 ### Determine whether and how the file system is used
 
 Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere modules or by your application code. You may identify some or all of the scenarios described in the following sections.

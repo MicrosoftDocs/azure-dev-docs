@@ -19,7 +19,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *jboss-web.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
 
-Consider storing those secrets in Azure KeyVault, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts) for more information.
+Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
 [!INCLUDE [inventory-all-certificates](includes/migration/inventory-all-certificates.md)]
 
@@ -55,7 +55,7 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the JDBC driver JAR file?
 
-For more information see [About JBoss EAP Datasources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management)
+For more information, see [About JBoss EAP Datasources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
