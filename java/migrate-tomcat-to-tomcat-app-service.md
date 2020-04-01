@@ -175,7 +175,9 @@ Use Application Settings to store any secrets specific to your application. If y
 
 ### Migrate data sources, libraries, and JNDI resources
 
-Follow [these steps to migrate data sources](/azure/app-service/containers/configure-language-java#tomcat).
+For data source configuration steps, see the Data Sources section of ["Configure a Linux Java app for Azure App Service"](/azure/app-service/containers/configure-language-java).
+
+[!INCLUDE[Tomcat datasource additional instructions](includes/migration/tomcat-datasource-additional-instructions.md)]
 
 Migrate any additional server-level classpath dependencies by following [the same steps as for data source JAR files](/azure/app-service/containers/configure-language-java#finalize-configuration).
 
