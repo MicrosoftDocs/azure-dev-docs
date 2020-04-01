@@ -27,7 +27,7 @@ Consider storing those secrets in Azure KeyVault, see [Azure Key Vault basic con
 
 Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-To obtain your current version, sign in to your production server and run
+To obtain your current version, sign in to your production server and run this command:
 
 ```bash
 java -version
@@ -41,7 +41,7 @@ Inventory all JNDI resources. Some, such as JMS message brokers, may require mig
 
 ### Determine whether session replication is used
 
-If your application relies on session replication you will have to change your application to not rely on it.
+If your application relies on session replication, you'll have to change your application to remove this dependency.
 
 #### Inside your application
 
