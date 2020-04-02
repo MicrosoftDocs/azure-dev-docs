@@ -232,6 +232,7 @@ The following procedure creates a Spring boot application.
    spring.cloud.stream.bindings.input.destination=wingtiptoyshub
    spring.cloud.stream.bindings.input.group=$Default
    spring.cloud.stream.eventhub.bindings.input.consumer.checkpoint-mode=MANUAL
+   spring.cloud.stream.bindings.output.destination=wingtiptoyshub
    ```
    Where:
 
