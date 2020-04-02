@@ -9,7 +9,7 @@ ms.date: 1/20/2020
 
 # Migrate Tomcat applications to Tomcat on Azure App Service
 
-This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat 8.5 or 9.0.
+This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat 9.0.
 
 ## Before you start
 
@@ -32,7 +32,7 @@ To obtain your current Tomcat version, sign in to your production server and run
 ${CATALINA_HOME}/bin/version.sh
 ```
 
-To obtain the current version used by Azure App Service, download [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi#8.5.50) or [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
+To obtain the current version used by Azure App Service, download [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
 
 [!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
 
