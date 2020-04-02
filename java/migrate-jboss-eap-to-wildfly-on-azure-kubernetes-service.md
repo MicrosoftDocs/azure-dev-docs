@@ -1,15 +1,15 @@
 ---
-title: Migrate WebSphere applications to WildFly on Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on WildFly in an Azure Kubernetes Service container.
+title: Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
+description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
 author: mriem
 ms.author: manriem
 ms.topic: conceptual
-ms.date: 2/28/2020
+ms.date: 3/16/2020
 ---
 
-# Migrate WebSphere applications to WildFly on Azure Kubernetes Service
+# Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
 
-This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on WildFly in an Azure Kubernetes Service container.
+This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
 
 ## Pre-migration
 
@@ -17,7 +17,9 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ### Inventory all secrets
 
-Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *ibm-web-bnd.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
+Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *jboss-web.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
+
+Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
 [!INCLUDE [inventory-all-certificates](includes/migration/inventory-all-certificates.md)]
 
@@ -25,19 +27,25 @@ Check all properties and configuration files on the production server(s) for any
 
 Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-To obtain your current version, sign in to your production server and run
+To obtain your current version, sign in to your production server and run this command:
 
 ```bash
 java -version
 ```
 
+See [Requirements](http://docs.wildfly.org/19/Getting_Started_Guide.html#requirements) for guidance on what version to use to run WildFly.
+
 ### Inventory JNDI resources
 
 Inventory all JNDI resources. Some, such as JMS message brokers, may require migration or reconfiguration.
 
+### Determine whether session replication is used
+
+If your application relies on session replication, you'll have to change your application to remove this dependency.
+
 #### Inside your application
 
-Inspect the file *WEB-INF/ibm-web-bnd.xml* and/or *WEB-INF/web.xml*.
+Inspect the file *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml*.
 
 ### Document datasources
 
@@ -47,11 +55,11 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the JDBC driver JAR file?
 
-For more information, see [Configuring database connectivity](https://www.ibm.com/support/knowledgecenter/SSQP76_8.10.x/com.ibm.odm.distrib.config.was/config_dc_websphere/tpc_was_create_datasrc_cpl.html) in the WebSphere documentation.
+For more information, see [About JBoss EAP Datasources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere modules or by your application code. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 #### Read-only static content
 
@@ -71,10 +79,9 @@ For files that are frequently written and read by your application (such as temp
 
 [!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/migration/determine-whether-jms-queues-or-topics-are-in-use.md)]
 
-### Determine whether your application uses WebSphere-specific APIs
+### Determine whether your application uses JBoss-EAP-specific APIs
 
-If your application uses WebSphere-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [IBM WebSphere Application Server, Release 9.0
-API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/com.ibm.websphere.javadoc.doc/web/apidocs/overview-summary.html?view=embed), you have used a WebSphere specific API in your application.
+If your application uses JBoss-EAP-specific APIs, you'll need to refactor it to remove those dependencies.
 
 [!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/migration/determine-whether-your-application-uses-entity-beans.md)]
 
@@ -86,7 +93,7 @@ API Specification](https://www.ibm.com/support/knowledgecenter/en/SSEQTJ_9.0.5/c
 
 ### Determine whether JCA connectors are in use
 
-If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to WebSphere, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to JBoss EAP, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
 
 [!INCLUDE [determine-whether-jaas-is-in-use](includes/migration/determine-whether-jaas-is-in-use.md)]
 
@@ -96,7 +103,7 @@ If your application uses JCA connectors, you'll have to validate the JCA connect
 
 ### Determine whether your application is packaged as an EAR
 
-If your application is packaged as an EAR file, be sure to examine the *application.xml* and *application-bnd.xml* files and capture their configurations.
+If your application is packaged as an EAR file, be sure to examine the *application.xml* file and capture the configuration.
 
 > [!NOTE]
 > If you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.

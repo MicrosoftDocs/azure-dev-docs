@@ -15,8 +15,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
-* Migrate executable JAR applications to containers on Azure Kubernetes Service (planned)
-* Migrate executable JAR Applications to Azure Virtual Machines (planned)
+* Migrate executable JAR applications to containers on Azure Kubernetes Service (guidance planned)
+* Migrate executable JAR Applications to Azure Virtual Machines (guidance planned)
 
 ## Pre-migration
 
@@ -34,7 +34,7 @@ Identify external resources, such as data sources, JMS message brokers, and URLs
 
 For any SQL database, identify the connection string.
 
-For a Spring Boot application, connection strings typically appear in configuration files. 
+For a Spring Boot application, connection strings typically appear in configuration files.
 
 Here's an example from an *application.properties* file:
 
@@ -52,6 +52,8 @@ spring:
     mongodb:
       uri: mongodb://mongouser:deepsecret@mongoserver.contoso.com:27017
 ```
+
+For more information, see [JPA Repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.repositories) and [JDBC Repositories](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories) in the Spring documentation.
 
 #### JMS Message Brokers
 
@@ -138,7 +140,7 @@ App Service supports only a single HTTP endpoint on a single port. If your appli
 
 ### Parameterize the configuration
 
-Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you are migrating a Spring Boot Application, all configuration settings should already be [externalizable](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config).
+Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you are migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) in the Spring Boot documentation.
 
 Here's an example that references a `SERVICEBUS_CONNECTION_STRING` environment variable from an *application.properties* file:
 
