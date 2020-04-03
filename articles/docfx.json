@@ -49,7 +49,11 @@
     },
     "fileMetadata": {
       "feedback_product_url" : {
-        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues"
+        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
+        "articles/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
       },
       "product_feedback_url": {
         "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
@@ -65,17 +69,26 @@
       "author": {
         "**/go/**/*.md": "barbkess",
         "**/python/**/*.md": "kraigb",       
-        "**/ansible/**/*.md": "tarcher"
+        "**/ansible/**/*.md": "TomArcherMsft",
+        "**/chef/**/*.md": "TomArcherMsft",
+        "**/jenkins/**/*.md": "TomArcherMsft",
+        "**/terraform/**/*.md": "TomArcherMsft"
       },
       "manager": {
         "**/go/**/*.md": "barbkess",
         "**/python/**/*.md": "barbkess",       
-        "**/ansible/**/*.md": "barbkess"
+        "**/ansible/**/*.md": "barbkess",
+        "**/chef/**/*.md": "barbkess",
+        "**/jenkins/**/*.md": "barbkess",
+        "**/terraform/**/*.md": "barbkess"
       },
       "ms.author": {
         "**/go/**/*.md": "barbkess",
         "**/python/**/*.md": "kraigb",       
-        "**/ansible/**/*.md": "tarcher"
+        "**/ansible/**/*.md": "tarcher",
+        "**/chef/**/*.md": "tarcher",
+        "**/jenkins/**/*.md": "tarcher",
+        "**/terraform/**/*.md": "tarcher"
       },      
       "ms.devlang": {
         "**/go/**/*.md": "go",
@@ -87,7 +100,17 @@
       },
       "ms.service": {
         "*.md": "azure",
-        "**/go/*.md": "azure"
+        "**/go/*.md": "azure",
+        "articles/ansible/**/*.md": "ansible",
+        "articles/chef/**/*.md": "chef",
+        "articles/jenkins/**/*.md": "jenkins",
+        "articles/terraform/**/*.md": "terraform"
+      },
+      "titleSuffix": {
+        "articles/ansible/**/*.yml" : "Ansible",
+        "articles/chef/**/*.yml" : "Chef",
+        "articles/jenkins/**/*.yml" : "Jenkins",
+        "articles/terraform/**/*.yml" : "Terraform"
       },
       "ms.prod": {
         "**/python/**/*.md": "azure-python"        
