@@ -1,5 +1,5 @@
-- name: Azure Toolkit for IntelliJ
-  href: .
+- name: Azure Toolkit for IntelliJ documentation
+  href: index.yml
   items:
   - name: Get Started - Web App
     href: azure-toolkit-for-intellij-create-hello-world-web-app.md

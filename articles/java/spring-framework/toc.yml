@@ -1,5 +1,5 @@
-- name: Spring on Azure
-  href: ./index.yml
+- name: Spring on Azure documentation
+  href: index.yml
   expanded: true
   items:
   - name: Getting Started Guides

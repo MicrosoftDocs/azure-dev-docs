@@ -180,7 +180,7 @@
             - name: WebSphere to WildFly on AKS
               href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
             - name: JBoss EAP to WildFly on AKS
-              href: /azure/developer/java/migrationmigrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+              href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
     - name: Code Samples
       items:
         - name: Service Fabric

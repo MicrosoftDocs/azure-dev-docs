@@ -1,21 +1,21 @@
-- name: Migrate Java to Azure
-  href: /azure/developer/java/migration
+- name: Migrate Java to Azure guidance documentation
+  href: index.yml
   items:
     - name: Overview
-      href: /azure/developer/java/migration/migration-overview
+      href: migration-overview.md
     - name: Spring to Azure App Service
-      href: /azure/developer/java/migration/migrate-java-se-to-java-se-app-service
+      href: migrate-java-se-to-java-se-app-service.md
     - name: Tomcat to Azure App Service
-      href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service
+      href: migrate-tomcat-to-tomcat-app-service.md
     - name: Tomcat to containers on AKS
-      href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service
+      href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
     - name: WebLogic to Azure Virtual Machines
-      href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
+      href: migrate-weblogic-to-virtual-machines.md
     - name: WildFly to WildFly on AKS
-      href: /azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service
+      href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
     - name: WebLogic to WildFly on AKS
-      href: /azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service
+      href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
     - name: WebSphere to WildFly on AKS
-      href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
+      href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: JBoss EAP to WildFly on AKS
-      href: /azure/developer/java/migrationmigrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+      href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md

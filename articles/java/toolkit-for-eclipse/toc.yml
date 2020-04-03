@@ -1,5 +1,5 @@
-- name: Azure Toolkit for Eclipse
-  href: .
+- name: Azure Toolkit for Eclipse documentation
+  href: index.yml
   items:
   - name: Get Started
     href: azure-toolkit-for-eclipse-create-hello-world-web-app.md

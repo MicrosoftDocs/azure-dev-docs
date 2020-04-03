@@ -12,7 +12,7 @@ ms.custom: seo-java-july2019
 
 ## Supported JDK runtimes
 
-Java developers on Azure and Azure Stack can build and run production Java 7,8, and 11 applications using [Azul Systems Zulu Enterprise builds of OpenJDK](https://www.azul.com/downloads/azure-only/zulu/) without incurring additional support costs. If you're currently running Java apps with other JDKs, consider migrating to Zulu on Azure for free support and maintenance.
+Java developers on Azure and Azure Stack can build and run production Java 7, 8, and 11 applications using [Azul Systems Zulu Enterprise builds of OpenJDK](https://www.azul.com/downloads/azure-only/zulu/) without incurring additional support costs. If you're currently running Java apps with other JDKs, consider migrating to Zulu on Azure for free support and maintenance.
 
 For more information about the supported JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 

@@ -1,5 +1,5 @@
-- name: Eclipse MicroProfile on Azure
-  href: ./index.yml
+- name: Eclipse MicroProfile on Azure documentation
+  href: index.yml
   expanded: true
   items: 
   - name: Azure Extensions

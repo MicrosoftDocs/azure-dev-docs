@@ -1,1 +1,61 @@
-migration
+### YamlMime:Landing
+
+title: Java to Azure migration guidance
+summary: Recommended strategies for migrating Java applications to Azure
+
+metadata:
+  title: Java to Azure migration guidance
+  description: Recommended strategies for migrating Java applications to Azure
+  ms.service: azure-java
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 04/03/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Migrate Java applications to Azure
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Migration overview
+            url: migration-overview.md
+  - title: Migrate Spring to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Spring to Azure App Service
+            url: migrate-java-se-to-java-se-app-service.md
+  - title: Migrate Tomcat to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Tomcat to Azure App Service
+            url: migrate-tomcat-to-tomcat-app-service.md
+          - text: Tomcat to containers on AKS
+            url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
+  - title: Migrate WebLogic to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: WebLogic to WildFly on AKS
+            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+          - text: WebLogic to Azure Virtual Machines
+            url: migrate-weblogic-to-virtual-machines.md
+  - title: Migrate WildFly to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: WildFly to WildFly on AKS
+            url: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
+  - title: Migrate WebSphere to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: WebSphere to WildFly on AKS
+            url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
+  - title: Migrate JBoss EAP to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: JBoss EAP to WildFly on AKS
+            url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
