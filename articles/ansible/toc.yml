@@ -3,96 +3,96 @@
 - name: Overview
   items:
   - name: About Ansible on Azure
-    href: ./ansible-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
     - name: Deploy Ansible solution template to CentOS
-      href: ./ansible-deploy-solution-template.md
+      href: deploy-solution-template.md
     - name: Install Ansible on Linux virtual machines
-      href: ./ansible-install-configure.md
+      href: install-configure.md
       maintainContext: true
     - name: Run playbooks in Cloud Shell
-      href: ./ansible-run-playbook-in-cloudshell.md
+      href: run-playbook-in-cloudshell.md
     - name: Work with Linux Virtual Machines
       expanded: true
       items:
       - name: Configure Linux virtual machines
-        href: ./ansible-create-vm.md
+        href: create-vm.md
         maintainContext: true
       - name: Manage Linux virtual machines
-        href: ./ansible-manage-linux-vm.md
+        href: manage-linux-vm.md
         maintainContext: true
-- name: Tutorials 
+- name: Tutorials
   items:
   - name: Azure Application Gateway
     items:
     - name: Manage web traffic
-      href: ./ansible-create-configure-application-gateway.md
+      href: create-configure-application-gateway.md
   - name: Azure App Service
     items:
     - name: Configure apps
-      href: ./ansible-create-configure-azure-web-apps.md
+      href: create-configure-azure-web-apps.md
     - name: Scale apps
-      href: ./ansible-scale-azure-web-apps.md
+      href: scale-azure-web-apps.md
   - name: Azure DevTest Labs
     items:
     - name: Configure labs
-      href: ./ansible-devtest-labs-configure.md
+      href: devtest-labs-configure.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
-      href: ./ansible-create-configure-aks.md
+      href: create-configure-aks.md
     - name: Configure Azure CNI networking
-      href: ./ansible-aks-configure-cni-networking.md
+      href: aks-configure-cni-networking.md
     - name: Configure kubenet networking
-      href: ./ansible-aks-configure-kubenet-networking.md
+      href: aks-configure-kubenet-networking.md
     - name: Configure RBAC roles in AKS cluster
-      href: ./ansible-aks-configure-rbac.md
+      href: aks-configure-rbac.md
   - name: Azure HDInsight
     items:
     - name: Configure clusters
-      href: ./ansible-azure-hdinsight-configure.md
+      href: azure-hdinsight-configure.md
   - name: Azure Service Bus
     items:
     - name: Configure queues
-      href: ./ansible-service-bus-queue-configure.md
+      href: service-bus-queue-configure.md
     - name: Configure topics
-      href: ./ansible-service-bus-topic-configure.md
+      href: service-bus-topic-configure.md
   - name: Database
     items:
     - name: Configure Azure Database for MySQL
-      href: ./ansible-create-configure-mysql.md
+      href: create-configure-mysql.md
     - name: Configure Azure Cosmos DB accounts
-      href: ./ansible-data-cosmos-configure.md
+      href: data-cosmos-configure.md
     - name: Configure Azure Cache for Redis
-      href: ./ansible-data-cache-for-redis-configure.md
+      href: data-cache-for-redis-configure.md
   - name: Dynamic inventory
     items:
     - name: Manage your Azure resources
-      href: ./ansible-manage-azure-dynamic-inventories.md
+      href: manage-azure-dynamic-inventories.md
   - name: Virtual machines
     items:
     - name: Create Shared Image Gallery
-      href: ansible-vm-create-from-shared-generalized-image.md
+      href: vm-create-from-shared-generalized-image.md
   - name: Virtual machine scale sets
     items:
     - name: Configure 
-      href: ./ansible-create-configure-vmss.md
+      href: create-configure-vmss.md
     - name: Deploy 
-      href: ./ansible-deploy-app-vmss.md
+      href: deploy-app-vmss.md
     - name: Autoscale
-      href: ./ansible-auto-scale-vmss.md
+      href: auto-scale-vmss.md
     - name: Update custom image
-      href: ./ansible-vmss-update-image.md
+      href: vmss-update-image.md
     - name: Create Shared Image Gallery
-      href: ansible-vm-create-from-shared-generalized-image.md
+      href: vm-create-from-shared-generalized-image.md
   - name: Virtual network
     items:
     - name: Configure peering
-      href: ./ansible-vnet-peering-configure.md
+      href: vnet-peering-configure.md
     - name: Configure route tables
-      href: ./ansible-create-configure-route-table.md
+      href: create-configure-route-table.md
 - name: Samples
   items:
   - name: Ansible labs for Azure
@@ -108,7 +108,7 @@
     - name: azure_preview_module
       href: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Releases and features
-    href: ./ansible-matrix.md  
+    href: matrix.md  
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 - name: Resources
