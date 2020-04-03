@@ -43,35 +43,62 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs"
     },
     "fileMetadata": {
+      "feedback_product_url" : {
+        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues"
+      },
+      "product_feedback_url": {
+        "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "articles/python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "articles/python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+      },     
+      "_op_documentIdPathDepotMapping": {
+        "python": {
+          "depot_name": "MSDN.python-sdk",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        }
+      },
       "author": {
         "java/**/**.md": "bmitchell287",
-        "go/**/**.md": "barbkess"        
+        "python/**/*.md": "kraigb",
+        "go/**/**.md": "barbkess"
       },
       "ms.author": {
         "java/**/**.md": "brendm",
-        "go/**/**.md": "barbkess"        
+        "python/**/*.md": "kraigb",
+        "go/**/**.md": "barbkess"
       },
       "manager": {
         "java/**/**.md": "barbkess",
-        "go/**/*.md": "barbkess"        
+        "python/**/*.md": "barbkess",
+        "go/**/*.md": "barbkess"
       },
       "ms.devlang": {
         "java/**/**.md": "java",
+        "python/**/*.md": "python",
         "go/**/**.md": "go"
       },
       "ms.service": {
         "java/**/**.md": "azure-java",
-        "go/**/**.md": "azure"
+        "go/**/**.md": "azure",
+        "*.md": "azure"
       },
       "ms.topic": {
         "**/includes/**/**.md": "include"
+      },
+      "ms.prod": {
+        "**/python/**/*.md": "azure-python"        
       }
     },
     "template": [],
-    "dest": "azure-dev-docs",
+    "dest": {
+      ".": "azure-dev-docs",
+      "go": "azure-go",
+      "python": "azure-python"
+    },
     "markdownEngineName": "markdig"
   }
 }

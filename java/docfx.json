@@ -22,23 +22,22 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
         ],
         "exclude": [
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
-          "_themes.pdf/**"
+          "_themes.pdf/**",
         ]
       }
     ],
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "feedback_system": "None"
+      "feedback_system": "none",
     },
     "template": [],
-    "dest": "azure-python-sdk-conceptual",
     "markdownEngineName": "markdig"
   }
 }

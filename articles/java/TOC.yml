@@ -94,22 +94,22 @@
       expanded: true
       items:
         - name: Overview
-          href: /azure/developer/java/tools/java-azure-tools
+          href: /azure/developer/java/fundamentals/java-azure-tools
         - name: Java Support
           expanded: true
           items: 
           - name: Java Long-Term Support
-            href: /azure/developer/java/jdk
+            href: /azure/developer/java/fundamentals
           - name: Java JDK Installation
-            href: /azure/developer/java/jdk/java-jdk-install
+            href: /azure/developer/java/fundamentals/java-jdk-install
           - name: Java Docker images for Azure
-            href: /azure/developer/java/jdk/java-jdk-docker-images
+            href: /azure/developer/java/fundamentals/java-jdk-docker-images
           - name: Java Flight Recorder and Mission Control
-            href: /azure/developer/java/jdk/java-jdk-flight-recorder-and-mission-control
+            href: /azure/developer/java/fundamentals/java-jdk-flight-recorder-and-mission-control
           - name: Reasons to move to Java 11
-            href: /azure/developer/java/jdk/reasons-to-move-to-java-11
+            href: /azure/developer/java/fundamentals/reasons-to-move-to-java-11
           - name: Transition from Java 8 to Java 11
-            href: /azure/developer/java/jdk/transition-from-java-8-to-java-11
+            href: /azure/developer/java/fundamentals/transition-from-java-8-to-java-11
         - name: Visual Studio Code
           href: https://code.visualstudio.com/docs/languages/java
         - name: IntelliJ IDEA
@@ -152,7 +152,7 @@
         - name: Java Functions with Event Hub and Cosmos DB
           href: /azure/azure-functions/functions-event-hub-cosmos-db?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: Monitoring and logging using Logz.io
-          href: /azure/developer/java/tools/java-get-started-with-logzio
+          href: /azure/developer/java/fundamentals/java-get-started-with-logzio
     - name: How-to Articles
       items:
         - name: Add Root Certificate

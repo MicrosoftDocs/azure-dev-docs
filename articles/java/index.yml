@@ -46,13 +46,13 @@ landingContent:
       - linkListType: get-started
         links:
         - text: IntelliJ, Maven, Eclipse, and VS Code
-          url: /azure/developer/java/tools/java-azure-tools
+          url: /azure/developer/java/fundamentals/java-azure-tools
   - title: Supported JDKs
     linkLists:
       - linkListType: download
         links:
         - text: Java for Azure and Azure Stack
-          url: /azure/developer/java/jdk/
+          url: /azure/developer/java/fundamentals
   - title: Azure SDKs for Java
     linkLists:
       - linkListType: reference
