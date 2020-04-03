@@ -209,7 +209,7 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
 
 11. Create a folder named *security* in the Java source folder for your application.
 
-12. Create a new Java file named *WebSecurityConfig.java* in the *security* folder and open it in a text editor.
+12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
 13. Enter the following code, then save and close the file:
 
@@ -222,7 +222,7 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
     import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
     
     @EnableWebSecurity
-    public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     
         private final AADB2COidcLoginConfigurer configurer;
     
