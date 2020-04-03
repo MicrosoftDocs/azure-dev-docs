@@ -64,15 +64,18 @@
       },
       "author": {
         "**/go/**/*.md": "barbkess",
-        "**/python/**/*.md": "kraigb"        
+        "**/python/**/*.md": "kraigb",       
+        "**/ansible/**/*.md": "tarcher"
       },
       "manager": {
         "**/go/**/*.md": "barbkess",
-        "**/python/**/*.md": "barbkess" 
+        "**/python/**/*.md": "barbkess",       
+        "**/ansible/**/*.md": "barbkess"
       },
       "ms.author": {
         "**/go/**/*.md": "barbkess",
-        "**/python/**/*.md": "kraigb"
+        "**/python/**/*.md": "kraigb",       
+        "**/ansible/**/*.md": "tarcher"
       },      
       "ms.devlang": {
         "**/go/**/*.md": "go",
