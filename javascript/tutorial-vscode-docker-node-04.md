@@ -61,8 +61,8 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. The **Terminal** panel shows the `docker push` commands used for this operation. The target registry is determined by the registry specified in the image name.
 
-> [!IMPORTANT]
-> If the output displays "Authentication required", run `az acr login --name <your registry name>` in the terminal.
+   > [!IMPORTANT]
+   > If the output displays "Authentication required", run `az acr login --name <your registry name>` in the terminal.
 
 1. Once completed, expand the **Registries** node in the Docker extension explorer to see your image in the registry.
 
