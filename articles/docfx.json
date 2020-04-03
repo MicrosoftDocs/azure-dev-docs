@@ -50,10 +50,10 @@
     "fileMetadata": {
       "feedback_product_url" : {
         "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
-        "articles/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
+        "**/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
       },
       "product_feedback_url": {
         "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
@@ -101,16 +101,16 @@
       "ms.service": {
         "*.md": "azure",
         "**/go/*.md": "azure",
-        "articles/ansible/**/*.md": "ansible",
-        "articles/chef/**/*.md": "chef",
-        "articles/jenkins/**/*.md": "jenkins",
-        "articles/terraform/**/*.md": "terraform"
+        "**/ansible/**/*.md": "ansible",
+        "**/chef/**/*.md": "chef",
+        "**/jenkins/**/*.md": "jenkins",
+        "**/terraform/**/*.md": "terraform"
       },
       "titleSuffix": {
-        "articles/ansible/**/*.yml" : "Ansible",
-        "articles/chef/**/*.yml" : "Chef",
-        "articles/jenkins/**/*.yml" : "Jenkins",
-        "articles/terraform/**/*.yml" : "Terraform"
+        "**/ansible/**/*.yml" : "Ansible",
+        "**/chef/**/*.yml" : "Chef",
+        "**/jenkins/**/*.yml" : "Jenkins",
+        "**/terraform/**/*.yml" : "Terraform"
       },
       "ms.prod": {
         "**/python/**/*.md": "azure-python"        
