@@ -28,6 +28,8 @@ Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataS
 * What is the connection pool configuration?
 * Where can I find the JDBC driver JAR file?
 
+For more information, see [JNDI Datasource HOW-TO](https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html) in the Tomcat documentation.
+
 #### All other external resources
 
 It isn't feasible to document every possible external dependency in this guide. It's your team's responsibility to verify that you can satisfy every external dependency of your application after the migration.

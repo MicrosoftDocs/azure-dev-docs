@@ -11,6 +11,11 @@ ms.date: 1/20/2020
 
 This topic provides an overview of recommended strategies for migrating Java applications to Azure.
 
+This migration guidance is designed to cover mainstream Java on Azure scenarios, and to provide high-level planning suggestions and considerations. If you'd like to discuss a specific Java app migration scenario with the Microsoft Java on Azure team, please fill out the following questionnaire and a representative will contact you.
+
+> [!div class="nextstepaction"]
+> [Java migration questionnaire](https://aka.ms/migrate-my-Java-app-requested-thru-docs)
+
 ## Identifying application type
 
 Before you select a cloud destination for your Java application, you'll need to identify its application type. Most Java applications are one of the following types:
@@ -138,10 +143,10 @@ Use the rows below to find your Java EE application type running on a specific a
 
 |Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | N/A | guidance<br>planned | guidance<br>planned |
-| WebLogic              | N/A | N/A | N/A | [guidance][6]       | [guidance][4]       |
-| WebSphere             | N/A | N/A | N/A | [guidance][7]       | guidance<br>planned |
-| JBoss EAP             | N/A | N/A | N/A | N/A                 | guidance<br>planned |
+| WildFly /<br>JBoss AS | N/A | N/A | N/A | [guidance][9] | guidance<br>planned |
+| WebLogic              | N/A | N/A | N/A | [guidance][6] | [guidance][4]       |
+| WebSphere             | N/A | N/A | N/A | [guidance][7] | guidance<br>planned |
+| JBoss EAP             | N/A | N/A | N/A | [guidance][8] | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -151,3 +156,5 @@ Use the rows below to find your Java EE application type running on a specific a
 [5]: migrate-java-se-to-java-se-app-service.md
 [6]: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
 [7]: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
+[8]: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+[9]: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md

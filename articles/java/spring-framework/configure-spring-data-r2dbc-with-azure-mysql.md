@@ -41,7 +41,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL Server instance. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: the Azure region you'll use. You can use `eastus` by default, but we recommend you configure a region closer to where you live. You can have the full list of available regions by typing `az account list-locations`.
 - `<YOUR_MYSQL_PASSWORD>`: the password of your MySQL database server. That password should have a minimum of eight characters, and characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-- `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [http://ipv4.icanhazip.com](http://ipv4.icanhazip.com).
+- `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [http://whatismyip.akamai.com/](http://whatismyip.akamai.com/).
 
 Next, create a resource group.
 

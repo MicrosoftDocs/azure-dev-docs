@@ -173,10 +173,14 @@
               href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service
             - name: WebLogic to Azure Virtual Machines
               href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
+            - name: WildFly to WildFly on AKS
+              href: /azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service
             - name: WebLogic to WildFly on AKS
               href: /azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service
             - name: WebSphere to WildFly on AKS
               href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
+            - name: JBoss EAP to WildFly on AKS
+              href: /azure/developer/java/migrationmigrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
     - name: Code Samples
       items:
         - name: Service Fabric

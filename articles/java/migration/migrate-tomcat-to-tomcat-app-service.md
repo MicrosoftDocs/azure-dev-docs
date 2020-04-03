@@ -9,14 +9,14 @@ ms.date: 1/20/2020
 
 # Migrate Tomcat applications to Tomcat on Azure App Service
 
-This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat 8.5 or 9.0.
+This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat 9.0.
 
 ## Before you start
 
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
-* Migrate Tomcat Applications to Azure Virtual Machines (planned)
+* Migrate Tomcat Applications to Azure Virtual Machines (guidance planned)
 
 ## Pre-migration
 
@@ -32,7 +32,7 @@ To obtain your current Tomcat version, sign in to your production server and run
 ${CATALINA_HOME}/bin/version.sh
 ```
 
-To obtain the current version used by Azure App Service, download [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi#8.5.50) or [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
+To obtain the current version used by Azure App Service, download [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
 
 [!INCLUDE [inventory-external-resources](includes/inventory-external-resources.md)]
 
@@ -51,7 +51,7 @@ For files that are frequently written and read by your application (such as temp
 
 To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
-Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
+Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
 If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as Pivotal Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
 
@@ -71,7 +71,7 @@ If your application contains any code with dependencies on the host OS, then you
 
 #### Determine whether Tomcat clustering is used
 
-[Tomcat clustering](https://tomcat.apache.org/tomcat-8.5-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, you can configure and manage scaling and load balancing through Azure App Service without Tomcat-specific functionality. You can persist session state to an alternate location to make it available across replicas. For more information, see [Identify session persistence mechanism](#identify-session-persistence-mechanism).
+[Tomcat clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, you can configure and manage scaling and load balancing through Azure App Service without Tomcat-specific functionality. You can persist session state to an alternate location to make it available across replicas. For more information, see [Identify session persistence mechanism](#identify-session-persistence-mechanism).
 
 To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
 
@@ -87,17 +87,17 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 #### Determine whether MemoryRealm is used
 
-[MemoryRealm](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you will need to upload this file to the */home* directory or a subdirectory thereof or to mounted storage. You will have to modify the `pathName` parameter accordingly.
+[MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you will need to upload this file to the */home* directory or a subdirectory thereof or to mounted storage. You will have to modify the `pathName` parameter accordingly.
 
 To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 #### Determine whether SSL session tracking is used
 
-App Service performs session offloading outside of the Tomcat runtime. Therefore, you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-8.5-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). Use a different session tracking mode instead (`COOKIE` or `URL`). If you need SSL session tracking, don't use App Service.
+App Service performs session offloading outside of the Tomcat runtime. Therefore, you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). Use a different session tracking mode instead (`COOKIE` or `URL`). If you need SSL session tracking, don't use App Service.
 
 #### Determine whether AccessLogValve is used
 
-If you use [AccessLogValve](https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/AccessLogValve.html), you should set the `directory` parameter to `/home/LogFiles` or a subdirectory thereof.
+If you use [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/AccessLogValve.html), you should set the `directory` parameter to `/home/LogFiles` or a subdirectory thereof.
 
 ## Migration
 
@@ -175,7 +175,9 @@ Use Application Settings to store any secrets specific to your application. If y
 
 ### Migrate data sources, libraries, and JNDI resources
 
-Follow [these steps to migrate data sources](/azure/app-service/containers/configure-language-java#tomcat).
+For data source configuration steps, see the [Data sources](/azure/app-service/containers/configure-language-java#data-sources) section of [Configure a Linux Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+
+[!INCLUDE[Tomcat datasource additional instructions](includes/migration/tomcat-datasource-additional-instructions.md)]
 
 Migrate any additional server-level classpath dependencies by following [the same steps as for data source JAR files](/azure/app-service/containers/configure-language-java#finalize-configuration).
 
@@ -188,7 +190,7 @@ Migrate any additional [Shared server-level JDNI resources](/azure/app-service/c
 
 Upon completing the preceding section, you should have your customizable server configuration in */home/tomcat/conf*.
 
-Complete the migration by copying any additional configuration (such as [realms](https://tomcat.apache.org/tomcat-8.5-doc/config/realm.html), [JASPIC](https://tomcat.apache.org/tomcat-8.5-doc/config/jaspic.html))
+Complete the migration by copying any additional configuration (such as [realms](https://tomcat.apache.org/tomcat-9.0-doc/config/realm.html) and [JASPIC](https://tomcat.apache.org/tomcat-9.0-doc/config/jaspic.html))
 
 [!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
 
