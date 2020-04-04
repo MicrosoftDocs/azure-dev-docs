@@ -42,7 +42,7 @@
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
-      href: aks-configure=clusters.md
+      href: aks-configure-clusters.md
     - name: Configure Azure CNI networking
       href: aks-configure-cni-networking.md
     - name: Configure kubenet networking
@@ -84,7 +84,7 @@
     - name: Autoscale
       href: vm-scale-set-auto-scale.md
     - name: Update custom image
-      href: vm-scale-set--update-image.md
+      href: vm-scale-set-update-image.md
     - name: Create Shared Image Gallery
       href: vm-configure-from-azure-shared-image-gallery.md
   - name: Virtual network
