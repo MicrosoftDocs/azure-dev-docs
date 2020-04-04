@@ -24,7 +24,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Releases and features
-            url: matrix.md  
+            url: version-and-module-matrix.md  
           - text: All modules for Azure
             url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 
@@ -34,15 +34,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy Ansible solution template to CentOS
-            url: deploy-solution-template.md
+            url: solution-template-deploy.md
           - text: Install Ansible on Linux virtual machines
-            url: install-configure.md
+            url: install-on-linux-vm.md
           - text: Run playbooks in Cloud Shell
-            url: run-playbook-in-cloudshell.md
+            url: cloudshell-run-playbook.md
       - linkListType: tutorial
         links:
           - text: Configure a dynamic inventory
-            url: manage-azure-dynamic-inventories.md
+            url: dynamic-inventory-configure.md
       - linkListType: download
         links:
           - text: Visual Studio Code extension for Ansible
@@ -53,11 +53,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Configure Linux virtual machines
-            url: create-vm.md
+            url: vm-configure.md
           - text: Manage Linux virtual machines
-            url: manage-linux-vm.md
+            url: vm-manage.md
           - text: Create a from Shared Image Gallery
-            url: vm-create-from-shared-generalized-image.md
+            url: vm-configure-from-azure-shared-image-gallery.md
 
   # Card
   - title: Manage Virtual Machine Scale Sets
@@ -65,15 +65,15 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure virtual machine scale sets
-            url: create-configure-vmss.md
+            url: vm-scale-set-configure.md
           - text: Deploy applications to virtual machine scale sets
-            url: deploy-app-vmss.md
+            url: vm-scale-set-deploy-ap0.md
           - text: Automatically scale virtual machine scale sets
-            url: auto-scale-vmss.md
+            url: vm-scale-set-auto-scale.md
           - text: Update custom image
-            url: vmss-update-image.md
+            url: vm-scale-set-update-image.md
           - text: Create a from Shared Image Gallery
-            url: vm-create-from-shared-generalized-image.md
+            url: vm-configure-from-azure-shared-image-gallery.md
 
   # Card
   - title: Manage Virtual Networks
@@ -81,9 +81,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure peering
-            url: vnet-peering-configure.md
+            url: virtual-network-peering-configure.md
           - text: Configure route tables
-            url: create-configure-route-table.md
+            url: route-table-configure.md
 
   # Card
   - title: Manage AKS
@@ -91,7 +91,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure AKS clusters
-            url: create-configure-aks.md
+            url: aks-configure.md
           - text: Configure Azure CNI networking
             url: aks-configure-cni-networking.md
           - text: Configure kubenet networking
