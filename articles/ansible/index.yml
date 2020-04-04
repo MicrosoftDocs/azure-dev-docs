@@ -24,7 +24,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Releases and features
-            url: version-and-module-matrix.md  
+            url: module-version-matrix.md  
           - text: All modules for Azure
             url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 

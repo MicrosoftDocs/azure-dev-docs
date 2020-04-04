@@ -108,7 +108,7 @@
     - name: azure_preview_module
       href: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Releases and features
-    href: version-and-module-matrix.md
+    href: module-version-matrix.md
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 - name: Resources

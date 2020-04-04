@@ -10,7 +10,7 @@ ms.date: 04/30/2019
 
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 
-- **Ansible modules for Azure** - The [Ansible modules for Azure](./version-and-module-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
+- **Ansible modules for Azure** - The [Ansible modules for Azure](./module-version-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
 - **Azure Command-Line Interface (CLI) 2.0** - The [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) is a cross-platform command-line experience for managing Azure resources. 
 - **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure.
 
