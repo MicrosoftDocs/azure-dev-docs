@@ -24,7 +24,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Releases and features
-            url: version-and-module-matrix.mdx  
+            url: version-and-module-matrix.md  
           - text: All modules for Azure
             url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 
@@ -67,7 +67,7 @@ landingContent:
           - text: Configure virtual machine scale sets
             url: vm-scale-set-configure.md
           - text: Deploy applications to virtual machine scale sets
-            url: vm-scale-set-deploy-ap0.md
+            url: vm-scale-set-deploy-app.md
           - text: Automatically scale virtual machine scale sets
             url: vm-scale-set-auto-scale.md
           - text: Update custom image
@@ -91,7 +91,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure AKS clusters
-            url: aks-configure.md
+            url: aks-configure-clusters.md
           - text: Configure Azure CNI networking
             url: aks-configure-cni-networking.md
           - text: Configure kubenet networking
