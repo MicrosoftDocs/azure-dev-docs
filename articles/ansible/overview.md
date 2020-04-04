@@ -52,4 +52,4 @@ Ansible includes a suite of modules for use in provisioning and configuring Azur
 ## Next steps
 
 - [Quickstart: Deploy the Ansible solution template for Azure to CentOS](./solution-template-deploy.md)
-- [Quickstart: Configure Linux virtual machines in Azure using Ansible](./install-on-linux.md)
+- [Quickstart: Configure Linux virtual machines in Azure using Ansible](./install-on-linux-vm.md)
