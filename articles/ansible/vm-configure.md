@@ -285,4 +285,4 @@ This section walks you through running the sample Ansible playbook presented in 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Manage a Linux virtual machine in Azure using Ansible](./ansible-manage-linux-vm.md)
+> [Quickstart: Manage a Linux virtual machine in Azure using Ansible](./vm-manage.md)

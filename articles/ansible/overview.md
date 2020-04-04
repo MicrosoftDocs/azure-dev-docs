@@ -47,9 +47,9 @@ Ansible Tower is a web-based UI and dashboard for Ansible that has the following
 
 ## Ansible module and version matrix for Azure
 
-Ansible includes a suite of modules for use in provisioning and configuring Azure resources. These resources include virtual machines, scale sets, networking services, and container services. The [Ansible matrix](./ansible-matrix.md) lists the Ansible modules for Azure and the Ansible versions in which they ship.
+Ansible includes a suite of modules for use in provisioning and configuring Azure resources. These resources include virtual machines, scale sets, networking services, and container services. The [Ansible matrix](./version-and-module-matrix.md) lists the Ansible modules for Azure and the Ansible versions in which they ship.
 
 ## Next steps
 
-- [Quickstart: Deploy the Ansible solution template for Azure to CentOS](./ansible-deploy-solution-template.md)
-- [Quickstart: Configure Linux virtual machines in Azure using Ansible](./ansible-install-configure.md)
+- [Quickstart: Deploy the Ansible solution template for Azure to CentOS](./solution-template-deploy.md)
+- [Quickstart: Configure Linux virtual machines in Azure using Ansible](./install-on-linux.md)

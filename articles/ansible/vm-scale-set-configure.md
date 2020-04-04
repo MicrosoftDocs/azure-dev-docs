@@ -10,7 +10,7 @@ ms.date: 04/30/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../../includes/open-source-devops-intro-vm-scale-set.md)]
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -307,4 +307,4 @@ Verify your results of your work via the Azure portal:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible](./ansible-deploy-app-vmss.md)
+> [Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible](./vm-scale-set-deploy-app.md)

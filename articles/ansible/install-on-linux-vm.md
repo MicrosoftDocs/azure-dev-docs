@@ -159,4 +159,4 @@ To verify the successful configuration, use Ansible to create an Azure resource 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Configure a Linux virtual machine in Azure using Ansible](./ansible-create-vm.md)
+> [Quickstart: Configure a Linux virtual machine in Azure using Ansible](./vm-configure.md)

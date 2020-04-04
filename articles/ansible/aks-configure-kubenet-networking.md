@@ -348,4 +348,4 @@ ansible-playbook cleanup.yml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial - Configure Azure Container Networking Interface (CNI) networking in AKS using Ansible](./ansible-aks-configure-cni-networking.md)
+> [Tutorial - Configure Azure Container Networking Interface (CNI) networking in AKS using Ansible](./aks-configure-cni-networking.md)

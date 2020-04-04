@@ -127,4 +127,4 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Manage Azure dynamic inventories using Ansible](./ansible-manage-azure-dynamic-inventories.md)
+> [Tutorial: Manage Azure dynamic inventories using Ansible](./dynamic-inventory-configure.md)

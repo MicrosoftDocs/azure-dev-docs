@@ -10,7 +10,7 @@ ms.date: 04/30/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../../includes/open-source-devops-intro-vm-scale-set.md)]
 
 The feature of automatically adjusting the number of VM instances is called [autoscale](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). The benefit of autoscale is that it reduces the management overhead to monitor and optimize the performance of your application. Autoscale can be configured in response to demand or on a defined schedule. Using Ansible, you can specify the autoscale rules that define the acceptable performance for a positive customer experience.
 
@@ -230,4 +230,4 @@ vmss-auto-scale-delete-setting.yml
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Update custom image of Azure virtual machine scale sets using Ansible](./ansible-vmss-update-image.md)
+> [Tutorial: Update custom image of Azure virtual machine scale sets using Ansible](./vm-scale-set-update-image.md)

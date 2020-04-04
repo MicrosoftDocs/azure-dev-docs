@@ -10,7 +10,7 @@ ms.date: 01/13/2020
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../../includes/open-source-devops-intro-vm-scale-set.md)]
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -227,9 +227,9 @@ The output from running the ansible-playbook command indicates that the sample J
 
 Verify the results of your work by navigating to the URL of the load balancer for your scale set:
 
-![Java app running in a scale set in Azure.](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
+![Java app running in a scale set in Azure.](media/vm-scale-set-deploy-app/demo.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autoscale virtual machine scale sets in Azure using Ansible](./ansible-auto-scale-vmss.md)
+> [Tutorial: Autoscale virtual machine scale sets in Azure using Ansible](./vm-scale-set-auto-scale.md)

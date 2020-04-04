@@ -10,9 +10,9 @@ ms.date: 04/30/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
-[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../../includes/open-source-devops-intro-vm-scale-set.md)]
 
-After a VM is deployed, you configure the VM with the software your app needs. Instead of doing this configuration task for each VM, you can create a custom image. A custom image is a snapshot of an existing VM that includes any installed software. When you [configure a scale set](./ansible-create-configure-vmss.md), you specify the image to use for that scale set's VMs. By using a custom image, each VM instance is identically configured for your app. Sometimes, you may need to update your scale set's custom image. That task is the focus of this tutorial.
+After a VM is deployed, you configure the VM with the software your app needs. Instead of doing this configuration task for each VM, you can create a custom image. A custom image is a snapshot of an existing VM that includes any installed software. When you [configure a scale set](./vm-scale-set-configure.md), you specify the image to use for that scale set's VMs. By using a custom image, each VM instance is identically configured for your app. Sometimes, you may need to update your scale set's custom image. That task is the focus of this tutorial.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -166,7 +166,7 @@ ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 
 Because of the `debug` sections of the playbook, the `ansible-playbook` command will print the IP address of each VM. Copy these IP addresses for later use.
 
-![Virtual machine IP addresses](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
+![Virtual machine IP addresses](media/vm-scale-set-update-image/ip-addresses.png)
 
 ## Connect to the two VMs
 
@@ -174,9 +174,9 @@ In this section, you connect to each VM. As mentioned in the previous section, t
 
 Using the IP addresses from the previous section, connect to both VMs:
 
-![Screenshot from virtual machine A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
+![Screenshot from virtual machine A](media/vm-scale-set-update-image/vm-a.png)
 
-![Screenshot from virtual machine B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
+![Screenshot from virtual machine B](media/vm-scale-set-update-image/vm-b.png)
 
 ## Create images from each VM
 
@@ -310,7 +310,7 @@ ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 
 Because of the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
 
-![Public IP Address](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
+![Public IP Address](media/vm-scale-set-update-image/public-ip.png)
 
 ## Connect to the scale set
 
@@ -324,7 +324,7 @@ The scale set references the custom image named `image_vmforimageA`. Custom imag
 
 As a result, you see a home page displaying `Image A`:
 
-![The scale set is associated with the first VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+![The scale set is associated with the first VM.](media/vm-scale-set-update-image/initial-vm-scale-set.png)
 
 Leave your browser window open as you continue to the next section.
 
@@ -396,7 +396,7 @@ Return to the browser and refresh the page.
 
 You see that virtual machine's underlying custom image is updated.
 
-![The scale set is associated with the second VM](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
+![The scale set is associated with the second VM](media/vm-scale-set-update-image/updated-vm-scale-set.png)
 
 ## Clean up resources
 

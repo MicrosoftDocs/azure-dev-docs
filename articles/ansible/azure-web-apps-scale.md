@@ -23,7 +23,7 @@ ms.date: 04/30/2019
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service app** - If you don't have an Azure App Service app, [configure an app in Azure App Service using Ansible](ansible-create-configure-azure-web-apps.md).
+- **Azure App Service app** - If you don't have an Azure App Service app, [configure an app in Azure App Service using Ansible](azure-web-apps-configure.md).
 
 ## Scale up an app
 

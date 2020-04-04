@@ -243,4 +243,4 @@ ansible-playbook cleanup.yml
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Tutorial: Configure a topic in Azure Service Bus using Ansible](ansible-service-bus-topic-configure.md)
+> [Tutorial: Configure a topic in Azure Service Bus using Ansible](service-bus-topic-configure.md)

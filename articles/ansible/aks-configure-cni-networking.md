@@ -274,4 +274,4 @@ ansible-playbook cleanup.yml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure Azure Active Directory in AKS using Ansible](./ansible-aks-configure-rbac.md)
+> [Tutorial: Configure Azure Active Directory in AKS using Ansible](./aks-configure-rbac.md)
