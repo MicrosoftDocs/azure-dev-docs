@@ -20,7 +20,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 ## Deploy the Ansible solution template
 
-1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
+1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.ansible?tab=Overview).
 
 1. Select **GET IT NOW**.
 
