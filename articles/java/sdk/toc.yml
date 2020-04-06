@@ -1,13 +1,15 @@
-- name: Azure for Java cloud developers documentation
+- name: Azure for Java cloud developers
   href: index.yml
   items:
     - name: Get Started
       href: java-sdk-azure-get-started.md
     - name: Concepts
+      expanded: true
       items:
         - name: Patterns & best practices
           href: java-sdk-azure-concepts.md
     - name: How-to Articles
+      expanded: true
       items:
         - name: Add Root Certificate
           href: java-sdk-add-certificate-ca-store.md

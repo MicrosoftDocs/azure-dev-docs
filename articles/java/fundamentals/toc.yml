@@ -1,6 +1,5 @@
-- name: Java on Azure developer tools documentation
+- name: Java on Azure developer tools
   href: index.yml
-  expanded: true
   items:
     - name: Overview
       href: java-azure-tools.md
@@ -26,6 +25,7 @@
     - name: Eclipse
       href: /azure/developer/java/toolkit-for-eclipse
     - name: Maven plugins
+      expanded: true
       href: /java/api/overview/azure/maven/README
       items:
         - name: Azure App Service
@@ -39,6 +39,7 @@
     - name: Azure DevOps
       href: /azure/devops/java/
 - name: Tutorials
+  expanded: true
   items:
     - name: Monitoring and logging using Logz.io
       href: java-get-started-with-logzio.md

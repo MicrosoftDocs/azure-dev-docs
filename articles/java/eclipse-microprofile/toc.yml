@@ -1,6 +1,5 @@
 - name: Eclipse MicroProfile on Azure documentation
   href: index.yml
-  expanded: true
   items: 
   - name: Azure Extensions
     href: https://github.com/Azure/azure-microprofile

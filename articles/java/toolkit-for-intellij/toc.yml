@@ -6,14 +6,17 @@
   - name: Get Started - Functions
     href: azure-toolkit-for-intellij-quickstart-functions.md
   - name: Tutorials
+    expanded: true
     items:
       - name: Deploy web app to a Linux container
         href: azure-toolkit-for-intellij-hello-world-web-app-linux.md
   - name: How-To
+    expanded: true
     items: 
     - name: Sign in to your Azure account
       href: azure-toolkit-for-intellij-sign-in-instructions.md
     - name: Manage Azure resources
+      expanded: true
       items:
        - name: Virtual machines
          href: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md

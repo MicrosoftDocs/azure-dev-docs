@@ -1,4 +1,4 @@
-- name: Migrate Java to Azure guidance documentation
+- name: Migrate Java to Azure guidance
   href: index.yml
   items:
     - name: Overview
