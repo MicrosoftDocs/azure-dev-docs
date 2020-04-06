@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "java",
+      "redirect_url": "/azure/developer/java",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "java/microprofile/cicd-microprofile-vsts.md",
       "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile",
       "redirect_document_id": true
