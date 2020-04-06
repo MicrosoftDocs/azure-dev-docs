@@ -18,7 +18,7 @@ conceptualContent:
       links:
         - text: Java Long-Term Support
           itemType: get-started
-          url: fundamentals/index.md
+          url: fundamentals/java-jdk-long-term-support.md
         - text: Java JDK Installation
           itemType: get-started
           url: fundamentals/java-jdk-install.md
