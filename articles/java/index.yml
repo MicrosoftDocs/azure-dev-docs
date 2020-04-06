@@ -29,21 +29,6 @@ conceptualContent:
           text: See more
           url: fundamentals/index.yml
 
-    - title: Azure SDK for Java
-      links:
-        - text: Azure development using Java
-          itemType: get-started
-          url: sdk/java-sdk-azure-get-started.md
-        - text: Patterns & best practices
-          itemType: learn
-          url: sdk/java-sdk-azure-concepts.md
-        - text: Java API browser
-          itemType: reference
-          url: /java/api/?view=azure-java
-      footerLink:
-          text: See more
-          url: sdk/index.yml
-
     - title: Azure Spring cloud
       links:
         - text: What is Azure Spring Cloud?
@@ -73,6 +58,21 @@ conceptualContent:
       footerLink:
         text: See more
         url: spring-framework/index.yml
+
+    - title: Azure SDK for Java
+      links:
+        - text: Azure development using Java
+          itemType: get-started
+          url: sdk/java-sdk-azure-get-started.md
+        - text: Patterns & best practices
+          itemType: learn
+          url: sdk/java-sdk-azure-concepts.md
+        - text: Java API browser
+          itemType: reference
+          url: /java/api/?view=azure-java
+      footerLink:
+          text: See more
+          url: sdk/index.yml
 
     - title: Migrate to Azure
       links:
