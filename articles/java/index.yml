@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Azure for Java cloud developers documentation
+title: Azure for Java developer documentation
 summary: Get started developing apps for the cloud with these tutorials and tools for Java developers.
 brand: azure
 
 metadata:
-  title: Azure for Java cloud developers documentation
+  title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.service: azure-java
   ms.topic: hub-page
