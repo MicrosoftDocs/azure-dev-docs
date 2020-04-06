@@ -612,7 +612,7 @@
     },
     {
       "source_path": "python/index.yml",
-      "redirect_url": "/azure/developer/python",
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python",
       "redirect_document_id": true
     },
     {
