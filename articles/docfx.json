@@ -66,25 +66,25 @@
         }
       },
       "author": {
-        "**/java/**/**.md": "bmitchell287",
-        "**/go/**/*.md": "barbkess",
-        "**/python/**/*.md": "kraigb",
-        "**/ansible/**/*.md": "TomArcherMsft",
-        "**/chef/**/*.md": "TomArcherMsft",
-        "**/jenkins/**/*.md": "TomArcherMsft",
-        "**/terraform/**/*.md": "TomArcherMsft"
+        "java/**/**.md": "bmitchell287",
+        "go/**/*.md": "barbkess",
+        "python/**/*.md": "kraigb",
+        "ansible/**/*.md": "TomArcherMsft",
+        "chef/**/*.md": "TomArcherMsft",
+        "jenkins/**/*.md": "TomArcherMsft",
+        "terraform/**/*.md": "TomArcherMsft"
       },
       "manager": {
         "**/*.md": "barbkess"
       },
       "ms.author": {
-        "**/java/**/**.md": "brendm",
-        "**/go/**/*.md": "barbkess",
-        "**/python/**/*.md": "kraigb",
-        "**/ansible/**/*.md": "tarcher",
-        "**/chef/**/*.md": "tarcher",
-        "**/jenkins/**/*.md": "tarcher",
-        "**/terraform/**/*.md": "tarcher"
+        "java/**/**.md": "brendm",
+        "go/**/*.md": "barbkess",
+        "python/**/*.md": "kraigb",
+        "ansible/**/*.md": "tarcher",
+        "chef/**/*.md": "tarcher",
+        "jenkins/**/*.md": "tarcher",
+        "terraform/**/*.md": "tarcher"
       },
       "ms.devlang": {
         "java/**/**.md": "java",
@@ -92,24 +92,23 @@
         "go/**/**.md": "go"
       },
       "ms.service": {
-        "**/*.md": "azure",
-        "**/java/**/**.md": "azure-java",
-        "**/ansible/**/*.md": "ansible",
-        "**/chef/**/*.md": "chef",
-        "**/jenkins/**/*.md": "jenkins",
-        "**/terraform/**/*.md": "terraform"
+        "java/**/**.md": "azure-java",
+        "ansible/**/*.md": "ansible",
+        "chef/**/*.md": "chef",
+        "jenkins/**/*.md": "jenkins",
+        "terraform/**/*.md": "terraform"
       },
       "titleSuffix": {
-        "**/ansible/**/*.yml" : "Ansible",
-        "**/chef/**/*.yml" : "Chef",
-        "**/jenkins/**/*.yml" : "Jenkins",
-        "**/terraform/**/*.yml" : "Terraform"
+        "ansible/**/*.yml" : "Ansible",
+        "chef/**/*.yml" : "Chef",
+        "jenkins/**/*.yml" : "Jenkins",
+        "terraform/**/*.yml" : "Terraform"
       },
       "ms.topic": {
         "**/includes/**/**.md": "include"
       },
       "ms.prod": {
-        "**/python/**/*.md": "azure-python"
+        "python/**/*.md": "azure-python"
       }
     },
     "template": [],
