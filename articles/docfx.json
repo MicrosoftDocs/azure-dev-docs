@@ -48,13 +48,17 @@
     },
     "fileMetadata": {
       "feedback_product_url" : {
-        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues"
+        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
+        "**/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "**/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
       },
       "product_feedback_url": {
         "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "articles/python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "articles/python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
-      },     
+      },
       "_op_documentIdPathDepotMapping": {
         "python": {
           "depot_name": "MSDN.python-sdk",
@@ -62,19 +66,25 @@
         }
       },
       "author": {
-        "java/**/**.md": "bmitchell287",
-        "python/**/*.md": "kraigb",
-        "go/**/**.md": "barbkess"
-      },
-      "ms.author": {
-        "java/**/**.md": "brendm",
-        "python/**/*.md": "kraigb",
-        "go/**/**.md": "barbkess"
+        "**/java/**/**.md": "bmitchell287",
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb",
+        "**/ansible/**/*.md": "TomArcherMsft",
+        "**/chef/**/*.md": "TomArcherMsft",
+        "**/jenkins/**/*.md": "TomArcherMsft",
+        "**/terraform/**/*.md": "TomArcherMsft"
       },
       "manager": {
-        "java/**/**.md": "barbkess",
-        "python/**/*.md": "barbkess",
-        "go/**/*.md": "barbkess"
+        "**/*.md": "barbkess"
+      },
+      "ms.author": {
+        "**/java/**/**.md": "brendm",
+        "**/go/**/*.md": "barbkess",
+        "**/python/**/*.md": "kraigb",
+        "**/ansible/**/*.md": "tarcher",
+        "**/chef/**/*.md": "tarcher",
+        "**/jenkins/**/*.md": "tarcher",
+        "**/terraform/**/*.md": "tarcher"
       },
       "ms.devlang": {
         "java/**/**.md": "java",
@@ -82,15 +92,24 @@
         "go/**/**.md": "go"
       },
       "ms.service": {
-        "java/**/**.md": "azure-java",
-        "go/**/**.md": "azure",
-        "*.md": "azure"
+        "**/*.md": "azure",
+        "**/java/**/**.md": "azure-java",
+        "**/ansible/**/*.md": "ansible",
+        "**/chef/**/*.md": "chef",
+        "**/jenkins/**/*.md": "jenkins",
+        "**/terraform/**/*.md": "terraform"
+      },
+      "titleSuffix": {
+        "**/ansible/**/*.yml" : "Ansible",
+        "**/chef/**/*.yml" : "Chef",
+        "**/jenkins/**/*.yml" : "Jenkins",
+        "**/terraform/**/*.yml" : "Terraform"
       },
       "ms.topic": {
         "**/includes/**/**.md": "include"
       },
       "ms.prod": {
-        "**/python/**/*.md": "azure-python"        
+        "**/python/**/*.md": "azure-python"
       }
     },
     "template": [],

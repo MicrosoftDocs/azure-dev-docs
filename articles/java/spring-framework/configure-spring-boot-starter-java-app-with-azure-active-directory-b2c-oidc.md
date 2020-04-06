@@ -159,12 +159,12 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
 
 8. Create a folder named *controller* in the Java source folder for your application.
 
-9. Create a new Java file named *HelloController.java* in the *controller* folder and open it in a text editor.
+9. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
 
 10. Enter the following code, then save and close the file:
 
     ```java
-    package sample.aad.controller;
+    package com.example.demo.controller;
     
     import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
     import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -209,12 +209,12 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
 
 11. Create a folder named *security* in the Java source folder for your application.
 
-12. Create a new Java file named *WebSecurityConfig.java* in the *security* folder and open it in a text editor.
+12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
 13. Enter the following code, then save and close the file:
 
     ```java
-    package sample.aad.security;
+    package com.example.demo.security;
     
     import com.microsoft.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
     import org.springframework.security.config.annotation.web.builders.HttpSecurity;

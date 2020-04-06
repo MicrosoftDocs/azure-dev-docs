@@ -1,0 +1,100 @@
+### YamlMime:Landing
+
+title: Ansible on Azure documentation
+summary: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
+
+metadata:
+  title: Ansible on Azure documentation
+  description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
+  services: azure
+  ms.service: ansible
+  ms.topic: landing-page
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 04/03/2020
+
+landingContent:
+  # Card
+  - title: About Ansible on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Ansible on Azure
+            url: overview.md
+      - linkListType: reference
+        links:
+          - text: Releases and features
+            url: module-version-matrix.md  
+          - text: All modules for Azure
+            url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+
+  # Card
+  - title: Install and Configure Ansible
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Ansible solution template to CentOS
+            url: solution-template-deploy.md
+          - text: Install Ansible on Linux virtual machines
+            url: install-on-linux-vm.md
+          - text: Run playbooks in Cloud Shell
+            url: cloudshell-run-playbook.md
+      - linkListType: tutorial
+        links:
+          - text: Configure a dynamic inventory
+            url: dynamic-inventory-configure.md
+      - linkListType: download
+        links:
+          - text: Visual Studio Code extension for Ansible
+            url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+  # Card
+  - title: Manage Virtual Machines
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure Linux virtual machines
+            url: vm-configure.md
+          - text: Manage Linux virtual machines
+            url: vm-manage.md
+          - text: Create a from Shared Image Gallery
+            url: vm-configure-from-azure-shared-image-gallery.md
+
+  # Card
+  - title: Manage Virtual Machine Scale Sets
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure virtual machine scale sets
+            url: vm-scale-set-configure.md
+          - text: Deploy applications to virtual machine scale sets
+            url: vm-scale-set-deploy-app.md
+          - text: Automatically scale virtual machine scale sets
+            url: vm-scale-set-auto-scale.md
+          - text: Update custom image
+            url: vm-scale-set-update-image.md
+          - text: Create a from Shared Image Gallery
+            url: vm-configure-from-azure-shared-image-gallery.md
+
+  # Card
+  - title: Manage Virtual Networks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure peering
+            url: virtual-network-peering-configure.md
+          - text: Configure route tables
+            url: route-table-configure.md
+
+  # Card
+  - title: Manage AKS
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure AKS clusters
+            url: aks-configure-clusters.md
+          - text: Configure Azure CNI networking
+            url: aks-configure-cni-networking.md
+          - text: Configure kubenet networking
+            url: aks-configure-kubenet-networking.md
+          - text: Configure RBAC roles in AKS cluster
+            url: aks-configure-rbac.md  
