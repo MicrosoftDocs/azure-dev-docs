@@ -612,7 +612,7 @@
     },
     {
       "source_path": "python/index.yml",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python",
+      "redirect_url": "/azure/developer/python",
       "redirect_document_id": true
     },
     {
@@ -672,7 +672,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-install.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-install",
+      "redirect_url": "/azure/developer/python/azure-sdk-install",
       "redirect_document_id": true
     },
     {
@@ -697,132 +697,132 @@
     },
     {
       "source_path": "python/quickstarts-app-hosting.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-app-hosting",
+      "redirect_url": "/azure/developer/python/quickstarts-app-hosting",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-cognitive-services.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-cognitive-services",
+      "redirect_url": "/azure/developer/python/quickstarts-cognitive-services",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-data-solutions.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-data-solutions",
+      "redirect_url": "/azure/developer/python/quickstarts-data-solutions",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-machine-learning.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-machine-learning",
+      "redirect_url": "/azure/developer/python/quickstarts-machine-learning",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-messaging.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-messaging",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-security-integration.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-security-integration",
+      "redirect_url": "/azure/developer/python/quickstarts-security-integration",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-01",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-02",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-03",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-04",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-05",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-06.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-06",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-06",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-07.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-07",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-07",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-01",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-02",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-03",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-04",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-05",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-02",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-03",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-04",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-05",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-06.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-06",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-06",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-07.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-07",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-07",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-08.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-08",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-08",
       "redirect_document_id": true
     },
     {
