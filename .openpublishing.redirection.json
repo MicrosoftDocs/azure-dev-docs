@@ -287,7 +287,7 @@
     },
     {
       "source_path": "java/jdk/index.md",
-      "redirect_url": "/azure/developer/java/fundamentals",
+      "redirect_url": "/azure/developer/java/fundamentals/java-jdk-long-term-support.md",
       "redirect_document_id": true
     },
     {

@@ -2,18 +2,18 @@
   href: index.yml
   items:
     - name: Get Started
-      href: /azure/developer/java/sdk/java-sdk-azure-get-started
+      href: java-sdk-azure-get-started.md
     - name: Concepts
       items:
         - name: Patterns & best practices
-          href: /azure/developer/java/sdk/java-sdk-azure-concepts
+          href: java-sdk-azure-concepts.md
     - name: How-to Articles
       items:
         - name: Add Root Certificate
-          href: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+          href: java-sdk-add-certificate-ca-store.md
         - name: Authenticate
-          href: /azure/developer/java/sdk/java-sdk-azure-authenticate
+          href: java-sdk-azure-authenticate.md
         - name: Configure logging
-          href: /azure/developer/java/sdk/java-sdk-azure-log
+          href: java-sdk-azure-log.md
     - name: Reference
       href: /java/api/?view=azure-java

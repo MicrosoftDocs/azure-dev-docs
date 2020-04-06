@@ -3,22 +3,22 @@
   expanded: true
   items:
     - name: Overview
-      href: /azure/developer/java/fundamentals/java-azure-tools
+      href: java-azure-tools.md
     - name: Java Support
       expanded: true
       items: 
       - name: Java Long-Term Support
-        href: /azure/developer/java/fundamentals
+        href: java-jdk-long-term-support.md
       - name: Java JDK Installation
-        href: /azure/developer/java/fundamentals/java-jdk-install
+        href: java-jdk-install.md
       - name: Java Docker images for Azure
-        href: /azure/developer/java/fundamentals/java-jdk-docker-images
+        href: java-jdk-docker-images.md
       - name: Java Flight Recorder and Mission Control
-        href: /azure/developer/java/fundamentals/java-jdk-flight-recorder-and-mission-control
+        href: java-jdk-flight-recorder-and-mission-control.md
       - name: Reasons to move to Java 11
-        href: /azure/developer/java/fundamentals/reasons-to-move-to-java-11
+        href: reasons-to-move-to-java-11.md
       - name: Transition from Java 8 to Java 11
-        href: /azure/developer/java/fundamentals/transition-from-java-8-to-java-11
+        href: transition-from-java-8-to-java-11.md
     - name: Visual Studio Code
       href: https://code.visualstudio.com/docs/languages/java
     - name: IntelliJ IDEA
@@ -41,4 +41,4 @@
 - name: Tutorials
   items:
     - name: Monitoring and logging using Logz.io
-      href: /azure/developer/java/fundamentals/java-get-started-with-logzio
+      href: java-get-started-with-logzio.md
