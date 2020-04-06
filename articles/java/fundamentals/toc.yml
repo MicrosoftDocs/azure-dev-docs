@@ -38,8 +38,8 @@
       href: /azure/jenkins/
     - name: Azure DevOps
       href: /azure/devops/java/
-- name: Tutorials
-  expanded: true
-  items:
-    - name: Monitoring and logging using Logz.io
-      href: java-get-started-with-logzio.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Monitoring and logging using Logz.io
+          href: java-get-started-with-logzio.md
