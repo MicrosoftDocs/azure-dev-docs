@@ -157,7 +157,7 @@ For example:
 </GlobalNamingResources>
 ```
 
-[!INCLUDE[Tomcat datasource additional instructions](includes/migration/tomcat-datasource-additional-instructions.md)]
+[!INCLUDE[Tomcat datasource additional instructions](includes/tomcat-datasource-additional-instructions.md)]
 
 ### Build and push the image
 
