@@ -529,8 +529,8 @@
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
-      {
-      },
+    },
+    {
       "source_path": "javascript/overview.md",
       "redirect_url": "/azure/javascript/",
       "redirect_document_id": false
