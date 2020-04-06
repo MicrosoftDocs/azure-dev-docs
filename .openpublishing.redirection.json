@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "java",
+      "source_path": "java/index.yml",
       "redirect_url": "/azure/developer/java",
       "redirect_document_id": true
     },
