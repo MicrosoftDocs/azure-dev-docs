@@ -27,7 +27,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >
 
-[!INCLUDE [basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
 
 ## Installation and sign-in
 
@@ -120,7 +120,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
    ![Browsing your web app][browse-web-app]
 
-[!INCLUDE [show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
 ## Cleaning up resources
 
@@ -130,7 +130,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
 ## Next steps
 
-[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 

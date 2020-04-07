@@ -142,7 +142,7 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 
 [Azure Toolkit for IntelliJ]: azure-toolkit-for-intellij.md
 [Azure Toolkit for Eclipse]: ../toolkit-for-eclipse/azure-toolkit-for-eclipse.md
-[eclipse-hello-world]: ../toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md
+[eclipse-hello-world]: ../toolkit-for-eclipse/create-hello-world-web-app.md
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/

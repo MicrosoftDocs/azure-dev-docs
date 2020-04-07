@@ -44,7 +44,7 @@ Once associated with the library, the Javadoc content should display within your
 
 ## Next steps
 
-[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 

@@ -28,7 +28,7 @@ When you have completed this tutorial, your application will look similar to the
 
 ![Preview of Hello World app][01]
 
-[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 ## Create a new web app project
 
@@ -193,7 +193,7 @@ When the **Azure Explorer** view is displayed, use follow these steps to start o
 
 ## Next steps
 
-[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 

@@ -16,7 +16,7 @@ ms.topic: article
 
 This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app in a Linux container to Azure by using the Azure Toolkit for Eclipse.
 
-[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 * A [Docker] client.
 
 > [!NOTE]
@@ -99,7 +99,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 For additional resources for Docker, see the official [Docker website][Docker].
 
-[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 

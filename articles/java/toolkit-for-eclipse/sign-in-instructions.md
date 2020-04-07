@@ -17,7 +17,7 @@ The Azure Toolkit for Eclipse provides two methods for signing into your Azure a
 
 [**Sign out**](#sign-out-of-your-azure-account) methods are also provided.
 
-[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 ## Sign in to your Azure account by Device Login
 
@@ -113,7 +113,7 @@ After you have configured your account by preceding steps, you will be automatic
 
 ## Next steps
 
-[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 

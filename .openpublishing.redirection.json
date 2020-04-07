@@ -182,52 +182,52 @@
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/displaying-javadoc-content-for-azure-libraries",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-hello-world-web-app-linux.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-hello-world-web-app-linux",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/hello-world-web-app-linux",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-installation.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-installation",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/installation",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-redis-caches-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-storage-accounts-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-virtual-machines-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-sign-in-instructions.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-sign-in-instructions",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/sign-in-instructions",
       "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-whats-new.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-whats-new",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/whats-new",
       "redirect_document_id": true
     },
     {
