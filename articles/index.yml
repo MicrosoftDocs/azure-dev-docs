@@ -16,10 +16,10 @@ highlightedContent:
   items:
     - title: Azure for Java developers
       itemType: overview
-      url: java
+      url: java/index.yml
     - title: Azure for Python developers
       itemType: overview
-      url: python
+      url: python/index.yml
     - title: Azure for Go developers
       itemType: overview
-      url: go
+      url: go/index.yml
