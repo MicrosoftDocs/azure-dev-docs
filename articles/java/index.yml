@@ -16,10 +16,10 @@ conceptualContent:
 
     - title: Tools, IDEs, and supported JDKs
       links:
-        - text: Java Long-Term Support
+        - text: Java long-term support
           itemType: get-started
           url: fundamentals/java-jdk-long-term-support.md
-        - text: Java JDK Installation
+        - text: Java JDK installation
           itemType: get-started
           url: fundamentals/java-jdk-install.md
         - text: Java Docker images for Azure
