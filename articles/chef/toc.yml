@@ -5,9 +5,9 @@
   - name: About Chef on Azure
     href: ./chef-overview.md
   - name: About Habitat on Azure
-    href: ./chef-habitat-overview.md
+    href: ./habitat-overview.md
   - name: About InSpec on Azure
-    href: ./chef-inspec-overview.md
+    href: ./inspec-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,13 +15,13 @@
       expanded: true
       items:
       - name: Install Chef using the Azure portal
-        href: ./chef-extension-portal.md
+        href: ./client-install-from-azure-portal.md
 - name: Tutorials
   items:
     - name: Chef
       items:
       - name: Create a Windows VM
-        href: ./chef-automation.md
+        href: ./windows-vm-configure.md
 - name: Reference
   items:
     - name: Azure Chef Extension

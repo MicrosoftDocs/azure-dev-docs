@@ -22,9 +22,9 @@ landingContent:
           - text: About Chef on Azure
             url: chef-overview.md
           - text: About Habitat on Azure
-            url: chef-habitat-overview.md
+            url: habitat-overview.md
           - text: About InSpec on Azure
-            url: chef-inspec-overview.md
+            url: inspec-overview.md
       - linkListType: architecture
         links:
           - text: Azure Chef Extension
@@ -36,7 +36,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Install Chef using the Azure portal
-            url: chef-extension-portal.md
+            url: client-install-from-azure-portal.md
       - linkListType: download
         links:
           - text: Chef Azure DevOps Services extension
@@ -50,4 +50,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a Windows VM
-            url: chef-automation.md
+            url: windows-vm-configure.md
