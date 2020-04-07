@@ -16,7 +16,7 @@ ms.topic: article
 
 This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app in a Linux container to Azure by using the Azure Toolkit for IntelliJ.
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 * A [Docker] client.
 
 > [!NOTE]
@@ -28,7 +28,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 ## Create a new web app project
 
-1. Start IntelliJ and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-sign-in-instructions) article.
+1. Start IntelliJ and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/java/intellij/sign-in-instructions) article.
 
 1. Click the **File** menu, then click **New**, and then click **Project**.
    
@@ -123,7 +123,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 For additional resources for Docker, see the official [Docker website][Docker].
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
@@ -138,18 +138,18 @@ For additional resources for Docker, see the official [Docker website][Docker].
 
 <!-- IMG List -->
 
-[add-docker-support]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/add-docker-support.png
-[browsing-to-web-app]:  media/azure-toolkit-for-intellij-hello-world-web-app-linux/browsing-to-web-app.png
-[create-container-registry-01]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/create-container-registry-01.png
-[create-container-registry-02]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/create-container-registry-02.png
-[docker-settings-menu]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/docker-settings-menu.png
-[edit-configuration-dialog]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/edit-configuration-dialog.png
-[edit-configuration-menu]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/edit-configuration-menu.png
-[file-new-project]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/file-new-project.png
-[groupid-and-artifactid]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/groupid-and-artifactid.png
-[maven-archetype-webapp]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/maven-archetype-webapp.png
-[maven-options]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/maven-options.png
-[project-name]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/project-name.png
-[run-on-web-app-for-containers]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/run-on-web-app-for-containers.png
-[run-on-web-app-linux]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/run-on-web-app-linux.png
-[successfully-deployed]: media/azure-toolkit-for-intellij-hello-world-web-app-linux/successfully-deployed.png
+[add-docker-support]: media/hello-world-web-app-linux/add-docker-support.png
+[browsing-to-web-app]:  media/hello-world-web-app-linux/browsing-to-web-app.png
+[create-container-registry-01]: media/hello-world-web-app-linux/create-container-registry-01.png
+[create-container-registry-02]: media/hello-world-web-app-linux/create-container-registry-02.png
+[docker-settings-menu]: media/hello-world-web-app-linux/docker-settings-menu.png
+[edit-configuration-dialog]: media/hello-world-web-app-linux/edit-configuration-dialog.png
+[edit-configuration-menu]: media/hello-world-web-app-linux/edit-configuration-menu.png
+[file-new-project]: media/hello-world-web-app-linux/file-new-project.png
+[groupid-and-artifactid]: media/hello-world-web-app-linux/groupid-and-artifactid.png
+[maven-archetype-webapp]: media/hello-world-web-app-linux/maven-archetype-webapp.png
+[maven-options]: media/hello-world-web-app-linux/maven-options.png
+[project-name]: media/hello-world-web-app-linux/project-name.png
+[run-on-web-app-for-containers]: media/hello-world-web-app-linux/run-on-web-app-for-containers.png
+[run-on-web-app-linux]: media/hello-world-web-app-linux/run-on-web-app-linux.png
+[successfully-deployed]: media/hello-world-web-app-linux/successfully-deployed.png

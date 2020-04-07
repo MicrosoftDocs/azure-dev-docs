@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
 ## Create a storage account in IntelliJ
 
@@ -97,11 +97,11 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
   * [Windows storage-account pricing]
   * [Linux storage-account pricing]
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
-[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 [Introduction to Microsoft Azure Storage]: /azure/storage/storage-introduction
 [About Azure storage accounts]: /azure/storage/storage-create-storage-account
 [Azure storage replication]: /azure/storage/storage-redundancy
@@ -115,12 +115,12 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 
 <!-- IMG List -->
 
-[CS01]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/CS01.png
-[CS02]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/CS02.png
-[CC01]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/CC01.png
-[CC02]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/CC02.png
+[CS01]: media/managing-storage-accounts-using-azure-explorer/CS01.png
+[CS02]: media/managing-storage-accounts-using-azure-explorer/CS02.png
+[CC01]: media/managing-storage-accounts-using-azure-explorer/CC01.png
+[CC02]: media/managing-storage-accounts-using-azure-explorer/CC02.png
 
-[DS01]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/DS01.png
-[DS02]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/DS02.png
-[DC01]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/DC01.png
-[DC02]: media/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer/DC02.png
+[DS01]: media/managing-storage-accounts-using-azure-explorer/DS01.png
+[DS02]: media/managing-storage-accounts-using-azure-explorer/DS02.png
+[DC01]: media/managing-storage-accounts-using-azure-explorer/DC01.png
+[DC02]: media/managing-storage-accounts-using-azure-explorer/DC02.png

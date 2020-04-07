@@ -27,7 +27,7 @@ Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/pl
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >
 
-[!INCLUDE [azure-toolkit-for-intellij-basic-prerequisites](includes/azure-toolkit-for-intellij-basic-prerequisites.md)]
+[!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
 
 ## Installation and Sign-in
 
@@ -39,7 +39,7 @@ Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/pl
 
    ![The IntelliJ Azure Sign In command][I01]
 
-3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](azure-toolkit-for-intellij-sign-in-instructions.md)).
+3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
 
    ![The Azure Sign In window with device login selected][I02]
 
@@ -134,7 +134,7 @@ Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/pl
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
@@ -146,29 +146,29 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
-[Legacy Version]: azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md
-[intelliJ-sign-in-instructions]: azure-toolkit-for-intellij-sign-in-instructions.md
+[Legacy Version]: create-hello-world-web-app-legacy-version.md
+[intelliJ-sign-in-instructions]: sign-in-instructions.md
 
 <!-- IMG List -->
-[marketplace]:media/azure-toolkit-for-intellij-create-hello-world-web-app/marketplace.png
-[file-new-project]: media/azure-toolkit-for-intellij-create-hello-world-web-app/file-new-project.png
-[maven-archetype-webapp]: media/azure-toolkit-for-intellij-create-hello-world-web-app/maven-archetype-webapp.png
-[groupid-and-artifactid]: media/azure-toolkit-for-intellij-create-hello-world-web-app/groupid-and-artifactid.png
-[maven-options]: media/azure-toolkit-for-intellij-create-hello-world-web-app/maven-options.png
-[project-name]: media/azure-toolkit-for-intellij-create-hello-world-web-app/project-name.png
-[open-index-page]: media/azure-toolkit-for-intellij-create-hello-world-web-app/open-index-page.png
-[edit-index-page]: media/azure-toolkit-for-intellij-create-hello-world-web-app/edit-index-page.png
-[deploy-to-azure-menu]: media/azure-toolkit-for-intellij-create-hello-world-web-app/run-on-web-app-menu.png
-[deploy-to-azure-dialog]: media/azure-toolkit-for-intellij-create-hello-world-web-app/run-on-web-app-dialog.png
-[deploy-to-existing-webapp]: media/azure-toolkit-for-intellij-create-hello-world-web-app/deploy-to-existing-webapp.png
-[create-new-web-app-dialog]: media/azure-toolkit-for-intellij-create-hello-world-web-app/create-new-web-app-dialog.png
-[successfully-deployed]: media/azure-toolkit-for-intellij-create-hello-world-web-app/successfully-deployed.png
-[browse-web-app]: media/azure-toolkit-for-intellij-create-hello-world-web-app/browse-web-app.png
-[edit-configuration-menu]: media/azure-toolkit-for-intellij-create-hello-world-web-app/edit-configuration-menu.png
-[edit-configuration-dialog]: media/azure-toolkit-for-intellij-create-hello-world-web-app/edit-configuration-dialog.png
-[clean-resources]: media/azure-toolkit-for-intellij-create-hello-world-web-app/clean-resource.png
-[I01]: media/azure-toolkit-for-intellij-sign-in-instructions/I01.png
-[I02]: media/azure-toolkit-for-intellij-sign-in-instructions/I02.png
-[I03]: media/azure-toolkit-for-intellij-sign-in-instructions/I03.png
-[I04]: media/azure-toolkit-for-intellij-sign-in-instructions/I04.png
-[I05]: media/azure-toolkit-for-intellij-sign-in-instructions/I05.png
+[marketplace]:media/create-hello-world-web-app/marketplace.png
+[file-new-project]: media/create-hello-world-web-app/file-new-project.png
+[maven-archetype-webapp]: media/create-hello-world-web-app/maven-archetype-webapp.png
+[groupid-and-artifactid]: media/create-hello-world-web-app/groupid-and-artifactid.png
+[maven-options]: media/create-hello-world-web-app/maven-options.png
+[project-name]: media/create-hello-world-web-app/project-name.png
+[open-index-page]: media/create-hello-world-web-app/open-index-page.png
+[edit-index-page]: media/create-hello-world-web-app/edit-index-page.png
+[deploy-to-azure-menu]: media/create-hello-world-web-app/run-on-web-app-menu.png
+[deploy-to-azure-dialog]: media/create-hello-world-web-app/run-on-web-app-dialog.png
+[deploy-to-existing-webapp]: media/create-hello-world-web-app/deploy-to-existing-webapp.png
+[create-new-web-app-dialog]: media/create-hello-world-web-app/create-new-web-app-dialog.png
+[successfully-deployed]: media/create-hello-world-web-app/successfully-deployed.png
+[browse-web-app]: media/create-hello-world-web-app/browse-web-app.png
+[edit-configuration-menu]: media/create-hello-world-web-app/edit-configuration-menu.png
+[edit-configuration-dialog]: media/create-hello-world-web-app/edit-configuration-dialog.png
+[clean-resources]: media/create-hello-world-web-app/clean-resource.png
+[I01]: media/sign-in-instructions/I01.png
+[I02]: media/sign-in-instructions/I02.png
+[I03]: media/sign-in-instructions/I03.png
+[I04]: media/sign-in-instructions/I04.png
+[I05]: media/sign-in-instructions/I05.png

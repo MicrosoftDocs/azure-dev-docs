@@ -109,18 +109,18 @@ The Azure Toolkit for IntelliJ requires to the following software components:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
 <!-- IMG List -->
 
-[01a]: media/azure-toolkit-for-intellij-installation/01-intellij-file-settings.png
-[01b]: media/azure-toolkit-for-intellij-installation/01-intellij-configure-dropdown.png
-[02a]: media/azure-toolkit-for-intellij-installation/02-intellij-settings-dialog.png
-[02b]: media/azure-toolkit-for-intellij-installation/02-intellij-plugins-dialog.png
-[03]: media/azure-toolkit-for-intellij-installation/03-intellij-browse-repositories.png
-[04]: media/azure-toolkit-for-intellij-installation/04-install-progress.png
-[05]: media/azure-toolkit-for-intellij-installation/05-restart-intellij.png
-[06]: media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
-[07]: media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
+[01a]: media/installation/01-intellij-file-settings.png
+[01b]: media/installation/01-intellij-configure-dropdown.png
+[02a]: media/installation/02-intellij-settings-dialog.png
+[02b]: media/installation/02-intellij-plugins-dialog.png
+[03]: media/installation/03-intellij-browse-repositories.png
+[04]: media/installation/04-install-progress.png
+[05]: media/installation/05-restart-intellij.png
+[06]: media/installation/06-intellij-settings-dialog.png
+[07]: media/installation/07-restart-intellij.png

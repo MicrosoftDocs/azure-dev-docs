@@ -61,14 +61,14 @@ The Azure Toolkit for IntelliJ - April 2016 release includes the following enhan
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: ../toolkit-for-eclipse/index.yml
-[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: azure-toolkit-for-intellij-sign-in-instructions.md
-[How to publish a Web App as a Docker Container using the Azure Toolkit for IntelliJ]: azure-toolkit-for-intellij-publish-as-docker-container.md
-[Managing Storage Accounts using the Azure Explorer for IntelliJ]: azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
-[Managing Virtual Machines using the Azure Explorer for IntelliJ]: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
+[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: sign-in-instructions.md
+[How to publish a Web App as a Docker Container using the Azure Toolkit for IntelliJ]: publish-as-docker-container.md
+[Managing Storage Accounts using the Azure Explorer for IntelliJ]: managing-storage-accounts-using-azure-explorer.md
+[Managing Virtual Machines using the Azure Explorer for IntelliJ]: managing-virtual-machines-using-azure-explorer.md
 [Azure for Java Developers]: ../java
 [HDInsight Tools Plugin for IntelliJ]: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin

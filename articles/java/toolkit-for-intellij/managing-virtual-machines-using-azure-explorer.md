@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
 ## Create a virtual machine in IntelliJ
 
@@ -139,11 +139,11 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
   * [Windows virtual-machine pricing]
   * [Linux virtual-machine pricing]
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
-[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 [Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
 [Windows virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
@@ -151,20 +151,20 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 
 <!-- IMG List -->
 
-[RE01]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/RE01.png
-[RE02]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/RE02.png
+[RE01]: media/managing-virtual-machines-using-azure-explorer/RE01.png
+[RE02]: media/managing-virtual-machines-using-azure-explorer/RE02.png
 
-[SH01]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/SH01.png
-[SH02]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/SH02.png
+[SH01]: media/managing-virtual-machines-using-azure-explorer/SH01.png
+[SH02]: media/managing-virtual-machines-using-azure-explorer/SH02.png
 
-[DE01]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/DE01.png
-[DE02]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/DE02.png
+[DE01]: media/managing-virtual-machines-using-azure-explorer/DE01.png
+[DE02]: media/managing-virtual-machines-using-azure-explorer/DE02.png
 
-[CR01]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR01.png
-[CR02]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR02.png
-[CR03]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR03.png
-[CR04]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR04.png
-[CR05]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR05.png
-[CR06]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR06.png
-[CR07]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR07.png
-[CR08]: media/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer/CR08.png
+[CR01]: media/managing-virtual-machines-using-azure-explorer/CR01.png
+[CR02]: media/managing-virtual-machines-using-azure-explorer/CR02.png
+[CR03]: media/managing-virtual-machines-using-azure-explorer/CR03.png
+[CR04]: media/managing-virtual-machines-using-azure-explorer/CR04.png
+[CR05]: media/managing-virtual-machines-using-azure-explorer/CR05.png
+[CR06]: media/managing-virtual-machines-using-azure-explorer/CR06.png
+[CR07]: media/managing-virtual-machines-using-azure-explorer/CR07.png
+[CR08]: media/managing-virtual-machines-using-azure-explorer/CR08.png

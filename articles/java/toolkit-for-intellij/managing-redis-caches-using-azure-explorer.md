@@ -12,9 +12,9 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing redis caches in their Azure account from inside the IntelliJ IDE.
 
-[!INCLUDE [azure-toolkit-for-intellij-prerequisites](includes/azure-toolkit-for-intellij-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
 ## Create a Redis Cache by using IntelliJ
 
@@ -84,7 +84,7 @@ For more information about Azure redis caches, configuration settings and pricin
 * [Redis Cache Pricing]
 * [How to configure Azure Redis Cache]
 
-[!INCLUDE [azure-toolkit-for-intellij-additional-resources](includes/azure-toolkit-for-intellij-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
@@ -92,16 +92,16 @@ For more information about Azure redis caches, configuration settings and pricin
 [Azure Redis Cache]: https://azure.microsoft.com/services/cache/
 [Redis Cache Documentation]: /azure/redis-cache
 [How to configure Azure Redis Cache]: /azure/redis-cache/cache-configure
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 
 <!-- IMG List -->
 
-[CR01]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/CR01.png
-[CR02]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/CR02.png
-[CR03]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/CR03.png
+[CR01]: media/managing-redis-caches-using-azure-explorer/CR01.png
+[CR02]: media/managing-redis-caches-using-azure-explorer/CR02.png
+[CR03]: media/managing-redis-caches-using-azure-explorer/CR03.png
 
-[SP01]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/SP01.png
-[SP02]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/SP02.png
+[SP01]: media/managing-redis-caches-using-azure-explorer/SP01.png
+[SP02]: media/managing-redis-caches-using-azure-explorer/SP02.png
 
-[DE01]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/DE01.png
-[DE02]: media/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer/DE02.png
+[DE01]: media/managing-redis-caches-using-azure-explorer/DE01.png
+[DE02]: media/managing-redis-caches-using-azure-explorer/DE02.png

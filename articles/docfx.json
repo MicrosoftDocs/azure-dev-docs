@@ -41,7 +41,7 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
+      "breadcrumb_path": "/azure/developer/breadcrumb/toc.yml",
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs"
