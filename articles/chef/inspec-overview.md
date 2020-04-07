@@ -8,7 +8,7 @@ ms.topic: article
 
 # Use InSpec for compliance automation of your Azure infrastructure
 
-[InSpec](https://www.chef.io/inspec/) is Chef’s open-source language for describing security & compliance rules that can be shared between software engineers, operations, and security engineers. InSpec works by comparing the actual state of your infrastructure with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
+[InSpec](https://www.chef.io/inspec/) is Chef's open-source language for describing security & compliance rules that can be shared between software engineers, operations, and security engineers. InSpec works by comparing the actual state of your infrastructure with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
 
 You can use InSpec to validate the state of resources and resource groups in a subscription, including virtual machines, network configurations, Azure Active Directory settings, and more.
 
@@ -24,11 +24,11 @@ InSpec's agentless detect mode enable you to quickly assess - at scale - your ex
 
 ## Audit Azure virtual machines with Policy Guest Configuration
 
-Azure directly supports use of Chef InSpec definitions to audit Azure virtual machines through [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration). Guest Configuration evaluates a Linux virtual machine to a provided Chef InSpec definition and reports compliance back through Azure Policy. The results of these audits are also reported through Azure Monitor logs; enabling alerts and other automation scenarios.
+Azure directly supports use of Chef InSpec definitions to audit Azure virtual machines through [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). Guest Configuration evaluates a Linux virtual machine to a provided Chef InSpec definition and reports compliance back through Azure Policy. The results of these audits are also reported through Azure Monitor logs; enabling alerts and other automation scenarios.
 
 ## Satisfy audits
 
-With InSpec, you can respond to audit questions at any time - not just at predetermined intervals such as quarterly or yearly. By continuously running InSpec tests, you enter an audit cycle knowing your exact compliance posture and history, rather than being surprised by an auditor’s findings.
+With InSpec, you can respond to audit questions at any time - not just at predetermined intervals such as quarterly or yearly. By continuously running InSpec tests, you enter an audit cycle knowing your exact compliance posture and history, rather than being surprised by an auditor's findings.
 
 ## Next steps
 

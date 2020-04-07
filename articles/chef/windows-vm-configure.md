@@ -59,7 +59,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 Take note of your SubscriptionID, TenantID, ClientID, and Client Secret (the password you set previously in this tutorial) as you will need these values. 
 
-## Setup Chef Server
+## Configure Chef Server
 
 This guide assumes that you'll sign up for Hosted Chef.
 
@@ -68,7 +68,7 @@ If you're not already using a Chef Server, you can:
 * Sign up for [Hosted Chef](https://manage.chef.io/signup), which is the fastest way to get started with Chef.
 * Install a standalone Chef Server on linux-based machine, following the [installation instructions](https://docs.chef.io/install_server.html) from [Chef Docs](https://docs.chef.io/).
 
-### Creating a Hosted Chef account
+### Create a Hosted Chef account
 
 Sign up for a Hosted Chef account [here](https://manage.chef.io/signup).
 
@@ -88,7 +88,7 @@ This starter kit zip file contains your organization configuration files and use
 
 The `organization-validator.pem` must be downloaded separately, because it's a private key and private keys should not be stored on the Chef Server. From [Chef Manage](https://manage.chef.io/), go into the Administration section, and select "Reset Validation Key", which provides a file for you to download separately. Save the file to c:\chef.
 
-### Configuring your Chef workstation
+### Configure a Chef workstation
 
 Extract the content of the `chef-starter.zip` to `c:\chef`.
 
@@ -218,7 +218,7 @@ If everything is configured correctly, you will see a list of available Azure im
 
 Congratulations. Your workstation is set up!
 
-## Creating a cookbook
+## Create a Chef cookbook
 
 A cookbook is used by Chef to define a set of commands that you wish to run on your managed client. Creating a cookbook is straightforward, just use the `chef generate cookbook` command to generate the cookbook template. This cookbook is for a web server that automatically deploys IIS.
 
@@ -248,7 +248,7 @@ Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the follo
 
 Save the file once you are done.
 
-## Creating a template
+## Create a template
 
 In this step, you'll generate a template file to use as the `default.html` page.
 
@@ -258,7 +258,7 @@ Run the following command to generate the template:
 
 Navigate to the `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` file. Edit the file by adding some simple *Hello World* HTML code, and then save the file.
 
-## Upload the cookbook to the Chef Server
+## Upload the Chef cookbook to the Chef Server
 
 In this step, you make a copy of the cookbook that you have created on the local machine and upload it to the Chef Hosted Server. Once uploaded, the cookbook appears under the **Policy** tab.
 
@@ -299,19 +299,19 @@ The command prompt appears next.
 
 ![Knife output when creating virtual machine](./media/windows-vm-configure/knife-output-when-creating-vm.png)
 
-Once the deployment is complete, the public IP address of the new virtual machine is displayed. Paste this value into a web browser to view the new website. When we deployed the virtual machine, we opened port 80 so it should be available externally.   
+Once the deployment is complete, the public IP address of the new virtual machine is displayed. Paste this value into a web browser to view the new website. When we deployed the virtual machine, we opened port 80 so it should be available externally.
 
-![Testing the virtual machine](./media/windows-vm-configure/testing-the-virtual-machine.png)
+![Testing the virtual machine](./media/windows-vm-configure/vm-test.png)
 
 This example uses creative HTML code.
 
-You can also view the node's status [Chef Manage](https://manage.chef.io/). 
+You can also view the node's status [Chef Manage](https://manage.chef.io/).
 
-![Viewing the node status](./media/windows-vm-configure/viewing-node-status.png)
+![Viewing the node status](./media/windows-vm-configure/view-node-status.png)
 
 Don't forget you can also connect through an RDP session from the Azure portal via port 3389.
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Chef on Azure](/azure/chef/)
