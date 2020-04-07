@@ -47,16 +47,16 @@
     },
     "fileMetadata": {
       "feedback_product_url" : {
-        "articles/python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
-        "**/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "**/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "**/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "**/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
+        "python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
+        "ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
       },
       "product_feedback_url": {
-        "articles/python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
-        "articles/python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
-        "articles/python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+        "python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
