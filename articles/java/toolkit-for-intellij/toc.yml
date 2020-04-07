@@ -2,28 +2,28 @@
   href: index.yml
   items:
   - name: Get Started - Web App
-    href: azure-toolkit-for-intellij-create-hello-world-web-app.md
+    href: create-hello-world-web-app.md
   - name: Get Started - Functions
-    href: azure-toolkit-for-intellij-quickstart-functions.md
+    href: quickstart-functions.md
   - name: Tutorials
     expanded: true
     items:
       - name: Deploy web app to a Linux container
-        href: azure-toolkit-for-intellij-hello-world-web-app-linux.md
+        href: hello-world-web-app-linux.md
   - name: How-To
     expanded: true
     items: 
     - name: Sign in to your Azure account
-      href: azure-toolkit-for-intellij-sign-in-instructions.md
+      href: sign-in-instructions.md
     - name: Manage Azure resources
       expanded: true
       items:
        - name: Virtual machines
-         href: azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
+         href: managing-virtual-machines-using-azure-explorer.md
        - name: Storage accounts
-         href: azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+         href: managing-storage-accounts-using-azure-explorer.md
        - name: Azure Redis Cache
-         href: azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md
+         href: managing-redis-caches-using-azure-explorer.md
   - name: Release notes
     href: https://github.com/Microsoft/azure-tools-for-java/releases
   - name: Marketplace
