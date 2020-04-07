@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Chef on Azure
-    href: ./chef-overview.md
+    href: ./overview.md
   - name: About Habitat on Azure
     href: ./habitat-overview.md
   - name: About InSpec on Azure

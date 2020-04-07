@@ -20,7 +20,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: About Chef on Azure
-            url: chef-overview.md
+            url: overview.md
           - text: About Habitat on Azure
             url: habitat-overview.md
           - text: About InSpec on Azure
