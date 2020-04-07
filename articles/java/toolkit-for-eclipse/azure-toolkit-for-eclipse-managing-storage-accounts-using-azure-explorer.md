@@ -12,15 +12,15 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the Eclipse integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-eclipse-prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
 ## Create a storage account in Eclipse
 
 To create a storage account by using the Azure Explorer, do the following:
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/sign-in-instructions).
 
 1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
 
@@ -97,7 +97,7 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
   * [Windows storage-account pricing]
   * [Linux storage-account pricing]
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 
@@ -114,12 +114,12 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 
 <!-- IMG List -->
 
-[CS01]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/CS01.png
-[CS02]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/CS02.png
-[CC01]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/CC01.png
-[CC02]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/CC02.png
+[CS01]: media/managing-storage-accounts-using-azure-explorer/CS01.png
+[CS02]: media/managing-storage-accounts-using-azure-explorer/CS02.png
+[CC01]: media/managing-storage-accounts-using-azure-explorer/CC01.png
+[CC02]: media/managing-storage-accounts-using-azure-explorer/CC02.png
 
-[DS01]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/DS01.png
-[DS02]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/DS02.png
-[DC01]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/DC01.png
-[DC02]: media/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer/DC02.png
+[DS01]: media/managing-storage-accounts-using-azure-explorer/DS01.png
+[DS02]: media/managing-storage-accounts-using-azure-explorer/DS02.png
+[DC01]: media/managing-storage-accounts-using-azure-explorer/DC01.png
+[DC02]: media/managing-storage-accounts-using-azure-explorer/DC02.png

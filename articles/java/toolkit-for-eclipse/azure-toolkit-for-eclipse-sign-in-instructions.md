@@ -17,7 +17,7 @@ The Azure Toolkit for Eclipse provides two methods for signing into your Azure a
 
 [**Sign out**](#sign-out-of-your-azure-account) methods are also provided.
 
-[!INCLUDE [azure-toolkit-for-eclipse-prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## Sign in to your Azure account by Device Login
 
@@ -113,28 +113,28 @@ After you have configured your account by preceding steps, you will be automatic
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 
 
 <!-- IMG List -->
 
-[I01]: media/azure-toolkit-for-eclipse-sign-in-instructions/I01.png
-[I02]: media/azure-toolkit-for-eclipse-sign-in-instructions/I02.png
-[I03]: media/azure-toolkit-for-eclipse-sign-in-instructions/I03.png
-[I04]: media/azure-toolkit-for-eclipse-sign-in-instructions/I04.png
-[I05]: media/azure-toolkit-for-eclipse-sign-in-instructions/I05.png
+[I01]: media/sign-in-instructions/I01.png
+[I02]: media/sign-in-instructions/I02.png
+[I03]: media/sign-in-instructions/I03.png
+[I04]: media/sign-in-instructions/I04.png
+[I05]: media/sign-in-instructions/I05.png
 
-[A01]: media/azure-toolkit-for-eclipse-sign-in-instructions/A01.png
-[A02]: media/azure-toolkit-for-eclipse-sign-in-instructions/A02.png
-[A03]: media/azure-toolkit-for-eclipse-sign-in-instructions/A03.png
-[A04]: media/azure-toolkit-for-eclipse-sign-in-instructions/A04.png
-[A05]: media/azure-toolkit-for-eclipse-sign-in-instructions/A05.png
-[A06]: media/azure-toolkit-for-eclipse-sign-in-instructions/A06.png
-[A07]: media/azure-toolkit-for-eclipse-sign-in-instructions/A07.png
-[A08]: media/azure-toolkit-for-eclipse-sign-in-instructions/A08.png
+[A01]: media/sign-in-instructions/A01.png
+[A02]: media/sign-in-instructions/A02.png
+[A03]: media/sign-in-instructions/A03.png
+[A04]: media/sign-in-instructions/A04.png
+[A05]: media/sign-in-instructions/A05.png
+[A06]: media/sign-in-instructions/A06.png
+[A07]: media/sign-in-instructions/A07.png
+[A08]: media/sign-in-instructions/A08.png
 
-[L01]: media/azure-toolkit-for-eclipse-sign-in-instructions/L01.png
-[L02]: media/azure-toolkit-for-eclipse-sign-in-instructions/L02.png
-[L03]: media/azure-toolkit-for-eclipse-sign-in-instructions/L03.png
+[L01]: media/sign-in-instructions/L01.png
+[L02]: media/sign-in-instructions/L02.png
+[L03]: media/sign-in-instructions/L03.png

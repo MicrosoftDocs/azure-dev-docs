@@ -301,17 +301,17 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 
 [Azure Toolkit for IntelliJ]: ../toolkit-for-intellij/index.yml
-[Installing the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for Eclipse]: installation.md
 
-[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: azure-toolkit-for-eclipse-sign-in-instructions.md
-[How to publish a Web App as a Docker Container using the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-publish-as-docker-container.md
-[Managing Storage Accounts using the Azure Explorer for Eclipse]: ./azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
-[Managing Virtual Machines using the Azure Explorer for Eclipse]: ./azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
+[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: sign-in-instructions.md
+[How to publish a Web App as a Docker Container using the Azure Toolkit for Eclipse]: ./publish-as-docker-container.md
+[Managing Storage Accounts using the Azure Explorer for Eclipse]: ./managing-storage-accounts-using-azure-explorer.md
+[Managing Virtual Machines using the Azure Explorer for Eclipse]: ./managing-virtual-machines-using-azure-explorer.md
 
 <!-- URL List -->
 
@@ -338,13 +338,13 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 <!-- IMG List -->
 
-[ic710876]: media/azure-toolkit-for-eclipse-whats-new/ic710876.png
-[ic710877]: media/azure-toolkit-for-eclipse-whats-new/ic710877.png
-[ic710879]: media/azure-toolkit-for-eclipse-whats-new/ic710879.png
-[ic710880]: media/azure-toolkit-for-eclipse-whats-new/ic710880.png
-[ic710881]: media/azure-toolkit-for-eclipse-whats-new/ic710881.png
-[ic710876]: media/azure-toolkit-for-eclipse-whats-new/ic710876.png
-[ic710882]: media/azure-toolkit-for-eclipse-whats-new/ic710882.png
-[ic710883]: media/azure-toolkit-for-eclipse-whats-new/ic710883.png
+[ic710876]: media/whats-new/ic710876.png
+[ic710877]: media/whats-new/ic710877.png
+[ic710879]: media/whats-new/ic710879.png
+[ic710880]: media/whats-new/ic710880.png
+[ic710881]: media/whats-new/ic710881.png
+[ic710876]: media/whats-new/ic710876.png
+[ic710882]: media/whats-new/ic710882.png
+[ic710883]: media/whats-new/ic710883.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->

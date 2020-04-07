@@ -27,18 +27,18 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >
 
-[!INCLUDE [azure-toolkit-for-eclipse-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
 
 ## Installation and sign-in
 
-1. Drag the following button to your running Eclipse workspace to install the Azure Toolkit for Eclipse plugin ([other installation options](azure-toolkit-for-eclipse-installation.md)).
+1. Drag the following button to your running Eclipse workspace to install the Azure Toolkit for Eclipse plugin ([other installation options](installation.md)).
 
     [![Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client](https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png)](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1919278 "Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client")
 
 1. To sign in to your Azure account, click **Tools**, then click **Azure**, and then click **Sign In**.
    ![Eclipse Menu for Azure Sign In][I01]
 
-1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign-in options](azure-toolkit-for-eclipse-sign-in-instructions.md)).
+1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign-in options](sign-in-instructions.md)).
 
    ![The Azure Sign In window with device login selected][I02]
 
@@ -120,7 +120,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
    ![Browsing your web app][browse-web-app]
 
-[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
 ## Cleaning up resources
 
@@ -130,7 +130,7 @@ Using open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/c
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
@@ -142,26 +142,26 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
-[Legacy Version]: azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md
+[Legacy Version]: create-hello-world-web-app-legacy-version.md
 
 <!-- IMG List -->
-[I01]: media/azure-toolkit-for-eclipse-sign-in-instructions/I01.png
-[I02]: media/azure-toolkit-for-eclipse-sign-in-instructions/I02.png
-[I03]: media/azure-toolkit-for-eclipse-sign-in-instructions/I03.png
-[I04]: media/azure-toolkit-for-eclipse-sign-in-instructions/I04.png
-[I05]: media/azure-toolkit-for-eclipse-sign-in-instructions/I05.png
+[I01]: media/sign-in-instructions/I01.png
+[I02]: media/sign-in-instructions/I02.png
+[I03]: media/sign-in-instructions/I03.png
+[I04]: media/sign-in-instructions/I04.png
+[I05]: media/sign-in-instructions/I05.png
 
-[browse-web-app]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/browse-web-app.png
-[file-new-dynamic-web-project]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/file-new-dynamic-web-project.png
-[dynamic-web-project-properties]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/dynamic-web-project-properties.png
-[create-new-jsp-file]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-new-jsp-file.png
-[new-jsp-file-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/new-jsp-file-dialog.png
-[select-jsp-template]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-jsp-template.png
-[publish-as-azure-web-app]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-as-azure-web-app.png
-[deploy-web-app-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-web-app-dialog.png
-[select-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/select-app-service.png
-[create-app-service-dialog]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service-dialog.png
-[publish-status]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/publish-status.png
-[create-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/create-app-service.png
-[deploy-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/deploy-app-service.png
-[manage-app-service]: media/azure-toolkit-for-eclipse-create-hello-world-web-app/manage-app-service.png
+[browse-web-app]: media/create-hello-world-web-app/browse-web-app.png
+[file-new-dynamic-web-project]: media/create-hello-world-web-app/file-new-dynamic-web-project.png
+[dynamic-web-project-properties]: media/create-hello-world-web-app/dynamic-web-project-properties.png
+[create-new-jsp-file]: media/create-hello-world-web-app/create-new-jsp-file.png
+[new-jsp-file-dialog]: media/create-hello-world-web-app/new-jsp-file-dialog.png
+[select-jsp-template]: media/create-hello-world-web-app/select-jsp-template.png
+[publish-as-azure-web-app]: media/create-hello-world-web-app/publish-as-azure-web-app.png
+[deploy-web-app-dialog]: media/create-hello-world-web-app/deploy-web-app-dialog.png
+[select-app-service]: media/create-hello-world-web-app/select-app-service.png
+[create-app-service-dialog]: media/create-hello-world-web-app/create-app-service-dialog.png
+[publish-status]: media/create-hello-world-web-app/publish-status.png
+[create-app-service]: media/create-hello-world-web-app/create-app-service.png
+[deploy-app-service]: media/create-hello-world-web-app/deploy-app-service.png
+[manage-app-service]: media/create-hello-world-web-app/manage-app-service.png

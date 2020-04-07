@@ -23,7 +23,7 @@ There are two ways to install Azure Toolkit for Eclipse:
 > <https://github.com/microsoft/azure-tools-for-java> 
 > 
 
-[!INCLUDE [azure-toolkit-for-eclipse-basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
+[!INCLUDE [basic-prerequisites](includes/azure-toolkit-for-eclipse-basic-prerequisites.md)]
 
 ## Eclipse marketplace
 
@@ -33,7 +33,7 @@ There are two ways to install Azure Toolkit for Eclipse:
 
 2. Otherwise, it is also possible to search and install the **Azure Toolkit for Eclipse plugin** at **Help/Eclipse Marketplace**.
 
-    ![Marketplace](media/azure-toolkit-for-eclipse-installation/marketplace.png)
+    ![Marketplace](media/installation/marketplace.png)
 
 ## Install new software
 
@@ -81,16 +81,16 @@ There are two ways to install Azure Toolkit for Eclipse:
 
 ## Next steps
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
 <!-- IMG List -->
-[01]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-01.png
-[02]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-02.png
-[03]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-03.png
-[04]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-04.png
-[05]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
-[06]: media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
+[01]: media/installation/eclipse-installation-01.png
+[02]: media/installation/eclipse-installation-02.png
+[03]: media/installation/eclipse-installation-03.png
+[04]: media/installation/eclipse-installation-04.png
+[05]: media/installation/eclipse-installation-05.png
+[06]: media/installation/eclipse-installation-06.png

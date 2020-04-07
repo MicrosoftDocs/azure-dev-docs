@@ -12,15 +12,15 @@ ms.topic: article
 
 The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the Eclipse integrated development environment (IDE).
 
-[!INCLUDE [azure-toolkit-for-eclipse-prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-[!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
+[!INCLUDE [show-azure-explorer](includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
 ## Create a virtual machine in Eclipse
 
 To create a virtual machine by using the Azure Explorer, do the following:
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/sign-in-instructions).
 
 2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**.
 
@@ -139,7 +139,7 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
   * [Windows virtual-machine pricing]
   * [Linux virtual-machine pricing]
 
-[!INCLUDE [azure-toolkit-for-eclipse-additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
+[!INCLUDE [additional-resources](includes/azure-toolkit-for-eclipse-additional-resources.md)]
 
 <!-- URL List -->
 
@@ -150,20 +150,20 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 
 <!-- IMG List -->
 
-[RE01]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/RE01.png
-[RE02]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/RE02.png
+[RE01]: media/managing-virtual-machines-using-azure-explorer/RE01.png
+[RE02]: media/managing-virtual-machines-using-azure-explorer/RE02.png
 
-[SH01]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/SH01.png
-[SH02]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/SH02.png
+[SH01]: media/managing-virtual-machines-using-azure-explorer/SH01.png
+[SH02]: media/managing-virtual-machines-using-azure-explorer/SH02.png
 
-[DE01]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/DE01.png
-[DE02]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/DE02.png
+[DE01]: media/managing-virtual-machines-using-azure-explorer/DE01.png
+[DE02]: media/managing-virtual-machines-using-azure-explorer/DE02.png
 
-[CR01]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR01.png
-[CR02]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR02.png
-[CR03]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR03.png
-[CR04]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR04.png
-[CR05]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR05.png
-[CR06]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR06.png
-[CR07]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR07.png
-[CR08]: media/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer/CR08.png
+[CR01]: media/managing-virtual-machines-using-azure-explorer/CR01.png
+[CR02]: media/managing-virtual-machines-using-azure-explorer/CR02.png
+[CR03]: media/managing-virtual-machines-using-azure-explorer/CR03.png
+[CR04]: media/managing-virtual-machines-using-azure-explorer/CR04.png
+[CR05]: media/managing-virtual-machines-using-azure-explorer/CR05.png
+[CR06]: media/managing-virtual-machines-using-azure-explorer/CR06.png
+[CR07]: media/managing-virtual-machines-using-azure-explorer/CR07.png
+[CR08]: media/managing-virtual-machines-using-azure-explorer/CR08.png
