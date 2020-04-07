@@ -65,7 +65,9 @@
         }
       },
       "author": {
-        "java/**/**.md": "bmitchell287",
+        "**/*.md": "barbkess",
+        "**/*.yml": "barbkess",
+        "java/**/*.md": "bmitchell287",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "TomArcherMsft",
@@ -74,10 +76,13 @@
         "terraform/**/*.md": "TomArcherMsft"
       },
       "manager": {
-        "**/*.md": "barbkess"
+        "**/*.md": "barbkess",
+        "**/*.yml": "barbkess"
       },
       "ms.author": {
-        "java/**/**.md": "brendm",
+        "**/*.md": "barbkess",
+        "**/*.yml": "barbkess",
+        "java/**/*.md": "brendm",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "tarcher",
@@ -86,13 +91,13 @@
         "terraform/**/*.md": "tarcher"
       },
       "ms.devlang": {
-        "java/**/**.md": "java",
+        "java/**/*.md": "java",
         "python/**/*.md": "python",
-        "go/**/**.md": "go"
+        "go/**/*.md": "go"
       },
       "ms.service": {
-        "go/**/**.md": "azure",
-        "java/**/**.md": "azure-java",
+        "go/**/*.md": "azure",
+        "java/**/*.md": "azure-java",
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
@@ -105,7 +110,7 @@
         "terraform/**/*.yml" : "Terraform"
       },
       "ms.topic": {
-        "**/includes/**/**.md": "include"
+        "**/includes/**/*.md": "include"
       },
       "ms.prod": {
         "python/**/*.md": "azure-python"

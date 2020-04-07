@@ -1,11 +1,25 @@
----
-title: index
-author: barbkess
-ms.author: barbkess
-manager: carmonm
-ms.service: azure
-ms.topic: article
-ms.date: 01/28/2020
----
+### YamlMime:Hub
 
-# Welcome to azure-dev-docs!
+title: Azure for developers
+summary: Get started developing apps for the cloud.
+brand: azure
+
+metadata:
+  title: Azure for developers
+  description: Get started developing apps for the cloud.
+  ms.service: azure
+  ms.topic: hub-page
+  ms.date: 04/07/2020
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    - title: Azure for Java developers
+      itemType: overview
+      url: java
+    - title: Azure for Python developers
+      itemType: overview
+      url: python
+    - title: Azure for Go developers
+      itemType: overview
+      url: go
