@@ -26,7 +26,7 @@
       topicHref: /azure/developer/java/sdk/index
     - name: Spring on Azure integration
       tocHref: /azure/developer/spring-framework
-      topicHref: /azure/java/spring-framework/index
+      topicHref: /azure/developer/java/spring-framework/index
     - name: Azure Toolkit for Eclipse
       tocHref: /azure/developer/java/toolkit-for-eclipse
       topicHref: /azure/developer/java/toolkit-for-eclipse/index
