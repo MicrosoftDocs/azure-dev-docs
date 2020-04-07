@@ -44,7 +44,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 1. On the **Basics** tab, specify the following values, and then select **OK**.
 
    - **Name** - Enter a name for the new virtual machine.
-   - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [Select a disk type](http://docs.microsoft.com/azure/virtual-machines/windows/disks-types).
+   - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types).
    - **User name** - Enter a user name that is granted administrator privileges on the virtual machine.
    - **Authentication type** - Select **Password**. You can also select **SSH public key**, and supply an SSH public key value. For purposes of this demo (and in the screenshots), **Password** is selected.
    - **Password** and **Confirm password** - Enter a password for the user.
@@ -100,4 +100,4 @@ When the process of creating and deploying the virtual machine with the Chef Ext
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Create a Windows virtual machine on Azure using Chef](chef-automation.md)
+> [Create a Windows virtual machine on Azure using Chef](windows-vm-configure.md)

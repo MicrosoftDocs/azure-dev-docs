@@ -34,4 +34,4 @@ Supported by Chef, the [Chef Automate Azure Marketplace solution](https://azurem
 
 ## Next steps
 
-* [Create a Windows virtual machine on Azure using Chef](chef-automation.md)
+* [Create a Windows virtual machine on Azure using Chef](windows-vm-configure.md)
