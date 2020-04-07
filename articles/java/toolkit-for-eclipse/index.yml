@@ -18,7 +18,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Hello World web app for Azure App Service
-            url: azure-toolkit-for-eclipse-create-hello-world-web-app.md
+            url: create-hello-world-web-app.md
   - title: Step-by-step tutorials
     linkLists:
       - linkListType: tutorial
@@ -30,11 +30,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Redis caches
-            url: azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md
+            url: managing-redis-caches-using-azure-explorer.md
           - text: Storage accounts
-            url: azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
+            url: managing-storage-accounts-using-azure-explorer.md
           - text: Virtual machines
-            url: azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
+            url: managing-virtual-machines-using-azure-explorer.md
   - title: Supported JDKs
     linkLists:
       - linkListType: download
