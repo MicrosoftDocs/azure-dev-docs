@@ -23,7 +23,7 @@ Before you begin with this article, [review the basic concepts of Chef](https://
 
 The following diagram shows the high-level Chef architecture.
 
-![Chef architecture](media/chef-automation/chef-architecure.png)
+![Chef architecture](media/windows-vm-configure/chef-architecure.png)
 
 Chef has three main architectural components: 
 - Chef Server - The management point and there are two options for the Chef Server: a hosted solution or an on-premises solution.
@@ -74,14 +74,14 @@ Sign up for a Hosted Chef account [here](https://manage.chef.io/signup).
 
 During the sign-up process, you will be asked to create a new organization.
 
-![Create organization window](media/chef-automation/create-organization.png)
+![Create organization window](media/windows-vm-configure/create-organization.png)
 
 Once your organization is created, download the starter kit.
 
-![Configuring Chef](media/chef-automation/configure-chef.png)
+![Configuring Chef](media/windows-vm-configure/configure-chef.png)
 
 > [!NOTE]
-> If you receive a prompt warning you that your keys will be reset, it’s okay to proceed as we have no existing infrastructure configured as yet.
+> If you receive a prompt warning you that your keys will be reset, it's okay to proceed as we have no existing infrastructure configured as yet.
 >
 
 This starter kit zip file contains your organization configuration files and user key in the `.chef` directory.
@@ -147,7 +147,7 @@ These lines will ensure that Knife references the cookbooks directory under `c:\
 
 Your `knife.rb` file should now look similar to the following example:
 
-![Knife file example](./media/chef-automation/knife-file-example.png)
+![Knife file example](./media/windows-vm-configure/knife-file-example.png)
 
 ```rb
 current_dir = File.dirname(__FILE__)
@@ -206,9 +206,9 @@ Run the following command.
 >
 >
 
-It’s likely that a number of dependencies will also be installed at the same time.
+It's likely that a number of dependencies will also be installed at the same time.
 
-![Output from installing knife-azure](./media/chef-automation/install-knife-azure.png)
+![Output from installing knife-azure](./media/windows-vm-configure/install-knife-azure.png)
 
 To ensure everything is configured correctly, run the following command.
 
@@ -264,7 +264,7 @@ In this step, you make a copy of the cookbook that you have created on the local
 
     knife cookbook upload webserver
 
-![Results of installing cookbook to the Chef Server](./media/chef-automation/cookbook-installation-under-policy-tab.png)
+![Results of installing cookbook to the Chef Server](./media/windows-vm-configure/cookbook-installation-under-policy-tab.png)
 
 ## Deploy a virtual machine with Knife Azure
 
@@ -293,23 +293,23 @@ The `knife` command example creates a *Standard_DS2_v2* virtual machine with Win
 
 After running the command, browse to the Azure portal to see your machine begin to provision.
 
-![Virtual machine being provisioned](./media/chef-automation/virtual-machine-being-provisioned.png)
+![Virtual machine being provisioned](./media/windows-vm-configure/virtual-machine-being-provisioned.png)
 
 The command prompt appears next.
 
-![Knife output when creating virtual machine](./media/chef-automation/knife-output-when-creating-vm.png)
+![Knife output when creating virtual machine](./media/windows-vm-configure/knife-output-when-creating-vm.png)
 
 Once the deployment is complete, the public IP address of the new virtual machine is displayed. Paste this value into a web browser to view the new website. When we deployed the virtual machine, we opened port 80 so it should be available externally.   
 
-![Testing the virtual machine](./media/chef-automation/testing-the-virtual-machine.png)
+![Testing the virtual machine](./media/windows-vm-configure/testing-the-virtual-machine.png)
 
 This example uses creative HTML code.
 
 You can also view the node's status [Chef Manage](https://manage.chef.io/). 
 
-![Viewing the node status](./media/chef-automation/viewing-node-status.png)
+![Viewing the node status](./media/windows-vm-configure/viewing-node-status.png)
 
-Don’t forget you can also connect through an RDP session from the Azure portal via port 3389.
+Don't forget you can also connect through an RDP session from the Azure portal via port 3389.
 
 ## Next steps
 

@@ -27,17 +27,17 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 1. On the **Virtual machines** tab, select **Add**.
 
-    ![Add a new virtual machine in the Azure portal](./media/chef-extension-portal/add-vm.png)
+    ![Add a new virtual machine in the Azure portal](./media/client-install-from-azure-portal/add-vm.png)
 
 1. On the **Compute** tab, select the desired operating system. For this demo, **Ubuntu Server** is selected.
 
 1. On the **Ubuntu Server** tab, select **Ubuntu Server 16.04 LTS**.
 
-    ![When creating an Ubuntu virtual machine, specify the version you need](./media/chef-extension-portal/ubuntu-server-version.png)
+    ![When creating an Ubuntu virtual machine, specify the version you need](./media/client-install-from-azure-portal/ubuntu-server-version.png)
 
 1. On the **Ubuntu Server 16.04 LTS** tab, select **Create**.
 
-    ![Ubuntu provides additional information about their product](./media/chef-extension-portal/create-vm.png)
+    ![Ubuntu provides additional information about their product](./media/client-install-from-azure-portal/create-vm.png)
 
 1. On the **Create virtual machine** tab, select **Basics**.
 
@@ -53,21 +53,21 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
    - **Resource group** - Enter a name for your resource group.
    - **Location** - Select **East US**.
 
-     ![Basics tab for creating a virtual machine](./media/chef-extension-portal/add-vm-basics.png)
+     ![Basics tab for creating a virtual machine](./media/client-install-from-azure-portal/add-vm-basics.png)
 
 1. On the **Choose a size** tab, select the size for the virtual machine, and then select **Select**.
 
 1. On the **Settings** tab, most of the values will be populated for you based on the values you selected in the previous tabs. Select **Extensions**.
 
-     ![Extensions are added to virtual machines via the Settings tab](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Extensions are added to virtual machines via the Settings tab](./media/client-install-from-azure-portal/add-vm-select-extensions.png)
 
 1. On the **Extensions** tab, select **Add extension**.
 
-     ![Select Add extension to add an extension to a virtual machine](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Select Add extension to add an extension to a virtual machine](./media/client-install-from-azure-portal/add-vm-add-extension.png)
 
 1. On the **New resource** tab, select **Linux Chef Extension (1.2.3)**.
 
-     ![Chef has extensions for Linux and Windows virtual machines](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef has extensions for Linux and Windows virtual machines](./media/client-install-from-azure-portal/select-linux-chef-extension.png)
 
 1. On the **Linux Chef Extension** tab, select **Create**.
 
@@ -85,7 +85,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
     - **Encrypted data bag secret** - Select a file containing the secret for the encrypted data bag this machine needs to access. This value can be left blank.
     - **Chef Server SSL certificate** - Select the SSL certificate assigned to your Chef Server. This value can be left blank.
 
-      ![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/install-extension.png)
+      ![Installing the Chef Server on a Linux virtual machine](./media/client-install-from-azure-portal/install-extension.png)
 
 1. When the **Extensions** tab displays, select **OK**.
 
@@ -95,7 +95,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 When the process of creating and deploying the virtual machine with the Chef Extension is complete, a notification indicates the success or failure of the operation. In addition, the resource page for the new virtual machine automatically opens in the Azure portal once it's been created.
 
-![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/resource-created.png)
+![Installing the Chef Server on a Linux virtual machine](./media/client-install-from-azure-portal/resource-created.png)
 
 ## Next steps
 
