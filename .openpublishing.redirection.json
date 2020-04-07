@@ -237,47 +237,47 @@
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-hello-world-web-app-linux",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/hello-world-web-app-linux",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-installation.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-installation",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/installation",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-redis-caches-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-storage-accounts-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-virtual-machines-using-azure-explorer",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-sign-in-instructions.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-sign-in-instructions",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/sign-in-instructions",
       "redirect_document_id": true
     },
     {
       "source_path": "java/intellij/azure-toolkit-for-intellij-whats-new.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/azure-toolkit-for-intellij-whats-new",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/whats-new",
       "redirect_document_id": true
     },
     {
