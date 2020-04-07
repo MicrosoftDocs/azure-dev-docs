@@ -6,7 +6,7 @@ ms.date: 2/28/2020
 
 ### Recommendations
 
-* Consider adding a DNS name to the IP address allocated to your ingress controller or application load balancer. For more information, see the [Configure a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) section of [Create an ingress controller with a static public IP address in AKS](/azure/aks/ingress-static-ip).
+* Consider adding a DNS name to the IP address allocated to your ingress controller or application load balancer. For more information, see the [Configure a DNS name](/azure/aks/ingress-static-ip#create-an-ingress-controller) section of [Create an ingress controller with a static public IP address in AKS](/azure/aks/ingress-static-ip).
 
 * Consider adding [HELM charts](https://helm.sh/docs/topics/charts/) for your application. A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
 

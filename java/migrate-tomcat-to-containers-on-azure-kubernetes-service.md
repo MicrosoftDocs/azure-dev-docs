@@ -225,7 +225,7 @@ To execute scheduled jobs on your AKS cluster, define [Cron Jobs](https://kubern
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
-* Consider [adding a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) to the IP address allocated to your ingress controller or application load balancer.
+* Consider [adding a DNS name](/azure/aks/ingress-static-ip#create-an-ingress-controller) to the IP address allocated to your ingress controller or application load balancer.
 
 * Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
 
