@@ -23,7 +23,7 @@ In this step, you create an Azure Storage account, which serves as a simple file
 
 1. At the prompt, "Enter the name of the new storage account", enter a globally unique name for your Storage Account and press Enter. Valid characters for an app name are 'a-z' and '0-9'.
 
-    > [!TIP]
+    > [!NOTE]
     > This creates a storage account and a resource group with the same name. It automatically puts the storage account in West US. If you want to specify the resource group and location, select the "Create Storage Account (Advanced)" option from the context menu.
 
 1. While the Storage account is created, progress appears in **Output** panel of VS Code:
@@ -34,7 +34,8 @@ In this step, you create an Azure Storage account, which serves as a simple file
 
     ![Create Storage Account](media/static-website/static-website-enabled-notification.png)
 
-    We use *index.html* for the error document because modern single page apps (SPAs) such as React, Angular, and Vue, handle route errors in the client. For classic static websites, use a custom 404 error page.
+    > [!IMPORTANT]
+    > We use *index.html* for the error document because modern single page apps (SPAs) such as React, Angular, and Vue, handle route errors in the client. For classic static websites, use a custom 404 error page.
 
 > [!div class="nextstepaction"]
 > [I created a storage container](tutorial-vscode-static-website-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=create-storage)
