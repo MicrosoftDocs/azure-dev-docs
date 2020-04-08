@@ -37,3 +37,6 @@
       - name: Azure Toolkit for IntelliJ
         tocHref: /azure/developer/java/toolkit-for-intellij
         topicHref: /azure/developer/java/toolkit-for-intellij/index
+      - name: Azure for Java quickstarts
+        tocHref: /azure/developer/java/quickstarts
+        topicHref: /azure/developer/java/quickstarts/index

@@ -1,0 +1,103 @@
+### YamlMime:Landing
+
+title: Azure for Java quickstarts
+
+metadata:
+  title: Azure for Java quickstarts
+  description: Use these quickstarts to get started developing Java apps for the cloud.
+  ms.topic: landing-page
+  ms.date: 04/08/2020
+
+landingContent:
+  - title: Deploy Web Apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Windows and Eclipse 
+          url: /azure/app-service/app-service-web-get-started-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Linux and Tomcat
+          url: /azure/app-service/containers/quickstart-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Linux and Java SE
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Serverless functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and publish a function to Azure
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/developer/breadcrumb/toc.json
+  - title: Storage
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Storage Blobs
+          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Redis Cache
+          url: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Databases
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: SQL Database
+          url: /azure/sql-database/sql-database-connect-query-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: MySQL
+          url: /azure/mysql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: PostgreSQL
+          url: /azure/postgresql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Cosmos DB
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: SQL API
+          url: /azure/cosmos-db/create-sql-api-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Table API
+          url: /azure/cosmos-db/create-table-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Graph API
+          url: /azure/cosmos-db/create-graph-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Cassandra API
+          url: /azure/cosmos-db/create-cassandra-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: MongoDB API
+          url: /azure/cosmos-db/create-mongodb-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Service Fabric
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Deploy Spring Boot 
+          url: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Deploy Reliable Services
+          url: /azure/service-fabric/service-fabric-quickstart-java-reliable-services?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Messaging
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Event Hubs
+          url: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Service Bus Messaging
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Use queues
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Use topics and subscriptions
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: JMS and AMQP
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: IoT Hub
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Send telemetry
+            url: /azure/iot-hub/quickstart-send-telemetry-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Control a device
+            url: /azure/iot-hub/quickstart-control-device-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Cognitive Services
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Computer Vision
+            url: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Text Analytics
+            url: /azure/cognitive-services/Text-Analytics/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Bing Web Search
+            url: /azure/cognitive-services/bing-web-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Bing Image Search
+            url: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json

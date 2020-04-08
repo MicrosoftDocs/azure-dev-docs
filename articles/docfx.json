@@ -68,6 +68,7 @@
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
         "java/**/*.md": "bmitchell287",
+        "java/**/*.yml": "bmitchell287",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "TomArcherMsft",
@@ -82,6 +83,7 @@
       "ms.author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
+        "java/**/*.md": "brendm",
         "java/**/*.md": "brendm",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
