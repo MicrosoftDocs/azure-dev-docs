@@ -7,9 +7,8 @@ brand: azure
 metadata:
   title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
-  ms.service: azure-java
   ms.topic: hub-page
-  ms.date: 04/03/2020
+  ms.date: 04/08/2020
 
 conceptualContent:
   items:

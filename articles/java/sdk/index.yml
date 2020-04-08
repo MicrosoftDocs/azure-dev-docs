@@ -6,9 +6,6 @@ summary: Cloud development using Java on Azure.
 metadata:
   title: Azure SDK for Java documentation
   description: Cloud development using Java on Azure
-  ms.service: azure-java
-  author: bmitchell287
-  ms.author: brendm
   ms.date: 04/03/2020
   ms.topic: landing-page
 

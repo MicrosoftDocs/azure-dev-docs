@@ -6,9 +6,6 @@ summary: Tools, IDEs, and supported JDKs for Java development on Azure.
 metadata:
   title: Java on Azure fundamentals documentation
   description: Tools, IDEs, and supported JDKs for Java development on Azure
-  ms.service: azure-java
-  author: bmitchell287
-  ms.author: brendm
   ms.date: 04/03/2020
   ms.topic: landing-page
 

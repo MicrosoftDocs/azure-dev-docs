@@ -6,9 +6,6 @@ summary: The Azure Toolkit for Eclipse provides templates and functionality that
 metadata:
   title: Azure Toolkit for Eclipse documentation
   description: Learn how the Azure Toolkit for Eclipse plug-in helps you create and deploy cloud applications to Azure.
-  ms.service: azure-java
-  author: bmitchell287
-  ms.author: brendm
   ms.date: 03/13/2020
   ms.topic: landing-page
 

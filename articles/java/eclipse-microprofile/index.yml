@@ -6,7 +6,6 @@ summary: MicroProfile is an Eclipse Foundation project aimed at leveraging and e
 metadata:
   title: Eclipse MicroProfile on Azure documentation
   description: Get started using Eclipse MicroProfile to develop apps on Azure.
-  ms.service: azure-java
   author: brborges
   ms.author: brborges
   ms.date: 03/13/2020

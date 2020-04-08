@@ -6,9 +6,6 @@ summary: The Azure Toolkit for IntelliJ provides templates and functionality tha
 metadata:
   title: Azure Toolkit for IntelliJ documentation
   description: Learn about the Azure Toolkit for IntelliJ.
-  ms.service: azure-java
-  author: bmitchell287
-  ms.author: brendm
   ms.date: 03/13/2020
   ms.topic: landing-page
 

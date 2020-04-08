@@ -6,7 +6,6 @@ summary: Recommended strategies for migrating Java applications to Azure.
 metadata:
   title: Java to Azure migration guidance documentation
   description: Recommended strategies for migrating Java applications to Azure
-  ms.service: azure-java
   author: KarlErickson
   ms.author: karler
   ms.date: 04/03/2020
