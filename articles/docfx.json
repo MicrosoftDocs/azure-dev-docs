@@ -100,6 +100,7 @@
       "ms.service": {
         "go/**/*.md": "azure",
         "java/**/*.md": "azure-java",
+        "java/**/*.yml": "azure-java",
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
