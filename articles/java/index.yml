@@ -88,6 +88,21 @@ conceptualContent:
         text: See more
         url: migration/index.yml
 
+    - title: Azure for Java quickstarts
+      links:
+        - text: Deploy a Java SE web app to Linux
+          itemType: quickstart
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - text: Create and publish a serverless function
+          itemType: quickstart
+          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/developer/breadcrumb/toc.json
+        - text: Manage storage blobs
+          itemType: quickstart
+          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      footerLink:
+        text: See more
+        url: quickstarts/index.yml
+
 tools:
   title: Tools
   items:
