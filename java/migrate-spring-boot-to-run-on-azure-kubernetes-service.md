@@ -9,8 +9,7 @@ ms.date: 4/10/2020
 
 # Migrate Spring Boot Applications to run on Azure Kubernetes Service
 
-This guide describes what you should be aware of when you want to migrate an 
-existing Spring Boot application to run on Azure Kubernetes Service (AKS).
+This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run on Azure Kubernetes Service (AKS).
 
 ## Pre-migration
 
@@ -23,6 +22,30 @@ To obtain your current version, sign in to your production server and run the fo
 ```bash
 java -version
 ```
+
+### Determine whether and how the file system is used
+
+Any usage of the file system by your Spring Boot application will require reconfiguration or, in rare cases, architectural changes. You may identify some or all of the scenarios described in the following sections.
+
+#### Read-only static content
+
+If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
+
+#### Dynamically published static content
+
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+
+#### Dynamic or internal content
+
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
+
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/migration/determine-whether-your-application-relies-on-scheduled-jobs.md)]
+
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
+
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
+
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/migration/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 ### In-place testing
 
@@ -131,7 +154,8 @@ Now that you have migrated your application to Azure Kubernetes Service, you sho
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
-<!-- shared content -->
+### Recommendations
+
 * Consider [adding a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) to the IP address allocated to your ingress controller or application load balancer.
 
 * Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
@@ -148,7 +172,8 @@ Now that you've migrated your application to AKS, you should verify that it work
 
 * Have all team members responsible for cluster administration and application development review the pertinent [AKS best practices](/azure/aks/best-practices).
 
-* Evaluate the items in the *logging.properties* file. Consider eliminating or reducing some of the logging output to improve performance.
+* Make sure your deployment file specifies how rolling updates are done. For more information, see [Rolling Update Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment) in the Kubernetes documentation.
+
+* Set up auto scaling to deal with peak time loads. For more information, see [Automatically scale a cluster to meet application demands on AKS](/azure/aks/cluster-autoscaler).
 
 * Consider [monitoring the code cache size](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/codecache.htm) and adding the parameters `-XX:InitialCodeCacheSize` and `-XX:ReservedCodeCacheSize` to the `JAVA_OPTS` variable in the Dockerfile to further optimize performance.
-<!-- shared content -->
