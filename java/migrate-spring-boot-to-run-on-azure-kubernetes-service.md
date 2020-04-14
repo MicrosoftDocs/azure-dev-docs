@@ -131,6 +131,7 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](https://docs.microsoft.com/learn/modules/build-and-store-container-images/).
 
+If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
 
 [!INCLUDE [provision-a-public-ip-address](includes/migration/provision-a-public-ip-address.md)]
 
