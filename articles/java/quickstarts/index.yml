@@ -14,11 +14,11 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Windows and Eclipse 
-          url: /azure/app-service/app-service-web-get-started-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/app-service/app-service-web-get-started-java
         - text: Linux and Tomcat
-          url: /azure/app-service/containers/quickstart-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/app-service/containers/quickstart-java
         - text: Linux and Java SE
-          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart
@@ -30,74 +30,74 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Storage Blobs
-          url: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/storage/blobs/storage-quickstart-blobs-java
         - text: Redis Cache
-          url: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/azure-cache-for-redis/cache-java-get-started
   - title: Databases
     linkLists:
       - linkListType: quickstart
         links:
         - text: SQL Database
-          url: /azure/sql-database/sql-database-connect-query-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/sql-database/sql-database-connect-query-java
         - text: MySQL
-          url: /azure/mysql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/mysql/connect-java
         - text: PostgreSQL
-          url: /azure/postgresql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/postgresql/connect-java
   - title: Cosmos DB
     linkLists:
       - linkListType: quickstart
         links:
         - text: SQL API
-          url: /azure/cosmos-db/create-sql-api-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/cosmos-db/create-sql-api-java
         - text: Table API
-          url: /azure/cosmos-db/create-table-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/cosmos-db/create-table-java
         - text: Graph API
-          url: /azure/cosmos-db/create-graph-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/cosmos-db/create-graph-java
         - text: Cassandra API
-          url: /azure/cosmos-db/create-cassandra-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/cosmos-db/create-cassandra-java
         - text: MongoDB API
-          url: /azure/cosmos-db/create-mongodb-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/cosmos-db/create-mongodb-java
   - title: Service Fabric
     linkLists:
       - linkListType: quickstart
         links:
         - text: Deploy Spring Boot 
-          url: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/service-fabric/service-fabric-quickstart-java-spring-boot
         - text: Deploy Reliable Services
-          url: /azure/service-fabric/service-fabric-quickstart-java-reliable-services?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/service-fabric/service-fabric-quickstart-java-reliable-services
   - title: Messaging
     linkLists:
       - linkListType: quickstart
         links:
         - text: Event Hubs
-          url: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          url: /azure/event-hubs/event-hubs-java-get-started-send
   - title: Service Bus Messaging
     linkLists: 
       - linkListType: quickstart
         links:
           - text: Use queues
-            url: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
           - text: Use topics and subscriptions
-            url: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
           - text: JMS and AMQP
-            url: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp
   - title: IoT Hub
     linkLists: 
       - linkListType: quickstart
         links:
           - text: Send telemetry
-            url: /azure/iot-hub/quickstart-send-telemetry-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/iot-hub/quickstart-send-telemetry-java
           - text: Control a device
-            url: /azure/iot-hub/quickstart-control-device-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/iot-hub/quickstart-control-device-java
   - title: Cognitive Services
     linkLists: 
       - linkListType: quickstart
         links:
           - text: Computer Vision
-            url: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
           - text: Text Analytics
-            url: /azure/cognitive-services/Text-Analytics/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/cognitive-services/Text-Analytics/quickstarts/java
           - text: Bing Web Search
-            url: /azure/cognitive-services/bing-web-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/cognitive-services/bing-web-search/quickstarts/java
           - text: Bing Image Search
-            url: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/cognitive-services/bing-image-search/quickstarts/java
