@@ -155,23 +155,23 @@ tools:
   title: Tools
   items:
     - title: Azure Toolkit for IntelliJ
-      imageSrc: /media/logos/logo_intellij.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_intellij.svg
       url: toolkit-for-intellij/index.yml
     - title: Azure Toolkit for Eclipse
-      imageSrc: /media/logos/logo_eclipse.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_eclipse.svg
       url: toolkit-for-eclipse/index.yml
     - title: Eclipse Microprofile
-      imageSrc: /media/logos/logo_eclipse.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_eclipse.svg
       url: eclipse-microprofile/index.yml
     - title: Visual Studio Code
-      imageSrc: /media/logos/logo_vs-code.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
       url: https://code.visualstudio.com/docs
     - title: Azure CLI
-      imageSrc: /media/logos/logo_CLIgeneric.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: /cli/azure
     - title: Maven
-      imageSrc: /media/logos/logo_maven.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_maven.svg
       url: /java/api/overview/azure/maven/README
     - title: Jenkins on Azure
-      imageSrc: /media/logos/logo_jenkins.svg
+      imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: /jenkins
