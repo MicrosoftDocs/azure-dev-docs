@@ -58,4 +58,4 @@ Push the image to your Azure container registry:
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](https://docs.microsoft.com/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).

@@ -219,7 +219,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -231,10 +231,10 @@ For help with getting started with your own Spring Boot applications, see the **
 
 <!-- URL List -->
 
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Working with Azure DevOps and Java]: /azure/devops/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring on Azure]: /azure/java/spring-framework/
+[Spring on Azure]: /azure/developer/java/spring-framework/
 [Spring Framework]: https://spring.io/
 [Spring Initializr]: https://start.spring.io/
 

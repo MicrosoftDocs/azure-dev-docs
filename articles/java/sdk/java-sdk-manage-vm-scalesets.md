@@ -10,7 +10,7 @@ ms.reviewer: asirveda
 
 # Manage Azure virtual machine scale sets from your Java applications
 
-[This sample](https://github.com/Azure-Samples/compute-java-manage-virtual-machine-scale-sets) creates a  [virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) using the [Java management libraries](https://github.com/Azure/azure-sdk-for-java). 
+[This sample](https://github.com/Azure-Samples/compute-java-manage-virtual-machine-scale-sets) creates a  [virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) using the [Java management libraries](https://github.com/Azure/azure-sdk-for-java). 
 
 ## Run the sample
 
@@ -100,7 +100,7 @@ LoadBalancer loadBalancer1 = azure.loadBalancers().define(loadBalancerName1)
                     .create();
 ```
 
- The load balancer defines two backend network address pools-one to balance load across HTTP (`backendPoolName1`) and the other to balance load across HTTPS (`backendPoolName2`).  The `defineHttpProbe()` methods set up [health probe endpoints](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) on the load balancers. NAT rules expose ports 22 and 23 on the scale set virtual machines for telnet and SSH access.
+ The load balancer defines two backend network address pools-one to balance load across HTTP (`backendPoolName1`) and the other to balance load across HTTPS (`backendPoolName2`).  The `defineHttpProbe()` methods set up [health probe endpoints](/azure/load-balancer/load-balancer-custom-probe-overview) on the load balancers. NAT rules expose ports 22 and 23 on the scale set virtual machines for telnet and SSH access.
 
 ## Create a scale set
  
@@ -221,11 +221,11 @@ Scale the number of virtual machines in the scale set using `withCapacity()` and
    
 | Class used in sample | Notes
 |-------|-------|
-| [VirtualMachineScaleSet](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinescaleset) | Query, start, stop, update and delete all virtual machines in the scale set.
-| [VirtualMachineScaleSetVM](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinescalesetvm) | Retrieved from `virtualMachineScaleSet.virtualMachines().get()` or `list()`, allows you to query, start, stop, configure and delete virtual machines in the scale set.
-| [VirtualMachineScaleSetNetworkInterface](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.virtualmachinescalesetnetworkinterface) | Returned from `virtualMachineScaleSet.listNetworkInterfaces()`, read-only representation of a network interface on a virtual machine in a scale set.
-| [VirtualMachineScaleSetSkuTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinescalesetskutypes) | Class of static fields used to set the [virtual machine scale set tier](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) used to define how much resources scale set members can consume.
-| [VirtualMachineScaleSetNicIpConfiguration](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.virtualmachinescalesetnicipconfiguration) | Used to query the IP configuration associated with a network interface on a scale set virtual machine.
+| [VirtualMachineScaleSet](/java/api/com.microsoft.azure.management.compute.virtualmachinescaleset) | Query, start, stop, update and delete all virtual machines in the scale set.
+| [VirtualMachineScaleSetVM](/java/api/com.microsoft.azure.management.compute.virtualmachinescalesetvm) | Retrieved from `virtualMachineScaleSet.virtualMachines().get()` or `list()`, allows you to query, start, stop, configure and delete virtual machines in the scale set.
+| [VirtualMachineScaleSetNetworkInterface](/java/api/com.microsoft.azure.management.network.virtualmachinescalesetnetworkinterface) | Returned from `virtualMachineScaleSet.listNetworkInterfaces()`, read-only representation of a network interface on a virtual machine in a scale set.
+| [VirtualMachineScaleSetSkuTypes](/java/api/com.microsoft.azure.management.compute.virtualmachinescalesetskutypes) | Class of static fields used to set the [virtual machine scale set tier](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) used to define how much resources scale set members can consume.
+| [VirtualMachineScaleSetNicIpConfiguration](/java/api/com.microsoft.azure.management.network.virtualmachinescalesetnicipconfiguration) | Used to query the IP configuration associated with a network interface on a scale set virtual machine.
 
 ## Next steps
 

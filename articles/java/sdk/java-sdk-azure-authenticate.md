@@ -38,7 +38,7 @@ final String storageConnection = "DefaultEndpointsProtocol=https;"
         + ";EndpointSuffix=core.windows.net";
 ```
 
-Service connection strings are used to authenticate to other Azure services like [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-application#UseService), [Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-java-get-started), and [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-queues). You can get the connection strings using the Azure portal or the CLI.  You can also use the Azure management libraries for Java to query resources to build connection strings in your code.
+Service connection strings are used to authenticate to other Azure services like [Azure Cosmos DB](/azure/cosmos-db/sql-api-java-application#UseService), [Redis Cache](/azure/redis-cache/cache-java-get-started), and [Service Bus](/azure/service-bus-messaging/service-bus-java-how-to-use-queues). You can get the connection strings using the Azure portal or the CLI.  You can also use the Azure management libraries for Java to query resources to build connection strings in your code.
 
 For example, this code uses the management libraries to create a storage account connection string:
 
@@ -54,7 +54,7 @@ final String storageConnection = "DefaultEndpointsProtocol=https;"
         + ";EndpointSuffix=core.windows.net";
 ```
 
-Other libraries require your application to run with a [service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects) authorizing the application to run with granted credentials. This configuration is similar to the object-based authentication steps for the management library listed below.
+Other libraries require your application to run with a [service principal](/azure/active-directory/develop/active-directory-application-objects) authorizing the application to run with granted credentials. This configuration is similar to the object-based authentication steps for the management library listed below.
 
 <a name="mgmt-auth"></a>
 
@@ -92,7 +92,7 @@ The `client`, `tenant` and `key` are the same service principal values used with
 
 ### File based authentication (Preview)
 
-The simplest way to authenticate is to create a properties file that contains credentials for an [Azure service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects) using the following format:
+The simplest way to authenticate is to create a properties file that contains credentials for an [Azure service principal](/azure/active-directory/develop/active-directory-application-objects) using the following format:
 
 ```text
 # sample management library properties file
@@ -107,7 +107,7 @@ graphURL=https\://graph.windows.net/
 ```
 
 - subscription: use the *id* value from `az account show` in the Azure CLI 2.0.
-- client: use the *appId* value from the output taken from a service principal created to run the application. If you don't have a service principal for your app, [create one with the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli).
+- client: use the *appId* value from the output taken from a service principal created to run the application. If you don't have a service principal for your app, [create one with the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
 - key: use the *password* value from the service principal create CLI output
 - tenant: use the *tenant* value from the service principal create CLI output
 

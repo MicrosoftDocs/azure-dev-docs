@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Deploy a Spring Boot application to Linux on Azure App Service
 
-This tutorial walks through using [Docker] to containerize your [Spring Boot] application and deploy your own docker image to a Linux host in the [Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
+This tutorial walks through using [Docker] to containerize your [Spring Boot] application and deploy your own docker image to a Linux host in the [Azure App Service](/azure/app-service/containers/app-service-linux-intro).
 
 ## Prerequisites
 
@@ -249,7 +249,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional resources
 
@@ -272,7 +272,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Container Service (AKS)]: https://azure.microsoft.com/services/container-service/
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image

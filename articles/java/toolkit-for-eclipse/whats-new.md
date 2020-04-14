@@ -315,7 +315,7 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 <!-- URL List -->
 
-[Azure for Java Developers]: https://docs.microsoft.com/azure/java
+[Azure for Java Developers]: /azure/developer/java
 [Azul Systems web page for the Zulu OpenJDK]: https://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Service Endpoints]: https://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: https://go.microsoft.com/fwlink/?LinkID=699528

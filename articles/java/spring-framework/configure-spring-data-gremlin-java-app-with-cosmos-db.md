@@ -72,7 +72,7 @@ Review the specification and click **Create** to create your database.
    * Specify a unique **Database id** for your database.
    * You can choose to specify your **Storage capacity**, or you can accept the default.
    * Specify a unique **Graph id** for your graph.
-   * Specify a **Partition key**. For more information see [Using a partitioned graph in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+   * Specify a **Partition key**. For more information see [Using a partitioned graph in Azure Cosmos DB](/azure/cosmos-db/graph-partitioning).
 Click **OK**.
    
    When you have specified these options, click **OK** to create your graph.
@@ -498,7 +498,7 @@ In this section, you create the necessary Java classes for storing data in your 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -535,7 +535,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 <!-- URL List -->
 
 [Azure Cosmos DB Documentation]: /azure/cosmos-db/
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java 
 [Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
 [Spring Data Gremlin Starter]: https://github.com/Microsoft/spring-data-gremlin

@@ -369,7 +369,7 @@ When your web has been deployed, you will be able to manage it by using the [Azu
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -391,7 +391,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Container Service (AKS)]: https://azure.microsoft.com/services/container-service/
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal

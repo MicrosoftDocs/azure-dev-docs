@@ -148,12 +148,12 @@ The sample logs information about both virtual machines and deletes them both be
 
 | Class used in sample | Notes
 |-------|-------|
-| [VirtualMachine](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachine) | Query properties and manage state of virtual machines. Retrieved in list form  with`azure.virtualMachines().list()` or by name or ID `azure.virtualMachines().getByResourceGroup()`
-| [VirtualMachineSizeTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinesizetypes) | Class with static values that map to [virtual machine size options](https://azure.microsoft.com/pricing/details/virtual-machines/linux/), used by the `withSize()` method to define the resources allocated to the VM.
-| [Disk](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.disk) | Create a disk to store data using `withData()` or operating system image using the appropriate `withLinux` or `withWindows` method when defining the disk. Attach disks to virtual machines either at the time of creation (`using withNewDataDisk` or `withExistingDataDisk`) or after creation by `update()..apply()` on the VirtualMachine object.
-| [DiskSkuTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.diskskutypes) | Class with static values to define a disk with a standard or [premium](https://docs.microsoft.com/azure/storage/storage-premium-storage) storage plan.
-| [KnownLinuxVirtualMachineImage](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.knownlinuxvirtualmachineimage) | Class with a set of Linux virtual machine options for use with the `withPopularLinuxImage()` method when defining a virtual machine.
-| [KnownWindowsVirtualMachineImage](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.knownwindowsvirtualmachineimage) | Class with a set of Windows virtual machine image options for use with the `withPopularWindowsImage()` method when defining a virtual machine.
+| [VirtualMachine](/java/api/com.microsoft.azure.management.compute.virtualmachine) | Query properties and manage state of virtual machines. Retrieved in list form  with`azure.virtualMachines().list()` or by name or ID `azure.virtualMachines().getByResourceGroup()`
+| [VirtualMachineSizeTypes](/java/api/com.microsoft.azure.management.compute.virtualmachinesizetypes) | Class with static values that map to [virtual machine size options](https://azure.microsoft.com/pricing/details/virtual-machines/linux/), used by the `withSize()` method to define the resources allocated to the VM.
+| [Disk](/java/api/com.microsoft.azure.management.compute.disk) | Create a disk to store data using `withData()` or operating system image using the appropriate `withLinux` or `withWindows` method when defining the disk. Attach disks to virtual machines either at the time of creation (`using withNewDataDisk` or `withExistingDataDisk`) or after creation by `update()..apply()` on the VirtualMachine object.
+| [DiskSkuTypes](/java/api/com.microsoft.azure.management.compute.diskskutypes) | Class with static values to define a disk with a standard or [premium](/azure/storage/storage-premium-storage) storage plan.
+| [KnownLinuxVirtualMachineImage](/java/api/com.microsoft.azure.management.compute.knownlinuxvirtualmachineimage) | Class with a set of Linux virtual machine options for use with the `withPopularLinuxImage()` method when defining a virtual machine.
+| [KnownWindowsVirtualMachineImage](/java/api/com.microsoft.azure.management.compute.knownwindowsvirtualmachineimage) | Class with a set of Windows virtual machine image options for use with the `withPopularWindowsImage()` method when defining a virtual machine.
 
 ## Next steps
 

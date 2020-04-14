@@ -11,14 +11,14 @@ ms.topic: article
 
 # How to use Spring Data R2DBC with Azure MySQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/), using the R2DBC implementation for MySQL from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for MySQL](/azure/mysql/), using the R2DBC implementation for MySQL from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. It can be used with Spring WebFlux to create fully reactive Spring Boot applications, using non-blocking APIs and providing better scalability than the classic "one thread per connection" approach.
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell).
 - [cURL](https://curl.haxx.se) or similar HTTP utility to test functionality.
 
@@ -372,7 +372,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about Spring Data R2DBC, see Spring's [Reference Documentation](https://docs.spring.io/spring-data/r2dbc/docs/1.0.x/reference/html/#reference).
 
-For more information about using Azure with Java, see the [Azure for Java Developers](/azure/java/) and the [Working with Azure DevOps and Java](/azure/devops/) pages.
+For more information about using Azure with Java, see the [Azure for Java Developers](/azure/developer/java/) and the [Working with Azure DevOps and Java](/azure/devops/) pages.
 
 <!-- IMG List -->
 

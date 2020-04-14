@@ -19,7 +19,7 @@ This guide walks you through setting up a development environment for Azure deve
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/)
-- [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
 - [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell)
 - [Maven 3](https://maven.apache.org/download.cgi) (included in Azure Cloud Shell)
 
@@ -27,7 +27,7 @@ This guide walks you through setting up a development environment for Azure deve
 
 Your Java application needs read and create permissions in your Azure subscription to run the sample code in this tutorial. Create a service principal and configure your application to run with its credentials. Service principals provide a way to create a non-interactive account associated with your identity to which you grant only the privileges your app needs to run.
 
-[Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. Provide a [secure password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`. Your password must be 8 to 16 characters and match at least 3 out of the 4 following criteria:
+[Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. Provide a [secure password](/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`. Your password must be 8 to 16 characters and match at least 3 out of the 4 following criteria:
 
 * Include lowercase characters
 * Include uppercase characters
@@ -247,7 +247,7 @@ az group delete --name sampleVmResourceGroup
 
 ## Deploy a web app from a GitHub repo
 
-Replace the main method in `AzureApp.java` with the one below, updating the `appName` variable to a unique value before running the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
+Replace the main method in `AzureApp.java` with the one below, updating the `appName` variable to a unique value before running the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
 
 ```java
     public static void main(String[] args) {
@@ -377,7 +377,7 @@ az group delete --name sampleSqlResourceGroup
 
 ## Write a blob into a new storage account
 
-Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](https://docs.microsoft.com/azure/storage/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
+Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
 public static void main(String[] args) {
@@ -436,7 +436,7 @@ Run the sample from the command line:
 mvn clean compile exec:java
 ```
 
-You can browse for the `helloazure.txt` file in your storage account through the Azure portal or with [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs).
+You can browse for the `helloazure.txt` file in your storage account through the Azure portal or with [Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs).
 
 Clean up the storage account using the CLI:
 
@@ -450,7 +450,7 @@ To learn more about how to use the Azure management libraries for Java to manage
 
 ## Reference and release notes
 
-A [reference](https://docs.microsoft.com/java/api) is available for all packages.
+A [reference](/java/api) is available for all packages.
 
 ## Get help and give feedback
 

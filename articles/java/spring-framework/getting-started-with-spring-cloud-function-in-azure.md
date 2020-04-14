@@ -23,7 +23,7 @@ To develop functions using Java, you must have the following installed:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 2.7.1158 or above
 
 > [!IMPORTANT]
