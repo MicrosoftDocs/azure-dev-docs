@@ -322,7 +322,7 @@ In this tutorial, you created a new Java web application using the **[Spring Ini
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -344,7 +344,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 [Key Vault Documentation]: /azure/key-vault/
 [Get started with Azure Key Vault]: /azure/key-vault/key-vault-get-started
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

@@ -280,7 +280,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -318,7 +318,7 @@ For more information about iteratively running and debugging containers directly
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
@@ -343,7 +343,7 @@ For more information about iteratively running and debugging containers directly
 <!-- Newly added -->
 [Authenticate with Azure Container Registry from Azure Kubernetes Service]: /azure/container-registry/container-registry-auth-aks/
 [Visual Studio Code Java Tutorials]: https://code.visualstudio.com/docs/java/java-kubernetes/
-[Get started on Azure Dev Spaces with Java]: https://docs.microsoft.com/azure/dev-spaces/get-started-java
+[Get started on Azure Dev Spaces with Java]: /azure/dev-spaces/get-started-java
 <!-- IMG List -->
 
 [SB01]: media/deploy-spring-boot-java-app-on-kubernetes/SB01.png

@@ -165,7 +165,7 @@ You'll need to create a Web App on your App Service Plan (choosing "Java SE" as 
 
 #### Maven applications
 
-If your application is built from a Maven POM file, [use the Webapp plugin for Maven](/azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service) to create the Web App and deploy your application.
+If your application is built from a Maven POM file, [use the Webapp plugin for Maven](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service) to create the Web App and deploy your application.
 
 #### Non-Maven applications
 

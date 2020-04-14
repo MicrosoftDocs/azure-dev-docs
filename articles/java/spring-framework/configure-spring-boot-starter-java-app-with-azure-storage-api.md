@@ -310,13 +310,13 @@ The following prerequisites are required in order to follow the steps in this ar
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
 For more information about the additional Spring Boot Starters that are available for Microsoft Azure, see [Spring Boot Starters for Azure](spring-boot-starters-for-azure.md).
 
-For additional information about integrating Azure functionality into your Spring-based applications, see [Spring Framework on Azure](/azure/java/spring-framework/).
+For additional information about integrating Azure functionality into your Spring-based applications, see [Spring Framework on Azure](/azure/developer/java/spring-framework/).
 
 For detailed information about additional Azure storage APIs that you can call from your Spring Boot applications, see the following articles:
 * [How to use Azure Blob storage from Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)

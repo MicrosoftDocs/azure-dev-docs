@@ -10,7 +10,7 @@ ms.reviewer: asirveda
 
 # Manage Azure SQL databases in elastic pools from your Java applications
 
-[This sample](https://github.com/Azure-Samples/sql-database-java-manage-sql-dbs-in-elastic-pool) creates a SQL database server with an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) to manage and scale resources for mulitple databases in a single plan.
+[This sample](https://github.com/Azure-Samples/sql-database-java-manage-sql-dbs-in-elastic-pool) creates a SQL database server with an [elastic pool](/azure/sql-database/sql-database-elastic-pool) to manage and scale resources for mulitple databases in a single plan.
 
 ## Run the sample
 
@@ -43,7 +43,7 @@ SqlServer sqlServer = azure.sqlServers().define(sqlServerName)
                     .create();
 ```
 
-See the [ElasticPoolEditions class reference](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.elasticpooleditions) for current edition values. Review the [SQL database elastic pool documentation](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) to compare edition resource characteristics. 
+See the [ElasticPoolEditions class reference](/java/api/com.microsoft.azure.management.sql.elasticpooleditions) for current edition values. Review the [SQL database elastic pool documentation](/azure/sql-database/sql-database-elastic-pool) to compare edition resource characteristics. 
 
 ## Change Database Transaction Unit (DTU) settings in an elastic pool
 
@@ -57,7 +57,7 @@ elasticPool = elasticPool.update()
                     .apply();
 ```
 
-Review the [DTUs and eDTUs documentation](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) to learn more about allocating resources to SQL databases.
+Review the [DTUs and eDTUs documentation](/azure/sql-database/sql-database-what-is-a-dtu) to learn more about allocating resources to SQL databases.
 
 ## Create a new database and add it to an elastic pool
 
@@ -67,7 +67,7 @@ SqlDatabase anotherDatabase = sqlServer.databases().define(anotherDatabaseName).
 elasticPool.update().withExistingDatabase(anotherDatabase).apply();            
 ```
 
-The API creates `anotherDatabase` at [S0 tier](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) in the first statement. Moving `anotherDatabase` to the elastic pool assigns the database resources based on the pool settings.
+The API creates `anotherDatabase` at [S0 tier](/azure/sql-database/sql-database-service-tiers) in the first statement. Moving `anotherDatabase` to the elastic pool assigns the database resources based on the pool settings.
 
 ## Remove a database from an elastic pool
 ```java
@@ -78,7 +78,7 @@ anotherDatabase = anotherDatabase.update()
                      .apply();
 ```
 
-See the [DatabaseEditions class reference](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.databaseeditions) for values to pass to `withEdition()`.
+See the [DatabaseEditions class reference](/java/api/com.microsoft.azure.management.sql.databaseeditions) for values to pass to `withEdition()`.
 
 ## List current database activities in an elastic pool
 ```java
@@ -101,7 +101,7 @@ for (SqlDatabase databaseInServer : elasticPool.listDatabases()) {
 }
 ```
 
-Review the methods in [com.microsoft.azure.management.sql.SqlDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.sqldatabase) to query the databases in more detail.
+Review the methods in [com.microsoft.azure.management.sql.SqlDatabase](/java/api/com.microsoft.azure.management.sql.sqldatabase) to query the databases in more detail.
 
 ## Delete an elastic pool
 ```java
@@ -118,13 +118,13 @@ The sample deletes all resources it created before exiting.
 
 | Class used in sample | Notes |
 |-------|-------|
-| [SqlServer](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.sqlserver) | SQL DB server in Azure created by `azure.sqlServers().define()...create()` fluent chain. Provides methods to create and work with elastic pools and databases. 
-| [SqlDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.sqldatabase) | Client side object representing a SQL database. Created through `sqlServer().define()...create()`. 
-| [DatabaseEditions](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.databaseeditions) | Constant static fields used to set database resources when creating a database outside of an elastic pool or when moving a database out of an elastic pool  
-| [SqlElasticPool](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.sqlelasticpool) | Created from the `withNewElasticPool()` section of the fluent chain that created the SqlServer in Azure. Provides methods to set resource limits for databases running in the elastic pool and for the elastic pool itself. 
-| [ElasticPoolEditions](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.elasticpooleditions) | Class of constant fields defining the resources available to an elastic pool. See [SQL database elastic pool documentation](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) for tier details. 
-| [ElasticPoolDatabaseActivity](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.elasticpooldatabaseactivity) | Retreived from `SqlElasticPool.listDatabaseActivities()`. Each object of this type represents an activity performed on a database in the elastic pool.
-| [ElasticPoolActivity](https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql.elasticpoolactivity) | Retrieved in a List from `SqlElasticPool.listActivities()`. Each of object in the list represents an activity performed on the elastic pool (not the databases in the elastic pool).
+| [SqlServer](/java/api/com.microsoft.azure.management.sql.sqlserver) | SQL DB server in Azure created by `azure.sqlServers().define()...create()` fluent chain. Provides methods to create and work with elastic pools and databases. 
+| [SqlDatabase](/java/api/com.microsoft.azure.management.sql.sqldatabase) | Client side object representing a SQL database. Created through `sqlServer().define()...create()`. 
+| [DatabaseEditions](/java/api/com.microsoft.azure.management.sql.databaseeditions) | Constant static fields used to set database resources when creating a database outside of an elastic pool or when moving a database out of an elastic pool  
+| [SqlElasticPool](/java/api/com.microsoft.azure.management.sql.sqlelasticpool) | Created from the `withNewElasticPool()` section of the fluent chain that created the SqlServer in Azure. Provides methods to set resource limits for databases running in the elastic pool and for the elastic pool itself. 
+| [ElasticPoolEditions](/java/api/com.microsoft.azure.management.sql.elasticpooleditions) | Class of constant fields defining the resources available to an elastic pool. See [SQL database elastic pool documentation](/azure/sql-database/sql-database-elastic-pool) for tier details. 
+| [ElasticPoolDatabaseActivity](/java/api/com.microsoft.azure.management.sql.elasticpooldatabaseactivity) | Retreived from `SqlElasticPool.listDatabaseActivities()`. Each object of this type represents an activity performed on a database in the elastic pool.
+| [ElasticPoolActivity](/java/api/com.microsoft.azure.management.sql.elasticpoolactivity) | Retrieved in a List from `SqlElasticPool.listActivities()`. Each of object in the list represents an activity performed on the elastic pool (not the databases in the elastic pool).
 
 ## Next steps
 

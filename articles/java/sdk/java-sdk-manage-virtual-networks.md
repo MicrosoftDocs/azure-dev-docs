@@ -10,7 +10,7 @@ ms.reviewer: asirveda
 
 # Create and manage Azure virtual networks from your Java apps
 
-[This sample](https://github.com/Azure-Samples/network-java-manage-virtual-network) creates a [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) to isolate your Azure resources on network segment you control.
+[This sample](https://github.com/Azure-Samples/network-java-manage-virtual-network) creates a [virtual network](/azure/virtual-network/virtual-networks-overview) to isolate your Azure resources on network segment you control.
 
 ## Run the sample
 
@@ -55,7 +55,7 @@ NetworkSecurityGroup backEndSubnetNsg = azure.networkSecurityGroups()
                     .create();
 ```
 
-This [network security rule](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) blocks both inbound and outbound public Internet traffic. This network security group will not have an effect until applied to a subnet in your virtual network.
+This [network security rule](/azure/virtual-network/virtual-networks-nsg) blocks both inbound and outbound public Internet traffic. This network security group will not have an effect until applied to a subnet in your virtual network.
 
 ## Create a virtual network with two subnets
 
@@ -74,7 +74,7 @@ Network virtualNetwork1 = azure.networks().define(vnetName1)
                     .create();
 ```
 
-The backend subnet denies Internet access usingfollowing the rules set in the network security group. The front end subnet uses the [default rules](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) which allow outbound traffic to the Internet.
+The backend subnet denies Internet access usingfollowing the rules set in the network security group. The front end subnet uses the [default rules](/azure/virtual-network/virtual-networks-nsg) which allow outbound traffic to the Internet.
 
 ## Create a network security group to allow inbound HTTP traffic
 ```java
@@ -168,9 +168,9 @@ This sample creates a virtual network with two subnets and with one virtual mach
 
 | Class used in sample | Notes
 |-------|-------|
-| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.network) | Local object representation of the virtual network created from `azure.networks().define()...create()` . Use the `update()...apply()` fluent chain to update an existing virtual network.
-| [Subnet](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.subnet) | Create subnets on the virtual network when defining or updating the network using `withSubnet()`. Get object representations of a subnet from `Network.subnets().get()` or `Network.subnets().entrySet()`. These objects have methods to query subnet properties.
-| [NetworkSecurityGroup](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.networksecuritygroup) | Created using the `azure.networkSecurityGroups().define()...create()` fluent chain and then applied to subnets through the updating or creating subnets in a virtual network. 
+| [Network](/java/api/com.microsoft.azure.management.network.network) | Local object representation of the virtual network created from `azure.networks().define()...create()` . Use the `update()...apply()` fluent chain to update an existing virtual network.
+| [Subnet](/java/api/com.microsoft.azure.management.network.subnet) | Create subnets on the virtual network when defining or updating the network using `withSubnet()`. Get object representations of a subnet from `Network.subnets().get()` or `Network.subnets().entrySet()`. These objects have methods to query subnet properties.
+| [NetworkSecurityGroup](/java/api/com.microsoft.azure.management.network.networksecuritygroup) | Created using the `azure.networkSecurityGroups().define()...create()` fluent chain and then applied to subnets through the updating or creating subnets in a virtual network. 
 
 ## Next steps
 
