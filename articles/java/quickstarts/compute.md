@@ -18,5 +18,3 @@ The following articles help you get started with compute services on Azure:
 - [Azure Container Registry](/azure/container-registry/container-registry-java-quickstart)
 - [Azure Dev Spaces](/azure/dev-spaces/quickstart-java)
 - [Azure Kubernetes Service - Spring Boot](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes)
-- [Azure Service Fabric - Spring Boot](/azure/service-fabric/service-fabric-quickstart-java-spring-boot)
-- [Azure Service Fabric - Eclipse](/azure/service-fabric/service-fabric-quickstart-java-reliable-services)
