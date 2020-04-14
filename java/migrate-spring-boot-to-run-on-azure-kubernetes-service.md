@@ -83,7 +83,7 @@ If you used our [Spring Boot Container Quickstart GitHub repo](https://github.co
 
 In these examples, the `MY_ACR` environment variable holds the name of your Azure container registry and the `MY_APP_NAME` variable holds the name of the web application you want to use on your Azure container registry.
 
-Build the WAR file:
+Build the deployment file:
 
 ```shell
 mvn package
