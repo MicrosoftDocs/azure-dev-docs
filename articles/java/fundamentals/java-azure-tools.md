@@ -22,7 +22,7 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 ![IntelliJ toolkit showing the Azure Explorer](media/intelliJ-azure-explorer.png)
 
-[Get started with Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/app-service-web/app-service-web-eclipse-create-hello-world-web-app) | [Get started with Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app)
+[Get started with Azure Toolkit for Eclipse](/azure/app-service-web/app-service-web-eclipse-create-hello-world-web-app) | [Get started with Azure Toolkit for IntelliJ](/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app)
 
 ## Visual Studio Code
 
@@ -33,12 +33,12 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 ## Azure CLI 2.0
 
-The Azure 2.0 CLI provides a command-line experience to manage Azure resources. You can use it in your browser with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or you can [install](https://docs.microsoft.com/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+The Azure 2.0 CLI provides a command-line experience to manage Azure resources. You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
-[Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+[Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
 ## Azure Storage Explorer
 
 Manage Azure storage accounts, containers, and blobs/files from your desktop. Azure Storage Explorer is currently in Preview and works on Windows, macOS, and Linux.
 
-[Get started with Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+[Get started with Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)

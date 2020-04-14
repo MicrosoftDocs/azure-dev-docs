@@ -174,17 +174,17 @@ The sample uses `Creatable` objects to define a virtual network and storage acco
 
 After the code adds every virtual machine definition to the list, `azure.virtualMachines().create(creatableVirtualMachines)` creates each virtual machine in parallel in Azure.
 
-The sample code then gets the IP addresses for all of the created virtual machines from the returned CreatedResources object to create a [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to distribute load across the virtual machines. 
+The sample code then gets the IP addresses for all of the created virtual machines from the returned CreatedResources object to create a [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) to distribute load across the virtual machines. 
 
 The `finally` block deletes the resources from your Azure subscription even in the case of an error.
 
 | Class used in sample | Notes
 |-------|-------|
-| [VirtualMachine](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachine) | Query properties and manage state of virtual machines. Retrieved in list form from `azure.virtualMachines().list()` or by name or ID `azure.virtualMachines().getByResourceGroup()`
-| [VirtualMachineSizeTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.virtualmachinesizetypes) | Static values that map to [virtual machine size options](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for use as a parameter to `withSize()` when defining a virtual machine.
-| [PublicIpAddress](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.publicipaddress) | Defined, but not immediately created, for each virtual machine through `azure.publicIpAddresses().define()`. Store the key for each `Creatable` and retrieve later through `createdRelatedResource()`
-| [KnownLinuxVirtualMachineImage](https://docs.microsoft.com/java/api/com.microsoft.azure.management.compute.knownlinuxvirtualmachineimage) | Set of Linux virtual machine options used as a parameter to `withPopularLinuxImage()` method when defining a virtual machine.
-| [Network](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network.network) | The sample defines one virtual network for each region through  `azure.networks().define()` . 
+| [VirtualMachine](/java/api/com.microsoft.azure.management.compute.virtualmachine) | Query properties and manage state of virtual machines. Retrieved in list form from `azure.virtualMachines().list()` or by name or ID `azure.virtualMachines().getByResourceGroup()`
+| [VirtualMachineSizeTypes](/java/api/com.microsoft.azure.management.compute.virtualmachinesizetypes) | Static values that map to [virtual machine size options](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for use as a parameter to `withSize()` when defining a virtual machine.
+| [PublicIpAddress](/java/api/com.microsoft.azure.management.network.publicipaddress) | Defined, but not immediately created, for each virtual machine through `azure.publicIpAddresses().define()`. Store the key for each `Creatable` and retrieve later through `createdRelatedResource()`
+| [KnownLinuxVirtualMachineImage](/java/api/com.microsoft.azure.management.compute.knownlinuxvirtualmachineimage) | Set of Linux virtual machine options used as a parameter to `withPopularLinuxImage()` method when defining a virtual machine.
+| [Network](/java/api/com.microsoft.azure.management.network.network) | The sample defines one virtual network for each region through  `azure.networks().define()` . 
 
 ## Next steps
 

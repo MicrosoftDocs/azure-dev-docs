@@ -16,7 +16,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 ## Prerequisites
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/overview)
+* [Azure CLI](/cli/azure/overview)
 * [Java 8](http://java.oracle.com/)
 * [Maven 3](http://maven.apache.org/)
 * [Git](https://github.com/)

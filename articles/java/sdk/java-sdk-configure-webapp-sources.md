@@ -9,7 +9,7 @@ ms.date: 03/30/2017
 
 # Configure Azure App Service deployment sources from your Java applications
 
-[This sample](https://github.com/Azure-Samples/compute-java-create-virtual-machines-across-regions-in-parallel) deploys code to four applications in a single [Azure App Service](https://docs.microsoft.com/azure/app-service/) plan, each using a different deployment source.
+[This sample](https://github.com/Azure-Samples/compute-java-create-virtual-machines-across-regions-in-parallel) deploys code to four applications in a single [Azure App Service](/azure/app-service/) plan, each using a different deployment source.
 
 ## Run the sample
 
@@ -138,7 +138,7 @@ The `username` and `reponame` values are the ones used in GitHub. [Create a GitH
 
 ## Sample explanation
 
-The sample creates the first application using Java 8 and Tomcat 8 running in a newly created [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service plan. The code then FTPs a WAR file using the information in the `PublishingProfile` object and Tomcat deploys it.
+The sample creates the first application using Java 8 and Tomcat 8 running in a newly created [Standard](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service plan. The code then FTPs a WAR file using the information in the `PublishingProfile` object and Tomcat deploys it.
 
 The second application uses in the same plan as the first and is also configured as a Java 8/Tomcat 8 application. The JGit libraries create a new Git repository in a folder that contains an unpacked Java web application in a directory structure that maps to App Service. A new commit adds the files in the folder to the new Git repo, and Git pushes the commit to Azure with a remote URL and username/password provided by the webapp's `PublishingProfile`.
 
@@ -148,12 +148,12 @@ The fourth application deploys the code in your master branch every time you pus
 
 | Class used in sample | Notes
 |-------|-------|
-| [WebApp](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.webapp) | Created from the `azure.webApps().define()....create()` fluent chain. Creates a App Service web app and any resources needed for the app. Most methods query the object for configuration details, but verb methods like `restart()` change the state of the webapp.
-| [WebContainer](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.webcontainer) | Class with static public fields used as parameters to `withWebContainer()` when defining a WebApp running a Java web container. Has choices for both Jetty and Tomcat versions.
-| [PublishingProfile](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.publishingprofile) | Obtained through a WebApp object using the `getPublishingProfile()` method. Contains FTP and Git deployment information, including deployment username and password (which is separate from Azure account or service principal credentials).
-| [AppServicePlan](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.appserviceplan) | Returned by `azure.appServices().appServicePlans().getByResourceGroup()`. Methods are available to check the capacity, tier, and number of web apps running in the plan.
-| [AppServicePricingTier](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.PricingTier) | Class with static public fields representing App Service tiers. Used to define a plan tier in-line during app creation with `withPricingTier()` or directly when defining a plan via `azure.appServices().appServicePlans().define()`
-| [JavaVersion](https://docs.microsoft.com/java/api/com.microsoft.azure.management.appservice.javaversion) | Class with static public fields representing Java versions supported by App Service. Used with `withJavaVersion()` during the `define()...create()` chain when creating a new webapp.
+| [WebApp](/java/api/com.microsoft.azure.management.appservice.webapp) | Created from the `azure.webApps().define()....create()` fluent chain. Creates a App Service web app and any resources needed for the app. Most methods query the object for configuration details, but verb methods like `restart()` change the state of the webapp.
+| [WebContainer](/java/api/com.microsoft.azure.management.appservice.webcontainer) | Class with static public fields used as parameters to `withWebContainer()` when defining a WebApp running a Java web container. Has choices for both Jetty and Tomcat versions.
+| [PublishingProfile](/java/api/com.microsoft.azure.management.appservice.publishingprofile) | Obtained through a WebApp object using the `getPublishingProfile()` method. Contains FTP and Git deployment information, including deployment username and password (which is separate from Azure account or service principal credentials).
+| [AppServicePlan](/java/api/com.microsoft.azure.management.appservice.appserviceplan) | Returned by `azure.appServices().appServicePlans().getByResourceGroup()`. Methods are available to check the capacity, tier, and number of web apps running in the plan.
+| [AppServicePricingTier](/java/api/com.microsoft.azure.management.appservice.PricingTier) | Class with static public fields representing App Service tiers. Used to define a plan tier in-line during app creation with `withPricingTier()` or directly when defining a plan via `azure.appServices().appServicePlans().define()`
+| [JavaVersion](/java/api/com.microsoft.azure.management.appservice.javaversion) | Class with static public fields representing Java versions supported by App Service. Used with `withJavaVersion()` during the `define()...create()` chain when creating a new webapp.
 
 ## Next steps
 

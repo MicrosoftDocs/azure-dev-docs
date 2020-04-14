@@ -75,7 +75,7 @@ To build the image and be ready to run on Azure, you will have to follow these s
 
 #### Set up Azure CLI
 
-Make sure you have an Azure subscription, [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and that you are authenticated to your account:
+Make sure you have an Azure subscription, [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), and that you are authenticated to your account:
 
 ```bash
 az login
@@ -148,15 +148,15 @@ For more information about the various technologies discussed in this article, s
 
 <!-- URL List -->
 
-[Azure Container Registry Build]: https://docs.microsoft.com/azure/container-registry/container-registry-build-overview
+[Azure Container Registry Build]: /azure/container-registry/container-registry-build-overview
 [MicroProfile.io]: https://microprofile.io
 [Azure Command Line Interface (CLI)]: /cli/azure/overview
-[Azure for Java Developers]: https://docs.microsoft.com/azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Maven]: http://maven.apache.org/
 [Java Development Kit (JDK)]: https://aka.ms/azure-jdks
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
-[Azure Container Instances]: https://docs.microsoft.com/azure/container-instances/
-[Azure Container Registry]:  https://docs.microsoft.com/azure/container-registry
+[Azure Container Instances]: /azure/container-instances/
+[Azure Container Registry]:  /azure/container-registry

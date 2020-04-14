@@ -15,8 +15,8 @@ This article will walk you through the process of building, configuring, deployi
 It will demonstrate the usage of the following components:
 
 - [Spring Boot Starter with the Azure Cosmos DB SQL API](configure-spring-boot-starter-java-app-with-cosmos-db.md)
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
-- [App Service Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
+- [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
+- [App Service Linux](/azure/app-service/containers/app-service-linux-intro)
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Clone the Sample Java Web App Repository
 
-For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction).
+For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
     For bash:
@@ -297,12 +297,12 @@ Use the following procedure to scale the application.
 
 ## Next steps
 
-- [Java in App Service Linux dev guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)
-- [Azure for Java Developers](https://docs.microsoft.com/azure/java/)
+- [Java in App Service Linux dev guide](/azure/app-service/containers/app-service-linux-java)
+- [Azure for Java Developers](/azure/developer/java/)
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -319,7 +319,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 <!-- URL List -->
 
 [Azure Cosmos DB Documentation]: /azure/cosmos-db/
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java 
 [Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
 [Spring Boot Document DB Starter for Azure]:https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample

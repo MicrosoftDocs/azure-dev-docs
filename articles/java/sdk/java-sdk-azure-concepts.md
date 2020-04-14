@@ -48,7 +48,7 @@ SqlServer sqlServer = azure.sqlServers().define(sqlServerName)
 
 Each resource collection has a `list()` method to return every instance of that resource in your current subscription. For example, `azure.sqlServers().list()` returns all SQL databases in the subscription.
 
-Use the `listByResourceGroup(String groupname)` method to scope the returned List to a specific [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups).  
+Use the `listByResourceGroup(String groupname)` method to scope the returned List to a specific [Azure resource group](/azure/azure-resource-manager/resource-group-overview#resource-groups).  
 
 Search and iterate over the returned `PagedList<T>` collection just as you would a normal `List<T>`:
 

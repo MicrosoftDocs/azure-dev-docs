@@ -32,7 +32,7 @@ To configure WildFly to access a data source, you'll need to add the JDBC driver
 
 The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
-1. Download the JDBC driver for [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), or [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+1. Download the JDBC driver for [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), or [SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
     Unpack the downloaded archive to get the driver .jar file.
 
