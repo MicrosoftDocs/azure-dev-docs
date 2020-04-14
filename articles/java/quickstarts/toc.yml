@@ -1,81 +1,25 @@
 - name: Azure for Java quickstarts
   href: /azure/developer/java/quickstarts
   items:
-    - name: Deploy Web Apps
-      items:
-      - name: Windows and Eclipse 
-        href: /azure/app-service/app-service-web-get-started-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Linux and Tomcat
-        href: /azure/app-service/containers/quickstart-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Linux and Java SE
-        href: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Monitor Web Apps
-      href: /azure/azure-monitor/learn/java-quick-start?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Container Registry
-      href: /azure/container-registry/container-registry-java-quickstart?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Resource Manager
-      href: /azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-intellij?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure DevOps Projects
-      href: /azure/devops-project/azure-devops-project-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Serverless Function
-      href: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Databases
-      items:
-        - name: SQL Database
-          href: /azure/sql-database/sql-database-connect-query-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: MySQL
-          href: /azure/mysql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: PostgreSQL
-          href: /azure/postgresql/connect-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Cosmos DB
-          items: 
-            - name: SQL API
-              href: /azure/cosmos-db/create-sql-api-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: Table API
-              href: /azure/cosmos-db/create-table-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: Graph API
-              href: /azure/cosmos-db/create-graph-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: Cassandra API
-              href: /azure/cosmos-db/create-cassandra-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: MongoDB API
-              href: /azure/cosmos-db/create-mongodb-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Storage Blobs
-      href: /azure/storage/blobs/storage-quickstart-blobs-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Redis Cache
-      href: /azure/azure-cache-for-redis/cache-java-get-started?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Service Fabric
-      items:
-        - name: Deploy Spring Boot 
-          href: /azure/service-fabric/service-fabric-quickstart-java-spring-boot?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Deploy Reliable Services
-          href: /azure/service-fabric/service-fabric-quickstart-java-reliable-services?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Messaging Applications
-      items:
-        - name: Service Bus Messaging
-          items: 
-            - name: Use queues
-              href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: Use topics and subscriptions
-              href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-            - name: JMS and AMQP
-              href: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Event Hubs
-          href: /azure/event-hubs/event-hubs-java-get-started-send?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: IoT Hub
-      items: 
-        - name: Send telemetry
-          href: /azure/iot-hub/quickstart-send-telemetry-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Control a device
-          href: /azure/iot-hub/quickstart-control-device-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Search
-      href: /azure/search/search-get-started-java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Cognitive Services
-      items: 
-        - name: Computer Vision
-          href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Text Analytics
-          href: /azure/cognitive-services/Text-Analytics/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Bing Web Search
-          href: /azure/cognitive-services/bing-web-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Bing Image Search
-          href: /azure/cognitive-services/bing-image-search/quickstarts/java?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Compute services
+      href: compute.md
+    - name: Data
+      href: data.md
+    - name: Storage
+      href: storage.md
+    - name: Caching
+      href: caching.md
+    - name: Secrets and configuration management
+      href: secrets-and-configuration-management.md
+    - name: Directories
+      href: directories.md
+    - name: Messaging and eventing
+      href: messaging-and-eventing.md
+    - name: Networking
+      href: networking.md
+    - name: Monitoring
+      href: monitoring.md
+    - name: Cognitive services
+      href: cognitive-services.md
+    - name: DevOps
+      href: devops.md
