@@ -60,12 +60,12 @@ additionalContent:
 
       - title: Azure App Service
         links:
-          - text: Create Java app
-            url: /azure/app-service/containers/quickstart-java 
+          - text: Create a Java app
+            url: /azure/app-service/containers/quickstart-java
           - text: Configure Java
-            url: /azure/app-service/containers/configure-language-java 
-          - text: Try Java app with MySQL
-            url: /azure/developer/java/spring-framework/spring-app-service-e2e 
+            url: /azure/app-service/containers/configure-language-java
+          - text: Deploy a Spring app with MySQL
+            url: /azure/developer/java/spring-framework/spring-app-service-e2e
 
       - title: Azure Spring cloud
         links:
@@ -91,12 +91,12 @@ additionalContent:
 
       - title: Azure Functions
         links:
-          - text: Create Azure Function
+          - text: Create an Azure Function
             url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
-          - text: Create Spring Cloud Function
-            url:
+          - text: Create a Spring Cloud Function
+            url: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure
           - text: Developer guide
-            url: /azure/azure-functions/functions-reference-java 
+            url: /azure/azure-functions/functions-reference-java
 
       - title: Monitoring Java apps
         links:
@@ -105,16 +105,16 @@ additionalContent:
           - text: Get started with ELK
             url: /azure/developer/java/java-get-started-with-logzio
           - text: Monitor Spring apps
-            url: /azure/spring-cloud/diagnostic-services 
+            url: /azure/spring-cloud/diagnostic-services
 
       - title: Securing Java apps
         links:
           - text: Enable end-user authentication and authorization
             url: /azure/active-directory/develop/quickstart-v2-java-webapp
-          - text: Use Microsoft Authentication Library
-            url: /azure/active-directory/develop/migrate-adal-msal-java 
+          - text: Use the Microsoft Authentication Library
+            url: /azure/active-directory/develop/migrate-adal-msal-java
           - text: Manage app secrets
-            url: /azure/key-vault/quick-create-java 
+            url: /azure/key-vault/quick-create-java
 
 tools:
   title: Tools
