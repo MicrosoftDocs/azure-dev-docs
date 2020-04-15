@@ -7,7 +7,6 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.topic: conceptual
 ms.author: judubois
-ms.topic: article
 ---
 
 # Use Spring Data R2DBC with Azure Database for MySQL
