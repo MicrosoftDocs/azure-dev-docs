@@ -117,7 +117,7 @@ To create a reactive Spring Boot application, we'll use [Spring Initializr](http
 
 ### Generate the application by using Spring Initializr
 
-Generate the application on the command line, by entering:
+Generate the application on the command line by entering:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M3 -d javaVersion=8 | tar -xzvf -
