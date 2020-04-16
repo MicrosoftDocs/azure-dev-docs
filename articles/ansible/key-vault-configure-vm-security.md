@@ -29,10 +29,6 @@ In this tutorial, you learn how to use the Ansible collection for Azure modules 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 [!INCLUDE [ansible-configure-azure-collection.md](includes/ansible-configure-azure-collection.md)]
-- **Download and install the latest Azure collection for Ansible**: Run the following command at a terminal prompt:
-    ```bash
-        ansible-galaxy collection install azure.azcollection --force
-    ```
     
 ## Get Azure subscription info
 
