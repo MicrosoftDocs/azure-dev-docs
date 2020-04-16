@@ -29,7 +29,7 @@
         tocHref: /azure/developer/java/sdk
         topicHref: /azure/developer/java/sdk/index
       - name: Spring integration
-        tocHref: /azure/developer/spring-framework
+        tocHref: /azure/developer/java/spring-framework
         topicHref: /azure/developer/java/spring-framework/index
       - name: Toolkit for Eclipse
         tocHref: /azure/developer/java/toolkit-for-eclipse
