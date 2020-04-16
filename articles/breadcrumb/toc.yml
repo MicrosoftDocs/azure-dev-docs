@@ -6,37 +6,37 @@
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
-    - name: Azure SDK for Go
+    - name: Go
       tocHref: /azure/developer/go
       topicHref: /azure/developer/go/index
-    - name: Azure for Python developers
+    - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
-    - name: Azure for Java developers
+    - name: Java
       tocHref: /azure/developer/java
       topicHref: /azure/developer/java/index
       items:
-      - name: Eclipse MicroProfile on Azure
+      - name: Eclipse MicroProfile
         tocHref: /azure/developer/java/eclipse-microprofile
         topicHref: /azure/developer/java/eclipse-microprofile/index
-      - name: Java on Azure developer tools
+      - name: Tools
         tocHref: /azure/developer/java/fundamentals
         topicHref: /azure/developer/java/fundamentals/index
-      - name: Java to Azure migration
+      - name: Migration
         tocHref: /azure/developer/java/migration
         topicHref: /azure/developer/java/migration/index
-      - name: Azure SDK for Java
+      - name: SDK
         tocHref: /azure/developer/java/sdk
         topicHref: /azure/developer/java/sdk/index
-      - name: Spring on Azure integration
+      - name: Spring integration
         tocHref: /azure/developer/spring-framework
         topicHref: /azure/developer/java/spring-framework/index
-      - name: Azure Toolkit for Eclipse
+      - name: Toolkit for Eclipse
         tocHref: /azure/developer/java/toolkit-for-eclipse
         topicHref: /azure/developer/java/toolkit-for-eclipse/index
-      - name: Azure Toolkit for IntelliJ
+      - name: Toolkit for IntelliJ
         tocHref: /azure/developer/java/toolkit-for-intellij
         topicHref: /azure/developer/java/toolkit-for-intellij/index
-      - name: Azure for Java quickstarts
+      - name: Quickstarts
         tocHref: /azure/developer/java/quickstarts
         topicHref: /azure/developer/java/quickstarts/index
