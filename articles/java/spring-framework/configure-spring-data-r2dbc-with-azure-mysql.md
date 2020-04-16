@@ -1,19 +1,18 @@
 ---
-title: How to use Spring Data R2DBC with Azure Database for MySQL
+title: Use Spring Data R2DBC with Azure Database for MySQL
 description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
 documentationcenter: java
 ms.date: 03/18/2020
 ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
-ms.topic: article
 ---
 
-# How to use Spring Data R2DBC with Azure MySQL
+# Use Spring Data R2DBC with Azure Database for MySQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for MySQL](/azure/mysql/), using the R2DBC implementation for MySQL from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
 
-[R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. It can be used with Spring WebFlux to create fully reactive Spring Boot applications, using non-blocking APIs and providing better scalability than the classic "one thread per connection" approach.
+[R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 
 ## Prepare the working environment
 
-First, set up some environment variables using the following commands:
+First, set up some environment variables by using the following commands:
 
 ```bash
 AZ_RESOURCE_GROUP=r2dbc-workshop
@@ -35,14 +34,14 @@ AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Replace the placeholders with the following values, which are used throughout this topic:
+Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL Server instance. It should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: the Azure region you'll use. You can use `eastus` by default, but we recommend you configure a region closer to where you live. You can have the full list of available regions by typing `az account list-locations`.
-- `<YOUR_MYSQL_PASSWORD>`: the password of your MySQL database server. That password should have a minimum of eight characters, and characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-- `<YOUR_LOCAL_IP_ADDRESS>`: the IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [http://whatismyip.akamai.com/](http://whatismyip.akamai.com/).
+- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
+- `<YOUR_MYSQL_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
-Next, create a resource group.
+Next, create a resource group:
 
 ```azurecli
 az group create \
@@ -52,18 +51,17 @@ az group create \
 ```
 
 > [!NOTE]
-> We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/), in order to display JSON data and make it more readable.
+> We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/) to display JSON data and make it more readable.
 > If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
-## Create an Azure Database for MySQL
+## Create an Azure Database for MySQL instance
 
-The first thing we will create is a managed MySQL Server instance.
+The first thing we'll create is a managed MySQL server.
 
 > [!NOTE]
-> 
-> You can read more detailed information about creating MySQL databases in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
-Still in your [Azure Shell](https://shell.azure.com/) instance, execute the following script:
+In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
 
 ```azurecli
 az mysql server create \
@@ -77,13 +75,13 @@ az mysql server create \
     | jq
 ```
 
-This command will create a small MySQL Server instance.
+This command creates a small MySQL server.
 
-### Configure a firewall rule for your MySQL Server instance
+### Configure a firewall rule for your MySQL server
 
-Azure Database for MySQL instances are secured by default: they have a firewall that doesn't allow any incoming connection. In order to be able to use our database, we need to add a firewall rule that will allow our local IP address to access the database server.
+Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
-As we have configured our local IP address at the beginning of this article, you can open up the server's firewall by running:
+Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running:
 
 ```azurecli
 az mysql server firewall-rule create \
@@ -97,7 +95,7 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that we created earlier is empty: it doesn't have any database that we can use with our Spring Boot application. Create a new database called `r2dbc`:
+The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
 
 ```azurecli
 az mysql db create \
@@ -109,15 +107,15 @@ az mysql db create \
 
 ## Create a reactive Spring Boot application
 
-To create a reactive Spring Boot application, we will use [Spring Initializr](https://start.spring.io/). The application we will create uses:
+To create a reactive Spring Boot application, we'll use [Spring Initializr](https://start.spring.io/). The application that we'll create uses:
 
-- Spring Boot 2.3.0 M3
-- Java 8 (but it will also work with newer versions like Java 11)
-- The following dependencies: Spring Reactive Web (also known as "Spring WebFlux") and Spring Data R2DBC.
+- Spring Boot 2.3.0 M3.
+- Java 8 (but it will also work with newer versions like Java 11).
+- The following dependencies: Spring Reactive Web (also known as Spring WebFlux) and Spring Data R2DBC.
 
-### Generate the application using Spring Initializr
+### Generate the application by using Spring Initializr
 
-Generate this application using the command line, by typing:
+Generate the application on the command line by entering:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M3 -d javaVersion=8 | tar -xzvf -
@@ -125,7 +123,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ### Add the reactive MySQL driver implementation
 
-Open up the generated project's *pom.xml* file to add the reactive MySQL driver from [https://github.com/mirromutth/r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql).
+Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
@@ -138,9 +136,9 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 </dependency>
 ```
 
-### Configure Spring Boot to use the Azure Database for MySQL
+### Configure Spring Boot to use Azure Database for MySQL
 
-Open up the *src/main/resources/application.properties* file, and add:
+Open the *src/main/resources/application.properties* file, and add:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
@@ -150,22 +148,22 @@ spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_MYSQL_USERNAME
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables by the value you configured at the beginning of this article.
-- Replace the `$AZ_MYSQL_USERNAME` variable by the value you configured at the beginning of this article.
+- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
+- Replace the `$AZ_MYSQL_USERNAME` variable with the value that you configured at the beginning of this article.
 
-You should now be able to start your application using the provided Maven wrapper:
+You should now be able to start your application by using the provided Maven wrapper:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-Here is a screenshot of the application running for the first time:
+Here's a screenshot of the application running for the first time:
 
-![Run the application][R2DBC-MYSQL01]
+![The running application][R2DBC-MYSQL01]
 
 ### Create the database schema
 
-Inside the main `DemoApplication` class, configure a new Spring bean that will create the database schema you'll use:
+Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema:
 
 ```java
     @Bean
@@ -191,15 +189,15 @@ Use the following command to stop the application and run it again. The applicat
 ./mvnw spring-boot:run
 ```
 
-Here's a screenshot of the database table being created:
+Here's a screenshot of the database table as it's being created:
 
-   ![Create the database table][R2DBC-MYSQL02]
+   ![Creation of the database table][R2DBC-MYSQL02]
 
 ## Code the application
 
-Next, add the Java code that will use R2DBC to store and retrieve data from your MySQL Server instance.
+Next, add the Java code that will use R2DBC to store and retrieve data from your MySQL server.
 
-Now, create a new `Todo` Java class, next to the `DemoApplication` class:
+Create a new `Todo` Java class, next to the `DemoApplication` class:
 
 ```java
 package com.example.demo;
@@ -273,9 +271,9 @@ public interface TodoRepository extends ReactiveCrudRepository<Todo, Long> {
 }
 ```
 
-This repository is a reactive repository managed by Spring Data R2DBC.
+This repository is a reactive repository that Spring Data R2DBC manages.
 
-Next, finish the application by creating a controller that can store and retrieve data. Implement a `TodoController` class in the same package, and add the following code:
+Finish the application by creating a controller that can store and retrieve data. Implement a `TodoController` class in the same package, and add the following code:
 
 ```java
 package com.example.demo;
@@ -308,7 +306,7 @@ public class TodoController {
 }
 ```
 
-Finally, halt the application and start it up again:
+Finally, halt the application and start it again:
 
 ```bash
 ./mvnw spring-boot:run
@@ -333,23 +331,23 @@ This command should return the created item:
 {"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}
 ```
 
-Next, retrieve the data using a new cURL request:
+Next, retrieve the data by using a new cURL request:
 
 ```bash
 curl http://127.0.0.1:8080
 ```
 
-This command will return the list of "todos", including the item you've created:
+This command will return the list of "todo" items, including the item you've created:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
 ```
 
-Here is a screenshot of these cURL requests:
+Here's a screenshot of these cURL requests:
 
    ![Test with cURL][R2DBC-MYSQL03]
 
-Congratulations! You've created a fully reactive Spring Boot application, that uses R2DBC to store and retrieve data from Azure Database for MySQL.
+Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
 ## Clean up resources
 
@@ -368,11 +366,11 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](/azure/developer/java/spring-framework)
 
-### Additional Resources
+### Additional resources
 
-For more information about Spring Data R2DBC, see Spring's [Reference Documentation](https://docs.spring.io/spring-data/r2dbc/docs/1.0.x/reference/html/#reference).
+For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/1.0.x/reference/html/#reference).
 
-For more information about using Azure with Java, see the [Azure for Java Developers](/azure/developer/java/) and the [Working with Azure DevOps and Java](/azure/devops/) pages.
+For more information about using Azure with Java, see [Azure for Java developers](/azure/developer/java/) and [Working with Azure DevOps and Java](/azure/devops/).
 
 <!-- IMG List -->
 
