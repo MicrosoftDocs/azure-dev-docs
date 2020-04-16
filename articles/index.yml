@@ -72,7 +72,7 @@ productDirectory:
         - url: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
           text: Use Spring Boot Starter for Azure Active Directory
         - url: https://docs.microsoft.com/azure/java/
-          text: Java Developer Center
+          text: Developer Center
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
       links:
