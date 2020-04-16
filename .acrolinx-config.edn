@@ -1,2 +1,2 @@
 {:allowed-branchname-matches ["^master$" "^release..*"]
- :allowed-filename-matches ["dotnet" "go" "java" "javascript" "python"]}
+ :allowed-filename-matches ["articles" "includes" "javascript"]}
