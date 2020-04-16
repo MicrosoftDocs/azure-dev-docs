@@ -44,7 +44,7 @@ productDirectory:
         - url: https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-python
           text: Create an Azure Data Factory using Python
         - url: https://docs.microsoft.com/azure/developer/python/
-          text: Developer center
+          text: See more in the Python developer center
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
@@ -59,7 +59,7 @@ productDirectory:
         - url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
           text: Migrate a MongoDB web app to Azure Cosmos DB
         - url: https://docs.microsoft.com/azure/javascript/
-          text: Developer center
+          text: See more in the JavaScript developer center
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       links:
@@ -71,13 +71,17 @@ productDirectory:
           text: Create a Java app in Azure App Service
         - url: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
           text: Use Spring Boot Starter for Azure Active Directory
+        - url: https://docs.microsoft.com/azure/java/migration-overview
+          text: Migrate Java Applications to Azure
         - url: https://docs.microsoft.com/azure/java/
-          text: Developer Center
+          text: See more in the Java developer center
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
       links:
         - url: https://docs.microsoft.com/dotnet/azure/sdk/
           text: Azure SDK for .NET
+        - url: https://docs.microsoft.com/dotnet/azure/intro
+          text: Introduction to Azure and .NET
         - url: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
           text: Deploy an ASP.NET web app
         - url: https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio
@@ -85,7 +89,7 @@ productDirectory:
         - url: https://docs.microsoft.com/visualstudio/containers/container-tools?view=vs-2019
           text: ASP.NET Core and Docker
         - url: https://docs.microsoft.com/dotnet/azure/
-          text: Developer center
+          text: See more in the .NET developer center
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
       links:
@@ -100,7 +104,7 @@ productDirectory:
         - url: https://docs.microsoft.com/powershell/azure/context-persistence
           text: Persist credential contexts 
         - url: https://docs.microsoft.com/powershell/azure/
-          text: Developer center
+          text: See more in the Azure PowerShell developer center
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       links:
@@ -115,7 +119,7 @@ productDirectory:
         - url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest
           text: Create a virtual machine
         - url: https://docs.microsoft.com/cli/azure/
-          text: Developer center
+          text: See more in the Azure CLI developer center
 #tools:
 #conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
