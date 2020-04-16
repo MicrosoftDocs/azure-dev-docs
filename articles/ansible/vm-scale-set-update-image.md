@@ -8,13 +8,13 @@ ms.date: 04/30/2019
 
 # Tutorial: Update the custom image of Azure virtual machine scale sets using Ansible
 
-[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-27-note.md](includes/ansible-28-note.md)]
 
-[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../../includes/open-source-devops-intro-vm-scale-set.md)]
+[!INCLUDE [open-source-devops-intro-vm-scale-set.md](../includes/open-source-devops-intro-vm-scale-set.md)]
 
 After a VM is deployed, you configure the VM with the software your app needs. Instead of doing this configuration task for each VM, you can create a custom image. A custom image is a snapshot of an existing VM that includes any installed software. When you [configure a scale set](./vm-scale-set-configure.md), you specify the image to use for that scale set's VMs. By using a custom image, each VM instance is identically configured for your app. Sometimes, you may need to update your scale set's custom image. That task is the focus of this tutorial.
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -25,8 +25,8 @@ After a VM is deployed, you configure the VM with the software your app needs. I
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Configure two VMs
 
