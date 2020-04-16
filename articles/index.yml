@@ -43,7 +43,7 @@ tools:
     # Card
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-      url: java
+      url: java/index.yml
     # Card
     - title: Go
       imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
