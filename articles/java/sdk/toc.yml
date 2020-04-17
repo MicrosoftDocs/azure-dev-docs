@@ -1,0 +1,35 @@
+- name: Azure SDK for Java documentation
+  href: index.yml
+  items:
+    - name: Get Started
+      href: java-sdk-azure-get-started.md
+    - name: Concepts
+      expanded: true
+      items:
+        - name: Patterns & best practices
+          href: java-sdk-azure-concepts.md
+    - name: How-to Articles
+      expanded: true
+      items:
+        - name: Add Root Certificate
+          href: java-sdk-add-certificate-ca-store.md
+        - name: Authenticate
+          href: java-sdk-azure-authenticate.md
+        - name: Configure logging
+          href: java-sdk-azure-log.md
+    - name: Code Samples
+      items:
+        - name: Virtual machines
+          href: java-sdk-azure-virtual-machine-samples.md
+        - name: Web apps
+          href: java-sdk-azure-web-apps-samples.md
+        - name: SQL Database
+          href: java-sdk-azure-sql-database-samples.md
+        - name: Security
+          href: java-sdk-azure-security-samples.md
+        - name: Containers
+          href: java-sdk-azure-containers-samples.md
+        - name: All Java samples
+          href: /samples/browse/?products=azure&languages=java
+    - name: Reference
+      href: /java/api/?view=azure-java
