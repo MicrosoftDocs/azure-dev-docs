@@ -59,7 +59,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Run the Function App locally
 
-1. Navigate to `src/main/java/org/example/functions/Function.java` to see the code generated. Beside the line *17*, you will notice that there is a green *Run* button, click it and select *Run 'azure-function-exam...'*, you will see that your function app is running locally with a few logs.
+1. Navigate to `src/main/java/org/example/functions/HttpTriggerFunction.java` to see the code generated. Beside the line *17*, you will notice that there is a green *Run* button, click it and select *Run 'azure-function-exam...'*, you will see that your function app is running locally with a few logs.
 
     ![Local run functions project](media/quickstart-functions/local-run-functions-project.png)
 
@@ -79,7 +79,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Local debug functions button](media/quickstart-functions/local-debug-functions-button.png)
 
-1. Click on line *20* of the file `src/main/java/org/example/functions/Function.java` to add a breakpoint, access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again , you will find the breakpoint is hit, you can try more debug features like *step*, *watch*, *evaluation*. Stop the debug session by click the stop button.
+1. Click on line *20* of the file `src/main/java/org/example/functions/HttpTriggerFunction.java` to add a breakpoint, access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again , you will find the breakpoint is hit, you can try more debug features like *step*, *watch*, *evaluation*. Stop the debug session by click the stop button.
 
     ![Local debug functions break](media/quickstart-functions/local-debug-functions-break.png)
 
