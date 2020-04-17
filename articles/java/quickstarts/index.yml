@@ -13,18 +13,21 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Windows and Eclipse 
-          url: /azure/app-service/app-service-web-get-started-java
         - text: Linux and Tomcat
           url: /azure/app-service/containers/quickstart-java
         - text: Linux and Java SE
           url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+        - text: Deploy to Linux using IntelliJ
+          url: /azure/developer/java/toolkit-for-intellij/create-hello-world-web-app
+
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart
         links:
         - text: Create and publish a function to Azure
-          url: /azure/azure-functions/functions-create-first-java-maven?toc=/azure/developer/java/toc.json&bc=/azure/developer/java/developer/breadcrumb/toc.json
+          url: /azure/azure-functions/functions-create-first-java-maven
+        - text: Deploy using IntelliJ
+          url: /azure/developer/java/toolkit-for-intellij/quickstart-functions
   - title: Storage
     linkLists:
       - linkListType: quickstart
@@ -57,14 +60,16 @@ landingContent:
           url: /azure/cosmos-db/create-cassandra-java
         - text: MongoDB API
           url: /azure/cosmos-db/create-mongodb-java
-  - title: Messaging
+  - title: Eventing
     linkLists:
       - linkListType: quickstart
         links:
         - text: Event Hubs
           url: /azure/event-hubs/event-hubs-java-get-started-send
+        - text: Event Hubs and Kafka
+          url: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
   - title: Service Bus Messaging
-    linkLists: 
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Use queues
@@ -74,22 +79,18 @@ landingContent:
           - text: JMS and AMQP
             url: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp
   - title: IoT Hub
-    linkLists: 
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Send telemetry
             url: /azure/iot-hub/quickstart-send-telemetry-java
           - text: Control a device
             url: /azure/iot-hub/quickstart-control-device-java
-  - title: Cognitive Services
-    linkLists: 
+  - title: Caching
+    linkLists:
       - linkListType: quickstart
         links:
-          - text: Computer Vision
-            url: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
-          - text: Text Analytics
-            url: /azure/cognitive-services/Text-Analytics/quickstarts/java
-          - text: Bing Web Search
-            url: /azure/cognitive-services/bing-web-search/quickstarts/java
-          - text: Bing Image Search
-            url: /azure/cognitive-services/bing-image-search/quickstarts/java
+          - text: App Cache using Jedis
+            url: /azure/azure-cache-for-redis/cache-java-get-started
+          - text: Spring Data Reactive Redis
+            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
