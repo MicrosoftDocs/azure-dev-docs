@@ -1,0 +1,117 @@
+- name: Ansible on Azure documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About Ansible on Azure
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy Ansible solution template to CentOS
+      href: solution-template-deploy.md
+    - name: Install Ansible on Linux virtual machines
+      href: install-on-linux-vm.md
+      maintainContext: true
+    - name: Run playbooks in Cloud Shell
+      href: cloudshell-run-playbook.md
+    - name: Work with Linux Virtual Machines
+      expanded: true
+      items:
+      - name: Configure Linux virtual machines
+        href: vm-configure.md
+        maintainContext: true
+      - name: Manage Linux virtual machines
+        href: vm-manage.md
+        maintainContext: true
+- name: Tutorials
+  items:
+  - name: Azure Application Gateway
+    items:
+    - name: Manage web traffic
+      href: application-gateway-configure.md
+  - name: Azure App Service
+    items:
+    - name: Configure apps
+      href: azure-web-apps-configure.md
+    - name: Scale apps
+      href: azure-web-apps-scale.md
+  - name: Azure DevTest Labs
+    items:
+    - name: Configure labs
+      href: devtest-labs-configure.md
+  - name: Azure Kubernetes Service (AKS)
+    items:
+    - name: Configure AKS clusters
+      href: aks-configure-clusters.md
+    - name: Configure Azure CNI networking
+      href: aks-configure-cni-networking.md
+    - name: Configure kubenet networking
+      href: aks-configure-kubenet-networking.md
+    - name: Configure RBAC roles in AKS cluster
+      href: aks-configure-rbac.md
+  - name: Azure HDInsight
+    items:
+    - name: Configure clusters
+      href: hdinsight-configure.md
+  - name: Azure Service Bus
+    items:
+    - name: Configure queues
+      href: service-bus-queue-configure.md
+    - name: Configure topics
+      href: service-bus-topic-configure.md
+  - name: Database
+    items:
+    - name: Configure Azure Database for MySQL
+      href: mysql-configure.md
+    - name: Configure Azure Cosmos DB accounts
+      href: cosmos-configure.md
+    - name: Configure Azure Cache for Redis
+      href: cache-for-redis-configure.md
+  - name: Dynamic inventory
+    items:
+    - name: Manage your Azure resources
+      href: dynamic-inventory-configure.md
+  - name: Virtual machines
+    items:
+    - name: Create Shared Image Gallery
+      href: vm-configure-from-azure-shared-image-gallery.md
+  - name: Virtual machine scale sets
+    items:
+    - name: Configure 
+      href: vm-scale-set-configure.md
+    - name: Deploy 
+      href: vm-scale-set-deploy-app.md
+    - name: Autoscale
+      href: vm-scale-set-auto-scale.md
+    - name: Update custom image
+      href: vm-scale-set-update-image.md
+    - name: Create Shared Image Gallery
+      href: vm-configure-from-azure-shared-image-gallery.md
+  - name: Virtual network
+    items:
+    - name: Configure peering
+      href: virtual-network-peering-configure.md
+    - name: Configure route tables
+      href: route-table-configure.md
+- name: Samples
+  items:
+  - name: Ansible labs for Azure
+    href: https://github.com/microsoft/ansiblelabs
+  - name: Ansible Azure playbook samples
+    href: https://github.com/Azure-Samples/ansible-playbooks
+- name: Reference
+  items:
+  - name: Playbook roles
+    items:
+    - name: azure_module
+      href: https://galaxy.ansible.com/Azure/azure_modules/
+    - name: azure_preview_module
+      href: https://galaxy.ansible.com/Azure/azure_preview_modules
+  - name: Releases and features
+    href: module-version-matrix.md
+  - name: All modules for Azure
+    href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+- name: Resources
+  items:
+  - name: Visual Studio Code extension for Ansible
+    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
