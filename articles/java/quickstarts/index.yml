@@ -19,7 +19,8 @@ landingContent:
           url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
         - text: Deploy to Linux using IntelliJ
           url: /azure/developer/java/toolkit-for-intellij/create-hello-world-web-app
-
+        - text: Deploy to Linux using Visual Studio Code
+          url: https://code.visualstudio.com/docs/java/java-webapp
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart
@@ -28,14 +29,26 @@ landingContent:
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Deploy using IntelliJ
           url: /azure/developer/java/toolkit-for-intellij/quickstart-functions
+        - text: Deploy using Visual Studio Code
+          url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
+  - title: Azure Spring Cloud
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Launch using the Azure portal
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+        - text: Launch using the Azure CLI
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-cli
+        - text: Launch from source code
+          url: /azure/spring-cloud/spring-cloud-launch-from-source
+        - text: Launch using Maven
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-maven
   - title: Storage
     linkLists:
       - linkListType: quickstart
         links:
         - text: Storage Blobs
           url: /azure/storage/blobs/storage-quickstart-blobs-java
-        - text: Redis Cache
-          url: /azure/azure-cache-for-redis/cache-java-get-started
   - title: Databases
     linkLists:
       - linkListType: quickstart

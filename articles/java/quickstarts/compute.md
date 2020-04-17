@@ -15,6 +15,7 @@ The following articles help you get started with compute services on Azure:
 - [App Service using Eclipse](/azure/java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)
 - [App Service using Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 - [Azure Functions](/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java)
+- [Azure Functions using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)
 - [Azure Functions - Spring Cloud Functions](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure)
 - [Azure Spring Cloud](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
 - [Azure Container Registry](/azure/container-registry/container-registry-java-quickstart)

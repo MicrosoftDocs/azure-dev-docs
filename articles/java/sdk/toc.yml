@@ -17,5 +17,19 @@
           href: java-sdk-azure-authenticate.md
         - name: Configure logging
           href: java-sdk-azure-log.md
+    - name: Code Samples
+      items:
+        - name: Virtual machines
+          href: java-sdk-azure-virtual-machine-samples.md
+        - name: Web apps
+          href: java-sdk-azure-web-apps-samples.md
+        - name: SQL Database
+          href: java-sdk-azure-sql-database-samples.md
+        - name: Security
+          href: java-sdk-azure-security-samples.md
+        - name: Containers
+          href: java-sdk-azure-containers-samples.md
+        - name: All Java samples
+          href: /samples/browse/?products=azure&languages=java
     - name: Reference
       href: /java/api/?view=azure-java
