@@ -102,7 +102,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
 1. Click **API permissions** in the left navigation pane. 
 
-1. On the **API permissions** page, click **Grant admin consent...**, and click **Yes** when prompted.
+1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
 
    ![Grant access permissions][create-app-registration-08]
 
