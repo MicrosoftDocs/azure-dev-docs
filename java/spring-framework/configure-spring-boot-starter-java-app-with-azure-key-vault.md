@@ -139,7 +139,6 @@ The following procedure creates and initializes the key vault.
 
    ```azurecli
    "https://vgedkeyvault.vault.azure.net"
-
    ```
 
 3. Store a secret in your new key vault; for example:
@@ -197,7 +196,7 @@ The following procedure creates and initializes the key vault.
 3. Grant permission to MSI
 
     ```azurecli
-    $ az keyvault set-policy --name vgedkeyvault \
+    az keyvault set-policy --name vgedkeyvault \
         --object-id your-managed-identity-objectId \
         --secret-permissions get list
     ```
@@ -269,7 +268,7 @@ Use the following procedure to configure and compile your application.
 2. Enable App Service logs and Stream log.
 
     ```yaml
-       az webapp log tail --name myApp --resource-group vged-rg2
+     az webapp log tail --name myApp --resource-group vged-rg2
     ```
 3. Run your application using Azure.
 
