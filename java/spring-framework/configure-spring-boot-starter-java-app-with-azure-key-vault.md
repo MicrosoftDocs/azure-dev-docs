@@ -117,29 +117,7 @@ The following procedure creates and initializes the key vault.
    }
    ```
 
-2. Create an Azure service principal from your application registration; for example:
-   ```shell
-   az ad sp create-for-rbac --name "vgeduser"
-   ```
-   Where:
-
-   | Parameter | Description |
-   |---|---|
-   | `name` | Specifies the name for your Azure service principal. |
-
-   The Azure CLI will return a JSON status message that contains the *appId* and *password*, which you will use later as the client ID and client password; for example:
-
-   ```json
-   {
-     "appId": "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii",
-     "displayName": "vgeduser",
-     "name": "http://vgeduser",
-     "password": "pppppppp-pppp-pppp-pppp-pppppppppppp",
-     "tenant": "tttttttt-tttt-tttt-tttt-tttttttttttt"
-   }
-   ```
-
-3. Create a new key vault in the resource group; for example:
+2. Create a new key vault in the resource group; for example:
 
    ```azurecli
    az keyvault create --name vgedkeyvault --resource-group vged-rg2 --location westus --enabled-for-deployment true --enabled-for-disk-encryption true --enabled-for-template-deployment true --sku standard --query properties.vaultUri
@@ -164,39 +142,7 @@ The following procedure creates and initializes the key vault.
 
    ```
 
-4. Set the access policy for the Azure service principal you created earlier; for example:
-
-   ```azurecli
-   az keyvault set-policy --name vgedkeyvault --secret-permission set get list delete --spn "iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii"
-   ```
-
-   Where:
-
-   | Parameter | Description |
-   |---|---|
-   | `name` | Specifies your key vault name from earlier. |
-   | `secret-permission` | Specifies the [security policies](/cli/azure/keyvault) for your key vault. |
-   | `spn` | Specifies the GUID for your application registration from earlier. |
-
-   The Azure CLI will display the results of your security policy creation; for example:  
-
-   ```json
-   {
-     "id": "/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/...",
-     "location": "westus",
-     "name": "vgedkeyvault",
-     "properties": {
-       ...
-       ... (A long list of values will be displayed here.)
-       ...
-     },
-     "resourceGroup": "vged-rg2",
-     "tags": {},
-     "type": "Microsoft.KeyVault/vaults"
-   }
-   ```
-
-5. Store a secret in your new key vault; for example:
+3. Store a secret in your new key vault; for example:
 
    ```azurecli
    az keyvault secret set --vault-name "vgedkeyvault" --name "connectionString" --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
@@ -233,6 +179,36 @@ The following procedure creates and initializes the key vault.
    }
    ```
 
+## Set up App Service, MSI and Deploy
+
+1. Create your App Service, 
+
+    ```azurecli
+    az appservice plan create --name myPlan --resource-group vged-rg2 --sku S1
+    az webapp create --name myApp --resource-group vged-rg2 --plan myPlan
+    ```
+
+2. Run the `identity assign` command to create the identity for this application:
+
+    ```azurecli
+    az webapp identity assign --name myApp --resource-group myResourceGroup
+    ```
+
+3. Grant permission to MSI
+
+    ```azurecli
+    $ az keyvault set-policy --name vgedkeyvault \
+        --object-id your-managed-identity-objectId \
+        --secret-permissions get list
+    ```
+
+4. Deploy executable JAR file to App Service
+
+   > **Attention**
+   >
+   > If you're using FTP/S,  the executable JAR must be named as `app.jar`.
+
+
 ## Configure and compile your app
 
 Use the following procedure to configure and compile your application.
@@ -245,8 +221,7 @@ Use the following procedure to configure and compile your application.
 
    ```yaml
    azure.keyvault.uri=https://vgedkeyvault.vault.azure.net/
-   azure.keyvault.client-id=iiiiiiii-iiii-iiii-iiii-iiiiiiiiiiii
-   azure.keyvault.client-key=pppppppp-pppp-pppp-pppp-pppppppppppp
+   azure.keyvault.enabled=true
    ```
 
    Where:
@@ -254,8 +229,6 @@ Use the following procedure to configure and compile your application.
    |          Parameter          |                                 Description                                 |
    |-----------------------------|-----------------------------------------------------------------------------|
    |    `azure.keyvault.uri`     |           Specifies the URI from when you created your key vault.           |
-   | `azure.keyvault.client-id`  |  Specifies the *appId* GUID from when you created your service principal.   |
-   | `azure.keyvault.client-key` | Specifies the *password* GUID from when you created your service principal. |
 
 
 4. Navigate to the main source code file of your project; for example: */src/main/java/com/vged/secrets*.
@@ -291,27 +264,14 @@ Use the following procedure to configure and compile your application.
 
 ## Build and test your app
 
-Use the following procedure to test your application.
+1. Restart your App Service.
 
-1. Navigate to the directory where the *pom.xml* file for your Spring Boot app is located:
+2. Enable App Service logs and Stream log.
 
-1. Build your Spring Boot application with Maven; for example:
-
-   ```bash
-   mvn clean package
-   ```
-
-   Maven will display the results of your build.
-
-   ![Spring Boot application build status][build-application-01]
-
-1. Run your Spring Boot application with Maven; the application will display the connection string from your key vault. For example:
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-   ![Spring Boot run time message][build-application-02]
+    ```yaml
+       az webapp log tail --name myApp --resource-group vged-rg2
+    ```
+3. Run your application using Azure.
 
 ## Summary
 
@@ -340,6 +300,10 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
+For more information about using managed identities for App Service, see the [Using managed identities for App Service].
+
+For more information about deploy applications on Azure App Service in IntelliJ, see the [Create a web app for Azure App Service using IntelliJ].
+
 <!-- URL List -->
 
 [Key Vault Documentation]: /azure/key-vault/
@@ -351,6 +315,8 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
+[Using managed identities for App Service]: https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=javascript
+[Create a web app for Azure App Service using IntelliJ]: https://docs.microsoft.com/en-us/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app
 
 <!-- IMG List -->
 
