@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Toolkit for IntelliJ documentation
+summary: The Azure Toolkit for IntelliJ provides templates and functionality that you can use to easily create, develop, test, and deploy Azure applications by using the IntelliJ integrated development environment (IDE).
+
+metadata:
+  title: Azure Toolkit for IntelliJ documentation
+  description: Learn about the Azure Toolkit for IntelliJ.
+  ms.date: 03/13/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Get started guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Hello World web app for Azure App Service
+            url: create-hello-world-web-app.md
+          - text: Create a HTTP trigger Function for Azure Functions
+            url: quickstart-functions.md
+  - title: Step-by-step tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run a Hello World web app in a Linux container
+            url: hello-world-web-app-linux.md
+          - text: Create Spark applications for an HDInsight Spark Linux cluster
+            url: /azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
+  - title: Manage Azure resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Redis caches
+            url: managing-redis-caches-using-azure-explorer.md
+          - text: Storage accounts
+            url: managing-virtual-machines-using-azure-explorer.md
+          - text: Virtual machines
+            url: managing-storage-accounts-using-azure-explorer.md
+  - title: Supported JDKs
+    linkLists:
+      - linkListType: download
+        links:
+        - text: Java for Azure and Azure Stack
+          url: /azure/developer/java/fundamentals
+  - title: Source code
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Toolkits for Java
+            url: https://github.com/microsoft/azure-tools-for-java

@@ -11,7 +11,6 @@
           "**/includes/**",
           "_themes/**",
           "_themes.pdf/**",
-          "**/docfx.json",
           "README.md",
           "LICENSE",
           "LICENSE-CODE",
@@ -24,52 +23,19 @@
         "files": [
           "**/*.png",
           "**/*.jpg",
-          "**/*.gif",
-          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
           "_themes.pdf/**",
-          "**/docfx.json"
         ]
       }
     ],
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/java/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
-      "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
-      "feedback_product_url": "https://github.com/Azure/azure-sdk-for-java/issues",
-      "_op_documentIdPathDepotMapping": {
-        "./": {
-          "depot_name": "Azure.AzureJava",
-          "folder_relative_path_in_docset": "docs-ref-conceptual"
-        }
-      }
-    },
-    "fileMetadata": {
-      "ms.devlang": {
-        "**/*.md": "java"
-      },
-      "ms.service": {
-        "**/*.md": "azure-java"
-      },
-      "manager": {
-        "**/*.md": "barbkess"
-      },
-      "ms.author": {
-        "**/*.md": "brendm"
-      },
-      "author": {
-        "**/*.md": "bmitchell287"
-      },
-      "ms.topic": {
-        "includes/**/*.md": "include"
-      }
+      "feedback_system": "none",
     },
     "template": [],
     "markdownEngineName": "markdig"
