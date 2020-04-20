@@ -50,7 +50,7 @@ git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experie
 cd e2e-java-experience-in-app-service-linux
 xcopy .\.prep . /s /e /h /q /y
 ```
-
+---
 
 
 ## Build and run the HSQLDB sample locally
@@ -83,14 +83,15 @@ $TOMCAT_HOME="<Tomcat install directory>"
 ```bash
 set TOMCAT_HOME=<Tomcat install directory>
 ```
+---
 
-Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deployment. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.7` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
+Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deployment. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.11` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
 
 ```xml
 <plugin>
     <groupId>org.codehaus.cargo</groupId>
     <artifactId>cargo-maven2-plugin</artifactId>
-    <version>1.7.7</version>
+    <version>1.7.11</version>
     <configuration>
         <container>
             <containerId>tomcat8x</containerId>
@@ -140,6 +141,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```bash
 %TOMCAT_HOME%\bin\catalina.bat run
 ```
+---
 
 You can now navigate your browser to [http://localhost:8080](http://localhost:8080) to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
@@ -175,6 +177,7 @@ set WEBAPP_NAME=<web app>
 set WEBAPP_PLAN_NAME=%WEBAPP_NAME%-appservice-plan
 set REGION=<region>
 ```
+---
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
@@ -252,6 +255,7 @@ set MYSQL_SERVER_ADMIN_PASSWORD=<password>
 set MYSQL_DATABASE_NAME=<database>
 set DOLLAR=$
 ```
+---
 
 Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql?view=azure-cli-latest#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration?view=azure-cli-latest#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
 
@@ -303,14 +307,9 @@ set MYSQL_SERVER_ADMIN_PASSWORD=<password>
 set MYSQL_DATABASE_NAME=<database>
 set DOLLAR=$
 ```
+---
 
 Then, use the MySQL CLI to create the database.
-
-```bash
-mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
- -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
-```
-
 
 # [bash](#tab/bash)
 
@@ -332,6 +331,7 @@ mysql -u $MYSQL_SERVER_ADMIN_LOGIN_NAME `
 mysql -u %MYSQL_SERVER_ADMIN_LOGIN_NAME% ^
  -h %MYSQL_SERVER_FULL_NAME% -P 3306 -p
 ```
+---
 
 At the MySQL CLI prompt, run the following command, replacing `<database name>` with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.
 
@@ -436,6 +436,7 @@ mvn package
 mvn cargo:deploy
 %TOMCAT_HOME%\bin\catalina.bat run
 ```
+---
 
 You can now view the app locally at [http://localhost:8080](http://localhost:8080). The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
@@ -471,6 +472,7 @@ az webapp log tail --name $WEBAPP_NAME `
 az webapp log tail --name %WEBAPP_NAME% ^
     --resource-group %RESOURCEGROUP_NAME%
 ```
+---
 
 When you are finished viewing the logs, select Ctrl+C to halt the stream.
 
@@ -503,6 +505,7 @@ az appservice plan update --number-of-workers 2 ^
     --name %WEBAPP_PLAN_NAME% ^
     --resource-group %RESOURCEGROUP_NAME%
 ```
+---
 
 Congratulations! You built and scaled out a Java Web app using Spring Framework, JSP, Spring Data, Hibernate, JDBC, App Service Linux and Azure Database for MySQL.
 
@@ -528,6 +531,7 @@ az group delete --name $RESOURCEGROUP_NAME
 ```bash
 az group delete --name %RESOURCEGROUP_NAME%
 ```
+---
 
 ## Next steps
 
