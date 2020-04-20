@@ -48,7 +48,7 @@ In this section, you use the Azure CLI to get the necessary Azure subscription i
     az ad sp show --id <ApplicationID> --query objectId
     ```
     
-1. Store the following values as environment variables: Azure subscription ID, Azure subscription tenant ID, and service principal object ID. How you run the playbook, where you store subscription and credential values, and how you retrieve those values is based on your particular environment. For purposes of this demo, I used Azure cloud shell and stored the necessary Azure values in `~/.bashrc` by adding the following lines to the end of the file:
+1. Store the following values as environment variables: Azure subscription ID, Azure subscription tenant ID, and service principal object ID. How you run the playbook, where you store subscription and credential values, and how you retrieve those values is based on your particular environment. For purposes of this demo, I used Azure Cloud Shell and stored the necessary Azure values in `~/.bashrc` by adding the following lines to the end of the file:
 
     ```bash
     export AZ_SUBSCRIPTION_ID="<subscriptionID>"
