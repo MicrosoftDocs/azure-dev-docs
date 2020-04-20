@@ -224,7 +224,7 @@ The following Ansible playbook snippet shows how to get the latest version of a 
     kv_secret_value: MySecret007$
 
 tasks:
-    - name: Get latest version of a secret (Ansible module)
+    - name: Get latest version of a secret
       azure_rm_keyvaultsecret_info:
         vault_uri: "{{ kv_uri }}"
         name: "{{ kv_secret_name }}"
@@ -339,13 +339,13 @@ Once you have the key vault and its secret established, you can use that informa
       shell:
         az provider register -n Microsoft.KeyVault
 
-    - name: Get latest version of secret.
-      shell:
-        az keyvault secret show --vault-name "{{ kv }}" --name "{{ kv_secret_name }}" --query value
-      register:
-        result
+    - name: Get latest version of a secret (Ansible module)
+      azure_rm_keyvaultsecret_info:
+        vault_uri: "{{ kv_uri }}"
+        name: "{{ kv_secret_name }}"
+      register: output
     - debug:
-        msg: "{{ result.stdout }}"
+        var: output['secrets'][0]['secret']
 
     - name: Create resource group for test VM.
       azure_rm_resourcegroup:
@@ -409,7 +409,7 @@ Once you have the key vault and its secret established, you can use that informa
         resource_group: "{{ test_vm_rg }}"
         name: "{{ test_vm }}"
         admin_username: " {{ admin_username }} "
-        admin_password: " {{ result.stdout }} "
+        admin_password: " {{ output['secrets'][0]['secret'] }}"
         vm_size: Standard_B1ms
         network_interfaces: "{{ test_vm_nic }}"
         image:
