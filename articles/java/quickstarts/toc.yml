@@ -1,0 +1,25 @@
+- name: Azure for Java quickstarts
+  href: /azure/developer/java/quickstarts
+  items:
+    - name: Compute services
+      href: compute.md
+    - name: Data
+      href: data.md
+    - name: Storage
+      href: storage.md
+    - name: Caching
+      href: caching.md
+    - name: Secrets and configuration management
+      href: secrets-and-configuration-management.md
+    - name: Directories
+      href: directories.md
+    - name: Messaging and eventing
+      href: messaging-and-eventing.md
+    - name: Networking
+      href: networking.md
+    - name: Monitoring
+      href: monitoring.md
+    - name: Cognitive services
+      href: cognitive-services.md
+    - name: DevOps
+      href: devops.md
