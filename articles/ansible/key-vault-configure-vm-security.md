@@ -339,7 +339,7 @@ Once you have the key vault and its secret established, you can use that informa
       shell:
         az provider register -n Microsoft.KeyVault
 
-    - name: Get latest version of a secret (Ansible module)
+    - name: Get latest version of a secret
       azure_rm_keyvaultsecret_info:
         vault_uri: "{{ kv_uri }}"
         name: "{{ kv_secret_name }}"
