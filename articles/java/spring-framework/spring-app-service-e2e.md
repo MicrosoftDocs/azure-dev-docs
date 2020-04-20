@@ -128,6 +128,16 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
             <javaVersion>jre8</javaVersion>            
             <webContainer>TOMCAT 8.5</webContainer>
         </runtime>
+        <deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                </resource>
+             </resources>
+         </deployment>
     </configuration>
 </plugin>
 ```
@@ -259,7 +269,16 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
                 <value>${MYSQL_DATABASE_NAME}</value>
             </property>
         </appSettings>
-
+        <deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                </resource>
+             </resources>
+         </deployment>
     </configuration>
 </plugin>
 ```
