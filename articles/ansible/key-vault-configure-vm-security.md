@@ -10,7 +10,7 @@ ms.date: 04/20/2020
 
 [!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
-In this tutorial, you learn how to use the Ansible collection for Azure modules in using [Azure Key Vault](/azure/key-vault/general/overview). Azure Key Vault allows you to centralize the storage of credentials such as application secrets, keys, and certificates. The decoupling of credentials and application code helps your system become more secure. In addition, implementing a rotating credentials-management pattern with auto expiry dates becomes much more manageable.
+In this tutorial, you learn how to use the Ansible collection for Azure modules in using [Azure Key Vault](/azure/key-vault/general/overview). Azure Key Vault allows you to centralize the storage of credentials such as application secrets, keys, and certificates. The decoupling of credentials and application code helps your system become more secure. Also, implementing a rotating credentials-management pattern with auto expiry dates becomes much more manageable.
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ In this tutorial, you learn how to use the Ansible collection for Azure modules 
     
 ## Get Azure subscription info
 
-In this section, you use the Azure CLI to get the necessary Azure subscription information needed when using the Ansible modules for Azure. 
+Use the Azure CLI to get the necessary Azure subscription information needed when using the Ansible modules for Azure. 
 
 1. Get the Azure subscription ID and Azure subscription tenant ID using the `az account show` command. For the `<Subscription>` placeholder, specify either the Azure subscription name or Azure subscription ID. The command will display many of the key values associated with the default Azure subscription. If you have multiple subscriptions, you might need to set the current subscription via the [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. From the command's output, make note of both the **ID** and **tenantID** values.
 
@@ -42,7 +42,7 @@ In this section, you use the Azure CLI to get the necessary Azure subscription i
 
 1. If you do not have a service principal for the Azure subscription. [create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). From the command's output, make note of the **appId** value.
 
-1. Get the object ID of the service principal using the `az ad sp show` command. For the `<ApplicationID>` placeholder, specify the service principal appId. The `--query` parameter indicates which value you wanted printed to the stdout as a result of running the command. In this case, it's the service principal object ID.
+1. Get the object ID of the service principal using the `az ad sp show` command. For the `<ApplicationID>` placeholder, specify the service principal appId. The `--query` parameter indicates which value to print to *stdout*. In this case, it's the service principal object ID.
 
     ```azurecli
     az ad sp show --id <ApplicationID> --query objectId
@@ -69,7 +69,7 @@ After [downloading the latest Azure collection](#prerequisites), specify its use
 
 ## Create Azure resource group for the key vault
 
-Before creating a key vault, you'll need to create the resource group for it. It's a best practice to store the key vault in its own resource group and reference it from resources residing in other resource groups.
+The following playbook snippet creates a uniquely-named resource group into which the key vault will be created. 
 
 ```yml
 ---
@@ -102,7 +102,8 @@ Before creating a key vault, you'll need to create the resource group for it. It
 
 **Notes:**
 
-- In this demo, the key vault will reside by itself in a resource group. Additionally, the key vault name must be unique in Azure. Therefore, the demo creates a random *postfix* value. This value is appended to the name of the key vault resource group and the key vault (created in the next section). The code in the task `Prepare random postfix` generates the random postfix value that is assigned to the `rpfx` variable.
+- In this demo, the key vault is created as the sole resource in a resource group. It is common practice to separate the key vault from the resources that use it. This helps to prevent accidental deletion of the key vault when deleting other resources.
+- Since the key vault name must be unique in Azure, the demo creates a random *postfix* value. This value is appended to the name of the key vault resource group and the key vault (created in the next section). The code in the task `Prepare random postfix` generates the random postfix value that is assigned to the `rpfx` variable.
 - In the task `Set facts`, the `lookup` command is used to retrieve the Azure subscription ID that is stored as an environment variable.
 - The [azure_rm_resourcegroup module](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html) is used to create the new resource group.
 - A `debug` task at the end of the playbook displays the name of the new resource group.
@@ -170,7 +171,7 @@ If you want to view the key vault's secrets or if you're working through the dem
 
 1. In the **Principal** tab, in the search box, enter your email address.
 
-1. From the filtered list, select the desired user's name or email address.
+1. From the filtered list, select the appropriate entry.
 
 1. The information for the selected user is copied to the **Selected member** list. Select **Select**.
 
@@ -210,7 +211,7 @@ The following Ansible playbook snippet shows how to create a key vault secret:
 **Notes:**
 
 - The [azure_rm_keyvaultsecret module](https://docs.ansible.com/ansible/latest/modules/azure_rm_keyvaultsecret_module.html) is used to create the key vault.
-- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. Therefore, values such as these should not be stored in plaintext files when used in production environments.
+- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. As such, values such as these should not be stored in plaintext files when used in production environments.
 - After running this code, the **Secrets** tab for the key vault lists the newly added secret named `testsecret`. To view it, select the secret, select the current version, and select **Show Secret Value**.
 
 ## Get a key vault secret
@@ -236,7 +237,7 @@ tasks:
 
 - The **azure_rm_keyvaultsecret_info module** is used to create the key vault. This module is only available if using the Ansible collection for Azure modules. 
 - If you receive an error running this snippet, ensure that you've followed all the instructions in the [Prerequisites section](#prerequisites).
-- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. Therefore, values such as these should not be stored in plaintext files when used in production environments.
+- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. As such, values such as these should not be stored in plaintext files when used in production environments.
 
 ## Run the complete playbook
 
@@ -421,7 +422,7 @@ Once you have the key vault and its secret established, you can use that informa
 
 **Notes:**
 
-- Your ability to run the entire playbook at once depends on how your test environment. You might need to manually add yourself to the key vault's access policy before creating the key. This task is explained in the sections, [Create a key vault](#create-a-key-vault), and [Add yourself to key vault access policy](#add-yourself-to-key-vault-access-policy).
+- Your ability to run the entire playbook at once depends on your test environment. You might need to manually add yourself to the key vault's access policy before creating the key. This task is explained in the sections, [Create a key vault](#create-a-key-vault), and [Add yourself to key vault access policy](#add-yourself-to-key-vault-access-policy).
 - As you can see, many different Ansible modules are used to create an Azure virtual machine and all of its constituent components. For more information about the various Ansible modules used to create a virtual machine, use the following list:
     - [Azure resource group module (azure_rm_resourcegroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html)
     - [Azure virtual network module (azure_rm_virtualnetwork)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualnetwork_module.html)
