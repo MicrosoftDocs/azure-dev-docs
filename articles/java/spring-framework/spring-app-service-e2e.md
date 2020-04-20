@@ -300,12 +300,20 @@ az mysql server configuration set --name time_zone `
 # [Cmd](#tab/cmd)
 
 ```bash
-set MYSQL_SERVER_NAME=<server>
-set MYSQL_SERVER_FULL_NAME=%MYSQL_SERVER_NAME%.mysql.database.azure.com
-set MYSQL_SERVER_ADMIN_LOGIN_NAME=<admin>
-set MYSQL_SERVER_ADMIN_PASSWORD=<password>
-set MYSQL_DATABASE_NAME=<database>
-set DOLLAR=$
+az mysql up ^
+    --resource-group %RESOURCEGROUP_NAME% ^
+    --server-name %MYSQL_SERVER_NAME% ^
+    --database-name %MYSQL_DATABASE_NAME% ^
+    --admin-user %MYSQL_SERVER_ADMIN_LOGIN_NAME% ^
+    --admin-password %MYSQL_SERVER_ADMIN_PASSWORD%
+
+az mysql server configuration set --name wait_timeout ^
+    --resource-group $RESOURCEGROUP_NAME ^
+    --server %MYSQL_SERVER_NAME% --value 2147483
+
+az mysql server configuration set --name time_zone ^
+    --resource-group %RESOURCEGROUP_NAME% ^
+    --server %MYSQL_SERVER_NAME% --value -8:00
 ```
 ---
 
