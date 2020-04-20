@@ -59,7 +59,7 @@ In this section, you use the Azure CLI to get the necessary Azure subscription i
 
 ## Declare the Azure collection
 
-Assuming you've [downloaded the latest Azure collection](#prerequisites), the first thing you'll need to do in any Ansible playbook that uses the Azure collection is to specify that collection as follows:
+After [downloading the latest Azure collection](#prerequisites), specify its use via the `collections` key.
 
 ```yml
 - hosts: all
@@ -147,7 +147,7 @@ tasks:
 **Notes:**
 
 - The [azure_rm_keyvault module](https://docs.ansible.com/ansible/latest/modules/azure_rm_keyvault_module.html) is used to create the key vault.
-- When creating the access policy as part of the key vault, an object ID and tenant ID were supplied. These values define an access policy for a specific service principal (that is associated with an Azure subscription). However, if you browse to the Azure portal and try to view the key vault's secrets, you see messages along the lines of "The operation "List" is not enabled in this key vault's access policy." and "You are unauthorized to view these contents." Receiving these messages indicates that you - as an Active Directory user - do not have access. The next section shows you how to add an access policy for yourself to the key vault.
+- When creating the access policy as part of the key vault, an object ID and tenant ID were supplied. These values define an access policy for a specific service principal (that is associated with an Azure subscription). However, browsing to the Azure portal and attempting to view the key vault's secrets might result in error messages. These messages might be similar to "The operation "List" is not enabled in this key vault's access policy." and "You are unauthorized to view these contents." Receiving these messages indicates that you - as an Active Directory user - do not have access. The next section shows you how to add an access policy for yourself to the key vault.
 - A `debug` task at the end of the playbook displays the name of the new key vault.
 
 ## Add yourself to key vault access policy
@@ -422,7 +422,7 @@ Once you have the key vault and its secret established, you can use that informa
 **Notes:**
 
 - Your ability to run the entire playbook at once depends on how your test environment. You might need to manually add yourself to the key vault's access policy before creating the key. This task is explained in the sections, [Create a key vault](#create-a-key-vault), and [Add yourself to key vault access policy](#add-yourself-to-key-vault-access-policy).
-- As you can see, many different Ansible modules are used to create an Azure virtual machine and all of its constituent components. For your convenience, here's a list of the various modules used with links to their reference documentation so that you can learn more about their parameters and see further examples:
+- As you can see, many different Ansible modules are used to create an Azure virtual machine and all of its constituent components. For more information about the various Ansible modules used to create a virtual machine, use the following list:
     - [Azure resource group module (azure_rm_resourcegroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html)
     - [Azure virtual network module (azure_rm_virtualnetwork)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualnetwork_module.html)
     - [Azure virtual network subnet module (azure_rm_subnet)](https://docs.ansible.com/ansible/latest/modules/azure_rm_subnet_module.html)
