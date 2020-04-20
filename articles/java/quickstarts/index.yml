@@ -1,0 +1,109 @@
+### YamlMime:Landing
+
+title: Azure for Java quickstarts
+
+metadata:
+  title: Azure for Java quickstarts
+  description: Use these quickstarts to get started developing Java apps for the cloud.
+  ms.topic: landing-page
+  ms.date: 04/08/2020
+
+landingContent:
+  - title: Deploy web apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Linux and Tomcat
+          url: /azure/app-service/containers/quickstart-java
+        - text: Linux and Java SE
+          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+        - text: Deploy to Linux using IntelliJ
+          url: /azure/developer/java/toolkit-for-intellij/create-hello-world-web-app
+        - text: Deploy to Linux using Visual Studio Code
+          url: https://code.visualstudio.com/docs/java/java-webapp
+  - title: Serverless functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and publish a function to Azure
+          url: /azure/azure-functions/functions-create-first-java-maven
+        - text: Deploy using IntelliJ
+          url: /azure/developer/java/toolkit-for-intellij/quickstart-functions
+        - text: Deploy using Visual Studio Code
+          url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
+  - title: Azure Spring Cloud
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Launch using the Azure portal
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+        - text: Launch using the Azure CLI
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-cli
+        - text: Launch from source code
+          url: /azure/spring-cloud/spring-cloud-launch-from-source
+        - text: Launch using Maven
+          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-maven
+  - title: Storage
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Storage Blobs
+          url: /azure/storage/blobs/storage-quickstart-blobs-java
+  - title: Databases
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: SQL Database
+          url: /azure/sql-database/sql-database-connect-query-java
+        - text: MySQL
+          url: /azure/mysql/connect-java
+        - text: PostgreSQL
+          url: /azure/postgresql/connect-java
+  - title: Cosmos DB
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: SQL API
+          url: /azure/cosmos-db/create-sql-api-java
+        - text: Table API
+          url: /azure/cosmos-db/create-table-java
+        - text: Graph API
+          url: /azure/cosmos-db/create-graph-java
+        - text: Cassandra API
+          url: /azure/cosmos-db/create-cassandra-java
+        - text: MongoDB API
+          url: /azure/cosmos-db/create-mongodb-java
+  - title: Eventing
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Event Hubs
+          url: /azure/event-hubs/event-hubs-java-get-started-send
+        - text: Event Hubs and Kafka
+          url: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
+  - title: Service Bus Messaging
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Use queues
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
+          - text: Use topics and subscriptions
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
+          - text: JMS and AMQP
+            url: /azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp
+  - title: IoT Hub
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Send telemetry
+            url: /azure/iot-hub/quickstart-send-telemetry-java
+          - text: Control a device
+            url: /azure/iot-hub/quickstart-control-device-java
+  - title: Caching
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: App Cache using Jedis
+            url: /azure/azure-cache-for-redis/cache-java-get-started
+          - text: Spring Data Reactive Redis
+            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache

@@ -1,0 +1,50 @@
+- name: Eclipse MicroProfile on Azure documentation
+  href: index.yml
+  items: 
+  - name: Azure Extensions
+    href: https://github.com/Azure/azure-microprofile
+  - name: Tutorials
+    expanded: true
+    items:
+      - name: Deploy to Azure Container Instances
+        href: deploy-microprofile-to-container-instances.md
+      - name: Deploy to Azure Web Apps
+        href: deploy-microprofile-to-web-app-for-containers.md
+      - name: Config Source for Azure Key Vault
+        href: configure-microprofile-with-keyvault.md
+      - name: CI/CD for MicroProfile applications using Azure Pipelines
+        href: cicd-microprofile.md
+  - name: Samples
+    expanded: false
+    items:
+      - name: MicroProfile Hello Azure
+        href: https://github.com/azure-samples/microprofile-hello-azure
+      - name: MicroProfile Config Source for Azure Key Vault
+        href: https://github.com/Azure-Samples/microprofile-configsource-keyvault
+  - name: Reference
+    expanded: true
+    items:
+      - name: Eclipse MicroProfile
+        href: https://microprofile.io/
+      - name: MicroProfile Implementations
+        expanded: false
+        items:
+          - name: Apache TomEE
+            href: https://tomee.apache.org
+          - name: IBM OpenLiberty
+            href: https://openliberty.io/
+          - name: KumuluzEE Micro
+            href: https://ee.kumuluz.com/microprofile
+          - name: Payara Micro
+            href: https://payara.fish/payara_micro
+          - name: Red Hat WildFly Swarm (Thorntail)
+            href: http://wildfly-swarm.io/
+      - name: MicroProfile Project Generators
+        expanded: false
+        items: 
+          - name: WildFly Swarm (Thorntail) Generator
+            href: http://wildfly-swarm.io/generator/
+          - name: KumuluzEE Generator
+            href: https://ee.kumuluz.com/generator/
+          - name: Jeddict
+            href: https://jeddict.github.io/
