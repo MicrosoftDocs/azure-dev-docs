@@ -3,7 +3,7 @@ title: Tutorial - Configure VM security using Azure Key Vault and Anible
 description: Learn how to use Ansible to configure VM security using Azure Key Vault
 keywords: ansible, azure, devops, key vault, security, credentials, secrets, keys, certificates, ansible modules for azure, resource group, azure_rm_resourcegroup, 
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ---
 
 # Tutorial: Configure VM security using Azure Key Vault and Ansible
@@ -215,40 +215,52 @@ Some key notes to consider when working with the sample playbook:
 
 ## Get a key vault secret
 
-There are several ways to get a key vault secret, including running commands from Azure CLI and Azure PowerShell. In this section, the Azure CLI [az keyvault command](/cli/azure/keyvault?view=azure-cli-latest) is used. Also, this demo assumes that you are running this playbook on Linux. Therefore, the Ansible shell module is used.
+The following Ansible playbook snippet shows how to get the latest version of a key vault secret:
 
 ```yml
-  tasks:
-    - name: Register Key Vault provider
-      shell:
-        az provider register -n Microsoft.KeyVault
+  vars:
+    kv_secret_name: testsecret
+    kv_secret_value: MySecret007$
 
-    - name: Get latest version of a secret
-      shell:
-        az keyvault secret show --vault-name "{{ kv }}" --name "{{ kv_secret_name }}" --query value
-      register:
-        result
+tasks:
+    - name: Get latest version of a secret (Ansible module)
+      azure_rm_keyvaultsecret_info:
+        vault_uri: "{{ kv_uri }}"
+        name: "{{ kv_secret_name }}"
+      register: output
     - debug:
-        msg: "{{ result.stdout }}"
-
+        var: output['secrets'][0]['secret']
 ```
 
 Some key notes to consider when working with the sample playbook:
 
-- The [az provider register command](/cli/azure/provider?view=azure-cli-latest#az-provider-register) is used to register the Key Vault provider. You can determine if you've already registered the Key Vault provider by entering enter `az provider show --namespace "Microsoft.KeyVault"`. However, if you are providing an automation script for others, it is recommended to include the provider registration code.
-- Most Azure CLI commands outputs JSON data to the stdout, where you can use the `--query` parameter to get the column you need. Therefore, `--query value` is used to get just the password value.
-- An Ansible register named `result` is used to capture the output of the task `Get latest version of a secret`. That variable is then printed via the `debug` task.
+- The **azure_rm_keyvaultsecret_info module** is used to create the key vault. This module is only available if using the Ansible collection for Azure modules. 
+- If you receive an error running this snippet, ensure that you've followed all the instructions in the [Prerequisites section](#prerequisites).
+- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. Therefore, values such as these should not be stored in plaintext files when used in production environments.
 
-## Create a virtual machine
+## Run the complete playbook listing
 
-Once you have the key vault and its secret established, you can use that information when creating Azure resources such as virtual machines. The following Ansible playbook snippet shows the code to create a virtual machine that uses the secret value as the admin password:
+Once you have the key vault and its secret established, you can use that information when protecting Azure resources such as virtual machines. The following Ansible playbook includes much of the code shown throughout this tutorial in addition to creating a complete virtual machine that uses the secret value as the admin password.
 
 ```yml
 ---
 - hosts: localhost
-
+  tasks:
+    - name: Prepare random postfix
+      set_fact:
+        rpfx: "{{ 10000 | random }}"
+      run_once: yes
+      
+- hosts: localhost
+  collections:
+    - azure.azcollection
   vars:
+    kv_rg: kv_rg_{{ rpfx }}
+    kv_rg_loc: eastus
+    kv: "kv{{ rpfx }}"
+    kv_uri: "https://{{ kv }}.vault.azure.net"
     kv_secret_name: testsecret
+    kv_secret_value: MySecret007$
 
     # Test VM vars
     test_vm_rg: kv_test_vm_rg
@@ -277,9 +289,50 @@ Once you have the key vault and its secret established, you can use that informa
     admin_username: testadmin
 
   tasks:
-    - name: Set facts.
+    - name: Set facts
       set_fact:
-        az_sub_id: "{{ lookup('env', 'AZ_SUBSCRIPTION_ID') }}"        
+        az_sub_id: "{{ lookup('env', 'AZ_SUBSCRIPTION_ID') }}"
+        az_object_id: "{{ lookup('env', 'AZ_OBJECT_ID') }}"
+        az_tenant_id: "{{ lookup('env', 'AZ_TENANT_ID') }}"
+        az_client_id: "{{ lookup('env', 'AZ_CLIENT_ID') }}"
+
+    - name: Create a resource group to hold the Key Vault instance
+      azure_rm_resourcegroup:
+        subscription_id: "{{ az_sub_id }}"
+        name: "{{ kv_rg }}"
+        location: "{{ kv_rg_loc }}"
+
+    - debug:
+        msg: "New resource group = {{ kv_rg }}"
+
+    - name: Create instance of Key Vault
+      azure_rm_keyvault:
+        subscription_id: "{{ az_sub_id }}"
+        resource_group: "{{ kv_rg }}"
+        vault_name: "{{ kv }}"
+        vault_tenant: "{{ az_tenant_id }}"
+        enabled_for_deployment: yes
+        sku:
+          name: standard
+          family: A
+        access_policies:
+          - object_id: "{{ az_object_id }}"
+            tenant_id: "{{ az_tenant_id }}"
+            secrets:
+              - get
+              - list
+              - set
+
+    - debug:
+        msg: "New Key Vault instance name = {{ kv }} within the {{ kv_rg }} resource group"
+
+    - name: Create a secret
+      azure_rm_keyvaultsecret:
+        subscription_id: "{{ az_sub_id }}"
+        client_id: "{{ az_client_id }}"
+        keyvault_uri: "{{ kv_uri }}"
+        secret_name: "{{ kv_secret_name }}"
+        secret_value: "{{ kv_secret_value }}"
 
     - name: Register Key Vault provider.
       shell:
@@ -366,15 +419,18 @@ Once you have the key vault and its secret established, you can use that informa
 
 ```
 
-As you can see, many different Ansible modules are used to create an Azure virtual machine and all of its constituent components. For your convenience, here's a list of the various modules used with links to their reference documentation so that you can learn more about their parameters and see further examples:
-- [Azure resource group module (azure_rm_resourcegroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html)
-- [Azure virtual network module (azure_rm_virtualnetwork)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualnetwork_module.html)
-- [Azure virtual network subnet module (azure_rm_subnet)](https://docs.ansible.com/ansible/latest/modules/azure_rm_subnet_module.html)
-- [Azure public IP module (azure_rm_publicipaddress)](https://docs.ansible.com/ansible/latest/modules/azure_rm_publicipaddress_module.html)
-- [Azure network security group module (azure_rm_securitygroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_securitygroup_module.html)
-- [Azure network interface (azure_rm_networkinterface)](https://docs.ansible.com/ansible/latest/modules/azure_rm_networkinterface_module.html)
-- [Azure virtual machine (azure_rm_virtualmachine)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualmachine_module.html)
+Some key notes to consider when working with the sample playbook:
 
+- Your ability to run the entire playbook at once depends on how your test environment. You might need to manually add yourself to the key vault's access policy before creating the key. This is explained in the sections, [Create a key vault](#create-a-key-vault), and [Add yourself to key vault access policy](#add-yourself-to-key-vault-access-policy).
+- As you can see, many different Ansible modules are used to create an Azure virtual machine and all of its constituent components. For your convenience, here's a list of the various modules used with links to their reference documentation so that you can learn more about their parameters and see further examples:
+    - [Azure resource group module (azure_rm_resourcegroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html)
+    - [Azure virtual network module (azure_rm_virtualnetwork)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualnetwork_module.html)
+    - [Azure virtual network subnet module (azure_rm_subnet)](https://docs.ansible.com/ansible/latest/modules/azure_rm_subnet_module.html)
+    - [Azure public IP module (azure_rm_publicipaddress)](https://docs.ansible.com/ansible/latest/modules/azure_rm_publicipaddress_module.html)
+    - [Azure network security group module (azure_rm_securitygroup)](https://docs.ansible.com/ansible/latest/modules/azure_rm_securitygroup_module.html)
+    - [Azure network interface (azure_rm_networkinterface)](https://docs.ansible.com/ansible/latest/modules/azure_rm_networkinterface_module.html)
+    - [Azure virtual machine (azure_rm_virtualmachine)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualmachine_module.html)
+    
 ## Clean up resources
 
 When no longer needed, delete the resources created in this article. Replace the `<kv_rg>` placeholder with the resource group used to hold the demo key vault.
