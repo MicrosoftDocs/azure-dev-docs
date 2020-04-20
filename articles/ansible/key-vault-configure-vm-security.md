@@ -241,7 +241,7 @@ tasks:
 
 ## Run the complete playbook
 
-Once you have the key vault and its secret established, you can use that information when protecting Azure resources such as virtual machines. The following Ansible playbook performs the tasks shown throughout this tutorial as well as creating a complete virtual machine. 
+Once you have the key vault and its secret established, you can use that information when protecting Azure resources such as virtual machines. The following Ansible playbook performs the tasks shown throughout this tutorial and creates a complete virtual machine. 
 
 ```yml
 ---
