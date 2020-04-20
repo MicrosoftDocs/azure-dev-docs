@@ -262,6 +262,8 @@ Next, create and initialize the database server. Use [az mysql up](/cli/azure/ex
 # [bash](#tab/bash)
 
 ```bash
+az extension add --name db-up
+
 az mysql up \
     --resource-group ${RESOURCEGROUP_NAME} \
     --server-name ${MYSQL_SERVER_NAME} \
@@ -281,6 +283,8 @@ az mysql server configuration set --name time_zone \
 # [PowerShell](#tab/powershell)
 
 ```ps
+az extension add --name db-up
+
 az mysql up `
     --resource-group $RESOURCEGROUP_NAME `
     --server-name $MYSQL_SERVER_NAME `
@@ -300,6 +304,8 @@ az mysql server configuration set --name time_zone `
 # [Cmd](#tab/cmd)
 
 ```bash
+az extension add --name db-up
+
 az mysql up ^
     --resource-group %RESOURCEGROUP_NAME% ^
     --server-name %MYSQL_SERVER_NAME% ^
@@ -379,13 +385,13 @@ Then, update the *pom.xml* file to make MySQL the active configuration. Remove t
 </profile>
 ```
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.9.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.9.1` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
 ```xml
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.0</version>
+    <version>1.9.1</version>
     <configuration>
 
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
