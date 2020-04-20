@@ -63,17 +63,17 @@ productDirectory:
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       links:
-        - url: https://docs.microsoft.com/azure/java/jdk/java-jdk-install
+        - url: https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install
           text: Install the JDK for Azure and Azure Stack
         - url: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
           text: Deploy an Azure Spring Cloud app using the Azure portal
         - url: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
-        - url: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+        - url: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
           text: Use Spring Boot Starter for Azure Active Directory
-        - url: https://docs.microsoft.com/azure/java/migration-overview
+        - url: https://docs.microsoft.com/azure/developer/java/migration/migration-overview
           text: Migrate Java Applications to Azure
-        - url: https://docs.microsoft.com/azure/java/
+        - url: https://docs.microsoft.com/azure/developer/java/
           text: See more in the Java developer center
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
