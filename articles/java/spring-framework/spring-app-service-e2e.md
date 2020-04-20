@@ -116,7 +116,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.0</version>
+    <version>1.9.1</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
@@ -132,9 +132,9 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
             <resources>
                 <resource>
                     <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
+                    <includes>
+                        <include>*.war</include>
+                    </includes>
                 </resource>
              </resources>
          </deployment>
@@ -241,16 +241,18 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.0</version>
+    <version>1.9.1</version>
     <configuration>
-
+        <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
         <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
         <appName>${WEBAPP_NAME}</appName>
         <region>${REGION}</region>
-
-        <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
-
+        <runtime>
+            <os>linux</os>
+            <javaVersion>jre8</javaVersion>            
+            <webContainer>TOMCAT 8.5</webContainer>
+        </runtime>
         <appSettings>
             <property>
                 <name>MYSQL_SERVER_FULL_NAME</name>
@@ -273,9 +275,9 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
             <resources>
                 <resource>
                     <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
+                    <includes>
+                        <include>*.war</include>
+                    </includes>
                 </resource>
              </resources>
          </deployment>
