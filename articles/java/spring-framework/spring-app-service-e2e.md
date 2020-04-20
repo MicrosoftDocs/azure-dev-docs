@@ -16,7 +16,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/overview)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview)
 * [Java 8](http://java.oracle.com/)
 * [Maven 3](http://maven.apache.org/)
 * [Git](https://github.com/)
@@ -27,11 +27,31 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 To get started with the sample app, clone and prepare the source repo using the following commands.
 
+# [bash](#tab/bash)
+
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
 cd e2e-java-experience-in-app-service-linux
 yes | cp -rf .prep/* .
 ```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
+cd e2e-java-experience-in-app-service-linux
+xcopy .\.prep . /s /e /h /q /y
+```
+
+# [Cmd](#tab/cmd)
+
+```bash
+git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
+cd e2e-java-experience-in-app-service-linux
+xcopy .\.prep . /s /e /h /q /y
+```
+
+
 
 ## Build and run the HSQLDB sample locally
 
@@ -46,8 +66,22 @@ mvn package
 
 Next, set the TOMCAT_HOME environment variable to the location of your Tomcat installation.
 
+# [bash](#tab/bash)
+
 ```bash
 export TOMCAT_HOME=<Tomcat install directory>
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+$TOMCAT_HOME="<Tomcat install directory>"
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+set TOMCAT_HOME=<Tomcat install directory>
 ```
 
 Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deployment. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.7` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
@@ -89,8 +123,22 @@ mvn cargo:deploy
 
 Then, launch Tomcat.
 
+# [bash](#tab/bash)
+
 ```bash
 ${TOMCAT_HOME}/bin/catalina.sh run
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+& $TOMCAT_HOME/bin/catalina.bat run
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+%TOMCAT_HOME%\bin\catalina.bat run
 ```
 
 You can now navigate your browser to [http://localhost:8080](http://localhost:8080) to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
@@ -101,11 +149,31 @@ Now that you've seen it running locally, we'll deploy the app to Azure.
 
 First, set the following environment variables.
 
+# [bash](#tab/bash)
+
 ```bash
 export RESOURCEGROUP_NAME=<resource group>
 export WEBAPP_NAME=<web app>
 export WEBAPP_PLAN_NAME=${WEBAPP_NAME}-appservice-plan
 export REGION=<region>
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+$RESOURCEGROUP_NAME="<resource group>"
+$WEBAPP_NAME="<web app>"
+$WEBAPP_PLAN_NAME="$WEBAPP_NAME-appservice-plan"
+$REGION="<region>"
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+set RESOURCEGROUP_NAME=<resource group>
+set WEBAPP_NAME=<web app>
+set WEBAPP_PLAN_NAME=%WEBAPP_NAME%-appservice-plan
+set REGION=<region>
 ```
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
@@ -152,6 +220,8 @@ Next, we'll switch to using MySQL instead of HSQLDB. We'll create a MySQL server
 
 First, set the following environment variables for use in later steps.
 
+# [bash](#tab/bash)
+
 ```bash
 export MYSQL_SERVER_NAME=<server>
 export MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_NAME}.mysql.database.azure.com
@@ -161,9 +231,33 @@ export MYSQL_DATABASE_NAME=<database>
 export DOLLAR=\$
 ```
 
+# [PowerShell](#tab/powershell)
+
+```ps
+$MYSQL_SERVER_NAME="<server>"
+$MYSQL_SERVER_FULL_NAME="$MYSQL_SERVER_NAME.mysql.database.azure.com"
+$MYSQL_SERVER_ADMIN_LOGIN_NAME="<admin>"
+$MYSQL_SERVER_ADMIN_PASSWORD="<password>"
+$MYSQL_DATABASE_NAME="<database>"
+$DOLLAR="$"
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+set MYSQL_SERVER_NAME=<server>
+set MYSQL_SERVER_FULL_NAME=%MYSQL_SERVER_NAME%.mysql.database.azure.com
+set MYSQL_SERVER_ADMIN_LOGIN_NAME=<admin>
+set MYSQL_SERVER_ADMIN_PASSWORD=<password>
+set MYSQL_DATABASE_NAME=<database>
+set DOLLAR=$
+```
+
 Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql?view=azure-cli-latest#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration?view=azure-cli-latest#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
 
-```azurecli
+# [bash](#tab/bash)
+
+```bash
 az mysql up \
     --resource-group ${RESOURCEGROUP_NAME} \
     --server-name ${MYSQL_SERVER_NAME} \
@@ -180,11 +274,63 @@ az mysql server configuration set --name time_zone \
     --server ${MYSQL_SERVER_NAME} --value -8:00
 ```
 
+# [PowerShell](#tab/powershell)
+
+```ps
+az mysql up `
+    --resource-group $RESOURCEGROUP_NAME `
+    --server-name $MYSQL_SERVER_NAME `
+    --database-name $MYSQL_DATABASE_NAME `
+    --admin-user $MYSQL_SERVER_ADMIN_LOGIN_NAME `
+    --admin-password $MYSQL_SERVER_ADMIN_PASSWORD
+
+az mysql server configuration set --name wait_timeout `
+    --resource-group $RESOURCEGROUP_NAME `
+    --server $MYSQL_SERVER_NAME --value 2147483
+
+az mysql server configuration set --name time_zone `
+    --resource-group $RESOURCEGROUP_NAME `
+    --server $MYSQL_SERVER_NAME --value -8:00
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+set MYSQL_SERVER_NAME=<server>
+set MYSQL_SERVER_FULL_NAME=%MYSQL_SERVER_NAME%.mysql.database.azure.com
+set MYSQL_SERVER_ADMIN_LOGIN_NAME=<admin>
+set MYSQL_SERVER_ADMIN_PASSWORD=<password>
+set MYSQL_DATABASE_NAME=<database>
+set DOLLAR=$
+```
+
 Then, use the MySQL CLI to create the database.
 
 ```bash
 mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
  -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
+```
+
+
+# [bash](#tab/bash)
+
+```bash
+mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
+ -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+mysql -u $MYSQL_SERVER_ADMIN_LOGIN_NAME `
+ -h $MYSQL_SERVER_FULL_NAME -P 3306 -p
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+mysql -u %MYSQL_SERVER_ADMIN_LOGIN_NAME% ^
+ -h %MYSQL_SERVER_FULL_NAME% -P 3306 -p
 ```
 
 At the MySQL CLI prompt, run the following command, replacing `<database name>` with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.
@@ -266,10 +412,29 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 
 Next, build the app, then test it locally by deploying and running it with Tomcat.
 
+
+# [bash](#tab/bash)
+
 ```bash
 mvn package
 mvn cargo:deploy
 ${TOMCAT_HOME}/bin/catalina.sh run
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+mvn package
+mvn cargo:deploy
+& $TOMCAT_HOME/bin/catalina.bat run
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+mvn package
+mvn cargo:deploy
+%TOMCAT_HOME%\bin\catalina.bat run
 ```
 
 You can now view the app locally at [http://localhost:8080](http://localhost:8080). The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
@@ -286,9 +451,25 @@ You can now navigate to `https://<app-name>.azurewebsites.net` to see the runnin
 
 If you need to troubleshoot, you can look at the app logs. To open the remote log stream on your local machine, use the following command.
 
-```azurecli
+# [bash](#tab/bash)
+
+```bash
 az webapp log tail --name ${WEBAPP_NAME} \
     --resource-group ${RESOURCEGROUP_NAME}
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+az webapp log tail --name $WEBAPP_NAME `
+    --resource-group $RESOURCEGROUP_NAME
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+az webapp log tail --name %WEBAPP_NAME% ^
+    --resource-group %RESOURCEGROUP_NAME%
 ```
 
 When you are finished viewing the logs, select Ctrl+C to halt the stream.
@@ -299,10 +480,28 @@ The log stream is also available at `https://<app-name>.scm.azurewebsites.net/ap
 
 To support increased traffic to your app, you can scale out to multiple instances using the following command.
 
-```azurecli
+# [bash](#tab/bash)
+
+```bash
 az appservice plan update --number-of-workers 2 \
     --name ${WEBAPP_PLAN_NAME} \
     --resource-group ${RESOURCEGROUP_NAME}
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+az appservice plan update --number-of-workers 2 `
+    --name $WEBAPP_PLAN_NAME `
+    --resource-group $RESOURCEGROUP_NAME
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+az appservice plan update --number-of-workers 2 ^
+    --name %WEBAPP_PLAN_NAME% ^
+    --resource-group %RESOURCEGROUP_NAME%
 ```
 
 Congratulations! You built and scaled out a Java Web app using Spring Framework, JSP, Spring Data, Hibernate, JDBC, App Service Linux and Azure Database for MySQL.
@@ -311,8 +510,23 @@ Congratulations! You built and scaled out a Java Web app using Spring Framework,
 
 In the preceding sections, you created Azure resources in a resource group. If you don't expect to use these resources in the future, delete the resource group by running the following command.
 
-```azurecli
+
+# [bash](#tab/bash)
+
+```bash
 az group delete --name ${RESOURCEGROUP_NAME}
+```
+
+# [PowerShell](#tab/powershell)
+
+```ps
+az group delete --name $RESOURCEGROUP_NAME
+````
+
+# [Cmd](#tab/cmd)
+
+```bash
+az group delete --name %RESOURCEGROUP_NAME%
 ```
 
 ## Next steps
