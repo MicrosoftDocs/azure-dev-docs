@@ -181,7 +181,7 @@ set REGION=<region>
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.9.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.9.1` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
 ```xml
 <plugin>
@@ -314,7 +314,7 @@ az mysql up ^
     --admin-password %MYSQL_SERVER_ADMIN_PASSWORD%
 
 az mysql server configuration set --name wait_timeout ^
-    --resource-group $RESOURCEGROUP_NAME ^
+    --resource-group %RESOURCEGROUP_NAME% ^
     --server %MYSQL_SERVER_NAME% --value 2147483
 
 az mysql server configuration set --name time_zone ^
@@ -391,7 +391,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.1</version>
+    <version>1.9.0</version>
     <configuration>
 
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
