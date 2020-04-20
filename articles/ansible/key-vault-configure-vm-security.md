@@ -40,7 +40,7 @@ Use the Azure CLI to get the necessary Azure subscription information needed whe
     az account show --subscription "<Subscription>" --query tenantId
     ```
 
-1. If you do not have a service principal for the Azure subscription. [create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). From the command's output, make note of the **appId** value.
+1. If you don't have a service principal for the Azure subscription. [create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). From the command's output, make note of the **appId** value.
 
 1. Get the object ID of the service principal using the `az ad sp show` command. For the `<ApplicationID>` placeholder, specify the service principal appId. The `--query` parameter indicates which value to print to *stdout*. In this case, it's the service principal object ID.
 
@@ -69,7 +69,7 @@ After [downloading the latest Azure collection](#prerequisites), specify its use
 
 ## Create Azure resource group for the key vault
 
-The following playbook snippet creates a uniquely-named resource group into which the key vault will be created. 
+The following playbook snippet creates a uniquely named resource group into which the key vault will be created. 
 
 ```yml
 ---
@@ -102,7 +102,7 @@ The following playbook snippet creates a uniquely-named resource group into whic
 
 **Notes:**
 
-- In this demo, the key vault is created as the sole resource in a resource group. It is common practice to separate the key vault from the resources that use it. This helps to prevent accidental deletion of the key vault when deleting other resources.
+- In this demo, the key vault is created as the sole resource in a resource group. It is common practice to separate the key vault from the resources that use it. This pattern helps to prevent accidental deletion of the key vault when deleting other resources.
 - Since the key vault name must be unique in Azure, the demo creates a random *postfix* value. This value is appended to the name of the key vault resource group and the key vault (created in the next section). The code in the task `Prepare random postfix` generates the random postfix value that is assigned to the `rpfx` variable.
 - In the task `Set facts`, the `lookup` command is used to retrieve the Azure subscription ID that is stored as an environment variable.
 - The [azure_rm_resourcegroup module](https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html) is used to create the new resource group.
@@ -175,7 +175,7 @@ If you want to view the key vault's secrets or if you're working through the dem
 
 1. The information for the selected user is copied to the **Selected member** list. Select **Select**.
 
-1. Select the appropriate options for **Key permissions**, **Secret permissions**, and **Certificate permissions**. For this demo, it is enough to select **Secret permissions** and then **Get**, **List**, and **Set**.
+1. Select the appropriate options for **Key permissions**, **Secret permissions**, and **Certificate permissions**. For this demo, it's enough to select **Secret permissions** and then **Get**, **List**, and **Set**.
 
 1. Select **Add**.
 
