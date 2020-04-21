@@ -178,36 +178,6 @@ The following procedure creates and initializes the key vault.
    }
    ```
 
-## Set up App Service, MSI and Deploy
-
-1. Create your App Service, 
-
-    ```azurecli
-    az appservice plan create --name myPlan --resource-group vged-rg2 --sku S1
-    az webapp create --name myApp --resource-group vged-rg2 --plan myPlan
-    ```
-
-2. Run the `identity assign` command to create the identity for this application:
-
-    ```azurecli
-    az webapp identity assign --name myApp --resource-group myResourceGroup
-    ```
-
-3. Grant permission to MSI
-
-    ```azurecli
-    az keyvault set-policy --name vgedkeyvault \
-        --object-id your-managed-identity-objectId \
-        --secret-permissions get list
-    ```
-
-4. Deploy executable JAR file to App Service
-
-   > **Attention**
-   >
-   > If you're using FTP/S,  the executable JAR must be named as `app.jar`.
-
-
 ## Configure and compile your app
 
 Use the following procedure to configure and compile your application.
@@ -228,8 +198,8 @@ Use the following procedure to configure and compile your application.
    |          Parameter          |                                 Description                                 |
    |-----------------------------|-----------------------------------------------------------------------------|
    |    `azure.keyvault.uri`     |           Specifies the URI from when you created your key vault.           |
-
-
+    
+    
 4. Navigate to the main source code file of your project; for example: */src/main/java/com/vged/secrets*.
 
 5. Open the application's main Java file in a file in a text editor; for example: *SecretsApplication.java*, and add the following lines to the file:
@@ -241,8 +211,11 @@ Use the following procedure to configure and compile your application.
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.beans.factory.annotation.Value;
    import org.springframework.boot.CommandLineRunner;
-
+   import org.springframework.web.bind.annotation.GetMapping;
+   import org.springframework.web.bind.annotation.RestController;
+   
    @SpringBootApplication
+   @RestController
    public class SecretsApplication implements CommandLineRunner {
 
       @Value("${connectionString}")
@@ -251,26 +224,104 @@ Use the following procedure to configure and compile your application.
       public static void main(String[] args) {
          SpringApplication.run(SecretsApplication.class, args);
       }
-
+   
+      @GetMapping("get")
+      public String get() {
+         return connectionString;
+      }
+   
       public void run(String... varl) throws Exception {
          System.out.println(String.format("\nConnection String stored in Azure Key Vault:\n%s\n",connectionString));
       }
    }
    ```
-   This code example retrieves the connection string from the key vault and displays it to the command line.
+   This code example retrieves the connection string from the key vault and displays it to the url `https://{your-appservice-name}.azurewebsites.net/get`.
 
 6. Save and close the Java file.
 
-## Build and test your app
+7. Disable the test and build the JAR file using Maven.
+    
+   ```shell
+   mvn clean package
+   ```
 
-1. Restart your App Service.
+## Configure Maven Plugin for Azure App Service
 
-2. Enable App Service logs and Stream log.
+This section helps you to configure your Spring Boot project to enable your app to be deployed on Azure App Service.
 
-    ```yaml
-     az webapp log tail --name myApp --resource-group vged-rg2
+1.  Follow the link to [Configure Maven Plugin for Azure App Service].
+    
+    This link creates a new Azure App Service. If you want to deploy your app on an existing one, you can re-configure the deployment by the command `mvn azure-webapp:config` and choose Application part to config.
+    
+    ```cmd
+    [INFO] Scanning for projects...                                                     
+    [INFO]                                                                              
+    [INFO] ----------------------< com.wingtiptoys:secrets >-----------------------     
+    [INFO] Building secrets 0.0.1-SNAPSHOT                                              
+    [INFO] --------------------------------[ jar ]---------------------------------     
+    [INFO]                                                                              
+    [INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ secrets ---       
+    Please choose which part to config                                                  
+    1. Application                                                                      
+    2. Runtime                                                                          
+    3. DeploymentSlot                                                                   
+    Enter index to use: 1                                                              
+    Define value for appName(Default: ********):                                      
+    Define value for resourceGroup(Default: ********):                                 
+    Define value for region(Default: ********):                                           
+    Define value for pricingTier(Default: P1v2):                                        
+    1. b1                                                                               
+    2. b2                                                                               
+    3. b3                                                                               
+    4. d1                                                                               
+    5. f1                                                                               
+    6. p1v2 [*]                                                                         
+    7. p2v2                                                                             
+    8. p3v2                                                                             
+    9. s1                                                                               
+    10. s2                                                                              
+    11. s3                                                                              
+    Enter index to use:                                                                 
+    Please confirm webapp properties                                                                                                          
     ```
-3. Run your application using Azure.
+    
+    You can also edit the `<configuration>` section of `<azure-webapp-maven-plugin>` in `pom.xml` directly. Modify the `<resourceGroup>`,`<appName>` and `<region>` value to your specific App Service.
+
+2. Assign identity to App Service and take down the `principalId` for the next step.
+
+   ```cmd
+   az webapp identity assign --name your-appservice-name \
+      --resource-group vged-rg2
+   ```
+   
+3. Grant permission to MSI.
+
+   ```cmd
+   az keyvault set-policy --name vgedkeyvault \
+       --object-id your-managed-identity-objectId \
+       --secret-permissions get list
+   ```
+
+## Deploy the app to Azure and Run App Service
+
+Now you are ready to deploy your web app on Azure. To do so, use the following steps:
+
+1. Rebuild the JAR file using Maven if you made any changes to the pom.xml file.
+
+   ```cmd
+   mvn clean package
+   ```
+   
+2. Deploy your app on Azure by using Maven.
+
+   ```cmd
+   mvn azure-webapp:deploy
+   ```
+   
+3. Restart your App Service.
+
+4. Check this URL in browser: `https://{your-appservice-name}.azurewebsites.net/get` to get your `connectionString`.
+   
 
 ## Summary
 
@@ -301,8 +352,6 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 For more information about using managed identities for App Service, see the [Using managed identities for App Service].
 
-For more information about deploy applications on Azure App Service in IntelliJ, see the [Create a web app for Azure App Service using IntelliJ].
-
 <!-- URL List -->
 
 [Key Vault Documentation]: /azure/key-vault/
@@ -315,7 +364,7 @@ For more information about deploy applications on Azure App Service in IntelliJ,
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 [Using managed identities for App Service]: https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=javascript
-[Create a web app for Azure App Service using IntelliJ]: https://docs.microsoft.com/en-us/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app
+[Configure Maven Plugin for Azure App Service]: https://docs.microsoft.com/en-us/azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service
 
 <!-- IMG List -->
 
