@@ -329,7 +329,7 @@ az mysql server configuration set --name time_zone ^
 ```
 ---
 
-Then, use the MySQL CLI to create the database.
+Then, use the MySQL CLI to connect to your database on Azure.
 
 # [bash](#tab/bash)
 
