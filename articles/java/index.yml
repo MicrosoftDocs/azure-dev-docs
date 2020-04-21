@@ -18,7 +18,7 @@ conceptualContent:
         - text: Deploy a Java SE web app to Linux
           itemType: quickstart
           url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
-        - text: Create and publish a serverless function
+        - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Manage storage blobs
@@ -84,6 +84,9 @@ conceptualContent:
         - text: Deploy a Spring app with MySQL
           itemType: tutorial
           url: /azure/developer/java/spring-framework/spring-app-service-e2e
+      footerLink:
+        text: See App Service documentation
+        url: /azure/app-service/containers/
 
     - title: Azure Spring cloud
       links:
@@ -126,6 +129,9 @@ conceptualContent:
         - text: Developer guide
           itemType: reference
           url: /azure/azure-functions/functions-reference-java
+      footerLink:
+        text: See Azure Functions documentation
+        url: /azure/azure-functions
 
     - title: Monitoring Java apps
       links:
@@ -138,18 +144,24 @@ conceptualContent:
         - text: Monitor Spring apps
           itemType: how-to-guide
           url: /azure/spring-cloud/diagnostic-services
+      footerLink:
+        text: See Azure Monitor documentation
+        url: /azure/azure-monitor
 
     - title: Securing Java apps
       links:
-        - text: Enable end-user authentication and authorization
+        - text: Enable end-user authentication
           itemType: quickstart
           url: /azure/active-directory/develop/quickstart-v2-java-webapp
-        - text: Use the Microsoft Authentication Library
+        - text: Microsoft Authentication Library
           itemType: how-to-guide
           url: /azure/active-directory/develop/migrate-adal-msal-java
         - text: Manage app secrets
           itemType: quickstart
           url: /azure/key-vault/quick-create-java
+      footerLink:
+        text: See Active Directory documentation
+        url: /azure/active-directory
 
 tools:
   title: Tools
