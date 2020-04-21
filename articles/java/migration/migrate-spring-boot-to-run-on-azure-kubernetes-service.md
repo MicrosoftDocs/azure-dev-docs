@@ -47,6 +47,10 @@ For files that are frequently written and read by your application (such as temp
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
+### Upgrade to the lastest Spring Boot version
+
+If you are using a 1.x version of Spring Boot it is highly recommended to upgrade to the latest version before migrating to Azure Kubernetes Service. See [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
+
 ### In-place testing
 
 Before you create container images, migrate your application to the JDK and Spring Boot version that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
