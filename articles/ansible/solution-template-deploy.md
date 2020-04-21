@@ -16,7 +16,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 ## Deploy the Ansible solution template
 

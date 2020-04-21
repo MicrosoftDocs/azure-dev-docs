@@ -58,6 +58,10 @@ landingContent:
             url: vm-manage.md
           - text: Create a from Shared Image Gallery
             url: vm-configure-from-azure-shared-image-gallery.md
+      - linkListType: tutorial
+        links:
+          - text: Configure VM security using Azure Key Vault
+            url: key-vault-configure-vm-security.md
 
   # Card
   - title: Manage Virtual Machine Scale Sets
