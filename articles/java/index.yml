@@ -18,7 +18,7 @@ conceptualContent:
         - text: Deploy a Java SE web app to Linux
           itemType: quickstart
           url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
-        - text: Create and publish a serverless function
+        - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Manage storage blobs
@@ -150,10 +150,10 @@ conceptualContent:
 
     - title: Securing Java apps
       links:
-        - text: Enable end-user authentication and authorization
+        - text: End-user authentication and authorization
           itemType: quickstart
           url: /azure/active-directory/develop/quickstart-v2-java-webapp
-        - text: Use the Microsoft Authentication Library
+        - text: Microsoft Authentication Library
           itemType: how-to-guide
           url: /azure/active-directory/develop/migrate-adal-msal-java
         - text: Manage app secrets
