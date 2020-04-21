@@ -39,13 +39,13 @@ If your application allows for static content that is uploaded/produced by your 
 
 For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
-[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/migration/determine-whether-your-application-relies-on-scheduled-jobs.md)]
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
-[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
-[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/migration/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 ### In-place testing
 
@@ -53,7 +53,7 @@ Before you create container images, migrate your application to the JDK and Spri
 
 ## Migration
 
-[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/migration/provision-azure-container-registry-and-azure-kubernetes-service.md)]
+[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/provision-azure-container-registry-and-azure-kubernetes-service.md)]
 
 ### Create a Docker image for Spring Boot
 
@@ -129,11 +129,11 @@ Push the image to your Azure container registry:
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](https://docs.microsoft.com/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
-If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](https://docs.microsoft.com/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
+If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
 
-[!INCLUDE [provision-a-public-ip-address](includes/migration/provision-a-public-ip-address.md)]
+[!INCLUDE [provision-a-public-ip-address](includes/provision-a-public-ip-address.md)]
 
 ### Deploy to AKS
 
