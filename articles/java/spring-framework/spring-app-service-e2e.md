@@ -20,7 +20,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 * [Java 8](http://java.oracle.com/)
 * [Maven 3](http://maven.apache.org/)
 * [Git](https://github.com/)
-* [Tomcat](https://tomcat.apache.org/download-80.cgi)
+* [Tomcat 9](https://tomcat.apache.org/download-80.cgi)
 * [MySQL CLI](http://dev.mysql.com/downloads/mysql/)
 
 ## Get the sample
@@ -30,25 +30,22 @@ To get started with the sample app, clone and prepare the source repo using the 
 # [bash](#tab/bash)
 
 ```bash
-git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
-cd e2e-java-experience-in-app-service-linux
-yes | cp -rf .prep/* .
+git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+cd spring-framework-petclinic
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
-cd e2e-java-experience-in-app-service-linux
-xcopy .\.prep . /s /e /h /q /y
+git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+cd spring-framework-petclinic
 ```
 
 # [Cmd](#tab/cmd)
 
-```bash
-git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux.git
-cd e2e-java-experience-in-app-service-linux
-xcopy .\.prep . /s /e /h /q /y
+```cmd
+git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+cd spring-framework-petclinic
 ```
 ---
 
@@ -59,8 +56,7 @@ First, we'll test the sample locally using using HSQLDB as the database.
 
 Navigate to the HSQLDB version of the sample and then build it.
 
-```bash
-cd initial-hsqldb/spring-framework-petclinic
+``` azurecli
 mvn package
 ```
 
@@ -80,7 +76,7 @@ $TOMCAT_HOME="<Tomcat install directory>"
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 set TOMCAT_HOME=<Tomcat install directory>
 ```
 ---
@@ -94,7 +90,7 @@ Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deploym
     <version>1.7.11</version>
     <configuration>
         <container>
-            <containerId>tomcat8x</containerId>
+            <containerId>tomcat9x</containerId>
             <type>installed</type>
             <home>${TOMCAT_HOME}</home>
         </container>
@@ -118,7 +114,7 @@ Then, update the *pom.xml* file to configure Maven for a Tomcat WAR file deploym
 
 With this configuration in place, you can deploy the app locally to Tomcat.
 
-```bash
+```azurecli
 mvn cargo:deploy
 ```
 
@@ -138,7 +134,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 %TOMCAT_HOME%\bin\catalina.bat run
 ```
 ---
@@ -171,7 +167,7 @@ $REGION="<region>"
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 set RESOURCEGROUP_NAME=<resource group>
 set WEBAPP_NAME=<web app>
 set WEBAPP_PLAN_NAME=%WEBAPP_NAME%-appservice-plan
@@ -197,7 +193,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
         <runtime>
             <os>linux</os>
             <javaVersion>jre8</javaVersion>            
-            <webContainer>TOMCAT 8.5</webContainer>
+            <webContainer>TOMCAT 9.0</webContainer>
         </runtime>
         <deployment>
             <resources>
@@ -221,7 +217,7 @@ az login
 
 Then deploy the app to App Service Linux.
 
-```bash
+```azurecli
 mvn azure-webapp:deploy
 ```
 
@@ -257,7 +253,7 @@ $DOLLAR="$"
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 set MYSQL_SERVER_NAME=<server>
 set MYSQL_SERVER_FULL_NAME=%MYSQL_SERVER_NAME%.mysql.database.azure.com
 set MYSQL_SERVER_ADMIN_LOGIN_NAME=<admin>
@@ -287,7 +283,7 @@ az mysql server configuration set --name wait_timeout \
 
 az mysql server configuration set --name time_zone \
     --resource-group ${RESOURCEGROUP_NAME} \
-    --server ${MYSQL_SERVER_NAME} --value -8:00
+    --server ${MYSQL_SERVER_NAME} --value SYSTEM
 ```
 
 # [PowerShell](#tab/powershell)
@@ -308,12 +304,12 @@ az mysql server configuration set --name wait_timeout `
 
 az mysql server configuration set --name time_zone `
     --resource-group $RESOURCEGROUP_NAME `
-    --server $MYSQL_SERVER_NAME --value -8:00
+    --server $MYSQL_SERVER_NAME --value SYSTEM
 ````
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 az extension add --name db-up
 
 az mysql up ^
@@ -329,38 +325,38 @@ az mysql server configuration set --name wait_timeout ^
 
 az mysql server configuration set --name time_zone ^
     --resource-group %RESOURCEGROUP_NAME% ^
-    --server %MYSQL_SERVER_NAME% --value -8:00
+    --server %MYSQL_SERVER_NAME% --value SYSTEM
 ```
 ---
 
-Then, use the MySQL CLI to create the database.
+Then, use the MySQL CLI to connect to your database on Azure.
 
 # [bash](#tab/bash)
 
 ```bash
-mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
+mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME}@${MYSQL_SERVER_NAME} \
  -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-mysql -u $MYSQL_SERVER_ADMIN_LOGIN_NAME `
+mysql -u $MYSQL_SERVER_ADMIN_LOGIN_NAME@$MYSQL_SERVER_NAME `
  -h $MYSQL_SERVER_FULL_NAME -P 3306 -p
 ````
 
 # [Cmd](#tab/cmd)
 
-```bash
-mysql -u %MYSQL_SERVER_ADMIN_LOGIN_NAME% ^
+```cmd
+mysql -u %MYSQL_SERVER_ADMIN_LOGIN_NAME%@%MYSQL_SERVER_NAME% ^
  -h %MYSQL_SERVER_FULL_NAME% -P 3306 -p
 ```
 ---
 
-At the MySQL CLI prompt, run the following command, replacing `<database name>` with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.
+At the MySQL CLI prompt, run the following command to verify your database named with same value you specified earlier for the `MYSQL_DATABASE_NAME` environment variable.
 
 ```console
-CREATE DATABASE <database name>;
+show databases;
 ```
 
 MySQL is now ready for use.
@@ -369,13 +365,7 @@ MySQL is now ready for use.
 
 Next, we'll add the connection info to the MySQL version of the app, then deploy it to App Service.
 
-First, navigate to the correct folder at the Bash prompt.
-
-```bash
-cd ../../initial-mysql/spring-framework-petclinic
-```
-
-Then, update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. The rest of the snippet shows the existing configuration. Note how the environment variables you set previously are used by Maven to configure your MySQL access.
+Update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. The rest of the snippet shows the existing configuration. Note how the environment variables you set previously are used by Maven to configure your MySQL access.
 
 ```xml
 <profile>
@@ -388,7 +378,7 @@ Then, update the *pom.xml* file to make MySQL the active configuration. Remove t
         <jpa.database>MYSQL</jpa.database>
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.url>jdbc:mysql://${DOLLAR}{MYSQL_SERVER_FULL_NAME}:3306/${DOLLAR}{MYSQL_DATABASE_NAME}?useUnicode=true</jdbc.url>
-        <jdbc.username>${DOLLAR}{MYSQL_SERVER_ADMIN_LOGIN_NAME}</jdbc.username>
+        <jdbc.username>${DOLLAR}{MYSQL_SERVER_ADMIN_LOGIN_NAME}@${DOLLAR}{MYSQL_SERVER_FULL_NAME}</jdbc.username>
         <jdbc.password>${DOLLAR}{MYSQL_SERVER_ADMIN_PASSWORD}</jdbc.password>
     </properties>
     ...
@@ -411,7 +401,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
         <runtime>
             <os>linux</os>
             <javaVersion>jre8</javaVersion>            
-            <webContainer>TOMCAT 8.5</webContainer>
+            <webContainer>TOMCAT 9.0</webContainer>
         </runtime>
         <appSettings>
             <property>
