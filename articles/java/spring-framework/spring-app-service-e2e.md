@@ -43,9 +43,9 @@ cd spring-framework-petclinic
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
-cd e2e-java-experience-in-app-service-linux
+cd spring-framework-petclinic
 ```
 ---
 
