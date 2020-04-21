@@ -84,6 +84,9 @@ conceptualContent:
         - text: Deploy a Spring app with MySQL
           itemType: tutorial
           url: /azure/developer/java/spring-framework/spring-app-service-e2e
+      footerLink:
+        text: See App Service documentation
+        url: /azure/app-service/containers/
 
     - title: Azure Spring cloud
       links:
@@ -126,6 +129,9 @@ conceptualContent:
         - text: Developer guide
           itemType: reference
           url: /azure/azure-functions/functions-reference-java
+      footerLink:
+        text: See Azure Functions documentation
+        url: /azure/azure-functions
 
     - title: Monitoring Java apps
       links:
@@ -138,6 +144,9 @@ conceptualContent:
         - text: Monitor Spring apps
           itemType: how-to-guide
           url: /azure/spring-cloud/diagnostic-services
+      footerLink:
+        text: See Azure Monitor documentation
+        url: /azure/azure-monitor
 
     - title: Securing Java apps
       links:
@@ -150,6 +159,9 @@ conceptualContent:
         - text: Manage app secrets
           itemType: quickstart
           url: /azure/key-vault/quick-create-java
+      footerLink:
+        text: See Active Directory documentation
+        url: /azure/active-directory
 
 tools:
   title: Tools
