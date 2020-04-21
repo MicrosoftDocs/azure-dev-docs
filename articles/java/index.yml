@@ -150,7 +150,7 @@ conceptualContent:
 
     - title: Securing Java apps
       links:
-        - text: End-user authentication and authorization
+        - text: Enable end-user authentication
           itemType: quickstart
           url: /azure/active-directory/develop/quickstart-v2-java-webapp
         - text: Microsoft Authentication Library
