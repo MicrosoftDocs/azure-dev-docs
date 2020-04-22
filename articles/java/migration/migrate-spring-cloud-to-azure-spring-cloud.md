@@ -27,13 +27,13 @@ To ensure a successful migration, some assessment and inventory steps are necess
 
 ### Inspect application components
 
-[! INCLUDE[azure-spring-cloud/identify-use-of-local-file-system](includes/azure-spring-cloud/identify-use-of-local-file-system.md)]
+[! INCLUDE[identify-use-of-local-file-system-azure-spring-cloud](includes/identify-use-of-local-file-system-azure-spring-cloud.md)]
 
 #### Determine whether any of the services contain OS-specific code
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
-[! INCLUDE [azure-spring-cloud/identify-spring-boot-versions](includes/azure-spring-cloud/identify-spring-boot-versions.md)]
+[! INCLUDE [/identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
 
 #### Identify Spring Cloud Version(s)
 
@@ -60,7 +60,7 @@ ext {
 }
 ```
 
-[!INCLUDE [azure-spring-cloud/identify-logs-metrics-apm.md](includes/azure-spring-cloud/identify-logs-metrics-apm.md)]
+[!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
 
 #### Identify Zipkin Dependencies
 
@@ -83,7 +83,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [azure-spring-cloud/external-caches](includes/azure-spring-cloud/external-caches.md)]
+[!INCLUDE [external-caches-azure-spring-cloud](includes/external-caches-azure-spring-cloud.md)]
 
 #### Identity Providers
 
@@ -188,9 +188,9 @@ Provision an Azure Spring Cloud instance in your Azure subscription. Then, provi
 
 [Configure the configuration server](/azure/spring-cloud/spring-cloud-tutorial-config-server) in your Azure Spring Cloud instance.
 
-[!INCLUDE [azure-spring-cloud/ensure-console-logging-and-configure-diagnostic-settings](includes/azure-spring-cloud/ensure-console-logging-and-configure-diagnostic-settings.md)]
+[!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
-[!INCLUDE [azure-spring-cloud/configure-persistent-storage](includes/azure-spring-cloud/configure-persistent-storage.md)]
+[!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
 
 ### Migrate Spring Cloud Vault secrets to Azure KeyVault
 
