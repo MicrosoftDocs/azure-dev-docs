@@ -363,8 +363,8 @@ For more information about using managed identities for App Service, see the [Us
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-[Using managed identities for App Service]: https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=javascript
-[Configure Maven Plugin for Azure App Service]: https://docs.microsoft.com/en-us/azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service
+[Using managed identities for App Service]: https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=javascript
+[Configure Maven Plugin for Azure App Service]: https://docs.microsoft.com/azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service
 
 <!-- IMG List -->
 
