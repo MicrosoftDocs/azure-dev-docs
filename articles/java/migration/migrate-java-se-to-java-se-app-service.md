@@ -30,75 +30,15 @@ App Service offers specific versions of Java SE. To ensure compatibility, migrat
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in *src/main/directory* in a file typically called *application.properties* or *application.yml*. Additionally, check the production deployment's environment variables for any pertinent configuration settings.
 
-#### Databases
-
-For any SQL database, identify the connection string.
-
-For a Spring Boot application, connection strings typically appear in configuration files.
-
-Here's an example from an *application.properties* file:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/mysql_db
-spring.datasource.username=dbuser
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-```
-
-Here's an example from an *application.yaml* file:
-
-```yaml
-spring:
-  data:
-    mongodb:
-      uri: mongodb://mongouser:deepsecret@mongoserver.contoso.com:27017
-```
-
-For more information, see [JPA Repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.repositories) and [JDBC Repositories](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories) in the Spring documentation.
+[!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 #### JMS Message Brokers
 
-Identify which broker(s) is being used. You should be able to achieve this by examining the build manifest (typically *pom.xml* or *build.gradle*) for the relevant dependencies.
-
-For example, a Spring Boot application using ActiveMQ would typically contain this dependency in *pom.xml*:
-
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-activemq</artifactId>
-</dependency>
-```
-
-Spring Boot applications using proprietary brokers typically contain dependencies directly on the brokers' JMS driver libraries. Here's an example from a *build.gradle* file:
-
-```json
-    dependencies {
-      ...
-      compile("com.ibm.mq:com.ibm.mq.allclient:9.0.4.0")
-      ...
-    }
-```
+[!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
 Once you have identified the broker(s) being used, find the corresponding settings, which are typically in the *application.properties* and *application.yml* files for Spring Boot.
 
-Here's an example from an *application.properties* file:
-
-```properties
-spring.activemq.brokerurl=broker:(tcp://localhost:61616,network:static:tcp://remotehost:61616)?persistent=false&useJmx=true
-spring.activemq.user=admin
-spring.activemq.password=tryandguess
-```
-
-Here's an example from an *application.yaml* file:
-
-```yaml
-ibm:
-  mq:
-    queueManager: qm1
-    channel: dev.ORDERS
-    connName: localhost(14)
-    user: admin
-    password: big$ecr3t
-```
+[!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
 #### All other external resources
 
@@ -109,6 +49,8 @@ It isn't feasible to document every possible external dependency in this guide. 
 #### Passwords and secure strings
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Boot application, such strings will likely be found in *application.properties* or *application.yml*.
+
+#### Inventory certificates
 
 [!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
@@ -126,7 +68,7 @@ Inventory any scheduled jobs, inside or outside the application process.
 
 #### Determine whether your application contains OS-specific code
 
-If your application contains any code that is accommodating the OS the application is running on, then your application needs to be refactored to NOT rely on the underlying OS. For instance, any uses of `/` or `\` in file system paths may need to be replaced with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Path.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
 #### Identify all outside processes/daemons running on the production server(s)
 
