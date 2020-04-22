@@ -102,7 +102,7 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 <!-- URL List -->
 
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
-[Introduction to Microsoft Azure Storage]: /azure/storage/storage-introduction
+[Introduction to Microsoft Azure Storage]: /azure/storage/common/storage-introduction
 [About Azure storage accounts]: /azure/storage/storage-create-storage-account
 [Azure storage replication]: /azure/storage/storage-redundancy
 [Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets

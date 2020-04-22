@@ -131,7 +131,7 @@ set REGION=<put-your-REGION-here>
     mvn package spring-boot:run
     ```
 
-4. Once the application has started,you can validate the deployment by accessing the Spring Todo app here: [http://localhost:8080/](http://localhost:8080/).
+4. Once the application has started,you can validate the deployment by accessing the Spring Todo app here: `http://localhost:8080/`.
 
  ![Spring app running locally][SCDB01]
 

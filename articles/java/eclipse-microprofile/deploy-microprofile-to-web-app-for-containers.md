@@ -122,7 +122,7 @@ We have now covered all the code required to create a microservice using MicroPr
 
 1. Run `docker run -it --rm -p 8080:8080 <docker.registry>/<docker.name>:latest`, for example, `docker run -it --rm -p 8080:8080 jogilescr.azurecr.io/samples/docker-helloworld:latest`, if your `docker.registry` is `jogilescr.azurecr.io` and `docker.name` is `samples/docker-helloworld`.
 
-1. Try accessing [http://localhost:8080/microprofile/api/helloworld](http://localhost:8080/microprofile/api/helloworld) and [http://localhost:8080/health](http://localhost:8080/health) in your web browser. If you see the expected "Hello, world!" response (and health-related information for the [/health](http://localhost:8080/health) endpoint), you have successfully deployed the MicroProfile application on your local machine.
+1. Try accessing `http://localhost:8080/microprofile/api/helloworld` and `http://localhost:8080/health` in your web browser. If you see the expected "Hello, world!" response (and health-related information for the `/health` endpoint), you have successfully deployed the MicroProfile application on your local machine.
 
 ## Pushing to the Azure Container Registry
 

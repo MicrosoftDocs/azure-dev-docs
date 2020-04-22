@@ -30,7 +30,7 @@ In this step, you create a simple Node.js app with [Express](https://www.express
     npm start
     ```
 
-1. Open a browser to [http://localhost:3000](http://localhost:3000) to see the running app:
+1. Open a browser to `http://localhost:3000` to see the running app:
 
     ![Running the express app locally](media/azure-cli/local-app.png)
 

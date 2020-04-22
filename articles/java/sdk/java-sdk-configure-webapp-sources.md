@@ -13,7 +13,7 @@ ms.date: 03/30/2017
 
 ## Run the sample
 
-Create an [authentication file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md) and set an environment variable `AZURE_AUTH_LOCATION` with the full path to the file on your computer. Then run:
+Create an [authentication file](https://docs.microsoft.com/azure/java/java-sdk-azure-authenticate#mgmt-file) and set an environment variable `AZURE_AUTH_LOCATION` with the full path to the file on your computer. Then run:
 
 ```
 git clone https://github.com/Azure-Samples/app-service-java-configure-deployment-sources-for-web-apps.git

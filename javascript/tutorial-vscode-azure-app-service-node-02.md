@@ -37,7 +37,7 @@ In this step, you create a simple Node.js app using the Express application gene
     npm start
     ```
 
-1. Test the app by opening a browser to [http://localhost:3000](http://localhost:3000). The site should appear as follows:
+1. Test the app by opening a browser to `http://localhost:3000`. The site should appear as follows:
 
     ![Running Express Application](media/deploy-azure/express.png)
 

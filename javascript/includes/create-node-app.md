@@ -32,7 +32,7 @@ ms.author: buhollan
     npm start
     ```
 
-1. Test the app by opening a browser and going to [http://localhost:3000](http://localhost:3000). Here is how the site should appear:
+1. Test the app by opening a browser and going to `http://localhost:3000`. Here is how the site should appear:
 
     ![Running the Express application](../media/deploy-azure/express.png)
 

@@ -377,7 +377,7 @@ az group delete --name sampleSqlResourceGroup
 
 ## Write a blob into a new storage account
 
-Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
+Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/common/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
 public static void main(String[] args) {
