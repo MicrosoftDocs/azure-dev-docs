@@ -86,7 +86,7 @@ from azure.storage.blob import BlobClient
 Finally, use the library's API to connect to and upload the data. In this example, the connection string and container name are already provisioned in your storage account. The blob name is the name you assign to the uploaded data:
 
 ```python
-blob = BlobClient.from_connection_string("my_connection_string", container="mycontainer", blob="my_blob")
+blob = BlobClient.from_connection_string("my_connection_string", container_name="mycontainer", blob_name="my_blob")
 
 with open("./SampleSource.txt", "rb") as data:
     blob.upload_blob(data)
