@@ -199,7 +199,7 @@ Follow the instructions to [Migrate secrets to Azure KeyVault](migrate-secrets-t
 > [!NOTE]
 > Migration may require renaming of some secrets. Update your application code accordingly.
 
-Secrets can be injected directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md).
+Secrets can be injected directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
 
 ### Migrate all certificates to KeyVault
 
