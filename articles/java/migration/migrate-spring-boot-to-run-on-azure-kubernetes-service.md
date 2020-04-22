@@ -135,6 +135,10 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also include a custom keystore that will be added to your JVM upon startup if you put the keystore file at `/opt/spring-boot/mycert.crt`. This can be accomplished by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume as previously mentioned.
+
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also enable Application Insights by setting the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). See [Java codeless application monitoring Azure Monitor Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent) for more information.
+
 If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
 
 [!INCLUDE [provision-a-public-ip-address](includes/provision-a-public-ip-address.md)]
