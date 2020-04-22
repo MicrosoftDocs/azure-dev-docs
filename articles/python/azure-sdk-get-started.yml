@@ -19,7 +19,7 @@ items:
   content: |
     - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
     - [The latest Python 3.x interpreter](https://www.python.org/downloads/)
-    - The [Azure CLI 2.0](/cli/azure/install-az-cli) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
+    - The [Azure CLI](/cli/azure/install-az-cli) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
 - title: Set up authentication
   durationInMinutes: 5
   content: |
@@ -173,7 +173,7 @@ items:
         run_example()
     ```
 
-    When the program finishes, verify the virtual machine in your subscription with the Azure CLI 2.0:
+    When the program finishes, verify the virtual machine in your subscription with the Azure CLI:
 
     ```azurecli
     az vm list --resource-group sampleVmResourceGroup
