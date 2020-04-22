@@ -19,7 +19,7 @@ items:
   content: |
     - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
     - [The latest Python 3.x interpreter](https://www.python.org/downloads/)
-    - The [Azure CLI 2.0](/azure/install-az-cli) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
+    - The [Azure CLI 2.0](/cli/azure/install-az-cli) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
 - title: Set up authentication
   durationInMinutes: 5
   content: |
