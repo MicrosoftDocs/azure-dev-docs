@@ -51,6 +51,10 @@ For files that are frequently written and read by your application (such as temp
 
 If you are using a 1.x version of Spring Boot it is highly recommended to upgrade to the latest version before migrating to Azure Kubernetes Service. See [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
 
+### Review your database properties
+
+If your application uses a database review the dataabase properties in your `application.properties` to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
+
 ### In-place testing
 
 Before you create container images, migrate your application to the JDK and Spring Boot version that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
