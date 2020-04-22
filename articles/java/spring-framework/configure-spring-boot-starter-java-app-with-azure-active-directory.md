@@ -102,9 +102,9 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
 1. Click **API permissions** in the left navigation pane. 
 
-1. On the **API permissions** page, click **Grant admin consent...**, and click **Yes** when prompted.
+1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
 
-   ![Grant access permissions][create-app-registration-08]
+   ![Grant access permissions][create-app-registration-08.5]
 
 1. From the main page for your app registration, click **Authentication**, and click **Add a platform**.  Then click **Web applications**.
 
@@ -378,7 +378,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-05.png
 [create-app-registration-06]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-06.png
 [create-app-registration-07]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-07.png
-[create-app-registration-08]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.png
+[create-app-registration-08.5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.5.png
 [create-app-registration-09]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png
 [create-app-registration-10]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png
 [create-app-registration-11]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-11.png
@@ -392,3 +392,5 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
 [hello-world]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-world.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
+
+
