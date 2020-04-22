@@ -257,7 +257,7 @@ respectively that completed earlier.
    mvn spring-boot:run
    ```
 
-3. After your application is built and started by Maven, open <http://localhost:8080/> in a web browser; 
+3. After your application is built and started by Maven, open `http://localhost:8080/` in a web browser; 
 you should be redirected to login page.
 
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)

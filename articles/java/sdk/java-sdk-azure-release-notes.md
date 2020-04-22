@@ -15,7 +15,6 @@ Version 1.3.0 is backwards compatible with previous versions for services and fe
 
 Any breaking changes from Preview versions for those services are marked with the @Beta annotation.
 
-If you're migrating your code to 1.3.0, you can use [these notes](https://github.com/Azure/azure-sdk-for-java/blob/master/notes/prepare-for-1.3.0.md) to prepare your existing code for the 1.3 version.
 
 ### Generally available in V1.3
 

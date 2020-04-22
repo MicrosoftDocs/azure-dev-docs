@@ -19,15 +19,15 @@ items:
   content: |
     - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
     - [The latest Python 3.x interpreter](https://www.python.org/downloads/)
-    - The [Azure CLI 2.0](/azure/install-az-cli2) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
+    - The [Azure CLI 2.0](/cli/azure/install-az-cli) to work locally, or the [Azure Cloud Shell](/azure/cloud-shell/quickstart) to work exclusively on the cloud.
 - title: Set up authentication
   durationInMinutes: 5
   content: |
     The SDK is able to create a client using your CLI active subscription. For production purposes, however, use [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-python) or your own credentials system.
     
-    To define active credentials, use [az login](/azure/authenticate-azure-cli).
+    To define active credentials, use [az login](/cli/azure/authenticate-azure-cli).
     Default subscription ID is either the only one you have, or you can define it using 
-    [az account](/azure/manage-azure-subscriptions-azure-cli).
+    [az account](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```python
     from azure.common.client_factory import get_client_from_cli_profile
@@ -369,7 +369,7 @@ items:
     az storage account create -n samplestorageaccountname -g sampleStorageResourceGroup -l eastus --sku Standard_RAGRS
     ```
 
-    This code creates an [Azure Storage account](https://docs.microsoft.com/azure/storage/storage-introduction) and then uses the Azure Storage libraries for Python to create a new html file in the cloud. 
+    This code creates an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-introduction) and then uses the Azure Storage libraries for Python to create a new html file in the cloud. 
     ```python
     from azure.storage import CloudStorageAccount
     from azure.storage.blob import PublicAccess
