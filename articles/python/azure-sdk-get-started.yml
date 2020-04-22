@@ -23,7 +23,7 @@ items:
 - title: Set up authentication
   durationInMinutes: 5
   content: |
-    The SDK is able to create a client using your CLI active subscription. For production purposes, however, use [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-python) or your own credentials system.
+    The SDK is able to create a client using your CLI active subscription. For production purposes, however, use [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python) or your own credentials system.
     
     To define active credentials, use [az login](/cli/azure/authenticate-azure-cli).
     Default subscription ID is either the only one you have, or you can define it using 
