@@ -283,7 +283,7 @@ az mysql server configuration set --name wait_timeout \
 
 az mysql server configuration set --name time_zone \
     --resource-group ${RESOURCEGROUP_NAME} \
-    --server ${MYSQL_SERVER_NAME} --value SYSTEM
+    --server ${MYSQL_SERVER_NAME} --value=-8:00
 ```
 
 # [PowerShell](#tab/powershell)
@@ -304,7 +304,7 @@ az mysql server configuration set --name wait_timeout `
 
 az mysql server configuration set --name time_zone `
     --resource-group $RESOURCEGROUP_NAME `
-    --server $MYSQL_SERVER_NAME --value SYSTEM
+    --server $MYSQL_SERVER_NAME --value=-8:00
 ````
 
 # [Cmd](#tab/cmd)
@@ -325,7 +325,7 @@ az mysql server configuration set --name wait_timeout ^
 
 az mysql server configuration set --name time_zone ^
     --resource-group %RESOURCEGROUP_NAME% ^
-    --server %MYSQL_SERVER_NAME% --value SYSTEM
+    --server %MYSQL_SERVER_NAME% --value=-8:00
 ```
 ---
 
