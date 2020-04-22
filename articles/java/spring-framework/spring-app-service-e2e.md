@@ -54,7 +54,7 @@ cd spring-framework-petclinic
 
 First, we'll test the sample locally using using HSQLDB as the database.
 
-Build the HSQLDB version of the sample.
+Build the HSQLDB version of the sample app.
 
 ``` azurecli
 mvn package
@@ -145,7 +145,7 @@ You can now navigate your browser to [http://localhost:8080](http://localhost:80
 
 Now that you've seen it running locally, we'll deploy the app to Azure.
 
-First, set the following environment variables. For `REGION`, use `Central US` or other regions you can find [here](https://azure.microsoft.com/en-us/global-infrastructure/services/?regions=all&products=app-service).
+First, set the following environment variables. For `REGION`, use `Central US` or other regions you can find [here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=app-service).
 
 # [bash](#tab/bash)
 
