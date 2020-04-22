@@ -24,7 +24,7 @@ If you can't meet any of the pre-migration requirements, see the following compa
 
 App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment before you proceed with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
-[!INCLUDE [note-obtain-your-current-java-version](includes/migration/note-obtain-your-current-java-version.md)]
+[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
 To obtain your current Tomcat version, sign in to your production server and run the following command:
 
@@ -34,15 +34,15 @@ ${CATALINA_HOME}/bin/version.sh
 
 To obtain the current version used by Azure App Service, download [Tomcat 9](https://tomcat.apache.org/download-90.cgi), depending on which version you plan to use in Azure App Service.
 
-[!INCLUDE [inventory-external-resources](includes/migration/inventory-external-resources.md)]
+[!INCLUDE [inventory-external-resources](includes/inventory-external-resources.md)]
 
-[!INCLUDE [inventory-secrets](includes/migration/inventory-secrets.md)]
+[!INCLUDE [inventory-secrets](includes/inventory-secrets.md)]
 
 ### Inventory certificates
 
-[!INCLUDE [inventory-certificates](includes/migration/inventory-certificates.md)]
+[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
-[!INCLUDE [inventory-persistence-usage](includes/migration/inventory-persistence-usage.md)]
+[!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
 
 <!-- App-Service-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content
@@ -171,15 +171,15 @@ If your application requires specific runtime options, [use the most appropriate
 
 Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
-[!INCLUDE [configure-custom-domain-and-ssl](includes/migration/configure-custom-domain-and-ssl.md)]
+[!INCLUDE [configure-custom-domain-and-ssl](includes/configure-custom-domain-and-ssl.md)]
 
-[!INCLUDE [import-backend-certificates](includes/migration/import-backend-certificates.md)]
+[!INCLUDE [import-backend-certificates](includes/import-backend-certificates.md)]
 
 ### Migrate data sources, libraries, and JNDI resources
 
 For data source configuration steps, see the [Data sources](/azure/app-service/containers/configure-language-java#data-sources) section of [Configure a Linux Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
-[!INCLUDE[Tomcat datasource additional instructions](includes/migration/tomcat-datasource-additional-instructions.md)]
+[!INCLUDE[Tomcat datasource additional instructions](includes/tomcat-datasource-additional-instructions.md)]
 
 Migrate any additional server-level classpath dependencies by following [the same steps as for data source JAR files](/azure/app-service/containers/configure-language-java#finalize-configuration).
 
@@ -194,7 +194,7 @@ Upon completing the preceding section, you should have your customizable server 
 
 Complete the migration by copying any additional configuration (such as [realms](https://tomcat.apache.org/tomcat-9.0-doc/config/realm.html) and [JASPIC](https://tomcat.apache.org/tomcat-9.0-doc/config/jaspic.html))
 
-[!INCLUDE [migrate-scheduled-jobs](includes/migration/migrate-scheduled-jobs.md)]
+[!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
 
 ### Restart and smoke-test
 
