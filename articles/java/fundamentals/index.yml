@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Java on Azure developer tools documentation
+summary: Tools, IDEs, and supported JDKs for Java development on Azure.
+
+metadata:
+  title: Java on Azure fundamentals documentation
+  description: Tools, IDEs, and supported JDKs for Java development on Azure
+  ms.date: 04/03/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Tools for Java cloud developers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Tools overview
+            url: java-azure-tools.md
+  - title: Supported JDKs
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Java Long-Term Support
+            url: java-jdk-long-term-support.md
+          - text: Java JDK Installation
+            url: java-jdk-install.md
+          - text: Java Docker images for Azure
+            url: java-jdk-docker-images.md
+  - title: IDEs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Visual Studio Code
+            url: https://code.visualstudio.com/docs/languages/java
+          - text: IntelliJ IDEA
+            url: /azure/developer/java/toolkit-for-intellij
+          - text: Eclipse
+            url: /azure/developer/java/toolkit-for-eclipse
+  - title: Maven plugins
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure App Service
+            url: /java/api/overview/azure/maven/azure-webapp-maven-plugin/readme
+          - text: Azure Functions
+            url: /java/api/overview/azure/maven/azure-functions-maven-plugin/readme
+          - text: Azure Spring Cloud
+            url: /java/api/overview/azure/maven/azure-spring-cloud-maven-plugin/readme
+  - title: Logging
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Configure logging with the Azure SDK for Java
+            url: /azure/developer/java/sdk/java-sdk-azure-log
+          - text: Monitoring and logging using Logz.io
+            url: java-get-started-with-logzio.md
+  - title: DevOps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure DevOps
+            url: /azure/devops/java/
+          - text: Jenkins CI/CD
+            url: /azure/jenkins/

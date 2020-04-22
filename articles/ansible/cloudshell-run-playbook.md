@@ -12,9 +12,9 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configure Azure Cloud Shell** - If you're new to Azure Cloud Shell, see [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
 
 ## Automatic credential configuration
 
@@ -37,7 +37,7 @@ export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ## Verify the configuration
 To verify the successful configuration, use Ansible to create an Azure resource group.
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](includes/ansible-snippet-create-resource-group.md)]
 
 ## Next steps
 
