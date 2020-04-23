@@ -164,7 +164,7 @@ Configure the application using the following procedure.
    mvn spring-boot:run
    ```
 
-1. Test the web app by browsing to http://localhost:8080/sample/hello using a web browser, or use the syntax like the following example if you have **curl** available:
+1. Test the web app by browsing to `http://localhost:8080/sample/hello` using a web browser, or use the syntax like the following example if you have **curl** available:
 
    ```shell
    curl http://localhost:8080/sample/hello

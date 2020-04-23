@@ -139,13 +139,13 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 ---
 
-You can now navigate your browser to [http://localhost:8080](http://localhost:8080) to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now navigate your browser to `http://localhost:8080` to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 ## Deploy to Azure App Service
 
 Now that you've seen it running locally, we'll deploy the app to Azure.
 
-First, set the following environment variables. For `REGION`, use `Central US` or other regions you can find [here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=app-service).
+First, set the following environment variables. For `REGION`, use `West US 2` or other regions you can find [here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=app-service).
 
 # [bash](#tab/bash)
 
@@ -463,7 +463,7 @@ mvn cargo:deploy
 ```
 ---
 
-You can now view the app locally at [http://localhost:8080](http://localhost:8080). The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now view the app locally at `http://localhost:8080`. The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 Finally, deploy the app to App Service.
 

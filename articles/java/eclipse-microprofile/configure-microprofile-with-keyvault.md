@@ -120,7 +120,7 @@ This example is based on a sample application available on GitHub, so we will cl
 
 1. Try running the server using `mvn clean package payara-micro:start`
 
-1. Try accessing [http://localhost:8080/keyvault-configsource/api/config](http://localhost:8080/keyvault-configsource/api/config) in your web browser - you should see a simple response that demonstrates values being read from Azure Key Vault.
+1. Try accessing `http://localhost:8080/keyvault-configsource/api/config` in your web browser - you should see a simple response that demonstrates values being read from Azure Key Vault.
 
 ## Summary
 

@@ -37,7 +37,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
     npm start
     ```
 
-1. Open a browser to [http://localhost:4200](http://localhost:4200) to verify that the app is running:
+1. Open a browser to `http://localhost:4200` to verify that the app is running:
 
     ![The running sample Angular app](media/static-website/local-app-angular.png)
 
@@ -66,7 +66,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
     npm start
     ```
 
-1. Open a browser to [http://localhost:3000](http://localhost:3000) to verify that the app is running:
+1. Open a browser to `http://localhost:3000` to verify that the app is running:
 
     ![The running sample React app](media/static-website/local-app-react.png)
 
@@ -97,7 +97,7 @@ When the CLI asks any configuration questions, press enter to select the default
      npm run serve
      ```
 
-1. Open a browser to [http://localhost:8080](http://localhost:8080) to verify that the app is running:
+1. Open a browser to `http://localhost:8080` to verify that the app is running:
 
     ![The running sample Vue app](media/static-website/local-app-vue.png)
 
@@ -132,7 +132,7 @@ When the CLI asks any configuration questions, press enter to select the default
      npm run dev
      ```
 
-1. Open a browser to [http://localhost:5000](http://localhost:5000) to verify that the app is running:
+1. Open a browser to `http://localhost:5000` to verify that the app is running:
 
     ![The running sample Vue app](media/static-website/local-app-svelte.png)
 
