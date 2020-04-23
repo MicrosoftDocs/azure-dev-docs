@@ -33,7 +33,9 @@ To ensure a successful migration, some assessment and inventory steps are necess
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
-[!INCLUDE [/identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
+[!INCLUDE [switch-to-a-supported-platform-azure-spring-cloud](includes/switch-to-a-supported-platform-azure-spring-cloud.md)]
+
+[!INCLUDE [identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
 
 #### Identify Spring Cloud Version(s)
 
@@ -117,9 +119,7 @@ It isn't feasible for this guide to document every possible external dependency.
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Cloud application, such strings will likely be found in *application.properties* or *application.yml* files in individual services or in the Spring Cloud Config repository.
 
-#### Inventory certificates
-
-[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
+[!INCLUDE [inventory-certificates-azure-spring-cloud](includes/inventory-certificates-azure-spring-cloud.md)]
 
 #### Determine if Spring Cloud Vault is used
 

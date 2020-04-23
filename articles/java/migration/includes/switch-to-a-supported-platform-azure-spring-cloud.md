@@ -4,7 +4,7 @@ ms.author: yebronsh
 ms.date: 1/22/2020
 ---
 
-### Switch to a supported platform
+#### Switch to a supported platform
 
 Azure Spring Cloud offers specific versions of Java and specific versions of Spring Boot and Spring Cloud. To ensure compatibility, migrate your application to one of the supported versions of Java in its current environment before you proceed with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
