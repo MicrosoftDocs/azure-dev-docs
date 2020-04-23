@@ -39,13 +39,21 @@ If your application allows for static content that is uploaded/produced by your 
 
 For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
 
-[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/migration/determine-whether-your-application-relies-on-scheduled-jobs.md)]
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
-[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
-[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/migration/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+
+### Upgrade to the lastest Spring Boot version
+
+If you are using a 1.x version of Spring Boot it is highly recommended to upgrade to the latest version before migrating to Azure Kubernetes Service. See [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
+
+### Review your database properties
+
+If your application uses a database review the dataabase properties in your `application.properties` to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
 
 ### In-place testing
 
@@ -53,7 +61,7 @@ Before you create container images, migrate your application to the JDK and Spri
 
 ## Migration
 
-[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/migration/provision-azure-container-registry-and-azure-kubernetes-service.md)]
+[!INCLUDE [provision-azure-container-registry-and-azure-kubernetes-service](includes/provision-azure-container-registry-and-azure-kubernetes-service.md)]
 
 ### Create a Docker image for Spring Boot
 
@@ -98,7 +106,7 @@ az acr login -n ${MY_ACR}
 Build and push the image:
 
 ```shell
-az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} -f src/main/docker/Dockerfile .
+az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} .
 ```
 
 Alternatively, you can use Docker CLI to first build and test the image locally, as shown in the following commands. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires you to install the Docker CLI and ensure the Docker daemon is running.
@@ -129,11 +137,15 @@ Push the image to your Azure container registry:
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](https://docs.microsoft.com/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
-If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](https://docs.microsoft.com/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also include a custom keystore that will be added to your JVM upon startup if you put the keystore file at `/opt/spring-boot/mycert.crt`. This can be accomplished by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume as previously mentioned.
 
-[!INCLUDE [provision-a-public-ip-address](includes/migration/provision-a-public-ip-address.md)]
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also enable Application Insights by setting the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). See [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent) for more information.
+
+If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
+
+[!INCLUDE [provision-a-public-ip-address](includes/provision-a-public-ip-address.md)]
 
 ### Deploy to AKS
 
@@ -147,7 +159,7 @@ Be sure to include memory and CPU settings when creating your deployment YAML so
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
-[!INCLUDE [migrate-scheduled-jobs-aks](includes/migration/migrate-scheduled-jobs-aks.md)]
+[!INCLUDE [migrate-scheduled-jobs-aks](includes/migrate-scheduled-jobs-aks.md)]
 
 ## Post-migration
 
