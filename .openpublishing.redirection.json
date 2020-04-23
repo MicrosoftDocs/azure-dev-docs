@@ -1,78 +1,538 @@
 {
   "redirections": [
     {
-      "source_path": "java/microprofile/cicd-microprofile-vsts.md",
-      "redirect_url": "/azure/java/microprofile/cicd-microprofile",
+      "source_path": "java/index.yml",
+      "redirect_url": "/azure/developer/java",
       "redirect_document_id": true
     },
     {
-        "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
-        "redirect_url": "/azure/java/spring-framework",
-        "redirect_document_id": false
+      "source_path": "java/microprofile/cicd-microprofile-vsts.md",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile",
+      "redirect_document_id": true
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij.md",
-        "redirect_url": "/azure/java/intellij",
-        "redirect_document_id": false
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
-        "redirect_url": "/azure/java/intellij",
-        "redirect_document_id": false
+      "source_path": "java/intellij/azure-toolkit-for-intellij.md",
+      "redirect_url": "/azure/developer/java/tookit-for-intellij",
+      "redirect_document_id": true
     },
     {
-        "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
-        "redirect_url": "/azure/java/intellij",
-        "redirect_document_id": false
+      "source_path": "java/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+      "redirect_url": "/azure/developer/java/tookit-for-intellij",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
-        "redirect_url": "/azure/java/eclipse",
-        "redirect_document_id": false
+      "source_path": "java/intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
+      "redirect_url": "/azure/developer/java/tookit-for-intellij",
+      "redirect_document_id": false
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
-        "redirect_url": "/azure/java/eclipse",
-        "redirect_document_id": false
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse.md",
+      "redirect_url": "/azure/developer/java/tookit-for-eclipse",
+      "redirect_document_id": true
     },
     {
-        "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
-        "redirect_url": "/azure/java/eclipse",
-        "redirect_document_id": false
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+      "redirect_url": "/azure/developer/java/tookit-for-eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+      "redirect_url": "/azure/developer/java/tookit-for-eclipse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "java/java-azure-tools.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-azure-tools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-get-started-with-logzio.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-get-started-with-logzio",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-add-certificate-ca-store.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-add-certificate-ca-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-authenticate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-concepts.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-concepts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-containers-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-containers-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-get-started.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-log.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-log",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-release-notes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-security-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-security-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-sql-database-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-sql-database-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-virtual-machine-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-virtual-machine-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-azure-web-apps-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-web-apps-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-configure-webapp-sources.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-configure-webapp-sources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-sql-elastic-pools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-storage-accounts.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-storage-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-virtual-machines.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-virtual-machines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-virtual-networks.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-virtual-networks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-manage-vm-scalesets.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-vm-scalesets",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_url": "/azure/developer/java/sdk/java-sdk-virtual-machines-in-parallel",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-java-se-to-java-se-app-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-java-se-to-java-se-app-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-tomcat-to-containers-on-azure-kubernetes-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-tomcat-to-tomcat-app-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-weblogic-to-virtual-machines.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-weblogic-to-virtual-machines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migration-overview.md",
+      "redirect_url": "/azure/developer/java/migration/migration-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/displaying-javadoc-content-for-azure-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-hello-world-web-app-linux.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/hello-world-web-app-linux",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-installation.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/installation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-redis-caches-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-storage-accounts-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/managing-virtual-machines-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-sign-in-instructions.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/sign-in-instructions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/azure-toolkit-for-eclipse-whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/eclipse/index.yml",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/hello-world-web-app-linux",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-installation.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/installation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-redis-caches-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-storage-accounts-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/managing-virtual-machines-using-azure-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-sign-in-instructions.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/sign-in-instructions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/azure-toolkit-for-intellij-whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/intellij/index.yml",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/index.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-jdk-long-term-support.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-docker-images.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-jdk-docker-images",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-flight-recorder-and-mission-control.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-jdk-flight-recorder-and-mission-control",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/java-jdk-install.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-jdk-install",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/reasons-to-move-to-java-11.md",
+      "redirect_url": "/azure/developer/java/fundamentals/reasons-to-move-to-java-11",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/jdk/transition-from-java-8-to-java-11.md",
+      "redirect_url": "/azure/developer/java/fundamentals/transition-from-java-8-to-java-11",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/cicd-microprofile.md",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/configure-microprofile-with-keyvault.md",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile/configure-microprofile-with-keyvault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/deploy-microprofile-to-container-instances.md",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile/deploy-microprofile-to-container-instances",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/deploy-microprofile-to-web-app-for-containers.md",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile/deploy-microprofile-to-web-app-for-containers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/microprofile/index.yml",
+      "redirect_url": "/azure/developer/java/eclipse-microprofile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-java-applicationinsights",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-postgresql.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-jpa-with-azure-sql-server.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/configure-spring-data-mongodb-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-on-kubernetes.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-on-linux.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/getting-started-with-spring-cloud-function-in-azure.md",
+      "redirect_url": "/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/how-to-guides-spring-data-cosmosdb.md",
+      "redirect_url": "/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/index.yml",
+      "redirect_url": "/azure/developer/java/spring-framework",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/spring-app-service-e2e.md",
+      "redirect_url": "/azure/developer/java/spring-framework/spring-app-service-e2e",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/spring-framework/spring-boot-starters-for-azure.md",
+      "redirect_url": "/azure/developer/java/spring-framework/spring-boot-starters-for-azure",
+      "redirect_document_id": true
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-enable-session-affinity.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-role-properties.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
       "source_path": "java/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
-      "redirect_url": "/azure/java/eclipse",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse",
       "redirect_document_id": false
     },
     {
@@ -92,12 +552,12 @@
     },
     {
       "source_path": "javascript/node-samples-services-appservice.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-samples-services-web-and-mobile.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
       "redirect_document_id": false
     },
     {
@@ -107,47 +567,47 @@
     },
     {
       "source_path": "javascript/node-samples-services-compute.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-samples-services-database.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-samples-services-iot.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-samples-services-security-and-identity.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-samples-services-storage.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-tutorials-services-databases.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-tutorials-services-enterprise.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-tutorials-services-messaging-and-iot.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path": "javascript/node-tutorials-services-storage.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage",
       "redirect_document_id": false
     },
     {
@@ -157,17 +617,17 @@
     },
     {
       "source_path": "python/python-sdk-azure-sql-database-samples.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database",
       "redirect_document_id": false
     },
     {
       "source_path": "python/python-sdk-azure-virtual-machine-samples.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=python&products=azure-virtual-machines",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "python/python-sdk-azure-web-apps-samples.md",
-      "redirect_url": "https://docs.microsoft.com/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps",
       "redirect_document_id": false
     },
     {
@@ -177,7 +637,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-tools.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-tools",
+      "redirect_url": "/azure/developer/python/azure-tools",
       "redirect_document_id": true
     },
     {
@@ -187,272 +647,272 @@
     },
     {
       "source_path": "python/python-sdk-azure-authenticate.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-authenticate",
+      "redirect_url": "/azure/developer/python/azure-sdk-authenticate",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-get-started.yml",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-get-started",
+      "redirect_url": "/azure/developer/python/azure-sdk-get-started",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-multi-cloud.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-multi-cloud",
+      "redirect_url": "/azure/developer/python/azure-sdk-multi-cloud",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-operation-config.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-operation-config",
+      "redirect_url": "/azure/developer/python/azure-sdk-operation-config",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-overview.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-overview",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-install.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-install",
+      "redirect_url": "/azure/developer/python/azure-sdk-install",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-samples-list-images.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-samples-list-images",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-list-images",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-samples-logic-app-workflow.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-samples-logic-app-workflow",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-logic-app-workflow",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-samples-managed-disks.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-samples-managed-disks",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-managed-disks",
       "redirect_document_id": true
     },
     {
       "source_path": "python/python-sdk-azure-samples-monitor-vms.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-samples-monitor-vms",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-monitor-vms",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-app-hosting.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-app-hosting",
+      "redirect_url": "/azure/developer/python/quickstarts-app-hosting",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-cognitive-services.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-cognitive-services",
+      "redirect_url": "/azure/developer/python/quickstarts-cognitive-services",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-data-solutions.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-data-solutions",
+      "redirect_url": "/azure/developer/python/quickstarts-data-solutions",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-machine-learning.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-machine-learning",
+      "redirect_url": "/azure/developer/python/quickstarts-machine-learning",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-messaging.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-messaging",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging",
       "redirect_document_id": true
     },
     {
       "source_path": "python/quickstarts-security-integration.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/quickstarts-security-integration",
+      "redirect_url": "/azure/developer/python/quickstarts-security-integration",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-01",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-02",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-03",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-04",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-05",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-06.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-06",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-06",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-07.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-07",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-app-service-on-linux-07",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-01",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-02",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-03",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-04",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-deploy-containers-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-deploy-containers-05",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-containers-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-01.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-01",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-02.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-02",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-02",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-03.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-03",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-03",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-04.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-04",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-04",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-05.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-05",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-05",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-06.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-06",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-06",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-07.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-07",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-07",
       "redirect_document_id": true
     },
     {
       "source_path": "python/tutorial-vs-code-serverless-python-08.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-08",
+      "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-08",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-auth-aad-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-authorization.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-authorization",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-compute-networking-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-compute-networking-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-networking-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-containers-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-containers-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
       "redirect_document_id": true
     },
     {
       "source_path": "go-redirects/azure-sdk-go-install.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-install",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
       "redirect_document_id": false
     },
     {
       "source_path": "go-redirects/azure-sdk-go-qs-vm.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-qs-vm",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
       "redirect_document_id": false
     },
     {
       "source_path": "go-redirects/azure-sdk-go-sql-database-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-sql-database-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "go-redirects/azure-sdk-go-tools.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-tools",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
       "redirect_document_id": false
     },
     {
       "source_path": "go-redirects/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go",
+      "redirect_url": "/azure/developer/go",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-auth-aad-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-auth-aad-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-authorization.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-authorization",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-compute-network-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-compute-network-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-network-samples",
       "redirect_document_id": false
     },    
     {
       "source_path": "go/azure-sdk-go-containers-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-containers-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-install.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-install",
+      "redirect_url": "/azure/developer/go/azure-sdk-install",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-qs-vm.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-qs-vm",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-sql-database-samples.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-sql-database-samples",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "go/azure-sdk-go-tools.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go/azure-sdk-tools",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools",
       "redirect_document_id": false
     },
     {
       "source_path": "go/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/go",
+      "redirect_url": "/azure/developer/go",
       "redirect_document_id": false
     },
     {

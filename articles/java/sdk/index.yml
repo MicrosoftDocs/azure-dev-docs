@@ -1,0 +1,35 @@
+### YamlMime:Landing
+
+title: Azure SDK for Java documentation
+summary: Cloud development using Java on Azure.
+
+metadata:
+  title: Azure SDK for Java documentation
+  description: Cloud development using Java on Azure
+  ms.date: 04/03/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Azure for Java cloud developers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure development using Java
+            url: java-sdk-azure-get-started.md
+      - linkListType: reference
+        links:
+          - text: Java API browser
+            url: /java/api/?view=azure-java
+      - linkListType: how-to-guide
+        links:
+          - text: Add Root Certificate
+            url: java-sdk-add-certificate-ca-store.md
+          - text: Authenticate
+            url: java-sdk-azure-authenticate.md
+          - text: Configure logging
+            url: java-sdk-azure-log.md
+      - linkListType: learn
+        links:
+        - text: Patterns & best practices
+          url: java-sdk-azure-concepts.md
+

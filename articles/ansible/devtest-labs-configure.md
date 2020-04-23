@@ -8,11 +8,11 @@ ms.date: 04/30/2019
 
 # Tutorial: Configure labs in Azure DevTest Labs using Ansible
 
-[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
 
 [Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of VM environments for their apps. These environments can be configured for app developing, testing, and training. 
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -30,9 +30,9 @@ ms.date: 04/30/2019
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create resource group
 
@@ -70,7 +70,7 @@ You can set up lab policy settings. The following values can be set:
 - `lab_premium_vm_count` is the maximum number of lab premium VMs
 - `lab_vm_size` is the allowed lab VMs size(s)
 - `gallery_image` is the allowed gallery image(s)
-- `user_owned_lab_vm_count_in_subnet` is the maximum number of user’s VMs in a subnet
+- `user_owned_lab_vm_count_in_subnet` is the maximum number of user's VMs in a subnet
 - `lab_target_cost` is the target cost of the lab
 
 ```yml
