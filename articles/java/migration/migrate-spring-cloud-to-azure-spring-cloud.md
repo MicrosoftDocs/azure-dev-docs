@@ -262,3 +262,14 @@ Update the configuration of all client applications to use the published Azure S
 1. Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 
 1. If Geo-replication is not necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
+
+1. If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
+
+    | Legacy                      | Current                     |
+    |-----------------------------|-----------------------------|
+    |Spring Cloud Eureka          |Spring Cloud Service Registry|
+    |Spring Cloud Netflix Zuul	  |Spring Cloud Gateway         |
+    |Spring Cloud Netflix Archaius|Spring Cloud Config Server |
+    |Spring Cloud Netflix Ribbon  |Spring Cloud Load Balancer (client-side load balancer) |
+    |Spring Cloud Hystrix 	      |Spring Cloud Circuit Breaker + Resilience4J |
+    |Spring Cloud Netflix Turbine	| Micrometer + Prometheus   |
