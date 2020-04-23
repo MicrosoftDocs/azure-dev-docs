@@ -27,13 +27,13 @@ To ensure a successful migration, some assessment and inventory steps are necess
 
 ### Inspect application components
 
-[! INCLUDE[identify-use-of-local-file-system-azure-spring-cloud](includes/identify-use-of-local-file-system-azure-spring-cloud.md)]
+[!INCLUDE [identify-use-of-local-file-system-azure-spring-cloud](includes/identify-use-of-local-file-system-azure-spring-cloud.md)]
 
 #### Determine whether any of the services contain OS-specific code
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
-[! INCLUDE [/identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
+[!INCLUDE [/identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
 
 #### Identify Spring Cloud Version(s)
 
