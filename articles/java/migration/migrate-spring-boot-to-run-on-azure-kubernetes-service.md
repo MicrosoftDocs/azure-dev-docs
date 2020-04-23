@@ -55,6 +55,35 @@ If you are using a 1.x version of Spring Boot it is highly recommended to upgrad
 
 If your application uses a database review the dataabase properties in your `application.properties` to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
 
+#### JMS Message Brokers
+
+[!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
+
+After you've identified the broker or brokers in use, find the corresponding settings. In Spring Boot applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory.
+
+[!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
+
+[!INCLUDE [external-caches-azure-spring-cloud](includes/external-caches-azure-spring-cloud.md)]
+
+
+#### Resources configured through Pivotal Cloud Foundry (PCF)
+
+For applications managed with Pivotal Cloud Foundry, external resources, including those described above, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
+
+```bash
+# Log into PCF, if needed (enter credentials when prompted)
+cf login -a <API endpoint>
+
+# Set the organization and space containing the application, if not already selected during login.
+cf target org <Organization Name>
+cf target space <Space Name>
+
+# Display variables for the application
+cf env <Application Name>
+```
+
+Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. See [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES) for more information.
+
 ### In-place testing
 
 Before you create container images, migrate your application to the JDK and Spring Boot version that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
