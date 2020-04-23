@@ -120,7 +120,13 @@ The following procedure creates and initializes the key vault.
 2. Create a new key vault in the resource group; for example:
 
    ```azurecli
-   az keyvault create --name vgedkeyvault --resource-group vged-rg2 --location westus --enabled-for-deployment true --enabled-for-disk-encryption true --enabled-for-template-deployment true --sku standard --query properties.vaultUri
+   az keyvault create --resource-group vged-rg2 \
+       --name vgedkeyvault \
+       --enabled-for-deployment true \
+       --enabled-for-disk-encryption true \
+       --enabled-for-template-deployment true \
+       --sku standard --query properties.vaultUri \
+       --location westus
    ```
 
    Where:
@@ -128,23 +134,25 @@ The following procedure creates and initializes the key vault.
    | Parameter | Description |
    |---|---|
    | `name` | Specifies a unique name for your key vault. |
-   | `location` | Specifies the [Azure region](https://azure.microsoft.com/regions/) where your resource group will be hosted. |
    | `enabled-for-deployment` | Specifies the [key vault deployment option](/cli/azure/keyvault). |
    | `enabled-for-disk-encryption` | Specifies the [key vault encryption option](/cli/azure/keyvault). |
    | `enabled-for-template-deployment` | Specifies the [key vault encryption option](/cli/azure/keyvault). |
    | `sku` | Specifies the [key vault SKU option](/cli/azure/keyvault). |
    | `query` | Specifies a value to retrieve from the response, which is the key vault URI that you will need to complete this tutorial. |
+   | `location` | Specifies the [Azure region](https://azure.microsoft.com/regions/) where your resource group will be hosted. |
 
    The Azure CLI will display the URI for key vault, which you will use later; for example:  
 
-   ```azurecli
+   ```output
    "https://vgedkeyvault.vault.azure.net"
    ```
 
 3. Store a secret in your new key vault; for example:
 
    ```azurecli
-   az keyvault secret set --vault-name "vgedkeyvault" --name "connectionString" --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
+   az keyvault secret set --vault-name "vgedkeyvault" \
+       --name "connectionString" \
+       --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
    ```
 
    Where:
@@ -241,8 +249,8 @@ Use the following procedure to configure and compile your application.
 
 7. Disable the test and build the JAR file using Maven.
     
-   ```shell
-   mvn clean package
+   ```bash
+   mvn clean package -Dmaven.test.skip=true
    ```
 
 ## Configure Maven Plugin for Azure App Service
@@ -253,7 +261,7 @@ This section helps you to configure your Spring Boot project to enable your app 
     
     This link creates a new Azure App Service. If you want to deploy your app on an existing one, you can re-configure the deployment by the command `mvn azure-webapp:config` and choose Application part to config.
     
-    ```cmd
+    ```bash
     [INFO] Scanning for projects...                                                     
     [INFO]                                                                              
     [INFO] ----------------------< com.wingtiptoys:secrets >-----------------------     
@@ -285,18 +293,18 @@ This section helps you to configure your Spring Boot project to enable your app 
     Please confirm webapp properties                                                                                                          
     ```
     
-    You can also edit the `<configuration>` section of `<azure-webapp-maven-plugin>` in `pom.xml` directly. Modify the `<resourceGroup>`,`<appName>` and `<region>` value to your specific App Service.
+    You can also edit the `<configuration>` section of `<azure-webapp-maven-plugin>` in *pom.xml* directly. Modify the `<resourceGroup>`,`<appName>` and `<region>` value to your specific App Service.
 
 2. Assign identity to App Service and take down the `principalId` for the next step.
 
-   ```cmd
+   ```bash
    az webapp identity assign --name your-appservice-name \
       --resource-group vged-rg2
    ```
    
 3. Grant permission to MSI.
 
-   ```cmd
+   ```bash
    az keyvault set-policy --name vgedkeyvault \
        --object-id your-managed-identity-objectId \
        --secret-permissions get list
@@ -306,15 +314,15 @@ This section helps you to configure your Spring Boot project to enable your app 
 
 Now you are ready to deploy your web app on Azure. To do so, use the following steps:
 
-1. Rebuild the JAR file using Maven if you made any changes to the pom.xml file.
+1. Rebuild the JAR file using Maven if you made any changes to the *pom.xml* file.
 
-   ```cmd
+   ```bash
    mvn clean package
    ```
    
 2. Deploy your app on Azure by using Maven.
 
-   ```cmd
+   ```bash
    mvn azure-webapp:deploy
    ```
    
@@ -332,7 +340,7 @@ In this tutorial, you created a new Java web application using the **[Spring Ini
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -356,15 +364,15 @@ For more information about using managed identities for App Service, see the [Us
 
 [Key Vault Documentation]: /azure/key-vault/
 [Get started with Azure Key Vault]: /azure/key-vault/key-vault-get-started
-[Azure for Java Developers]: /azure/java/
+[Azure for Java Developers]: /azure/developer/java/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-[Using managed identities for App Service]: https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=javascript
-[Configure Maven Plugin for Azure App Service]: https://docs.microsoft.com/en-us/azure/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service
+[Using managed identities for App Service]: /azure/app-service/overview-managed-identity
+[Configure Maven Plugin for Azure App Service]: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service
 
 <!-- IMG List -->
 
