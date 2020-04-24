@@ -75,7 +75,7 @@ Use the following grid to identify the destinations that support the application
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|
+| Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
 | Web applications                                                  |        |&#x2714;|        |&#x2714;|&#x2714;|
 | Java EE applications                                              |        |        |        |&#x2714;|&#x2714;|
@@ -100,9 +100,9 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
 | Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | N/A         | &#x1F449;   | N/A       |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | N/A         | &#x1F449;   | N/A       |
-| Updating container base image<br>(including vulnerability remediation)      | N/A         | N/A         | &#x1F449;   | N/A       |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Updating container base image<br>(including vulnerability remediation)      | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
 | Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Detecting and restarting failed instances                                   | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Implementing draining and rolling restart for updates                       | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
