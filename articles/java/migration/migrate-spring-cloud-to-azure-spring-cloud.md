@@ -166,7 +166,7 @@ For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migratio
 
 ### Remove explicit configuration server settings
 
-In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in `application.properties` or `application.yml` files.
+In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in `application.properties` or `application.yml` files:
 
 **`application.yml`**
 
@@ -176,6 +176,8 @@ eureka:
     serviceUrl:
       defaultZone: http://myusername:mysecretpassword@localhost:8761/eureka/
 ```
+
+If a setting such as the one above appears in your application configuration, remove it. Azure Spring Cloud will automatically inject the connection information of its configuration server.
 
 ### Create an Azure Spring Cloud instance and Apps
 
