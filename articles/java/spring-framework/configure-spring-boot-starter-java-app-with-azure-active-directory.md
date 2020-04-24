@@ -60,9 +60,9 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) 
 
-Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: wingtiptoysdirectory.onmicrosoft.com.).
+    Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: wingtiptoysdirectory.onmicrosoft.com.).
 
-When you have finished, click **Create**. It will take a few minutes to create the new resource.
+    When you have finished, click **Create**. It will take a few minutes to create the new resource.
 
    ![Specify Azure Active Directory names][create-directory-02]
 
@@ -90,7 +90,7 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
 1. Click **Certificates & secrets** in the left navigation pane.  Then click **New client secret**.
 
-   ![Create app registration keys][create-app-registration-03.5]
+   ![Create app registration keys][create-app-registration-03-5]
 
 1. Add a **Description** and select duration in the **Expires** list.  Click **Add**. The value for the key will be automatically filled in.
 
@@ -98,11 +98,11 @@ When you have finished, click **Create**. It will take a few minutes to create t
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
 
-   ![Specify app registration key parameters][create-app-registration-04.5]
+   ![Specify app registration key parameters][create-app-registration-04-5]
 
 1. Click **API permissions** in the left navigation pane. 
 
-1. On the **API permissions** page, click **Grant admin consent...**, and click **Yes** when prompted.
+1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
 
    ![Grant access permissions][create-app-registration-08]
 
@@ -372,9 +372,9 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-01.png
 [create-app-registration-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-02.png
 [create-app-registration-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03.png
-[create-app-registration-03.5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03.5.png
+[create-app-registration-03-5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03-5.png
 [create-app-registration-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.png
-[create-app-registration-04.5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.5.png
+[create-app-registration-04-5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04-5.png
 [create-app-registration-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-05.png
 [create-app-registration-06]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-06.png
 [create-app-registration-07]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-07.png
@@ -392,3 +392,5 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
 [hello-world]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-world.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
+
+
