@@ -59,7 +59,7 @@ If your application uses a database review the dataabase properties in your `app
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services.
 
-[!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-sprinb-boot.md)]
+[!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 #### JMS Message Brokers
 
