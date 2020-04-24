@@ -55,6 +55,12 @@ If you are using a 1.x version of Spring Boot it is highly recommended to upgrad
 
 If your application uses a database review the dataabase properties in your `application.properties` to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
 
+## Inventory external resources
+
+Identify external resources, such as data sources, JMS message brokers, and URLs of other services.
+
+[!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-sprinb-boot.md)]
+
 #### JMS Message Brokers
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
@@ -64,7 +70,6 @@ After you've identified the broker or brokers in use, find the corresponding set
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
 [!INCLUDE [external-caches-azure-spring-cloud](includes/external-caches-azure-spring-cloud.md)]
-
 
 #### Resources configured through Pivotal Cloud Foundry (PCF)
 
