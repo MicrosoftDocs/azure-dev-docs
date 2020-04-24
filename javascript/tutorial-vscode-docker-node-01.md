@@ -19,14 +19,14 @@ Watch this video for a complete walkthrough of the content in this article.
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Docker extension](vscode:extension/ms-azuretools.vscode-docker).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice).
+- The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 - [Docker](https://www.docker.com/community-edition).
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-docker">Install the Docker extension</a>
+> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Install the Docker extension</a>
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
+> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ### Azure subscription
 
