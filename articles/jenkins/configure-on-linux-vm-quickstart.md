@@ -10,4 +10,3 @@ ms.date: 03/03/2020
 
 This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure. When you're finished, you have a Jenkins server running in Azure building a sample Java app from [GitHub](https://github.com).
 
-[!INCLUDE [jenkins-install-solution-template-include](./includes/install-solution-template-steps.md)]
