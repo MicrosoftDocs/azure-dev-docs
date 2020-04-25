@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Create a development pipeline in Azure with Jenkins 
-description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
+title: Tutorial - Create a Jenkins pipeline using GitHub and Docker
+description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 keywords: jenkins, azure, devops, pipeline, cicd, docker
 ms.topic: tutorial
 ms.date: 03/27/2017
 ---
 
-# Tutorial: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
+# Tutorial: Create a Jenkins pipeline using GitHub and Docker
 
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
@@ -139,7 +139,7 @@ Create a webhook inside the fork you created:
 - Set **Active** to checked.
 - Click **Add webhook**.
 
-![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github-webhook.png)
+![Add GitHub webhook to your forked repo](media/pipeline-with-github-and-docker/github-webhook.png)
 
 
 ## Create Jenkins job
@@ -223,11 +223,11 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 Open a web browser and enter `http://<publicIps>:1337`. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
-![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running-nodejs-app.png)
+![Running Node.js app](media/pipeline-with-github-and-docker/running-nodejs-app.png)
 
 Now make another edit to the *index.js* file in GitHub and commit the change. Wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updated version of your app running in a new container as follows:
 
-![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another-running-nodejs-app.png)
+![Running Node.js app after another GitHub commit](media/pipeline-with-github-and-docker/another-running-nodejs-app.png)
 
 
 ## Next steps
@@ -244,4 +244,4 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 Advance to the next tutorial to learn more about how to integrate Jenkins with Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Deploy apps with Jenkins and Azure DevOps Services](tutorial-build-deploy-jenkins.md)
+> [Deploy apps with Jenkins and Azure DevOps Services](deploy-to-linux-vm-using-azure-devops-services.md)

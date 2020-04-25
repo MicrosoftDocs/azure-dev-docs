@@ -1,11 +1,12 @@
 ---
-title: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service
+title: Tutorial - Use Azure Dev Spaces with Azure Kubernetes Service
 description: Learn how to use the Azure Dev Spaces plug-in in a continuous integration pipeline.
+keywords: jenkins, azure, devops, azure dev spaces, aks, azure kubernetes service
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---
 
-# Tutorial: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service 
+# Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
@@ -196,7 +197,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 ### Add credentials to Jenkins
 
-1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
+1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
 
     ```json
     {
@@ -212,9 +213,9 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
     The **ID** field is the Jenkins credential name for your service principal. The example uses the value of `displayName` (in this instance, `xxxxxxxjenkinssp`), but you can use any text you want. This credential name is the value for the AZURE_CRED_ID environment variable in the next section.
 
-    ![Add service principal credentials to Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
+    ![Add service principal credentials to Jenkins](media/azure-dev-spaces-and-aks/add-service-principal-credentials.png)
 
-    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
+    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
 
 
 
@@ -258,7 +259,7 @@ The scenario selected for the example pipeline is based on a real-world pattern:
 
 The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI pipeline. This flowchart shows the pipeline stages and decision points defined by the Jenkinsfile:
 
-![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
+![Jenkins pipeline flow](media/azure-dev-spaces-and-aks/jenkins-pipeline-flow.png)
 
 1. Download a modified version of the *mywebapi* project from [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
 
@@ -289,7 +290,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
     Using the sample values given in the preceding sections, the list of environment variables should look something like this:
 
-    ![Jenkins pipeline environment variables](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
+    ![Jenkins pipeline environment variables](media/azure-dev-spaces-and-aks/jenkins-pipeline-environment.png)
 
 7. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
 8. In **SCM**, choose **Git** and then enter your repo URL.
@@ -338,7 +339,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
 
 2. Sign into Jenkins and select the pipeline name, and then choose **Build Now**. 
 
-    You can also set up a *webhook* to automatically trigger the Jenkins pipeline. When a pull request is entered, GitHub issues a POST to Jenkins, triggering the pipeline. For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
+    You can also set up a *webhook* to automatically trigger the Jenkins pipeline. When a pull request is entered, GitHub issues a POST to Jenkins, triggering the pipeline. For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/deploy-from-github-to-azure-app-service.md#connect-jenkins-to-github).
 
 3. Compare changes to the current shared version:
 
@@ -405,4 +406,4 @@ az group delete -y --no-wait -n MyResourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD with Jenkins on Azure](jenkins-continuous-deployment.md)
+> [CI/CD with Jenkins on Azure](deploy-from-github-to-aks.md)

@@ -1,12 +1,12 @@
 ---
-title: Deploy to Azure Kubernetes Service using Jenkins and the blue/green deployment pattern
+title: Tutorial - Deploy to Azure Kubernetes Service using the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---
 
-# Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
+# Tutorial: Deploy to Azure Kubernetes Service (AKS) using the blue/green deployment pattern
 
 Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications. You don't need expertise in container orchestration. AKS also eliminates the burden of ongoing operations and maintenance, by provisioning, upgrading, and scaling resources on demand. You don't need to take your applications offline. For more information about AKS, see the [AKS documentation](/azure/aks/).
 
@@ -34,23 +34,23 @@ On the Microsoft repo in GitHub, you can find a sample app that illustrates how 
 
 1. Browse to the GitHub repo for the [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git) sample app.
 
-    ![Screenshot of sample app on Microsoft GitHub repo](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
+    ![Screenshot of sample app on Microsoft GitHub repo](./media/deploy-to-aks-using-blue-green-deployment-pattern/github-sample-msft.png)
 
 1. Fork the repo by selecting **Fork** in the upper right of the page, and follow the instructions to fork the repo in your GitHub account.
 
-    ![Screenshot of GitHub option to fork](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
+    ![Screenshot of GitHub option to fork](./media/deploy-to-aks-using-blue-green-deployment-pattern/github-sample-msft-fork.png)
 
 1. After you fork the repo, you see that the account name changes to your account name, and a note indicates from where the repo was forked (Microsoft).
 
-    ![Screenshot of GitHub account name and note](./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png)
+    ![Screenshot of GitHub account name and note](./media/deploy-to-aks-using-blue-green-deployment-pattern/github-sample-msft-forked.png)
 
 1. Select **Clone or download**.
 
-    ![Screenshot of GitHub option to clone or download a repo](./media/jenkins-aks-blue-green-deployment/github-sample-clone.png)
+    ![Screenshot of GitHub option to clone or download a repo](./media/deploy-to-aks-using-blue-green-deployment-pattern/github-sample-clone.png)
 
 1. In the **Clone with HTTPS** window, select the **copy** icon.
 
-    ![Screenshot of GitHub option to copy the clone URL to the clipboard](./media/jenkins-aks-blue-green-deployment/github-sample-copy.png)
+    ![Screenshot of GitHub option to copy the clone URL to the clipboard](./media/deploy-to-aks-using-blue-green-deployment-pattern/github-sample-copy.png)
 
 1. Open a terminal or Git Bash window.
 
@@ -58,11 +58,11 @@ On the Microsoft repo in GitHub, you can find a sample app that illustrates how 
 
 1. Using the `git clone` command, clone the URL you copied previously.
 
-    ![Screenshot of Git Bash git clone command](./media/jenkins-aks-blue-green-deployment/git-clone-command.png)
+    ![Screenshot of Git Bash git clone command](./media/deploy-to-aks-using-blue-green-deployment-pattern/git-clone-command.png)
 
 1. Press the Enter key to start the clone process.
 
-    ![Screenshot of Git Bash git clone command results](./media/jenkins-aks-blue-green-deployment/git-clone-results.png)
+    ![Screenshot of Git Bash git clone command results](./media/deploy-to-aks-using-blue-green-deployment-pattern/git-clone-results.png)
 
 1. Change directories to the newly created directory that contains the clone of the app source.
 
@@ -113,7 +113,7 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
    - **&lt;your-location>**
    - **&lt;your-dns-name-suffix>**
 
-     ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/deploy-to-aks-using-blue-green-deployment-pattern/edit-setup-script.png)
 
 1. Run the setup script.
 
@@ -142,7 +142,7 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 
     Locate the public IPs in the resource group.
 
-    ![Screenshot of the public IPs in the resource group](./media/jenkins-aks-blue-green-deployment/publicip.png)
+    ![Screenshot of the public IPs in the resource group](./media/deploy-to-aks-using-blue-green-deployment-pattern/publicip.png)
 
     For each of the services, find the external IP address by running the following command:
     

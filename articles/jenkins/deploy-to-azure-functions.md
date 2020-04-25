@@ -1,12 +1,12 @@
 ---
-title: Deploy to Azure Functions using the Jenkins Azure Functions plug-in
+title: Tutorial - Deploy to Azure Functions using Jenkins
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---
 
-# Deploy to Azure Functions using the Jenkins Azure Functions plug-in
+# Tutorial: Deploy to Azure Functions using Jenkins
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plug-in.
 
@@ -70,9 +70,9 @@ The following steps explain how to prepare the Jenkins server:
     - Azure Functions Plug-in
     - EnvInject Plug-in
 
-1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md) for step-by-step instructions.
+1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-from-github-to-azure-app-service.md) for step-by-step instructions.
 
-1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins) tutorial.
+1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./deploy-from-github-to-azure-app-service.md#add-service-principal-to-jenkins) tutorial.
 
 ## Fork the sample GitHub repo
 

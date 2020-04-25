@@ -17,7 +17,7 @@ This article is an introduction to using Azure with Jenkins, detailing the core 
 Host Jenkins in Azure to centralize your build automation and scale your deployment as the needs of your software projects grow. You can deploy Jenkins in Azure using:
  
 - [The Jenkins solution template](install-jenkins-solution-template.md) in Azure Marketplace.
-- [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](tutorial-jenkins-github-docker-cicd.md) to create a Jenkins instance on a VM.
+- [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](pipeline-with-github-and-docker.md) to create a Jenkins instance on a VM.
 - On a Kubernetes cluster running in [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), see our [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
@@ -28,8 +28,8 @@ Add build agents to your existing Jenkins deployment to scale your Jenkins build
 
 Once configured with an [Azure service principal](/azure/azure-resource-manager/resource-group-overview), Jenkins jobs and pipelines can use this credential to:
 
-- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](storage-java-jenkins-continuous-integration-solution.md) to learn more.
-- Manage and configure Azure resources with the [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
+- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](azure-storage-blobs-as-build-artifact-repository.md) to learn more.
+- Manage and configure Azure resources with the [Azure CLI](/azure/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ## Deploy your code into Azure services
 
@@ -38,4 +38,4 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
  Plug-ins are available to deploy to the following services and environments:
 
 - [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
-- [Azure App Service](/azure/app-service/overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
+- [Azure App Service](/azure/app-service/overview). See the [how-to](deploy-to-azure-app-service-using-plugin.md) to get started.

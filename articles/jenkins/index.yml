@@ -24,7 +24,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Jenkins Plugins for Azure
-            url: jenkins-plugins.md
+            url: plug-ins-for-azure.md
       - linkListType: architecture
         links:
           - text: Jenkins architecture
@@ -36,7 +36,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Jenkins server
-            url: install-solution-template-quickstart.md
+            url: configure-on-linux-vm-quickstart.md
       - linkListType: download
         links:
         - text: Sample jobs and scripts
@@ -48,9 +48,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Scale with Azure Container Instances
-            url: container-instances-jenkins.md
+            url: azure-container-instances-as-jenkins-build-agent.md
           - text: Scale with Azure VM agents
-            url: jenkins-azure-vm-agents.md
+            url: scale-deployments-using-vm-agents
 
   # Card
   - title: CI/CD to Azure Functions
@@ -58,7 +58,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to Azure Functions 
-            url: jenkins-azure-functions-deploy.md
+            url: deploy-to-azure-functions.md
 
   # Card
   - title: CI/CD to AKS
@@ -66,11 +66,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy from GitHub to AKS
-            url: jenkins-continuous-deployment.md
+            url: deploy-from-github-to-aks.md
           - text: Deploy to AKS using blue/green pattern
-            url: jenkins-aks-blue-green-deployment.md
+            url: deploy-to-aks-using-blue-green-deployment-pattern.md
           - text: Deploy using the Azure Dev Spaces plug-in
-            url: tutorial-jenkins-dev-spaces.md  
+            url: azure-dev-spaces-and-aks.md  
 
   # Card
   - title: CI/CD to App Service
@@ -78,13 +78,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create Azure resources in a pipeline job
-            url: execute-cli-jenkins-pipeline.md
+            url: deploy-to-azure-app-service-using-azure-cli.md
           - text: Deploy from GitHub to App Service
-            url: tutorial-jenkins-deploy-web-app-azure-app-service.md
+            url: deploy-from-github-to-azure-app-service.md
       - linkListType: how-to-guide
         links:
           - text: Deploy using the App Service plug-in
-            url: deploy-jenkins-app-service-plugin.md
+            url: deploy-to-azure-app-service-using-plugin.md
 
   # Card
   - title: CI/CD to Azure DevOps
@@ -92,7 +92,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to a Linux VM using Azure DevOps Services
-            url: tutorial-build-deploy-jenkins.md
+            url: deploy-to-linux-vm-using-azure-devops-services.md
 
   # Card
   - title: CI/CD to Azure Storage
@@ -100,7 +100,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Using Azure Storage with a Jenkins C/I solution
-            url: storage-java-jenkins-continuous-integration-solution.md
+            url: azure-storage-blobs-as-build-artifact-repository.md
 
   # Card
   - title: CI/CD to Linux VMs
@@ -108,7 +108,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a dev infrastructure on a Linux VM
-            url: tutorial-jenkins-github-docker-cicd.md
+            url: pipeline-with-github-and-docker.md
 
   # Card
   - title: CI/CD to Service Fabric
@@ -116,7 +116,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build and deploy an Azure Service Fabric app
-            url: service-fabric-cicd-your-linux-applications-with-jenkins.md
+            url: deploy-to-service-fabric-cluster.md
 
   # Card
   - title: CI/CD to Azure Spring Cloud
@@ -124,4 +124,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to Azure Spring Cloud using the Azure CLI
-            url: tutorial-jenkins-deploy-cli-spring-cloud-service.md
+            url: deploy-to-azure-spring-cloud-using-azure-cli.md

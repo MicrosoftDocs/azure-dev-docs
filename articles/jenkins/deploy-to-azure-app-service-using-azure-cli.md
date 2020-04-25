@@ -1,12 +1,13 @@
 ---
-title: Execute the Azure CLI with Jenkins
+title: Tutorial - Deploy to Azure App Service with Jenkins and the Azure CLI
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
 keywords: jenkins, azure, devops, app service, cli
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---
 
-# Deploy to Azure App Service with Jenkins and the Azure CLI
+# Tutorial: Deploy to Azure App Service with Jenkins and the Azure CLI
+
 To deploy a Java web app to Azure, you can use Azure CLI in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]
@@ -43,7 +44,7 @@ An Azure credential is needed to execute Azure CLI.
 * Within the Jenkins dashboard, click **Credentials -> System ->**. Click **Global credentials(unrestricted)**.
 * Click **Add Credentials** to add a [Microsoft Azure service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint. Provide an ID for use in subsequent step.
 
-![Add Credentials](./media/execute-cli-jenkins-pipeline/add-credentials.png)
+![Add Credentials](./media/deploy-to-azure-app-service-using-azure-cli/add-credentials.png)
 
 ## Create an Azure App Service for deploying the Java web app
 
@@ -160,7 +161,7 @@ You see:
 
 * Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
 
-![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+![Calculator: add](./media/deploy-to-azure-app-service-using-azure-cli/calculator-add.png)
 
 ## Deploy to Azure Web App on Linux
 Now that you know how to use Azure CLI in your Jenkins pipeline, you can modify the script to deploy to an Azure Web App on Linux.

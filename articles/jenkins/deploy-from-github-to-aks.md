@@ -1,15 +1,12 @@
 ---
-title: Deploy from GitHub to AKS with Jenkins
-titleSuffix: Azure Kubernetes Service
-description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
-services: container-service
-author: zr-msft
-ms.author: zarhoads
+title: Tutorial - Deploy from GitHub to Azure Kubernetes Service using Jenkins
+description: Learn how to configure Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
+keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
 ms.date: 01/09/2019
 ---
 
-# Tutorial: Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenkins continuous integration and deployment
+# Tutorial: Deploy from GitHub to Azure Kubernetes Service using Jenkins
 
 This tutorial deploys a sample app from GitHub to an 
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) 
@@ -139,7 +136,7 @@ azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2
 
 To see the application in action, open a web browser to the external IP address of your service. The Azure vote application is displayed, as shown in the following example:
 
-![Azure sample vote application running in AKS](media/jenkins-continuous-deployment/azure-vote.png)
+![Azure sample vote application running in AKS](media/deploy-from-github-to-aks/azure-vote.png)
 
 ## Deploy Jenkins to an Azure VM
 
@@ -179,7 +176,7 @@ A Jenkins environment variable is used to hold the ACR login server name. This v
 - On the left-hand side of the Jenkins portal, select **Manage Jenkins** > **Configure System**
 - Under **Global Properties**, select **Environment variables**. Add a variable with the name `ACR_LOGINSERVER` and the value of your ACR login server.
 
-    ![Jenkins environment variables](media/jenkins-continuous-deployment/env-variables.png)
+    ![Jenkins environment variables](media/deploy-from-github-to-aks/env-variables.png)
 
 - When complete, click **Save** at the bottom of the Jenkins configuration page.
 
@@ -231,7 +228,7 @@ Ensure that the credential kind is **Username with password** and enter the foll
 
 When complete, the credentials form looks like the following example:
 
-![Create a Jenkins credential object with the service principal information](media/jenkins-continuous-deployment/acr-credentials.png)
+![Create a Jenkins credential object with the service principal information](media/deploy-from-github-to-aks/acr-credentials.png)
 
 Click **OK** and return to the Jenkins portal.
 
@@ -248,7 +245,7 @@ From the home page of your Jenkins portal, select **New item** on the left-hand 
 1. Under **Bindings**, select **Add** > **Username and password (separated)**
    - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
 
-     ![Jenkins bindings](media/jenkins-continuous-deployment/bindings.png)
+     ![Jenkins bindings](media/deploy-from-github-to-aks/bindings.png)
 
 1. Choose to add a **Build Step** of type **Execute shell** and use the following text. This script builds a new container image and pushes it to your ACR registry.
 
@@ -276,7 +273,7 @@ Before you automate the job based on GitHub commits, first manually test the Jen
 
 On the left-hand menu of the project, select **Build Now**.
 
-![Jenkins test build](media/jenkins-continuous-deployment/test-build.png)
+![Jenkins test build](media/deploy-from-github-to-aks/test-build.png)
 
 The first build takes a minute or two as the Docker image layers are pulled down to the Jenkins server. Subsequent builds can use the cached image layers to improve the build times.
 
@@ -293,7 +290,7 @@ With a successful manual build complete, now integrate GitHub into the Jenkins b
 1. Choose to **Add webhook**. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/`, where `<publicIp>` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
 1. Select **Add webhook**.
 
-    ![Create a GitHub webhook for Jenkins](media/jenkins-continuous-deployment/webhook.png)
+    ![Create a GitHub webhook for Jenkins](media/deploy-from-github-to-aks/webhook.png)
 
 ## Test the complete CI/CD pipeline
 
@@ -319,7 +316,7 @@ When updated, save the file, commit the changes, and push these to your fork of 
 
 Once the build is complete, refresh your web browser of the sample Azure vote application. Your changes are displayed, as shown in the following example:
 
-![Sample Azure vote in AKS updated by the Jenkins build job](media/jenkins-continuous-deployment/azure-vote-updated.png)
+![Sample Azure vote in AKS updated by the Jenkins build job](media/deploy-from-github-to-aks/azure-vote-updated.png)
 
 ## Next steps
 

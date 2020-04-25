@@ -1,14 +1,14 @@
 ---
-title: Deploy to Azure App Service by using the Jenkins plugin
+title: Tutorial - Deploy to Azure App Service using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
-# Deploy to Azure App Service by using the Jenkins plugin 
+# Tutorial: Deploy to Azure App Service using the Jenkins plugin
 
-To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
+To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/deploy-to-azure-app-service-using-azure-cli) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
 * File upload.
 * Docker for Web Apps on Linux.
@@ -199,7 +199,7 @@ For the **Docker registry URL** value, supply the URL by using the format https:
     ```
 
 3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Replace &lt;x> and &lt;y> with any numbers to get the sum of x + y. The calculator shows the sum:
-    ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+    ![Calculator: add](./media/deploy-to-azure-app-service-using-azure-cli/calculator-add.png)
 
 ### For Azure App Service on Linux
 

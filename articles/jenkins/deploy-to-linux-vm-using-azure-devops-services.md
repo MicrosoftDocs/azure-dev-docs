@@ -1,12 +1,12 @@
 ---
-title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services 
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
-keywords: jenkins, azure, devops, virtual machine, cicd
+title: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services
+description: Learn how to faciliate continuous integration and deployment (CI/CD) to deploy apps to Linux virtual machines using Jenkins and Azure DevOps Services
+keywords: jenkins, azure, devops, virtual machine, cicd, azure devops services
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
-# Tutorial: Deploy your app to Linux virtual machines in Azure with using Jenkins and Azure DevOps Services
+# Tutorial: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps Services and Jenkins together to customize how you deliver your cloud app or service.
 
@@ -60,7 +60,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 1. Open your Jenkins account and select **Manage Jenkins**.
 2. On the **Manage Jenkins** page, select **Manage Plugins**.
 3. Filter the list to locate the **NodeJS** plug-in, and select the **Install without restart** option.
-    ![Adding the NodeJS plugin to Jenkins](media/tutorial-build-deploy-jenkins/jenkins-nodejs-plugin.png)
+    ![Adding the NodeJS plugin to Jenkins](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-nodejs-plugin.png)
 4. Filter the list to find the **VS Team Services Continuous Deployment** plug-in and select the **Install without restart** option.
 5. Go back to the Jenkins dashboard and select **Manage Jenkins**.
 6. Select **Global Tool Configuration**. Find **NodeJS** and select **NodeJS installations**.
@@ -72,7 +72,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 1. Select **New Item**. Enter an item name.
 2. Select **Freestyle project**. Select **OK**.
 3. On the **Source Code Management** tab, select **Git** and enter the details of the repository and the branch that contain your app code.    
-    ![Add a repo to your build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
+    ![Add a repo to your build](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-git.png)
 4. On the **Build Triggers** tab, select **Poll SCM** and enter the schedule `H/03 * * * *` to poll the Git repository for changes every three minutes. 
 5. On the **Build Environment** tab, select **Provide Node &amp; npm bin/ folder PATH** and select the **NodeJS Installation** value. Leave **npmrc file** set to **use system default**.
 6. On the **Build** tab, select **Execute shell** and enter the command `npm install` to ensure that all dependencies are updated.
@@ -95,7 +95,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 8. Choose credentials to connect to your Azure DevOps Services or Azure DevOps Server environment:
    - Leave **Username** blank if you are using Azure DevOps Services. 
    - Enter a username and password if you are using an on-premises version of Azure DevOps Server.    
-   ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
+   ![Configuring Jenkins post-build actions](media/deploy-to-linux-vm-using-azure-devops-services/trigger-release-from-jenkins.png)
 5. Save the Jenkins project.
 
 
@@ -104,7 +104,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 A service endpoint allows Azure DevOps Services to connect to Jenkins.
 
 1. Open the **Services** page in Azure DevOps Services, open the **New Service Endpoint** list, and select **Jenkins**.
-   ![Add a Jenkins endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
+   ![Add a Jenkins endpoint](media/deploy-to-linux-vm-using-azure-devops-services/add-jenkins-endpoint.png)
 2. Enter a name for the connection.
 3. Enter the URL of your Jenkins server, and select the **Accept untrusted SSL certificates** option. An example URL is	**http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
 4. Enter the username and password for your Jenkins account.

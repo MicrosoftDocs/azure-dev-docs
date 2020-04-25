@@ -1,12 +1,12 @@
 ---
-title: Using Azure Storage with a Jenkins continuous integration solution
-description: This tutorial shows how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
-keywords: jenkins, azure, devops, storage, cicd
+title: Tutorial - Use Azure Storage for build artifacts
+description: Learn how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
+keywords: jenkins, azure, devops, storage, cicd, build artifacts
 ms.topic: article
 ms.date: 08/13/2019
 ---
 
-# Using Azure Storage with a Jenkins continuous integration solution
+# Tutorial: Use Azure Storage for build artifacts
 
 This article illustrates how to use Blob storage as a repository of build artifacts created by a Jenkins continuous integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this solution useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 

@@ -1,12 +1,12 @@
 ---
-title: Deploy to a Service Fabric cluster
-description: Continuous build and integration for your Service Fabric Linux application using Jenkins
-keywords: jenkins, azure, devops, cicd, linux
+title: Tutorial - Deploy to a Service Fabric cluster
+description: Learn how to configure continuous build and integration for your Service Fabric Linux application using Jenkins
+keywords: jenkins, azure, devops, cicd, linux, service fabric, cluster
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
-# Deploy to a Service Fabric cluster
+# Tutorial: Deploy to a Service Fabric cluster
 
 This tutorial covers several possible ways of setting up your Jenkins environment as well as different ways to deploy your application to a Service Fabric cluster after it has been built. Follow these general steps to successfully configure Jenkins, pull changes from GitHub, build your application, and deploy it to your cluster:
 
