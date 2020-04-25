@@ -14,7 +14,7 @@ ms.author: tarcher
 
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
-[!INCLUDE [jenkins-install-from-azure-marketplace-image](jenkins-install-from-azure-marketplace-image.md)]
+[!INCLUDE [install-from-azure-marketplace-image](install-from-azure-marketplace-image.md)]
 
 ## Connect to Jenkins
 
@@ -79,4 +79,4 @@ If you encounter any bugs with the Jenkins solution template, file an issue in t
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Jenkins on Azure](./)
+> [Jenkins on Azure](/azure/developer/jenkins)
