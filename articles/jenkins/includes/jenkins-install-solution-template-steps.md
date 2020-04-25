@@ -11,8 +11,6 @@ ms.author: tarcher
 * An Azure subscription
 * Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
-[!INCLUDE [quickstarts-free-trial-note](quickstarts-free-trial-note.md)]
-
 ## Create the Jenkins VM from the solution template
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 

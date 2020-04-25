@@ -31,12 +31,12 @@ To complete this tutorial, you need these items:
 
 - Basic understanding of Kubernetes, Git, CI/CD, and container images
 
-- An [AKS cluster](../aks/kubernetes-walkthrough.md) and `kubectl` configured with the 
+- An [AKS cluster](/azure/aks/kubernetes-walkthrough.md) and `kubectl` configured with the 
 [AKS cluster credentials](/cli/azure/aks#az-aks-get-credentials).
 
-- An [Azure Container Registry (ACR) registry](../container-registry/container-registry-get-started-azure-cli.md), 
+- An [Azure Container Registry (ACR) registry](/azure/container-registry/container-registry-get-started-azure-cli.md), 
 the ACR login server name, and the AKS cluster configured to 
-[authenticate with the ACR registry](../aks/cluster-container-registry-integration.md).
+[authenticate with the ACR registry](/azure/aks/cluster-container-registry-integration.md).
 
 - The Azure CLI version 2.0.46 or later installed and configured. 
 Run `az --version` to find the version. If you need to install or upgrade, 
