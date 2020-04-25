@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Scale Jenkins deployments with Azure VM agents. 
+title: Tutorial - Scale Jenkins deployments with Azure VM agents
 description: Learn how to add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
 
-# Tutorial: Scale Jenkins deployments with Azure VM agents. 
+# Tutorial: Scale Jenkins deployments with Azure VM agents
 
 This tutorial shows how to use the Jenkins [Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents) to add on-demand capacity with Linux virtual machines running in Azure.
 
