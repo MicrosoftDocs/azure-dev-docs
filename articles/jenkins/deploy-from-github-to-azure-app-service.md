@@ -36,8 +36,6 @@ In this tutorial, you'll complete these tasks:
 > * Deploy your sample app to Azure by running a manual build.
 > * Push an app update in GitHub, which triggers Jenkins to build and redeploy to Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
 To complete this tutorial, you need these items:

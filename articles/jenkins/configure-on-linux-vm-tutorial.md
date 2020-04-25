@@ -16,4 +16,4 @@ This tutorial shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Li
 > * Create a Freestyle project
 > * Compile the code and package the sample app
 
-[!INCLUDE [jenkins-install-solution-template-include](./includes/jenkins-install-solution-template-steps.md)]
+[!INCLUDE [jenkins-install-solution-template-include](./includes/install-solution-template-steps.md)]
