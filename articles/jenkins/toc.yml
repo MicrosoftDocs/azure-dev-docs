@@ -17,7 +17,7 @@
       href: azure-container-instances-as-jenkins-build-agent.md
       maintainContext: true
     - name: Scale with Azure VM agents
-      href: scale-deployments-using-vm-agents
+      href: scale-deployments-using-vm-agents.md
   - name: Implement CI/CD
     items:
     - name: Azure Spring Cloud

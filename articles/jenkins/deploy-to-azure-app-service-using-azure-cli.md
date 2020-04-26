@@ -230,4 +230,4 @@ Once you use Azure CLI in your Jenkins pipeline, modify the script to deploy to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Jenkins on Azure](./)
+> [Jenkins on Azure](/azure/jenkins)
