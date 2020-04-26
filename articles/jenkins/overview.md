@@ -10,13 +10,13 @@ ms.date: 10/23/2019
 
 [Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment in Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plugins are also available to simplify CI/CD of your applications to Azure.
 
-This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. For more information about getting started with your own Jenkins server in Azure, see [Create a Jenkins server on Azure](install-jenkins-solution-template.md).
+This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. For more information about getting started with your own Jenkins server in Azure, see [Create a Jenkins server on Azure](configure-on-linux-vm.md).
 
 ## Host your Jenkins servers in Azure
 
 Host Jenkins in Azure to centralize your build automation and scale your deployment as the needs of your software projects grow. You can deploy Jenkins in Azure using:
  
-- [The Jenkins solution template](install-jenkins-solution-template.md) in Azure Marketplace.
+- [The Jenkins solution template](configure-on-linux-vm.md) in Azure Marketplace.
 - [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](pipeline-with-github-and-docker.md) to create a Jenkins instance on a VM.
 - On a Kubernetes cluster running in [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), see our [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
@@ -37,5 +37,5 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
 
  Plug-ins are available to deploy to the following services and environments:
 
-- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
+- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](deploy-from-github-to-azure-app-service.md) to get started.
 - [Azure App Service](/azure/app-service/overview). See the [how-to](deploy-to-azure-app-service-using-plugin.md) to get started.

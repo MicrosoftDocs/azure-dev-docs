@@ -13,7 +13,7 @@ ms.date: 10/23/2019
 ## Prerequisites
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Jenkins server**: If you don't have a Jenkins server installed, refer to the article, [Create a Jenkins server on Azure](./install-jenkins-solution-template.md).
+- **Jenkins server**: If you don't have a Jenkins server installed, refer to the article, [Create a Jenkins server on Azure](./configure-on-linux-vm.md).
 
   > [!TIP]
   > The source code used for this tutorial is located in the [Visual Studio China GitHub repo](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
@@ -46,7 +46,7 @@ The following steps show how to create a Java function using the Azure CLI:
 
 The following steps explain how to prepare the Jenkins server:
 
-1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of the Jenkins server installed, the article, [Create a Jenkins server on Azure](./install-jenkins-solution-template.md) guides you through the process.
+1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of the Jenkins server installed, the article, [Create a Jenkins server on Azure](./configure-on-linux-vm.md) guides you through the process.
 
 1. Sign in to the Jenkins instance with SSH.
 
@@ -150,6 +150,5 @@ az group delete -y --no-wait -n <resource_group>
 
 ## Next steps
 
-To learn more about Azure Functions, see the following resource:
 > [!div class="nextstepaction"]
-> [Azure Functions documentation](/azure/azure-functions/)
+> [Azure Functions](/azure/azure-functions/)

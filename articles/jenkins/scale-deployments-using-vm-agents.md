@@ -25,7 +25,7 @@ In this tutorial, you will:
 ## Install Azure VM Agents plugin
 
 > [!TIP]
-> If you deployed Jenkins on Azure using the [solution template](install-jenkins-solution-template.md), the Azure VM Agent plugin is already installed.
+> If you deployed Jenkins on Azure using the [solution template](configure-on-linux-vm.md), the Azure VM Agent plugin is already installed.
 
 1. From the Jenkins dashboard, select **Manage Jenkins**, then select **Manage Plugins**.
 
@@ -78,7 +78,7 @@ In this tutorial, you will:
 
     The completed service principal should use the `id` field for **Subscription ID**, the `appId` value for **Client ID**, `password` for **Client Secret**, and `tenant` for **Tenant ID**. Select **Add** to add the service principal and then configure the plugin to use the newly created credential.
 
-    ![Configure Azure Service Principal](./media/jenkins-azure-vm-agents/new-service-principal.png)
+    ![Configure Azure Service Principal](./media/scale-deployments-using-vm-agents/new-service-principal.png)
 
     
 
@@ -97,13 +97,13 @@ Configure a template for use to define an Azure VM agent. This template defines 
 1. Select a [VM size](/azure/virtual-machines/linux/sizes) from the drop-down under **Virtual Machine Size**. A general-purpose `Standard_DS1_v2` size is fine for this tutorial.   
 1. Leave the **Retention time** at `60`. This setting defines the number of minutes Jenkins can wait before it deallocated idle agents. Specify 0 if you do not want idle agents to be removed automatically.
 
-   ![General VM configuration](./media/jenkins-azure-vm-agents/general-config.png)
+   ![General VM configuration](./media/scale-deployments-using-vm-agents/general-config.png)
 
 ## Configure agent operating system and tools
 
 In the **Image Configuration** section of the plugin configuration, select **Ubuntu 16.04 LTS**. Check the boxes next to **Install Git (Latest)**, **Install Maven (V3.5.0)**, and **Install Docker** to install these tools on newly created agents.
 
-![Configure VM OS and tools](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
+![Configure VM OS and tools](./media/scale-deployments-using-vm-agents/jenkins-os-config.png)
 
 Select **Add** next to **Admin Credentials**, then select **Jenkins**. Enter a username and password used to sign in to the agents, making sure they satisfy the [username and password policy](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) for administrative accounts on Azure VMs.
 
@@ -114,7 +114,7 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 1. Within the Jenkins dashboard, click **New Item**. 
 1. Enter `demoproject1` for the name and select **Freestyle project**, then select **OK**.
 1. In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You see a message confirming that the label is served by the cloud configuration created in the previous step. 
-   ![Set up job](./media/jenkins-azure-vm-agents/job-config.png)
+   ![Set up job](./media/scale-deployments-using-vm-agents/job-config.png)
 1. In the **Source Code Management** tab, select **Git** and add the following URL into the **Repository URL** field: `https://github.com/spring-projects/spring-petclinic.git`
 1. In the **Build** tab, select **Add build step**, then **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
 1. Select **Save** to save the job definition.
@@ -125,7 +125,7 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 1. Select the job you created in the previous step, then click **Build now**. A new build is queued, but does not start until an agent VM is created in your Azure subscription.
 1. Once the build is complete, go to **Console output**. You see that the build was performed remotely on an Azure agent.
 
-![Console output](./media/jenkins-azure-vm-agents/console-output.png)
+![Console output](./media/scale-deployments-using-vm-agents/console-output.png)
 
 ## Troubleshooting the Jenkins plugin
 
@@ -134,4 +134,4 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md)
+> [CI/CD to Azure App Service](deploy-from-github-to-azure-app-service.md)

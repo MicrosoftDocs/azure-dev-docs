@@ -20,7 +20,7 @@ To deploy a Java web app to Azure, you can use Azure CLI in a [Jenkins Pipeline]
 
 ## Create and configure Jenkins instance
 
-If you do not already have a Jenkins master, start with the [Solution Template](install-jenkins-solution-template.md), which includes the required [Azure Credentials](https://plugins.jenkins.io/azure-credentials) plug-in by default. 
+If you do not already have a Jenkins master, install with the [Jenkins solution template](configure-on-linux-vm.md). By default, the template installs the required [Azure Credentials](https://plugins.jenkins.io/azure-credentials) plug-in. 
 
 The Azure Credential plug-in allows you to store Microsoft Azure service principal credentials in Jenkins. In version 1.2, we added the support so that Jenkins Pipeline can get the Azure credentials. 
 

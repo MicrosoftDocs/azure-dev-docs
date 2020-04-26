@@ -207,18 +207,18 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 
    * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. For the [ActorCounter application](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), this is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
-     ![Service Fabric Jenkins Build action](./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png)
+     ![Service Fabric Jenkins Build action](./media/deploy-to-service-fabric-cluster/build-step.png)
 
-   * **For .NET Core Applications:** From the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed, the build.sh script can be run and will build the application.
+   * **For .NET Core Applications:** From the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the `build.sh` file is located. Once the directory has been changed, the `build.sh` script can be run to build the application.
 
       ```sh
-      cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
+      cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  
       ./build.sh
       ```
 
-     The following screenshot shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
+     The following screenshot shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of `CounterServiceApplication`.
 
-      ![Service Fabric Jenkins Build action](./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step-dotnet.png)
+      ![Service Fabric Jenkins Build action](./media/deploy-to-service-fabric-cluster/build-step-dotnet.png)
 
 1. To configure Jenkins to deploy your app to a Service Fabric cluster in the post-build actions, you need the location of that cluster's certificate in your Jenkins container. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster and note the location of the cluster certificate:
 
@@ -264,7 +264,7 @@ For development and test environments, you can use the cluster management endpoi
 1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container; for example `/var/jenkins_home/clustercert.pem`. (You copied the location of the certificate the last step of [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).)
 1. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
 
-   ![Service Fabric Jenkins Post-Build Action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
+   ![Service Fabric Jenkins Post-Build Action configure management endpoint](./media/deploy-to-service-fabric-cluster/post-build-endpoint.png)
 
 1. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Skip ahead to [Next steps](#next-steps) to test your deployment.
 
@@ -293,13 +293,13 @@ For development and test environments, you can configure either Azure credential
    * **Subscription ID**: *Subscription ID*
 1. Enter a descriptive **ID** that you use to select the credential in Jenkins and a brief **Description**. Then click **Verify Service Principal**. If the verification succeeds, click **Add**.
 
-   ![Service Fabric Jenkins enter Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
+   ![Service Fabric Jenkins enter Azure credentials](./media/deploy-to-service-fabric-cluster/enter-azure-credentials.png)
 1. Back under **Service Fabric Cluster Configuration**, make sure that your new credential is selected for **Azure Credentials**. 
 1. From the **Resource Group** drop-down, select the resource group of the cluster you want to deploy the application to.
 1. From the **Service Fabric** drop-down, select the cluster that you want to deploy the application to.
 1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
 1. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
-    ![Service Fabric Jenkins Post-Build Action - Configure Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
+    ![Service Fabric Jenkins Post-Build Action - Configure Azure credentials](./media/deploy-to-service-fabric-cluster/post-build-credentials.png)
 1. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Continue on to [Next steps](#next-steps) to test your deployment.
 
 ## Troubleshooting the Jenkins plugin

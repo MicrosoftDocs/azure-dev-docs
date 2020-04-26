@@ -8,21 +8,17 @@
   expanded: true
   items:
   - name: Create a Jenkins server
-    href: configure-on-linux-vm-quickstart.md
+    href: configure-on-linux-vm.md
 - name: Tutorials
   items:
-  - name: 1. Install
-    items:
-    - name: Create a Jenkins server
-      href: configure-on-linux-vm-tutorial.md
-  - name: 2. Configure
+  - name: Configure
     items:
     - name: Scale with Azure Container Instances
       href: azure-container-instances-as-jenkins-build-agent.md
       maintainContext: true
     - name: Scale with Azure VM agents
       href: scale-deployments-using-vm-agents
-  - name: 3. Implement CI/CD
+  - name: Implement CI/CD
     items:
     - name: Azure Spring Cloud
       items:

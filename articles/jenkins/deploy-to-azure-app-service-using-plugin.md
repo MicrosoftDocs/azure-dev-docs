@@ -20,12 +20,12 @@ In this tutorial, you learn how to:
 
 ## Create and configure a Jenkins instance
 
-If you don't already have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and the following required Jenkins plugins:
+If you do not already have a Jenkins master, install with the [Jenkins solution template](configure-on-linux-vm.md). By default, the template installs the Java Development Kit (JDK) version 8. Also, the following required Jenkins plugins are installed:
 
-* [Jenkins Git client plugin](https://plugins.jenkins.io/git-client) version 2.4.6 
-* [Docker Commons plugin](https://plugins.jenkins.io/docker-commons) version 1.4.0
-* [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
+- [Jenkins Git client plugin](https://plugins.jenkins.io/git-client) version 2.4.6 
+- [Docker Commons plugin](https://plugins.jenkins.io/docker-commons) version 1.4.0
+- [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
+- [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Python, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
 
