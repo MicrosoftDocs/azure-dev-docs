@@ -22,29 +22,25 @@ In this tutorial, you will:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## Prerequisites
-
-* An Azure subscription
-* A Jenkins master server. If you don't have one, view the [quickstart](install-jenkins-solution-template.md) to set up one in Azure.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Install Azure VM Agents plugin
 
 > [!TIP]
 > If you deployed Jenkins on Azure using the [solution template](install-jenkins-solution-template.md), the Azure VM Agent plugin is already installed.
 
 1. From the Jenkins dashboard, select **Manage Jenkins**, then select **Manage Plugins**.
+
 1. Select the **Available** tab, then search for **Azure VM Agents**. Select the checkbox next to the entry for the plugin and select **Install without restart** from the bottom of the dashboard.
 
 ## Configure the Azure VM Agents plugin
 
 1. From the Jenkins dashboard, select **Manage Jenkins**, then **Configure System**.
-1. Scroll to the bottom of the page and find the **Cloud** section with the  **Add new cloud** dropdown and choose **Microsoft Azure VM Agents**.
-1. Select an existing service principal from **Add** drop-down in the **Azure Credentials** section. If none is listed, perform the following steps to [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) for your Azure account and add it to your Jenkins configuration:   
 
-    a. Select **Add** next to **Azure Credentials** and choose **Jenkins**.   
-    b. In the **Add Credentials** dialog, select **Microsoft Azure Service Principal** from the **Kind** drop-down.   
+1. Scroll to the bottom of the page and find the **Cloud** section with the  **Add new cloud** dropdown and choose **Microsoft Azure VM Agents**.
+
+1. Select an existing service principal from **Add** drop-down in the **Azure Credentials** section. If none is listed, perform the following steps to [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) for your Azure account and add it to your Jenkins configuration:
+
+    a. Select **Add** next to **Azure Credentials** and choose **Jenkins**.
+    b. In the **Add Credentials** dialog, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
     c. Create an Active Directory Service principal from the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview).
     
     ```azurecli-interactive

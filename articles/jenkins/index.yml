@@ -50,7 +50,7 @@ landingContent:
           - text: Scale with Azure Container Instances
             url: azure-container-instances-as-jenkins-build-agent.md
           - text: Scale with Azure VM agents
-            url: scale-deployments-using-vm-agents
+            url: scale-deployments-using-vm-agents.md
 
   # Card
   - title: CI/CD to Azure Functions

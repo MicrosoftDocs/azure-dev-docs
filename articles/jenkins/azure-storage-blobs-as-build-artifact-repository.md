@@ -42,13 +42,15 @@ Benefits of using the Blob service to host your agile development build artifact
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../storage/common/storage-account-create.md).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](/azure/storage/common/storage-account-create.md).
 * Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 ## How to use the Blob service with Jenkins CI
+
 To use the Blob service with Jenkins, you'll need to install the Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
 
 ## How to install the Azure Storage plugin
+
 1. Within the Jenkins dashboard, select **Manage Jenkins**.
 2. In the **Manage Jenkins** page, select **Manage Plugins**.
 3. Select the **Available** tab.
@@ -57,6 +59,7 @@ To use the Blob service with Jenkins, you'll need to install the Azure Storage p
 6. Restart Jenkins.
 
 ## How to configure the Azure Storage plugin to use your storage account
+
 1. Within the Jenkins dashboard, select **Manage Jenkins**.
 2. In the **Manage Jenkins** page, select **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
@@ -68,6 +71,7 @@ To use the Blob service with Jenkins, you'll need to install the Azure Storage p
    6. Select **Save** to save your settings.
 
 ## How to create a post-build action that uploads your build artifacts to your storage account
+
 For instructional purposes, you first need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
 
 1. Within the Jenkins dashboard, select **New Item**.
@@ -90,7 +94,7 @@ For instructional purposes, you first need to create a job that will create seve
     **Tip**
    
     Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Select that link to learn the environment variable names and descriptions. Environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
-8. Select **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](../storage/common/storage-sas-overview.md).)
+8. Select **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](/azure//storage/common/storage-sas-overview.md).)
 9. [Optional] Select **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
 10. For **List of Artifacts to upload**, enter `text/*.txt`.
 11. For **Common virtual path for uploaded artifacts**, for purposes of this tutorial, enter `${BUILD\_ID}/${BUILD\_NUMBER}`.
@@ -106,6 +110,7 @@ For instructional purposes, you first need to create a job that will create seve
 Only one post-build action that uploads artifacts to Azure blob storage can be created per job. The single post-build action to upload artifacts to Azure blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Jenkins build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure blob storage, use the following value for the **List of Artifacts to upload** option: `build/\*.jar;build/\*.txt`. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following value for the **List of Artifacts to upload** option: `build/\*.jar::binaries;build/\*.txt::notices`.
 
 ## How to create a build step that downloads from Azure blob storage
+
 The following steps illustrate to configure a build step to download items from Azure blob storage, which is useful if you want to include items in your build. An example of using this pattern is JARs that you might want to persist in Azure blob storage.
 
 1. In the **Build** section of the job configuration, select **Add build step** and select **Download from Azure Blob storage**.
@@ -119,6 +124,7 @@ If you have additional items you want to download from Azure blob storage, you c
 After you run a build, you can check the build history console output, or look at your download location, to see whether the blobs you expected were successfully downloaded.  
 
 ## Components used by the Blob service
+
 This section provides an overview of the Blob service components.
 
 * **Storage Account**: All access to Azure Storage is done through a storage account. A storage account is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100 TB.

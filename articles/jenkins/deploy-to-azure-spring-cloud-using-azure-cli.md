@@ -263,7 +263,7 @@ Before running the job, let's update the text in the login input box to **enter 
 
 After the job is complete, navigate to the public IP of the **gateway** application and verify that your application has been updated. 
 
-![Updated Piggy Metrics](media/tutorial-jenkins-deploy-cli-spring-cloud/piggymetrics.png)
+![Updated Piggy Metrics](./media/deploy-to-azure-spring-cloud-using-azure-cli/piggymetrics.png)
 
 ## Clean up resources
 
