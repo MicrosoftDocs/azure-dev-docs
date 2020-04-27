@@ -20,15 +20,17 @@ Terraform provides an easy way to define, preview, and deploy cloud infrastructu
 
 By default, the latest version of Terraform is installed for use in the [Azure Cloud Shell](/azure/cloud-shell/overview). If you choose to install Terraform locally, complete this step; otherwise, continue to [Configure Terraform access to Azure](#configure-terraform-access-to-azure).
 
-To install Terraform, [download](https://www.terraform.io/downloads.html) the appropriate package for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global path. For instructions on how to set the path on Linux and Mac, go to [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the path on Windows, go to [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
+1. [Install Terraform](https://www.terraform.io/downloads.html) specifying the appropriate package for your operating system.
+1. The download contains a single executable file. Define a global path to the executable based on your operating system:
+    - [Linux or MacOS](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux)
+    - [Windows](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
+1. Verify the global path configuration with the `terraform` command. If Terraform is found and runs, a list of available Terraform options displays:
 
-Verify your path configuration with the `terraform` command. A list of available Terraform options is shown, as in the following example output:
-
-```console
-azureuser@Azure:~$ terraform
-Usage: terraform [--version] [--help] <command> [args]
-```
-
+    ```console
+    azureuser@Azure:~$ terraform
+    Usage: terraform [--version] [--help] <command> [args]
+    ```
+    
 ## Configure Terraform access to Azure
 
 To enable Terraform to provision resources into Azure, create an [Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli). The service principal grants your Terraform scripts to provision resources in your Azure subscription.
