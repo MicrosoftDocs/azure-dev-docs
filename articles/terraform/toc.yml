@@ -9,8 +9,6 @@
   items:
     - name: Install and configure Terraform
       href: install-configure.md
-    - name: Create a Terraform configuration
-      href: deploy-azure-cosmos-db-to-azure-container-instances.md
     - name: Create a Linux VM
       href: create-linux-virtual-machine-with-infrastructure.md
 - name: Tutorials
@@ -29,6 +27,10 @@
           href: create-k8s-cluster-with-tf-and-aks.md
         - name: Create an Application Gateway ingress controller in AKS
           href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Database
+      items:
+        - name: Deploy an Azure Cosmos DB
+          href: deploy-azure-cosmos-db-to-azure-container-instances.md
     - name: Infrastructure
       items:
         - name: Create a VM cluster with Terraform modules

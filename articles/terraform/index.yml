@@ -32,8 +32,6 @@ landingContent:
         links:
           - text: Install and configure Terraform
             url: install-configure.md
-          - text: Create a Terraform configuration for Azure
-            url: deploy-azure-cosmos-db-to-azure-container-instances.md
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Create a Terraform base template using Yeoman
@@ -86,3 +84,11 @@ landingContent:
             url: hub-spoke-spoke-network.md
           - text: 6. Validate network topology connectivity 
             url: hub-spoke-validation.md
+
+  # Card
+  - title: Manage databases
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy an Azure Cosmos DB
+            url: deploy-azure-cosmos-db-to-azure-container-instances.md
