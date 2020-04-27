@@ -160,13 +160,13 @@ Identify any client applications that invoke any of the services to be migrated 
 
 ### Update Spring Boot and Spring Cloud components to current versions
 
-All applications need to be updated to use supported versions of Spring Boot and Spring Cloud. See [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions) for a list of supported versions.
+All applications need to be updated to use supported versions of Spring Boot and Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
 
-For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a the supported Spring Boot version.
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version.
 
 ### Remove explicit configuration server settings
 
-In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in `application.properties` or `application.yml` files:
+In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in *application.properties* or *application.yml* files:
 
 **`application.yml`**
 
