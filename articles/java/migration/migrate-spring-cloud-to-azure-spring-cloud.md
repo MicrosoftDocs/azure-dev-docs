@@ -207,11 +207,11 @@ Azure Spring Cloud does not provide access to the JRE keystore. It is therefore 
 
 ### Remove/Disable APM integrations
 
-Eliminate any integrations with Application Performance Management tools/agents. See [After the Migration](#after-the-migration) for information on configuring performance management with Azure Monitor.
+Eliminate any integrations with Application Performance Management tools/agents. See [Post-migration](#post-migration) for information on configuring performance management with Azure Monitor.
 
 ### Replace explicit Zipkin dependencies with Spring Cloud Starters
 
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the "Distributed Tracing Dependency" section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). See [After the Migration](#after-the-migration) for information on Distributed Tracing with Azure App Insights.
+If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the "Distributed Tracing Dependency" section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). See [Post-migration](#post-migration) for information on Distributed Tracing with Azure App Insights.
 
 ### Disable Metrics Clients and Endpoints in your applications
 
@@ -247,7 +247,7 @@ If any of the Spring Cloud applications require authentication or authorization,
 
 Update the configuration of all client applications to use the published Azure Spring Cloud endpoints for migrated applications.
 
-## After the Migration
+## Post-migration
 
 1. Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
