@@ -92,7 +92,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    ![Create a new Azure Container Registry][AR01]
 
-1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**. Then click **Create**.
+1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then click **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
