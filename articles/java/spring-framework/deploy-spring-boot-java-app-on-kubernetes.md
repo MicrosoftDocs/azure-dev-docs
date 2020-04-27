@@ -302,7 +302,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 For more information about iteratively running and debugging containers directly in Azure Kubernetes Service (AKS) with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java]
 
 <!-- URL List -->
-
+[dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
 [Azure for Java Developers]: /azure/developer/java/
