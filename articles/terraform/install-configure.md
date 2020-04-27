@@ -18,7 +18,7 @@ Terraform provides an easy way to define, preview, and deploy cloud infrastructu
 
 ## Install Terraform
 
-By default, the latest version of Terraform is installed for use in the [Azure Cloud Shell](/azure/cloud-shell/overview). If you choose to install Terraform locally, complete this step; otherwise, continue to [Configure Terraform access to Azure](#set-up-terraform-access-to-azure).
+By default, the latest version of Terraform is installed for use in the [Azure Cloud Shell](/azure/cloud-shell/overview). If you choose to install Terraform locally, complete this step; otherwise, continue to [Configure Terraform access to Azure](#configure-terraform-access-to-azure).
 
 To install Terraform, [download](https://www.terraform.io/downloads.html) the appropriate package for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global path. For instructions on how to set the path on Linux and Mac, go to [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the path on Windows, go to [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
