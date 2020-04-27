@@ -235,7 +235,7 @@ In the Azure portal:
 - Enter the variables to be configured.
 - Click "Save".
 
-![Spring Cloud App Configuration Settings](media/migration-azure-spring-cloud/spring-cloud-app-configuration-settings.png)
+![Spring Cloud App Configuration Settings](media/migrate-spring-cloud-to-azure-spring-cloud/spring-cloud-app-configuration-settings.png)
 
 ### Migrate/Enable Identity Provider
 
