@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Use Terraform to create a complete Linux VM in Azure  
+title: Quickstart - Create a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: quickstart
-ms.date: 03/15/2020
+ms.date: 04/26/2020
 ---
 
-# Quickstart: Create a complete Linux virtual machine infrastructure in Azure with Terraform
+# Quickstart: Create a Linux VM with infrastructure in Azure using Terraform
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [install and configure Terraform](install-configure.md).
 
@@ -55,6 +55,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 In additional sections, you reference the resource group with `${azurerm_resource_group.myterraformgroup.name}`.
 
 ## Create virtual network
+
 The following section creates a virtual network named `myVnet` in the `10.0.0.0/16` address space:
 
 ```hcl
@@ -83,6 +84,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 
 ## Create public IP address
+
 To access resources across the Internet, create and assign a public IP address to your VM. The following section creates a public IP address named `myPublicIP`:
 
 ```hcl
@@ -98,8 +100,8 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 }
 ```
 
-
 ## Create Network Security Group
+
 Network Security Groups control the flow of network traffic in and out of your VM. The following section creates a network security group named `myNetworkSecurityGroup` and defines a rule to allow SSH traffic on TCP port 22:
 
 ```hcl
@@ -128,6 +130,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 
 ## Create virtual network interface card
+
 A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named `myNIC` connected to the virtual networking resources you've created:
 
 ```hcl
@@ -157,6 +160,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 
 ## Create storage account for diagnostics
+
 To store boot diagnostics for a VM, you need a storage account. These boot diagnostics can help you troubleshoot problems and monitor the status of your VM. The storage account you create is only to store the boot diagnostics data. As each storage account must have a unique name, the following section generates some random text:
 
 ```hcl
@@ -405,6 +409,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 
 ## Build and deploy the infrastructure
+
 With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
 
 ```bash
@@ -465,5 +470,6 @@ ssh azureuser@<publicIps>
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)

@@ -141,4 +141,4 @@ azurerm_resource_group.rg: Creation complete after 1s
 In this article, you installed Terraform or used the Cloud Shell to configure Azure credentials and start creating resources in your Azure subscription. To create a more complete Terraform deployment in Azure, see the following article:
 
 > [!div class="nextstepaction"]
-> [Create an Azure VM with Terraform](create-linux-virtual machine-with-infrastructure.md)
+> [Create an Azure VM with Terraform](create-linux-virtual-machine-with-infrastructure.md)

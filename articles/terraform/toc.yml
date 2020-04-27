@@ -12,7 +12,7 @@
     - name: Create a Terraform configuration
       href: deploy-azure-cosmos-db-to-azure-container-instances.md
     - name: Create a Linux VM
-      href: create-linux-virtual machine-with-infrastructure.md
+      href: create-linux-virtual-machine-with-infrastructure.md
 - name: Tutorials
   items:
     - name: Setup and configuration

@@ -57,7 +57,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Linux VM
-            url: create-linux-virtual machine-with-infrastructure.md
+            url: create-linux-virtual-machine-with-infrastructure.md
       - linkListType: tutorial
         links:
           - text: Create a VM cluster with Terraform modules
