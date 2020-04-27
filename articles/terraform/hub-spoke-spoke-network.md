@@ -33,7 +33,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 

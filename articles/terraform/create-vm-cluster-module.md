@@ -84,7 +84,7 @@ output "vm_private_ips" {
 
 Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
 
-![Terraform Init](media/terraformInitWithModules.png)
+![Terraform Init](media/create-vm-cluster-module/terraform-init-with-modules.png)
 
 ## Visualize the changes with plan
 
