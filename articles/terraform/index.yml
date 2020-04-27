@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Terraform on Azure documentation
+summary: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+
+metadata:
+  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  ms.service: terraform
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 04/26/2020
+
+landingContent:
+  # Card
+  - title: About Terraform on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Terraform on Azure
+            url: overview.md
+      - linkListType: architecture
+        links:
+          - text: Terraform Azure Provider
+            url: https://aka.ms/terraform
+
+  # Card
+  - title: Install and configure Terraform
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Install and configure Terraform
+            url: install-configure.md
+          - text: Install the Terraform Visual Studio Code extension
+            url: configure-vs-code-extension-for-terraform.md
+          - text: Create a Terraform base template using Yeoman
+            url: create-a-base-template-using-yeoman.md
+          - text: Test Terraform modules using Terratest
+            url: test-modules-using-terratest.md
+            
+  # Card
+  - title: Manage AKS
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a Kubernetes cluster with AKS
+            url: create-k8s-cluster-with-tf-and-aks.md
+          - text: Create a Kubernetes cluster with Application Gateway
+            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+
+  # Card
+  - title: Manage infrastructure
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Linux VM
+            url: create-linux-virtual-machine-with-infrastructure.md
+      - linkListType: tutorial
+        links:
+          - text: Create a VM cluster with Terraform modules
+            url: create-vm-cluster-module.md
+          - text: Create a VM cluster with Terraform and HCL
+            url: create-vm-cluster-with-infrastructure.md
+          - text: Provision VM scale set with infrastructure
+            url: create-vm-scaleset-network-disks-hcl.md
+          - text: Provision VM scale set from a Packer custom image
+            url: create-vm-scaleset-network-disks-using-packer-hcl.md
+
+  # Card
+  - title: Manage networks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1. Create hub and spoke topology
+            url: hub-spoke-introduction.md
+          - text: 2. Create on-premises virtual network
+            url: hub-spoke-on-prem.md
+          - text: 3. Create hub virtual network
+            url: hub-spoke-hub-network.md
+          - text: 4. Create hub virtual network appliance
+            url: hub-spoke-hub-nva.md
+          - text: 5. Create spoke network
+            url: hub-spoke-spoke-network.md
+          - text: 6. Validate network topology connectivity 
+            url: hub-spoke-validation.md
+
+  # Card
+  - title: Manage databases
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy an Azure Cosmos DB
+            url: deploy-azure-cosmos-db-to-azure-container-instances.md
