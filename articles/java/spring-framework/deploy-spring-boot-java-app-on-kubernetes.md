@@ -229,8 +229,6 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 > 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
-![The overview page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-overview.png)
-
 1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
 
    ![Kubernetes Configuration Website][KB01]
