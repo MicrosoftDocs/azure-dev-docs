@@ -196,12 +196,10 @@ Provision an Azure Spring Cloud instance in your Azure subscription. Then, provi
 
 ### Migrate Spring Cloud Vault secrets to Azure KeyVault
 
-Follow the instructions to [Migrate secrets to Azure KeyVault](migrate-secrets-to-azure-keyvault.md).
+Secrets can be injected directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
 
 > [!NOTE]
 > Migration may require renaming of some secrets. Update your application code accordingly.
-
-Secrets can be injected directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
 
 ### Migrate all certificates to KeyVault
 

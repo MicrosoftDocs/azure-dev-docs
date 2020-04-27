@@ -1,5 +1,5 @@
 ---
-title: Migrate Spring Boot Applications to run on Azure Kubernetes Service
+title: Migrate Spring Boot applications to run on Azure Kubernetes Service
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run in an Azure Kubernetes Service container.
 author: mriem
 ms.author: manriem
