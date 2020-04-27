@@ -139,7 +139,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
    ```
 
 > [!NOTE]
-> 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you will need to provide `<username>` and `<password>` for jib-maven-plugin, refer [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
+> 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you will need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
 > 2. When you are using Jib to push your image to the Azure Container Registry, the image will not use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
