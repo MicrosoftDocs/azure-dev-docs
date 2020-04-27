@@ -135,8 +135,8 @@ If you would like to migrate a Web app on Tomcat to Azure Spring Cloud, first co
 
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | guidance<br>planned | guidance<br>planned |
-| Spring Cloud /<br>microservices   | N/A           | N/A                 | guidance<br>planned | guidance<br>planned | guidance<br>planned |
+| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | [guidance][14]      | guidance<br>planned |
+| Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15]      | guidance<br>planned | guidance<br>planned |
 | Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A                 | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
@@ -164,3 +164,5 @@ Use the rows below to find your Java EE application type running on a specific a
 [11]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud
 [12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+[14]: migrate-spring-boot-to-azure-kubernetes-service.md
+[15]: migrate-spring-cloud-to-azure-spring-cloud.md
