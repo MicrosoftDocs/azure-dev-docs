@@ -113,7 +113,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```xml
    <properties>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
@@ -148,38 +148,13 @@ The following steps walk you through building a Spring Boot web application and 
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 
-1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-akscluster* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
+1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-akscluster* as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and *wingtiptoys-kubernetes* as the DNS prefix:
    ```azurecli
    az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \ 
+    --attach-acr wingtiptoysregistry \
     --dns-name-prefix=wingtiptoys-kubernetes --generate-ssh-keys
    ```
    This command may take a while to complete.
-
-1. When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), you need to grant Azure Kubernetes Service pull access to Azure Container Registry. Azure creates a default service principal when you are creating Azure Kubernetes Service. Please run the following scripts in bash or Powershell to grant AKS access to ACR, see more details at [Authenticate with Azure Container Registry from Azure Kubernetes Service].
-
-```bash
-   # Get the id of the service principal configured for AKS
-   CLIENT_ID=$(az.cmd aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv)
-   
-   # Get the ACR registry resource id
-   ACR_ID=$(az.cmd acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv)
-   
-   # Create role assignment
-   az.cmd role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
-```
-
-  -- or --
-
-```PowerShell
-   # Get the id of the service principal configured for AKS
-   $CLIENT_ID = az aks show -g wingtiptoys-kubernetes -n wingtiptoys-akscluster --query "servicePrincipalProfile.clientId" --output tsv
-   
-   # Get the ACR registry resource id
-   $ACR_ID = az acr show -g wingtiptoys-kubernetes -n wingtiptoysregistry --query "id" --output tsv
-   
-   # Create role assignment
-   az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
-```
 
 1. Install `kubectl` using the Azure CLI. Linux users may have to prefix this command with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
    ```azurecli
