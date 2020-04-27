@@ -75,7 +75,7 @@ Use the following grid to identify the destinations that support the application
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|
+| Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
 | Web applications                                                  |        |&#x2714;|        |&#x2714;|&#x2714;|
 | Java EE applications                                              |        |        |        |&#x2714;|&#x2714;|
@@ -83,6 +83,8 @@ Use the following grid to identify the destinations that support the application
 | Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
 | Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |Preview |Preview |        |&#x2714;|&#x2714;|
+| Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
 
@@ -93,14 +95,14 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|   | App Service | Azure Spring Cloud | AKS | Virtual Machines |
+|                                                                       | App Service | Azure Spring Cloud | AKS | Virtual Machines |
 |---|---|---|---|---|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
 | Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | N/A         | &#x1F449;   | N/A       |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | N/A         | &#x1F449;   | N/A       |
-| Updating container base image<br>(including vulnerability remediation)      | N/A         | N/A         | &#x1F449;   | N/A       |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Updating container base image<br>(including vulnerability remediation)      | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
 | Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Detecting and restarting failed instances                                   | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Implementing draining and rolling restart for updates                       | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
@@ -158,3 +160,7 @@ Use the rows below to find your Java EE application type running on a specific a
 [7]: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
 [8]: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
 [9]: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
+[10]: https://azure.microsoft.com/global-infrastructure/services/?products=app-service-linux
+[11]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud
+[12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
