@@ -110,7 +110,7 @@ az mysql db create \
 
 To create a reactive Spring Boot application, we'll use [Spring Initializr](https://start.spring.io/). The application that we'll create uses:
 
-- Spring Boot 2.3.0 M3.
+- Spring Boot 2.3.0 M4.
 - Java 8 (but it will also work with newer versions like Java 11).
 - The following dependencies: Spring Reactive Web (also known as Spring WebFlux) and Spring Data R2DBC.
 
@@ -119,7 +119,7 @@ To create a reactive Spring Boot application, we'll use [Spring Initializr](http
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M3 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M4 -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Add the reactive MySQL driver implementation
