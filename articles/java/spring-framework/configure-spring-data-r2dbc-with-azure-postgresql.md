@@ -1,17 +1,17 @@
 ---
-title: Use Spring Data R2DBC with Azure Database for MySQL
-description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
+title: Use Spring Data R2DBC with Azure Database for PostgreSQL
+description: Learn how to use Spring Data R2DBC with an Azure Database for PostgreSQL database.
 documentationcenter: java
 ms.date: 03/18/2020
-ms.service: mysql
+ms.service: PostgreSQL
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
 ---
 
-# Use Spring Data R2DBC with Azure Database for MySQL
+# Use Spring Data R2DBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -30,16 +30,16 @@ First, set up some environment variables by using the following commands:
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_MYSQL_USERNAME=r2dbc
-AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
+AZ_POSTGRESQL_USERNAME=r2dbc
+AZ_POSTGRESQL_PASSWORD=<YOUR_POSTGRESQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_NAME>`: The name of your PostgreSQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_MYSQL_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_POSTGRESQL_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 Next, create a resource group:
@@ -55,37 +55,37 @@ az group create \
 > We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/) to display JSON data and make it more readable.
 > If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
-## Create an Azure Database for MySQL instance
+## Create an Azure Database for PostgreSQL instance
 
-The first thing we'll create is a managed MySQL server.
+The first thing we'll create is a managed PostgreSQL server.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
 
 ```azurecli
-az mysql server create \
+az postgresql server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
-    --admin-user $AZ_MYSQL_USERNAME \
-    --admin-password $AZ_MYSQL_PASSWORD \
+    --admin-user $AZ_POSTGRESQL_USERNAME \
+    --admin-password $AZ_POSTGRESQL_PASSWORD \
     | jq
 ```
 
-This command creates a small MySQL server.
+This command creates a small PostgreSQL server.
 
-### Configure a firewall rule for your MySQL server
+### Configure a firewall rule for your PostgreSQL server
 
-Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure Database for PostgreSQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
 Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running:
 
 ```azurecli
-az mysql server firewall-rule create \
+az postgresql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME-database-allow-local-ip \
     --server $AZ_DATABASE_NAME \
@@ -94,12 +94,12 @@ az mysql server firewall-rule create \
     | jq
 ```
 
-### Configure a MySQL database
+### Configure a PostgreSQL database
 
-The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
+The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
 
 ```azurecli
-az mysql db create \
+az postgresql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name r2dbc \
     --server-name $AZ_DATABASE_NAME \
@@ -122,9 +122,9 @@ Generate the application on the command line by entering:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M4 -d javaVersion=8 | tar -xzvf -
 ```
 
-### Add the reactive MySQL driver implementation
+### Add the reactive PostgreSQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
+Open the generated project's *pom.xml* file to add the reactive PostgreSQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
@@ -137,7 +137,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 </dependency>
 ```
 
-### Configure Spring Boot to use Azure Database for MySQL
+### Configure Spring Boot to use Azure Database for PostgreSQL
 
 Open the *src/main/resources/application.properties* file, and add:
 
@@ -146,11 +146,11 @@ logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/r2dbc
 spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
-spring.r2dbc.password=$AZ_MYSQL_USERNAME
+spring.r2dbc.password=$AZ_POSTGRESQL_USERNAME
 ```
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_MYSQL_USERNAME` variable with the value that you configured at the beginning of this article.
+- Replace the `$AZ_POSTGRESQL_USERNAME` variable with the value that you configured at the beginning of this article.
 
 You should now be able to start your application by using the provided Maven wrapper:
 
@@ -160,7 +160,7 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-![The running application][R2DBC-MYSQL01]
+![The running application][R2DBC-POSTGRESQL01]
 
 ### Create the database schema
 
@@ -192,11 +192,11 @@ Use the following command to stop the application and run it again. The applicat
 
 Here's a screenshot of the database table as it's being created:
 
-   ![Creation of the database table][R2DBC-MYSQL02]
+   ![Creation of the database table][R2DBC-POSTGRESQL02]
 
 ## Code the application
 
-Next, add the Java code that will use R2DBC to store and retrieve data from your MySQL server.
+Next, add the Java code that will use R2DBC to store and retrieve data from your PostgreSQL server.
 
 Create a new `Todo` Java class, next to the `DemoApplication` class:
 
@@ -346,9 +346,9 @@ This command will return the list of "todo" items, including the item you've cre
 
 Here's a screenshot of these cURL requests:
 
-   ![Test with cURL][R2DBC-MYSQL03]
+   ![Test with cURL][R2DBC-POSTGRESQL03]
 
-Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure Database for MySQL.
+Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure Database for PostgreSQL.
 
 ## Clean up resources
 
@@ -375,6 +375,6 @@ For more information about using Azure with Java, see [Azure for Java developers
 
 <!-- IMG List -->
 
-[R2DBC-MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
-[R2DBC-MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
-[R2DBC-MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
+[R2DBC-POSTGRESQL01]: media/configure-spring-data-r2dbc-with-azure-postgresql/create-postgresql-01.png
+[R2DBC-POSTGRESQL02]: media/configure-spring-data-r2dbc-with-azure-postgresql/create-postgresql-02.png
+[R2DBC-POSTGRESQL03]: media/configure-spring-data-r2dbc-with-azure-postgresql/create-postgresql-03.png
