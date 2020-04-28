@@ -11,7 +11,7 @@ ms.topic: article
 
 # Use Spring Data R2DBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for PostgreSQL from the [r2dbc-postgresql GitHub repository](https://github.com/r2dbc/r2dbc-postgresql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -60,12 +60,12 @@ az group create \
 The first thing we'll create is a managed PostgreSQL server.
 
 > [!NOTE]
-> You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
 
 ```azurecli
-az postgresql server create \
+az postgres server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
     --location $AZ_LOCATION \
@@ -85,7 +85,7 @@ Azure Database for PostgreSQL instances are secured by default. They have a fire
 Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running:
 
 ```azurecli
-az postgresql server firewall-rule create \
+az postgres server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME-database-allow-local-ip \
     --server $AZ_DATABASE_NAME \
@@ -99,7 +99,7 @@ az postgresql server firewall-rule create \
 The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
 
 ```azurecli
-az postgresql db create \
+az postgres db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name r2dbc \
     --server-name $AZ_DATABASE_NAME \
@@ -124,16 +124,15 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ### Add the reactive PostgreSQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive PostgreSQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
+Open the generated project's *pom.xml* file to add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/r2dbc/r2dbc-postgresql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ```xml
 <dependency>
-   <groupId>dev.miku</groupId>
-   <artifactId>r2dbc-mysql</artifactId>
-   <version>0.8.1.RELEASE</version>
-   <scope>runtime</scope>
+    <groupId>io.r2dbc</groupId>
+    <artifactId>r2dbc-postgresql</artifactId>
+    <scope>runtime</scope>
 </dependency>
 ```
 
@@ -144,13 +143,20 @@ Open the *src/main/resources/application.properties* file, and add:
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
 
-spring.r2dbc.url=r2dbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/r2dbc
+spring.r2dbc.url=r2dbc:pool:postgres://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/r2dbc
 spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_POSTGRESQL_USERNAME
+spring.r2dbc.properties.sslMode=REQUIRE
 ```
+
+> [!WARNING]
+> For security reasons, Azure Database for PostgreSQL requires to use SSL connections. This is why you need to add the `spring.r2dbc.properties.sslMode=REQUIRE` configuration property, otherwise the R2DBC PostgreSQL driver will try to connect using an insecure connection, which will fail.
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
 - Replace the `$AZ_POSTGRESQL_USERNAME` variable with the value that you configured at the beginning of this article.
+
+> [!NOTE]
+> For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
 
 You should now be able to start your application by using the provided Maven wrapper:
 
