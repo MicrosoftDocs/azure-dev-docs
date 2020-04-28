@@ -1,17 +1,17 @@
 ---
-title: Use Spring Data R2DBC with Azure Database for MySQL
-description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
+title: Use Spring Data R2DBC with Azure SQL Database
+description: Learn how to use Spring Data R2DBC with an Azure SQL Database.
 documentationcenter: java
-ms.date: 03/18/2020
-ms.service: mysql
+ms.date: 04/28/2020
+ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
 ---
 
-# Use Spring Data R2DBC with Azure Database for MySQL
+# Use Spring Data R2DBC with Azure SQL Database
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) by using the R2DBC implementation for Microsoft SQL Server from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -30,8 +30,8 @@ First, set up some environment variables by using the following commands:
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_MYSQL_USERNAME=r2dbc
-AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
+AZ_SQL_SERVER_USERNAME=r2dbc
+AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
@@ -39,7 +39,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_MYSQL_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<AZ_SQL_SERVER_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 Next, create a resource group:
