@@ -126,4 +126,4 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md)
+> [CI/CD to Azure App Service](/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service)
