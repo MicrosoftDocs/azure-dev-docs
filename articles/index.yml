@@ -169,7 +169,7 @@ additionalContent:
           url: https://docs.microsoft.com/java/api/overview/azure/maven/README
         - title: Azure Toolkit for IntelliJ
           summary: Use Azure Toolkit for IntelliJ to create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
-          url: https://docs.microsoft.com/azure/developer/java/intellij/
+          url: https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/
         - title: Azure Toolkit for Eclipse
           summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
-          url: https://docs.microsoft.com/azure/developer/java/eclipse/
+          url: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/

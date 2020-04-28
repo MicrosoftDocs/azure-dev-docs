@@ -28,7 +28,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 ## Create a new web app project
 
-1. Start Eclipse and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse](/azure/developer/java/eclipse/sign-in-instructions) article.
+1. Start Eclipse and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions) article.
 
 1. Click the **File** menu, then click **New**, and then click **Dynamic Web Project**.
    

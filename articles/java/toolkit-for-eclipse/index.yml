@@ -37,7 +37,7 @@ landingContent:
       - linkListType: download
         links:
         - text: Java for Azure and Azure Stack
-          url: /azure/developer/java/jdk/
+          url: /java/azure/jdk/
   - title: Source code
     linkLists:
       - linkListType: reference
