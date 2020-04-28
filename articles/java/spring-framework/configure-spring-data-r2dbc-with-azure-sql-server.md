@@ -160,7 +160,7 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-![The running application][R2DBC-MYSQL01]
+![The running application][R2DBC-AZURE-SQL01]
 
 ### Create the database schema
 
@@ -192,7 +192,7 @@ Use the following command to stop the application and run it again. The applicat
 
 Here's a screenshot of the database table as it's being created:
 
-   ![Creation of the database table][R2DBC-MYSQL02]
+   ![Creation of the database table][R2DBC-AZURE-SQL02]
 
 ## Code the application
 
@@ -346,7 +346,7 @@ This command will return the list of "todo" items, including the item you've cre
 
 Here's a screenshot of these cURL requests:
 
-   ![Test with cURL][R2DBC-MYSQL03]
+   ![Test with cURL][R2DBC-AZURE-SQL03]
 
 Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
 
@@ -375,6 +375,6 @@ For more information about using Azure with Java, see [Azure for Java developers
 
 <!-- IMG List -->
 
-[R2DBC-MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
-[R2DBC-MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
-[R2DBC-MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
+[R2DBC-AZURE-SQL01]: media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-01.png
+[R2DBC-AZURE-SQL02]: media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-02.png
+[R2DBC-AZURE-SQL03]: media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png
