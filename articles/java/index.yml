@@ -140,7 +140,7 @@ conceptualContent:
           url: /azure/azure-monitor/app/java-in-process-agent
         - text: Get started with ELK
           itemType: tutorial
-          url: /azure/developer/java/java-get-started-with-logzio
+          url: /azure/developer/java/fundamentals/java-get-started-with-logzio
         - text: Monitor Spring apps
           itemType: how-to-guide
           url: /azure/spring-cloud/diagnostic-services
@@ -186,4 +186,4 @@ tools:
       url: /java/api/overview/azure/maven/README
     - title: Jenkins on Azure
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-      url: /jenkins
+      url: /azure/jenkins
