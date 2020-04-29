@@ -15,7 +15,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ### Validate that the supported Java version works correctly
 
-We recommend to use a supported version of Java when running a Spring Boot application on Azure Kubernetes Service. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).
+We recommend using a supported version of Java when running a Spring Boot application on AKS. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current version, sign in to your production server and run the following command:
 
@@ -33,7 +33,7 @@ If your application currently serves static content, you'll need an alternate lo
 
 #### Dynamically published static content
 
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described earlier, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 #### Dynamic or internal content
 
@@ -47,13 +47,13 @@ For files that are frequently written and read by your application (such as temp
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
-### Upgrade to the lastest Spring Boot version
+### Upgrade to the latest version of Spring Boot
 
-If you are using a 1.x version of Spring Boot it is highly recommended to upgrade to the latest version before migrating to Azure Kubernetes Service. See [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
+If you are using a 1.x version of Spring Boot, it is highly recommended to upgrade to the latest version before migrating to AKS. For more information, see [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
 
 ### Review your database properties
 
-If your application uses a database review the dataabase properties in your `application.properties` to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
+If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
 
 ## Inventory external resources
 
@@ -73,7 +73,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 #### Resources configured through Pivotal Cloud Foundry (PCF)
 
-For applications managed with Pivotal Cloud Foundry, external resources, including those described above, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
+For applications managed with Pivotal Cloud Foundry, external resources, including the resources described earlier, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
 
 ```bash
 # Log into PCF, if needed (enter credentials when prompted)
@@ -87,7 +87,7 @@ cf target space <Space Name>
 cf env <Application Name>
 ```
 
-Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. See [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES) for more information.
+Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
 ### In-place testing
 
@@ -157,7 +157,7 @@ Run the image locally:
 docker run -it -p 8080:8080 ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-Your can now access your application at [http://localhost:8080](http://localhost:8080).
+You can now access your application at [http://localhost:8080](http://localhost:8080).
 
 Log into your Azure container registry:
 
@@ -173,11 +173,11 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
-If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also include a custom keystore that will be added to your JVM upon startup if you put the keystore file at `/opt/spring-boot/mycert.crt`. This can be accomplished by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume as previously mentioned.
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup if you put the keystore file at */opt/spring-boot/mycert.crt*. You can accomplish this by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume as previously mentioned.
 
-If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart) you can also enable Application Insights by setting the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). See [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent) for more information.
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also enable Application Insights by setting the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). For more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent).
 
-If you do not require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), or see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes) for more information.
+If you don't require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) or deploy to AKS. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes).
 
 [!INCLUDE [provision-a-public-ip-address](includes/provision-a-public-ip-address.md)]
 
@@ -197,7 +197,7 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you have migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you have migrated your application to AKS, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 

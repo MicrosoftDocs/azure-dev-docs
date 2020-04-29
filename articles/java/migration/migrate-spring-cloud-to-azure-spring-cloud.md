@@ -72,7 +72,7 @@ Determine if your application has explicit dependencies on Zipkin. Look for depe
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Cloud applications, you can typically find the configuration for such resources in one of the following locations:
 
-* In the *src/main/directory* folder in a file typically called *application.properties* or *application.yml*.
+* In the *src/main/directory* folder, in a file typically called *application.properties* or *application.yml*.
 * In the Spring Cloud Config repository identified in the previous step.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
@@ -89,25 +89,25 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 #### Identity Providers
 
-Identify all identity providers as well as all Spring Cloud applications that require authentication and/or authorization. Consult the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-static/spring-cloud-security/current/reference/html/#_quickstart) for examples of how such applications are typically configured.
+Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. Consult the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-static/spring-cloud-security/current/reference/html/#_quickstart) for examples of how such applications are typically configured.
 
 #### Resources configured through Pivotal Cloud Foundry (PCF)
 
-For applications managed with Pivotal Cloud Foundry, external resources, including those described above, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
+For applications managed with Pivotal Cloud Foundry, external resources, including the resources described earlier, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
 
 ```bash
 # Log into PCF, if needed (enter credentials when prompted)
 cf login -a <API endpoint>
 
 # Set the organization and space containing the application, if not already selected during login.
-cf target org <Organization Name>
-cf target space <Space Name>
+cf target org <organization name>
+cf target space <space name>
 
 # Display variables for the application
 cf env <Application Name>
 ```
 
-Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. See [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES) for more information.
+Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
 #### All other external resources
 
@@ -123,17 +123,17 @@ Check all properties and configuration files and all environment variables on th
 
 #### Determine if Spring Cloud Vault is used
 
-If Spring Cloud Vault is used to store and access secrets, identify the backing secret store (e.g. HashiCorp Vault or CredHub). Then identify all the secrets used by the application code.
+If Spring Cloud Vault is used to store and access secrets, identify the backing secret store (for example, HashiCorp Vault or CredHub). Then identify all the secrets used by the application code.
 
 #### Locate configuration server source
 
-If your application uses a [Spring Cloud Config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server), identify where the configuration is stored. This setting will typically be found in `bootstrap.yml`, or `bootstrap.properties` (sometimes in `application.yml` or `application.properties`) :
+If your application uses a [Spring Cloud Config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server), identify where the configuration is stored. You will typically find this setting in the *bootstrap.yml* or *bootstrap.properties* file, or sometimes in the *application.yml* or *application.properties* file. For example:
 
 ```properties
 spring.cloud.config.server.git.uri: file://${user.home}/spring-cloud-config-repo
 ```
 
-While git is most commonly used as Spring Cloud Config's backing datastore, as shown above, one of the other possible backends may be in use. Consult the [Spring Cloud Config documentation](https://cloud.spring.io/spring-cloud-config/reference/html/#_environment_repository) for information on other backends, such as [Relational Database (JDBC)](https://cloud.spring.io/spring-cloud-config/reference/html/#_jdbc_backend), [SVN](https://cloud.spring.io/spring-cloud-config/reference/html/#_version_control_backend_filesystem_use), and [local file system](https://cloud.spring.io/spring-cloud-config/reference/html/#_file_system_backend).
+While git is most commonly used as Spring Cloud Config's backing datastore, as shown earlier, one of the other possible backends may be in use. Consult the [Spring Cloud Config documentation](https://cloud.spring.io/spring-cloud-config/reference/html/#_environment_repository) for information on other backends, such as [Relational Database (JDBC)](https://cloud.spring.io/spring-cloud-config/reference/html/#_jdbc_backend), [SVN](https://cloud.spring.io/spring-cloud-config/reference/html/#_version_control_backend_filesystem_use), and [local file system](https://cloud.spring.io/spring-cloud-config/reference/html/#_file_system_backend).
 
 > [!NOTE]
 > If your configuration server data is stored on premises, such as GitHub Enterprise, you will need to make it available to Azure Spring Cloud via a Git repository.
@@ -142,11 +142,11 @@ While git is most commonly used as Spring Cloud Config's backing datastore, as s
 
 #### Document hardware requirements for each service
 
-For each of your Spring Cloud services (not including the configuration server, registry, or gateway), document the following:
+For each of your Spring Cloud services (not including the configuration server, registry, or gateway), document the following information:
 
-* The number of instances running
-* The number of CPUs allocated to each instance
-* The amount of RAM allocated to each instance
+* The number of instances running.
+* The number of CPUs allocated to each instance.
+* The amount of RAM allocated to each instance.
 
 #### Document Geo-Replication/Distribution
 
@@ -154,13 +154,13 @@ Determine whether the Spring Cloud applications are currently distributed among 
 
 #### Identify Clients that Bypass Service Registry
 
-Identify any client applications that invoke any of the services to be migrated without using the Spring Cloud Service Registry. After the migration, such invocations will no longer be possible. Update such clients to use [Spring Cloud OpenFeign](https://spring.io/projects/spring-cloud-openfeign) prior to migration.
+Identify any client applications that invoke any of the services to be migrated without using the Spring Cloud Service Registry. After the migration, such invocations will no longer be possible. Update such clients to use [Spring Cloud OpenFeign](https://spring.io/projects/spring-cloud-openfeign) before migration.
 
 ## Migration
 
 ### Update Spring Boot and Spring Cloud components to current versions
 
-All applications need to be updated to use supported versions of Spring Boot and Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+You will need to update all applications to use supported versions of Spring Boot and Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
 
 For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version.
 
@@ -168,7 +168,7 @@ For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migratio
 
 In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in *application.properties* or *application.yml* files:
 
-**`application.yml`**
+**application.yml**
 
 ```yaml
 eureka:
@@ -177,11 +177,11 @@ eureka:
       defaultZone: http://myusername:mysecretpassword@localhost:8761/eureka/
 ```
 
-If a setting such as the one above appears in your application configuration, remove it. Azure Spring Cloud will automatically inject the connection information of its configuration server.
+If a setting like this appears in your application configuration, remove it. Azure Spring Cloud will automatically inject the connection information of its configuration server.
 
 ### Create an Azure Spring Cloud instance and Apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service being migrated. Do not include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. See the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal) for instructions.
+Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service being migrated. Do not include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 ### Prepare the Spring Cloud Config server
 
@@ -196,22 +196,22 @@ Provision an Azure Spring Cloud instance in your Azure subscription. Then, provi
 
 ### Migrate Spring Cloud Vault secrets to Azure KeyVault
 
-Secrets can be injected directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
+You can inject secrets directly into applications through Spring by using the [Azure KeyVault Spring Boot Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
 
 > [!NOTE]
-> Migration may require renaming of some secrets. Update your application code accordingly.
+> Migration may require you to rename some secrets. Update your application code accordingly.
 
 ### Migrate all certificates to KeyVault
 
-Azure Spring Cloud does not provide access to the JRE keystore. It is therefore necessary to [migrate certificates to Azure KeyVault](/azure/key-vault/certificate-scenarios), and change the application code to [access certificates in KeyVault](/java/api/overview/azure/keyvault-certs-readme).
+Azure Spring Cloud doesn't provide access to the JRE keystore, so you must [migrate certificates to Azure KeyVault](/azure/key-vault/certificate-scenarios), and change the application code to [access certificates in KeyVault](/java/api/overview/azure/keyvault-certs-readme).
 
 ### Remove/Disable APM integrations
 
-Eliminate any integrations with Application Performance Management tools/agents. See [Post-migration](#post-migration) for information on configuring performance management with Azure Monitor.
+Eliminate any integrations with Application Performance Management tools/agents. For information on configuring performance management with Azure Monitor, see the [Post-migration](#post-migration) section.
 
 ### Replace explicit Zipkin dependencies with Spring Cloud Starters
 
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the "Distributed Tracing Dependency" section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). See [Post-migration](#post-migration) for information on Distributed Tracing with Azure App Insights.
+If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the "Distributed Tracing Dependency" section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). For information on Distributed Tracing with Azure App Insights, see the [Post-migration](#post-migration) section.
 
 ### Disable Metrics Clients and Endpoints in your applications
 
@@ -219,7 +219,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as instructed in the [QuickStart tutorial](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 ### Configure per-service secrets and externalized settings
 
@@ -237,10 +237,10 @@ In the Azure portal:
 
 ### Migrate/Enable Identity Provider
 
-If any of the Spring Cloud applications require authentication or authorization, ensure they are configured to access the identity provider:
+If any of the Spring Cloud applications require authentication or authorization, ensure they're configured to access the identity provider:
 
 * If the identity provider is Azure Active Directory, no changes should be necessary.
-* If the identity provider is an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure Active Directory. See [Hybrid Identity](/azure/active-directory/hybrid/) documentation for guidance.
+* If the identity provider is an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure Active Directory. For guidance, see [Hybrid Identity](/azure/active-directory/hybrid/).
 * If the identity provider is another on-premises solution, such as PingFederate, consult the [Custom installation of Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-install-custom) documentation to configure federation with Azure Active Directory. Alternatively, consider using Spring Security to use your identity provider through [OAuth2/OpenID Connect](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2) or [SAML](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2).
 
 ### Update Client Applications
@@ -251,9 +251,9 @@ Update the configuration of all client applications to use the published Azure S
 
 1. Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
-1. Consider using staging deployments to test code changes in production before they are available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-staging-environment).
+1. Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-staging-environment).
 
-1. Consider adding service bindings to connect your application to supported Azure databases. This eliminates the need for you to provide connection information, including credentials, to your Spring Cloud applications.
+1. Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
 
 1. Consider [using Distributed Tracing and Azure App Insights](/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing) to monitor performance and interactions of your applications.
 
@@ -261,7 +261,7 @@ Update the configuration of all client applications to use the published Azure S
 
 1. Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 
-1. If Geo-replication is not necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
+1. If Geo-replication isn't necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
 
 1. If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
 
