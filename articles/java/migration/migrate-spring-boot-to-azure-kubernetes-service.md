@@ -57,7 +57,7 @@ If you are using a 1.x version of Spring Boot, it is highly recommended to upgra
 
 If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
 
-## Inventory external resources
+### Inventory external resources
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services.
 
