@@ -11,14 +11,14 @@ ms.date: 01/22/2019
 
 This guide describes what you should be aware of when you want to migrate an existing Spring Boot or other embedded-server web application to Azure App Service using Java SE.
 
-## Before you start
+## Pre-migration
 
-If you can't meet any of the pre-migration requirements, see the following companion migration guides:
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
+If you can't meet any of these pre-migration requirements, see the following companion migration guides:
 
 * Migrate executable JAR applications to containers on Azure Kubernetes Service (guidance planned)
 * Migrate executable JAR Applications to Azure Virtual Machines (guidance planned)
-
-## Pre-migration
 
 ### Switch to a supported platform
 

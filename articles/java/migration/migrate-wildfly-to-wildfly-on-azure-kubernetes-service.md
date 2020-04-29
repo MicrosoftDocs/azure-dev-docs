@@ -13,6 +13,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 
 ### Inventory all secrets

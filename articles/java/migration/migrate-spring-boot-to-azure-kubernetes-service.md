@@ -13,6 +13,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
 ### Validate that the supported Java version works correctly
 
 We recommend using a supported version of Java when running a Spring Boot application on AKS. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).

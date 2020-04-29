@@ -11,13 +11,13 @@ ms.date: 2/28/2020
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
 
-## Before you start
+## Pre-migration
+
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
 If you can't meet any of the pre-migration requirements, see the companion migration guide:
 
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
-
-## Pre-migration
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 

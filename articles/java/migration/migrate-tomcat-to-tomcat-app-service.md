@@ -11,14 +11,14 @@ ms.date: 1/20/2020
 
 This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat 9.0.
 
-## Before you start
+## Pre-migration
 
-If you can't meet any of the pre-migration requirements, see the following companion migration guides:
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
+If you can't meet any of these pre-migration requirements, see the following companion migration guides:
 
 * [Migrate Tomcat applications to containers on Azure Kubernetes Service](migrate-tomcat-to-containers-on-azure-kubernetes-service.md)
 * Migrate Tomcat Applications to Azure Virtual Machines (guidance planned)
-
-## Pre-migration
 
 ### Switch to a supported platform
 

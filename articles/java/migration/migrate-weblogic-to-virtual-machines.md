@@ -13,6 +13,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
 ### Define what you mean by "migration complete"
 
 This guide, and the corresponding Azure Marketplace Offers, are a starting point to accelerate the migration of your WebLogic Server workloads to Azure. It's important to define the scope of your migration effort. For example, are you doing a strict "lift and shift" from your existing infrastructure to Azure Virtual Machines? If so, you may be tempted to work in some "lift and improve" as you migrate.

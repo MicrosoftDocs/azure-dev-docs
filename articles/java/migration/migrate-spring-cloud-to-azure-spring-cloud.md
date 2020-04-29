@@ -11,19 +11,14 @@ ms.date: 2/12/2020
 
 This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
 
-## Before you start
+## Pre-migration
 
-If you can't meet any of the pre-migration requirements, see the following companion migration guides:
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
+If you can't meet any of these pre-migration requirements, see the following companion migration guides:
 
 * Migrate executable JAR applications to containers on Azure Kubernetes Service (guidance planned)
 * Migrate executable JAR Applications to Azure Virtual Machines (guidance planned)
-
-To ensure a successful migration, some assessment and inventory steps are necessary before starting:
-
-1. [Inspect application components](#inspect-application-components).
-1. [Inventory external resources](#inventory-external-resources)
-1. [Inventory configuration sources and secrets](#inventory-configuration-sources-and-secrets).
-1. [Inspect the deployment architecture](#inspect-the-deployment-architecture).
 
 ### Inspect application components
 
@@ -249,21 +244,21 @@ Update the configuration of all client applications to use the published Azure S
 
 ## Post-migration
 
-1. Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
+* Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
-1. Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-staging-environment).
+* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-staging-environment).
 
-1. Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
+* Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
 
-1. Consider [using Distributed Tracing and Azure App Insights](/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing) to monitor performance and interactions of your applications.
+* Consider [using Distributed Tracing and Azure App Insights](/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing) to monitor performance and interactions of your applications.
 
-1. Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups).
+* Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups).
 
-1. Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
+* Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 
-1. If Geo-replication isn't necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
+* If Geo-replication isn't necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
 
-1. If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
+* If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
 
    | Legacy                        | Current                                                |
    |-------------------------------|--------------------------------------------------------|
