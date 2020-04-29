@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-- **Virtual machine scale set**: If you don't already have a scale set, you can [configure a scale set with Ansible](/articles/ansible/vm-scale-set-configure.md).
+- **Virtual machine scale set**: If you don't already have a scale set, you can [configure a scale set with Ansible](../vm-scale-set-configure.md).

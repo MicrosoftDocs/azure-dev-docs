@@ -110,7 +110,7 @@ az mysql db create \
 
 To create a reactive Spring Boot application, we'll use [Spring Initializr](https://start.spring.io/). The application that we'll create uses:
 
-- Spring Boot 2.3.0 M3.
+- Spring Boot 2.3.0 M4.
 - Java 8 (but it will also work with newer versions like Java 11).
 - The following dependencies: Spring Reactive Web (also known as Spring WebFlux) and Spring Data R2DBC.
 
@@ -119,7 +119,7 @@ To create a reactive Spring Boot application, we'll use [Spring Initializr](http
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M3 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-r2dbc-workshop -d bootVersion=2.3.0.M4 -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Add the reactive MySQL driver implementation
@@ -144,13 +144,16 @@ Open the *src/main/resources/application.properties* file, and add:
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
 
-spring.r2dbc.url=r2dbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/r2dbc
+spring.r2dbc.url=r2dbc:pool:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/r2dbc
 spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_MYSQL_USERNAME
 ```
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
 - Replace the `$AZ_MYSQL_USERNAME` variable with the value that you configured at the beginning of this article.
+
+> [!NOTE]
+> For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
 
 You should now be able to start your application by using the provided Maven wrapper:
 
