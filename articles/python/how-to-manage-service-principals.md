@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # How to manage service principals
 
-For security purposes, you always want to carefully manage how app code is authorized to access and modify any Azure resources. When testing code locally, you should always use a local *service principal* rather than running as a fully privileged user, as described in [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#authentication).
+For security purposes, you always want to carefully manage how app code is authorized to access and modify any Azure resources. When testing code locally, you should always use a local *service principal* rather than running as a fully privileged user, as described in [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication).
 
 Over time, you'll probably need to delete, rename, or otherwise manage these service principals, which you can do through the Azure portal or by using the Azure CLI.
 
