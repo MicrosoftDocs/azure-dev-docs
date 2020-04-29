@@ -1,6 +1,6 @@
 ---
 title: Migrate Spring Cloud applications to Azure Spring Cloud
-description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud
+description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
 author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
@@ -15,8 +15,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 If you can't meet any of the pre-migration requirements, see the following companion migration guides:
 
-* Migrate executable JAR applications to containers on Azure Kubernetes Service (planned)
-* Migrate executable JAR Applications to Azure Virtual Machines (planned)
+* Migrate executable JAR applications to containers on Azure Kubernetes Service (guidance planned)
+* Migrate executable JAR Applications to Azure Virtual Machines (guidance planned)
 
 To ensure a successful migration, some assessment and inventory steps are necessary before starting:
 
@@ -227,11 +227,11 @@ Any per-service configuration settings can be injected into each service as envi
 
 In the Azure portal:
 
-- Navigate to the Azure Spring Cloud Instance and select "Apps".
-- Select the service to be configured.
-- Click on "Configuration".
-- Enter the variables to be configured.
-- Click "Save".
+* Navigate to the Azure Spring Cloud Instance and select "Apps".
+* Select the service to be configured.
+* Click on "Configuration".
+* Enter the variables to be configured.
+* Click "Save".
 
 ![Spring Cloud App Configuration Settings](media/migrate-spring-cloud-to-azure-spring-cloud/spring-cloud-app-configuration-settings.png)
 
@@ -265,11 +265,11 @@ Update the configuration of all client applications to use the published Azure S
 
 1. If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
 
-    | Legacy                      | Current                     |
-    |-----------------------------|-----------------------------|
-    |Spring Cloud Eureka          |Spring Cloud Service Registry|
-    |Spring Cloud Netflix Zuul	  |Spring Cloud Gateway         |
-    |Spring Cloud Netflix Archaius|Spring Cloud Config Server |
-    |Spring Cloud Netflix Ribbon  |Spring Cloud Load Balancer (client-side load balancer) |
-    |Spring Cloud Hystrix 	      |Spring Cloud Circuit Breaker + Resilience4J |
-    |Spring Cloud Netflix Turbine	| Micrometer + Prometheus   |
+   | Legacy                        | Current                                                |
+   |-------------------------------|--------------------------------------------------------|
+   | Spring Cloud Eureka           | Spring Cloud Service Registry                          |
+   | Spring Cloud Netflix Zuul     | Spring Cloud Gateway                                   |
+   | Spring Cloud Netflix Archaius | Spring Cloud Config Server                             |
+   | Spring Cloud Netflix Ribbon   | Spring Cloud Load Balancer (client-side load balancer) |
+   | Spring Cloud Hystrix          | Spring Cloud Circuit Breaker + Resilience4J            |
+   | Spring Cloud Netflix Turbine  | Micrometer + Prometheus                                |
