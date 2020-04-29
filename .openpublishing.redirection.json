@@ -151,6 +151,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "java/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "java/migrate-tomcat-to-containers-on-azure-kubernetes-service.md",
       "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service",
       "redirect_document_id": true
@@ -173,6 +178,11 @@
     {
       "source_path": "java/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
       "redirect_url": "/azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "java/migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service",
       "redirect_document_id": true
     },
     {
