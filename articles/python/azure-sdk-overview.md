@@ -21,7 +21,7 @@ The open-source Azure SDK for Python simplifies provisioning, managing, and usin
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
   - [Connect to and use Azure resources with client libraries](#connect-to-and-use-azure-resources-with-client-libraries)
 
-- Documentation for the SDK is found on the [Azure SDK for Python Reference](https://docs.microsoft.com/en-us/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](https://docs.microsoft.com/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
+- Documentation for the SDK is found on the [Azure SDK for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
 
 - To try the libraries for yourself, see [Get started with the Azure SDK for Python](azure-sdk-get-started.yml).
 

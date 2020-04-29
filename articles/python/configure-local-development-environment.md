@@ -49,7 +49,7 @@ Once you've configured your workstation, you'll need only minimal added configur
 
 ## Configure authentication
 
-As described in [How to manage service principals - Background](how-to-manage-service-principals.md#background), each developer needs a service principal to use as the application identity when testing app code locally.
+As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
 
 The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure SDK.
 

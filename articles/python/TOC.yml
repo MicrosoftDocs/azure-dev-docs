@@ -1,9 +1,9 @@
 - name: Azure for Python developers
   href: index.yml
 - name: Cloud development with Azure
-  href: cloud-development-with-azure-python.md
+  href: cloud-development-azure-python.md
 - name: Set up your dev environment for Azure
-  href: set-up-python-dev-environment-azure.md
+  href: configure-local-development-environment.md
 - name: Use the Azure SDK for Python  
   items:
     - name: Overview
