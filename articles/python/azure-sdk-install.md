@@ -1,7 +1,7 @@
 ---
 title: Install Azure SDK for Python libraries
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip. Includes details on installing specific versions and preview packages.
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.topic: conceptual
 ---
 
@@ -57,5 +57,7 @@ To uninstall a library, use `pip uninstall <library>`.
 
 ## Next steps
 
+You're completely ready now to write and run some code, which you can do using any of the following examples:
+
 > [!div class="nextstepaction"]
-> [Learn how to use the SDK](azure-sdk-get-started.yml)
+> [Example: Use Azure Storage >>>](azure-sdk-example-storage.md)
