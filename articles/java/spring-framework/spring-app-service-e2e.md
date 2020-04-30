@@ -451,7 +451,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```ps
 mvn package
 mvn cargo:deploy
-& $TOMCAT_HOME/bin/catalina.bat run
+& $env:TOMCAT_HOME/bin/catalina.bat run
 ````
 
 # [Cmd](#tab/cmd)
@@ -459,7 +459,7 @@ mvn cargo:deploy
 ```bash
 mvn package
 mvn cargo:deploy
-& $env:TOMCAT_HOME/bin/catalina.bat run
+%TOMCAT_HOME%\bin\catalina.bat run
 ```
 ---
 
