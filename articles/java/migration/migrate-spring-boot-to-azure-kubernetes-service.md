@@ -17,13 +17,9 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Validate that the supported Java version works correctly
 
-We recommend using a supported version of Java when running a Spring Boot application on AKS. Confirm that your application runs correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).
+We recommend using a supported version of Java when running a Spring Boot application on AKS. Confirm that your application runs correctly using that supported version.
 
-To obtain your current version, sign in to your production server and run the following command:
-
-```bash
-java -version
-```
+[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
 ### Determine whether and how the file system is used
 
@@ -103,7 +99,7 @@ Before you create container images, migrate your application to the JDK and Spri
 
 To create a Dockerfile, you'll need the following prerequisites:
 
-* A supported JDK
+* A supported JDK.
 * Your JVM runtime options.
 * A way to pass in environment variables (if applicable).
 
