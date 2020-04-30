@@ -83,17 +83,13 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
 
-3. Select **Certificates & secrets** from your application, click **Generate key** to generate `${your-client-secret}` and
-then **Save**.
+3. Select **Certificates & secrets** and click **New Client Secrete** to generate the key.
 
    ![Create user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
 4. Select **User flows** on your left, and then **Click** **New user flow **.
 
-5. Choose **Sign up or in**, **Profile editing** and **Password reset** to create user flows
-respectively. Specify your user flow **Name** and **User attributes and claims**, click **Create**.
-
-   ![Configure user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
+5. Choose **Sign up or in**, **Profile editing** and **Password reset** to create your user flow. Refer to [this article](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows) for more details on this step.
 
 ## Configure and compile your app
 
@@ -107,7 +103,7 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
    <dependency>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-active-directory-b2c-spring-boot-starter</artifactId>
-       <version>2.1.6.M2</version>
+       <version>2.2.4</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -129,10 +125,10 @@ respectively. Specify your user flow **Name** and **User attributes and claims**
    azure:
      activedirectory:
        b2c:
-         tenant: ${your-tenant-name}
+         tenant: ${your-tenant-name} #this is also the first part of your domain name before onmicrosoft.com.
          client-id: ${your-client-id}
          client-secret: ${your-client-secret}
-         reply-url: ${your-redirect-uri-from-aad} # should be absolute url.
+         reply-url: ${your-redirect-uri-from-aad} # should be the absolute url.
          logout-success-url: ${you-logout-success-url}
          user-flows:
            sign-up-or-sign-in: ${your-sign-up-or-in-user-flow}
