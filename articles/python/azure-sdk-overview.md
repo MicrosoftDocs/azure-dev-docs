@@ -66,7 +66,7 @@ For details on working with each client library, see the *README.md* or *README.
 > [!div class="nextstepaction"]
 > [Install SDK libraries >>>](azure-sdk-install.md)
 
-## Get help and give feedback
+## Get help and connect with the SDK team
 
 - Visit the [Azure SDK for Python documentation](https://aka.ms/python-docs)
 - Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-python)

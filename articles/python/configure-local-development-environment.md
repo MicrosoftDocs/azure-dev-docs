@@ -21,31 +21,30 @@ Once you've configured your workstation, you'll need only minimal added configur
 
 ### Required components
 
-| Component | Install link | Description |
-| --- | --- | --- |
-| Python 2.7+ or 3.5.3+ | [python.org/downloads](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
-| Azure Command-Line Interface (CLI) | [Azure CLI install](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
+| Component (and install link) | Description |
+| --- | --- |
+| [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
+| [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
 
 Notes:
 
 - You install individual Azure SDK libraries on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project.
 - Although Azure PowerShell is generally equivalent to the Azure CLI, we recommend the Azure CLI when working with Python.
 
-
 ### Recommended components
 
-| Component | Install link | Description |
-| --- | --- | --- |
-| Visual Studio Code | [code.visualstudio.com](https://code.visualstudio.com) | Although you can work with any suitable editor or IDE, Microsoft's free, lightweight IDE is very popular among Python developers. For an introduction, see [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). |
-| Python extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Python support to VS Code. |
-| Azure extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) | Adds support for a variety of Azure Services to VS Code. Support for specific services can also be installed individually. |
-| git | [git-scm.com/downloads](https://git-scm.com/downloads) | Command-line tools for source control. |
+| Component (instally link) | Description |
+| --- | --- |
+| [Visual Studio Code](https://code.visualstudio.com) | Although you can work with any suitable editor or IDE, Microsoft's free, lightweight IDE is very popular among Python developers. For an introduction, see [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). |
+| [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Python support to VS Code. |
+| [Azure extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) | Adds support for a variety of Azure Services to VS Code. Support for specific services can also be installed individually. |
+| [git](https://git-scm.com/downloads) | Command-line tools for source control. |
 
 ### Optional components
 
-| Component | Install link | Description |
-| --- | --- | --- |
-| Docker extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
+| Component (install link) | Description |
+| --- | --- |
+| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
 
 ### Verify components
 
