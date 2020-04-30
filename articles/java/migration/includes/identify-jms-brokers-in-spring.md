@@ -4,9 +4,9 @@ ms.author: yebronsh
 ms.date: 2/12/2020
 ---
 
-Identify which broker(s) is being used. You should be able to achieve this by examining the build manifest (typically *pom.xml* or *build.gradle*) for the relevant dependencies.
+Identify the broker or brokers in use by looking in the build manifest (typically, a *pom.xml* or *build.gradle* file) for the relevant dependencies.
 
-For example, a Spring Boot application using ActiveMQ would typically contain this dependency in *pom.xml*:
+For example, a Spring Boot application using ActiveMQ would typically contain this dependency in its *pom.xml* file:
 
 ```xml
 <dependency>

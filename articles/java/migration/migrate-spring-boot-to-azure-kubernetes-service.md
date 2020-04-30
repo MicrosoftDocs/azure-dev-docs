@@ -17,7 +17,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Validate that the supported Java version works correctly
 
-We recommend using a supported version of Java when running a Spring Boot application on AKS. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).
+We recommend using a supported version of Java when running a Spring Boot application on AKS. Confirm that your application runs correctly using that supported version. This validation is especially important if your current server is using a non supported version of Java (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current version, sign in to your production server and run the following command:
 
@@ -51,11 +51,11 @@ For files that are frequently written and read by your application (such as temp
 
 ### Upgrade to the latest version of Spring Boot
 
-If you are using a 1.x version of Spring Boot, it is highly recommended to upgrade to the latest version before migrating to AKS. For more information, see [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
+If you're using a 1.x version of Spring Boot, we highly recommend that you upgrade to the latest version before migrating to AKS. For more information, see [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
 
 ### Review your database properties
 
-If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application will still be able to access the database once you migrate to AKS. If your database is on-premise you will either need to migrate it to the cloud, or establish connectivity to your on-premise database.
+If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application can still access the database after you migrate to AKS. If your database is on-premise, you'll need to either migrate it to the cloud, or establish connectivity to your on-premise database.
 
 ### Inventory external resources
 
@@ -71,7 +71,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [external-caches-azure-spring-cloud](includes/external-caches-azure-spring-cloud.md)]
+[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
 
 #### Resources configured through Pivotal Cloud Foundry (PCF)
 
@@ -107,7 +107,7 @@ To create a Dockerfile, you'll need the following prerequisites:
 * Your JVM runtime options.
 * A way to pass in environment variables (if applicable).
 
-You can then perform the steps described in the following sections, where applicable. You can use the [Spring Boot Container Quickstart repo](https://github.com/Azure/spring-boot-container-quickstart) as a starting point for your Dockerfile and your Spring Boot application.
+You can then do the steps described in the following sections, where applicable. You can use the [Spring Boot Container Quickstart repo](https://github.com/Azure/spring-boot-container-quickstart) as a starting point for your Dockerfile and your Spring Boot application.
 
 Secrets are covered in the [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) section.
 
@@ -117,7 +117,7 @@ Secrets are covered in the [Configure KeyVault FlexVolume](#configure-keyvault-f
 
 Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
 
-You will also need to update the startup script used to bootstrap your Spring Boot application. This script must import the certificates into the keystore used by Spring Boot before starting the application.
+You'll also need to update the startup script used to bootstrap your Spring Boot application. This script must import the certificates into the keystore used by Spring Boot before starting the application.
 
 ### Build and push the Docker image to Azure Container Registry
 
@@ -175,9 +175,9 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
-If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup if you put the keystore file at */opt/spring-boot/mycert.crt*. You can accomplish this by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume as previously mentioned.
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup. This addition will occur if you put the keystore file at */opt/spring-boot/mycert.crt*. You can do so by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume, as mentioned previously.
 
-If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also enable Application Insights by setting the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). For more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent).
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also enable Application Insights by setting the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). For more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent).
 
 If you don't require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) or deploy to AKS. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes).
 
@@ -199,7 +199,7 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you have migrated your application to AKS, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you've migrated your application to AKS, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
@@ -211,7 +211,7 @@ Now that you've migrated your application to AKS, you should verify that it work
 
 * Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 
-* Enable [Azure Monitoring for the cluster](/azure/azure-monitor/insights/container-insights-enable-existing-clusters) to allow the collection of container logs, track utilization, and so on.
+* Enable [Azure Monitoring for the cluster](/azure/azure-monitor/insights/container-insights-enable-existing-clusters) to allow the collection of container logs, track usage, and so on.
 
 * Consider exposing application-specific metrics via Prometheus. Prometheus is an open-source metrics framework broadly adopted in the Kubernetes community. You can configure [Prometheus Metrics scraping in Azure Monitor](/azure/azure-monitor/insights/container-insights-prometheus-integration) instead of hosting your own Prometheus server to enable metrics aggregation from your applications and automated response to or escalation of aberrant conditions.
 

@@ -129,9 +129,9 @@ Use the following grids to find migration guidance by application type and targe
 
 Use the rows below to find your Java application type and the columns to find the Azure service destination that will host your application.
 
-If you would like to migrate a JBoss EAP app to Tomcat on App Service, first convert the Java EE app to Java Web Apps (servlets) running on Tomcat, then follow the guidance indicated below.
+If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert the Java EE app to Java Web Apps (servlets) running on Tomcat, then follow the guidance indicated below.
 
-If you would like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
+If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
 
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|

@@ -36,7 +36,7 @@ Identify external resources, such as data sources, JMS message brokers, and URLs
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
-Once you have identified the broker(s) being used, find the corresponding settings, which are typically in the *application.properties* and *application.yml* files for Spring Boot.
+Once you've identified the broker or brokers in use, find the corresponding settings, which are typically in the *application.properties* and *application.yml* files for Spring Boot.
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
@@ -58,11 +58,11 @@ Check all properties and configuration files and all environment variables on th
 
 ### Special Cases
 
-Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it is important to ensure that they are either inapplicable to your application or correctly resolved.
+Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it's important to ensure that they're either inapplicable to your application or correctly resolved.
 
 #### Determine whether application relies on scheduled jobs
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service won't prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
 
 Inventory any scheduled jobs, inside or outside the application process.
 
@@ -76,13 +76,13 @@ Processes running outside of Application Server, such as monitoring daemons, wil
 
 #### Identify handling of non-HTTP requests or multiple ports
 
-App Service supports only a single HTTP endpoint on a single port. If your application listens on multiple ports or accepts requests using protocols other than HTTP, do not use Azure App Service.
+App Service supports only a single HTTP endpoint on a single port. If your application listens on multiple ports or accepts requests using protocols other than HTTP, don't use Azure App Service.
 
 ## Migration
 
 ### Parameterize the configuration
 
-Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you are migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) in the Spring Boot documentation.
+Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you're migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) in the Spring Boot documentation.
 
 Here's an example that references a `SERVICEBUS_CONNECTION_STRING` environment variable from an *application.properties* file:
 
@@ -117,7 +117,7 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-ftp) to deploy your application. If possible, your application should be uploaded to */home/site/wwwroot/app.jar*. If you do not wish to rename your JAR to app.jar, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](/azure/app-service/containers/app-service-linux-faq#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-ftp) to deploy your application. If possible, your application should be uploaded to */home/site/wwwroot/app.jar*. If you don't wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](/azure/app-service/containers/app-service-linux-faq#built-in-images) textbox in the Configuration section of the portal. The startup script doesn't run from the directory into which it's placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ### Migrate JVM runtime options
 
@@ -160,6 +160,6 @@ Now that you have your application migrated to Azure App Service you should veri
 
 * Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
-* Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) and the subsequent slot swap.
+* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). When you use Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) followed by the slot swap.
 
 * Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).

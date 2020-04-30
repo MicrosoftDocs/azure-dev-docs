@@ -80,7 +80,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
-[!INCLUDE [external-caches-azure-spring-cloud](includes/external-caches-azure-spring-cloud.md)]
+[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
 
 #### Identity Providers
 
@@ -122,7 +122,7 @@ If Spring Cloud Vault is used to store and access secrets, identify the backing 
 
 #### Locate configuration server source
 
-If your application uses a [Spring Cloud Config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server), identify where the configuration is stored. You will typically find this setting in the *bootstrap.yml* or *bootstrap.properties* file, or sometimes in the *application.yml* or *application.properties* file. For example:
+If your application uses a [Spring Cloud Config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server), identify where the configuration is stored. You'll typically find this setting in the *bootstrap.yml* or *bootstrap.properties* file, or sometimes in the *application.yml* or *application.properties* file. For example:
 
 ```properties
 spring.cloud.config.server.git.uri: file://${user.home}/spring-cloud-config-repo
@@ -131,7 +131,7 @@ spring.cloud.config.server.git.uri: file://${user.home}/spring-cloud-config-repo
 While git is most commonly used as Spring Cloud Config's backing datastore, as shown earlier, one of the other possible backends may be in use. Consult the [Spring Cloud Config documentation](https://cloud.spring.io/spring-cloud-config/reference/html/#_environment_repository) for information on other backends, such as [Relational Database (JDBC)](https://cloud.spring.io/spring-cloud-config/reference/html/#_jdbc_backend), [SVN](https://cloud.spring.io/spring-cloud-config/reference/html/#_version_control_backend_filesystem_use), and [local file system](https://cloud.spring.io/spring-cloud-config/reference/html/#_file_system_backend).
 
 > [!NOTE]
-> If your configuration server data is stored on premises, such as GitHub Enterprise, you will need to make it available to Azure Spring Cloud via a Git repository.
+> If your configuration server data is stored on premises, such as GitHub Enterprise, you'll need to make it available to Azure Spring Cloud via a Git repository.
 
 ### Inspect the Deployment Architecture
 
@@ -155,7 +155,7 @@ Identify any client applications that invoke any of the services to be migrated 
 
 ### Update Spring Boot and Spring Cloud components to current versions
 
-You will need to update all applications to use supported versions of Spring Boot and Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+You'll need to update all applications to use supported versions of Spring Boot and Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
 
 For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version.
 
@@ -176,12 +176,12 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 ### Create an Azure Spring Cloud instance and Apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service being migrated. Do not include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service being migrated. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 ### Prepare the Spring Cloud Config server
 
 > [!NOTE]
-> If your current Spring Cloud Config repository is on the local file system or on premises, you will first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
+> If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
 
 [Configure the configuration server](/azure/spring-cloud/spring-cloud-tutorial-config-server) in your Azure Spring Cloud instance.
 

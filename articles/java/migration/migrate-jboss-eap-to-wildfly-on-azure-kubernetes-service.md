@@ -27,7 +27,7 @@ Consider storing those secrets in Azure KeyVault. For more information, see [Azu
 
 ### Validate that the supported Java version works correctly
 
-Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
+Using WildFly on Azure Kubernetes Service requires a specific version of Java, so you'll need to confirm that your application runs correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current version, sign in to your production server and run this command:
 
@@ -47,7 +47,7 @@ If your application relies on session replication, you'll have to change your ap
 
 #### Inside your application
 
-Inspect the file *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml*.
+Inspect the *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml* files.
 
 ### Document datasources
 
@@ -95,7 +95,7 @@ If your application uses JBoss-EAP-specific APIs, you'll need to refactor it to 
 
 ### Determine whether JCA connectors are in use
 
-If your application uses JCA connectors, you'll have to validate the JCA connector can be used on WildFly. If the JCA implementation is tied to JBoss EAP, you'll have to refactor your application to remove that dependency. If it can be used, then you'll need to add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories for it to be available.
+If your application uses JCA connectors, validate that you can use the JCA connector on WildFly. If the JCA implementation is tied to JBoss EAP, you must refactor your application to remove that dependency. If you can use the JCA connector on WildFly, then for it to be available, you must add the JARs to the server classpath and put the necessary configuration files in the correct location in the WildFly server directories.
 
 [!INCLUDE [determine-whether-jaas-is-in-use](includes/determine-whether-jaas-is-in-use.md)]
 
@@ -134,6 +134,6 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you have migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you've migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 [!INCLUDE [recommendations-wildfly-on-aks](includes/recommendations-wildfly-on-aks.md)]

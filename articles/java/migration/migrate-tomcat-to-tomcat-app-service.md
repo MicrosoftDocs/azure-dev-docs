@@ -22,7 +22,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 ### Switch to a supported platform
 
-App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment before you proceed with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
+App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
@@ -59,17 +59,17 @@ If session persistence is required, you'll need to use an alternate `PersistentM
 
 ### Special cases
 
-Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it is important to ensure that they are either inapplicable to your application or correctly resolved.
+Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it's important to ensure that they're either inapplicable to your application or correctly resolved.
 
 #### Determine whether application relies on scheduled jobs
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service won't prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
 
 Inventory any scheduled jobs, inside or outside the application server.
 
 #### Determine whether your application contains OS-specific code
 
-If your application contains any code with dependencies on the host OS, then you'll need to refactor it to remove those dependencies. For example, you may need to replace any use of `/` or `\` in file system paths with [`File.Separator`](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#separator) or [`Paths.get`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html#get-java.lang.String-java.lang.String...-).
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code-no-title](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
 #### Determine whether Tomcat clustering is used
 
@@ -79,7 +79,7 @@ To determine whether your application uses clustering, look for the `<Cluster>` 
 
 #### Identify all outside processes/daemons running on the production server(s)
 
-You will need to migrate elsewhere or eliminate any processes running outside of Application Server, such as monitoring daemons.
+You'll need to migrate elsewhere or eliminate any processes running outside of Application Server, such as monitoring daemons.
 
 #### Determine whether non-HTTP connectors are used
 
@@ -89,23 +89,23 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 #### Determine whether MemoryRealm is used
 
-[MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you will need to upload this file to the */home* directory or a subdirectory thereof or to mounted storage. You will have to modify the `pathName` parameter accordingly.
+[MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you'll need to upload this file to the */home* directory or one of its subdirectories, or to mounted storage. You'll then need to modify the `pathName` parameter accordingly.
 
 To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 #### Determine whether SSL session tracking is used
 
-App Service performs session offloading outside of the Tomcat runtime. Therefore, you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). Use a different session tracking mode instead (`COOKIE` or `URL`). If you need SSL session tracking, don't use App Service.
+App Service performs session offloading outside of the Tomcat runtime, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). Use a different session tracking mode instead (`COOKIE` or `URL`). If you need SSL session tracking, don't use App Service.
 
 #### Determine whether AccessLogValve is used
 
-If you use [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/AccessLogValve.html), you should set the `directory` parameter to `/home/LogFiles` or a subdirectory thereof.
+If you use [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/AccessLogValve.html), you should set the `directory` parameter to `/home/LogFiles` or one of its subdirectories.
 
 ## Migration
 
 ### Parameterize the configuration
 
-In the pre-migration you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string or URL with an environment variable.
+In the pre-migration steps, you likely identified some secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item you identified, replace any username, password, connection string, or URL with an environment variable.
 
 For example, suppose the *context.xml* file contains the following element:
 
@@ -208,10 +208,10 @@ Now that you have your application migrated to Azure App Service you should veri
 
 * If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
 
-* If you have configuration in the */home* directory which contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
+* If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 
 * Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
-* Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) and the subsequent slot swap.
+* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). When you use Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) followed by the slot swap.
 
 * Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
