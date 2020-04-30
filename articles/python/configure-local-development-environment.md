@@ -11,7 +11,7 @@ When creating cloud applications, developers typically prefer to test code on th
 
 This article provides the one-time setup instructions to create and validate a local dev environment that's suitable for Python on Azure:
 
-- [Install essential components](#install-essential-components), such as Python and the Azure CLI.
+- [Install required components](#required-components), such as Python and the Azure CLI.
 - [Configure authentication](#configure-authentication) for when you use Azure SDK libraries to provision, manage, and access Azure resources.
 - Review the process of [using Python virtual environments](#use-python-virtual-environments) for each of your projects.
 
@@ -26,7 +26,7 @@ Once you've configured your workstation, you'll need only minimal added configur
 | Python 2.7+ or 3.5.3+ | [python.org/downloads](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
 | Azure Command-Line Interface (CLI) | [Azure CLI install](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
 
-**Notes**:
+Notes:
 
 - You install individual Azure SDK libraries on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project.
 - Although Azure PowerShell is generally equivalent to the Azure CLI, we recommend the Azure CLI when working with Python.
