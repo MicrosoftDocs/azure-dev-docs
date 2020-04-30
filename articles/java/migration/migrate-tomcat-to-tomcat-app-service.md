@@ -42,7 +42,7 @@ To obtain the current version used by Azure App Service, download [Tomcat 9](htt
 
 [!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
-[!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
+[!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
 
 <!-- App-Service-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content

@@ -12,6 +12,6 @@ App Service offers specific versions of Java SE. To ensure compatibility, migrat
 
 -->
 
-[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
+[!INCLUDE [note-obtain-your-current-java-version](note-obtain-your-current-java-version.md)]
 
 To obtain the current version used by Azure App Service, download [Zulu 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 8 runtime or [Zulu 11](https://www.azul.com/downloads/azure-only/zulu/?&version=java-11-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 11 runtime.

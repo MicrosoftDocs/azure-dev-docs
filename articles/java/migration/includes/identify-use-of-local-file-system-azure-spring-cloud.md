@@ -11,4 +11,4 @@ Find any instances where your services write to and/or read from the local file 
 > [!NOTE]
 > Azure Spring Cloud provides 5 GB of temporary storage per Azure Spring Cloud instance, mounted in `/tmp`. If temporary files are written in excess of that limit or into a different location, code changes will be required.
 
-[!INCLUDE [static-content](includes/static-content.md)]
+[!INCLUDE [static-content](static-content.md)]

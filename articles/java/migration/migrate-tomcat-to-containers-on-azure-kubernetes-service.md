@@ -19,7 +19,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 [!INCLUDE [inventory-secrets](includes/inventory-secrets.md)]
 
-[!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
+[!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
 
 <!-- AKS-specific addendum to inventory-persistence-usage -->
 [!INCLUDE [dynamic-or-internal-content-aks](includes/dynamic-or-internal-content-aks.md)]
