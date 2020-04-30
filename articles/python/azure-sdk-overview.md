@@ -1,11 +1,11 @@
 ---
-title: Azure SDK for Python
+title: Use the Azure SDK for Python
 description: Overview of the features and capabilities of the Azure SDK for Python that helps developers be more productive when provisioning, using, and managing Azure resources.
 ms.date: 04/29/2020
 ms.topic: conceptual
 ---
 
-# Azure SDK for Python
+# Use the Azure SDK for Python
 
 The open-source Azure SDK for Python simplifies provisioning, managing, and using Azure resources from Python application code.
 
@@ -15,7 +15,7 @@ The open-source Azure SDK for Python simplifies provisioning, managing, and usin
 
 - The SDK is composed of over 180 individual Python libraries that relate to specific Azure services.
 
-- You install the libraries you need by using `pip install <library_name>` using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure SDK libraries](azure-sdk-install.md).
+- You install the libraries you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure SDK libraries](azure-sdk-install.md).
 
 - There are distinct "management" and "client" libraries that serve different purposes and are used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
@@ -23,7 +23,7 @@ The open-source Azure SDK for Python simplifies provisioning, managing, and usin
 
 - Documentation for the SDK is found on the [Azure SDK for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
 
-- To try the libraries for yourself, see [Get started with the Azure SDK for Python](azure-sdk-get-started.yml).
+- To try the libraries for yourself, start with [Example: Use Azure Storage](azure-sdk-example-storage.yml).
 
 ### Non-essential but still interesting details
 

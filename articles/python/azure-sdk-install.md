@@ -15,43 +15,47 @@ All other libraries in the SDK are *client* libraries that you use from applicat
 
 ## Install the latest version of a library
 
-Running `pip install` installs the latest version of a library in your current Python environment:
-
 ```bash
 pip install azure-storage-blob
 ```
+
+`pip install` installs the latest version of a library in your current Python environment.
 
 On Linux systems, the SDK doesn't support using `sudo pip install` to install a library for all users. Each user must use `pip install` separately.
 
 ## Install specific library versions
 
-If you need to install a specific version of a library, specify the version on the command line:
-
 ```bash
 pip install azure-storage-blob==12.0.0
 ```
 
+Specify the specify the version on the command line with `pip install`.
+
 ## Install preview packages
-
-Microsoft regularly releases preview SDK libraries that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
-
-To install the latest preview of a library, include the `--pre` flag on the command line.
 
 ```bash
 pip install --pre azure-storage-blob
 ```
 
-## Verify a library installation
+To install the latest preview of a library, include the `--pre` flag on the command line.
 
-Use `pip show <library>` to verify that a library is installed. If the library is installed, the command displays version and other summary information, otherwise the command displays nothing.
+Microsoft regularly releases preview SDK libraries that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
+
+## Verify a library installation
 
 ```bash
 pip show azure-storage-blob
 ```
 
+Use `pip show <library>` to verify that a library is installed. If the library is installed, the command displays version and other summary information, otherwise the command displays nothing.
+
 You can also use `pip freeze` or `pip list` to see all the libraries that are installed in your current Python environment.
 
 ## Uninstall a library
+
+```bash
+pip uninstall azure-storage-blob
+```
 
 To uninstall a library, use `pip uninstall <library>`.
 

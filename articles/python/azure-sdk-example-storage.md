@@ -86,12 +86,13 @@ az storage account create -g AzureSDKExample-Storage-rg -l centralus -n pythonsd
 
 az storage account show-connection-string -g AzureSDKExample-Storage-rg -n pythonsdkstorage12345
 
-# Create an environment variable named AZURE_STORAGE_CONNECTION_STRING using the value shown by the previous command. (Mac OS/Linux, drop "set " from the command or change to "export ".)
+# Create an environment variable named AZURE_STORAGE_CONNECTION_STRING using the value shown
+# by the previous command. (Mac OS/Linux, drop "set " from the command or change to "export ".)
 
 set AZURE_STORAGE_CONNECTION_STRING=<connection_string_value>
 
-# Create the blob container; this command uses the environment variable AZURE_STORAGE_CONNECTION_STRING
-# to connect to the storage account.
+# Create the blob container; this command uses the environment variable
+# AZURE_STORAGE_CONNECTION_STRING to connect to the storage account.
 
 az storage container create --account-name pythonsdkoverview12345 -n blob-container-02
 ```
@@ -108,25 +109,25 @@ The following steps assume you've provisioned a Storage account and blob contain
 
 1. Create a Python file named *use_blob.py* with the following code. The comments explain the steps:
 
-```python
-import os
+    ```python
+    import os
 
-# Import the client object from the SDK library
-from azure.storage.blob import BlobClient
+    # Import the client object from the SDK library
+    from azure.storage.blob import BlobClient
 
-# Retrieve the connection string from an environment variable. You can also create
-# the BlobClient object using credentials, but a connection string is shown here for
-# simplicity.
-conn_string = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
+    # Retrieve the connection string from an environment variable. You can also create
+    # the BlobClient object using credentials, but a connection string is shown here for
+    # simplicity.
+    conn_string = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
 
-# Create the client object for the resource identified by the connection string,
-# indicating also the blob container and the name of the specific blob we want.
-blob_client = BlobClient.from_connection_string(conn_string, container_name="blob-container-01", blob_name="sampleblob.txt")
+    # Create the client object for the resource identified by the connection string,
+    # indicating also the blob container and the name of the specific blob we want.
+    blob_client = BlobClient.from_connection_string(conn_string, container_name="blob-container-01", blob_name="sampleblob.txt")
 
-# Open a local file and upload its contents to Blob Storage
-with open("./samplesource.txt", "rb") as data:
-    blob_client.upload_blob(data)
-```
+    # Open a local file and upload its contents to Blob Storage
+    with open("./samplesource.txt", "rb") as data:
+        blob_client.upload_blob(data)
+    ```
 
 1. Create a source file named *samplesource.txt* (as the code expects), with contents like the following:
 

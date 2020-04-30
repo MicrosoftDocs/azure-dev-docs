@@ -25,10 +25,6 @@ This article explains the different methods you can use with the Azure SDK for a
 
 ## Authenticate with DefaultAzureCredential
 
-The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) class from the [`azure.identity`](/python/api/azure-identity/azure.identity?view=azure-python) library provides the simplest and recommended means of authentication.
-
-The following code uses the `DefaultAzureCredential` when accessing Azure Key Vault, where the URL of the Key Vault is available in an environment variable named `KEY_VAULT_URL`:
-
 ```python
 import os
 from azure.identity import DefaultAzureCredential
@@ -46,7 +42,9 @@ secret_client = SecretClient(vault_url=vault_url, credential=credential)
 retrieved_secret = client.get_secret("secret-name-01")
 ```
 
-This code clearly implements the pattern described at the beginning of the article: acquire a credential object, create an SDK client object, then attempt to perform an operation using that client object.
+The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) class from the [`azure.identity`](/python/api/azure-identity/azure.identity?view=azure-python) library provides the simplest and recommended means of authentication.
+
+The code uses the `DefaultAzureCredential` when accessing Azure Key Vault, where the URL of the Key Vault is available in an environment variable named `KEY_VAULT_URL`. The code clearly implements the pattern described at the beginning of the article: acquire a credential object, create an SDK client object, then attempt to perform an operation using that client object.
 
 Authentication and authorization don't happen until the final step because creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python) object involves no communication with the resource in question. That is, the SDK client object is essentially a wrapper around the REST API of the service it represents, and exists only in the app's runtime environment. It's only when you call a method like [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-) that the client object generates the appropriate REST API call to Azure. The code for that endpoint is what then authenticates the caller's identity and checks authorization.
 
@@ -58,8 +56,6 @@ In both cases, the identity involved must be assigned permissions for the approp
 > In the future, you'll be able to sign into the Azure CLI using `az login` and `DefaultAzureCredential` will user your user credentials if environment variables for a service principal are not available. If you're the owner or administrator of your subscription, the practical upshot of this feature is that your code has inherent access to most resources in that subscription without having to assign any specific permissions. Although this behavior will be convenient for experimentation, we highly recommend that you begin using specific service principals and assigning specific permissions when you start writing production code. In the process you'll learn exactly what permissions you also need to assign to different identities and can accurately validate those permissions in test environments before deploying to production.
 
 ### Using DefaultAzureCredential with SDK management libraries
-
-At present, `DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries, and does not work with Azure SDK management libraries whose names begin with `azure-mgmt`, as in the following code:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -75,6 +71,8 @@ subscription = next(subscription_client.subscriptions.list())
 
 print(subscription.subscription_id)
 ```
+
+At present, `DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries, and does not work with Azure SDK management libraries whose names begin with `azure-mgmt`, as show in this code example.
 
 This code attempts to retrieve your subscription ID but produces the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because the current SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
 
@@ -160,8 +158,6 @@ In this method, you create a JSON file that contains the necessary credentials f
 
 ### Authenticate with a JSON dictionary
 
-Instead of using a file, as described in the previous section, you can build the necessary JSON data in a variable and call [get_client_from_json_dict](/python/api/azure-common/azure.common.client_factory?view=azure-python#get-client-from-json-dict-client-class--config-dict----kwargs-).
-
 ```python
 import os
 from azure.common.client_factory import get_client_from_json_dict
@@ -192,11 +188,11 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
+Instead of using a file, as described in the previous section, you can build the necessary JSON data in a variable and call [get_client_from_json_dict](/python/api/azure-common/azure.common.client_factory?view=azure-python#get-client-from-json-dict-client-class--config-dict----kwargs-).
+
 In this case, you should always store the ID and secret values in secure locations such as server-side environment variables or Azure Key Vault.
 
 ### Authenticate with token credentials
-
-In this method, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials?view=azure-python) object using credentials obtained from secure storage (such as server-side environment variables of Azure Key Vault).
 
 ```python
 import os
@@ -216,6 +212,8 @@ subscription_client = SubscriptionClient(credential)
 subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
+
+In this method, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials?view=azure-python) object using credentials obtained from secure storage (such as server-side environment variables of Azure Key Vault).
 
 If you need more control, use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
 
@@ -254,8 +252,6 @@ print(subscription.subscription_id)
 
 ### CLI-based authentication (development purposes only)
 
-In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`:
-
 ```python
 from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource import SubscriptionClient
@@ -266,13 +262,15 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
+In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`.
+
 The SDK uses the default subscription ID, or you can set the subscription using [`az account`](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli)
 
 This option should be used for development purposes only because a signed-in user typically has owner or administrator privileges and can access most resources without any additional permissions.
 
 ### Deprecated: Authenticate with UserPassCredentials
 
-Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you used the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials?view=azure-python) class. This class doesn't support two-factor authentication and should no longer be used.
+Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you has to use the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials?view=azure-python) class. This class doesn't support two-factor authentication and should no longer be used.
 
 ## See also
 

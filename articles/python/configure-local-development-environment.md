@@ -96,22 +96,22 @@ Each developer in your organization should perform these steps individually.
         }
         </pre>
 
-    Without the `--sdk-auth` argument, the command generates simpler output:
+        Without the `--sdk-auth` argument, the command generates simpler output:
 
-    <pre>
-    {
-      "appId": "12345678-1111-2222-3333-1234567890ab",
-      "displayName": "localtest-sp-rbac",
-      "name": "http://localtest-sp-rbac",
-      "password": "abcdef00-4444-5555-6666-1234567890ab",
-      "tenant": "00112233-7777-8888-9999-aabbccddeeff"
-    }
-    </pre>
+        <pre>
+        {
+          "appId": "12345678-1111-2222-3333-1234567890ab",
+          "displayName": "localtest-sp-rbac",
+          "name": "http://localtest-sp-rbac",
+          "password": "abcdef00-4444-5555-6666-1234567890ab",
+          "tenant": "00112233-7777-8888-9999-aabbccddeeff"
+        }
+        </pre>
 
-    In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+        In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
 
-    > [!IMPORTANT]
-    > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. If you lose the secret, you must delete the service principal and create a new one.
+        > [!IMPORTANT]
+        > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. If you lose the secret, you must delete the service principal and create a new one.
 
 1. Safeguard the tenant ID, client ID, and client secret (and and files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
 
@@ -167,4 +167,4 @@ If you don't use a virtual environment, then Python run in its *global environme
 With your local dev environment in place, let's now take a quick look at the Azure SDK.
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK >>>](azure-sdk-overview.md)
+> [Use the Azure SDK >>>](azure-sdk-overview.md)
