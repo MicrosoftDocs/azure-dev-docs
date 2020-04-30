@@ -34,7 +34,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 #### Identify Spring Cloud Version(s)
 
-Examine the dependencies of each application being migrated to determine the version of the Spring Cloud components it uses.
+Examine the dependencies of each application you're migrating to determine the version of the Spring Cloud components it uses.
 
 ##### Maven
 
@@ -145,7 +145,7 @@ For each of your Spring Cloud services (not including the configuration server, 
 
 #### Document Geo-Replication/Distribution
 
-Determine whether the Spring Cloud applications are currently distributed among several regions or data centers. Document the uptime requirements/SLA for the applications being migrated.
+Determine whether the Spring Cloud applications are currently distributed among several regions or data centers. Document the uptime requirements/SLA for the applications you're migrating.
 
 #### Identify Clients that Bypass Service Registry
 
@@ -161,7 +161,7 @@ For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migratio
 
 ### Remove explicit configuration server settings
 
-In the services being migrated, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in *application.properties* or *application.yml* files:
+In the services you're migrating, find any explicit assignments of Eureka settings and remove them. Such settings typically appear in *application.properties* or *application.yml* files:
 
 **application.yml**
 
@@ -176,7 +176,7 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 ### Create an Azure Spring Cloud instance and Apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service being migrated. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see the [Azure Spring Cloud quickstart](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 ### Prepare the Spring Cloud Config server
 

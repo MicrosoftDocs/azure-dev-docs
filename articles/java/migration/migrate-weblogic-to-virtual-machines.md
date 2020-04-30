@@ -37,7 +37,7 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-[!INCLUDE [validate-that-the-supported-java-version-works-correctly](includes/validate-that-the-supported-java-version-works-correctly.md)]
+[!INCLUDE [validate-that-the-supported-java-version-works-correctly-weblogic](includes/validate-that-the-supported-java-version-works-correctly-weblogic.md)]
 
 [!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 

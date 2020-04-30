@@ -25,17 +25,7 @@ Consider storing those secrets in Azure KeyVault. For more information, see [Azu
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-### Validate that the supported Java version works correctly
-
-Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current version, sign in to your production server and run this command:
-
-```bash
-java -version
-```
-
-See [Requirements](http://docs.wildfly.org/19/Getting_Started_Guide.html#requirements) for guidance on what version to use to run WildFly.
+[!INCLUDE [validate-that-the-supported-java-version-works-correctly-wildfly](includes/validate-that-the-supported-java-version-works-correctly-wildfly.md)]
 
 ### Inventory JNDI resources
 

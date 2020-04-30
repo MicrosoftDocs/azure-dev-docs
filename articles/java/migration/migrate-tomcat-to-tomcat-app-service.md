@@ -24,7 +24,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 App Service offers specific versions of Tomcat on specific versions of Java. To ensure compatibility, migrate your application to one of the supported versions of Tomcat and Java in its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
-[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
+[!INCLUDE [note-obtain-your-current-java-version-app-service](includes/note-obtain-your-current-java-version-app-service.md)]
 
 To obtain your current Tomcat version, sign in to your production server and run the following command:
 

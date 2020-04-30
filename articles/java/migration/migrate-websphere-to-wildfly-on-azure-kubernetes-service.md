@@ -23,15 +23,7 @@ Check all properties and configuration files on the production server(s) for any
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-### Validate that the supported Java version works correctly
-
-Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current version, sign in to your production server and run
-
-```bash
-java -version
-```
+[!INCLUDE [validate-that-the-supported-java-version-works-correctly-wildfly](includes/validate-that-the-supported-java-version-works-correctly-wildfly.md)]
 
 ### Inventory JNDI resources
 
