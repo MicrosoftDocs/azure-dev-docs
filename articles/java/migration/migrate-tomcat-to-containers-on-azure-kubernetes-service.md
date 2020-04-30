@@ -22,9 +22,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 [!INCLUDE [inventory-persistence-usage](includes/inventory-persistence-usage.md)]
 
 <!-- AKS-specific addendum to inventory-persistence-usage -->
-#### Dynamic or internal content
-
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
+[!INCLUDE [dynamic-or-internal-content-aks](includes/dynamic-or-internal-content-aks.md)]
 
 ### Identify session persistence mechanism
 
