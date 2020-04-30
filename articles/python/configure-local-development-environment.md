@@ -29,6 +29,7 @@ Once you've configured your workstation, you'll need only minimal added configur
 | Visual Studio Code | [code.visualstudio.com](https://code.visualstudio.com) | Although you can work with any suitable editor or IDE, Microsoft's free, lightweight IDE is very popular among Python developers. For an introduction, see [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). |
 | Python extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Python support to VS Code. |
 | Azure extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) | Adds support for a variety of Azure Services to VS Code. Support for specific services can also be installed individually. |
+| git | [git-scm.com/downloads](https://git-scm.com/downloads) | Command-line tools for source control. |
 | |
 | **Optional** |
 | Docker extension for VS Code | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |

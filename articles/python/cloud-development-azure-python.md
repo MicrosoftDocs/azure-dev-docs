@@ -1,7 +1,7 @@
 ---
 title: Cloud Development on Azure 
 description: An overview of developing cloud applications on Microsoft Azure, including an overview of the cloud development cycle.
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.topic: conceptual
 ---
 
@@ -14,6 +14,8 @@ You're a Python developer, and you're ready to developer cloud applications for 
 Microsoft's CEO, Satya Nadella, often refers to Azure as "the world's computer." A computer, as you well know, is a collection of hardware that's managed by an operating system, which provide a platform upon which you can build software that helps people apply the system's computing power to any number of tasks. (That's why we use the word "application" to describe such software.)
 
 In the case of Azure, the computer's hardware is not a single machine but an enormous pool of virtualized server computers contained in [dozens of massive data centers around the world](https://azure.microsoft.com/global-infrastructure/regions/). The Azure "operating system" is then composed of *services* that dynamically allocate and de-allocate different parts of that resource pool as applications need them. Each allocation&mdash;be it computing power (CPU cores and memory), storage, databases, networks, and so on&mdash;is called a *resource*. And each discrete resource is accordingly assigned a unique *object identifier* (a GUID) and a unique URL.
+
+![Layers of Azure, from the data center to Azure services to allocate resources](media/cloud-development-azure-python/azure-layers.png)
 
 Resources are the building blocks of a cloud application. The cloud development process thus begins with creating the appropriate environment into which you can deploy the different parts of the application. Put simply, you cannot deploy any code or data to Azure until you've allocated and configured&mdash;that is *provisioned*&mdash;a suitable target resource, such as a virtual machine, a database, a storage account, a container registry, a container orchestrator, a web host, a virtual network, AI and analytics engines, and so on.
 
@@ -30,11 +32,13 @@ As described in the previous section, an essential part of developing a cloud ap
 
 The answer is straightforward. As with most operating systems, you can communicate with Azure through three routes: a user interface, a command-line interface, and an API.
 
+![The different means of communicating with Azure to provision resources](media/cloud-development-azure-python/communication-with-azure.png)
+
 | Provisioning method | Description | Pros | Cons |
 | --- | --- | --- | --- |
 | [Azure portal](https://portal.azure.com) | Azure's fully customizable, browser-based user interface through which you can provision and manage resources with all Azure services. To access the portal, you must first sign in using a Microsoft Account and then create a free Azure account with a subscription. (Once signed in, you can select the **?** icon and select **Launch guided tour** for a simple walkthrough of the main portal features.) | The user interface makes it easy to explore services and all their the various configuration options. Setting configuration values is secure because no information is stored on the local workstation. | Working with the portal is a manual process and cannot be automated. To remember what you did to change a configuration, for example, means recording your steps in a separate document. |
 | [Azure CLI](/cli/azure/?view=azure-cli-latest) | Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal. (You can also use [Azure PowerShell](/powershell/) for this same purpose, although the Azure CLI is better for Python developers.) | Easily automated through scripts and processing of output. Provides higher-level commands that provision multiple resources together for common tasks, such as deploying a web app. | Steeper learning curve than using the portal, and commands are subject to bugs. Error messages are not always helpful. |
-| [Azure REST API](/rest/api/?view=Azure)<br/>[Azure SDK](https://azure.microsoft.com/downloads/) | Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource, furthermore, is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.) <br/> For developers, the *Azure SDK* provides language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects.| Precise control over all operations, including a much more direct means of using output from one operation as input to another. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate management scenarios. | Operations that can be done with one CLI command typically require multiple lines of code, all of which is subject to bugs. Does not provide higher-level operations like the Azure CLI. |
+| [Azure REST API](/rest/api/?view=Azure) and [Azure SDK](https://azure.microsoft.com/downloads/) | Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource, furthermore, is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.) <br/> For developers, the *Azure SDK* provides language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects.| Precise control over all operations, including a much more direct means of using output from one operation as input to another. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate management scenarios. | Operations that can be done with one CLI command typically require multiple lines of code, all of which is subject to bugs. Does not provide higher-level operations like the Azure CLI. |
 
 You can use any or all of these complementary methods to create, configure, and manage whatever Azure resources you need. In fact, you typically use all three in the course of a development project, and it's worth your time to become familiar with each of them.
 
@@ -74,7 +78,7 @@ For most development scenarios, you'll likely create provisioning scripts with t
 
 ### Step 2: Write your app code to use resources
 
-Once you've provisioned the resources you need for your application, you can write the application code to works with those resources. For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. From your code, now, you can authenticate with that storage account and then create, update, or delete blobs within that container. Similarly, you might have provisioned a database with a schema and appropriate permissions, so that your application code can connect to the database and perform the usual create-read-update-delete operations.
+Once you've provisioned the resources you need for your application, you can write the application code to work with those resources (excepting the resources to which you deploy the code itself). For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. From your code, now, you can authenticate with that storage account and then create, update, or delete blobs within that container. Similarly, you might have provisioned a database with a schema and appropriate permissions, so that your application code can connect to the database and perform the usual create-read-update-delete operations.
 
 As a Python developer, you'll probably be writing your application code in Python using the Azure SDK for Python. That said, any independent part of a cloud application can be written in any supported language. If you're working in a team with a variety of language expertise, for instance, it's entirely possible that some parts of the application are written in Python, some in JavaScript, some in Java, and others in C#.
 
@@ -88,7 +92,7 @@ Azure fully supports local development and debugging using the same code you eve
 
 ### Step 4: Deploy your app code to Azure
 
-Once you've tested your code locally, you're ready to deploy the code to whatever Azure service you're provisioned to host it. For example, if you're writing a Django web application, you either deploy that code to a virtual machine (where you provide your own web server) or to Azure App Service (which provides the web server for you). Once deployed, that code is running on the server rather than on your local machine, and can access all the Azure resources for which it's authorized.
+Once you've tested your code locally, you're ready to deploy the code to the Azure resource that you've provisioned to host it. For example, if you're writing a Django web application, you either deploy that code to a virtual machine (where you provide your own web server) or to Azure App Service (which provides the web server for you). Once deployed, that code is running on the server rather than on your local machine, and can access all the Azure resources for which it's authorized.
 
 As noted in the previous section, in typical development processes you first deploy your code to the resources you've provisioned in a development environment. After a round of testing, you deploy your code to resources in a staging environment, making the application available to your test team and perhaps preview customers. Once you're satisfied with the application's performance, you can deploy the code to your production environment. All of these deployments can also be automated through continuous integration and continuous deployment using Azure DevOps.
 
@@ -107,4 +111,4 @@ You're now familiar with the basic structure of Azure and the overall developmen
 The next step is to get your workstation fully configured to work with that flow, after which you're ready to get rolling with the Azure SDK!
 
 > [!div class="nextstepaction"]
-> [Configfure your local dev environment >>>](configure-local-development-environment.md)
+> [Configure your local dev environment >>>](configure-local-development-environment.md)
