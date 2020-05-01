@@ -16,4 +16,4 @@ If you use LogStash/ELK Stack for log aggregation, configure the diagnostic sett
 
 #### Splunk
 
-If you use Splunk for log aggregation, configure the diagnostic setting to stream the console output to [Azure Blob Storage](/azure/storage/blobs/). Then, use the [Splunk Add-on for Microsoft Cloud Services](https://docs.splunk.com/Documentation/AddOns/latest/MSCloudServices/Configureinputs5) to ingest logged events into Splunk.
+If you use Splunk for log aggregation, configure the diagnostic setting to stream the console output to [Azure Blob Storage](/azure/storage/blobs/). Then, use the [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3757/) to ingest logged events into Splunk.
