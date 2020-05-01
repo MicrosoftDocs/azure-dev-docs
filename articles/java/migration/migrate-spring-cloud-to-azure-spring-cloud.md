@@ -29,6 +29,8 @@ Find any instances where your services write to and/or read from the local file 
 > [!NOTE]
 > Azure Spring Cloud provides 5 GB of temporary storage per Azure Spring Cloud instance, mounted in `/tmp`. If temporary files are written in excess of that limit or into a different location, code changes will be required.
 
+<!-- The following two "static content" sections should be identical to the contents of includes\static-content.md except that here we use H5 headings. -->
+
 ##### Read-only static content
 
 If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
