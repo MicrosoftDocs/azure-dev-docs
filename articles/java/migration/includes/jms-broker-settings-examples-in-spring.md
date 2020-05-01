@@ -23,3 +23,5 @@ ibm:
     user: admin
     password: big$ecr3t
 ```
+
+For more information on IBM MQ configuration, see [IBM MQ Spring components documentation](https://github.com/ibm-messaging/mq-jms-spring#ibm-mq-jms-spring-components).

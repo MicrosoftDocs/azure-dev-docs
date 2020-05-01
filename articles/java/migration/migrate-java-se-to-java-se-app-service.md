@@ -1,15 +1,15 @@
 ---
-title: Migrate Java SE applications to Java SE on Azure App Service
-description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot or other standalone web application to Azure App Service using Java SE.
+title: Migrate Spring Boot Applications to Azure App Service
+description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot to Azure App Service.
 author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 01/22/2019
 ---
 
-# Migrate executable JAR web applications to Java SE on Azure App Service
+# Migrate Spring Boot Applications to Azure App Service
 
-This guide describes what you should be aware of when you want to migrate an existing Spring Boot or other embedded-server web application to Azure App Service using Java SE.
+This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to Azure App Service.
 
 ## Pre-migration
 
