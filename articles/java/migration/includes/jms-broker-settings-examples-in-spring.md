@@ -12,7 +12,7 @@ spring.activemq.user=admin
 spring.activemq.password=tryandguess
 ```
 
-See [Spring Boot messaging documentation](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-messaging.html) for more information on ActiveMQ configuration.
+For more information on ActiveMQ configuration, see the [Spring Boot messaging documentation](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-messaging.html).
 
 Here's an IBM MQ example from an *application.yaml* file:
 
@@ -26,4 +26,4 @@ ibm:
     password: big$ecr3t
 ```
 
-For more information on IBM MQ configuration, see [IBM MQ Spring components documentation](https://github.com/ibm-messaging/mq-jms-spring#ibm-mq-jms-spring-components).
+For more information on IBM MQ configuration, see the [IBM MQ Spring components documentation](https://github.com/ibm-messaging/mq-jms-spring#ibm-mq-jms-spring-components).
