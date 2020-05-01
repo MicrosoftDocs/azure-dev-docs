@@ -4,7 +4,7 @@ ms.author: yebronsh
 ms.date: 4/15/2020
 ---
 
-#### Identify Spring Boot Version(s)
+#### Identify Spring Boot versions
 
 Examine the dependencies of each application being migrated to determine its Spring Boot version. 
 
