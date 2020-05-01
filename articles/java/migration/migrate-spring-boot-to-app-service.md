@@ -140,7 +140,7 @@ Follow [these steps to migrate connection strings and other settings](/azure/app
   spring.jms.servicebus.idle-timeout=1800000
   ```
 
-![App Service Application Configuration](media/migrate-java-se-to-java-se-app-service/app-service-parameterized-spring-boot-app-settings.png)
+![App Service Application Configuration](media/migrate-spring-boot-to-app-service/app-service-parameterized-spring-boot-app-settings.png)
 
 [!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
 

@@ -4,7 +4,7 @@
     - name: Overview
       href: migration-overview.md
     - name: Spring Boot to Azure App Service
-      href: migrate-java-se-to-java-se-app-service.md
+      href: migrate-spring-boot-to-app-service.md
     - name: Spring Boot to AKS
       href: migrate-spring-boot-to-azure-kubernetes-service.md
     - name: Spring Cloud to Azure Spring Cloud
