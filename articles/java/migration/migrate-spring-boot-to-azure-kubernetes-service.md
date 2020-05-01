@@ -51,7 +51,7 @@ Identify external resources, such as data sources, JMS message brokers, and URLs
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
-#### JMS Message Brokers
+#### JMS message brokers
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
@@ -77,7 +77,7 @@ cf target space <Space Name>
 cf env <Application Name>
 ```
 
-Examine the 'VCAP_SERVICES' for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
+Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
 ### In-place testing
 
@@ -97,10 +97,6 @@ To create a Dockerfile, you'll need the following prerequisites:
 
 You can then do the steps described in the following sections, where applicable. You can use the [Spring Boot Container Quickstart repo](https://github.com/Azure/spring-boot-container-quickstart) as a starting point for your Dockerfile and your Spring Boot application.
 
-Secrets are covered in the [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume) section.
-
-1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume)
-
 #### Configure KeyVault FlexVolume
 
 Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
@@ -117,19 +113,19 @@ In these examples, the `MY_ACR` environment variable holds the name of your Azur
 
 Build the deployment file:
 
-```shell
+```bash
 mvn package
 ```
 
 Log into your Azure container registry:
 
-```shell
+```azurecli
 az acr login -n ${MY_ACR}
 ```
 
 Build and push the image:
 
-```shell
+```azurecli
 az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} .
 ```
 
@@ -137,13 +133,13 @@ Alternatively, you can use Docker CLI to first build and test the image locally,
 
 Build the image:
 
-```shell
+```bash
 docker build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
 Run the image locally:
 
-```shell
+```bash
 docker run -it -p 8080:8080 ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
@@ -151,13 +147,13 @@ You can now access your application at [http://localhost:8080](http://localhost:
 
 Log into your Azure container registry:
 
-```shell
+```azurecli
 az acr login -n ${MY_ACR}
 ```
 
 Push the image to your Azure container registry:
 
-```shell
+```bash
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
@@ -189,15 +185,13 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
-Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
-
 ### Recommendations
 
-* Consider [adding a DNS name](/azure/aks/ingress-static-ip#configure-a-dns-name) to the IP address allocated to your ingress controller or application load balancer.
+* Consider adding a DNS name to the IP address allocated to your ingress controller or application load balancer. For more information, see [Create an ingress controller with a static public IP address in AKS](/azure/aks/ingress-static-ip).
 
-* Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
+* Consider adding [HELM charts](https://helm.sh/docs/topics/charts/) for your application. A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
 
-* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
+* Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider automating deployments and testing with Azure Pipelines. For more information, see [Build and deploy to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 
 * Enable [Azure Monitoring for the cluster](/azure/azure-monitor/insights/container-insights-enable-existing-clusters) to allow the collection of container logs, track usage, and so on.
 
