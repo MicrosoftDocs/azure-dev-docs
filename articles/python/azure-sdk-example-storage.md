@@ -171,7 +171,7 @@ az storage account show-connection-string -g PythonSDKExample-Storage-rg -n pyth
 
 set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 
-az storage container create --account-name pythonsdkoverview12345 -n blob-container-01
+az storage container create --account-name pythonsdkstorage12345 -n blob-container-01
 ```
 
 ## Use resources with the client libraries
@@ -241,22 +241,67 @@ For these reasons, production code should use the authentication method. For exp
     python use_blob_auth.py
     ```
 
-    Because the local service principal that you're using does not have permission to access the blob container, you see the error: TODO.
+    Because the local service principal that you're using does not have permission to access the blob container, you see the error: "This request is not authorized to perform this operation using this permission."
 
-1. Use the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to set container permissions for the service principal:
+1. To grant permissions for the container to the service principal, use the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) (it's a long one!):
+
+    # [bash](#tab/bash)
 
     ```azurecli
-    az role assignment create --assignee localtest-sp-rbac --role "Storage Blob Data Contributor"
-        --scope "/subscriptions/<subscription>/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkoverview12345/blobServices/default/containers/blob-container-01"
+    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" \
+        --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
     ```
 
-    In the `--scope` string, replace `<subscription>` with your subscription ID and modify the storage account name with the exact account name you're using (the five-digit number will be different). You might also need to modify the resource group name.
+    # [Cmd](#tab/cmd)
 
-    The `--scope` argument guarantees that the service principal is granted permissions for *only* the one blob container specified in the string. If you remove the `/blobServices/...` part of the string to the end, you grant permissions to all containers in the storage account. If you omit the `/providers/...` part of the string to the end, or omit the entire argument, you grant the service principal Blob container permissions across your entire subscription. Accordingly, we recommend using the `--scope` argument to grant exact permissions.
+    ```azurecli
+    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
+    ```
+
+    ---
+
+    The `--scope` argument in this command use the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal.
+
+    Also replace `pythonsdkstorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary.
+
+    The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
+
+    By shortening the scope string, you can grant wider permissions to the service principal:
+
+    # [bash](#tab/bash)
+
+    ```azurecli
+    # Grant permissions to all blob containers in the storage account (omit /blobServices/... )
+    az role assignment create --assignee %AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage76694"
+
+    # Grant permissions to all blob containers in the resource group (omit /providers/...)
+    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg"
+
+    # (Alternate) Grant permissions to all blob containers in the resource group (use --group instead)
+    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --group PythonSDKExample-Storage-rg
+    ```
+
+    # [Cmd](#tab/cmd)
+
+    ```azurecli
+    # Grant permissions to all blob containers in the storage account (omit /blobServices/...)
+    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage76694"
+
+    # Grant permissions to all blob containers in the resource group (omit /providers/...)
+    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg"
+
+    # (Alternate) Grant permissions to all blob containers in the resource group (use --group instead)
+    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --group PythonSDKExample-Storage-rg
+    ```
+
+    ---
 
 1. Run the code again to verify that it now works.
 
-## Use resources with the client libraries and a connection string
+> [!NOTE]
+> If you experiment by removing the permission and re-running the code, you may find that the code still succeeds because it takes a minute for the permission change to propagate fully. Run the code again after a minute or two and you should see the proper behavior of the permissions.
+
+## Connection string method
 
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
@@ -283,6 +328,8 @@ For these reasons, production code should use the authentication method. For exp
     ```bash
     python use_blob_conn_string.py
     ```
+
+Again, although this method is simple, a connection string authorizes all operations in a storage account. With production code it's better to use specific permissions as described in the previous section.
 
 ## Clean up resources
 
