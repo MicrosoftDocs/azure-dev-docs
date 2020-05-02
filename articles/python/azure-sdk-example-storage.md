@@ -215,7 +215,24 @@ For these reasons, production code should use the authentication method. For exp
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
     ```python
-    TODO
+    import os
+    from azure.identity import DefaultAzureCredential
+
+    # Import the client object from the SDK library
+    from azure.storage.blob import BlobClient
+
+    credential = DefaultAzureCredential()
+
+    # Retrieve the storage blob service URL, which is of the form
+    # https://pythonsdkstorage12345.blob.core.windows.net/
+    storage_url = os.environ["AZURE_STORAGE_BLOB_URL"]
+
+    # Create the client object using the storage URL and the credential
+    blob_client = BlobClient(storage_url, container_name="blob-container-01", blob_name="sample-blob.txt", credential=credential)
+
+    # Open a local file and upload its contents to Blob Storage
+    with open("./sample-source.txt", "rb") as data:
+        blob_client.upload_blob(data)
     ```
 
 1. Attempt to run the code:
@@ -226,7 +243,7 @@ For these reasons, production code should use the authentication method. For exp
 
     Because the local service principal that you're using does not have permission to access the blob container, you see the error: TODO.
 
-1. Use the Azure CLI command [az role assignment create]() to set container permissions for the service principal:
+1. Use the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to set container permissions for the service principal:
 
     ```azurecli
     az role assignment create --assignee localtest-sp-rbac --role "Storage Blob Data Contributor"
@@ -274,4 +291,3 @@ Run the following command if you don't need to keep the resources created in thi
 ```azurecli
 az group delete -n PythonSDKExample-Storage-rg
 ```
-
