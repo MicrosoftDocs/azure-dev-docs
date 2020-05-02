@@ -1,7 +1,7 @@
 ---
 title: Manage local service principals for Azure development
 description: How to manage service principals created for local development by using the Azure portal or the Azure CLI.
-ms.date: 04/27/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ---
 

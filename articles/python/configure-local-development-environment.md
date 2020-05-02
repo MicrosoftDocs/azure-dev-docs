@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, then Azure SDK, and the necessary credentials for SDK authentication.
-ms.date: 04/29/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ---
 
@@ -134,19 +134,19 @@ To modify or delete service principals later on, see [How to manage service prin
 # [bash](#tab/bash)
 
 ```bash
+AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
 AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
 AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
-AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
-AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
+set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
 set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
 set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
-set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
-set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
 ```
 
 ---
