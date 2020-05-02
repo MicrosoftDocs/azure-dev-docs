@@ -54,7 +54,7 @@ When you run your code locally, `DefaultAzureCredential` automatically uses the 
 
 In both cases, the identity involved must be assigned permissions for the appropriate resource, which is describes in the documentation for the individual services. For details on Key Vault permissions, as would be needed for the previous code, see [Provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity).
 
-<a href="cli-auth-note"></a>
+<a name="cli-auth-note"></a>
 > [!IMPORTANT]
 > In the future, `DefaultAzureCredential` will use the identity signed into the Azure CLI through `az login` if service principal environment variables aren't available. If you're the owner or administrator of your subscription, the practical upshot of this feature is that your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use specific service principals and assign specific permissions when you start writing production code because you'll learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production.
 

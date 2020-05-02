@@ -180,7 +180,7 @@ The following sections show two different ways to use the Azure SDK to access th
 
 Follow the [common steps](#common-steps-for-both-methods) to try the code yourself.
 
-The first method authenticates the app with `DefaultAzureCredential` as described in [How to authentication Python apps](#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The first method authenticates the app with `DefaultAzureCredential` as described in [How to authentication Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The second method uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
