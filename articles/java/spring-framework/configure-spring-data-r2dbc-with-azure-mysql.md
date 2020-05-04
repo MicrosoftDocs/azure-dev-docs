@@ -146,7 +146,7 @@ logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:pool:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/r2dbc
 spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
-spring.r2dbc.password=$AZ_MYSQL_USERNAME
+spring.r2dbc.password=$AZ_MYSQL_PASSWORD
 ```
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
