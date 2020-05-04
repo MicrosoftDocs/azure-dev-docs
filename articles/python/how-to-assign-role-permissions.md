@@ -72,15 +72,15 @@ The scope consists of a series of identifiers separated by the / character. You 
 
 <pre>
 /subscriptions
-  /<subscription_id>
+  /&lt;subscription_id&gt;
     /resourcegroups
-      /<resource_group_name>
+      /&lt;resource_group_name&gt;
         /providers
-          /<provider_name>
-            /<resource_type>
-              /<resource_sub_type_1>
-                /<resource_sub_type_2>
-                  /<resource_name>
+          /&lt;provider_name&gt;
+            /&lt;resource_type&gt;
+              /&lt;resource_sub_type_1&gt;
+                /&lt;resource_sub_type_2&gt;
+                  /&lt;resource_name&gt;
 </pre>
 
 - `<subscription_id>` is the ID of the subscription to use (a GUID).
