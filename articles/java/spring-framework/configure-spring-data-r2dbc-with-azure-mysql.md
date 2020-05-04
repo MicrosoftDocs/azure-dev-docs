@@ -150,7 +150,7 @@ spring.r2dbc.password=$AZ_MYSQL_PASSWORD
 ```
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_MYSQL_USERNAME` variable with the value that you configured at the beginning of this article.
+- Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
