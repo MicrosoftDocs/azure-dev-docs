@@ -6,10 +6,10 @@ summary: |
 
 metadata:
   title: Azure for Python developers
-  description: Get started developing with Python and Azure for Python.
+  description: Get started developing with Python and Azure.
   author: kraigb
   ms.author: kraigb
-  ms.date: 10/11/2019
+  ms.date: 05/04/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -17,20 +17,28 @@ metadata:
   ms.devlang: python
 
 landingContent:
-  - title: Get started with the Azure SDK for Python
+  - title: Get started with Python on Azure
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Cloud development with Azure
+            url: cloud-development-azure-python.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your local dev environment
+            url: configure-local-development-environment.md
       - linkListType: overview
         links:
           - text: About the Azure SDK for Python
             url: azure-sdk-overview.md
-      - linkListType: download
-        links:
-          - text: Install the SDK
-            url: azure-sdk-install.md
       - linkListType: how-to-guide
         links:
-          - text: Authenticate your application
-            url: azure-sdk-authenticate.md
+          - text: Install SDK libraries
+            url: azure-sdk-install.md
+      - linkListType: tutorial
+        links:
+          - text: Use Azure Storage with the SDK
+            url: azure-sdk-example-storage.md
       - linkListType: reference
         links:
           - text: Azure SDK for Python API reference
