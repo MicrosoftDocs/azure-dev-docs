@@ -163,7 +163,7 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-![The running application][R2DBC-MYSQL01]
+[![The running application](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png)](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png#lightbox)
 
 ### Create the database schema
 
@@ -195,7 +195,7 @@ Use the following command to stop the application and run it again. The applicat
 
 Here's a screenshot of the database table as it's being created:
 
-   ![Creation of the database table][R2DBC-MYSQL02]
+[![Creation of the database table](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png)](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png#lightbox)
 
 ## Code the application
 
@@ -349,7 +349,7 @@ This command will return the list of "todo" items, including the item you've cre
 
 Here's a screenshot of these cURL requests:
 
-   ![Test with cURL][R2DBC-MYSQL03]
+[![Test with cURL](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png)](media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png#lightbox)
 
 Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
@@ -375,9 +375,3 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/1.0.x/reference/html/#reference).
 
 For more information about using Azure with Java, see [Azure for Java developers](/azure/developer/java/) and [Working with Azure DevOps and Java](/azure/devops/).
-
-<!-- IMG List -->
-
-[R2DBC-MYSQL01]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png
-[R2DBC-MYSQL02]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png
-[R2DBC-MYSQL03]: media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png
