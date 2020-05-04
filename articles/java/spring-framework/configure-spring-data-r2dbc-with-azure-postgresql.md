@@ -145,7 +145,7 @@ logging.level.org.springframework.data.r2dbc=DEBUG
 
 spring.r2dbc.url=r2dbc:pool:postgres://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/r2dbc
 spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
-spring.r2dbc.password=$AZ_POSTGRESQL_USERNAME
+spring.r2dbc.password=$AZ_POSTGRESQL_PASSWORD
 spring.r2dbc.properties.sslMode=REQUIRE
 ```
 
@@ -153,7 +153,7 @@ spring.r2dbc.properties.sslMode=REQUIRE
 > For security reasons, Azure Database for PostgreSQL requires to use SSL connections. This is why you need to add the `spring.r2dbc.properties.sslMode=REQUIRE` configuration property, otherwise the R2DBC PostgreSQL driver will try to connect using an insecure connection, which will fail.
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_POSTGRESQL_USERNAME` variable with the value that you configured at the beginning of this article.
+- Replace the `$AZ_POSTGRESQL_PASSWORD` variable with the value that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
