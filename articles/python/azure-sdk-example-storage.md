@@ -52,20 +52,6 @@ Be sure to create a service principal for local development, and create and acti
     LOCATION = "centralus"
 
     # Step 1: Create the resource group.
-    #
-    # Within the ResourceManagementClient is an object named resource_groups,
-    # which is of class ResourceGroupsOperations, which contains methods like
-    # create_or_update.
-    #
-    # The second parameter to create_or_update here is technically a ResourceGroup
-    # object. However, the Python SDK allows you to specify the object as inline
-    # JSON for convenience. Alternately, you can create the object inline using
-    # `ResourceGroup(location=LOCATION)``.
-    #
-    # The return value is another ResourceGroup object with all the details of the
-    # new group. In this case the call is synchronous: the resource group has been
-    # created by the time the call returns.
-
     rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
         {
             "location": LOCATION
@@ -74,17 +60,32 @@ Be sure to create a service principal for local development, and create and acti
 
     print(f"Created resource group {rg_result.name}")
 
-    # Step 2: Create the storage account
+    # Within the ResourceManagementClient is an object named resource_groups,
+    # which is of class ResourceGroupsOperations, which contains methods like
+    # create_or_update.
     #
-    # First, obtain the storage management object. This example uses the CLI
-    # profile credentials because we assume the script is being used to provision
-    # the resource in the same way the Azure CLI would be used.
+    # The second parameter to create_or_update here is technically a ResourceGroup
+    # object. However, the Python SDK allows you to specify the object as inline
+    # JSON for convenience. Alternately, you can create the object inline using
+    # `ResourceGroup(location=LOCATION)`.
+    #
+    # The return value is another ResourceGroup object with all the details of the
+    # new group. In this case the call is synchronous: the resource group has been
+    # created by the time the call returns.
+
+
+    # Step 2: Create the storage account, starting with a management object.
     storage_client = get_client_from_cli_profile(StorageManagementClient)
+
+    # This example uses the CLI profile credentials because we assume the script
+    # is being used to provision the resource in the same way the Azure CLI would be used.
+
+    STORAGE_ACCOUNT_NAME = f"pythonsdkstorage{random.randint(1,100000):05}"
 
     # You can replace the storage account here with any unique name. A random number is used
     # by default, but note that the name changes every time you run this script.
     # The name must be 3-24 lower case letters and numbers only.
-    STORAGE_ACCOUNT_NAME = f"pythonsdkstorage{random.randint(1,100000):05}"
+
 
     # Check if the account name is available. Storage account names must be unique across
     # Azure because they're used in URLs.
@@ -116,15 +117,12 @@ Be sure to create a service principal for local development, and create and acti
     conn_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={STORAGE_ACCOUNT_NAME};AccountKey={keys.keys[0].value}"
     print(f"Connection string: {conn_string}")
 
-    # Create the blob container in the account, using the management object's
-    # BlobContainersOperation.create method. The fourth argument is a required
-    # BlobContainer object, but because we don't need any special values there,
-    # so we just pass empty JSON.
-    #
-    # This create method is synchronous.
-
+    # Create the blob container in the account (this call is synchronous)
     CONTAINER_NAME = "blob-container-01"
     container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME, CONTAINER_NAME, {})
+
+    # The fourth argument is a required BlobContainer object, but because we don't need any
+    # special values there, so we just pass empty JSON.
 
     print(f"Created blob container {container.name}")
     ```
@@ -174,9 +172,9 @@ set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 az storage container create --account-name pythonsdkstorage12345 -n blob-container-01
 ```
 
-## Use resources with the client libraries
+## Use resources through the SDK client libraries
 
-The following sections show two different ways to use the Azure SDK to access the blob container provisioned in the previous section. These examples specifically upload a file blob to that container.
+The following sections show two ways to access the blob container provisioned in the previous section. These examples specifically upload a file blob to that container using the appropriate SDK client libraries.
 
 Follow the [common steps](#common-steps-for-both-methods) to try the code yourself.
 
@@ -210,7 +208,7 @@ For these reasons, production code should use the authentication method. For exp
 
     ![Azure portal page for the blob container, showing the uploaded file](media/azure-sdk-example-storage/portal-blob-container-file.png)
 
-### Authentication method
+### Use blob storage with authentication
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -248,14 +246,17 @@ For these reasons, production code should use the authentication method. For exp
     # [bash](#tab/bash)
 
     ```azurecli
-    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" \
+    az role assignment create --assignee $AZURE_CLIENT_ID \
+        --role "Storage Blob Data Contributor" \
         --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     # [Cmd](#tab/cmd)
 
     ```azurecli
-    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
+    az role assignment create --assignee %AZURE_CLIENT_ID% ^
+        --role "Storage Blob Data Contributor" ^
+        --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     ---
@@ -266,42 +267,11 @@ For these reasons, production code should use the authentication method. For exp
 
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
 
-    By shortening the scope string, you can grant wider permissions to the service principal:
-
-    # [bash](#tab/bash)
-
-    ```azurecli
-    # Grant permissions to all blob containers in the storage account (omit /blobServices/... )
-    az role assignment create --assignee %AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage76694"
-
-    # Grant permissions to all blob containers in the resource group (omit /providers/...)
-    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg"
-
-    # (Alternate) Grant permissions to all blob containers in the resource group (use --group instead)
-    az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --group PythonSDKExample-Storage-rg
-    ```
-
-    # [Cmd](#tab/cmd)
-
-    ```azurecli
-    # Grant permissions to all blob containers in the storage account (omit /blobServices/...)
-    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage76694"
-
-    # Grant permissions to all blob containers in the resource group (omit /providers/...)
-    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg"
-
-    # (Alternate) Grant permissions to all blob containers in the resource group (use --group instead)
-    az role assignment create --assignee %AZURE_CLIENT_ID% --role "Storage Blob Data Contributor" --group PythonSDKExample-Storage-rg
-    ```
-
-    ---
-
 1. Run the code again to verify that it now works.
 
-> [!NOTE]
-> If you experiment by removing the permission and re-running the code, you may find that the code still succeeds because it takes a minute for the permission change to propagate fully. Run the code again after a minute or two and you should see the proper behavior of the permissions.
+For more information on scopes and role assignments, see [How to assign role permissions](how-to-assign-role-permissions.md).
 
-## Connection string method
+### Use blob storage with a connection string
 
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
@@ -333,8 +303,8 @@ Again, although this method is simple, a connection string authorizes all operat
 
 ## Clean up resources
 
-Run the following command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription:
-
 ```azurecli
 az group delete -n PythonSDKExample-Storage-rg
 ```
+
+Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription:
