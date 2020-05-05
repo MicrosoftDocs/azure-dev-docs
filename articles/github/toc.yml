@@ -1,58 +1,57 @@
-- name: GitHub Actions for Azure
-  items:
-  - name: GitHub Actions for Azure Marketplace
-    href: https://github.com/marketplace?query=Azure&type=actions
-  - name: Learning Lab, Continuous Delivery with Azure
-    href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
-  - name: Starter Action Workflows to deploy to Azure
-    href: https://github.com/Azure/actions-workflow-samples
-  - name: Deploy to Azure using GitHub
-    href: github-actions.md
+
+- name: Deploy to Azure using GitHub
+  href: github-actions.md
+- name: GitHub Actions for Azure Marketplace >>
+  href: https://github.com/marketplace?query=Azure&type=actions
+- name: Learning Lab, Continuous Delivery with Azure >> 
+  href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
+- name: Starter Action Workflows to deploy to Azure >>
+  href: https://github.com/Azure/actions-workflow-samples
 - name: Azure Web Apps
   items:
   - name: Deploy apps continuously from GitHub to Azure Web Apps
-    href: /azure/app-service/deploy-continuous-deployment 
+    href: ttps://docs.microsoft.com/azure/app-service/deploy-continuous-deployment?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   - name: Deploy to Azure Web Apps using GitHub Actions
-    href: /azure/app-service/deploy-github-actions
+    href: ttps://docs.microsoft.com/azure/app-service/deploy-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
 - name: Azure Functions
   items:
   - name: Deploy a function app continuously from GitHub
-    href: https://docs.microsoft.com/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous 
+    href: https://docs.microsoft.com/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
   - name: Deploy to Azure Functions using GitHub Actions
-    href: https://docs.microsoft.com/azure/azure-functions/functions-how-to-github-actions
+    href: https://docs.microsoft.com/azure/azure-functions/functions-how-to-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
 - name: Azure Kubernetes Service
   items:
   - name: Use GitHub Actions to deploy to Kubernetes
-    href: https://docs.microsoft.com/azure/aks/kubernetes-action
+    href: https://docs.microsoft.com/azure/aks/kubernetes-action?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   - name: Deploy to Azure Dev Spaces using GitHub Actions
-    href: https://docs.microsoft.com/azure/dev-spaces/how-to/github-actions 
+    href: https://docs.microsoft.com/azure/dev-spaces/how-to/github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
 - name: Azure DevOps integration
   items: 
   - name: Connect Azure Boards with GitHub 
     href: https://docs.microsoft.com/azure/devops/boards/github 
   - name: Link Azure Boards work items to GitHub commits, pull requests and issues
-    href: https://docs.microsoft.com/azure/devops/boards/github/link-to-from-github
+    href: https://docs.microsoft.com/azure/devops/boards/github/link-to-from-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   - name: Use Azure Pipelines to build GitHub repositories
-    href: https://docs.microsoft.com/azure/devops/pipelines/repos/github
+    href: https://docs.microsoft.com/azure/devops/pipelines/repos/github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   - name: Create a GitHub Release from Azure Pipelines 
-    href: https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/github-release
+    href: https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/github-release?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
 - name: Visual Studio Code
   items:
-  - name: GitHub extension for Visual Studio Code 
-    href: https://vscode.github.com/ 
   - name: Deploy to Azure App Service using Visual Studio Code 
-    href: https://docs.microsoft.com/azure/devops/pipelines/targets/deploy-to-azure-vscode
+    href: https://docs.microsoft.com/azure/devops/pipelines/targets/deploy-to-azure-vscode?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
+  - name: GitHub extension for Visual Studio Code >>
+    href: https://vscode.github.com/ 
 - name: Visual Studio 
   items:
-  - name: GitHub extension for Visual Studio  
-    href: https://visualstudio.github.com/ 
   - name: Visual Studio subscription with GitHub offer
-    href: https://docs.microsoft.com/visualstudio/subscriptions/access-github 
+    href: https://docs.microsoft.com/visualstudio/subscriptions/access-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
+  - name: GitHub extension for Visual Studio >>
+    href: https://visualstudio.github.com/ 
 - name: Sign in to GitHub Enterprise with Azure AD (single sign-on)
-  href: https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial 
+  href: https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
 - name: Connect Power BI with GitHub
   href: https://docs.microsoft.com/power-bi/service-connect-to-github 
 - name: GitHub connector for Azure Logic Apps, Power Automate and Power Apps
-  href: /connectors/github/  
+  href: https://docs.microsoft.com/connectors/github/?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json   
 - name: Use GitHub as version control for notebooks
-  href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control
+  href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 

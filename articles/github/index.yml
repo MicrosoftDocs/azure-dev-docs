@@ -29,7 +29,7 @@ landingContent:
           - text: Starter Action Workflows to deploy to Azure
             url: https://github.com/Azure/actions-workflow-samples
           - text: Deploy to Azure using GitHub actions
-            url: ./github-actions/index.yml 
+            url: github-actions.md
   # Card (optional)
   - title: Azure Web Apps
     linkLists:
