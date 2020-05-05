@@ -63,7 +63,7 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 - [Azure Web App](https://github.com/Azure/webapps-deploy)  
 - [Azure Web App for Containers](https://github.com/Azure/webapps-container-deploy)  
 - [Azure App Service settings](https://github.com/Azure/appservice-settings)  
-- 
+
 ## Deploy a serverless app
 
 - [Azure Functions](https://github.com/Azure/functions-action)  
