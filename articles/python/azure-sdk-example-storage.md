@@ -1,7 +1,7 @@
 ---
 title: Example of using the Azure SDK with Azure Storage
 description: Example of working with Azure Storage using Python and both the Azure SDK management libraries and Azure SDK client libraries
-ms.date: 05/01/2020
+ms.date: 05/05/2020
 ms.topic: conceptual
 ---
 
@@ -9,27 +9,31 @@ ms.topic: conceptual
 
 In this article, you learn how to use the Azure SDK management libraries in a Python script to create a resource group that contains and Azure Storage account and a Blob storage container. You then learn how to use the Azure SDK client libraries in Python application code to upload a file to that Blob storage container.
 
-All the commands in this article work the same in Linux/Mac OS bash and Windows command shells.
+All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
-## Set up your local development environment
+## 1: Set up your local development environment
 
 If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
-## Provision resources with the management libraries
+## 2: Install the needed management libraries
 
-1. In your terminal with the virtual environment activated, install the management library for resource groups:
+1. Create a *requirements.txt* file that lists the management libraries used in this example:
 
-    ```bash
-    pip install azure-mgmt-resource
+    ```txt
+    azure-mgmt-resource
+    azure-mgmt-storage
+    azure-cli-core
     ```
 
-1. Install the management library for Azure Storage:
+1. In your terminal with the virtual environment activated, install the requirements:
 
     ```bash
-    pip install azure-mgmt-storage
+    pip install -r requirements.txt
     ```
+
+## 3: Provision resources with the management libraries
 
 1. Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
 
@@ -53,26 +57,12 @@ Be sure to create a service principal for local development, and create and acti
 
     # Step 1: Create the resource group.
     rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
-        {
-            "location": LOCATION
-        }
-    )
+        { "location": LOCATION })
 
     print(f"Created resource group {rg_result.name}")
 
-    # Within the ResourceManagementClient is an object named resource_groups,
-    # which is of class ResourceGroupsOperations, which contains methods like
-    # create_or_update.
-    #
-    # The second parameter to create_or_update here is technically a ResourceGroup
-    # object. However, the Python SDK allows you to specify the object as inline
-    # JSON for convenience. Alternately, you can create the object inline using
-    # `ResourceGroup(location=LOCATION)`.
-    #
-    # The return value is another ResourceGroup object with all the details of the
-    # new group. In this case the call is synchronous: the resource group has been
-    # created by the time the call returns.
-
+    # For details the previous code, see Example: Create a resource group
+    # at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
 
     # Step 2: Create the storage account, starting with a management object.
     storage_client = get_client_from_cli_profile(StorageManagementClient)
@@ -137,6 +127,8 @@ Be sure to create a service principal for local development, and create and acti
     python provision_blob.py
     ```
 
+    The script will take a minute or two to complete.
+
 1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to select **Show hidden types** in the resource group to see a storage account provisioned from a Python script:
 
     ![Azure portal page for the new resource group, showing the storage account](media/azure-sdk-example-storage/portal-show-hidden-types.png)
@@ -145,7 +137,7 @@ Be sure to create a service principal for local development, and create and acti
 
     ![Azure portal page for the storage account showing the blob container](media/azure-sdk-example-storage/portal-show-blob-containers.png)
 
-For an additional example using Azure Storage, see the [Manage Python Storage sample](https://docs.microsoft.com/samples/azure-samples/storage-python-manage/storage-python-manage/).
+For an additional example using the Azure Storage management library, see the [Manage Python Storage sample](https://docs.microsoft.com/samples/azure-samples/storage-python-manage/storage-python-manage/).
 
 ### For reference: equivalent Azure CLI commands
 
@@ -166,13 +158,13 @@ az storage account show-connection-string -g PythonSDKExample-Storage-rg -n pyth
 
 # Create the blob container; NOTE: this command assumes you have an environment variable
 # named AZURE_STORAGE_CONNECTION_STRING with the connection string for the storage account.
+# Drop "set " for the Linux command.
 
 set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-
 az storage container create --account-name pythonsdkstorage12345 -n blob-container-01
 ```
 
-## Use resources through the SDK client libraries
+## 4: Use resources through the SDK client libraries
 
 The following sections show two ways to access the blob container provisioned in the previous section. These examples specifically upload a file blob to that container using the appropriate SDK client libraries.
 
@@ -190,10 +182,17 @@ For these reasons, production code should use the authentication method. For exp
 
 ### Common steps for both methods
 
-1. In your terminal with the virtual environment activated, install the management library for resource groups:
+1. In your *requirements.txt* file, add line for the needed client libraries and save the file:
+
+    ```text
+    azure-storage-blob
+    azure-identity
+    ```
+
+1. In your terminal or command prompt, reinstall requirements:
 
     ```bash
-    pip install azure-storage-blob
+    pip install -r requirements.txt
     ```
 
 1. Create a source file named *sample-source.txt* (as the code expects), with contents like the following:
@@ -202,13 +201,25 @@ For these reasons, production code should use the authentication method. For exp
     Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.
     ```
 
-1. Follow the steps for a specific method in the sections that follow.
-
-1. After running the code, go to the [Azure portal](https://portal.azure.com), navigate into the blob container to verify that a new blob exists named *sample-blob.txt* with the same contents as the *sample-source.txt* file:
-
-    ![Azure portal page for the blob container, showing the uploaded file](media/azure-sdk-example-storage/portal-blob-container-file.png)
-
 ### Use blob storage with authentication
+
+1. Create an environment variable named `AZURE_STORAGE_BLOB_URL`:
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_STORAGE_BLOB_URL=https://pythonsdkstorage12345.blob.core.windows.net
+    ```
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_STORAGE_BLOB_URL=https://pythonsdkstorage12345.blob.core.windows.net
+    ```
+
+    ---
+
+    Replace "pythonsdkstorage12345" with the name of your specific storage account.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -251,7 +262,7 @@ For these reasons, production code should use the authentication method. For exp
         --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
     ```
 
-    # [Cmd](#tab/cmd)
+    # [cmd](#tab/cmd)
 
     ```azurecli
     az role assignment create --assignee %AZURE_CLIENT_ID% ^
@@ -263,11 +274,11 @@ For these reasons, production code should use the authentication method. For exp
 
     The `--scope` argument in this command use the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal.
 
-    Also replace `pythonsdkstorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary.
+    Also replace `pythonsdkstorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonsdkstorage12345' not found."
 
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
 
-1. Run the code again to verify that it now works.
+1. Run the code again to verify that it now works. If you see the permissions error again, wait a minute for the permissions to propagate, then try the code again.
 
 For more information on scopes and role assignments, see [How to assign role permissions](how-to-assign-role-permissions.md).
 
@@ -301,10 +312,16 @@ For more information on scopes and role assignments, see [How to assign role per
 
 Again, although this method is simple, a connection string authorizes all operations in a storage account. With production code it's better to use specific permissions as described in the previous section.
 
-## Clean up resources
+### Verify blob creation
+
+After running the code of either method, go to the [Azure portal](https://portal.azure.com), navigate into the blob container to verify that a new blob exists named *sample-blob.txt* with the same contents as the *sample-source.txt* file:
+
+![Azure portal page for the blob container, showing the uploaded file](media/azure-sdk-example-storage/portal-blob-container-file.png)
+
+## 5: Clean up resources
 
 ```azurecli
 az group delete -n PythonSDKExample-Storage-rg
 ```
 
-Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription:
+Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription.

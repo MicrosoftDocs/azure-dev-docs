@@ -61,6 +61,89 @@ The SDK's *client* (or "data plane") libraries help you write Python application
 
 For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
 
+## Inline JSON pattern for object arguments
+
+Many operations within the Azure SDK support a common pattern that allows you to express object arguments as discrete objects or as inline JSON.
+
+For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.resourcemanagementclient?view=azure-python) object through which you create a resource group with its [`create_or_update`](/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#create-or-update-resource-group-name--parameters--custom-headers-none--raw-false----operation-config-)) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.models.resourcegroup?view=azure-python).
+
+To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
+
+```python
+rg_result = resource_client.resource_groups.create_or_update(
+    "PythonSDKExample-rg",
+    ResourceGroup(location="centralus")
+)
+```
+
+Alternately, you can pass the same parameters as inline JSON:
+
+```python
+rg_result = resource_client.resource_groups.create_or_update(
+    "PythonSDKExample-rg",
+    {
+      "location": "centralus"
+    }
+)
+```
+
+When using JSON, the SDK automatically converts the inline JSON to the appropriate object type for the argument in question.
+
+Objects can also have nested object arguments, in which case you can also use nested JSON.
+
+For example, suppose you have an instance of the [`KeyVaultManagementClient`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.keyvaultmanagementclient?view=azure-python) object, and are calling its [`create_or_update`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.operations.vaultsoperations?view=azure-python#create-or-update-resource-group-name--vault-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) method. In this case, the third argument is of type [`VaultCreateOrUpdateParameters`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultcreateorupdateparameters?view=azure-python), which itself contains an argument of type [`VaultProperties`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultproperties?view=azure-python). `VaultProperties`, in turn, contains object arguments of type [`Sku`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.sku?view=azure-python) and [`list[AccessPolicyEntry`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.accesspolicyentry?view=azure-python). A `Sku` contains a [`SkuName`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.skuname?view=azure-python) object, and each `AccessPolicyEntry` contains a [`Permissions`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.permissions?view=azure-python) object.
+
+To call `create_or_update` with embedded objects uses code like the following (assuming `tenant_id` and `object_id` are already defined):
+
+```python
+operation = keyvault_client.vaults.create_or_update(
+    "PythonSDKExample-rg",
+    "keyvault01",
+    VaultCreateOrUpdateParameters(
+        location="centralus",
+        properties=VaultProperties(
+            tenant_id=tenant_id,
+            sku=Sku(name="standard"),
+            access_policies=[
+                AccessPolicyEntry(
+                    tenant_id=tenant_id,
+                    object_id=object_id,
+                    permissions=Permissions(keys=['all'], secrets=['all'])
+                )
+            ]
+        )
+    )
+)
+```
+
+The same call using inline JSON appears as follows:
+
+```python
+operation = keyvault_client.vaults.create_or_update(
+    "PythonSDKExample-rg",
+    "keyvault01",
+    {
+        'location': 'centralus',
+        'properties': {
+            'sku': {
+                'name': 'standard'
+            },
+            'tenant_id': tenant_id,
+            'access_policies': [{
+                'object_id': object_id,
+                'tenant_id': tenant_id,
+                'permissions': {
+                    'keys': ['all'],
+                    'secrets': ['all']
+                }
+            }]
+        }
+    }
+)
+```
+
+Because both forms are entirely equivalent, you can either whichever you prefer and even intermix them.
+
 ## Next step
 
 > [!div class="nextstepaction"]

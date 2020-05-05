@@ -117,11 +117,11 @@ az role assignment create --assignee $AZURE_CLIENT_ID% \
     --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
 ```
 
-# [Cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
 ```azurecli
-az role assignment create --assignee %AZURE_CLIENT_ID%^
-    --role "Storage Blob Data Contributor"^
+az role assignment create --assignee %AZURE_CLIENT_ID% ^
+    --role "Storage Blob Data Contributor" ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
 ```
 
@@ -137,11 +137,11 @@ az role assignment create --assignee %AZURE_CLIENT_ID \
     --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345"
 ```
 
-# [Cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
 ```azurecli
-az role assignment create --assignee %AZURE_CLIENT_ID%^
-    --role "Storage Blob Data Contributor"^
+az role assignment create --assignee %AZURE_CLIENT_ID% ^
+    --role "Storage Blob Data Contributor" ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345"
 ```
 
@@ -152,7 +152,9 @@ az role assignment create --assignee %AZURE_CLIENT_ID%^
 # [bash](#tab/bash)
 
 ```azurecli
-az role assignment create --assignee $AZURE_CLIENT_ID --role "Storage Blob Data Contributor" --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg"
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg"
 ```
 
 Alternately, you can just specify the resource group with the `--resource-group` parameter:
@@ -163,7 +165,7 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
     --resource-group "PythonSDKExample-Storage-rg"
 ```
 
-# [Cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
 ```azurecli
 az role assignment create --assignee %AZURE_CLIENT_ID% ^
@@ -191,7 +193,7 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
     --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID"
 ```
 
-# [Cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
 ```azurecli
 az role assignment create --assignee %AZURE_CLIENT_ID% ^
@@ -200,4 +202,3 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
 ```
 
 ---
-

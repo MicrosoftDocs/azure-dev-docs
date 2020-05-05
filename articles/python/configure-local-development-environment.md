@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, then Azure SDK, and the necessary credentials for SDK authentication.
-ms.date: 05/01/2020
+ms.date: 05/05/2020
 ms.topic: conceptual
 ---
 
@@ -140,7 +140,7 @@ AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
 AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
 ```
 
-# [Cmd](#tab/cmd)
+# [cmd](#tab/cmd)
 
 ```cmd
 set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
@@ -173,7 +173,7 @@ For every project, we recommend that you always create and activate a *virtual e
     python -m venv .venv
     ```
 
-    # [Cmd](#tab/cmd)
+    # [cmd](#tab/cmd)
 
     ```bash
     python -m venv .venv
@@ -191,7 +191,7 @@ For every project, we recommend that you always create and activate a *virtual e
     source .venv/scripts/activate
     ```
 
-    # [Cmd](#tab/cmd)
+    # [cmd](#tab/cmd)
 
     ```bash
     .venv\scripts\activate
@@ -199,7 +199,7 @@ For every project, we recommend that you always create and activate a *virtual e
 
     ---
 
-A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment, running `pip install` installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run `pip freeze`, you get the exact list of the those libraries.
+A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment, running `pip install` installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run `pip freeze`, you get the exact list of the those libraries. (In many of the examples in this documentation, you create a *requirements.txt* file for the libraries you need, then use `pip install -r requirements.txt`. A requirements file is generally needed when you deploy code to Azure.)
 
 If you don't use a virtual environment, then Python run in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break others projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
 

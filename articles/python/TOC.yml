@@ -10,6 +10,8 @@
       href: azure-sdk-overview.md
     - name: Install SDK libraries
       href: azure-sdk-install.md   
+    - name: "Example: Create a resource group"
+      href: azure-sdk-example-resource-group.md
     - name: "Example: Use Azure storage"
       href: azure-sdk-example-storage.md
 - name: Get started with Azure services

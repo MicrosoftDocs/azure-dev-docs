@@ -146,7 +146,7 @@ In this method, you create a JSON file that contains the necessary credentials f
     AZURE_AUTH_LOCATION="../credentials.json"
     ```
 
-    # [Cmd](#tab/cmd)
+    # [cmd](#tab/cmd)
 
     ```cmd
     set AZURE_AUTH_LOCATION=../credentials.json
