@@ -137,7 +137,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 ### Add your Azure Service Principal credential in Jenkins credential store
 
-1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
+1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
 
     ```
     {

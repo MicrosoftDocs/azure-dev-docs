@@ -23,7 +23,7 @@ This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create Jenkins instance
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](/azure/virtual-machines/linux/tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](/azure/virtual-machines/linux/tutorial-automate-vm-deployment), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
 In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -148,8 +148,8 @@ To have Jenkins respond to an event in GitHub such as committing code, create a 
 In your Jenkins website, select **Create new jobs** from the home page:
 
 - Enter *HelloWorld* as job name. Choose **Freestyle project**, then select **OK**.
-- Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/cynthn/nodejs-docs-hello-world*
-- Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/cynthn/nodejs-docs-hello-world.git*
+- Under the **General** section, select **GitHub project** and enter your forked repo URL, such as `https://github.com/cynthn/nodejs-docs-hello-world`
+- Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as `https://github.com/cynthn/nodejs-docs-hello-world.git`
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
 - Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Test"` in the command window.
 - Select **Save** at the bottom of the jobs window.
