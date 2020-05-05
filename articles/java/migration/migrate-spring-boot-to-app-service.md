@@ -32,8 +32,6 @@ Identify external resources, such as data sources, JMS message brokers, and URLs
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
-#### JMS Message Brokers
-
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
 Once you've identified the broker or brokers in use, find the corresponding settings, which are typically in the *application.properties* and *application.yml* files for Spring Boot.

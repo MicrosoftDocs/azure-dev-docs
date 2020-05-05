@@ -45,13 +45,23 @@ If you're using a 1.x version of Spring Boot, we highly recommend that you upgra
 
 If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application can still access the database after you migrate to AKS. If your database is on-premise, you'll need to either migrate it to the cloud, or establish connectivity to your on-premise database.
 
+### Identify log aggregation solutions
+
+Identify any log aggregation solutions in use by the applications you are migrating.
+
+### Identify application performance management (APM) agents
+
+Identify any application performance monitoring agents in use with your applications (such as Dynatrace and Datadog). In place of such agents, Azure Spring Cloud offers deep integration with Azure Monitor for performance management and real-time response to aberrations. For more information, see [Post-migration](#post-migration).
+
+### Identify Zipkin dependencies
+
+Determine whether your application has explicit dependencies on Zipkin. Look for dependencies on the `io.zipkin.java` group in your Maven or Gradle dependencies.
+
 ### Inventory external resources
 
-Identify external resources, such as data sources, JMS message brokers, and URLs of other services.
+Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in the *src/main/directory* folder, in a file typically called *application.properties* or *application.yml*.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
-
-#### JMS message brokers
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
@@ -60,6 +70,13 @@ After you've identified the broker or brokers in use, find the corresponding set
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
 [!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
+
+#### Identity providers
+
+Identify all identity providers and all Spring Boot applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
+
+* For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
+* For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
 #### Resources configured through Pivotal Cloud Foundry (PCF)
 
@@ -78,6 +95,10 @@ cf env <Application Name>
 ```
 
 Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
+
+[!INCLUDE [inventory-configuration-sources-and-secrets](includes\inventory-configuration-sources-and-secrets.md)]
+
+[!INCLUDE [inspect-the-deployment-architecture](includes\inspect-the-deployment-architecture.md)]
 
 ### In-place testing
 
@@ -174,6 +195,36 @@ Create and apply your Kubernetes YAML file(s). For more information, see [Quicks
 Include externalized parameters as environment variables. For more information, see [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/).
 
 Be sure to include memory and CPU settings when creating your deployment YAML so your containers are properly sized.
+
+### Ensure console logging and configure diagnostic settings
+
+<!-- TODO Update the next two paragraphs to make them applicable to Spring Boot on AKS as opposed to Azure Spring Cloud. -->
+
+Configure your logging so that all applications in Azure Spring Cloud log to the console and not to files.
+
+After an application is deployed to Azure Spring Cloud, [add a diagnostic setting](/azure/spring-cloud/diagnostic-services) to make logged events available for consumption, for example via Azure Monitor Log Analytics.
+
+#### LogStash/ELK Stack
+
+If you use LogStash/ELK Stack for log aggregation, configure the diagnostic setting to stream the console output to an [Azure Event Hub](/azure/event-hubs/). Then, use the [LogStash EventHub plugin](https://github.com/logstash-plugins/logstash-input-azure_event_hubs) to ingest logged events into LogStash.
+
+#### Splunk
+
+If you use Splunk for log aggregation, configure the diagnostic setting to stream the console output to [Azure Blob Storage](/azure/storage/blobs/). Then, use the [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3757/) to ingest logged events into Splunk.
+
+### Migrate all certificates to KeyVault
+
+<!-- TODO: Update to change wording for Spring Boot on AKS vs. Azure Spring Cloud. -->
+
+Azure Spring Cloud doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
+
+### Migrate and enable the identity provider
+
+If any of the Spring Boot applications require authentication or authorization, ensure they're configured to access the identity provider:
+
+* If the identity provider is Azure Active Directory, no changes should be necessary.
+* If the identity provider is an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure Active Directory. For guidance, see the [Hybrid identity documentation](/azure/active-directory/hybrid/).
+* If the identity provider is another on-premises solution, such as PingFederate, consult the [Custom installation of Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-install-custom) topic to configure federation with Azure Active Directory. Alternatively, consider using Spring Security to use your identity provider through [OAuth2/OpenID Connect](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2) or [SAML](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2).
 
 ### Configure persistent storage
 
