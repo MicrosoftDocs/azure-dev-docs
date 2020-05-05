@@ -42,15 +42,5 @@
   href: https://docs.microsoft.com/connectors/github/?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json   
 - name: Use GitHub as version control for notebooks
   href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-- name: Resources 
-  items:
-  - name: GitHub extension for Visual Studio
-    href: https://visualstudio.github.com/
-  - name: GitHub extension for Visual Studio Code
-    href: https://vscode.github.com/ 
-  - name: GitHub Actions for Azure Marketplace 
-    href: https://github.com/marketplace?query=Azure&type=actions
-  - name: Learning Lab, Continuous Delivery with Azure  
-    href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
-  - name: Starter Action Workflows to deploy to Azure
-    href: https://github.com/Azure/actions-workflow-samples
+- name: External resources 
+  href: external-resources.md

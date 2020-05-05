@@ -3,5 +3,5 @@
   topicHref: /azure/developer/index
   items: 
   - name: Azure and GitHub working together
-    tocHref: /azure/developer/articles/github/
+    tocHref: /azure/developer/articles/github/ 
     topicHref: /azure/developer/articles/github/index 
