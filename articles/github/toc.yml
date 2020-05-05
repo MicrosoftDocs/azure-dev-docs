@@ -4,9 +4,9 @@
 - name: Azure Web Apps
   items:
   - name: Deploy apps continuously from GitHub to Azure Web Apps
-    href: ttps://docs.microsoft.com/azure/app-service/deploy-continuous-deployment?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
+    href: https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   - name: Deploy to Azure Web Apps using GitHub Actions
-    href: ttps://docs.microsoft.com/azure/app-service/deploy-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
+    href: https://docs.microsoft.com/azure/app-service/deploy-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
 - name: Azure Functions
   items:
   - name: Deploy a function app continuously from GitHub
