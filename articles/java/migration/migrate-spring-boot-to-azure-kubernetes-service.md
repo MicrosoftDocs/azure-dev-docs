@@ -198,11 +198,9 @@ Be sure to include memory and CPU settings when creating your deployment YAML so
 
 ### Ensure console logging and configure diagnostic settings
 
-<!-- TODO Update the next two paragraphs to make them applicable to Spring Boot on AKS as opposed to Azure Spring Cloud. -->
+Configure your logging so that all applications log to the console and not to files.
 
-Configure your logging so that all applications in Azure Spring Cloud log to the console and not to files.
-
-After an application is deployed to Azure Spring Cloud, [add a diagnostic setting](/azure/spring-cloud/diagnostic-services) to make logged events available for consumption, for example via Azure Monitor Log Analytics.
+After an application is deployed to Azure Kubernetes Service, you can see the logs by using `kubectl`.
 
 #### LogStash/ELK Stack
 
@@ -211,12 +209,6 @@ If you use LogStash/ELK Stack for log aggregation, configure the diagnostic sett
 #### Splunk
 
 If you use Splunk for log aggregation, configure the diagnostic setting to stream the console output to [Azure Blob Storage](/azure/storage/blobs/). Then, use the [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3757/) to ingest logged events into Splunk.
-
-### Migrate all certificates to KeyVault
-
-<!-- TODO: Update to change wording for Spring Boot on AKS vs. Azure Spring Cloud. -->
-
-Azure Spring Cloud doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
 
 ### Migrate and enable the identity provider
 
