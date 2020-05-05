@@ -1,0 +1,117 @@
+title: GitHub and Azure working together 
+summary: Learn how GitHub and Azure work  
+
+metadata:
+  title: GitHub and Azure working together
+  description: Learn how GitHub and Azure work together to let you build and deploy apps. 
+  ms.prod: actions 
+  ms.topic: landing-page 
+  author: KathrynEE 
+  ms.author: kaelli 
+  ms.date: 05/05/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: GitHub Actions for Azure
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: GitHub Actions for Azure Marketplace
+            url: https://github.com/marketplace?query=Azure&type=actions
+          - text: Learning Lab, Continuous Delivery with Azure
+            url: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
+          - text: Starter Action Workflows to deploy to Azure
+            url: https://github.com/Azure/actions-workflow-samples
+          - text: Deploy to Azure using GitHub actions
+            url: ./github-actions/index.yml 
+  # Card (optional)
+  - title: Azure Web Apps
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Deploy apps continuously from GitHub to Azure Web Apps
+            url: https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment 
+          - text: Deploy to Azure Web Apps using GitHub Actions
+            url: https://docs.microsoft.com/azure/app-service/deploy-github-actions
+  # Card (optional)
+  - title: Azure Functions
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Deploy a function app continuously from GitHub
+            url: https://docs.microsoft.com/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous 
+          - text: Deploy to Azure Functions using GitHub Actions
+            url: https://docs.microsoft.com/azure/azure-functions/functions-how-to-github-actions
+  # Card (optional)
+  - title: Azure Kubernetes Service
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Use GitHub Actions to deploy to Kubernetes
+            url: https://docs.microsoft.com/azure/aks/kubernetes-action
+          - text: Deploy to Azure Dev Spaces using GitHub Actions
+            url: https://docs.microsoft.com//azure/dev-spaces/how-to/github-actions 
+  # Card (optional)
+  - title: Azure DevOps integration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect Azure Boards with GitHub 
+            url: /azure/devops/boards/github 
+          - text: Link Azure Boards work items to GitHub commits, pull requests and issues
+            url: /azure/devops/boards/github/link-to-from-github
+          - text: Use Azure Pipelines to build GitHub repositories
+            url: /azure/devops/pipelines/repos/github
+          - text: Create a GitHub Release from Azure Pipelines 
+            url: /azure/devops/pipelines/tasks/utility/github-release
+  # Card
+  - title: Visual Studio Code
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: GitHub extension for Visual Studio Code 
+            url: https://vscode.github.com/ 
+          - text: Deploy to Azure App Service using Visual Studio Code 
+            url: /azure/devops/pipelines/targets/deploy-to-azure-vscode
+  # Card
+  - title: Visual Studio 
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: GitHub extension for Visual Studio  
+            url: https://visualstudio.github.com/ 
+          - text: Visual Studio subscription with GitHub offer
+            url: https://docs.microsoft.com/visualstudio/subscriptions/access-github 
+  # Card
+  - title: Azure Active Directory 
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Sign in to GitHub Enterprise with Azure AD (single sign-on)
+            url: https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial 
+  # Card
+  - title: Power BI
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect Power BI with GitHub
+            url: https://docs.microsoft.com/power-bi/service-connect-to-github 
+  # Card
+  - title: Connectors
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: GitHub connector for Azure Logic Apps, Power Automate and Power Apps
+            url: https://docs.microsoft.com/connectors/github/  
+  # Card
+  - title: Azure Databricks
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Use GitHub as version control for notebooks
+            url: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control
+
