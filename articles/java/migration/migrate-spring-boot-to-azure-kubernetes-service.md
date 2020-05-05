@@ -37,9 +37,7 @@ Any usage of the file system by your Spring Boot application will require reconf
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
-### Upgrade to the latest version of Spring Boot
-
-If you're using a 1.x version of Spring Boot, we highly recommend that you upgrade to the latest version before migrating to AKS. For more information, see [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
+[!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
 ### Review your database properties
 

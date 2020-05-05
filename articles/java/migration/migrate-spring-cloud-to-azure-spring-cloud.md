@@ -45,7 +45,7 @@ If your application allows for static content that is uploaded/produced by your 
 
 [!INCLUDE [switch-to-a-supported-platform-azure-spring-cloud](includes/switch-to-a-supported-platform-azure-spring-cloud.md)]
 
-[!INCLUDE [identify-spring-boot-versions-azure-spring-cloud](includes/identify-spring-boot-versions-azure-spring-cloud.md)]
+[!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
 #### Identify Spring Cloud versions
 
