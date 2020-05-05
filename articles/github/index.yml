@@ -22,12 +22,6 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: GitHub Actions for Azure Marketplace
-            url: https://github.com/marketplace?query=Azure&type=actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-          - text: Learning Lab, Continuous Delivery with Azure
-            url: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-          - text: Starter Action Workflows to deploy to Azure
-            url: https://github.com/Azure/actions-workflow-samples?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
           - text: Deploy to Azure using GitHub actions
             url: github-actions.md
   # Card (optional)
@@ -71,23 +65,14 @@ landingContent:
           - text: Create a GitHub Release from Azure Pipelines 
             url: /azure/devops/pipelines/tasks/utility/github-release?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
   # Card
-  - title: Visual Studio Code
+  - title: Visual Studio and Visual Studio Code
     linkLists:
       - linkListType: get-started
         links:
           - text: Deploy to Azure App Service using Visual Studio Code 
             url: /azure/devops/pipelines/targets/deploy-to-azure-vscode?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-          - text: GitHub extension for Visual Studio Code 
-            url: https://vscode.github.com/ 
-  # Card
-  - title: Visual Studio 
-    linkLists:
-      - linkListType: get-started
-        links:
           - text: Visual Studio subscription with GitHub offer
             url: https://docs.microsoft.com/visualstudio/subscriptions/access-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-          - text: GitHub extension for Visual Studio  
-            url: https://visualstudio.github.com/ 
   # Card
   - title: Azure Active Directory 
     linkLists:
