@@ -127,9 +127,9 @@ Examine the `VCAP_SERVICES` for configuration settings of external services boun
 
 It isn't feasible for this guide to document every possible external dependency. After the migration, it's your responsibility to verify that you can satisfy every external dependency of your application.
 
-[!INCLUDE [inventory-configuration-sources-and-secrets](includes\inventory-configuration-sources-and-secrets.md)]
+[!INCLUDE [inventory-configuration-sources-and-secrets](includes/inventory-configuration-sources-and-secrets.md)]
 
-[!INCLUDE [inspect-the-deployment-architecture](includes\inspect-the-deployment-architecture.md)]
+[!INCLUDE [inspect-the-deployment-architecture](includes/inspect-the-deployment-architecture.md)]
 
 ## Migration
 
