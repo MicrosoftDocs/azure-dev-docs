@@ -33,13 +33,13 @@
   items:
   - name: Deploy to Azure App Service using Visual Studio Code 
     href: https://docs.microsoft.com/azure/devops/pipelines/targets/deploy-to-azure-vscode?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: GitHub extension for Visual Studio Code >>
+  - name: GitHub extension for Visual Studio Code
     href: https://vscode.github.com/ 
 - name: Visual Studio 
   items:
   - name: Visual Studio subscription with GitHub offer
     href: https://docs.microsoft.com/visualstudio/subscriptions/access-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-  - name: GitHub extension for Visual Studio >>
+  - name: GitHub extension for Visual Studio
     href: https://visualstudio.github.com/ 
 - name: Sign in to GitHub Enterprise with Azure AD (single sign-on)
   href: https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
@@ -51,9 +51,9 @@
   href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
 - name: Resources 
   items:
-  - name: GitHub Actions for Azure Marketplace >>
+  - name: GitHub Actions for Azure Marketplace 
     href: https://github.com/marketplace?query=Azure&type=actions
-  - name: Learning Lab, Continuous Delivery with Azure >> 
+  - name: Learning Lab, Continuous Delivery with Azure  
     href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
-  - name: Starter Action Workflows to deploy to Azure >>
+  - name: Starter Action Workflows to deploy to Azure
     href: https://github.com/Azure/actions-workflow-samples
