@@ -51,8 +51,8 @@ For sample workflows to connect to Azure, see the following GitHub actions:
 
 The following samples provide end-to-end workflows to deploy your Web apps to Azure. 
 
-- [Deploy a Wep App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
-- [Deplopy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
+- [Deploy a Web App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
+- [Deploy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
 - [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express-App)  
 - [Deploy a Java Web App](https://github.com/Azure-Samples/java-spring-petclinic)  
 - [Deploy a Java Spring App](https://github.com/Azure-Samples/Java-application-petstore-ee7)  

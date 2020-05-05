@@ -17,7 +17,7 @@ The following GitHub resources are available to support using GitHub to deploy y
 - [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
 - [Starter Action Workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 
-And, the following Merketplace extensions provide developer support for integrating with GitHub. 
+And, the following Marketplace extensions provide developer support for integrating with GitHub. 
 
 - [GitHub extension for Visual Studio](https://visualstudio.github.com/)
 - [GitHub extension for Visual Studio Code](https://vscode.github.com/) 
