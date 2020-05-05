@@ -94,10 +94,6 @@ cf env <Application Name>
 
 Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
-[!INCLUDE [inventory-configuration-sources-and-secrets](includes/inventory-configuration-sources-and-secrets.md)]
-
-[!INCLUDE [inspect-the-deployment-architecture](includes/inspect-the-deployment-architecture.md)]
-
 ### In-place testing
 
 Before you create container images, migrate your application to the JDK and Spring Boot version that you intend to use on AKS. Test your application thoroughly to ensure compatibility and performance.
