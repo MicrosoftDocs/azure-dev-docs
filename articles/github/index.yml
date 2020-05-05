@@ -1,10 +1,12 @@
+### YamlMime:Landing
+
 title: GitHub and Azure working together 
 summary: Learn how GitHub and Azure work  
 
 metadata:
   title: GitHub and Azure working together
   description: Learn how GitHub and Azure work together to let you build and deploy apps. 
-  ms.prod: actions 
+  ms.service: azure 
   ms.topic: landing-page 
   author: KathrynEE 
   ms.author: kaelli 
