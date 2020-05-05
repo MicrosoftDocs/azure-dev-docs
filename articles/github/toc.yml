@@ -1,12 +1,6 @@
 
 - name: Deploy to Azure using GitHub
   href: github-actions.md
-- name: GitHub Actions for Azure Marketplace >>
-  href: https://github.com/marketplace?query=Azure&type=actions
-- name: Learning Lab, Continuous Delivery with Azure >> 
-  href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
-- name: Starter Action Workflows to deploy to Azure >>
-  href: https://github.com/Azure/actions-workflow-samples
 - name: Azure Web Apps
   items:
   - name: Deploy apps continuously from GitHub to Azure Web Apps
@@ -55,3 +49,11 @@
   href: https://docs.microsoft.com/connectors/github/?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json   
 - name: Use GitHub as version control for notebooks
   href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
+- name: Resources 
+  items:
+  - name: GitHub Actions for Azure Marketplace >>
+    href: https://github.com/marketplace?query=Azure&type=actions
+  - name: Learning Lab, Continuous Delivery with Azure >> 
+    href: https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure
+  - name: Starter Action Workflows to deploy to Azure >>
+    href: https://github.com/Azure/actions-workflow-samples
