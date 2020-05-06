@@ -97,3 +97,12 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 ## Utility actions
 
 - [Variable substitution](https://github.com/Microsoft/variable-substitution) 
+
+
+## Additional resources
+
+The following GitHub resources are available to support using GitHub to deploy your apps to Azure.  
+
+- [GitHub Actions for Azure Marketplace](https://github.com/marketplace?query=Azure&type=actions)
+- [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
+- [Starter Action Workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)

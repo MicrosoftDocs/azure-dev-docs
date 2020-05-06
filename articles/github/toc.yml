@@ -1,46 +1,13 @@
-- name: Deploy to Azure using GitHub
-  href: github-actions.md
-- name: Azure Web Apps
-  items:
-  - name: Deploy to Azure Web Apps 
-    href: https://docs.microsoft.com/azure/app-service/deploy-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Deploy apps continuously to Azure Web Apps  
-    href: https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-- name: Azure Functions
-  items:
-  - name: Deploy to Azure Functions 
-    href: https://docs.microsoft.com/azure/azure-functions/functions-how-to-github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Deploy a function app continuously
-    href: https://docs.microsoft.com/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-- name: Azure Kubernetes Service
-  items:
-  - name: Deploy to Kubernetes
-    href: https://docs.microsoft.com/azure/aks/kubernetes-action?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Deploy to Azure Dev Spaces 
-    href: https://docs.microsoft.com/azure/dev-spaces/how-to/github-actions?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-- name: Azure DevOps integration
-  items: 
-  - name: Connect Azure Boards with GitHub 
-    href: https://docs.microsoft.com/azure/devops/boards/github 
-  - name: Link Azure Boards work items to GitHub commits, pull requests and issues
-    href: https://docs.microsoft.com/azure/devops/boards/github/link-to-from-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Use Azure Pipelines to build GitHub repositories
-    href: https://docs.microsoft.com/azure/devops/pipelines/repos/github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Create a GitHub Release from Azure Pipelines 
-    href: https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/github-release?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-- name: Visual Studio 
-  items:
-  - name: Use Visual Studio Code to deploy to Azure App Service 
-    href: https://docs.microsoft.com/ /devops/pipelines/targets/deploy-to-azure-vscode?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-  - name: Visual Studio subscription with GitHub offer
-    href: https://docs.microsoft.com/visualstudio/subscriptions/access-github?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-- name: Use Azure AD (single sign-on) to sign in to GitHub Enterprise
-  href: https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json  
-- name: Connect Power BI with GitHub
-  href: https://docs.microsoft.com/power-bi/service-connect-to-github 
-- name: GitHub connector for Azure Logic Apps, Power Automate and Power Apps
-  href: https://docs.microsoft.com/connectors/github/?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json   
-- name: Use GitHub as version control for notebooks
-  href: https://docs.microsoft.com/azure/databricks/notebooks/github-version-control?toc=/azure/developer/articles/github/toc.json&bc=/azure/developer/articles/github/breadcrumb/toc.json 
-- name: External resources 
-  href: external-resources.md
+- name: Azure and GitHub working together
+  href: index.yml
+- name: Deploy to Azure using GitHub Actions
+  href: github-actions.md 
+ - name: Deploy apps from GitHub to Azure
+  href: deploy-to-azure.md   
+- name: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
+  href: visual-studio.md 
+- name: Work with Azure DevOps and GitHub 
+  href: integrate-azure-devops.md
+- name: Connect to GitHub from Azure and other services
+  href: connect-github.md  
+
