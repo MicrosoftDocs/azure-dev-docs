@@ -2,7 +2,7 @@
   href: index.yml
 - name: Deploy to Azure using GitHub Actions
   href: github-actions.md 
- - name: Deploy apps from GitHub to Azure
+- name: Deploy apps from GitHub to Azure
   href: deploy-to-azure.md   
 - name: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
   href: visual-studio.md 
