@@ -45,7 +45,6 @@ Be sure to create a service principal for local development, and create and acti
     from azure.common.client_factory import get_client_from_cli_profile
     from azure.mgmt.resource import ResourceManagementClient
     from azure.mgmt.storage import StorageManagementClient
-    from msrest.exceptions import ClientException
 
     # Obtain the management object for resources, using the credentials from the CLI login.
     resource_client = get_client_from_cli_profile(ResourceManagementClient)

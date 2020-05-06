@@ -7,11 +7,15 @@ ms.topic: conceptual
 
 # How to assign role permissions to an app identity or service principal
 
-Azure's role-based access control (RBAC) manages specific permissions for a wide variety of resources. A *role* is essentially a collection of related permissions that are commonly needed. To enable permissions, you assign a role to a *security principal* (a user, group, service principal, or app identity) with a specific *scope* to which that role applies.
+Azure's role-based access control (RBAC) system manages specific permissions for a wide variety of resources. A *role* is essentially a collection of related permissions that are commonly needed together. To enable permissions, you assign a role to a *security principal* (a user, group, service principal, or app identity) with a specific *scope* to which that role applies.
 
-In practice, always assign only the roles that a security principal really needs at the most specific scope. Avoid assigning broader roles at broader scopes even if it initially seems more convenient to do so. By limiting roles and scopes you limit what resources would be at risk if the security principal was ever compromised (that is, if the credentials for that principal were involved in a data breach or other security incident).
+In practice, always assign only the roles that a security principal really needs at the most specific scope. Avoid assigning broader roles at broader scopes even if it initially seems more convenient to do so. By limiting roles and scopes you limit what resources are at risk if the security principal is ever compromised (that is, if the credentials for that principal are exposed in a data breach or other security incident).
 
-Because you use different security principals in development and production, you repeat the role assignments in each environment. That is, during development you assign roles to the local service principal created on your workstation (see [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication)). In production, you assign roles to the application identity or service principal before deployment to ensure that the application has access on startup.
+Because you use different security principals in development and production, you repeat the role assignments in each environment. That is, during development you typically assign roles to the local service principal created on your workstation (see [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication)). In production, you assign roles to the application identity or service principal before deployment to ensure that the application has access on startup.
+
+For more information about RBAC in general, see the [What is Azure role-based access control?](/azure/role-based-access-control/overview).
+
+## Role assignment process
 
 Assigning a role has three steps:
 
@@ -54,9 +58,9 @@ For full details and a UI walkthrough, see [Add or remove Azure role assignments
 
 ## <a name="azure-cli"></a>Identify scope and assign a role through the Azure CLI
 
-Role assignment with the Azure CLI uses the [`az role assignment`](/cli/azure/role/assignment?view=azure-cli-latest) command. You use `az role assignment create` to add an assignment and `az role assignment delete` to remove an assignment. This process is described in full in the article [Add or remove Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+Role assignment with the Azure CLI uses the [`az role assignment`](/cli/azure/role/assignment?view=azure-cli-latest) command. You use `az role assignment create` to add an assignment and `az role assignment delete` to remove an assignment. 
 
-However, the following is a summary of the process along with specific examples.
+Although the full process is described in [Add or remove Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-cli), the following summary provides specific examples that are relevant to other articles on this Developer Center.
 
 The `az role assignment create` command has the following syntax:
 

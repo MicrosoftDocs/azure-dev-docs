@@ -14,6 +14,8 @@
       href: azure-sdk-example-resource-group.md
     - name: "Example: Use Azure storage"
       href: azure-sdk-example-storage.md
+    - name: "Example: Provision a virtual machine"
+      href: azure-sdk-example-virtual-machines.md
 - name: Get started with Azure services
   items: 
   - name: App hosting

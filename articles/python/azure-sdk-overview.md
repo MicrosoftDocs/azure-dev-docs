@@ -144,6 +144,8 @@ operation = keyvault_client.vaults.create_or_update(
 
 Because both forms are entirely equivalent, you can either whichever you prefer and even intermix them.
 
+If your JSON isn't formed properly, you typically get the error, "DeserializationError: Unable to deserialize to object: type, AttributeError: 'str' object has no attribute 'get'". A common cause of this error is that you're providing a single string for a property when the SDK expects a nested JSON object. For example, using `"sku": "standard"` in the previous example generates this error because the `sku` parameter is a `Sku` object that expects inline object JSON, in this case `{ "name": "standard"}`, which maps to the expected `SkuName` type.
+
 ## Next step
 
 > [!div class="nextstepaction"]
