@@ -57,11 +57,11 @@ Be sure to create a service principal for local development, and create and acti
     resource_client = get_client_from_cli_profile(ResourceManagementClient)
 
     # Constants we need in multiple places: the resource group name and the region
-    # in which we create resources. You can change these values however you want.
+    # in which we provision resources. You can change these values however you want.
     RESOURCE_GROUP_NAME = "PythonSDKExample-VM-rg"
     LOCATION = "centralus"
-    
-    # Create the resource group.
+
+    # Provision the resource group.
     rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
         {
             "location": LOCATION
@@ -69,6 +69,10 @@ Be sure to create a service principal for local development, and create and acti
     )
 
     print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} region")
+
+    # For details the previous code, see Example: Provision a resource group
+    # at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+
 
     # A virtual machine requires a network inteface client (NIC). A NIC requires
     # a virtual network and subnet along with an IP address. Therefore we must provision
@@ -85,7 +89,7 @@ Be sure to create a service principal for local development, and create and acti
     # Obtain the management object for networks
     network_client = get_client_from_cli_profile(NetworkManagementClient)
 
-    # Provision the virtual network and wait for completion
+    # Provision the virtual network
     poller = network_client.virtual_networks.create_or_update(RESOURCE_GROUP_NAME,
         VNET_NAME,
         {
@@ -96,6 +100,7 @@ Be sure to create a service principal for local development, and create and acti
         }
     )
 
+    # Wait for completion
     vnet_result = poller.result()
 
     print(f"Provisioned virtual network {vnet_result.name} with address prefixes {vnet_result.address_space.address_prefixes}")
@@ -124,7 +129,7 @@ Be sure to create a service principal for local development, and create and acti
 
     print(f"Provisioned public IP address {ip_address_result.name} with address {ip_address_result.ip_address}")
 
-    # Provision the network interface client
+    # Provision the network interface client and wait for completion.
     poller = network_client.network_interfaces.create_or_update(RESOURCE_GROUP_NAME,
         NIC_NAME, 
         {
@@ -139,22 +144,24 @@ Be sure to create a service principal for local development, and create and acti
 
     nic_result = poller.result()
 
+    # The public_ip_address parameter is optional, but we're including it here
+    # for demonstration purposes.
+
     print(f"Provisioned network interface client {nic_result.name}")
 
-    # Create the virtual machine
+    # With the NIC in hand, we can provision the VM
+
     # Obtain the management object for virtual machines
     compute_client = get_client_from_cli_profile(ComputeManagementClient)
 
     VM_NAME = "ExampleVM"
     USERNAME = "azureuser"
-    PASSWORD = "changep$$w0r6aa"
+    PASSWORD = "ChangePa$$w0rd24"
 
     print(f"Provisioning virtual machine {VM_NAME}; this operation might take a few minutes.")
 
-    # Create the VM specifying only minimal arguments, which defaults to an Ubuntu 18.04 VM
-    # on a Standard DS1 v2 plan with a public IP address and a default virtual network/subnet.
-
-    poller = compute_client.virtual_machines.create_or_update(RESOURCE_GROUP_NAME, VM_NAME,
+    poller = compute_client.virtual_machines.create_or_update(RESOURCE_GROUP_NAME,
+        VM_NAME,
         {
             "location": LOCATION,
             "storage_profile": {
@@ -181,7 +188,6 @@ Be sure to create a service principal for local development, and create and acti
         }
     )
 
-    # Wait for the result
     vm_result = poller.result()
 
     print(f"Provisioned virtual machine {vm_result.name}")
@@ -189,7 +195,7 @@ Be sure to create a service principal for local development, and create and acti
 
     This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
 
-    To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+    To use such code in a production script (for example, to automate VM management), use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
 
 1. Run the script:
 
@@ -213,74 +219,72 @@ Be sure to create a service principal for local development, and create and acti
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script:
-
 # [bash](#tab/bash)
 
 ```azurecli
-# Create the resource group
+# Provision the resource group
 
 az group create -n PythonSDKExample-VM-rg -l centralus
 
-# Create a virtual network and subnet
+# Provision a virtual network and subnet
 
 az network vnet create -g PythonSDKExample-VM-rg -n python-example-vnet \
     --address-prefix 10.0.0.0/16 --subnet-name python-example-subnet \
     --subnet-prefix 10.0.0.0/24
 
-# Create a public IP address
+# Provision a public IP address
 
 az network public-ip create -g PythonSDKExample-VM-rg -n python-example-ip \
     --allocation-method Dynamic --version IPv4
 
-# Create a network interface client
+# Provision a network interface client
 
 az network nic create -g PythonSDKExample-VM-rg --vnet-name python-example-vnet \
     --subnet python-example-subnet -n python-example-nic \
     --public-ip-address python-example-ip
 
-# Create the virtual machine
+# Provision the virtual machine
 
 az vm create -g PythonSDKExample-VM-rg -n ExampleVM -l "centralus" \
     --nics python-example-nic --image UbuntuLTS \
-    --admin-username azureuser --admin-password ChangePa$$w0rd91
+    --admin-username azureuser --admin-password ChangePa$$w0rd24
 
 ```
 
 # [cmd](#tab/cmd)
 
 ```azurecli
-# Create the resource group
+# Provision the resource group
 
 az group create -n PythonSDKExample-VM-rg -l centralus
 
-# Create a virtual network and subnet
+# Provision a virtual network and subnet
 
 az network vnet create -g PythonSDKExample-VM-rg -n python-example-vnet ^
     --address-prefix 10.0.0.0/16 --subnet-name python-example-subnet ^
     --subnet-prefix 10.0.0.0/24
 
-# Create a public IP address
+# Provision a public IP address
 
 az network public-ip create -g PythonSDKExample-VM-rg -n python-example-ip ^
     --allocation-method Dynamic --version IPv4
 
-# Create a network interface client
+# Provision a network interface client
 
 az network nic create -g PythonSDKExample-VM-rg --vnet-name python-example-vnet ^
     --subnet python-example-subnet -n python-example-nic ^
     --public-ip-address python-example-ip
 
-# Create the virtual machine
+# Provision the virtual machine
 
 az vm create -g PythonSDKExample-VM-rg -n ExampleVM -l "centralus" ^
-    --no-wait --nics python-example-nic --image UbuntuLTS ^
-    --admin-username azureuser --admin-password ChangePa$$w0rd91
+    --nics python-example-nic --image UbuntuLTS ^
+    --admin-username azureuser --admin-password ChangePa$$w0rd24
 ```
 
 ---
 
-## Clean up resources
+## 4: Clean up resources
 
 ```azurecli
 az group delete -n PythonSDKExample-VM-rg

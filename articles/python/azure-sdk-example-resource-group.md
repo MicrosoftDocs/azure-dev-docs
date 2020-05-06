@@ -1,13 +1,13 @@
 ---
-title: Example of using the Azure SDK to create a resource group
+title: Example of using the Azure SDK to provision a resource group
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 05/05/2020
+ms.date: 05/06/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure SDK to create a resource group
+# Example: Use the Azure SDK to provision a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group.
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -45,7 +45,7 @@ from azure.mgmt.resource import ResourceManagementClient
 # Obtain the management object for resources, using the credentials from the CLI login.
 resource_client = get_client_from_cli_profile(ResourceManagementClient)
 
-# Create the resource group.
+# Provision the resource group.
 rg_result = resource_client.resource_groups.create_or_update(
     "PythonSDKExample-ResourceGroup-rg",
     {
@@ -63,11 +63,11 @@ rg_result = resource_client.resource_groups.create_or_update(
 # see Inline JSON pattern for object arguments at
 # https://docs.microsoft.com/azure/developer/python/azure-sdk-overview#inline-json-pattern-for-object-arguments.
 
-print(f"Created resource group {rg_result.name} in the {rg_result.location} region")
+print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} region")
 
 # The return value is another ResourceGroup object with all the details of the
 # new group. In this case the call is synchronous: the resource group has been
-# created by the time the call returns.
+# provisioned by the time the call returns.
 
 # Optional line to delete the resource group
 #resource_client.resource_groups.delete("PythonSDKExample-ResourceGroup-rg")
@@ -101,7 +101,7 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 az group delete -n PythonSDKExample-ResourceGroup-rg
 ```
 
-Run this command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.
+Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.
 
 You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
 
