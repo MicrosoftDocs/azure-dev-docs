@@ -15,7 +15,7 @@ Microsoft's CEO, Satya Nadella, often refers to Azure as "the world's computer."
 
 In the case of Azure, the computer's hardware is not a single machine but an enormous pool of virtualized server computers contained in [dozens of massive data centers around the world](https://azure.microsoft.com/global-infrastructure/regions/). The Azure "operating system" is then composed of *services* that dynamically allocate and de-allocate different parts of that resource pool as applications need them. Each allocation&mdash;be it computing power (CPU cores and memory), storage, databases, networks, and so on&mdash;is called a *resource*. And each discrete resource is accordingly assigned a unique *object identifier* (a GUID) and a unique URL.
 
-![Layers of Azure, from the data center to Azure services to allocate resources](media/cloud-development-azure-python/azure-layers.png)
+![Layers of Azure, from the data center to Azure services to allocate resources](media/cloud-development/azure-layers.png)
 
 Resources are the building blocks of a cloud application. The cloud development process thus begins with creating the appropriate environment into which you can deploy the different parts of the application. Put simply, you cannot deploy any code or data to Azure until you've allocated and configured&mdash;that is *provisioned*&mdash;a suitable target resource, such as a virtual machine, a database, a storage account, a container registry, a container orchestrator, a web host, a virtual network, AI and analytics engines, and so on.
 
@@ -29,4 +29,4 @@ Finding the right services for your application, and balancing their relative co
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Provisioning, accessing, and managing resources >>>](cloud-development-azure-python-provisioning.md)
+> [Provisioning, accessing, and managing resources >>>](cloud-development-provisioning.md)

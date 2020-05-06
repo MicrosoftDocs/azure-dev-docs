@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Cloud development with Azure
-            url: cloud-development-azure-python.md
+            url: cloud-development-overview.md
       - linkListType: how-to-guide
         links:
           - text: Set up your local dev environment

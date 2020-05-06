@@ -7,13 +7,13 @@ ms.topic: conceptual
 
 # The Azure development flow: provision, code, test, deploy, and manage
 
-[Previous step: provisioning, accessing, and managing resources](cloud-development-azure-python-provisioning.md)
+[Previous article: provisioning, accessing, and managing resources](cloud-development-provisioning.md)
 
 Now that you understand Azure's model of services and resources, you can understand the overall flow of developing cloud applications with Azure: **provision**, **code**, **test**, **deploy**, and **manage**.
 
 ## Step 1: Provision and configure resources
 
-As described in the [previous article of this series](cloud-development-azure-python-provisioning.md), the first step in developing any application is to provision and configure the resources that make up the target environment for your application.
+As described in the [previous article of this series](cloud-development-provisioning.md), the first step in developing any application is to provision and configure the resources that make up the target environment for your application.
 
 Provisioning begins by creating a resource group in a suitable Azure region. You can create a resource group through the Azure portal, through the Azure CLI, or with a custom script that uses the Azure SDK (or REST API).
 

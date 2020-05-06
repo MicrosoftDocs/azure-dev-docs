@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Provisioning, accessing, and managing resources on Azure
 
-[Previous step: overview](cloud-development-azure-python-overview.md)
+[Previous article: overview](cloud-development-overview.md)
 
 As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data.
 
@@ -17,7 +17,7 @@ How is this provisioning done, exactly? How do you ask Azure to allocate resourc
 
 The answer is straightforward. As with most operating systems, you can communicate with Azure through three routes: a user interface, a command-line interface, and an API.
 
-![The different means of communicating with Azure to provision resources](media/cloud-development-azure-python/communication-with-azure.png)
+![The different means of communicating with Azure to provision resources](media/cloud-development/communication-with-azure.png)
 
 - **[Azure portal](https://portal.azure.com)**
 
@@ -76,4 +76,4 @@ Due to local laws and regulations, which are determined by the *geography* in wh
 ## Next step
 
 > [!div class="nextstepaction"]
-> [The Azure development flow >>>](cloud-development-azure-python-flow.md)
+> [The Azure development flow >>>](cloud-development-flow.md)
