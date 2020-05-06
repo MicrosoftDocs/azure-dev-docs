@@ -137,7 +137,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 ### Add your Azure Service Principal credential in Jenkins credential store
 
-1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
+1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
 
     ```
     {
@@ -195,33 +195,33 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
 
 2. Update the file as follows. Make sure you replace the values of **\<resource group name>** and **\<service name>**. Replace **azure_service_principal** with the right ID if you use a different value when you added the credential in Jenkins. 
 
-```groovy
-    node {
-      stage('init') {
-        checkout scm
-      }
-      stage('build') {
-        sh 'mvn clean package'
-      }
-      stage('deploy') {
-        withCredentials([azureServicePrincipal('azure_service_principal')]) {
-          // login to Azure
-          sh '''
-            az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
-            az account set -s $AZURE_SUBSCRIPTION_ID
-          '''  
-          // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
-          sh 'az configure --defaults group=<resource group name>'
-          sh 'az configure --defaults spring-cloud=<service name>'
-          // Deploy applications
-          sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
-          sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
-          sh 'az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar'
-          sh 'az logout'
-        }
-      }
-    }
-```
+   ```groovy
+       node {
+         stage('init') {
+           checkout scm
+         }
+         stage('build') {
+           sh 'mvn clean package'
+         }
+         stage('deploy') {
+           withCredentials([azureServicePrincipal('azure_service_principal')]) {
+             // login to Azure
+             sh '''
+               az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+               az account set -s $AZURE_SUBSCRIPTION_ID
+             '''  
+             // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
+             sh 'az configure --defaults group=<resource group name>'
+             sh 'az configure --defaults spring-cloud=<service name>'
+             // Deploy applications
+             sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
+             sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
+             sh 'az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar'
+             sh 'az logout'
+           }
+         }
+       }
+   ```
 
 3. Save and commit the change.
 
