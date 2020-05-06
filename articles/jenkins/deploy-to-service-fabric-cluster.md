@@ -194,13 +194,13 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 1. On the **Source Code Management** tab, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). You can also specify which branch to build (for example, `/master`).
 1. Configure your *GitHub* repository to talk to Jenkins:
 
-   a. On your GitHub repository page, go to **Settings** > **Integrations and Services**.
+   1. On your GitHub repository page, go to **Settings** > **Integrations and Services**.
 
-   b. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plugin**.
+   1. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plugin**.
 
-   c. Enter your Jenkins webhook URL (by default, it should be `http://<PublicIPorFQDN>:8081/github-webhook/`). Click **add/update service**.
+   1. Enter your Jenkins webhook URL (by default, it should be `http://<PublicIPorFQDN>:8081/github-webhook/`). Click **add/update service**.
 
-   d. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build.
+   1. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build.
 
 1. On the **Build Triggers** tab in Jenkins, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
 1. On the **Build** tab, do one of the following depending on whether you're building a Java application or a .NET Core application:
