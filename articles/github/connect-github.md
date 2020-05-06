@@ -16,7 +16,7 @@ The following articles provide details on connecting to GitHub from Azure and ot
 ## Azure Active Directory 
 
 - [Sign in to GitHub Enterprise with Azure AD (single sign-on)](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)   
-- 
+
 ## Power BI
 
 - [Connect Power BI with GitHub](https://docs.microsoft.com/power-bi/service-connect-to-github)   
