@@ -1,6 +1,6 @@
 ---
 title: Use Spring Data JDBC with Azure Database for MySQL
-description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
+description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
 documentationcenter: java
 ms.date: 04/07/2020
 ms.service: mysql
@@ -9,11 +9,11 @@ ms.author: judubois
 ms.topic: article
 ---
 
-# Use Spring Data R2DBC with Azure Database for MySQL
+# Use Spring Data JDBC with Azure Database for MySQL
 
-This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) by using the R2DBC implementation for MySQL from the [r2dbc-mysql GitHub repository](https://github.com/mirromutth/r2dbc-mysql).
+This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
 
-[R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
+[JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
