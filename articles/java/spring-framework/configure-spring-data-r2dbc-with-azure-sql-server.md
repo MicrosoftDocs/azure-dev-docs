@@ -182,22 +182,7 @@ Here's a screenshot of these cURL requests:
 
 Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
 
-## Clean up resources
-
-To clean up all resources used during this quickstart, delete the resource group:
-
-```azurecli
-az group delete \
-    --name $AZ_RESOURCE_GROUP \
-    --yes
-```
-
-## Next steps
-
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
-
-> [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+[!INCLUDE [sspring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
 ### Additional resources
 
