@@ -33,7 +33,7 @@
     - name: Chef Automate overview
       href: https://docs.chef.io/chef_automate.html
     - name: Chef Automate install guide
-      href: https://docs.chef.io/install_chef_automate.html
+      href: https://docs.chef.io/chef_install_script
     - name: Chef Automate on Azure Marketplace
       href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate
   - name: Chef Software news

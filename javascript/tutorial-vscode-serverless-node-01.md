@@ -19,10 +19,10 @@ Watch this video for a complete walkthrough of the content in this article.
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure Functions extension](vscode:extension/ms-azuretools.vscode-azurefunctions)
+- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurefunctions">Install the Azure Functions extension</a>
+> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Install the Azure Functions extension</a>
 
 ### Azure subscription
 

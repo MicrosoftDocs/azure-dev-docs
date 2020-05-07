@@ -8,13 +8,13 @@ ms.date: 04/30/2019
 
 # Tutorial: Configure Azure virtual network peering using Ansible
 
-[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
 
 [Virtual network (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
 Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual network is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -24,8 +24,8 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create two resource groups
 

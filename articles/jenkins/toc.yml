@@ -1,0 +1,76 @@
+- name: Jenkins on Azure
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Jenkins on Azure
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Jenkins server
+    href: configure-on-linux-vm.md
+- name: Tutorials
+  items:
+  - name: Configure
+    items:
+    - name: Scale with Azure Container Instances
+      href: azure-container-instances-as-jenkins-build-agent.md
+      maintainContext: true
+    - name: Scale with Azure VM agents
+      href: scale-deployments-using-vm-agents.md
+  - name: Implement CI/CD
+    items:
+    - name: Azure Spring Cloud
+      items:
+      - name: Deploy to Azure Spring Cloud using the Azure CLI
+        href: deploy-to-azure-spring-cloud-using-azure-cli.md
+    - name: AKS
+      items:
+      - name: CI/CD to Kubernetes
+        href: deploy-from-github-to-aks.md
+        maintainContext: true
+      - name: Deploy to AKS using blue/green pattern
+        href: deploy-to-aks-using-blue-green-deployment-pattern.md
+      - name: CI/CD with Azure Dev Spaces
+        href: azure-dev-spaces-and-aks.md
+    - name: App Service
+      items:
+      - name: Create Azure resources in a pipeline job
+        href: deploy-to-azure-app-service-using-azure-cli.md
+      - name: Deploy an app from GitHub to App Service
+        href: deploy-from-github-to-azure-app-service.md
+    - name: Use Jenkins with Azure DevOps
+      href: deploy-to-linux-vm-using-azure-devops-services.md
+      maintainContext: true
+    - name: Deploy to Azure Functions
+      href: deploy-to-azure-functions.md
+    - name: Publish to Azure Storage
+      href: azure-storage-blobs-as-build-artifact-repository.md
+      maintainContext: true
+    - name: CI/CD to Linux VMs
+      href: pipeline-with-github-and-docker.md
+      maintainContext: true
+    - name: CI/CD to Service Fabric
+      href: deploy-to-service-fabric-cluster.md
+      maintainContext: true
+- name: How-to
+  items: 
+    - name: Use the App Service plug-in
+      href: deploy-to-azure-app-service-using-plugin.md
+- name: Samples
+  items:
+    - name: Sample jobs and scripts
+      href: https://github.com/azure/jenkins
+- name: Resources
+  items:
+  - name: Jenkins Plugins for Azure
+    href: plug-ins-for-azure.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Jenkins home
+    href: https://jenkins.io/
+  - name: Jenkins X Home
+    href: https://jenkins-x.io
+  - name: Jenkins architecture
+    href: /azure/architecture/reference-architectures/jenkins/
+    maintainContext: true
