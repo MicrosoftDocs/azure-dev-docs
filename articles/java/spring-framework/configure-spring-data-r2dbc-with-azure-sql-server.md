@@ -160,7 +160,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-Use the following command to stop the application and run it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
