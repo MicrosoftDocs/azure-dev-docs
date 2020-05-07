@@ -255,7 +255,7 @@ items:
 
     Open a browser pointed to the application using the CLI:
     ```azurecli
-    az appservice web browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
+    az webapp browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
     ```
 
     Remove the web app and plan from your subscription once you've verified the deployment. 
