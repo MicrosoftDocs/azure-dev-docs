@@ -45,8 +45,11 @@ spring.datasource.initialization-mode=always
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
 - Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
 
+> [!WARNING]
+> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember this will delete your data at each restart, so this shouldn't be used in production!
+
 > [!NOTE]
-> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later.
+> We append `?serverTimezone=UTC` to the configuration property `spring.datasource.url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
 
 You should now be able to start your application by using the provided Maven wrapper:
 
