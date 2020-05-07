@@ -6,6 +6,9 @@
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
+    - name: GitHub
+      tocHref: /azure/developer/github
+      topicHref: /azure/developer/github/index
     - name: Go
       tocHref: /azure/developer/go
       topicHref: /azure/developer/go/index
