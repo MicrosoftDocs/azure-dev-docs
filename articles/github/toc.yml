@@ -1,5 +1,5 @@
-- name: Azure and GitHub working together
-  href: index.yml
+- name: Azure and GitHub working together  
+  href: index.yml  
   items:
   - name: Use GitHub Actions to deploy to Azure
     href: github-actions.md 
