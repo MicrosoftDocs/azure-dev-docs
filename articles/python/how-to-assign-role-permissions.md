@@ -109,16 +109,16 @@ The following examples assume the following conditions (see [Example: Use the Az
 - You want to assign the "Storage Blob Data Contributor" to the service principal.
 
 > [!TIP]
-> It can take a minute for changes in role assignments to propagate within Azure. As a result, you may find that code still works for a short time after you remove a permission. If you see unexpected behavior, way a minute or two and try again.
+> It can take a minute for changes in role assignments to propagate within Azure. As a result, you may find that code still works for a short time after you remove a permission. If you see unexpected behavior, wait a minute or two and try again.
 
 #### Grant permissions for the specific container only
 
 # [bash](#tab/bash)
 
 ```azurecli
-az role assignment create --assignee $AZURE_CLIENT_ID% \
+az role assignment create --assignee $AZURE_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
-    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345/blobServices/default/containers/blob-container-01"
 ```
 
 # [cmd](#tab/cmd)
@@ -136,7 +136,7 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
 # [bash](#tab/bash)
 
 ```azurecli
-az role assignment create --assignee %AZURE_CLIENT_ID \
+az role assignment create --assignee $AZURE_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
     --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonSDKExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonsdkstorage12345"
 ```
@@ -180,7 +180,7 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
 Alternately, you can just specify the resource group with the `--resource-group` parameter:
 
 ```azurecli
-az role assignment create --assignee $AZURE_CLIENT_ID ^
+az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --role "Storage Blob Data Contributor" ^
     --resource-group "PythonSDKExample-Storage-rg"
 ```

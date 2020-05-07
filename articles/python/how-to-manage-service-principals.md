@@ -15,7 +15,7 @@ Over time, you'll probably need to delete, rename, or otherwise manage these ser
 
 Whenever your code attempts to perform any operation on Azure resources (which you do through classes in the Azure SDK), Azure ensures that the application is authorized to perform that action. You use the [Azure portal](https://portal.azure.com) or the Azure CLI to grant specific role- or resource-based permissions to the application's identity. (This procedure avoids granting excess permissions to the application that could be exploited if your application's security is ever compromised.)
 
-When deployed to Azure, the application's identity is typically is the same as the name you give the app within the service that's hosting it (such as Azure App Service, Azure Functions, a virtual machine, etc.). When you run your code locally, however, no such hosting service is involved, so you need to present Azure with a suitable substitute.
+When deployed to Azure, the application's identity is typically the same as the name you give the app within the service that's hosting it (such as Azure App Service, Azure Functions, a virtual machine, etc., when managed identity is enabled). When you run your code locally, however, no such hosting service is involved, so you need to present Azure with a suitable substitute.
 
 For this purpose, you use a local *service principal*, which is another name for an app identity as opposed to a user identity. The service principal has a name, a "tenant" identifier (essentially an ID for your organization), an app or "client" identifier, and a secret/password. These credentials are sufficient to authenticate the identity with Azure, which can then check whether that identity is authorized to access any given resource.
 

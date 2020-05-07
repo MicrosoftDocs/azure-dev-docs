@@ -75,7 +75,7 @@ The following sections describe how to create a service principal and the enviro
 
 Each developer in your organization should perform these steps individually.
 
-### Create a local service principal
+### Create a service principal for development
 
 1. Open a terminal or command prompt in which you've signed into the Azure CLI (`az login`).
 
@@ -125,13 +125,13 @@ Each developer in your organization should perform these steps individually.
         In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
 
         > [!IMPORTANT]
-        > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. If you lose the secret, you must delete the service principal and create a new one.
+        > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
 
-1. Safeguard the tenant ID, client ID, and client secret (and and files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
+1. Safeguard the client ID and client secret (and any files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
 
     For an additional layer of security, you can make a policy to delete and recreate service principals on a regular schedule, thereby invalidating previous IDs and secrets.
 
-    Furthermore, a local service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
+    Furthermore, a development service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
 
 To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
