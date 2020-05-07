@@ -153,20 +153,7 @@ Here's a screenshot of the application running for the first time:
 
 ### Create the database schema
 
-Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema:
-
-```java
-    @Bean
-    public ConnectionFactoryInitializer initializer(ConnectionFactory connectionFactory) {
-        ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
-        initializer.setConnectionFactory(connectionFactory);
-        ResourceDatabasePopulator populator = new ResourceDatabasePopulator(new ClassPathResource("schema.sql"));
-        initializer.setDatabasePopulator(populator);
-        return initializer;
-    }
-```
-
-This Spring bean uses a file called *schema.sql*, so create that file in the *src/main/resources* folder:
+[!INCLUDE [spring-data-r2dbc-create-schema.md](includes/spring-data-r2dbc-create-schema.md)]
 
 ```sql
 DROP TABLE IF EXISTS todo;
