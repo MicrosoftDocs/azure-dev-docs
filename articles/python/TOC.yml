@@ -4,7 +4,7 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
-    - name: Provisioning, access, and managing resources
+    - name: Provision, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md

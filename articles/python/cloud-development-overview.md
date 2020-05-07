@@ -23,7 +23,12 @@ The process of creating the environment for your application, then, involves ide
 
 Finding the right services for your application, and balancing their relative costs, can be challenging, but is also part of the creative fun of cloud development. Other articles on this developer center help you understand your choices. In the meantime, let's discuss how you actually work with all of these services and resources.
 
-> [!TIP]
+> ![TIP]
+> You've probably seen and perhaps have grown weary of the terms "IaaS" (infrastructure-as-a-service), "PaaS" (platform-as-a-service), and so on. The "as-a-service" part reflects the reality that you generally don't have physical access to the data centers themselves. Instead, you use tools like the Azure portal, the Azure CLI, or Azure's REST API to provision "infrastructure" resources, "platform" resources, and so on. As a "service," Azure is always standing by waiting to receive your requests.
+>
+> On this developer center, we spare you the IaaS, PaaS, etc. jargon because "as-a-service" is just inherent to the cloud to begin with!
+
+> [!NOTE]
 > A "hybrid cloud" refers to the combination of private computers and data centers with cloud resources like Azure, and has its own considerations beyond what's covered in the previous discussion. Furthermore, this discussion assumes new application development; scenarios that involve rearchitecting and migrating existing on-premises applications are not covered here.
 
 ## Next step

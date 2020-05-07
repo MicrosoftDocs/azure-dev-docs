@@ -38,7 +38,7 @@ Notes:
 | [Visual Studio Code](https://code.visualstudio.com) | Although you can work with any suitable editor or IDE, Microsoft's free, lightweight IDE is very popular among Python developers. For an introduction, see [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). |
 | [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Python support to VS Code. |
 | [Azure extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) | Adds support for a variety of Azure Services to VS Code. Support for specific services can also be installed individually. |
-| [git](https://git-scm.com/downloads) | Command-line tools for source control. |
+| [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use different source control tools if you prefer. |
 
 ### Optional components
 
@@ -55,6 +55,18 @@ Notes:
     1. Run `code .` to open VS Code to the current folder.
     1. In VS Code, select the **View** > **Extensions** command to open the extensions view, then verify that you see "Python" and "Azure Account" in the list (among other "Azure" extensions and "Docker" if you installed that extension as well).
 
+## Sign in to Azure from the CLI
+
+In a terminal or command prompt, sign in to your Azure subscription:
+
+```azurecli
+az login
+```
+
+The `az` command is the root command of the Azure CLI. What follows `az` is one or more specific commands, such as `login`. See the [az login](/cli/azure/authenticate-azure-cli) command reference.
+
+The Azure CLI normally maintains your sign in across sessions, but it's a good practice to run `az login` whenever you open a new terminal or command prompt.
+
 ## Configure authentication
 
 As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
@@ -65,13 +77,7 @@ Each developer in your organization should perform these steps individually.
 
 ### Create a local service principal
 
-1. In a terminal or command prompt, sign in to your Azure subscription:
-
-    ```azurecli
-    az login
-    ```
-
-    The `az` command is the root command of the Azure CLI. What follows `az` is one or more specific commands, such as `login`. See the [az login](/cli/azure/authenticate-azure-cli) command reference.
+1. Open a terminal or command prompt in which you've signed into the Azure CLI (`az login`).
 
 1. Create the service principal:
 
@@ -204,6 +210,24 @@ A virtual environment is a folder within a project that isolates a copy of a spe
 If you don't use a virtual environment, then Python runs in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break others projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
 
 The global environment is where you do want to install tool packages that you want to use in multiple projects. For example, you might run `pip install gunicorn` in the global environment to make the gunicorn web server available everywhere.
+
+## Use source control
+
+We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, simply run the following command:
+
+```bash
+git init
+```
+
+From there you can run commands like `git add` and `git commit` to commit changes. By regularly committing changes, you create a commit history with which you can revert to any previous state.
+
+To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git?view=azure-devops). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
+
+Documentation for git is found on [git-scm.com/docs](https://git-scm.com/docs) and all around the Internet.
+
+Visual Studio Code includes a number of built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+
+You can also use any other source control tool of your choice; Git is simply one of the most widely used and supported.
 
 ## Next step
 

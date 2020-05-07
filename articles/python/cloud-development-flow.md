@@ -19,7 +19,7 @@ Provisioning begins by creating a resource group in a suitable Azure region. You
 
 Within that resource group, you then provision and configure the individual resources you need, again using the portal, the CLI, or the Azure SDK. Configuration includes setting access policies that control what identities (service principals and/or application IDs) are able to access those resources.
 
-For most development scenarios, you'll likely create provisioning scripts with the Azure CLI and/or Python code using the Azure SDK. Such scripts describe the totality of your application's resource needs, and enable you to easily recreate those resources within different development, test, and production environments. Such scripts aso make it easy to provision an environment in a different region, or to use different resource groups. You can also maintain these scripts in source control repositories so that you have full auditing and change history.
+For most development scenarios, you'll likely create provisioning scripts with the Azure CLI and/or Python code using the Azure SDK. Such scripts describe the totality of your application's resource needs, and enable you to easily recreate those resources within different development, test, and production environments (as opposed to manually performing many repeated steps in the Azure portal). Such scripts aso make it easy to provision an environment in a different region, or to use different resource groups. You can also maintain these scripts in source control repositories so that you have full auditing and change history.
 
 ## Step 2: Write your app code to use resources
 
