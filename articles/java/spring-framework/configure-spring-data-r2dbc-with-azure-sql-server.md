@@ -182,7 +182,7 @@ Here's a screenshot of these cURL requests:
 
 Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
 
-[!INCLUDE [sspring-data-conclusion.md](includes/spring-data-conclusion.md)]
+[!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
 ### Additional resources
 
