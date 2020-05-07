@@ -112,3 +112,8 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 ```azurecli
 az group create -n PythonSDKExample-ResourceGroup-rg -l centralus
 ```
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Example: Use Azure Storage >>>](azure-sdk-example-storage.md)

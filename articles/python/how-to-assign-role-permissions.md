@@ -25,7 +25,7 @@ Assigning a role has three steps:
 
 1. Assign the role to a security principal.
 
-Steps 1 is the same for both the Azure portal and the Azure CLI. Steps 2 and 3 are different between the portal and the CLI, and are thus combined in the sections that follow: [Identify scope and assign a role on the Azure Portal](#azure-portal) and [Identify scope and assign a role through the Azure CLI](#azure-cli).
+Step 1 is the same for both the Azure portal and the Azure CLI. Steps 2 and 3 are different between the portal and the CLI, and are thus combined in the sections that follow: [Identify scope and assign a role on the Azure Portal](#azure-portal) and [Identify scope and assign a role through the Azure CLI](#azure-cli).
 
 > [!NOTE]
 > If your account doesn't have permission to assign a role, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'."

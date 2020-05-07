@@ -353,3 +353,8 @@ az group delete -n PythonSDKExample-Storage-rg
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Example: Provision a virtual machine >>>](azure-sdk-example-virtual-machines.md)

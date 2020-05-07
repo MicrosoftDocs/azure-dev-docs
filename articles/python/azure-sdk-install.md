@@ -64,4 +64,4 @@ To uninstall a library, use `pip uninstall <library>`.
 You're completely ready now to write and run some code, which you can do using any of the following examples:
 
 > [!div class="nextstepaction"]
-> [Example: Use Azure Storage >>>](azure-sdk-example-storage.md)
+> [Example: Create a resource group >>>](azure-sdk-example-resource-group.md)

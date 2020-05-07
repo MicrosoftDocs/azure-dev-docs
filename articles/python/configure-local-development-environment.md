@@ -21,7 +21,7 @@ Once you've configured your workstation, you'll need only minimal added configur
 
 ### Required components
 
-| Component (and install link) | Description |
+| Name/Installer | Description |
 | --- | --- |
 | [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
 | [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
@@ -33,7 +33,7 @@ Notes:
 
 ### Recommended components
 
-| Component (instally link) | Description |
+| Name/Installer | Description |
 | --- | --- |
 | [Visual Studio Code](https://code.visualstudio.com) | Although you can work with any suitable editor or IDE, Microsoft's free, lightweight IDE is very popular among Python developers. For an introduction, see [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). |
 | [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Python support to VS Code. |
@@ -42,7 +42,7 @@ Notes:
 
 ### Optional components
 
-| Component (install link) | Description |
+| Name/Installer | Description |
 | --- | --- |
 | [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
 
