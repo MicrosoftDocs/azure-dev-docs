@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy to Azure using GitHub actions
+          - text: Deploy to Azure using GitHub Actions
             url: github-actions.md
   # Card (optional)
   - title: Deploy to Azure
