@@ -25,7 +25,7 @@ First, set up some environment variables by using the following commands:
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_POSTGRESQL_USERNAME=r2dbc
+AZ_POSTGRESQL_USERNAME=spring
 AZ_POSTGRESQL_PASSWORD=<YOUR_POSTGRESQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
@@ -91,12 +91,12 @@ az postgres server firewall-rule create \
 
 ### Configure a PostgreSQL database
 
-The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
+The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo`:
 
 ```azurecli
 az postgres db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name r2dbc \
+    --name demo \
     --server-name $AZ_DATABASE_NAME \
     | jq
 ```
@@ -132,8 +132,8 @@ Open the *src/main/resources/application.properties* file, and add:
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
 
-spring.r2dbc.url=r2dbc:pool:postgres://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/r2dbc
-spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
+spring.r2dbc.url=r2dbc:pool:postgres://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo
+spring.r2dbc.username=spring@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_POSTGRESQL_PASSWORD
 spring.r2dbc.properties.sslMode=REQUIRE
 ```
@@ -166,7 +166,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-Use the following command to stop the application and run it again. The application will now use the `r2dbc` database that you created earlier, and create a `todo` table inside it.
+Use the following command to stop the application and run it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run

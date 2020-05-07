@@ -14,7 +14,7 @@ First, set up some environment variables by using the following commands:
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_MYSQL_USERNAME=r2dbc
+AZ_MYSQL_USERNAME=spring
 AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
@@ -80,12 +80,12 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
+The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo`:
 
 ```azurecli
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name r2dbc \
+    --name demo \
     --server-name $AZ_DATABASE_NAME \
     | jq
 ```

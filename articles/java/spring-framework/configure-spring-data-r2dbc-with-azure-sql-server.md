@@ -25,7 +25,7 @@ First, set up some environment variables by using the following commands:
 AZ_RESOURCE_GROUP=r2dbc-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_SQL_SERVER_USERNAME=r2dbc
+AZ_SQL_SERVER_USERNAME=spring
 AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
@@ -89,12 +89,12 @@ az sql server firewall-rule create \
 
 ### Configure a Azure SQL database
 
-The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `r2dbc`:
+The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo`:
 
 ```azurecli
 az sql db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name r2dbc \
+    --name demo \
     --server $AZ_DATABASE_NAME \
     | jq
 ```
@@ -130,8 +130,8 @@ Open the *src/main/resources/application.properties* file, and add:
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
 
-spring.r2dbc.url=r2dbc:pool:mssql://$AZ_DATABASE_NAME.database.windows.net:1433/r2dbc
-spring.r2dbc.username=r2dbc@$AZ_DATABASE_NAME
+spring.r2dbc.url=r2dbc:pool:mssql://$AZ_DATABASE_NAME.database.windows.net:1433/demo
+spring.r2dbc.username=spring@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_SQL_SERVER_PASSWORD
 ```
 
@@ -160,7 +160,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-Use the following command to stop the application and run it again. The application will now use the `r2dbc` database that you created earlier, and create a `todo` table inside it.
+Use the following command to stop the application and run it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
