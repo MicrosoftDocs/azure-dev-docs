@@ -145,9 +145,9 @@ additionalContent:
           summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
           url: https://docs.microsoft.com/azure/devops/?view=azure-devops
         # Card
-        - title: GitHub Actions
-          summary: Use GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: https://help.github.com/en/actions
+        - title: Azure and GitHub working together
+          summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
+          url: https://docs.microsoft.com/azure/developer/github
         # Card
         - title: Jenkins
           summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
