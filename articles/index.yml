@@ -6,7 +6,7 @@ brand: azure ## Used for color theming of icons and hero area
 
 metadata:
   title: Azure developer documentation
-  description: Develop on Azure using your favorite languages and tools. Azure supports developement with C# and .NET, Java, JavaScript, Python, Azure PowerShell, and Azure CLI.
+  description: Develop on Azure using your favorite languages and tools. Azure supports development with C# and .NET, Java, JavaScript, Python, Azure PowerShell, and Azure CLI.
   ms.topic: hub-page
   author: barbkess
   ms.author: barbkess
