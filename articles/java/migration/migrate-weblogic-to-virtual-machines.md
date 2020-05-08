@@ -13,6 +13,8 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 ## Pre-migration
 
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
 ### Define what you mean by "migration complete"
 
 This guide, and the corresponding Azure Marketplace Offers, are a starting point to accelerate the migration of your WebLogic Server workloads to Azure. It's important to define the scope of your migration effort. For example, are you doing a strict "lift and shift" from your existing infrastructure to Azure Virtual Machines? If so, you may be tempted to work in some "lift and improve" as you migrate.
@@ -35,11 +37,11 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-[!INCLUDE [validate-that-the-supported-java-version-works-correctly](includes/validate-that-the-supported-java-version-works-correctly.md)]
+[!INCLUDE [validate-that-the-supported-java-version-works-correctly-weblogic](includes/validate-that-the-supported-java-version-works-correctly-weblogic.md)]
 
 [!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 
-[!INCLUDE [domain-configuration](includes/domain-configuration.md)]
+[!INCLUDE [inspect-your-domain-configuration](includes/inspect-your-domain-configuration.md)]
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
@@ -69,7 +71,11 @@ Your existing WebLogic version must be compatible with the version in the IaaS o
 
 [!INCLUDE [determine-whether-wlst-is-used](includes/determine-whether-wlst-is-used.md)]
 
-[!INCLUDE [validate-whether-and-how-the-file-system-is-used](includes/validate-whether-and-how-the-file-system-is-used.md)]
+### Determine whether and how the file system is used
+
+VM filesystems operate the same way as on-premises filesystems with respect to persistence, startup, and shutdown. Even so, it's important to be aware of your filesystem needs and ensure the VMs have adequate storage size and performance.
+
+[!INCLUDE [static-content](includes/static-content.md)]
 
 [!INCLUDE [determine-the-network-topology](includes/determine-the-network-topology.md)]
 
