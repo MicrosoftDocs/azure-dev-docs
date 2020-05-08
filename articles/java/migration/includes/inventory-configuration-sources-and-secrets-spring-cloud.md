@@ -10,7 +10,7 @@ ms.date: 5/4/2020
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Cloud application, you can typically find such strings in the *application.properties* or *application.yml* file in individual services or in the Spring Cloud Config repository.
 
-[!INCLUDE [inventory-certificates-azure-spring-cloud](inventory-certificates-azure-spring-cloud.md)]
+[!INCLUDE [inventory-certificates-h4](inventory-certificates-h4.md)]
 
 #### Determine whether Spring Cloud Vault is used
 

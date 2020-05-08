@@ -39,6 +39,8 @@ Any usage of the file system by your Spring Boot application will require reconf
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version.
+
 ### Review your database properties
 
 If your application uses a database, review the database properties in your *application.properties* file to make sure your Spring Boot application can still access the database after you migrate to AKS. If your database is on-premise, you'll need to either migrate it to the cloud, or establish connectivity to your on-premise database.
@@ -49,7 +51,7 @@ Identify any log aggregation solutions in use by the applications you are migrat
 
 ### Identify application performance management (APM) agents
 
-Identify any application performance monitoring agents in use with your applications (such as Dynatrace and Datadog). In place of such agents, Azure Spring Cloud offers deep integration with Azure Monitor for performance management and real-time response to aberrations. For more information, see [Post-migration](#post-migration).
+Identify any application performance monitoring agents in use with your applications (such as Dynatrace and Datadog). You will need to reconfigure these APM agents to be included in a Dockerfile or Jib configuration, or to use the Application Insights in-process Java agent.
 
 ### Identify Zipkin dependencies
 
@@ -69,10 +71,15 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
 
+[!INCLUDE [inventory-configuration-sources-and-secrets-spring-boot](includes/inventory-configuration-sources-and-secrets-spring-boot.md)]
+
+[!INCLUDE [inspect-the-deployment-architecture-spring-boot](includes/inspect-the-deployment-architecture-spring-boot.md)]
+
 #### Identity providers
 
 Identify all identity providers and all Spring Boot applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
 
+* For OAuth or OAuth2 Spring Security configuration, see [Spring Security](https://spring.io/projects/spring-security).
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 

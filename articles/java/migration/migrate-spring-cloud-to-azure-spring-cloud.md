@@ -47,6 +47,8 @@ If your application allows for static content that is uploaded/produced by your 
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+
 #### Identify Spring Cloud versions
 
 Examine the dependencies of each application you're migrating to determine the version of the Spring Cloud components it uses.
@@ -127,9 +129,9 @@ Examine the `VCAP_SERVICES` for configuration settings of external services boun
 
 It isn't feasible for this guide to document every possible external dependency. After the migration, it's your responsibility to verify that you can satisfy every external dependency of your application.
 
-[!INCLUDE [inventory-configuration-sources-and-secrets](includes/inventory-configuration-sources-and-secrets.md)]
+[!INCLUDE [inventory-configuration-sources-and-secrets-spring-cloud](includes/inventory-configuration-sources-and-secrets-spring-cloud.md)]
 
-[!INCLUDE [inspect-the-deployment-architecture](includes/inspect-the-deployment-architecture.md)]
+[!INCLUDE [inspect-the-deployment-architecture-spring-cloud](includes/inspect-the-deployment-architecture-spring-cloud.md)]
 
 ## Migration
 
