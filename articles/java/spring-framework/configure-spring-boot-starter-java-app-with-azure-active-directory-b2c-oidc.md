@@ -87,7 +87,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create user flow](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
-4. Select **User flows** on your left, and then **Click** **New user flow **.
+4. Select **User flows** on your left, and then click **New user flow**.
 
 5. Choose **Sign up or in**, **Profile editing** and **Password reset** to create your user flow. Refer to [this article](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows) for more details on this step. AAD B2C supports local accounts as well as social identity providers. For example, you may refer to [this article](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-github) to create a GitHub identity provider.
 Make sure Display Name is selected so it will be included in the claim token.
