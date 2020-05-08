@@ -147,7 +147,12 @@
     },
     {
       "source_path": "java/migrate-java-se-to-java-se-app-service.md",
-      "redirect_url": "/azure/developer/java/migration/migrate-java-se-to-java-se-app-service",
+      "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/java/migration/migrate-java-se-to-java-se-app-service.md",
+      "redirect_url": "/azure/developer/java/migration/migrate-spring-boot-to-app-service",
       "redirect_document_id": true
     },
     {
