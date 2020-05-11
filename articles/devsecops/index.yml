@@ -1,0 +1,68 @@
+### YamlMime:Landing
+
+title: Developer Security Operations
+summary: Build and deliver applications with a focus on security in every step of the process. 
+
+metadata:
+  title: Developer Security Operations
+  description: Build and deliver applications with a focus on security in every step of the process. 
+  ms.service: azure 
+  ms.topic: landing-page 
+  author: KathrynEE 
+  ms.author: kaelli 
+  ms.date: 05/12/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Code security
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: GitHub
+            url: index.yml
+  # Card (optional)
+  - title: Azure DevOps  
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Work with Azure DevOps and GitHub 
+            url: azure-devops.md
+  # Card (optional)
+  - title: Containers 
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Kubernetes, Docker, and more
+            url: containers.md   
+  # Card (optional)
+  - title: Identity and access management 
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Authenticate using Microsoft identity platform  
+            url: identity-access.md 
+  # Card (optional)
+  - title: Key and secret management 
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Kubernetes, Docker, and more
+            url: key-secret-management.md   
+  # Card (optional)
+  - title: Monitor 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Monitor applications 
+            url: monitor.md 
+  # Card (optional)
+  - title: Application security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application security overview 
+            url: app-security.md 
