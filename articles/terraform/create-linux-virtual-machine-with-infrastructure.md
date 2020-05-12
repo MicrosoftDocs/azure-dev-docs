@@ -409,7 +409,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 **Notes:**
 
-- Regarding the `admin_ssh_key` block, the Azure VM Agent requires that SSH Keys be written to the following path: `/home/{username}/.ssh/authorized_keys`. In order to run this sample on Windows, you might need to ensure that this directory structure exists.For more information about the `admin_ssh_key` block, see the [azurerm_linux_virtual_machine documentation on Terraform.io](https://www.terraform.io/docs/providers/azurerm/r/linux_virtual_machine.html).
+- Regarding the `admin_ssh_key` block, the Azure VM Agent requires that SSH Keys be written to the following path: `/home/{username}/.ssh/authorized_keys`. To run this sample on Windows, you might need to ensure that this directory structure exists. For more information about the `admin_ssh_key` block, see the [azurerm_linux_virtual_machine documentation on Terraform.io](https://www.terraform.io/docs/providers/azurerm/r/linux_virtual_machine.html).
 
 ## Build and deploy the infrastructure
 
