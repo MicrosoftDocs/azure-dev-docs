@@ -27,35 +27,35 @@ landingContent:
   # Card (optional)
   - title: Azure DevOps  
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: get-started
         links:
-          - text: Work with Azure DevOps and GitHub 
+          - text: Secure connections with Azure DevOps
             url: azure-devops.md
   # Card (optional)
   - title: Containers 
     linkLists:
-      - linkListType: deploy
+      - linkListType: get-started
         links:
-          - text: Kubernetes, Docker, and more
+          - text: Secure connections from Kubernetes, Docker, and more
             url: containers.md   
   # Card (optional)
   - title: Identity and access management 
     linkLists:
-      - linkListType: deploy
+      - linkListType: get-started
         links:
           - text: Authenticate using Microsoft identity platform  
             url: identity-access.md 
   # Card (optional)
   - title: Key and secret management 
     linkLists:
-      - linkListType: deploy
+      - linkListType: get-started
         links:
           - text: Kubernetes, Docker, and more
             url: key-secret-management.md   
   # Card (optional)
   - title: Monitor 
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
           - text: Monitor applications 
             url: monitor.md 
@@ -64,5 +64,5 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Application security overview 
+          - text: Application and services 
             url: app-security.md 

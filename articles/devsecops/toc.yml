@@ -1,4 +1,4 @@
-- name: Azure and GitHub working together
+- name: Developer Security Operations
   href: index.yml  
   items:
   - name: Code security
@@ -11,7 +11,7 @@
     href: identity-access.md  
   - name: Key and secret management 
     href: key-secret-management.md  
-  - name: Monitoring  
+  - name: Monitor  
     href: monitor.md 
-  - name: Application security overview
+  - name: Application security
     href: app-security.md  
