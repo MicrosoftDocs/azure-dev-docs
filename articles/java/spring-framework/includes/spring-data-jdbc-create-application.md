@@ -1,7 +1,5 @@
 ---
  author: judubois
- ms.service: azure-java
- ms.topic: include
  ms.date: 05/06/2020
  ms.author: judubois
 ---
