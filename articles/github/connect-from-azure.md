@@ -9,7 +9,7 @@ ms.date: 05/05/2020
 ---
 
 
-# Connect to GitHub from Azure and other services
+# Connect to GitHub from other Azure services
 
 The following articles provide details on connecting to GitHub from Azure and other services.  
 
