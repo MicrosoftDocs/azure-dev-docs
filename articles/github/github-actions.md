@@ -51,7 +51,7 @@ For sample workflows to connect to Azure, see the following GitHub actions:
 
 ## Sample apps with CI/CD workflow samples 
 
-The following samples provide end-to-end workflows to deploy your Web apps to Azure. 
+The following samples provide end-to-end workflows to build and deploy Web apps of any language, any ecosystem to Azure. 
 
 - [Deploy a Web App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
 - [Deploy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
@@ -67,8 +67,8 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 - [Azure Web App](https://github.com/Azure/webapps-deploy)  
 
 Configure App settings and Connection Strings using the actions:
-- [Azure App Service settings](https://github.com/Azure/appservice-settings)(`azure/appservice-settings`). 
-- [Azure App Configuration Sync](https://github.com/Azure/AppConfiguration-Sync)(`azure/appconfiguration-sync`)
+- [Azure App Service settings](https://github.com/Azure/appservice-settings)
+- [Azure App Configuration Sync](https://github.com/Azure/AppConfiguration-Sync)
 
 ## Deploy a serverless app
 
@@ -111,6 +111,6 @@ Configure App settings and Connection Strings using the actions:
 
 The following GitHub resources are available to support using GitHub to deploy your apps to Azure.  
 
-- [GitHub Actions for Azure Marketplace](https://github.com/marketplace?query=Azure&type=actions)
+- [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions)
 - [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
 
