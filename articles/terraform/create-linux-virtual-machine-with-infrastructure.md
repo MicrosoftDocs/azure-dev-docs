@@ -3,7 +3,7 @@ title: Quickstart - Create a Linux VM with infrastructure in Azure using Terrafo
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: quickstart
-ms.date: 05/04/2020
+ms.date: 05/11/2020
 ---
 
 # Quickstart: Create a Linux VM with infrastructure in Azure using Terraform
@@ -407,6 +407,9 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 }
 ```
 
+**Notes:**
+
+- Regarding the `admin_ssh_key` block, the Azure VM Agent requires that SSH Keys be written to the following path: `/home/{username}/.ssh/authorized_keys`. In order to run this sample on Windows, you might need to ensure that this directory structure exists.For more information about the `admin_ssh_key` block, see the [azurerm_linux_virtual_machine documentation on Terraform.io](https://www.terraform.io/docs/providers/azurerm/r/linux_virtual_machine.html).
 
 ## Build and deploy the infrastructure
 
