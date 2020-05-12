@@ -53,7 +53,7 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 
 - [Deploy a Web App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
 - [Deploy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
-- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express-App)  
+- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express_app)  
 - [Deploy a Java Web App](https://github.com/Azure-Samples/java-spring-petclinic)  
 - [Deploy a Java Spring App](https://github.com/Azure-Samples/Java-application-petstore-ee7)  
 - [Deploy a Python Web App](https://github.com/Azure-Samples/pythonSample_thecatsaidno)  
