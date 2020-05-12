@@ -111,4 +111,4 @@
   - name: All Samples
     href: https://docs.microsoft.com/samples/browse/?languages=python
 - name: Reference
-  href: /python/api/?view=azure-python
+  href: sdk.md
