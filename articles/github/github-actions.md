@@ -11,9 +11,9 @@ ms.date: 05/05/2020
 
 # Deploy to Azure using GitHub Actions
 
-You use GitHub Actions for Azure to automate your workflows to deploy to Azure. To get started, see these three GitHub Actions: 
+You use GitHub Actions for Azure to automate your workflows to deploy to Azure. To get started, see these GitHub Actions: 
 
-- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy), to deploy to Azure Web Apps and Azure Web App for Containers 
+- [Azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action, to deploy to Azure Web Apps and Azure Web App for Containers 
 - [Azure/appservice-settings](https://github.com/Azure/appservice-settings) to configure App settings, connection strings and other general settings in bulk using JSON syntax on your Azure WebApp (Windows or Linux) or any of its deployment slots.
 
 > [!NOTE]   
