@@ -1,7 +1,7 @@
 ---
-title: Example of using the Azure SDK to provision a resource group
+title: Provision a resource group using the Azure SDK for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
@@ -32,7 +32,7 @@ In a terminal or command prompt with the virtual environment activated, install 
 pip install -r requirements.txt
 ```
 
-## 3: Provision a resource group
+## 3: Write code to provision a resource group
 
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 

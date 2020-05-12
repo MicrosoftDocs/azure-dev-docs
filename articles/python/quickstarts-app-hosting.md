@@ -1,7 +1,7 @@
 ---
 title: Quickstarts for hosting Python apps on Azure
 description: List of getting started material in the Azure documentation for hosting Python app code.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 

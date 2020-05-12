@@ -1,7 +1,7 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure SDK.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 

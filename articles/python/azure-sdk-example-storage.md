@@ -1,7 +1,7 @@
 ---
-title: Example of using the Azure SDK with Azure Storage
-description: Example of working with Azure Storage using Python and both the Azure SDK management libraries and Azure SDK client libraries
-ms.date: 05/06/2020
+title: Provision and use Azure Storage with the Azure SDK for Python
+description: Use the Azure SDK for Python libraries to provision a blob container in an Azure Storage account and then upload a file to that container.
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
@@ -33,100 +33,105 @@ Be sure to create a service principal for local development, and create and acti
     pip install -r requirements.txt
     ```
 
-## 3: Provision resources with the management libraries
+## 3: Write code to provision storage resources
 
-1. Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
+Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
 
-    ```python
-    import os, random
+```python
+import os, random
 
-    # Import the needed management objects from the libraries. The azure.common library
-    # is installed automatically with the other libraries.
-    from azure.common.client_factory import get_client_from_cli_profile
-    from azure.mgmt.resource import ResourceManagementClient
-    from azure.mgmt.storage import StorageManagementClient
+# Import the needed management objects from the libraries. The azure.common library
+# is installed automatically with the other libraries.
+from azure.common.client_factory import get_client_from_cli_profile
+from azure.mgmt.resource import ResourceManagementClient
+from azure.mgmt.storage import StorageManagementClient
 
-    # Obtain the management object for resources, using the credentials from the CLI login.
-    resource_client = get_client_from_cli_profile(ResourceManagementClient)
+# Obtain the management object for resources, using the credentials from the CLI login.
+resource_client = get_client_from_cli_profile(ResourceManagementClient)
 
-    # Constants we need in multiple places: the resource group name and the region
-    # in which we provision resources. You can change these values however you want.
-    RESOURCE_GROUP_NAME = "PythonSDKExample-Storage-rg"
-    LOCATION = "centralus"
+# Constants we need in multiple places: the resource group name and the region
+# in which we provision resources. You can change these values however you want.
+RESOURCE_GROUP_NAME = "PythonSDKExample-Storage-rg"
+LOCATION = "centralus"
 
-    # Step 1: Provision the resource group.
-    rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
-        { "location": LOCATION })
+# Step 1: Provision the resource group.
+rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
+    { "location": LOCATION })
 
-    print(f"Provisioned resource group {rg_result.name}")
+print(f"Provisioned resource group {rg_result.name}")
 
-    # For details the previous code, see Example: Provision a resource group
-    # at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+# For details on the previous code, see Example: Provision a resource group
+# at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
 
-    # Step 2: Provision the storage account, starting with a management object.
-    storage_client = get_client_from_cli_profile(StorageManagementClient)
+# Step 2: Provision the storage account, starting with a management object.
 
-    # This example uses the CLI profile credentials because we assume the script
-    # is being used to provision the resource in the same way the Azure CLI would be used.
+storage_client = get_client_from_cli_profile(StorageManagementClient)
 
-    STORAGE_ACCOUNT_NAME = f"pythonsdkstorage{random.randint(1,100000):05}"
+# This example uses the CLI profile credentials because we assume the script
+# is being used to provision the resource in the same way the Azure CLI would be used.
 
-    # You can replace the storage account here with any unique name. A random number is used
-    # by default, but note that the name changes every time you run this script.
-    # The name must be 3-24 lower case letters and numbers only.
+STORAGE_ACCOUNT_NAME = f"pythonsdkstorage{random.randint(1,100000):05}"
+
+# You can replace the storage account here with any unique name. A random number is used
+# by default, but note that the name changes every time you run this script.
+# The name must be 3-24 lower case letters and numbers only.
 
 
-    # Check if the account name is available. Storage account names must be unique across
-    # Azure because they're used in URLs.
-    availability_result = storage_client.storage_accounts.check_name_availability(STORAGE_ACCOUNT_NAME)
+# Check if the account name is available. Storage account names must be unique across
+# Azure because they're used in URLs.
+availability_result = storage_client.storage_accounts.check_name_availability(STORAGE_ACCOUNT_NAME)
 
-    if not availability_result.name_available:
-        print(f"Storage name {STORAGE_ACCOUNT_NAME} is already in use. Try another name.")
-        exit()
+if not availability_result.name_available:
+    print(f"Storage name {STORAGE_ACCOUNT_NAME} is already in use. Try another name.")
+    exit()
 
-    # The name is available, so provision the account
-    poller = storage_client.storage_accounts.create(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME,
-        {
-            "location" : LOCATION,
-            "kind": "StorageV2",
-            "sku": {"name": "Standard_LRS"}
-        }
-    )
+# The name is available, so provision the account
+poller = storage_client.storage_accounts.create(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME,
+    {
+        "location" : LOCATION,
+        "kind": "StorageV2",
+        "sku": {"name": "Standard_LRS"}
+    }
+)
 
-    # Long-running operations return a poller object; calling poller.result()
-    # waits for completion.
-    account_result = poller.result()
-    print(f"Provisioned storage account {account_result.name}")
+# Long-running operations return a poller object; calling poller.result()
+# waits for completion.
+account_result = poller.result()
+print(f"Provisioned storage account {account_result.name}")
 
-    # Retrieve the account's primary access key and generate a connection string.
-    keys = storage_client.storage_accounts.list_keys(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME)
+# Step 3: Retrieve the account's primary access key and generate a connection string.
+keys = storage_client.storage_accounts.list_keys(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME)
 
-    print(f"Primary key for storage account: {keys.keys[0].value}")
+print(f"Primary key for storage account: {keys.keys[0].value}")
 
-    conn_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={STORAGE_ACCOUNT_NAME};AccountKey={keys.keys[0].value}"
-    print(f"Connection string: {conn_string}")
+conn_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={STORAGE_ACCOUNT_NAME};AccountKey={keys.keys[0].value}"
 
-    # Provision the blob container in the account (this call is synchronous)
-    CONTAINER_NAME = "blob-container-01"
-    container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME, CONTAINER_NAME, {})
+print(f"Connection string: {conn_string}")
 
-    # The fourth argument is a required BlobContainer object, but because we don't need any
-    # special values there, so we just pass empty JSON.
+# Step 4: Provision the blob container in the account (this call is synchronous)
+CONTAINER_NAME = "blob-container-01"
+container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME, CONTAINER_NAME, {})
 
-    print(f"Provisioned blob container {container.name}")
-    ```
+# The fourth argument is a required BlobContainer object, but because we don't need any
+# special values there, so we just pass empty JSON.
 
-    This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
+print(f"Provisioned blob container {container.name}")
 
-    To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+```
 
-1. Run the script:
+This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
 
-    ```bash
-    python provision_blob.py
-    ```
+To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
 
-    The script will take a minute or two to complete.
+## 4. Run the script:
+
+```bash
+python provision_blob.py
+```
+
+The script will take a minute or two to complete.
+
+## 5: Verify the resources
 
 1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were provisioned as expected. You may need to select **Show hidden types** in the resource group to see a storage account provisioned from a Python script:
 
@@ -192,7 +197,7 @@ az storage container create --account-name pythonsdkstorage12345 -n blob-contain
 
 ---
 
-## 4: Use resources through the SDK client libraries
+## 6: Use resources through the SDK client libraries
 
 The following sections show two ways to access the blob container provisioned in the previous section. These examples specifically upload a file blob to that container using the appropriate SDK client libraries.
 
@@ -346,7 +351,7 @@ After running the code of either method, go to the [Azure portal](https://portal
 
 ![Azure portal page for the blob container, showing the uploaded file](media/azure-sdk-example-storage/portal-blob-container-file.png)
 
-## 5: Clean up resources
+## 7: Clean up resources
 
 ```azurecli
 az group delete -n PythonSDKExample-Storage-rg
@@ -354,7 +359,9 @@ az group delete -n PythonSDKExample-Storage-rg
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
+You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Example: Provision a virtual machine >>>](azure-sdk-example-virtual-machines.md)
+> [Example: Provision a web app and deploy code >>>](azure-sdk-example-web-app.md)

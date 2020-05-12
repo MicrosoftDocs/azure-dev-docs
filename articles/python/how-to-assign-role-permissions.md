@@ -1,7 +1,7 @@
 ---
 title: Assign role permissions to an app identity or service principal
 description: How to grant permissions to a service principal or app identity using the Azure CLI
-ms.date: 05/04/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
@@ -91,7 +91,7 @@ The scope consists of a series of identifiers separated by the / character. You 
 - `<resources_group_name>` is the name of the containing resource group.
 - `<provider_name>` is the name of the service that handles the resource, then `<resource_type>` and `<resource_sub_type_*>` identify further levels within that service.
   
-    You find these names and types by referring to the [Azure build-in roles](/azure/role-based-access-control/built-in-roles) reference. Locate and select the role in the upper table to jump to the specific description of the role. There you find strings that contain the provider name, resource type, and resource sub types. For example, with the "Storage Blob Data Contributor" you see "Microsoft.Storage/storageAccounts/blobServices/containers/". For the "Cosmos DB Account Reader Role" you see "Microsoft.DocumentDB/databaseAccounts/readonlykeys", which has only one sub type.
+    You find these names and types by referring to the [Azure built-in roles](/azure/role-based-access-control/built-in-roles) reference. Locate and select the role in the upper table to jump to the specific description of the role. There you find strings that contain the provider name, resource type, and resource sub types. For example, with the "Storage Blob Data Contributor" you see "Microsoft.Storage/storageAccounts/blobServices/containers/". For the "Cosmos DB Account Reader Role" you see "Microsoft.DocumentDB/databaseAccounts/readonlykeys", which has only one sub type.
 
 - `<resource_name>` is the last part of the string that identifies a specific resource.
 

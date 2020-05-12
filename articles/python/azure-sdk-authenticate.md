@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: Authenticate a Python app with Azure services by using the Azure management SDK libraries
-ms.date: 05/01/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
@@ -46,9 +46,7 @@ The previous code uses the `DefaultAzureCredential` when accessing Azure Key Vau
 
 Again, authentication and authorization don't happen until the final step. Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python) object involves no communication with the resource in question; the `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. It's only when you call the [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-) method that the client object generates the appropriate REST API call to Azure. Azure's endpoint for `get_secret` then authenticates the caller's identity and checks authorization.
 
-When code is deployed to and running on Azure, `DefaultAzureCredential` automatically uses the identity assigned to the app within whatever service is hosting it. For example, a web app deployed to Azure App Service is assigned a unique name, which serves as its identity within Azure once the "Managed Identity" option is enabled on App Service. Permissions for specific resources, such as Azure Storage or Azure Key Vault, are assigned to that identity using the Azure portal or the Azure CLI.
-
-In these cases, Azure uses the app's *managed identity*. Managed identity (which is more accurately described as "*Azure*-managed identity") maximizes security because you don't ever deal with an explicit service principal in your code.
+When code is deployed to and running on Azure, `DefaultAzureCredential` automatically uses the system-assigned ("managed") identity assigned that you can enable for the app within whatever service is hosting it. For example, for a web app deployed to Azure App Service, you enable its managed identity through the **Identity** > **System assigned** option in the Azure portal, or by using the `az webapp identity assign` command in the Azure CLI. Permissions for specific resources, such as Azure Storage or Azure Key Vault, are also assigned to that identity using the Azure portal or the Azure CLI. In these cases, this Azure-managed identity maximizes security because you don't ever deal with an explicit service principal in your code.
 
 When you run your code locally, `DefaultAzureCredential` automatically uses the service principal described by the environment variables named `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET`. The SDK client object then includes these values (securely) in the HTTP request header when calling the API endpoint. No code changes are necessary. For details on creating the service principal and setting up the environment variables, see [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication).
 

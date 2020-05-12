@@ -1,7 +1,7 @@
 ---
 title: Cloud Development with Azure - What is Azure?
 description: An overview of developing cloud applications on Microsoft Azure, starting with how data centers, services, and resources relate.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
