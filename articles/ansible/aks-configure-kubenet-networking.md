@@ -3,14 +3,15 @@ title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
+ms.custom: fasttrack-edit
 ms.date: 10/23/2019
 ---
 
 # Tutorial: Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
 
-[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
 
-[!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
+[!INCLUDE [open-source-devops-intro-aks.md](../includes/open-source-devops-intro-aks.md)]
 
 Using AKS,  you can deploy a cluster using the following network models:
 
@@ -19,7 +20,7 @@ Using AKS,  you can deploy a cluster using the following network models:
 
 For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -28,9 +29,9 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a virtual network and subnet
 
@@ -101,9 +102,9 @@ Here are some key notes to consider when working with the sample playbook:
 - Use `azure_rm_aks_version` module to find the supported version.
 - The `vnet_subnet_id` is the subnet created in the previous section.
 - The `network_profile` defines the properties for the kubenet network plug-in.
-- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
+- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that is not used outside of the AKS clusters. However, you can reuse the same service CIDR for multiple AKS clusters. 
 - The `dns_service_ip` address should be the ".10" address of your service IP address range.
-- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
+- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed. As with the service CIDR, this IP range should not exist outside of the AKS cluster, but it can be safely reused across clusters.
 - The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
 - As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
 - The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).

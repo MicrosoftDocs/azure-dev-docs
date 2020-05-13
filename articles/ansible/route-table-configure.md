@@ -8,11 +8,11 @@ ms.date: 04/30/2019
 
 # Tutorial: Configure Azure route tables using Ansible
 
-[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-27-note.md](includes/ansible-28-note.md)]
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you need more control over your environment's routing, you can create a [route table](/azure/virtual-network/virtual-networks-udr-overview). 
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -26,8 +26,8 @@ Azure automatically routes traffic between Azure subnets, virtual networks, and 
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a route table
 

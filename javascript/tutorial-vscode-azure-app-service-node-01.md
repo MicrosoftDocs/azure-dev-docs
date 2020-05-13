@@ -19,10 +19,10 @@ Watch this video for a complete walkthrough of the content in this article.
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
+> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in to Azure
 

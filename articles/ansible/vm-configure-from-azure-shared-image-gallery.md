@@ -8,11 +8,11 @@ ms.date: 10/14/2019
 
 # Tutorial: Create a VM or virtual machine scale set from the Azure Shared Image Gallery using Ansible
 
-[!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
+[!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
 [Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. This feature is beneficial for scenarios where many images are maintained and shared. Custom images can be shared across subscriptions and between Azure Active Directory tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -25,8 +25,8 @@ ms.date: 10/14/2019
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Get the sample playbooks
 

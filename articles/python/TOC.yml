@@ -1,15 +1,31 @@
 - name: Azure for Python developers
   href: index.yml
-- name: Overview
+- name: Cloud development with Azure
   items:
-  - name: About the Python SDK
-    href: azure-sdk-overview.md
-  - name: Developer Tools
-    href: azure-tools.md 
-- name: Quickstarts
+    - name: What is Azure?
+      href: cloud-development-overview.md
+    - name: Provision, access, and manage resources
+      href: cloud-development-provisioning.md
+    - name: The Azure development flow
+      href: cloud-development-flow.md
+- name: Set up your dev environment for Azure
+  href: configure-local-development-environment.md
+- name: Use the Azure SDK for Python  
+  items:
+    - name: Overview
+      href: azure-sdk-overview.md
+    - name: Install SDK libraries
+      href: azure-sdk-install.md   
+    - name: "Example: Create a resource group"
+      href: azure-sdk-example-resource-group.md
+    - name: "Example: Use Azure storage"
+      href: azure-sdk-example-storage.md
+    - name: "Example: Provision a web app with code"
+      href: azure-sdk-example-web-app.md
+    - name: "Example: Provision a virtual machine"
+      href: azure-sdk-example-virtual-machines.md
+- name: Get started with Azure services
   items: 
-  - name: Python SDK
-    href: azure-sdk-get-started.yml
   - name: App hosting
     href: quickstarts-app-hosting.md
   - name: Data solutions
@@ -22,9 +38,9 @@
     href: quickstarts-messaging.md 
   - name: Security and integration
     href: quickstarts-security-integration.md
-- name: Tutorials
+- name: Scenario-specific tutorials
   items:
-    - name: Deploy to App Service with VS Code
+    - name: Deploy a web app with VS Code
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-deploy-app-service-on-linux-01.md
@@ -52,7 +68,7 @@
           href: tutorial-deploy-containers-04.md
         - name: 5 Clean up resources
           href: tutorial-deploy-containers-05.md
-    - name: Deploy Azure Functions with VS Code
+    - name: Deploy serverless Azure Functions with VS Code
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-vs-code-serverless-python-01.md
@@ -72,11 +88,13 @@
           href: tutorial-vs-code-serverless-python-08.md
 - name: How-to guides
   items: 
-  - name: Install the SDK
-    href: azure-sdk-install.md   
-  - name: Authentication
+  - name: Authenticate apps with Azure
     href: azure-sdk-authenticate.md
-  - name: Operations config
+  - name: Manage service principals
+    href: how-to-manage-service-principals.md
+  - name: Assign role permissions to security principals
+    href: how-to-assign-role-permissions.md
+  - name: Configure REST API arguments
     href: azure-sdk-operation-config.md
   - name: Multi-cloud development
     href: azure-sdk-multi-cloud.md

@@ -10,7 +10,7 @@ ms.date: 10/23/2019
 
 Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. 
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
@@ -21,9 +21,9 @@ Ansible can be used to pull inventory information from various sources (includin
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create the test VMs
 
@@ -82,7 +82,7 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
 
 ### Using Ansible version < 2.8
 
-Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
+Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/ansible/blob/stable-2.9/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
@@ -119,7 +119,7 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/
 
 ### Ansible version >= 2.8
 
-Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plug-in:
+Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/stable-2.9/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plug-in:
 
 1. The inventory plug-in requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
