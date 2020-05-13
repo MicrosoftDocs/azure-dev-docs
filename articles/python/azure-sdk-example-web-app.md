@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You use a fork to ensure that you have permissions to deploy the repository to Azure.
 
-![Forking the sample repository on GitHub](media/azure-sdk-example-web-app/fork=github-repository.png)
+![Forking the sample repository on GitHub](media/azure-sdk-example-web-app/fork-github-repository.png)
 
 Then create an environment variable named `REPO_URL` with the URL of your fork. The code in the next section depends on this environment variable:
 
