@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Developer Security Operations
+title: DevSecOps
 summary: Build and deliver applications with a focus on security in every step of the process. 
 
 metadata:
-  title: Developer Security Operations
+  title: DevSecOps
   description: Build and deliver applications with a focus on security in every step of the process. 
   ms.service: azure 
   ms.topic: landing-page 
@@ -23,13 +23,13 @@ landingContent:
       - linkListType: get-started
         links:
           - text: GitHub
-            url: index.yml
+            url: github.md
   # Card (optional)
-  - title: Azure DevOps  
+  - title: DevOps tools  
     linkLists:
       - linkListType: get-started
         links:
-          - text: Secure connections with Azure DevOps
+          - text: Work planning and CI/CD
             url: azure-devops.md
   # Card (optional)
   - title: Containers 
@@ -39,7 +39,7 @@ landingContent:
           - text: Secure connections from Kubernetes, Docker, and more
             url: containers.md   
   # Card (optional)
-  - title: Identity and access management 
+  - title: Identity and Access Management 
     linkLists:
       - linkListType: get-started
         links:
@@ -50,19 +50,21 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Kubernetes, Docker, and more
+          - text: Manage keys and application secrets 
             url: key-secret-management.md   
   # Card (optional)
   - title: Monitor 
     linkLists:
       - linkListType: get-started
         links:
-          - text: Monitor applications 
+          - text: Monitor applications and infrastructure
             url: monitor.md 
   # Card (optional)
-  - title: Application security
+  - title: Architecture
     linkLists:
       - linkListType: overview
         links:
-          - text: Application and services 
+          - text: Application and services security 
             url: app-security.md 
+          - text: DevSecOps architecture
+            url: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure 
