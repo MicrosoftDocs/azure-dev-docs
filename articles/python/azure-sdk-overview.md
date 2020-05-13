@@ -1,7 +1,7 @@
 ---
 title: Use the Azure SDK for Python
 description: Overview of the features and capabilities of the Azure SDK for Python that helps developers be more productive when provisioning, using, and managing Azure resources.
-ms.date: 05/12/2020
+ms.date: 05/13/2020
 ms.topic: conceptual
 ---
 
