@@ -85,6 +85,12 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 - [Setup Helm](https://github.com/Azure/setup-helm)  
 - [Kubernetes bake](https://github.com/Azure/k8s-bake)  
 
+## Train and Deploy a machine learning model 
+
+- [Login](https://github.com/Azure/aml-workspace) 
+- [Train](https://github.com/Azure/aml-run)
+- [Deploy Model](https://github.com/Azure/aml-deploy)
+
 ## Deploy to databases
 
 - [Azure SQL database](https://github.com/Azure/sql-action)  
