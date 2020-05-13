@@ -37,8 +37,8 @@ landingContent:
             url: azure-sdk-install.md
       - linkListType: tutorial
         links:
-          - text: Use Azure Storage with the SDK
-            url: azure-sdk-example-storage.md
+          - text: Use Azure the SDK from code
+            url: azure-sdk-example-resource-group.md
       - linkListType: reference
         links:
           - text: Azure SDK for Python API reference
