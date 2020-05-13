@@ -8,7 +8,7 @@ ms.date: 07/31/2018
 
 # Tutorial: Deploy to Azure App Service using the Jenkins plugin
 
-To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/deploy-to-azure-app-service-using-azure-cli) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
+To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](deploy-to-azure-app-service-using-azure-cli.md) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
 * File upload.
 * Docker for Web Apps on Linux.
@@ -129,7 +129,7 @@ Web Apps on Linux also supports traditional deployment methods, like Git and fil
 
 Before setting up the job in Jenkins, you need a web app on Linux. You also need a container registry to store and manage your private Docker container images. You can use DockerHub to create the container registry. In this example, we use Azure Container Registry.
 
-* [Create your web app on Linux](/azure/app-service/containers/quickstart-nodejs.md).
+* [Create your web app on Linux](/azure/app-service/containers/quickstart-nodejs).
 * Azure Container Registry is a managed [Docker Registry](https://docs.docker.com/registry/) service that is based on the open-source Docker Registry version 2.0. [Create an Azure container registry](/azure/container-registry/container-registry-get-started-azure-cli). You can also use DockerHub.
 
 ### Set up the Jenkins job for Docker

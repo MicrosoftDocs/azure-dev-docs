@@ -75,7 +75,7 @@ Use the following grid to identify the destinations that support the application
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|
+| Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
 | Web applications                                                  |        |&#x2714;|        |&#x2714;|&#x2714;|
 | Java EE applications                                              |        |        |        |&#x2714;|&#x2714;|
@@ -83,6 +83,8 @@ Use the following grid to identify the destinations that support the application
 | Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
 | Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |Preview |Preview |        |&#x2714;|&#x2714;|
+| Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
 
@@ -93,14 +95,14 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|   | App Service | Azure Spring Cloud | AKS | Virtual Machines |
+|                                                                       | App Service | Azure Spring Cloud | AKS | Virtual Machines |
 |---|---|---|---|---|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
 | Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | N/A         | &#x1F449;   | N/A       |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | N/A         | &#x1F449;   | N/A       |
-| Updating container base image<br>(including vulnerability remediation)      | N/A         | N/A         | &#x1F449;   | N/A       |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
+| Updating container base image<br>(including vulnerability remediation)      | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
 | Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Detecting and restarting failed instances                                   | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
 | Implementing draining and rolling restart for updates                       | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
@@ -127,14 +129,14 @@ Use the following grids to find migration guidance by application type and targe
 
 Use the rows below to find your Java application type and the columns to find the Azure service destination that will host your application.
 
-If you would like to migrate a JBoss EAP app to Tomcat on App Service, first convert the Java EE app to Java Web Apps (servlets) running on Tomcat, then follow the guidance indicated below.
+If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert the Java EE app to Java Web Apps (servlets) running on Tomcat, then follow the guidance indicated below.
 
-If you would like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
+If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
 
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | guidance<br>planned | guidance<br>planned |
-| Spring Cloud /<br>microservices   | N/A           | N/A                 | guidance<br>planned | guidance<br>planned | guidance<br>planned |
+| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | [guidance][14]      | guidance<br>planned |
+| Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15]      | guidance<br>planned | guidance<br>planned |
 | Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A                 | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
@@ -153,8 +155,14 @@ Use the rows below to find your Java EE application type running on a specific a
 [2]: migrate-tomcat-to-tomcat-app-service.md
 [3]: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
 [4]: migrate-weblogic-to-virtual-machines.md
-[5]: migrate-java-se-to-java-se-app-service.md
+[5]: migrate-spring-boot-to-app-service.md
 [6]: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
 [7]: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
 [8]: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
 [9]: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
+[10]: https://azure.microsoft.com/global-infrastructure/services/?products=app-service-linux
+[11]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud
+[12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+[14]: migrate-spring-boot-to-azure-kubernetes-service.md
+[15]: migrate-spring-cloud-to-azure-spring-cloud.md

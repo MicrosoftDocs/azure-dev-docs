@@ -47,7 +47,7 @@ conceptualContent:
       links:
         - text: Spring to Azure App Service
           itemType: how-to-guide
-          url: migration/migrate-java-se-to-java-se-app-service.md
+          url: migration/migrate-spring-boot-to-app-service.md
         - text: Tomcat to Azure App Service
           itemType: how-to-guide
           url: migration/migrate-tomcat-to-tomcat-app-service.md
@@ -169,21 +169,21 @@ tools:
     - title: Azure Toolkit for IntelliJ
       imageSrc: https://docs.microsoft.com/media/logos/logo_intellij.svg
       url: toolkit-for-intellij/index.yml
+    - title: Visual Studio Code
+      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      url: https://code.visualstudio.com/docs
     - title: Azure Toolkit for Eclipse
       imageSrc: https://docs.microsoft.com/media/logos/logo_eclipse.svg
       url: toolkit-for-eclipse/index.yml
     - title: Eclipse Microprofile
       imageSrc: https://docs.microsoft.com/media/logos/logo_eclipse.svg
       url: eclipse-microprofile/index.yml
-    - title: Visual Studio Code
-      imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      url: https://code.visualstudio.com/docs
-    - title: Azure CLI
-      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
-      url: /cli/azure
     - title: Maven
       imageSrc: https://docs.microsoft.com/media/logos/logo_maven.svg
       url: /java/api/overview/azure/maven/README
+    - title: Azure CLI
+      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
+      url: /cli/azure
     - title: Jenkins on Azure
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: /azure/jenkins

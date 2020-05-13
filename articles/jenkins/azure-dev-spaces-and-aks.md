@@ -53,7 +53,7 @@ In this section, you create Azure resources:
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. Create an AKS cluster. Create the AKS cluster in a [region that supports Dev Spaces](/azure/dev-spaces/about.md#supported-regions-and-configurations).
+2. Create an AKS cluster. Create the AKS cluster in a [region that supports Dev Spaces](/azure/dev-spaces/about#supported-regions-and-configurations).
 
     ```azurecli
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
@@ -197,7 +197,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 ### Add credentials to Jenkins
 
-1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
+1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
 
     ```json
     {
@@ -215,7 +215,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
     ![Add service principal credentials to Jenkins](media/azure-dev-spaces-and-aks/add-service-principal-credentials.png)
 
-    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
+    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](deploy-from-github-to-azure-app-service.md#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
 
 
 
@@ -339,7 +339,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
 
 2. Sign into Jenkins and select the pipeline name, and then choose **Build Now**. 
 
-    You can also set up a *webhook* to automatically trigger the Jenkins pipeline. When a pull request is entered, GitHub issues a POST to Jenkins, triggering the pipeline. For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/deploy-from-github-to-azure-app-service.md#connect-jenkins-to-github).
+    You can also set up a *webhook* to automatically trigger the Jenkins pipeline. When a pull request is entered, GitHub issues a POST to Jenkins, triggering the pipeline. For more information about setting up a webhook, see [Connect Jenkins to GitHub](deploy-from-github-to-azure-app-service.md#connect-jenkins-to-github).
 
 3. Compare changes to the current shared version:
 
