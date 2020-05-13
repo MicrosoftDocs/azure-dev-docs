@@ -506,8 +506,7 @@
     },
     {
       "source_path": "python/developer/azure-sdk-get-started.yml",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group",
-      "redirect_document_id": true
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group"
     },    
     {
       "source_path": "python/python-sdk-azure-sql-database-samples.md",
@@ -539,8 +538,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-get-started.yml",
-      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group",
-      "redirect_document_id": true
+      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group"
     },
     {
       "source_path": "python/python-sdk-azure-multi-cloud.md",
