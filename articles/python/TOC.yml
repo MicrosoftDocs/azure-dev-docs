@@ -10,7 +10,7 @@
       href: cloud-development-flow.md
 - name: Set up your dev environment for Azure
   href: configure-local-development-environment.md
-- name: Use the Azure SDK for Python  
+- name: Get started with the Azure SDK for Python  
   items:
     - name: Overview
       href: azure-sdk-overview.md
@@ -24,7 +24,7 @@
       href: azure-sdk-example-web-app.md
     - name: "Example: Provision a virtual machine"
       href: azure-sdk-example-virtual-machines.md
-- name: Get started with Azure services
+- name: Azure services quickstarts
   items: 
   - name: App hosting
     href: quickstarts-app-hosting.md
