@@ -11,9 +11,9 @@ ms.date: 05/05/2020
 
 # Deploy to Azure using GitHub Actions
 
-You use GitHub Actions for Azure to automate your workflows to deploy to Azure. To get started, see these three GitHub Actions: 
+You use GitHub Actions for Azure to automate your workflows to deploy to Azure. To get started, see these GitHub Actions: 
 
-- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy), to deploy to Azure Web Apps and Azure Web App for Containers 
+- [Azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action, to deploy to Azure Web Apps and Azure Web App for Containers 
 - [Azure/appservice-settings](https://github.com/Azure/appservice-settings) to configure App settings, connection strings and other general settings in bulk using JSON syntax on your Azure WebApp (Windows or Linux) or any of its deployment slots.
 
 > [!NOTE]   
@@ -53,7 +53,7 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 
 - [Deploy a Web App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
 - [Deploy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
-- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express-App)  
+- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express_app)  
 - [Deploy a Java Web App](https://github.com/Azure-Samples/java-spring-petclinic)  
 - [Deploy a Java Spring App](https://github.com/Azure-Samples/Java-application-petstore-ee7)  
 - [Deploy a Python Web App](https://github.com/Azure-Samples/pythonSample_thecatsaidno)  
@@ -84,6 +84,12 @@ The following samples provide end-to-end workflows to deploy your Web apps to Az
 - [Kubernetes deploy](https://github.com/Azure/k8s-deploy)  
 - [Setup Helm](https://github.com/Azure/setup-helm)  
 - [Kubernetes bake](https://github.com/Azure/k8s-bake)  
+
+## Train and Deploy a machine learning model 
+
+- [Login](https://github.com/Azure/aml-workspace) 
+- [Train](https://github.com/Azure/aml-run)
+- [Deploy Model](https://github.com/Azure/aml-deploy)
 
 ## Deploy to databases
 
