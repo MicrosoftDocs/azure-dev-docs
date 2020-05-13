@@ -22,8 +22,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Spring to Azure App Service
-            url: migrate-java-se-to-java-se-app-service.md
+          - text: Spring Boot to Azure App Service
+            url: migrate-spring-boot-to-app-service.md
+          - text: Spring Boot to AKS
+            url: migrate-spring-boot-to-azure-kubernetes-service.md
+          - text: Spring Cloud to Azure Spring Cloud
+            url: migrate-spring-cloud-to-azure-spring-cloud.md
   - title: Migrate Tomcat to Azure
     linkLists:
       - linkListType: how-to-guide

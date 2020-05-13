@@ -2,7 +2,7 @@
 title: Getting started with Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
 documentationcenter: java
-author: judubois
+author: jdubois
 manager: brborges
 ms.author: judubois
 ms.date: 07/17/2019
@@ -67,7 +67,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
     <functionResourceGroup>my-resource-group</functionResourceGroup>
     <start-class>com.example.HelloFunction</start-class>
-    <wrapper.version>1.0.22.RELEASE</wrapper.version>
+    <wrapper.version>1.0.24.RELEASE</wrapper.version>
 </properties>
 ```
 
@@ -214,9 +214,7 @@ package com.example;
 
 import com.example.model.Greeting;
 import com.example.model.User;
-import com.microsoft.azure.functions.ExecutionContext;
-import com.microsoft.azure.functions.HttpMethod;
-import com.microsoft.azure.functions.HttpRequestMessage;
+import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
@@ -227,12 +225,16 @@ import java.util.Optional;
 public class HelloHandler extends AzureSpringBootRequestHandler<User, Greeting> {
 
     @FunctionName("hello")
-    public Greeting execute(
+    public HttpResponseMessage execute(
             @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<User>> request,
             ExecutionContext context) {
 
         context.getLogger().info("Greeting user name: " + request.getBody().get().getName());
-        return handleRequest(request.getBody().get(), context);
+        return request
+                .createResponseBuilder(HttpStatus.OK)
+                .body(handleRequest(request.getBody().get(), context))
+                .header("Content-Type", "application/json")
+                .build();
     }
 }
 ```

@@ -11,13 +11,13 @@ ms.date: 2/28/2020
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
 
-## Before you start
+## Pre-migration
+
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
 If you can't meet any of the pre-migration requirements, see the companion migration guide:
 
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
-
-## Pre-migration
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 
@@ -61,15 +61,7 @@ If your application relies on session replication, with or without Oracle Cohere
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
-### Validate that the supported Java version works correctly
-
-Using WildFly on Azure Kubernetes Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current version, sign in to your production server and run the following command:
-
-```bash
-java -version
-```
+[!INCLUDE [validate-that-the-supported-java-version-works-correctly-wildfly](includes/validate-that-the-supported-java-version-works-correctly-wildfly.md)]
 
 [!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
@@ -97,21 +89,13 @@ If your app was deployed using a deployment plan, you'll need to assess what the
 
 [!INCLUDE [determine-whether-ejb-timers-are-in-use](includes/determine-whether-ejb-timers-are-in-use.md)]
 
-### Validate whether and how the file system is used
+### Determine whether and how the file system is used
 
 Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by WebLogic shared modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
-#### Read-only static content
+[!INCLUDE [static-content](includes/static-content.md)]
 
-If your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
-
-#### Dynamically published static content
-
-If your application allows for static content that is uploaded/produced by your application but is immutable after its creation, you can use Azure Blob Storage and Azure CDN as described above, with an Azure Function to handle uploads and CDN refresh. We've provided a sample implementation for your use at [Uploading and CDN-preloading static content with Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
-
-#### Dynamic or internal content
-
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage shares as persistent volumes. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service](/azure/aks/azure-files-dynamic-pv).
+[!INCLUDE [dynamic-or-internal-content-aks](includes/dynamic-or-internal-content-aks.md)]
 
 ### Determine whether JCA connectors are used
 

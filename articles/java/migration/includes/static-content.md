@@ -1,12 +1,8 @@
 ---
-author: edburns
-ms.author: edburns
-ms.date: 1/21/2020
+author: yevster
+ms.author: yebronsh
+ms.date: 4/10/2020
 ---
-
-### Validate whether and how the file system is used
-
-VM filesystems operate the same way as on-premises filesystems with respect to persistence, startup, and shutdown. Even so, it's important to be aware of your filesystem needs and ensure the VMs have adequate storage size and performance.
 
 #### Read-only static content
 
