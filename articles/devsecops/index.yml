@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: DevSecOps
-summary: Build and deliver applications with a focus on security in every step of the process. 
+summary: Use Azure and GitHub tools to build and deliver applications with a focus on security in every step of the process. 
 
 metadata:
   title: DevSecOps
-  description: Build and deliver applications with a focus on security in every step of the process. 
+  description: Use Azure and GitHub tools to build and deliver applications with a focus on security in every step of the process. 
   ms.service: azure 
   ms.topic: landing-page 
   author: KathrynEE 

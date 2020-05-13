@@ -173,3 +173,7 @@ additionalContent:
         - title: Azure Toolkit for Eclipse
           summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
           url: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/
+        # Card
+        - title: DevSecOps
+          summary: Use Azure and GitHub tools to build and deliver applications with a focus on security in every step of the process.  
+          url: https://docs.microsoft.com/azure/developer/devsecops
