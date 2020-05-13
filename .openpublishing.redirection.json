@@ -626,6 +626,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "python/developer/azure-sdk-get-started.yml",
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "python/python-sdk-azure-sql-database-samples.md",
       "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database",
       "redirect_document_id": false
@@ -662,7 +667,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-get-started.yml",
-      "redirect_url": "/azure/developer/python/azure-sdk-get-started",
+      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group",
       "redirect_document_id": true
     },
     {
