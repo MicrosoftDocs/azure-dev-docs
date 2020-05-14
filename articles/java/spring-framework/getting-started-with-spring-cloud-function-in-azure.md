@@ -67,7 +67,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
     <functionResourceGroup>my-resource-group</functionResourceGroup>
     <start-class>com.example.HelloFunction</start-class>
-    <wrapper.version>1.0.24.RELEASE</wrapper.version>
+    <spring.boot.wrapper.version>1.0.24.RELEASE</spring.boot.wrapper.version>
 </properties>
 ```
 
