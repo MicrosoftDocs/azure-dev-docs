@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Secure connections from Kubernetes, Docker, and more
+          - text: Container-based infrastructure with Kubernetes
             url: containers.md   
   # Card (optional)
   - title: Identity and Access Management 

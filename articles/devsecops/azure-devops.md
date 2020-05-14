@@ -1,5 +1,5 @@
 --- 
-title: Create secure connections to Azure DevOps 
+title: Create secure connections using DevOps tool 
 description: Find resources that support secure connections to Azure DevOps 
 ms.author: kaelli
 author: KathrynEE
@@ -9,9 +9,9 @@ ms.date: 05/12/2020
 ---
 
 
-# Azure DevOps secure connections
+# DevOps tools  
 
-Review the following articles to learn about securing connections with Azure DevOps.  
+Review the following articles to learn about using DevOps tools to plan your work and run CI/CD in a DevSecOps scenario. 
 
 - [Plan and track work with Azure Boards](https://docs.microsoft.com/azure/devops/boards/get-started/plan-track-work)  
 - [Connect Azure Boards with GitHub](https://docs.microsoft.com/azure/devops/boards/github)   

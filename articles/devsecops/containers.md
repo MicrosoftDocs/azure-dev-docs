@@ -9,7 +9,7 @@ ms.date: 05/12/2020
 ---
 
 
-# Secure connections when using Azure Kubernetes, Docker, and other containers 
+# Containers
 
 The following articles address secure connections when using Azure and containers.  
 - [Managed Kubernetes with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/)   

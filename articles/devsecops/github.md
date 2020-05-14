@@ -9,9 +9,9 @@ ms.date: 05/12/2020
 ---
 
 
-# GitHub 
+# Secure your code in GitHub
 
-Review the following GitHub articles to learn about securing your GitHub repository code.  
+Review the following GitHub articles to learn about securing your application's code and dependencies.
 
 - [Scan your code with CodeQL and token scanning](https://help.github.com/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors)  
 - [Manage security advisories for your projects](https://help.github.com/github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project)  

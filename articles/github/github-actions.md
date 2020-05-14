@@ -1,8 +1,8 @@
 ---
 title: Deploy to Azure using GitHub Actions
 description: Create workflows within your repository to build, test, package, release and deploy to Azure. 
-ms.author: kaelli
-author: KathrynEE  
+author: N-Usha 
+ms.author: ushan 
 ms.topic: conceptual
 ms.service: azure 
 ms.date: 05/05/2020
