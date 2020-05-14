@@ -88,7 +88,7 @@ The following prerequisites are required in order to complete the steps in this 
    | Parameter | Description |
    |---|---|
    | `host` | Specifies your fully qualified PostgreSQL server name from earlier in this article. |
-   | `host` | Specifies the PostgreSQL server port, which is `5432` by default. |
+   | `port` | Specifies the PostgreSQL server port, which is `5432` by default. |
    | `username` | Specifies your PostgreSQL administrator and shortened server name from earlier in this article. |
    | `dbname` | Specifies that you want to use the default `postgres` database for now. |
 

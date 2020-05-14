@@ -8,8 +8,8 @@ ms.date: 2/28/2020
 
 To create a Dockerfile, you'll need the following prerequisites:
 
-* A supported JDK
-* An install of WildFly
+* A supported JDK.
+* An install of WildFly.
 * Your JVM runtime options.
 * A way to pass in environment variables (if applicable).
 

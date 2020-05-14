@@ -178,7 +178,7 @@ Do the following to verify the WAR file is deployed successfully to your web app
 
 Once you use Azure CLI in your Jenkins pipeline, modify the script to deploy to an Azure Web App on Linux. Web Apps on Linux supports Docker. As such, you provide a Dockerfile that packages your web app with service runtime into a Docker image. The plug-in builds the image, pushes it to a Docker registry, and deploys the image to your web app.
 
-1. [Create an Azure Web App running on Linux](/azure/app-service/containers/quickstart-nodejs.md).
+1. [Create an Azure Web App running on Linux](/azure/app-service/containers/quickstart-nodejs).
 
 1. [Install Docker on your Jenkins](https://docs.docker.com/engine/installation/linux/ubuntu/).
 

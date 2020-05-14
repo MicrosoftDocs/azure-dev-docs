@@ -61,7 +61,7 @@ The following samples provide end-to-end workflows  to build and deploy Web apps
 
 - [Deploy a Web App with ASP.NET support](https://github.com/Azure-Samples/dotnet-sample)  
 - [Deploy an ASP.NET Core App](https://github.com/Azure-Samples/dotnet_core_sample)  
-- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express-App)  
+- [Deploy a Node.js Web App](https://github.com/Azure-Samples/node_express_app)  
 - [Deploy a Java Web App](https://github.com/Azure-Samples/java-spring-petclinic)  
 - [Deploy a Java Spring App](https://github.com/Azure-Samples/Java-application-petstore-ee7)  
 - [Deploy a Python Web App](https://github.com/Azure-Samples/pythonSample_thecatsaidno)  
@@ -95,6 +95,12 @@ Configure App settings and Connection Strings using the actions:
 - [Kubernetes deploy](https://github.com/Azure/k8s-deploy)  
 - [Setup Helm](https://github.com/Azure/setup-helm)  
 - [Kubernetes bake](https://github.com/Azure/k8s-bake)  
+
+## Train and Deploy a machine learning model 
+
+- [Login](https://github.com/Azure/aml-workspace) 
+- [Train](https://github.com/Azure/aml-run)
+- [Deploy Model](https://github.com/Azure/aml-deploy)
 
 ## Deploy to databases
 

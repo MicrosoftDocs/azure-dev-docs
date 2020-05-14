@@ -42,6 +42,7 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/azure/developer/breadcrumb/toc.json",
+      "uhfHeaderId": "azure",
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs"
     },
