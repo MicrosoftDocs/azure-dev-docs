@@ -9,7 +9,7 @@ ms.date: 05/12/2020
 ---
 
 
-# Secure your code in GitHub
+# Code security
 
 Review the following GitHub articles to learn about securing your application's code and dependencies.
 
