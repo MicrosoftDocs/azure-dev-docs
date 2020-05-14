@@ -27,7 +27,7 @@ landingContent:
   # Card (optional)
   - title: Deploy to Azure
     linkLists:
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
           - text: Deploy apps from GitHub to Azure
             url: deploy-to-azure.md   
