@@ -505,6 +505,10 @@
       "redirect_url": "https://docs.microsoft.com/azure/developer/python"
     },
     {
+      "source_path": "python/sdk/index.yml",
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python"
+    },
+    {
       "source_path": "python/developer/azure-sdk-get-started.yml",
       "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group"
     },    
@@ -675,10 +679,6 @@
     {
       "source_path": "python/tutorial-vs-code-serverless-python-08.md",
       "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-08"
-    },
-    {
-      "source_path": "python/sdk/index.yml",
-      "redirect_url": "/azure/developer/python/index"
     },
     {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
