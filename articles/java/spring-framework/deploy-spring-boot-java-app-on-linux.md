@@ -37,8 +37,8 @@ The following steps walk through the steps that are required to create a simple 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
 
    ```bash
-   md /users/robert/SpringBoot
-   cd /users/robert/SpringBoot
+   mkdir SpringBoot
+   cd SpringBoot
    ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
