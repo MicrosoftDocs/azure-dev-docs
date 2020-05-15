@@ -165,7 +165,7 @@ Run the image locally:
 docker run -it -p 8080:8080 ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-You can now access your application at [http://localhost:8080](http://localhost:8080).
+You can now access your application at `http://localhost:8080`.
 
 Log into your Azure container registry:
 

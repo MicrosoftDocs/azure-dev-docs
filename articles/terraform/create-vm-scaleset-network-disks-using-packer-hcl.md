@@ -114,7 +114,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = var.location
   resource_group_name          = azurerm_resource_group.vmss.name
-  allocation_method            = "static"
+  allocation_method            = "Static"
   domain_name_label            = azurerm_resource_group.vmss.name
 
   tags {
@@ -345,7 +345,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = var.location
   resource_group_name          = azurerm_resource_group.vmss.name
-  allocation_method            = "static"
+  allocation_method            = "Static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

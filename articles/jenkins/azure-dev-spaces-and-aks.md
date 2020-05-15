@@ -197,7 +197,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 ### Add credentials to Jenkins
 
-1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
+1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
 
     ```json
     {
@@ -215,7 +215,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
     ![Add service principal credentials to Jenkins](media/azure-dev-spaces-and-aks/add-service-principal-credentials.png)
 
-    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/deploy-from-github-to-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
+    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](deploy-from-github-to-azure-app-service.md#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
 
 
 
