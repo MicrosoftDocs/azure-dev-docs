@@ -677,6 +677,10 @@
       "redirect_url": "/azure/developer/python/tutorial-vs-code-serverless-python-08"
     },
     {
+      "source_path": "python/sdk/index.yml",
+      "redirect_url": "/azure/developer/python/index"
+    },
+    {
       "source_path": "go-redirects/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },
