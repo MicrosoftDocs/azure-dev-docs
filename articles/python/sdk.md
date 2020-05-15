@@ -19,7 +19,7 @@ Try the new navigation by using the following table to link to SDK topics per se
 
 | Service | Client libraries |
 | ---- | ---- |
-| [Storage](https://docs.microsoft.com/python/api/azure/storage/overview) | Storage Blob, Storage File Share, Storage Queue, and Management. |
+| [Storage](./storage/overview.md) | Storage Blob, Storage File Share, Storage Queue, and Management. |
 
 ## We want to hear from you
 
