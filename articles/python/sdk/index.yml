@@ -22,4 +22,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: Placeholder
-            url: sdk/overview.md
+            url: storage/overview.md
