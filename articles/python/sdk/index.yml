@@ -22,4 +22,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: Placeholder
-            url: storage/overview.md
+            url: /azure/developer/python/sdk/storage/overview
