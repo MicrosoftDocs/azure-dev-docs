@@ -19,7 +19,7 @@ Try the new navigation by using the following table to link to SDK topics per se
 
 | Service | Client libraries |
 | ---- | ---- |
-| [Storage](./storage/overview.md) | Storage Blob, Storage File Share, Storage Queue, and Management. |
+| [Storage](./sdk/storage/overview.md) | Storage Blob, Storage File Share, Storage Queue, and Management. |
 
 ## We want to hear from you
 

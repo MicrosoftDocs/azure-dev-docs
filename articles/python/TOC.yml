@@ -129,4 +129,6 @@
   - name: All Samples
     href: https://docs.microsoft.com/samples/browse/?languages=python
 - name: Reference
-  href: sdk.md
+  items:
+  - name: Azure SDK
+    href: sdk.md
