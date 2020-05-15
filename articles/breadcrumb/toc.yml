@@ -6,9 +6,6 @@
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
-    - name: Developer Security Operations
-      tocHref: /azure/developer/devsecops
-      topicHref: /azure/developer/devsecops/index
     - name: GitHub
       tocHref: /azure/developer/github
       topicHref: /azure/developer/github/index
