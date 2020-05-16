@@ -505,8 +505,8 @@
       "redirect_url": "https://docs.microsoft.com/azure/developer/python"
     },
     {
-      "source_path": "python/sdk/index.yml",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python"
+      "source_path": "articles/python/sdk/index.yml",
+      "redirect_url": "/azure/developer/python"
     },
     {
       "source_path": "python/developer/azure-sdk-get-started.yml",
