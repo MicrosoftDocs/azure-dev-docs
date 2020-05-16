@@ -870,7 +870,7 @@
     },
     {
       "source_path": "articles/devsecops/index.yml",
-      "redirect_url": "/azure/deveops/devsecops"
+      "redirect_url": "/azure/devops/devsecops"
     }
   ]
 }
