@@ -153,7 +153,7 @@ The [Azure toolkit](/azure/developer/java/toolkit-for-eclipse) is necessary if y
 
 - Select the **Help** menu and then select **Install New software**.
 
-- In the **Work with:** field enter `http://dl.microsoft.com/eclipse` and press enter.
+- In the **Work with:** field enter `http://dl.microsoft.com/eclipse/` and press enter.
 
 - Then, select the checkbox next to **Azure toolkit for Java** and uncheck the checkbox for **Contact all update sites during install to find required software**. Then select next.
 
