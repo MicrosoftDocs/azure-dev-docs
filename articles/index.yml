@@ -166,7 +166,7 @@ additionalContent:
           url: https://docs.microsoft.com/azure/developer/chef/
         - title: Maven
           summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
-          url: https://docs.microsoft.com/java/api/overview/azure/maven/README
+          url: https://github.com/Microsoft/azure-maven-plugins#readme
         - title: Azure Toolkit for IntelliJ
           summary: Use Azure Toolkit for IntelliJ to create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
           url: https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/
