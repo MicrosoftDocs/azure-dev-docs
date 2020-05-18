@@ -867,6 +867,10 @@
     {
       "source_path": "dotnet-redirects/index.md",
       "redirect_url": "/dotnet/azure"
+    },
+    {
+      "source_path": "articles/devsecops/index.yml",
+      "redirect_url": "/azure/devops/devsecops"
     }
   ]
 }
