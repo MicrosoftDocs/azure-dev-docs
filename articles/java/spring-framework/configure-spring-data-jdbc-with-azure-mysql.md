@@ -37,7 +37,6 @@ logging.level.org.springframework.jdbc.core=DEBUG
 spring.datasource.url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
 spring.datasource.username=spring@$AZ_DATABASE_NAME
 spring.datasource.password=$AZ_MYSQL_PASSWORD
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 spring.datasource.initialization-mode=always
 ```
