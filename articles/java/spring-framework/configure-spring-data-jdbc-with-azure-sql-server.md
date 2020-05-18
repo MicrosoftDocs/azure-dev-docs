@@ -1,221 +1,96 @@
 ---
-title: How to use Spring Data JDBC with Azure SQL Database
-description: Learn how to use Spring Data JDBC with an Azure SQL Database.
-services: sql-database
+title: Use Spring Data JDBC with Azure Database for MySQL
+description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
 documentationcenter: java
-ms.date: 12/19/2018
-ms.service: sql-database
+ms.date: 04/07/2020
+ms.service: mysql
 ms.tgt_pltfrm: multiple
+ms.author: judubois
 ms.topic: article
 ---
 
-# How to use Spring Data JDBC with Azure SQL Database
+# Use Spring Data JDBC with Azure Database for MySQL
 
-## Overview
+This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
 
-This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information in an [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) using [Java Database Connectivity (JDBC)](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/).
+[JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
-## Prerequisites
+[!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
-The following prerequisites are required in order to complete the steps in this article:
+[!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
-* [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
-* A [Git](https://git-scm.com/downloads) client.
+### Generate the application by using Spring Initializr
 
-## Create an Azure SQL Database
+Generate the application on the command line by entering:
 
-### Create a SQL database server using the Azure portal
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RC1 -d javaVersion=8 | tar -xzvf -
+```
+
+### Configure Spring Boot to use Azure Database for MySQL
+
+Open the *src/main/resources/application.properties* file, and add:
+
+```properties
+logging.level.org.springframework.jdbc.core=DEBUG
+
+spring.datasource.url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+spring.datasource.username=spring@$AZ_DATABASE_NAME
+spring.datasource.password=$AZ_MYSQL_PASSWORD
+
+spring.datasource.initialization-mode=always
+```
+
+- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
+- Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+
+> [!WARNING]
+> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember this will delete your data at each restart, so this shouldn't be used in production!
 
 > [!NOTE]
-> 
-> You can read more detailed information about creating Azure SQL databases in [Create an Azure SQL database in the Azure portal](/azure/sql-database/sql-database-get-started-portal).
+> We append `?serverTimezone=UTC` to the configuration property `spring.datasource.url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
+You should now be able to start your application by using the provided Maven wrapper:
 
-1. Click **+Create a resource**, then **Databases**, and then click **SQL Database**.
-
-   ![Create a SQL database][SQL01]
-
-1. Specify the following information:
-
-   * **Database name**: Choose a unique name for your SQL database; this will be created in the SQL server that you will specify later.
-   * **Subscription**: Specify your Azure subscription to use.
-   * **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   * **Select source**: For this tutorial, select `Blank database` to create a new database.
-
-   ![Specify your SQL database properties][SQL02]
-   
-1. Click **Server**, then **Create new**, and then specify the following information:
-
-   - **Server name**: Choose a unique name for your SQL server; this will be used to create a fully-qualified domain name like *wingtiptoyssql.database.windows.net*.
-   - **Server admin login**: Specify the database administrator name.
-   - **Password** and **Confirm password**: Specify the password for your database administrator.
-   - **Location**: Specify the closest geographic region for your database.
-
-
-1. When you have entered all of the above information, click **OK**.
-
-1. Click **Review and create**.
-
-1. Review the settings, and click **Create**.
-
-### Configure a firewall rule for your SQL server using the Azure portal
-
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
-
-1. Click **All Resources**, then click the SQL server you just created.
-
-1. In the left navigation pane, click **Overview** section, click **Set server firewall**
-
-   ![Show firewall settings][SQL06]
-
-1. In the **Firewalls and virtual networks** section, create a new rule by specifying a unique name for the rule, then enter the range of IP addresses that will need access to your database, and then click **Save**. (For this exercise the IP address is that of your dev machine, which is the client.  You can use it for both **Start IP address** and **End IP address**.)
-
-   ![Configure firewall settings][SQL07]
-
-### Retrieve the connection string for your SQL server using the Azure portal
-
-1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
-
-1. Click **All Resources**, then click the SQL database you just created.
-
-1. Click **Connection strings**, then click **JDBC**, and copy the value in the JDBC text field.
-
-   ![Retrieve your JDBC connection string][SQL09]
-
-### Create test table in database
-In order to run a client application against this database, use the following SQL command to create a new table.
-
-``` SQL
-IF NOT EXISTS (SELECT 1 FROM sysobjects WHERE NAME='pet' and XTYPE='U')
-  CREATE TABLE pet (
-    id      INT           IDENTITY  PRIMARY KEY,
-    name    VARCHAR(255),
-    species VARCHAR(255)
-  );
-
+```bash
+./mvnw spring-boot:run
 ```
 
-## Configure the sample application
+Here's a screenshot of the application running for the first time:
 
-1. Open a command shell and clone the sample project using a git command like the following example:
+[![The running application](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-01.png)](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-01.png#lightbox)
 
-   ```shell
-   git clone https://github.com/Azure-Samples/spring-data-jdbc-on-azure.git
-   ```
+### Create the database schema
 
-1. Modify the POM file to include the following dependency:
+Spring Boot will automatically execute *src/main/resources/`schema.sql`* in order to create a database schema. Create that file, with the following content:
 
+```sql
+DROP TABLE IF EXISTS todo;
+CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
- <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>7.4.1.jre11</version>
- </dependency>
+
+Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+
+```bash
+./mvnw spring-boot:run
 ```
-1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it does not already exist.
 
-1. Open the *application.properties* file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
+## Code the application
 
-   ```yaml
-   spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
-   spring.datasource.url=jdbc:sqlserver://wingtiptoyssql.database.windows.net:1433;database=wingtiptoys;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-   spring.datasource.username=wingtiptoysuser@wingtiptoyssql
-   spring.datasource.password=********
-    ```
-   Where:
+Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
 
-   | Parameter | Description |
-   |---|---|
-   | `spring.datasource.url` | Specifies an edited version of your SQL JDBC string from earlier in this article. |
-   | `spring.datasource.username` | Specifies your SQL administrator name from earlier in this article, with the shortened server name appended to it. |
-   | `spring.datasource.password` | Specifies your SQL administrator password from earlier in this article. |
+[!INCLUDE [spring-data-jdbc-create-application.md](includes/spring-data-jdbc-create-application.md)]
 
-1. Save and close the *application.properties* file.
+Here's a screenshot of these cURL requests:
 
-## Package and test the sample application 
+[![Test with cURL](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-02.png)](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-02.png#lightbox)
 
-1. Build the sample application with Maven; for example:
+Congratulations! You've created a Spring Boot application that uses JDBC to store and retrieve data from Azure Database for MySQL.
 
-   ```shell
-   mvn clean package -P sql
-   ```
+[!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
-1. Start the sample application; for example:
+### Additional resources
 
-   ```shell
-   java -jar target/spring-data-jdbc-on-azure-0.1.0-SNAPSHOT.jar
-   ```
+For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
 
-1. Create new records using `curl` from a command prompt like the following examples:
-
-   ```shell
-   curl -s -d '{"name":"dog","species":"canine"}' -H "Content-Type: application/json" -X POST http://localhost:8080/pets
-   ```
-
-   or:
-
-``` shell
-   curl -s -d "{\"name\":\"cat\",\"species\":\"feline\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/pets
-   ```
-
-   Your application should return values like the following:
-
-   ```shell
-   Added Pet(id=1, name=dog, species=canine).
-
-   Added Pet(id=2, name=cat, species=feline).
-   ```
-
-1. Retrieve all of the existing records using `curl` from a command prompt like the following examples:
-
-   ```shell
-   curl -s http://localhost:8080/pets
-   ```
-    
-   Your application should return values like the following:
-
-   ```json
-   [{"id":1,"name":"dog","species":"canine"},{"id":2,"name":"cat","species":"feline"}]
-   ```
-
-## Summary
-
-In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information in an Azure SQL database using JDBC.
-
-## Next steps
-
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
-
-> [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
-
-### Additional Resources
-
-For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
-
-<!-- URL List -->
-
-[Azure for Java Developers]: /azure/developer/java/
-[free Azure account]: https://azure.microsoft.com/pricing/free-trial/
-[Working with Azure DevOps and Java]: /azure/devops/
-[MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Data]: https://spring.io/projects/spring-data
-[Spring Initializr]: https://start.spring.io/
-[Spring Framework]: https://spring.io/
-
-<!-- IMG List -->
-
-[SQL01]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-01.png
-[SQL02]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-02.png
-[SQL03]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-03.png
-[SQL04]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-04.png
-[SQL05]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-05.png
-[SQL06]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-06.png
-[SQL07]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-07.png
-[SQL08]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-08.png
-[SQL09]: media/configure-spring-data-jdbc-with-azure-sql-server/create-azure-sql-09.png
+For more information about using Azure with Java, see [Azure for Java developers](/azure/developer/java/) and [Working with Azure DevOps and Java](/azure/devops/).
