@@ -24,7 +24,7 @@ Create a file named *requirements.txt* with the following contents:
 ```text
 azure-mgmt-resource
 azure-mgmt-web
-azire-cli-core
+azure-cli-core
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
