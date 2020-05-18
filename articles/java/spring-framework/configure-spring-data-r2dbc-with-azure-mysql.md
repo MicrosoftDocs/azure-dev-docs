@@ -26,7 +26,7 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RC1 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Add the reactive MySQL driver implementation
