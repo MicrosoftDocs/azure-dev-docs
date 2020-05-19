@@ -317,7 +317,7 @@ will connect your spring app to the AAD B2C instance.
     and that method calls
     `model.addAllAttributes(user.getAttributes());`, any HTML page in
     `src/main/resources/templates` is able to access any of those
-    attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](docs.microsoft.com/azure/active-directory/develop/id-tokens#payload-claims).
+    attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
 11. 8. Create a folder named *security* in `src/main/java/yourString/yourString/`.
 
