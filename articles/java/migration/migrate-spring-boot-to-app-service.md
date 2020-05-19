@@ -40,6 +40,9 @@ Once you've identified the broker or brokers in use, find the corresponding sett
 
 [!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
 
+[!INCLUDE [inventory-identity-providers-spring-bood](includes/inventory-identity-providers-spring-boot.md)]
+
+
 #### All other external resources
 
 It isn't feasible to document every possible external dependency in this guide. It's your team's responsibility to verify that every external dependency of your application can be satisfied after an App Service migration.
@@ -143,6 +146,8 @@ Follow [these steps to migrate connection strings and other settings](/azure/app
 ![App Service Application Configuration](media/migrate-spring-boot-to-app-service/app-service-parameterized-spring-boot-app-settings.png)
 
 [!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
+
+[!INCLUDE [migrate-identity-provider-app-service.md](includes/migrate-identity-provider-app-service.md)]
 
 ### Restart and smoke-test
 
