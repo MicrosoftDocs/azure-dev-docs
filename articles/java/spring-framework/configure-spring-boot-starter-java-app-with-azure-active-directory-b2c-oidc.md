@@ -355,7 +355,7 @@ you should be redirected to login page.
 
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)
 
-4. Click linke with name of `${your-sign-up-or-in}` user flow, you should be rediected Azure AD B2C to start the authentication process.
+4. Click link with name of `B2C_1_signupsignin1` user flow, you should be redirected Azure AD B2C to start the authentication process.
 
    ![Azure AD B2C login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo2-n.png)
 
