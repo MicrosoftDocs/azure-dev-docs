@@ -150,6 +150,15 @@ your initials and the date, such as `ejb0518`.
    If you leave the **Keys** section and come back, you will not be able
    to see the key value.  In that case, you must create another key
    and save its value aside.
+   
+   > [!NOTE]
+   > 
+   > Occasionally the generated key may contain characters that are
+   > problematic for inclusion in the `application.yml` file, such as
+   > backslash or backtick.  In that case, discard that key and generate
+   > another one.
+   >
+   
 
    ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
@@ -232,7 +241,7 @@ will connect your spring app to the AAD B2C instance.
        b2c:
          tenant: `yourString`domain
          client-id: `yourString`
-         client-secret: `yourAppKey`
+         client-secret: '`yourAppKey`'
          reply-url: http://localhost:8080/home
          logout-success-url: http://localhost:8080/home
          user-flows:
@@ -240,6 +249,11 @@ will connect your spring app to the AAD B2C instance.
            profile-edit: B2C_1_profileediting1
            password-reset: B2C_1_passwordreset1
    ```
+   
+   Notice that the `client-secret` is enclosed in single quotes.  This
+   is necessary because the value of `yourAppKey` will almost certainly
+   contain some characters that require being inside single quotes when
+   present in YAML.
 
    > [!NOTE]
    > 
@@ -298,6 +312,12 @@ will connect your spring app to the AAD B2C instance.
         }
     }
     ```
+    
+    Because every method in the controller calls `initializeModel()`,
+    and that method calls
+    `model.addAllAttributes(user.getAttributes());`, any HTML page in
+    `src/main/resources/templates` is able to access any of those
+    attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](docs.microsoft.com/azure/active-directory/develop/id-tokens#payload-claims).
 
 11. 8. Create a folder named *security* in `src/main/java/yourString/yourString/`.
 
@@ -343,6 +363,21 @@ respectively that completed earlier.
 1. Open a command prompt and change directory to the folder where your app's *pom.xml* file is located.
 
 2. Build your Spring Boot application with Maven and run it; for example:
+
+   > [!NOTE]
+   > 
+   > It is extremely important that the time according to the system
+   > clock under which the local spring boot app runs is accurate.  The
+   > is very little tolerance of clock skew when using OAuth 2.0.  Even
+   > three minutes of inaccuracy may cause the signin to fail with an
+   > error similar to `[invalid_id_token] An error occurred while
+   > attempting to decode the Jwt: Jwt used before
+   > 2020-05-19T18:52:10Z`.  As of this writing,
+   > [time.gov](https://time.gov/) has an indicator of how far off your
+   > clock is from the actual time.  The app was successfully run with a
+   > skew of +0.019 seconds.
+   >
+
 
    ```shell
    mvn -DskipTests clean package
