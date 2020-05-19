@@ -104,7 +104,7 @@ To use a framework other than Django or Flask (such as Falcon, FastAPI, etc.), o
     python -m uvicorn application:app --host 0.0.0.0
     ```
 
-    The `python -m` command allows you to run a web server installed via *requirements.txt*. Servers installed via *requirements.txt* are not added to the system PATH by default and therefore cannot be invoked directly.
+    You use `python -m` because web servers installed via *requirements.txt* are not added to the Python global environment and therefore cannot be invoked directly. The `python -m` command invokes the server from within the current virtual environment.
 
 > [!div class="nextstepaction"]
 > [I configured my startup file - continue to step 5 >>>](tutorial-deploy-app-service-on-linux-05.md)
