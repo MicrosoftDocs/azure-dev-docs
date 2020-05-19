@@ -31,7 +31,7 @@ Azure Active Directory is Microsoft's cloud scale enterprise identity
 solution.  Azure Active Directory B2C compliments the feature set of
 Azure Active Directory, allowing you to manage customer, consumer, and
 citizen access to your business-to-consumer (B2C) applications. Connect
-with millions of users with the scalability and availability you need.  For more on Azure Active directory see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/).  For more on Azure Active Directory B2C see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/external-identities/b2c/).
+with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/external-identities/b2c/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -42,9 +42,9 @@ The following software and skill prerequisites are required in order to complete
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
-This article uses the convention of including name of your choice for
-items such as App Names, Group Id, Artifact Id and similar.  In the text
-this will be referred to as `yourString`.  For example, you could use
+This article asks you to define a short string of your choice for items
+such as App Names, Maven `groupId`, `artifactId` and similar.  In the text, this
+value will be referred to as `yourString`.  For example, you could use
 your initials and the date, such as `ejb0518`.
 
 ## Create an app using Spring Initializr
@@ -54,11 +54,11 @@ your initials and the date, such as `ejb0518`.
 2. Fill out the values according to this guidance.  Note that the labels
    and layout may differ from the image shown here.
 
-   * Under **Project** select **Maven Project**.
+   * Under **Project**, select **Maven Project**.
    
-   * Under **Language** select **Java**.
+   * Under **Language**, select **Java**.
    
-   * Under **Spring Boot** select **2.2.7**.
+   * Under **Spring Boot**, select **2.2.7**.
    
    * Under **Group**, **Artifact** and **Name** enter `yourString`.  The
      UI may automatically fill some of these out as you type.
@@ -116,7 +116,7 @@ your initials and the date, such as `ejb0518`.
 
    ![Create new Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-2-n.png)
 
-5. For **Organization name** Enter your `yourString`org.  For **Initial domain name** enter `yourString`domain.  Click **Create**.
+5. For **Organization name** Enter your `yourString`org.  For **Initial domain name**, enter `yourString`domain.  Click **Create**.
 
    ![Choose your Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-3-n.png)
 
@@ -133,7 +133,7 @@ your initials and the date, such as `ejb0518`.
 2. In the **Name** field, enter `yourString`.  Toggle the **include web
    app/ web API** control to **Yes**.
    
-   * In the **Reply URL** field enter `http://localhost:8080/home`.
+   * In the **Reply URL** field, enter `http://localhost:8080/home`.
      Leave the other fields with their default values.
      
    Click **Create**.  It may take a short while before the application appears.  
@@ -146,8 +146,8 @@ your initials and the date, such as `ejb0518`.
    **App key** enter `yourString`key then click **Save**.  You may need
    to wait a bit for the key to appear in the app key section, but when
    it does, you must save aside its value.  It will be something like
-   `546KQ6Oj/FOK8.Qyv8XGN27C`.  For discussion let this be `yourAppKey`.
-   If you leave the **Keys** section and come back, you will to be able
+   `546KQ6Oj/FOK8.Qyv8XGN27C`.  For discussion, let this be `yourAppKey`.
+   If you leave the **Keys** section and come back, you will not be able
    to see the key value.  In that case, you must create another key
    and save its value aside.
 
@@ -161,12 +161,11 @@ your initials and the date, such as `ejb0518`.
    
    * Start with the step that requests you to select **New User flow**.
    
-   * When this tutorial refers to `webapp1` use `yourString` instead.
+   * When this tutorial refers to `webapp1`, use `yourString` instead.
    
-   * When you are asked to run the user flows, note that the redirect
-     url you specified above is not yet active.  You can still run the
-     flows, but the redirection will not complete successfully.  This is
-     ok.
+   * When you are asked to run the user flows, the redirect url you
+     specified above is not yet active.  You can still run the flows,
+     but the redirection will not complete successfully.  This is expected.
      
    * When you reach "Next steps", return to this tutorial.
    
@@ -365,9 +364,10 @@ you should be redirected to login page.
 
 ## Summary
 
-In this tutorial, you created a new Java web application using the Azure Active Directory B2C starter,
-configured a new Azure AD B2C tenant and registered a new application in it, and then configured your
-application to use the Spring annotations and classes to protect the web app.
+In this tutorial, you created a new Java web application using the Azure
+Active Directory B2C starter, configured a new Azure AD B2C tenant, and
+registered a new application in it, and then configured your application
+to use the Spring annotations and classes to protect the web app.
 
 ## Next steps
 
