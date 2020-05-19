@@ -31,7 +31,7 @@ Azure Active Directory is Microsoft's cloud scale enterprise identity
 solution.  Azure Active Directory B2C compliments the feature set of
 Azure Active Directory, allowing you to manage customer, consumer, and
 citizen access to your business-to-consumer (B2C) applications. Connect
-with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/en-us/services/active-directory/external-identities/b2c/).
+with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/services/active-directory/external-identities/b2c/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
