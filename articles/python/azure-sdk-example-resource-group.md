@@ -23,7 +23,7 @@ Create a file named *requirements.txt* with the following contents:
 
 ```text
 azure-mgmt-resource
-azire-cli-core
+azure-cli-core
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
@@ -80,7 +80,7 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 ## 4: Run the script
 
 ```bash
-python provision_blob.py
+python provision_rg.py
 ```
 
 ## 5: Verify the resource group
