@@ -71,7 +71,7 @@ Deploy to Azure Web Apps and Azure Web App for Containers using:
 - [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
 
 Deploy a Static Web app using:
-- [Azure/static-web-apps-deploy](https://docs.microsoft.com/en-us/azure/static-web-apps/getting-started?tabs=angular)
+- [Azure/static-web-apps-deploy](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=angular)
 
 
 Configure App settings and Connection Strings using the actions:
