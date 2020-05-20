@@ -73,7 +73,7 @@ As you work with Azure, you'll develop your own preferences for organizing your 
 
 ### Regions and geographies
 
-A key characteristic of a resource group is that it's always associated with a specific Azure *region*, which is the location of the specific data center. All the resources in the same group are be co-located in that data center, and can thus interact much more efficiently than if they were in different regions. Developers often choose regions that are closest to their customers, thus optimizing an application's responsiveness. Azure also offers geo-replication features to synchronize copies of your application and databases across multiple regions so you can better serve a global customer base.
+A key characteristic of a resource group is that it's always associated with a specific Azure *region*, which is the location of the specific data center. All the resources in the same group are co-located in that data center, and can thus interact much more efficiently than if they were in different regions. Developers often choose regions that are closest to their customers, thus optimizing an application's responsiveness. Azure also offers geo-replication features to synchronize copies of your application and databases across multiple regions so you can better serve a global customer base.
 
 Due to local laws and regulations, which are determined by the *geography* in which you create a subscription, you might have access to only certain regions and those regions may not support all Azure services. For details, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
