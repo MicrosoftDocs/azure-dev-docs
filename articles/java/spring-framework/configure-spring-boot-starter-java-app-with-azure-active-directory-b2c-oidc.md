@@ -172,6 +172,10 @@ your initials and the date, such as `ejb0518`.
    
    * When this tutorial refers to `webapp1`, use `yourString` instead.
    
+   * When you are selecting claims to return from the flows, ensure
+     **Display Name** is selected.  Without this claim, the app being
+     built in this tutorial will not work.
+   
    * When you are asked to run the user flows, the redirect url you
      specified above is not yet active.  You can still run the flows,
      but the redirection will not complete successfully.  This is expected.
@@ -257,12 +261,31 @@ will connect your spring app to the AAD B2C instance.
 
    > [!NOTE]
    > 
-   > For a full list of values that are available in your *application.yml* file, see the [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
-   >
+   > As of this writing, the full list of Active Directory B2C Spring
+   > Integration values that are available for use in *application.yml*
+   > is the following:
+   > 
+   > ```
+   > azure:
+   >   activedirectory:
+   >     b2c:
+   >       tenant: 
+   >       oidc-enabled: 
+   >       client-id: 
+   >       client-secret: 
+   >       reply-url:  # should be absolute url.
+   >       logout-success-url: 
+   >       user-flows:
+   >         sign-up-or-sign-in: 
+   >         profile-edit: # optional
+   >         password-reset: # optional
+   
+   > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
+
 
 7. Save and close the *application.yml* file.
 
-8. Create a folder named *controller* in `src/main/java/yourString/yourString/`.
+8. Create a folder named *controller* in `src/main/java/yourString/yourString`.
 
 9. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
 
@@ -319,7 +342,7 @@ will connect your spring app to the AAD B2C instance.
     `src/main/resources/templates` is able to access any of those
     attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
-11. 8. Create a folder named *security* in `src/main/java/yourString/yourString/`.
+11. 8. Create a folder named *security* in `src/main/java/yourString/yourString`.
 
 12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
@@ -390,8 +413,6 @@ you should be redirected to login page.
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)
 
 4. Click link with name of `B2C_1_signupsignin1` user flow, you should be redirected Azure AD B2C to start the authentication process.
-
-   ![Azure AD B2C login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo2-n.png)
 
 4. After you have logged in successfully, you should see the sample `home page` from the browser,
 
