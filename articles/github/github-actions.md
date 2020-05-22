@@ -70,7 +70,7 @@ Deploy to Azure Web Apps and Azure Web App for Containers using:
 
 - [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
 
-Deploy a Static Web app using:
+Deploy a Static Web app:
 - [Azure/static-web-apps-deploy](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=angular)
 
 
