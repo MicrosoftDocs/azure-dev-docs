@@ -54,7 +54,7 @@ cd spring-framework-petclinic
 
 First, we'll test the sample locally using using HSQLDB as the database.
 
-Navigate to the HSQLDB version of the sample and then build it.
+Build the HSQLDB version of the sample app.
 
 ``` azurecli
 mvn package
@@ -71,7 +71,7 @@ export TOMCAT_HOME=<Tomcat install directory>
 # [PowerShell](#tab/powershell)
 
 ```ps
-$TOMCAT_HOME="<Tomcat install directory>"
+$env:TOMCAT_HOME="<Tomcat install directory>"
 ````
 
 # [Cmd](#tab/cmd)
@@ -129,7 +129,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 # [PowerShell](#tab/powershell)
 
 ```ps
-& $TOMCAT_HOME/bin/catalina.bat run
+& $env:TOMCAT_HOME/bin/catalina.bat run
 ````
 
 # [Cmd](#tab/cmd)
@@ -139,13 +139,13 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```
 ---
 
-You can now navigate your browser to [http://localhost:8080](http://localhost:8080) to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now navigate your browser to `http://localhost:8080` to see the running app and get a feel for how it works. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 ## Deploy to Azure App Service
 
 Now that you've seen it running locally, we'll deploy the app to Azure.
 
-First, set the following environment variables.
+First, set the following environment variables. For `REGION`, use `West US 2` or other regions you can find [here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=app-service).
 
 # [bash](#tab/bash)
 
@@ -159,10 +159,10 @@ export REGION=<region>
 # [PowerShell](#tab/powershell)
 
 ```ps
-$RESOURCEGROUP_NAME="<resource group>"
-$WEBAPP_NAME="<web app>"
-$WEBAPP_PLAN_NAME="$WEBAPP_NAME-appservice-plan"
-$REGION="<region>"
+$env:RESOURCEGROUP_NAME="<resource group>"
+$env:WEBAPP_NAME="<web app>"
+$env:WEBAPP_PLAN_NAME="$env:WEBAPP_NAME-appservice-plan"
+$env:REGION="<region>"
 ````
 
 # [Cmd](#tab/cmd)
@@ -196,15 +196,15 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
             <webContainer>TOMCAT 9.0</webContainer>
         </runtime>
         <deployment>
-            <resources>
-                <resource>
-                    <directory>${project.basedir}/target</directory>
-                    <includes>
-                        <include>*.war</include>
-                    </includes>
-                </resource>
-             </resources>
-         </deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>*.war</include>
+                    </includes>
+                </resource>
+             </resources>
+         </deployment>
     </configuration>
 </plugin>
 ```
@@ -243,12 +243,12 @@ export DOLLAR=\$
 # [PowerShell](#tab/powershell)
 
 ```ps
-$MYSQL_SERVER_NAME="<server>"
-$MYSQL_SERVER_FULL_NAME="$MYSQL_SERVER_NAME.mysql.database.azure.com"
-$MYSQL_SERVER_ADMIN_LOGIN_NAME="<admin>"
-$MYSQL_SERVER_ADMIN_PASSWORD="<password>"
-$MYSQL_DATABASE_NAME="<database>"
-$DOLLAR="$"
+$env:MYSQL_SERVER_NAME="<server>"
+$env:MYSQL_SERVER_FULL_NAME="$env:MYSQL_SERVER_NAME.mysql.database.azure.com"
+$env:MYSQL_SERVER_ADMIN_LOGIN_NAME="<admin>"
+$env:MYSQL_SERVER_ADMIN_PASSWORD="<password>"
+$env:MYSQL_DATABASE_NAME="<database>"
+$env:DOLLAR="$"
 ````
 
 # [Cmd](#tab/cmd)
@@ -283,7 +283,7 @@ az mysql server configuration set --name wait_timeout \
 
 az mysql server configuration set --name time_zone \
     --resource-group ${RESOURCEGROUP_NAME} \
-    --server ${MYSQL_SERVER_NAME} --value SYSTEM
+    --server ${MYSQL_SERVER_NAME} --value=-8:00
 ```
 
 # [PowerShell](#tab/powershell)
@@ -292,19 +292,19 @@ az mysql server configuration set --name time_zone \
 az extension add --name db-up
 
 az mysql up `
-    --resource-group $RESOURCEGROUP_NAME `
-    --server-name $MYSQL_SERVER_NAME `
-    --database-name $MYSQL_DATABASE_NAME `
-    --admin-user $MYSQL_SERVER_ADMIN_LOGIN_NAME `
-    --admin-password $MYSQL_SERVER_ADMIN_PASSWORD
+    --resource-group $env:RESOURCEGROUP_NAME `
+    --server-name $env:MYSQL_SERVER_NAME `
+    --database-name $env:MYSQL_DATABASE_NAME `
+    --admin-user $env:MYSQL_SERVER_ADMIN_LOGIN_NAME `
+    --admin-password $env:MYSQL_SERVER_ADMIN_PASSWORD
 
 az mysql server configuration set --name wait_timeout `
-    --resource-group $RESOURCEGROUP_NAME `
-    --server $MYSQL_SERVER_NAME --value 2147483
+    --resource-group $env:RESOURCEGROUP_NAME `
+    --server $env:MYSQL_SERVER_NAME --value 2147483
 
 az mysql server configuration set --name time_zone `
-    --resource-group $RESOURCEGROUP_NAME `
-    --server $MYSQL_SERVER_NAME --value SYSTEM
+    --resource-group $env:RESOURCEGROUP_NAME `
+    --server $env:MYSQL_SERVER_NAME --value=-8:00
 ````
 
 # [Cmd](#tab/cmd)
@@ -325,7 +325,7 @@ az mysql server configuration set --name wait_timeout ^
 
 az mysql server configuration set --name time_zone ^
     --resource-group %RESOURCEGROUP_NAME% ^
-    --server %MYSQL_SERVER_NAME% --value SYSTEM
+    --server %MYSQL_SERVER_NAME% --value=-8:00
 ```
 ---
 
@@ -341,8 +341,8 @@ mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME}@${MYSQL_SERVER_NAME} \
 # [PowerShell](#tab/powershell)
 
 ```ps
-mysql -u $MYSQL_SERVER_ADMIN_LOGIN_NAME@$MYSQL_SERVER_NAME `
- -h $MYSQL_SERVER_FULL_NAME -P 3306 -p
+mysql -u $env:MYSQL_SERVER_ADMIN_LOGIN_NAME@$env:MYSQL_SERVER_NAME `
+ -h $env:MYSQL_SERVER_FULL_NAME -P 3306 -p
 ````
 
 # [Cmd](#tab/cmd)
@@ -422,15 +422,15 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
             </property>
         </appSettings>
         <deployment>
-            <resources>
-                <resource>
-                    <directory>${project.basedir}/target</directory>
-                    <includes>
-                        <include>*.war</include>
-                    </includes>
-                </resource>
-             </resources>
-         </deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>*.war</include>
+                    </includes>
+                </resource>
+             </resources>
+         </deployment>
     </configuration>
 </plugin>
 ```
@@ -451,7 +451,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 ```ps
 mvn package
 mvn cargo:deploy
-& $TOMCAT_HOME/bin/catalina.bat run
+& $env:TOMCAT_HOME/bin/catalina.bat run
 ````
 
 # [Cmd](#tab/cmd)
@@ -463,7 +463,7 @@ mvn cargo:deploy
 ```
 ---
 
-You can now view the app locally at [http://localhost:8080](http://localhost:8080). The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
+You can now view the app locally at `http://localhost:8080`. The app will look and behave the same as before, but using Azure Database for MySQL instead of HSQLDB. When you are finished, select Ctrl+C at the Bash prompt to stop Tomcat.
 
 Finally, deploy the app to App Service.
 
@@ -487,8 +487,8 @@ az webapp log tail --name ${WEBAPP_NAME} \
 # [PowerShell](#tab/powershell)
 
 ```ps
-az webapp log tail --name $WEBAPP_NAME `
-    --resource-group $RESOURCEGROUP_NAME
+az webapp log tail --name $env:WEBAPP_NAME `
+    --resource-group $env:RESOURCEGROUP_NAME
 ````
 
 # [Cmd](#tab/cmd)
@@ -519,8 +519,8 @@ az appservice plan update --number-of-workers 2 \
 
 ```ps
 az appservice plan update --number-of-workers 2 `
-    --name $WEBAPP_PLAN_NAME `
-    --resource-group $RESOURCEGROUP_NAME
+    --name $env:WEBAPP_PLAN_NAME `
+    --resource-group $env:RESOURCEGROUP_NAME
 ````
 
 # [Cmd](#tab/cmd)
@@ -548,7 +548,7 @@ az group delete --name ${RESOURCEGROUP_NAME}
 # [PowerShell](#tab/powershell)
 
 ```ps
-az group delete --name $RESOURCEGROUP_NAME
+az group delete --name $env:RESOURCEGROUP_NAME
 ````
 
 # [Cmd](#tab/cmd)

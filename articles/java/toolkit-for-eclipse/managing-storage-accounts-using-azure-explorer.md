@@ -20,7 +20,7 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
 
 To create a storage account by using the Azure Explorer, do the following:
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/eclipse/sign-in-instructions).
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions).
 
 1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
 
@@ -101,7 +101,7 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 
 <!-- URL List -->
 
-[Introduction to Microsoft Azure Storage]: /azure/storage/storage-introduction
+[Introduction to Microsoft Azure Storage]: /azure/storage/common/storage-introduction
 [About Azure storage accounts]: /azure/storage/storage-create-storage-account
 [Azure storage replication]: /azure/storage/storage-redundancy
 [Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets

@@ -2,7 +2,7 @@
 title: "Step 5: Deploy Azure Functions in Python with VS Code"
 description: Tutorial step 5, deploying Python function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/19/2020
 ms.custom: seo-python-october2019
 ---
 
@@ -20,9 +20,11 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
 1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens). If you previously created a Function App, its name appears in this list of options.
 
+1. When prompted, select a Python version and Azure location.
+
 1. The extension performs the following actions, which you can observe in Visual Studio Code popup messages and the **Output** window (the process takes a few minutes):
 
-    - Create a resource group using the name you gave (removing hyphens).
+    - Create a resource group using the name you gave (removing hyphens) in the location you selected.
     - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](/azure/azure-functions/functions-scale#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](/azure/azure-functions/functions-develop-vs-code).
     - Deploy your code to the function app.
 
@@ -34,9 +36,9 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
     ![Message indicating successful deployment with additional actions](media/tutorial-vs-code-serverless-python/azure-functions-deployment-success-with-additional-actions.png)
 
-    For **Stream logs** and **Upload settings**, see the next sections. For **View output**, see step 5 that follows.
+    For **Stream logs** and **Upload settings**, see the next sections.
 
-1. After deployment, the **Output** window also shows the public endpoint on Azure (the URL of your specific endpoint will match the name you specified for the function app):
+1. Select **View output** to switch to the **Output** window. The output shows the public endpoint on Azure (the URL of your specific endpoint will match the name you specified for the function app):
 
     <pre>
     HTTP Trigger Urls:

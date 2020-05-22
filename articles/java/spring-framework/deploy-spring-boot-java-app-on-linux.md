@@ -37,8 +37,8 @@ The following steps walk through the steps that are required to create a simple 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
 
    ```bash
-   md /users/robert/SpringBoot
-   cd /users/robert/SpringBoot
+   mkdir SpringBoot
+   cd SpringBoot
    ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
@@ -92,15 +92,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    ![Create a new Azure Container Registry][AR01]
 
-1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Select **Enable** for the **Admin user**. Then click **Create**.
+1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then click **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
-1. Once your container registry has been created, navigate to your container registry in the Azure portal, and click **Access Keys**. Take note of the username and password for the next steps.
-
-   ![Azure Container Registry access keys][AR04]
-
-## Configure Maven to use your Azure Container Registry access keys
+## Configure Maven to build image to your Azure Container Registry
 
 1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
@@ -108,37 +104,29 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    ```xml
    <properties>
-      <jib-maven-plugin.version>1.7.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
       <java.version>1.8</java.version>
-      <username>wingtiptoysregistry</username>
-      <password>{put your Azure Container Registry access key here}</password>
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 1.8.0.
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 2.2.0.
 
    Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/java/jre:8-zulu-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
    Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
 
-   Specify the username and password from registry pane in the `<to>/<auth>` node. For example:
-
    ```xml
    <plugin>
      <artifactId>jib-maven-plugin</artifactId>
      <groupId>com.google.cloud.tools</groupId>
-     <version>1.8.0</version>
+     <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
             <image>mcr.microsoft.com/java/jre:8-zulu-alpine</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
-            <auth>
-               <username>${username}</username>
-               <password>${password}</password>
-            </auth>
         </to>
      </configuration>
    </plugin>
@@ -147,12 +135,12 @@ The following steps walk through using the Azure portal to create an Azure Conta
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
    ```bash
-   mvn compile jib:build
+   az acr login -n wingtiptoysregistry && mvn compile jib:build
    ```
 
 > [!NOTE]
->
-> When you are using Jib to push your image to the Azure Container Registry, the image will not use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
+> 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you will need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
+> 2. When you are using Jib to push your image to the Azure Container Registry, the image will not use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
 ## Create a web app on Linux on Azure App Service using your container image
@@ -295,7 +283,6 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [SB02]: media/deploy-spring-boot-java-app-on-linux/SB02.png
 [AR01]: media/deploy-spring-boot-java-app-on-linux/AR01.png
 [AR03]: media/deploy-spring-boot-java-app-on-linux/AR03.png
-[AR04]: media/deploy-spring-boot-java-app-on-linux/AR04.png
 [LX01]: media/deploy-spring-boot-java-app-on-linux/LX01.png
 [LX02]: media/deploy-spring-boot-java-app-on-linux/LX02.png
 [LX02-A]: media/deploy-spring-boot-java-app-on-linux/LX02-A.png

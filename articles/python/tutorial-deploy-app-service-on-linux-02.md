@@ -12,7 +12,7 @@ ms.custom: seo-python-october2019
 
 In this article, you prepare an app to deploy to the Azure App Service for this tutorial. You can use an existing app or create or download an app.
 
-If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file that describes your dependencies, including frameworks like Flask or Django.
+If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file that describes your dependencies, including frameworks like Flask or Django. You can use any framework of your choosing.
 
 If you don't already have an app, use one of the options below. Be sure to verify that the app runs locally.
 
@@ -53,7 +53,7 @@ This section describes the minimal Flask app used in this walkthrough.
     $env:FLASK_APP = "hello:myapp"
     ```
 
-    # [Cmd](#tab/cmd)
+    # [cmd](#tab/cmd)
 
     ```bash
     set FLASK_APP=hello:myapp

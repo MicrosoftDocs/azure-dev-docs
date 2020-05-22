@@ -10,11 +10,11 @@ ms.reviewer: asirveda
 
 # Manage Azure storage accounts from your Java applications
 
-[This sample](https://github.com/Azure-Samples/storage-java-manage-storage-accounts) creates an [Azure Storage](/azure/storage/storage-introduction) account and works with the account access keys using the [Java management libraries](https://github.com/Azure/azure-sdk-for-java). 
+[This sample](https://github.com/Azure-Samples/storage-java-manage-storage-accounts) creates an [Azure Storage](/azure/storage/common/storage-introduction) account and works with the account access keys using the [Java management libraries](https://github.com/Azure/azure-sdk-for-java). 
 
 ## Run the sample
 
-Create an [authentication file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md) and set an environment variable `AZURE_AUTH_LOCATION` with the full path to the file on your computer. Then run:
+Create an [authentication file](https://docs.microsoft.com/azure/java/java-sdk-azure-authenticate#mgmt-file) and set an environment variable `AZURE_AUTH_LOCATION` with the full path to the file on your computer. Then run:
 
 ```
 git clone https://github.com/Azure-Samples/storage-java-manage-storage-accounts.git

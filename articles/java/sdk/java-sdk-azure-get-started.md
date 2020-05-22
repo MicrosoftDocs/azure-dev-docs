@@ -153,7 +153,7 @@ The [Azure toolkit](/azure/developer/java/toolkit-for-eclipse) is necessary if y
 
 - Select the **Help** menu and then select **Install New software**.
 
-- In the **Work with:** field enter `http://dl.microsoft.com/eclipse` and press enter.
+- In the **Work with:** field enter `http://dl.microsoft.com/eclipse/` and press enter.
 
 - Then, select the checkbox next to **Azure toolkit for Java** and uncheck the checkbox for **Contact all update sites during install to find required software**. Then select next.
 
@@ -377,7 +377,7 @@ az group delete --name sampleSqlResourceGroup
 
 ## Write a blob into a new storage account
 
-Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
+Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/common/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
 public static void main(String[] args) {

@@ -39,6 +39,10 @@
             href: configure-spring-data-jdbc-with-azure-sql-server.md
           - name: R2DBC with Azure MySQL
             href: configure-spring-data-r2dbc-with-azure-mysql.md
+          - name: R2DBC with Azure PostgreSQL
+            href: configure-spring-data-r2dbc-with-azure-postgresql.md
+          - name: R2DBC with Azure SQL Database
+            href: configure-spring-data-r2dbc-with-azure-sql-server.md
           - name: JPA with Azure MySQL
             href: configure-spring-data-jpa-with-azure-mysql.md
           - name: JPA with Azure PostgreSQL
@@ -94,10 +98,10 @@
       - name: Spring Framework
         href: https://spring.io/
       - name: Learn Spring
-        href: https://spring.io/docs
+        href: https://spring.io/guides
       - name: Spring Boot
         href: https://projects.spring.io/spring-boot/
       - name: Spring Project References
-        href: https://spring.io/docs/reference
+        href: https://spring.io/projects
       - name: Spring Boot Starters for Azure
         href: https://github.com/Microsoft/azure-spring-boot/

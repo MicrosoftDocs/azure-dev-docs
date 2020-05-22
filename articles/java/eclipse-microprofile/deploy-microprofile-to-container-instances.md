@@ -48,7 +48,7 @@ $ mvn payara-micro:start
 ...
 ```
 
-You can test the application by calling `curl` or visiting through a [browser](http://localhost:8080/api/hello):
+You can test the application by calling `curl` or visiting through a browser `http://localhost:8080/api/hello`:
 
 ```bash
 $ curl http://localhost:8080/api/hello

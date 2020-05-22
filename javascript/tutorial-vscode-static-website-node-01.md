@@ -25,7 +25,7 @@ Watch this video for a complete walkthrough of the content in this article.
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager. (This requirement is used only to generate a sample project. You don't need to install Node.js if you already have app code.)
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
+> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
 
 ### Azure subscription
 
