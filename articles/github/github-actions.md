@@ -66,7 +66,7 @@ The following samples provide end-to-end workflows  to build and deploy Web apps
 
 ## Deploy a Web app
 
-Deploy to Azure Web Apps and Azure Web App for Containers using:
+Deploy to Azure Web Apps and Azure Web App for Containers:
 
 - [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
 
