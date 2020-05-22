@@ -100,11 +100,9 @@ The following procedure configures the Spring boot application to use Azure stor
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>spring-azure-starter-storage</artifactId>
-      <version>1.0.0.M2</version>
+      <version>1.2.5</version>
    </dependency>
    ```
-
-   ![Edit pom.xml file][SI03]
 
 1. Save and close the *pom.xml* file.
 
@@ -202,8 +200,9 @@ The following procedure configures the Spring boot application to use your Azure
    ```yaml
    spring.cloud.azure.credential-file-path=my.azureauth
    spring.cloud.azure.resource-group=wingtiptoysresources
-   spring.cloud.azure.region=West US
+   spring.cloud.azure.region=westUS
    spring.cloud.azure.storage.account=wingtiptoysstorage
+   blob=azure-blob://containerName/blobName
    ```
    Where:
 
@@ -213,8 +212,8 @@ The following procedure configures the Spring boot application to use your Azure
    |    `spring.cloud.azure.resource-group`    |           Specifies the Azure Resource Group that contains your Azure Storage account.            |
    |        `spring.cloud.azure.region`        | Specifies the geographical region that you specified when you created your Azure Storage account. |
    |   `spring.cloud.azure.storage.account`    |            Specifies Azure Storage account that you created earlier in this tutorial.             |
-
-
+   |                   `blob`                  |           Specifies the names of the container and blob where you want to store the data.         |
+    
 3. Save and close the *application.properties* file.
 
 ## Add sample code to implement basic Azure storage functionality
@@ -249,17 +248,17 @@ In this section, you create the necessary Java classes for storing a blob in you
 
 1. Save and close the main application Java file.
 
-### Add a web controller class
+### Add a blob controller class
 
-1. Create a new Java file named *WebController.java* in the package directory of your app; for example:
+1. Create a new Java file named *BlobController.java* in the package directory of your app; for example:
 
-   `C:\SpringBoot\storage\src\main\java\com\wingtiptoys\storage\WebController.java`
+   `C:\SpringBoot\storage\src\main\java\com\wingtiptoys\storage\BlobController.java`
 
    -or-
 
-   `/users/example/home/storage/src/main/java/com/wingtiptoys/storage/WebController.java`
+   `/users/example/home/storage/src/main/java/com/wingtiptoys/storage/BlobController.java`
 
-1. Open the web controller Java file in a text editor, and add the following lines to the file.  Change *wingtiptoys* to your resource group and *storage* to your artifact name.
+1. Open the blob controller Java file in a text editor, and add the following lines to the file.  Change *wingtiptoys* to your resource group and *storage* to your artifact name.
 
    ```java
    package com.wingtiptoys.storage;
@@ -268,41 +267,37 @@ In this section, you create the necessary Java classes for storing a blob in you
    import org.springframework.core.io.Resource;
    import org.springframework.core.io.WritableResource;
    import org.springframework.util.StreamUtils;
-   import org.springframework.web.bind.annotation.GetMapping;
-   import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestBody;
-   import org.springframework.web.bind.annotation.RestController;
+   import org.springframework.web.bind.annotation.*;
 
    import java.io.IOException;
    import java.io.OutputStream;
    import java.nio.charset.Charset;
 
    @RestController
-   public class WebController {
-
-      @Value("blob://test/myfile.txt")
-      private Resource blobFile;
-
-      @GetMapping(value = "/")
-      public String readBlobFile() throws IOException {
-         return StreamUtils.copyToString(
-            this.blobFile.getInputStream(),
-            Charset.defaultCharset()) + "\n";
-      }
-
-      @PostMapping(value = "/")
-      public String writeBlobFile(@RequestBody String data) throws IOException {
-         try (OutputStream os = ((WritableResource) this.blobFile).getOutputStream()) {
-            os.write(data.getBytes());
-         }
-         return "File was updated.\n";
-      }
+   @RequestMapping("blob")
+   public class BlobController {
+   
+       @Value("${blob}")
+       private Resource blobFile;
+   
+       @GetMapping
+       public String readBlobFile() throws IOException {
+           return StreamUtils.copyToString(
+                   this.blobFile.getInputStream(),
+                   Charset.defaultCharset());
+       }
+   
+       @PostMapping
+       public String writeBlobFile(@RequestBody String data) throws IOException {
+           try (OutputStream os = ((WritableResource) this.blobFile).getOutputStream()) {
+               os.write(data.getBytes());
+           }
+           return "file was updated";
+       }
    }
    ```
 
-   Where the `@Value("blob://[container]/[blob]")` syntax respectively defines the names of the container and blob where you want to store the data.
-
-1. Save and close the web controller Java file.
+1. Save and close the blob controller Java file.
 
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
@@ -324,7 +319,7 @@ In this section, you create the necessary Java classes for storing a blob in you
    a. Send a POST request to update a file's contents:
 
       ```shell
-      curl -X POST -H "Content-Type: text/plain" -d "Hello World" http://localhost:8080/
+      curl -d 'new message' -H 'Content-Type: text/plain' localhost:8080/blob
       ```
 
       You should see a response that the file was updated.
@@ -368,4 +363,3 @@ For detailed information about additional Azure storage APIs that you can call f
 
 [SI01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png
 [SI02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-02.png
-[SI03]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-03.png
