@@ -30,7 +30,7 @@ Be sure to create a service principal for local development, and create and acti
     azure-mgmt-resource
     azure-mgmt-network
     azure-mgmt-compute
-    azure-core-cli
+    azure-cli-core
     ```
 
 1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
