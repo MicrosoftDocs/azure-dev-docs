@@ -16,11 +16,11 @@
       href: azure-sdk-overview.md
     - name: Library usage patterns    
       href: azure-sdk-library-usage-patterns.md   
-    - name: "Example: Create a resource group"
+    - name: "Example: Provision a resource group"
       href: azure-sdk-example-resource-group.md
-    - name: "Example: Use Azure storage"
+    - name: "Example: Provision and use Azure storage"
       href: azure-sdk-example-storage.md
-    - name: "Example: Provision a web app with code"
+    - name: "Example: Provision & deploy a web app"
       href: azure-sdk-example-web-app.md
     - name: "Example: Provision a virtual machine"
       href: azure-sdk-example-virtual-machines.md
