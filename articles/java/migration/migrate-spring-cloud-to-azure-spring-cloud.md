@@ -34,7 +34,38 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
 
+#### Identify Spring Cloud versions
+
+Examine the dependencies of each application you're migrating to determine the version of the Spring Cloud components it uses.
+
+##### Maven
+
+In Maven projects, the Spring Cloud version is typically set in the `spring-cloud.version` property:
+
+```xml
+  <properties>
+    <java.version>1.8</java.version>
+    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+  </properties>
+```
+
+##### Gradle
+
+In Gradle projects, the Spring Cloud version is typically set in the "extra properties" block:
+
+```gradle
+ext {
+  set('springCloudVersion', "Hoxton.SR3")
+}
+```
+
+You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
+
+#### Identify Zipkin dependencies
+
+Determine whether your application has explicit dependencies on Zipkin. Look for dependencies on the `io.zipkin.java` group in your Maven or Gradle dependencies.
 
 ### Inventory external resources
 
