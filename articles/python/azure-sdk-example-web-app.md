@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Example: Use the Azure SDK to provision and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. (Equivalent Azure CLI commands are given at the end of the article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -235,7 +235,8 @@ az webapp create -n PythonSDKExample-WebApp-12345 --plan PythonSDKExample-WebApp
 
 ---
 
-## Next step
+## See also
 
-> [!div class="nextstepaction"]
-> [Example: Provision a virtual machine >>>](azure-sdk-example-virtual-machines.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

@@ -12,10 +12,10 @@
   href: configure-local-development-environment.md
 - name: Get started with the Azure SDK for Python  
   items:
-    - name: Overview and usage patterns
+    - name: Overview
       href: azure-sdk-overview.md
-    - name: Install SDK libraries
-      href: azure-sdk-install.md   
+    - name: Library usage patterns    
+      href: azure-sdk-library-usage-patterns.md   
     - name: "Example: Create a resource group"
       href: azure-sdk-example-resource-group.md
     - name: "Example: Use Azure storage"
@@ -88,6 +88,8 @@
           href: tutorial-vs-code-serverless-python-08.md
 - name: How-to guides
   items: 
+  - name: Install SDK libraries
+    href: azure-sdk-install.md
   - name: Authenticate apps with Azure
     href: azure-sdk-authenticate.md
   - name: Manage service principals
@@ -128,7 +130,5 @@
     href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-search
   - name: All Samples
     href: https://docs.microsoft.com/samples/browse/?languages=python
-- name: Reference
-  items:
-  - name: Azure SDK
-    href: sdk.md
+- name: Library reference
+  href: sdk-library-reference.md

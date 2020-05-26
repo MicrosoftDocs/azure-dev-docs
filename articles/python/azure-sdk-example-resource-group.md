@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Example: Use the Azure SDK to provision a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (Equivalent Azure CLI commands are given at the end of the article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -113,7 +113,8 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 az group create -n PythonSDKExample-ResourceGroup-rg -l centralus
 ```
 
-## Next step
+## See also
 
-> [!div class="nextstepaction"]
-> [Example: Use Azure Storage >>>](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

@@ -7,14 +7,12 @@ ms.topic: conceptual
 
 # Example: Use the Azure SDK to provision a virtual machine
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine.
-
-There are no client libraries in this example because virtual machines have only a management interface.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. (Equivalent Azure CLI commands are given at the end of that section.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
 > [!NOTE]
-> Provisioning a virtual machine through code is a multi-step process that involves provisioning a number of other resources that the virtual machine requires. If you're simply running such code from teh command line, it's much easier to use the [`az vm create`](/cli/azure/vm?view=azure-cli-latest#az-vm-create) command, which automatically provisions these secondary resources with defaults for any setting you choose to omit. The only required arguments are a resource group, VM name, image name, and login credentials. For more information, see [Quick Create a virtual machine with the Azure CLI](/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create).
+> Provisioning a virtual machine through code is a multi-step process that involves provisioning a number of other resources that the virtual machine requires. If you're simply running such code from the command line, it's much easier to use the [`az vm create`](/cli/azure/vm?view=azure-cli-latest#az-vm-create) command, which automatically provisions these secondary resources with defaults for any setting you choose to omit. The only required arguments are a resource group, VM name, image name, and login credentials. For more information, see [Quick Create a virtual machine with the Azure CLI](/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create).
 
 ## 1: Set up your local development environment
 
@@ -290,7 +288,11 @@ Run this command if you don't need to keep the resources created in this example
 
 ## See also
 
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+
 The following resources container more comprehensive examples using Python to create a virtual machine:
 
 - [Create and manage Windows VMs in Azure using Python](/azure/virtual-machines/windows/python). You can use this example to create Linux VMs by changing the `storage_profile` parameter.
-- [SAzure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates additional management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.
+- [Azure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates additional management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.

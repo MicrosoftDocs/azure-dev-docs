@@ -29,11 +29,11 @@ landingContent:
             url: configure-local-development-environment.md
       - linkListType: overview
         links:
-          - text: About the Azure SDK for Python
+          - text: Get to know the Azure SDK for Python
             url: azure-sdk-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Install SDK libraries
+          - text: Using the Python libraries
             url: azure-sdk-install.md
       - linkListType: tutorial
         links:

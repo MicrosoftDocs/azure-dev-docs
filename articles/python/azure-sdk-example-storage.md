@@ -7,7 +7,9 @@ ms.topic: conceptual
 
 # Example: Use the Azure SDK with Azure Storage
 
-In this article, you learn how to use the Azure SDK management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. You then learn how to use the Azure SDK client libraries in Python application code to upload a file to that Blob storage container.
+In this article, you learn how to use the Azure SDK management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. (Equivalent Azure CLI commands are given at the end of that section.)
+
+You then learn how to use the Azure SDK client libraries in Python application code to upload a file to that Blob storage container.
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -361,7 +363,8 @@ Run this command if you don't need to keep the resources provisioned in this exa
 
 You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
 
-## Next step
+## See also
 
-> [!div class="nextstepaction"]
-> [Example: Provision a web app and deploy code >>>](azure-sdk-example-web-app.md)
+- [Example: Create a resource group](azure-sdk-example-resource-group.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
