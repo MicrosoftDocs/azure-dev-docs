@@ -85,10 +85,6 @@ Azure Spring Cloud doesn't provide access to the JRE keystore, so you must migra
 
 Eliminate any integrations with APM tools/agents. For information on configuring performance management with Azure Monitor, see the [Post-migration](#post-migration) section.
 
-### Replace explicit Zipkin dependencies with Spring Cloud Starters
-
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the [Distributed Tracing Dependency](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#distributed-tracing-dependency) section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). For information on distributed tracing with Azure App Insights, see the [Post-migration](#post-migration) section.
-
 ### Disable metrics clients and endpoints in your applications
 
 Remove any metrics clients used or any metrics endpoints exposed in your applications.
@@ -121,9 +117,27 @@ If any of the Spring Cloud applications require authentication or authorization,
 
 Update the configuration of all client applications to use the published Azure Spring Cloud endpoints for migrated applications.
 
+### Expose the application
+
+By default, applications deployed to Azure Spring Cloud are not visible externally. You can expose your application by making it public:
+
+```azurecli
+az spring-cloud app update -n <Application name> --is-public true
+```
+
+Skip this step if you are using or intend to use a Spring Cloud Gateway (more on this in the following section).
+
 ## Post-migration
 
+<!-- Introducing Spring Cloud components -->
+
+* Consider enabling your application to work with Spring Cloud Registry. This will enable your application to be dynamically discovered by other deployed microservices and clients. Once you have enabled the Spring Cloud Registry integration, consider modifying any client applications to use the Spring Cloud Client library. See [Tutorial: Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) for instructions.
+
+* Instead of making your application public, consider [adding a Spring Cloud Gateway instance](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/current/reference/html/). Spring Cloud Gateway provides a single endpoint for all applications/microservices deployed in your Azure Spring Cloud instance. If a Spring Cloud Gateway is already deployed, ensure that it is configured to route traffic to your newly deployed application.
+
 * Consider Adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server).
+
+<!-- Other -->
 
 * Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
@@ -138,14 +152,3 @@ Update the configuration of all client applications to use the published Azure S
 * Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 
 * If geo-replication isn't necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
-
-* If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
-
-   | Legacy                        | Current                                                |
-   |-------------------------------|--------------------------------------------------------|
-   | Spring Cloud Eureka           | Spring Cloud Service Registry                          |
-   | Spring Cloud Netflix Zuul     | Spring Cloud Gateway                                   |
-   | Spring Cloud Netflix Archaius | Spring Cloud Config Server                             |
-   | Spring Cloud Netflix Ribbon   | Spring Cloud Load Balancer (client-side load balancer) |
-   | Spring Cloud Hystrix          | Spring Cloud Circuit Breaker + Resilience4J            |
-   | Spring Cloud Netflix Turbine  | Micrometer + Prometheus                                |
