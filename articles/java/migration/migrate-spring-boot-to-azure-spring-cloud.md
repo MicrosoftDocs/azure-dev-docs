@@ -9,7 +9,7 @@ ms.date: 5/26/2020
 
 # Migrate Spring Boot applications to Azure Spring Cloud
 
-This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
+This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run on Azure Spring Cloud.
 
 ## Pre-migration
 
@@ -64,7 +64,7 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ### Create an Azure Spring Cloud instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. THen, create an application there. For instructions, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
