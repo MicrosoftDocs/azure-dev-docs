@@ -277,7 +277,7 @@ For these reasons, production code should use the authentication method. For exp
         blob_client.upload_blob(data)
     ```
 
-1. Attempt to run the code:
+1. Attempt to run the code (which fails intentionally):
 
     ```bash
     python use_blob_auth.py
@@ -311,7 +311,7 @@ For these reasons, production code should use the authentication method. For exp
 
     The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
-1. Run the code again to verify that it now works. If you see the permissions error again, wait a minute for the permissions to propagate, then try the code again.
+1. After waiting a minute or two for the permissions to propagate, run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
 For more information on scopes and role assignments, see [How to assign role permissions](how-to-assign-role-permissions.md).
 

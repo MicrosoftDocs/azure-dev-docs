@@ -20,11 +20,6 @@ Get started today with a [free Azure account](https://azure.com/free/open-source
 > [!NOTE]   
 > The links provided in this article link to a GitHub article or a GitHub repository. 
 
-- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy), to deploy to Azure Web Apps and Azure Web App for Containers 
-- [Azure/appservice-settings](https://github.com/Azure/appservice-settings) to configure App settings, connection strings and other general settings in bulk using JSON syntax on your Azure WebApp (Windows or Linux) or any of its deployment slots.
-
-
-
 ## Key concepts
 
 GitHub Actions enable you to create custom software development life cycle (SDLC) workflows directly in your GitHub repository. For an overview of GitHub Actions and core concepts, review the following articles: 
@@ -49,10 +44,11 @@ For GitHub Actions for Azure, see the following pages:
 
 ## Connect to Azure
 
-For sample workflows to connect to Azure, see the following GitHub actions:  
+For sample workflows to connect to Azure and run scripts based on Az CLI or Az PowerShell , use the following GitHub actions:  
 
 - [Azure login](https://github.com/Azure/login)  
-- [Azure CLI](https://github.com/Azure/CLI)  
+- [Azure CLI](https://github.com/Azure/CLI)
+- [Azure PowerShell](https://github.com/Azure/powershell)
 
 
 ## Sample apps with CI/CD workflow samples 
@@ -65,15 +61,22 @@ The following samples provide end-to-end workflows  to build and deploy Web apps
 - [Deploy a Java Web App](https://github.com/Azure-Samples/java-spring-petclinic)  
 - [Deploy a Java Spring App](https://github.com/Azure-Samples/Java-application-petstore-ee7)  
 - [Deploy a Python Web App](https://github.com/Azure-Samples/pythonSample_thecatsaidno)  
-- [Deploy using Docker](https://github.com/Azure-Samples/Node_express_container)  
+- [Deploy a containerized Web app using Docker](https://github.com/Azure-Samples/Node_express_container)
 
 
 ## Deploy a Web app
 
-- [Azure Web App](https://github.com/Azure/webapps-deploy)  
+Deploy to Azure Web Apps and Azure Web App for Containers:
+
+- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
+
+Deploy a Static Web app:
+- [Azure/static-web-apps-deploy](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=angular)
+
+
 Configure App settings and Connection Strings using the actions:
 
-- [Azure Web App for Containers](https://github.com/Azure/webapps-container-deploy)  
+- [Azure/appservice-settings](https://github.com/Azure/appservice-settings) 
 - [Azure App Service settings](https://github.com/Azure/appservice-settings)  
 
 ## Deploy a serverless app
