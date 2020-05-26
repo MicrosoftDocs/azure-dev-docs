@@ -197,8 +197,10 @@ Use the following procedure to configure and compile your application.
 3. Add the values for your key vault using values from the steps that you completed earlier in this tutorial; for example:
 
    ```yaml
-   azure.keyvault.uri=https://vgedkeyvault.vault.azure.net/
    azure.keyvault.enabled=true
+   azure.keyvault.uri=Your-Keyvault-uri
+   azure.keyvault.client-id=Your-Client-ID
+   azure.keyvault.tenant-id=Your-Tenant-ID
    ```
 
    Where:
