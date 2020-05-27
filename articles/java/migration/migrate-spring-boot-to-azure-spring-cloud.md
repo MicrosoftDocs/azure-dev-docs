@@ -52,6 +52,10 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 [!INCLUDE [inventory-identity-providers-spring-boot.md](includes/inventory-identity-providers-spring-boot.md)]
 
+#### Identify any clients relying on a non-standard port
+
+Azure Spring Cloud overwrites the `server.port` setting in the deployed application. If any clients of the clients rely on the application being available on a port other than 443, they will need to be modified.
+
 #### All other external resources
 
 It isn't feasible for this guide to document every possible external dependency. After the migration, it's your responsibility to verify that you can satisfy every external dependency of your application.
@@ -82,7 +86,7 @@ Eliminate any integrations with APM tools/agents. For information on configuring
 
 Remove any metrics clients used or any metrics endpoints exposed in your applications.
 
-### Deploy the services
+### Deploy the application
 
 Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
@@ -124,7 +128,7 @@ Skip this step if you are using or intend to use a Spring Cloud Gateway (more on
 
 * Instead of making your application public, consider [adding a Spring Cloud Gateway instance](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/current/reference/html/). Spring Cloud Gateway provides a single endpoint for all applications/microservices deployed in your Azure Spring Cloud instance. If a Spring Cloud Gateway is already deployed, ensure that it is configured to route traffic to your newly deployed application.
 
-* Consider Adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server).
+* Consider adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server).
 
 <!-- Other -->
 
