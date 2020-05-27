@@ -37,6 +37,8 @@ Be sure to create a service principal for local development, and create and acti
 
 ## 3: Write code to provision storage resources
 
+This section describes how to provision storage resources from Python code. If you prefer, you can also provision resources through the Azure portal or through the [equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands).
+
 Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
 
 ```python
@@ -238,7 +240,7 @@ For these reasons, production code should use the authentication method. For exp
 
 ### Use blob storage with authentication
 
-1. Create an environment variable named `AZURE_STORAGE_BLOB_URL`:
+1. Create an environment variable named `AZURE_STORAGE_BLOB_URL` (used only by this example):
 
     # [bash](#tab/bash)
 

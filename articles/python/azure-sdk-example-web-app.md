@@ -39,7 +39,7 @@ Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.
 
 ![Forking the sample repository on GitHub](media/azure-sdk-example-web-app/fork-github-repository.png)
 
-Then create an environment variable named `REPO_URL` with the URL of your fork. The code in the next section depends on this environment variable:
+Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
 # [bash](#tab/bash)
 
