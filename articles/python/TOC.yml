@@ -131,4 +131,4 @@
   - name: All Samples
     href: https://docs.microsoft.com/samples/browse/?languages=python
 - name: Library API reference
-  href: sdk-library-reference.md
+  href: sdk-library-api-reference.md

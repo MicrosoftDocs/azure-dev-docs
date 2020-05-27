@@ -17,7 +17,7 @@ The open-source Azure libraries for Python simplifies provisioning, managing, an
 
 - You install the library packages you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
-- There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and are used by different kinds of code. For more details, see the following sections later in this article:
+- There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
   - [Connect to and use Azure resources with client libraries](#connect-to-and-use-azure-resources-with-client-libraries)
 
@@ -31,7 +31,7 @@ The open-source Azure libraries for Python simplifies provisioning, managing, an
 
 - The Azure libraries for Python build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Python paradigms. However, you can always use the REST API directly from Python code, if desired.
 
-- You can find the source code for the Azure libraries on [https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python). As an open source project, contributions are welcome!
+- You can find the source code for the Azure libraries on [https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python). As an open-source project, contributions are welcome!
 
 - Although you can use the libraries with interpreters such as IronPython and Jython that we don't test against, you may encounter isolated issues and incompatibilities.
 
