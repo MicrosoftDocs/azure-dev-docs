@@ -1,13 +1,13 @@
 ---
-title: How to install Azure SDK libraries for Python
+title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip. Includes details on installing specific versions and preview packages.
 ms.date: 05/26/2020
 ms.topic: conceptual
 ---
 
-# How to install Azure SDK libraries for Python
+# How to install Azure library packages for Python
 
-The Azure SDK is composed of many individual libraries which are listed on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html). You install the specific libraries you need into a project using `pip install`.
+The Azure SDK for Python is composed solely of many individual libraries which are listed on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html). You install the specific library packages you need for a project using `pip install`.
 
 With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries).
 
@@ -49,7 +49,7 @@ pip install --pre azure-mgmt-storage
 
 To install the latest preview of a library, include the `--pre` flag on the command line.
 
-Microsoft regularly releases preview SDK libraries that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
+Microsoft periodically releases preview library packages that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
 
 ## Verify a library installation
 

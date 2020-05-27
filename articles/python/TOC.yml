@@ -8,12 +8,12 @@
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
-- name: Set up your dev environment for Azure
-  href: configure-local-development-environment.md
-- name: Get started with the Azure SDK for Python  
+- name: Get started on Azure with Python  
   items:
-    - name: Overview
+    - name: Overview of Azure libraries
       href: azure-sdk-overview.md
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md
     - name: Library usage patterns    
       href: azure-sdk-library-usage-patterns.md   
     - name: "Example: Provision a resource group"
@@ -88,7 +88,7 @@
           href: tutorial-vs-code-serverless-python-08.md
 - name: How-to guides
   items: 
-  - name: Install SDK libraries
+  - name: Install library packages
     href: azure-sdk-install.md
   - name: Authenticate apps with Azure
     href: azure-sdk-authenticate.md
@@ -130,5 +130,5 @@
     href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-search
   - name: All Samples
     href: https://docs.microsoft.com/samples/browse/?languages=python
-- name: Library reference
+- name: Library API reference
   href: sdk-library-reference.md

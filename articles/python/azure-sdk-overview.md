@@ -1,51 +1,51 @@
 ---
-title: Use the Azure SDK for Python
-description: Overview of the features and capabilities of the Azure SDK for Python that helps developers be more productive when provisioning, using, and managing Azure resources.
+title: Use the Azure libraries (SDK) for Python
+description: Overview of the features and capabilities of the Azure libraries for Python that helps developers be more productive when provisioning, using, and managing Azure resources.
 ms.date: 05/26/2020
 ms.topic: conceptual
 ---
 
-# Use the Azure SDK for Python
+# Use the Azure libraries (SDK) for Python
 
-The open-source Azure SDK for Python simplifies provisioning, managing, and using Azure resources from Python application code.
+The open-source Azure libraries for Python simplifies provisioning, managing, and using Azure resources from Python application code.
 
 ## The details you really want to know
 
-- The SDK supports Python 2.7 and Python 3.5.3 or later, and it tested also with PyPy 5.4+.
+- The libraries supports Python 2.7 and Python 3.5.3 or later, and it tested also with PyPy 5.4+.
 
-- The SDK is composed of over 180 individual Python libraries that relate to specific Azure services.
+- The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the "SDK".
 
-- You install the libraries you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure SDK libraries](azure-sdk-install.md).
+- You install the library packages you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
 - There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and are used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
   - [Connect to and use Azure resources with client libraries](#connect-to-and-use-azure-resources-with-client-libraries)
 
-- Documentation for the SDK is found on the [Azure SDK for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
+- Documentation for the libraries is found on the [Azure for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
 
-- To try the libraries for yourself, start with [Example: Create a resource group](azure-sdk-example-resource-group.md) followed by [Example: Use Azure Storage](azure-sdk-example-storage.md).
+- To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
 
 ### Non-essential but still interesting details
 
-- Because the Azure CLI is written in Python using the SDK management libraries, anything you can do with Azure CLI commands you can also do from a Python script. That said, the CLI commands provide many helpful features such as performing multiple tasks together, automatically handling asynchronous operations, formatting output like connection strings, and so on. Consequently, using the CLI (or its equivalent, Azure PowerShell) for automated provisioning and management scripts can be significantly more convenient than writing the equivalent Python code, unless you want to have a much more exacting degree of control over the process.
+- Because the Azure CLI is written in Python using the management libraries, anything you can do with Azure CLI commands you can also do from a Python script. That said, the CLI commands provide many helpful features such as performing multiple tasks together, automatically handling asynchronous operations, formatting output like connection strings, and so on. Consequently, using the CLI (or its equivalent, Azure PowerShell) for automated provisioning and management scripts can be significantly more convenient than writing the equivalent Python code, unless you want to have a much more exacting degree of control over the process.
 
-- The Azure SDK for Python is a Python layer on top of the underlying Azure REST API, allowing you to use those APIs through familiar Python paradigms. However, you can always use the REST API directly from Python code, if desired.
+- The Azure libraries for Python build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Python paradigms. However, you can always use the REST API directly from Python code, if desired.
 
-- You can find the source code for the SDK on [https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python). As an open source project, contributions are welcome!
+- You can find the source code for the Azure libraries on [https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python). As an open source project, contributions are welcome!
 
-- Although you can use the SDK with interpreters such as IronPython and Jython that we don't test against, you may encounter isolated issues and incompatibilities.
+- Although you can use the libraries with interpreters such as IronPython and Jython that we don't test against, you may encounter isolated issues and incompatibilities.
 
-- The source repo for the SDK documentation is found on [https://github.com/MicrosoftDocs/azure-docs-sdk-python/](https://github.com/MicrosoftDocs/azure-docs-sdk-python/).
+- The source repo for the library API reference documentation resides on [https://github.com/MicrosoftDocs/azure-docs-sdk-python/](https://github.com/MicrosoftDocs/azure-docs-sdk-python/).
 
-- We're currently updating the Azure SDK for Python libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
+- We're currently updating the Azure libraries for Python libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
 
   - This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) library.
 
   - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](https://azure.github.io/azure-sdk/releases/latest/#python). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
 
-  - The management libraries, which are not yet updated, are sometimes referred to as "track 1".
+  - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
 
-- For details on the guidelines we apply to the SDK, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_introduction.html).
+- For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_introduction.html).
 
 ## Provision and manage Azure resources with management libraries
 
@@ -53,22 +53,24 @@ The SDK's *management* (or "management plane") libraries, the names of which all
 
 With the management libraries, you can write configuration and deployment scripts to perform the same tasks that can you through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
+For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
 
 ## Connect to and use Azure resources with client libraries
 
-The SDK's *client* (or "data plane") libraries help you write Python application code to interact with already-provisioned services. The SDK provides client libraries only for those services that support a client API.
+The SDK's *client* (or "data plane") libraries help you write Python application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API.
 
-For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the SDK's [GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
+For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
 
 ## Get help and connect with the SDK team
 
-- Visit the [Azure SDK for Python documentation](https://aka.ms/python-docs)
+- Visit the [Azure libraries for Python documentation](https://aka.ms/python-docs)
 - Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-python)
 - Open issues against the SDK on [GitHub](https://github.com/Azure/azure-sdk-for-python/issues)
 - Mention [@AzureSDK](https://twitter.com/AzureSdk/) on Twitter
 
 ## Next step
 
+We strongly recommend doing a one-time setup of your local development environment so that you can easily use any of the Azure libraries for Python.
+
 > [!div class="nextstepaction"]
-> [Review library usage patterns >>>](azure-sdk-library-usage-patterns.md)
+> [Set up your local dev environment >>>](configure-local-development-environment.md)
