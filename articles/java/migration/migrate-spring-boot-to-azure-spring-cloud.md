@@ -64,18 +64,11 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ### Create an Azure Spring Cloud instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. THen, create an application there. For instructions, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. Then, create an application there. For instructions, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
 [!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
-
-### Migrate Spring Cloud Vault secrets to Azure KeyVault
-
-You can inject secrets directly into applications through Spring by using the Azure KeyVault Spring Boot Starter. For more information, see [How to use the Spring Boot Starter for Azure Key Vault](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
-
-> [!NOTE]
-> Migration may require you to rename some secrets. Update your application code accordingly.
 
 ### Migrate all certificates to KeyVault
 
@@ -112,10 +105,6 @@ If any of the Spring Cloud applications require authentication or authorization,
 * If the identity provider is Azure Active Directory, no changes should be necessary.
 * If the identity provider is an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure Active Directory. For guidance, see the [Hybrid identity documentation](/azure/active-directory/hybrid/).
 * If the identity provider is another on-premises solution, such as PingFederate, consult the [Custom installation of Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-install-custom) topic to configure federation with Azure Active Directory. Alternatively, consider using Spring Security to use your identity provider through [OAuth2/OpenID Connect](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2) or [SAML](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2).
-
-### Update client applications
-
-Update the configuration of all client applications to use the published Azure Spring Cloud endpoints for migrated applications.
 
 ### Expose the application
 
