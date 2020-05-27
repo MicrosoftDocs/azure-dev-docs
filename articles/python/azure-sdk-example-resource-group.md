@@ -1,13 +1,13 @@
 ---
-title: Provision a resource group using the Azure SDK for Python
+title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
 ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure SDK to provision a resource group
+# Example: Use the Azure libraries to provision a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (Equivalent Azure CLI commands are given at the end of the article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -17,7 +17,7 @@ If you haven't already, follow all the instructions on [Configure your local Pyt
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
-## 2: Install the resource management library
+## 2: Install the Azure library packages
 
 Create a file named *requirements.txt* with the following contents:
 
@@ -47,7 +47,7 @@ resource_client = get_client_from_cli_profile(ResourceManagementClient)
 
 # Provision the resource group.
 rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-ResourceGroup-rg",
+    "PythonAzureExample-ResourceGroup-rg",
     {
         "location": "centralus"
     }
@@ -70,7 +70,7 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 # provisioned by the time the call returns.
 
 # Optional line to delete the resource group
-#resource_client.resource_groups.delete("PythonSDKExample-ResourceGroup-rg")
+#resource_client.resource_groups.delete("PythonAzureExample-ResourceGroup-rg")
 ```
 
 This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
@@ -92,13 +92,13 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 - Azure CLI: run the following command:
 
     ```azurecli
-    az group show -n PythonSDKExample-ResourceGroup-rg
+    az group show -n PythonAzureExample-ResourceGroup-rg
     ```
 
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonSDKExample-ResourceGroup-rg
+az group delete -n PythonAzureExample-ResourceGroup-rg
 ```
 
 Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.
@@ -110,10 +110,11 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
 ```azurecli
-az group create -n PythonSDKExample-ResourceGroup-rg -l centralus
+az group create -n PythonAzureExample-ResourceGroup-rg -l centralus
 ```
 
-## Next step
+## See also
 
-> [!div class="nextstepaction"]
-> [Example: Use Azure Storage >>>](azure-sdk-example-storage.md)
+- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

@@ -1,6 +1,6 @@
 ---
 title: Configure your local Python environment for Azure development
-description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, then Azure SDK, and the necessary credentials for SDK authentication.
+description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
 ms.date: 05/12/2020
 ms.topic: conceptual
 ---
@@ -12,7 +12,7 @@ When creating cloud applications, developers typically prefer to test code on th
 This article provides the one-time setup instructions to create and validate a local dev environment that's suitable for Python on Azure:
 
 - [Install required components](#required-components), namely an Azure account, Python, and the Azure CLI.
-- [Configure authentication](#configure-authentication) for when you use Azure SDK libraries to provision, manage, and access Azure resources.
+- [Configure authentication](#configure-authentication) for when you use Azure libraries to provision, manage, and access Azure resources.
 - Review the process of [using Python virtual environments](#use-python-virtual-environments) for each of your projects.
 
 Once you've configured your workstation, you'll need only minimal added configuration to complete various quickstarts and tutorials elsewhere on this developer center and in the Azure documentation.
@@ -25,11 +25,11 @@ Once you've configured your workstation, you'll need only minimal added configur
 | --- | --- |
 | [Azure account with an active subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=python-dev-center&mktingSource=environment-setup) | Accounts/subscriptions are free and include many free-to-use services. |
 | [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
-| [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
+| [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure management libraries. |
 
 Notes:
 
-- You install individual Azure SDK libraries on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project.
+- You install individual Azure library packages on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project. There is no standalone "SDK" installer for Python.
 - Although Azure PowerShell is generally equivalent to the Azure CLI, we recommend the Azure CLI when working with Python.
 
 ### Recommended components
@@ -72,7 +72,7 @@ The Azure CLI normally maintains your sign in across sessions, but it's a good p
 
 As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
 
-The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure SDK.
+The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure libraries when needed.
 
 Each developer in your organization should perform these steps individually.
 
@@ -138,7 +138,7 @@ Each developer in your organization should perform these steps individually.
 
 To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
-### Create environment variables for the Azure SDK
+### Create environment variables for the Azure libraries
 
 # [bash](#tab/bash)
 
@@ -234,7 +234,7 @@ You can also use any other source control tool of your choice; Git is simply one
 
 ## Next step
 
-With your local dev environment in place, let's now take a quick look at the Azure SDK.
+With your local dev environment in place, take a quick look at the common usage patterns for the Azure libraries:
 
 > [!div class="nextstepaction"]
-> [Use the Azure SDK >>>](azure-sdk-overview.md)
+> [Review common usage patterns >>>](azure-sdk-library-usage-patterns.md)

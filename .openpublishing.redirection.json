@@ -509,6 +509,10 @@
       "redirect_url": "/azure/developer/python"
     },
     {
+      "source_path": "articles/python/sdk.md",
+      "redirect_url": "/azure/developer/python/sdk-library-api-reference.md"
+    },
+    {
       "source_path": "python/developer/azure-sdk-get-started.yml",
       "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group"
     },    
