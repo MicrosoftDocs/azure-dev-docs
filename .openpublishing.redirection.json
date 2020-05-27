@@ -510,7 +510,7 @@
     },
     {
       "source_path": "articles/python/sdk.md",
-      "redirect_url": "/azure/developer/python/sdk-library-reference.md"
+      "redirect_url": "/azure/developer/python/sdk-library-api-reference.md"
     },
     {
       "source_path": "python/developer/azure-sdk-get-started.yml",
