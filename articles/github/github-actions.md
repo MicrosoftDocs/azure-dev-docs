@@ -110,10 +110,6 @@ Configure App settings and Connection Strings using the actions:
 - [Azure SQL database](https://github.com/Azure/sql-action)  
 - [Azure MySQL action](https://github.com/Azure/mysql-action)  
 
-## Deploy Machine Learning models
-
-- [Azure Machine Learning Deploy](https://github.com/Azure/aml-deploy)  
-
 ## Trigger a run in Azure Pipelines
 
 - [Azure Pipelines](https://github.com/Azure/pipelines)  
