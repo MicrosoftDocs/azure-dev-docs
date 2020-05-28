@@ -13,3 +13,9 @@ Because Azure Cognitive Services continues to evolve, the best way to find getti
 
 > [!div class="nextstepaction"]
 > [Go to the Cognitive Services hub page >>>](/azure/cognitive-services/)
+
+Also see the following articles for Azure Cognitive Search, which is in a separate part of the documentation from Cognitive Services:
+
+- [Create an Azure Cognitive Search index in Python using Jupyter notebooks](/azure/search/search-get-started-python).
+- [Use Python and AI to generate searchable content from Azure blobs](/azure/search/cognitive-search-tutorial-blob-python)
+
