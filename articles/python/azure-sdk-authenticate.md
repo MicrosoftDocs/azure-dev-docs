@@ -31,7 +31,11 @@ from azure.keyvault.secrets import SecretClient
 # Obtain the credential object
 credential = DefaultAzureCredential()
 
-# Create the client object to access Key Vault secrets.
+# Create the client object using the credential
+#
+# **NOTE**: SecretClient here is only an example; the same process
+# applies to all other Azure client libraries.
+
 vault_url = os.environ["KEY_VAULT_URL"]
 secret_client = SecretClient(vault_url=vault_url, credential=credential)
 
