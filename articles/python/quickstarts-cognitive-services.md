@@ -1,30 +1,21 @@
 ---
-title: Quickstarts for cognitive services for Python apps on Azure
-description: List of getting started material in the Azure documentation for cognitive services for Python apps.
-ms.date: 05/12/2020
+title: Getting starting with AI cognitive services for Python apps on Azure
+description: Index of getting started material in the Azure documentation for AI cognitive services for Python apps.
+ms.date: 05/28/2020
 ms.topic: conceptual
 ---
 
 # Cognitive Services for Python apps on Azure
 
-The following articles help you get started with Azure Cognitive Services, which make extensive AI capabilities easily available to applications:
+Azure Cognitive Services make extensive AI capabilities easily available to applications in areas such as computer vision and image processing, language analysis and translation, speech, decision-making, and comprehensive search.
 
-- **Overview**:
-  - [Azure Cognitive Services modules for Python](/python/api/overview/azure/cognitive-services?view=azure-python)
+Because Azure Cognitive Services continues to evolve, the best way to find getting started material for Python is to begin on the [Azure Cognitive Service hub page](/azure/cognitive-services/). Select a service of interest and then expand the **Quickstarts** node. Under **Quickstarts**, look for subsections about using the client libraries or the REST API. The articles in those subsections include Python where supported.
 
-- **Image processing**:  
-  - [Analyze a remote image using the Computer Vision REST API and Python](/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze)
-  - [Create an image classification project with the Custom Vision Python SDK](/azure/cognitive-services/custom-vision-service/python-tutorial)
+> [!div class="nextstepaction"]
+> [Go to the Cognitive Services hub page >>>](/azure/cognitive-services/)
 
-- **Facial recognition**:  
-  - [Facial recognition with Python](/azure/cognitive-services/face/quickstarts/python-sdk)
+Also see the following articles for Azure Cognitive Search, which is in a separate part of the documentation from Cognitive Services:
 
-- **Language, text analytics, and search**:
-  - [Language Understanding (LUIS) authoring for Python](/azure/cognitive-services/luis/sdk-authoring)
-  - [Use the Text Analytics client library for Python](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
-  - [Use the Content Moderator client library for Python](/azure/cognitive-services/content-moderator/python-sdk-quickstart)
-  - [Suggest search queries with the Bing Autosuggest REST API and Python](/azure/cognitive-services/bing-autosuggest/quickstarts/python)
-  - [Search hub page](/azure/cognitive-services/bing-web-search/index)
+- [Create an Azure Cognitive Search index in Python using Jupyter notebooks](/azure/search/search-get-started-python).
+- [Use Python and AI to generate searchable content from Azure blobs](/azure/search/cognitive-search-tutorial-blob-python)
 
-- **Speech services**
-  - [Speech services hub page](/azure/cognitive-services/speech-service/index)

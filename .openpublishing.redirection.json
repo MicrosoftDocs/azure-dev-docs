@@ -598,11 +598,19 @@
     },
     {
       "source_path": "python/quickstarts-messaging.md",
-      "redirect_url": "/azure/developer/python/quickstarts-messaging"
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
     },
     {
+      "source_path": "articles/python/quickstarts-messaging.md",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
+    },    
+    {
       "source_path": "python/quickstarts-security-integration.md",
-      "redirect_url": "/azure/developer/python/quickstarts-security-integration"
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
+    },
+    {
+      "source_path": "articles/python/quickstarts-security-integration.md",
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-01.md",
