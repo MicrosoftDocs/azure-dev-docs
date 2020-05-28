@@ -13,7 +13,7 @@ Over time, you'll probably need to delete, rename, or otherwise manage these ser
 
 ## Basics of Azure authorization
 
-Whenever your code attempts to perform any operation on Azure resources (which you do through classes in the Azure SDK), Azure ensures that the application is authorized to perform that action. You use the [Azure portal](https://portal.azure.com) or the Azure CLI to grant specific role- or resource-based permissions to the application's identity. (This procedure avoids granting excess permissions to the application that could be exploited if your application's security is ever compromised.)
+Whenever your code attempts to perform any operation on Azure resources (which you do through classes in the Azure libraries), Azure ensures that the application is authorized to perform that action. You use the [Azure portal](https://portal.azure.com) or the Azure CLI to grant specific role- or resource-based permissions to the application's identity. (This procedure avoids granting excess permissions to the application that could be exploited if your application's security is ever compromised.)
 
 When deployed to Azure, the application's identity is typically the same as the name you give the app within the service that's hosting it (such as Azure App Service, Azure Functions, a virtual machine, etc., when managed identity is enabled). When you run your code locally, however, no such hosting service is involved, so you need to present Azure with a suitable substitute.
 
@@ -46,4 +46,4 @@ Using the Azure CLI, you can perform many of the same operations on service prin
 
 See also:
 
-- [Authenticate with Azure using the Azure SDK](azure-sdk-authenticate.md)
+- [Authenticate with Azure using the Azure libraries](azure-sdk-authenticate.md)

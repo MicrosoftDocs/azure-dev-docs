@@ -1,16 +1,16 @@
 ---
 title: How to authenticate Python applications with Azure services
-description: Authenticate a Python app with Azure services by using the Azure management SDK libraries
+description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
 ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
 # How to authenticate Python apps with Azure services
 
-When writing app code using the Azure SDK for Python, you use the following pattern to access Azure resources:
+When writing app code using the Azure libraries for Python, you use the following pattern to access Azure resources:
 
 1. Acquire a credential (typically a one time operation).
-1. Use the credential to acquire an SDK-provided client object for a resource.
+1. Use the credential to acquire the appropriate client object for a resource.
 1. Attempt to access or modify the resource through the client object, which generates an HTTP request to the resource's REST API.
 
 The request to the REST API is the point at which Azure authenticates the app's identity as described by the credential object. Azure then checks whether that identity is authorized to perform the requested action. If the identity does not have authorization, the operation fails. (Granting permissions depends on the type of resource, such as Azure Key Vault, Azure Storage, etc. For more information, see the documentation for that resource type.)
@@ -31,7 +31,7 @@ from azure.keyvault.secrets import SecretClient
 # Obtain the credential object
 credential = DefaultAzureCredential()
 
-# Create the SDK client object to access Key Vault secrets.
+# Create the client object to access Key Vault secrets.
 vault_url = os.environ["KEY_VAULT_URL"]
 secret_client = SecretClient(vault_url=vault_url, credential=credential)
 
@@ -315,4 +315,7 @@ Before the [Azure Active Directory Authentication Library (ADAL) for Python](htt
 ## See also
 
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
-- [Example: Use the Azure SDK with Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

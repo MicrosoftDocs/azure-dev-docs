@@ -1,17 +1,15 @@
 ---
-title: Install Azure SDK for Python libraries
+title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip. Includes details on installing specific versions and preview packages.
-ms.date: 05/13/2020
+ms.date: 05/26/2020
 ms.topic: conceptual
 ---
 
-# Install Azure SDK for Python libraries
+# How to install Azure library packages for Python
 
-The Azure SDK for Python provides an API through which you can interact with Azure from Python code. The names of all current libraries is on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html).
+The Azure SDK for Python is composed solely of many individual libraries that are listed on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html). You install the specific library packages you need for a project using `pip install`.
 
-Libraries whose names begin with `azure-mgmt` are *management* libraries, which you use to provision and manage Azure resources like you would through the [Azure portal](https://portal.azure.com) or by using the [Azure CLI](/cli/azure/install-azure-cli). For example, to provision and manage Azure Storage resources you use the `azure-mgmt-storage` library.
-
-All other libraries in the SDK are *client* libraries that you use from application code to work with already-provisioned resources. For example, to work with Azure Storage blobs from application code you use the `azure-storage-blob` library.
+With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries).
 
 ## Install the latest version of a library
 
@@ -19,9 +17,13 @@ All other libraries in the SDK are *client* libraries that you use from applicat
 pip install azure-storage-blob
 ```
 
-`pip install` installs the latest version of a library in your current Python environment.
+```bash
+pip install azure-mgmt-storage
+```
 
-On Linux systems, the SDK doesn't support using `sudo pip install` to install a library for all users. Each user must use `pip install` separately.
+`pip install` retrieves the latest version of a library in your current Python environment.
+
+On Linux systems, you must install a library for each user separately. Installing libraries for all users with `sudo pip install` isn't supported.
 
 ## Install specific library versions
 
@@ -29,7 +31,11 @@ On Linux systems, the SDK doesn't support using `sudo pip install` to install a 
 pip install azure-storage-blob==12.0.0
 ```
 
-Specify the specify the version on the command line with `pip install`.
+```bash
+pip install azure-mgmt-storage==10.0.0
+```
+
+Specify the desired version on the command line with `pip install`.
 
 ## Install preview packages
 
@@ -37,14 +43,22 @@ Specify the specify the version on the command line with `pip install`.
 pip install --pre azure-storage-blob
 ```
 
+```bash
+pip install --pre azure-mgmt-storage
+```
+
 To install the latest preview of a library, include the `--pre` flag on the command line.
 
-Microsoft regularly releases preview SDK libraries that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
+Microsoft periodically releases preview library packages that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
 
 ## Verify a library installation
 
 ```bash
 pip show azure-storage-blob
+```
+
+```bash
+pip show azure-mgmt-storage
 ```
 
 Use `pip show <library>` to verify that a library is installed. If the library is installed, the command displays version and other summary information, otherwise the command displays nothing.
@@ -58,10 +72,3 @@ pip uninstall azure-storage-blob
 ```
 
 To uninstall a library, use `pip uninstall <library>`.
-
-## Next steps
-
-You're completely ready now to write and run some code, which you can do using any of the following examples:
-
-> [!div class="nextstepaction"]
-> [Example: Create a resource group >>>](azure-sdk-example-resource-group.md)
