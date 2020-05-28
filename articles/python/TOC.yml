@@ -34,7 +34,7 @@
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
-  - name: Azure Cognitive Services
+  - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
   - name: Messaging & IoT
     href: quickstarts-messaging-iot.md 

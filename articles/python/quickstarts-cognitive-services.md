@@ -5,7 +5,7 @@ ms.date: 05/28/2020
 ms.topic: conceptual
 ---
 
-# Cognitive Services for Python apps on Azure
+# AI service for Python apps on Azure
 
 Azure Cognitive Services make extensive AI capabilities easily available to applications in areas such as computer vision and image processing, language analysis and translation, speech, decision-making, and comprehensive search.
 
