@@ -22,6 +22,8 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 ### Inspect application components
 
+[!INCLUDE [identify-local-state](includes/identify-local-state-azure-spring-cloud.md)]
+
 [!INCLUDE [static-content-azure-spring-cloud](includes/determine-whether-and-how-the-file-system-is-used-azure-spring-cloud.md)]
 
 #### Determine whether any of the services contain OS-specific code
