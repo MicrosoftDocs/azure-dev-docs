@@ -13,7 +13,7 @@ In this tutorial, you use Visual Studio Code and the Azure Functions extension t
 
 Watch this video for a complete walkthrough of the content in this article.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-from-Visual-Studio-Code/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-Visual-Studio-Code/player]
 
 ## Prerequisites
 
