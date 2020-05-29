@@ -13,7 +13,7 @@ In this tutorial, you deploy a Node.js application to Azure App Service (on Linu
 
 Watch this video for a complete walkthrough of the content in this article.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Create-a-Nodejs-app-in-Azure/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-to-Azure-App-Service-using-Visual-Studio-Code/player]
 
 ## Prerequisites
 
