@@ -113,14 +113,6 @@ The following examples assume the following conditions (see [Example: Provision 
 
 #### Grant permissions for the specific container only
 
-# [bash](#tab/bash)
-
-```azurecli
-az role assignment create --assignee $AZURE_CLIENT_ID \
-    --role "Storage Blob Data Contributor" \
-    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
-```
-
 # [cmd](#tab/cmd)
 
 ```azurecli
@@ -129,17 +121,17 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
 ```
 
----
-
-#### Grant permissions for all blob containers in the storage account
-
 # [bash](#tab/bash)
 
 ```azurecli
 az role assignment create --assignee $AZURE_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
-    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345"
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
 ```
+
+---
+
+#### Grant permissions for all blob containers in the storage account
 
 # [cmd](#tab/cmd)
 
@@ -149,25 +141,17 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345"
 ```
 
----
-
-#### Grant permissions for all blob containers in the resource group
-
 # [bash](#tab/bash)
 
 ```azurecli
 az role assignment create --assignee $AZURE_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
-    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg"
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345"
 ```
 
-Alternately, you can just specify the resource group with the `--resource-group` parameter:
+---
 
-```azurecli
-az role assignment create --assignee $AZURE_CLIENT_ID \
-    --role "Storage Blob Data Contributor" \
-    --resource-group "PythonAzureExample-Storage-rg"
-```
+#### Grant permissions for all blob containers in the resource group
 
 # [cmd](#tab/cmd)
 
@@ -177,7 +161,7 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonAzureExample-Storage-rg"
 ```
 
-Alternately, you can just specify the resource group with the `--resource-group` parameter:
+Alternately, you can specify the resource group with the `--resource-group` parameter:
 
 ```azurecli
 az role assignment create --assignee %AZURE_CLIENT_ID% ^
@@ -185,17 +169,25 @@ az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --resource-group "PythonAzureExample-Storage-rg"
 ```
 
----
-
-#### Grant permissions to all blob containers in the subscription
-
 # [bash](#tab/bash)
 
 ```azurecli
 az role assignment create --assignee $AZURE_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
-    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID"
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg"
 ```
+
+Alternately, you can specify the resource group with the `--resource-group` parameter:
+
+```azurecli
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --resource-group "PythonAzureExample-Storage-rg"
+```
+
+---
+
+#### Grant permissions to all blob containers in the subscription
 
 # [cmd](#tab/cmd)
 
@@ -203,6 +195,14 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
 az role assignment create --assignee %AZURE_CLIENT_ID% ^
     --role "Storage Blob Data Contributor" ^
     --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%"
+```
+
+# [bash](#tab/bash)
+
+```azurecli
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID"
 ```
 
 ---

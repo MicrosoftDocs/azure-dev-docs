@@ -13,11 +13,11 @@ With these libraries you can provision and manage resources on Azure services (u
 
 ## Install the latest version of a library
 
-```bash
+```cmd
 pip install azure-storage-blob
 ```
 
-```bash
+```cmd
 pip install azure-mgmt-storage
 ```
 
@@ -27,11 +27,11 @@ On Linux systems, you must install a library for each user separately. Installin
 
 ## Install specific library versions
 
-```bash
+```cmd
 pip install azure-storage-blob==12.0.0
 ```
 
-```bash
+```cmd
 pip install azure-mgmt-storage==10.0.0
 ```
 
@@ -39,11 +39,11 @@ Specify the desired version on the command line with `pip install`.
 
 ## Install preview packages
 
-```bash
+```cmd
 pip install --pre azure-storage-blob
 ```
 
-```bash
+```cmd
 pip install --pre azure-mgmt-storage
 ```
 
@@ -53,11 +53,11 @@ Microsoft periodically releases preview library packages that support upcoming f
 
 ## Verify a library installation
 
-```bash
+```cmd
 pip show azure-storage-blob
 ```
 
-```bash
+```cmd
 pip show azure-mgmt-storage
 ```
 
@@ -67,7 +67,7 @@ You can also use `pip freeze` or `pip list` to see all the libraries that are in
 
 ## Uninstall a library
 
-```bash
+```cmd
 pip uninstall azure-storage-blob
 ```
 
