@@ -1,13 +1,13 @@
 ---
 title: Provision a virtual machine using the Azure SDK libraries for Python
 description: How to provision an Azure virtual machine using Python and the Azure SDK management libraries.
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
 # Example: Use the Azure libraries to provision a virtual machine
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. (Equivalent Azure CLI commands are given at the end of that section.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at the later in this article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -33,7 +33,7 @@ Be sure to create a service principal for local development, and create and acti
 
 1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
 
-    ```bash
+    ```cmd
     pip install -r requirements.txt
     ```
 
@@ -289,7 +289,8 @@ Run this command if you don't need to keep the resources created in this example
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
-- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 
 The following resources container more comprehensive examples using Python to create a virtual machine:

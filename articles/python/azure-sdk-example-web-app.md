@@ -1,13 +1,13 @@
 ---
 title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
 # Example: Use the Azure libraries to provision and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. (Equivalent Azure CLI commands are given at the end of the article.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -29,7 +29,7 @@ azure-cli-core
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```bash
+```cmd
 pip install -r requirements.txt
 ```
 
@@ -238,5 +238,6 @@ az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-We
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
-- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
