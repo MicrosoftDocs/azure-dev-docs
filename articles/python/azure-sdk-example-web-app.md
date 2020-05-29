@@ -41,16 +41,16 @@ Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.
 
 Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
-# [bash](#tab/bash)
-
-```bash
-REPO_URL=<url_of_your_fork>
-```
-
 # [cmd](#tab/cmd)
 
 ```cmd
 set REPO_URL=<url_of_your_fork>
+```
+
+# [bash](#tab/bash)
+
+```bash
+REPO_URL=<url_of_your_fork>
 ```
 
 ---
@@ -195,25 +195,6 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-# [bash](#tab/bash)
-
-```azurecli
-az group create -l centralus -n PythonAzureExample-WebApp-rg
-
-az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
-
-az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
-    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
-
-# You can use --deployment-source-url with the first create command. It's shown here
-# to match the sequence of the Python code.
-
-az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
-    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
-
-# Replace <your_fork> with the specific URL of your forked repository.
-```
-
 # [cmd](#tab/cmd)
 
 ```azurecli
@@ -228,6 +209,25 @@ az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12
 # to match the sequence of the Python code.
 
 az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan ^
+    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
+
+# Replace <your_fork> with the specific URL of your forked repository.
+```
+
+# [bash](#tab/bash)
+
+```azurecli
+az group create -l centralus -n PythonAzureExample-WebApp-rg
+
+az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
+
+az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
+    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
+
+# You can use --deployment-source-url with the first create command. It's shown here
+# to match the sequence of the Python code.
+
+az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
     --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
 
 # Replace <your_fork> with the specific URL of your forked repository.

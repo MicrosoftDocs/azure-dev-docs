@@ -76,7 +76,7 @@ The following sections describe how to create a service principal and the enviro
 
 Each developer in your organization should perform these steps individually.
 
-### Create a service principal for development
+### Create a service principal and environment variables for development
 
 1. Open a terminal or command prompt in which you've signed into the Azure CLI (`az login`).
 
@@ -86,49 +86,39 @@ Each developer in your organization should perform these steps individually.
     az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
     ```
 
-    - If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
+    This command saves it output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
-    - `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command reference.
+    If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
-    - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
+1. Create environment variables that the Azure libraries require. (The `DefaultAzureCredential` object of the azure-identity library looks for these variables).
 
-    - The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. Different quickstarts and tutorials provide details for authorizing a service principal for the resources involved.
+    # [cmd](#tab/cmd)
 
-    - The command provides JSON output, which is saved in a file named *local-sp.json*.
 
-    - The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+    set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
+    set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
+    set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
+    ```
 
-        <pre>
-        {
-          "clientId": "12345678-1111-2222-3333-1234567890ab",
-          "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
-          "subscriptionId": "00000000-0000-0000-0000-000000000000",
-          "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
-          "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-          "resourceManagerEndpointUrl": "https://management.azure.com/",
-          "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-          "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-          "galleryEndpointUrl": "https://gallery.azure.com/",
-          "managementEndpointUrl": "https://management.core.windows.net/"
-        }
-        </pre>
+    # [bash](#tab/bash)
 
-        Without the `--sdk-auth` argument, the command generates simpler output:
 
-        <pre>
-        {
-          "appId": "12345678-1111-2222-3333-1234567890ab",
-          "displayName": "localtest-sp-rbac",
-          "name": "http://localtest-sp-rbac",
-          "password": "abcdef00-4444-5555-6666-1234567890ab",
-          "tenant": "00112233-7777-8888-9999-aabbccddeeff"
-        }
-        </pre>
+    ```bash
+    AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+    AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
+    AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
+    AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
+    ```
 
-        In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+    ---
 
-        > [!IMPORTANT]
-        > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
+    Replace the values shown in these commands with those of your specific service principal.
+
+    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
+
+    For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
 
 1. Safeguard the client ID and client secret (and any files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
 
@@ -136,35 +126,53 @@ Each developer in your organization should perform these steps individually.
 
     Furthermore, a development service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
 
-To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
+1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
-### Create environment variables for the Azure libraries
+#### What the create-for-rbac command does
 
-# [bash](#tab/bash)
+The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC).
 
-```bash
-AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
-AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
-AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
-AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
-```
+- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command reference.
 
-# [cmd](#tab/cmd)
+- The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-```cmd
-set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
-set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
-set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
-set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
-```
+- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. Different quickstarts and tutorials provide details for authorizing a service principal for the resources involved.
 
----
+- The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
 
-Replace the values shown in these commands with those of your specific service principal.
+- The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
 
-To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
+    <pre>
+    {
+      "clientId": "12345678-1111-2222-3333-1234567890ab",
+      "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
+    }
+    </pre>
 
-For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
+    Without the `--sdk-auth` argument, the command generates simpler output:
+
+    <pre>
+    {
+      "appId": "12345678-1111-2222-3333-1234567890ab",
+      "displayName": "localtest-sp-rbac",
+      "name": "http://localtest-sp-rbac",
+      "password": "abcdef00-4444-5555-6666-1234567890ab",
+      "tenant": "00112233-7777-8888-9999-aabbccddeeff"
+    }
+    </pre>
+
+    In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+
+    > [!IMPORTANT]
+    > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
 
 ## Use Python virtual environments
 
@@ -176,13 +184,13 @@ For every project, we recommend that you always create and activate a *virtual e
 
 1. Create the virtual environment:
 
-    # [bash](#tab/bash)
+    # [cmd](#tab/cmd)
 
     ```bash
     python -m venv .venv
     ```
 
-    # [cmd](#tab/cmd)
+    # [bash](#tab/bash)
 
     ```bash
     python -m venv .venv
@@ -194,16 +202,16 @@ For every project, we recommend that you always create and activate a *virtual e
 
 1. Activate the virtual environment:
 
-    # [bash](#tab/bash)
-
-    ```bash
-    source .venv/scripts/activate
-    ```
-
     # [cmd](#tab/cmd)
 
     ```bash
     .venv\scripts\activate
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    source .venv/scripts/activate
     ```
 
     ---

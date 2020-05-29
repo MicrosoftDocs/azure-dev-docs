@@ -28,7 +28,8 @@ import os
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
-# Obtain the credential object
+# Obtain the credential object. When run locally, DefaultAzureCredential relies
+# on environment variables named AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
 credential = DefaultAzureCredential()
 
 # Create the client object using the credential
@@ -136,17 +137,11 @@ In this method, you create a JSON file that contains the necessary credentials f
     Replace the four placeholders with your Azure subscription ID, tenant ID, the client ID, and the client secret.
 
     > [!TIP]
-    > As explained in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-for-development), you can use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command with the `--sdk-auth` parameter to generate this JSON format directly.
+    > As explained in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development), you can use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command with the `--sdk-auth` parameter to generate this JSON format directly.
 
 1. Save the file with a name like *credentials.json* in a secure location that your code can access. To keep your credentials secure, be sure to omit this file from source control and don't share it with other developers. That is, the tenant ID, client ID, and client secret of a service principal should always remain isolated on your development workstation.
 
 1. Create an environment variable named `AZURE_AUTH_LOCATION` with the path to the JSON file as the value:
-
-    # [bash](#tab/bash)
-
-    ```bash
-    AZURE_AUTH_LOCATION="../credentials.json"
-    ```
 
     # [cmd](#tab/cmd)
 
@@ -154,9 +149,16 @@ In this method, you create a JSON file that contains the necessary credentials f
     set AZURE_AUTH_LOCATION=../credentials.json
     ```
 
-    These examples assume the JSON file is named *credentials.json* and is located in the parent folder of your project.
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_AUTH_LOCATION="../credentials.json"
+    ```
 
     ---
+
+    These examples assume the JSON file is named *credentials.json* and is located in the parent folder of your project.
+
 
 1. Use the [get_client_from_auth_file](/python/api/azure-common/azure.common.client_factory?view=azure-python#get-client-from-auth-file-client-class--auth-path-none----kwargs-) method to create the client object:
 
@@ -210,7 +212,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-Instead of using a file, as described in the previous section, you can build the necessary JSON data in a variable and call [get_client_from_json_dict](/python/api/azure-common/azure.common.client_factory?view=azure-python#get-client-from-json-dict-client-class--config-dict----kwargs-). This code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-for-development). For code deployed to the cloud, you can create these environment variables on your server VM or as application settings when using platform service like Azure App Service and Azure Functions.
+Instead of using a file, as described in the previous section, you can build the necessary JSON data in a variable and call [get_client_from_json_dict](/python/api/azure-common/azure.common.client_factory?view=azure-python#get-client-from-json-dict-client-class--config-dict----kwargs-). This code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development). For code deployed to the cloud, you can create these environment variables on your server VM or as application settings when using platform service like Azure App Service and Azure Functions.
 
 You can also store values in Azure Key Vault and retrieve them at run time rather than using environment variables.
 
@@ -235,7 +237,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-In this method, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials?view=azure-python) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-for-development).
+In this method, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials?view=azure-python) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
 With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
 

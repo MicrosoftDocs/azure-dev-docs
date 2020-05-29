@@ -151,30 +151,6 @@ For an additional example using the Azure Storage management library, see the [M
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-# [bash](#tab/bash)
-
-```azurecli
-# Provision the resource group
-
-az group create -n PythonAzureExample-Storage-rg -l centralus
-
-# Provision the storage account
-
-az storage account create -g PythonAzureExample-Storage-rg -l centralus \
-    -n pythonazurestorage12345 --kind StorageV2 --sku Standard_LRS
-
-# Retrieve the connection string
-
-az storage account show-connection-string -g PythonAzureExample-Storage-rg \
-    -n pythonazurestorage12345
-
-# Provision the blob container; NOTE: this command assumes you have an environment variable
-# named AZURE_STORAGE_CONNECTION_STRING with the connection string for the storage account.
-
-AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-az storage container create --account-name pythonazurestorage12345 -n blob-container-01
-```
-
 # [cmd](#tab/cmd)
 
 ```azurecli
@@ -196,6 +172,30 @@ az storage account show-connection-string -g PythonAzureExample-Storage-rg ^
 # named AZURE_STORAGE_CONNECTION_STRING with the connection string for the storage account.
 
 set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+az storage container create --account-name pythonazurestorage12345 -n blob-container-01
+```
+
+# [bash](#tab/bash)
+
+```azurecli
+# Provision the resource group
+
+az group create -n PythonAzureExample-Storage-rg -l centralus
+
+# Provision the storage account
+
+az storage account create -g PythonAzureExample-Storage-rg -l centralus \
+    -n pythonazurestorage12345 --kind StorageV2 --sku Standard_LRS
+
+# Retrieve the connection string
+
+az storage account show-connection-string -g PythonAzureExample-Storage-rg \
+    -n pythonazurestorage12345
+
+# Provision the blob container; NOTE: this command assumes you have an environment variable
+# named AZURE_STORAGE_CONNECTION_STRING with the connection string for the storage account.
+
+AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 az storage container create --account-name pythonazurestorage12345 -n blob-container-01
 ```
 
@@ -242,16 +242,16 @@ For these reasons, production code should use the authentication method. For exp
 
 1. Create an environment variable named `AZURE_STORAGE_BLOB_URL` (used only by this example):
 
-    # [bash](#tab/bash)
-
-    ```bash
-    AZURE_STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
-    ```
-
     # [cmd](#tab/cmd)
 
     ```cmd
     set AZURE_STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
     ```
 
     ---
@@ -291,20 +291,20 @@ For these reasons, production code should use the authentication method. For exp
 
 1. To grant permissions for the container to the service principal, use the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) (it's a long one!):
 
-    # [bash](#tab/bash)
-
-    ```azurecli
-    az role assignment create --assignee $AZURE_CLIENT_ID \
-        --role "Storage Blob Data Contributor" \
-        --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
-    ```
-
     # [cmd](#tab/cmd)
 
     ```azurecli
     az role assignment create --assignee %AZURE_CLIENT_ID% ^
         --role "Storage Blob Data Contributor" ^
         --scope "/subscriptions/%AZURE_SUBSCRIPTION_ID%/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
+    ```
+
+    # [bash](#tab/bash)
+
+    ```azurecli
+    az role assignment create --assignee $AZURE_CLIENT_ID \
+        --role "Storage Blob Data Contributor" \
+        --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
     ```
 
     ---

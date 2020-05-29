@@ -41,10 +41,10 @@ This section describes the minimal Flask app used in this walkthrough.
 
 1. Set a FLASK_APP environment variable tells Flask where to find the app object:
 
-   # [bash](#tab/bash)
+    # [cmd](#tab/cmd)
 
     ```bash
-    export FLASK_APP=hello:myapp
+    set FLASK_APP=hello:myapp
     ```
 
     # [PowerShell](#tab/powershell)
@@ -53,10 +53,10 @@ This section describes the minimal Flask app used in this walkthrough.
     $env:FLASK_APP = "hello:myapp"
     ```
 
-    # [cmd](#tab/cmd)
+   # [bash](#tab/bash)
 
     ```bash
-    set FLASK_APP=hello:myapp
+    export FLASK_APP=hello:myapp
     ```
 
     ---
