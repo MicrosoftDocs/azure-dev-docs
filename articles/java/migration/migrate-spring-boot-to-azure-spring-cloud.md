@@ -130,7 +130,21 @@ Skip this step if you are using or intend to use a Spring Cloud Gateway (more on
 
 * Instead of making your application public, consider [adding a Spring Cloud Gateway instance](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/current/reference/html/). Spring Cloud Gateway provides a single endpoint for all applications/microservices deployed in your Azure Spring Cloud instance. If a Spring Cloud Gateway is already deployed, ensure that it is configured to route traffic to your newly deployed application.
 
-* Consider adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server).
+* Consider adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. First, create a Git repository to house the configuration and configure the Azure Spring Cloud instance to use it, as described in [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server). Then, migrate your configuration as follows:
+
+  1. Create a directory in the configuration git repository with the same name as the application you defined on the Azure Spring Cloud instance.
+
+  1. Inside this directory, create a `bootstrap.yml` files with the following contents:
+  
+     ```yml
+        spring:
+          application:
+            name: <Your the application name used in the previous step>
+     ```
+
+  1. Create an `application.yml` file inside the directory above and move the application settings there. If the settings were previously in a `.properties` file, they will need to be converted to YAML.
+
+  1. Commit and push these changes to the Git repository.
 
 <!-- Other -->
 
