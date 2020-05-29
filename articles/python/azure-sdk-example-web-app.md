@@ -163,7 +163,7 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 
 ## 5: Run the script
 
-```bash
+```cmd
 python provision_deploy_web_app.py
 ```
 

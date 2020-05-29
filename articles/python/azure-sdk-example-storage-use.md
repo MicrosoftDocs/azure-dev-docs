@@ -46,7 +46,7 @@ The following sections (numbered 4a and 4b) demonstrate two means to access the 
 
 The [first method (4a)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authentication Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
-The [second method (4b)](4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
+The [second method (4b)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
 - A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
 
@@ -101,7 +101,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. Attempt to run the code (which fails intentionally):
 
-    ```bash
+    ```cmd
     python use_blob_auth.py
     ```
 
