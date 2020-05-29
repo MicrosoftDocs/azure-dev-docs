@@ -135,7 +135,7 @@ Skip this step if you are using or intend to use a Spring Cloud Gateway (more on
   1. Create a directory in the configuration git repository with the same name as the application you defined on the Azure Spring Cloud instance.
 
   1. Inside this directory, create a `bootstrap.yml` files with the following contents:
-  
+
      ```yml
         spring:
           application:
@@ -146,7 +146,7 @@ Skip this step if you are using or intend to use a Spring Cloud Gateway (more on
 
   1. Commit and push these changes to the Git repository.
 
-<!-- Other -->
+<!-- Other --> 
 
 * Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
