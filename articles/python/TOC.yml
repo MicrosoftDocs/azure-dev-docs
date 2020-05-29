@@ -24,20 +24,22 @@
       href: azure-sdk-example-web-app.md
     - name: "Example: Provision a virtual machine"
       href: azure-sdk-example-virtual-machines.md
-- name: Azure services quickstarts
+- name: Explore specific Azure services
   items: 
   - name: App hosting
     href: quickstarts-app-hosting.md
   - name: Data solutions
     href: quickstarts-data-solutions.md
+  - name: Identity and security
+    href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
-  - name: Azure Cognitive Services
+  - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
-  - name: Messaging
-    href: quickstarts-messaging.md 
-  - name: Security and integration
-    href: quickstarts-security-integration.md
+  - name: Messaging & IoT
+    href: quickstarts-messaging-iot.md 
+  - name: Other services
+    href: quickstarts-other-services.md
 - name: Scenario-specific tutorials
   items:
     - name: Deploy a web app with VS Code

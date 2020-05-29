@@ -27,7 +27,7 @@ pip install azure-storage-blob
 
 `pip install` retrieves the latest version of a library in your current Python environment.
 
-You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library package for Python](azure-sdk-install.md).
+You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
 ## Inline JSON pattern for object arguments
 
