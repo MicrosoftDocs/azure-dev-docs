@@ -199,7 +199,7 @@ To use such code in a production script (for example, to automate VM management)
 
 ## 4. Run the script
 
-```bash
+```cmd
 python provision_vm.py
 ```
 

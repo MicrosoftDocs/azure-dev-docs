@@ -129,7 +129,7 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 
 ## 4. Run the script:
 
-```bash
+```cmd
 python provision_blob.py
 ```
 

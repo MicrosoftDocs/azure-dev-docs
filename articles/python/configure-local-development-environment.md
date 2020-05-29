@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
@@ -94,7 +94,6 @@ Each developer in your organization should perform these steps individually.
 
     # [cmd](#tab/cmd)
 
-
     ```cmd
     set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
     set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
@@ -103,7 +102,6 @@ Each developer in your organization should perform these steps individually.
     ```
 
     # [bash](#tab/bash)
-
 
     ```bash
     AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
@@ -226,7 +224,7 @@ The global environment is where you do want to install tool packages that you wa
 
 We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, simply run the following command:
 
-```bash
+```cmd
 git init
 ```
 

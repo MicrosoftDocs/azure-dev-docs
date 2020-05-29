@@ -43,7 +43,7 @@ This section describes the minimal Flask app used in this walkthrough.
 
     # [cmd](#tab/cmd)
 
-    ```bash
+    ```cmd
     set FLASK_APP=hello:myapp
     ```
 
