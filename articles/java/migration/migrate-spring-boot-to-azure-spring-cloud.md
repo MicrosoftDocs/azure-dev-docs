@@ -126,7 +126,7 @@ Skip this step if you are using or intend to use a Spring Cloud Gateway (more on
 
 <!-- Introducing Spring Cloud components -->
 
-* Consider enabling your application to work with Spring Cloud Registry. This will enable your application to be dynamically discovered by other deployed microservices and clients. Once you have enabled the Spring Cloud Registry integration, consider modifying any client applications to use the Spring Cloud Client library. See [Tutorial: Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) for instructions.
+* Consider enabling your application to work with Spring Cloud Registry. This will enable your application to be dynamically discovered by other deployed microservices and clients. See [Tutorial: Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) for instructions. Then, modify any application clients to use the Spring Client Load balancer. This allows the client to obtain addresses of all the running instances of the application and find an instance that works should another instance become corrupted or unresponsive. See [this post](https://spring.io/blog/2020/03/25/spring-tips-spring-cloud-loadbalancer) for instructions.
 
 * Instead of making your application public, consider [adding a Spring Cloud Gateway instance](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/current/reference/html/). Spring Cloud Gateway provides a single endpoint for all applications/microservices deployed in your Azure Spring Cloud instance. If a Spring Cloud Gateway is already deployed, ensure that it is configured to route traffic to your newly deployed application.
 
