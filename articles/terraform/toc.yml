@@ -63,7 +63,7 @@
           href: create-vm-cluster-with-infrastructure.md
         - name: Virtual machine scale set with infrastructure
           href: create-vm-scaleset-network-disks-hcl.md
-        - name: Virtual machine scale set from a Packer custom image
+        - name: Virtual machine scale set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Samples
   items:
