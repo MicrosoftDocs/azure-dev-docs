@@ -192,7 +192,11 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 In the previous section, you saw how to run `terraform plan` to create an execution plan. You then saw that using `terraform apply` applies that plan. This pattern works well when the steps are interactive and sequential.
 
-For more complex scenarios - such as [running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation) - you can persist the execution plan to a file. Later, you can apply that execution plan.
+For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
+
+If you use this feature, it is recommend that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
+
+The following steps illustrate the basic pattern:
 
 1. Run `terraform init`.
 
@@ -203,7 +207,7 @@ For more complex scenarios - such as [running Terraform in automation](https://l
 1. Run `terraform plan` with the `-out` parameter.
 
     ```bash
-    terraform plan -out myTest.plan
+    terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
 1. Run `terraform apply`, specifying the name of the file from the previous step.
