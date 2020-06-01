@@ -1,13 +1,13 @@
 ---
 title: Provision a virtual machine using the Azure SDK libraries for Python
 description: How to provision an Azure virtual machine using Python and the Azure SDK management libraries.
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
 # Example: Use the Azure libraries to provision a virtual machine
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. (Equivalent Azure CLI commands are given at the end of that section.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at the later in this article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -33,7 +33,7 @@ Be sure to create a service principal for local development, and create and acti
 
 1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
 
-    ```bash
+    ```cmd
     pip install -r requirements.txt
     ```
 
@@ -199,7 +199,7 @@ To use such code in a production script (for example, to automate VM management)
 
 ## 4. Run the script
 
-```bash
+```cmd
 python provision_vm.py
 ```
 
@@ -212,6 +212,37 @@ Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureE
 ![Azure portal page for the new resource group showing the virtual machine and related resources](media/azure-sdk-example-virtual-machines/portal-vm-resources.png)
 
 ### For reference: equivalent Azure CLI commands
+
+# [cmd](#tab/cmd)
+
+```azurecli
+# Provision the resource group
+
+az group create -n PythonAzureExample-VM-rg -l centralus
+
+# Provision a virtual network and subnet
+
+az network vnet create -g PythonAzureExample-VM-rg -n python-example-vnet ^
+    --address-prefix 10.0.0.0/16 --subnet-name python-example-subnet ^
+    --subnet-prefix 10.0.0.0/24
+
+# Provision a public IP address
+
+az network public-ip create -g PythonAzureExample-VM-rg -n python-example-ip ^
+    --allocation-method Dynamic --version IPv4
+
+# Provision a network interface client
+
+az network nic create -g PythonAzureExample-VM-rg --vnet-name python-example-vnet ^
+    --subnet python-example-subnet -n python-example-nic ^
+    --public-ip-address python-example-ip
+
+# Provision the virtual machine
+
+az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "centralus" ^
+    --nics python-example-nic --image UbuntuLTS ^
+    --admin-username azureuser --admin-password ChangePa$$w0rd24
+```
 
 # [bash](#tab/bash)
 
@@ -245,37 +276,6 @@ az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "centralus" \
 
 ```
 
-# [cmd](#tab/cmd)
-
-```azurecli
-# Provision the resource group
-
-az group create -n PythonAzureExample-VM-rg -l centralus
-
-# Provision a virtual network and subnet
-
-az network vnet create -g PythonAzureExample-VM-rg -n python-example-vnet ^
-    --address-prefix 10.0.0.0/16 --subnet-name python-example-subnet ^
-    --subnet-prefix 10.0.0.0/24
-
-# Provision a public IP address
-
-az network public-ip create -g PythonAzureExample-VM-rg -n python-example-ip ^
-    --allocation-method Dynamic --version IPv4
-
-# Provision a network interface client
-
-az network nic create -g PythonAzureExample-VM-rg --vnet-name python-example-vnet ^
-    --subnet python-example-subnet -n python-example-nic ^
-    --public-ip-address python-example-ip
-
-# Provision the virtual machine
-
-az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "centralus" ^
-    --nics python-example-nic --image UbuntuLTS ^
-    --admin-username azureuser --admin-password ChangePa$$w0rd24
-```
-
 ---
 
 ## 6: Clean up resources
@@ -289,7 +289,8 @@ Run this command if you don't need to keep the resources created in this example
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
-- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 
 The following resources container more comprehensive examples using Python to create a virtual machine:

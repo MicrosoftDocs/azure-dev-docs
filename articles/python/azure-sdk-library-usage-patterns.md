@@ -15,12 +15,12 @@ All the libraries share certain common characteristics and usage patterns, such 
 
 To install a specific library package, just use `pip install`:
 
-```bash
+```cmd
 # Install the management library for Azure Storage
 pip install azure-mgmt-storage
 ```
 
-```bash
+```cmd
 # Install the client library for Azure Storage
 pip install azure-storage-blob
 ```

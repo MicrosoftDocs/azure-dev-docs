@@ -9,7 +9,7 @@ metadata:
   description: Get started developing with Python and Azure.
   author: kraigb
   ms.author: kraigb
-  ms.date: 05/04/2020
+  ms.date: 05/30/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -31,14 +31,12 @@ landingContent:
         links:
           - text: Get to know the Azure libraries for Python
             url: azure-sdk-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Using the Python libraries
-            url: azure-sdk-install.md
       - linkListType: tutorial
         links:
-          - text: Use Azure libraries in code
-            url: azure-sdk-example-resource-group.md
+          - text: Provision Azure Storage with Python
+            url: azure-sdk-example-storage.md
+          - text: Use Azure Storage from Python code
+            url: azure-sdk-example-storage-use.md
       - linkListType: reference
         links:
           - text: Azure libraries API reference for Python

@@ -220,7 +220,7 @@ Create the Terraform configuration file that lists all the variables required fo
       default     = "~/.ssh/id_rsa.pub"
     }
 
-    variable "tags" {
+    variable "tags" = {
       type = "map"
 
       default = {

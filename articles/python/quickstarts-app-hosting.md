@@ -26,9 +26,9 @@ The following articles help you get started with various app hosting options on 
   - [Create your first Service Fabric container application on Linux](/azure/service-fabric/service-fabric-get-started-containers-linux)
 
 - **Batch jobs**:
-- [Use Python API to run an Azure Batch job](/azure/batch/quick-run-python)
-- [Tutorial: Run a parallel workload with Azure Batch using the Python API](/azure/batch/tutorial-parallel-python)
-- [Tutorial: Run Python scripts through Azure Data Factory using Azure Batch](/azure/batch/tutorial-run-python-batch-azure-data-factory)
+  - [Use Python API to run an Azure Batch job](/azure/batch/quick-run-python)
+  - [Tutorial: Run a parallel workload with Azure Batch using the Python API](/azure/batch/tutorial-parallel-python)
+  - [Tutorial: Run Python scripts through Azure Data Factory using Azure Batch](/azure/batch/tutorial-run-python-batch-azure-data-factory)
 
 - **Virtual machines**:
   - [Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli)
