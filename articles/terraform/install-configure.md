@@ -196,7 +196,7 @@ For more complex scenarios, you can persist the execution plan to a file. Later 
 
 If you use this feature, it'ss recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
 
-The following steps illustrate the basic pattern:
+The following steps illustrate the basic pattern for using this feature:
 
 1. Run `terraform init`.
 
@@ -213,7 +213,7 @@ The following steps illustrate the basic pattern:
 1. Run `terraform apply`, specifying the name of the file from the previous step.
 
     ```bash
-    terraform apply myTest.plan
+    terraform apply QuickstartTerraformTest.tfplan
     ```
 
 **Notes**:
