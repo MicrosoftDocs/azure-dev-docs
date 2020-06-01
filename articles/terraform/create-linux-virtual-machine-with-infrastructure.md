@@ -153,7 +153,6 @@ resource "azurerm_network_interface_security_group_association" "example" {
 }
 ```
 
-
 ## Create storage account for diagnostics
 
 To store boot diagnostics for a VM, you need a storage account. These boot diagnostics can help you troubleshoot problems and monitor the status of your VM. The storage account you create is only to store the boot diagnostics data. As each storage account must have a unique name, the following section generates some random text:
@@ -226,7 +225,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = "${tls_private_key.example_ssh.public_key_openssh}"
+        public_key     = tls_private_key.example_ssh.public_key_openssh
     }
 
     boot_diagnostics {
@@ -398,7 +397,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = "${tls_private_key.example_ssh.public_key_openssh}"
+        public_key     = tls_private_key.example_ssh.public_key_openssh
     }
 
     boot_diagnostics {
