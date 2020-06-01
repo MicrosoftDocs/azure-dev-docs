@@ -211,7 +211,7 @@ The following Ansible playbook snippet shows how to create a key vault secret:
 **Notes:**
 
 - The [azure_rm_keyvaultsecret module](https://docs.ansible.com/ansible/latest/modules/azure_rm_keyvaultsecret_module.html) is used to create the key vault secret.
-- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. As such, values such as these shouldn't be stored in plaintext files when used in production environments.
+- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (IaC) files just like any source code for your project. As such, values such as these shouldn't be stored in plaintext files when used in production environments.
 - After running this code, the **Secrets** tab for the key vault lists the newly added secret named `testsecret`. To view it, select the secret, select the current version, and select **Show Secret Value**.
 
 ## Get a key vault secret
@@ -237,7 +237,7 @@ tasks:
 
 - The **azure_rm_keyvaultsecret_info module** is used to get the key vault secret. This module is only available if using the Ansible collection for Azure modules. 
 - If you receive an error running this snippet, ensure that you've followed all the instructions in the [Prerequisites section](#prerequisites).
-- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (AiC) files just like any source code for your project. As such, values such as these shouldn't be stored in plaintext files when used in production environments.
+- For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (IaC) files just like any source code for your project. As such, values such as these shouldn't be stored in plaintext files when used in production environments.
 
 ## Run the complete playbook
 

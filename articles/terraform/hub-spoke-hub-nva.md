@@ -70,7 +70,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
       name     = "${local.prefix-hub-nva}-rg"
       location = local.hub-nva-location
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -88,7 +88,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         private_ip_address            = "10.0.0.36"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -124,7 +124,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -147,7 +147,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         }
     SETTINGS
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -178,7 +178,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_in_ip_address = "10.0.0.36"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -208,7 +208,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_type  = "vnetlocal"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -244,7 +244,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_type  = "vnetlocal"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }

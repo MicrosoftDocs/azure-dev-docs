@@ -509,6 +509,10 @@
       "redirect_url": "/azure/developer/python"
     },
     {
+      "source_path": "articles/python/sdk.md",
+      "redirect_url": "/azure/developer/python/sdk-library-api-reference.md"
+    },
+    {
       "source_path": "python/developer/azure-sdk-get-started.yml",
       "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group"
     },    
@@ -594,11 +598,19 @@
     },
     {
       "source_path": "python/quickstarts-messaging.md",
-      "redirect_url": "/azure/developer/python/quickstarts-messaging"
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
     },
     {
+      "source_path": "articles/python/quickstarts-messaging.md",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
+    },    
+    {
       "source_path": "python/quickstarts-security-integration.md",
-      "redirect_url": "/azure/developer/python/quickstarts-security-integration"
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
+    },
+    {
+      "source_path": "articles/python/quickstarts-security-integration.md",
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-01.md",

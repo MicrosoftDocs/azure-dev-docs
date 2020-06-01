@@ -1,16 +1,16 @@
 ---
-title: Connect to all regions - Azure SDK for Python Multi-cloud 
-description: use Azure on all regions
-ms.date: 05/04/2020
+title: Connect to all regions using Azure libraries for Python Multi-cloud 
+description: How to use the azure_cloud module of msrestazure to connect to Azure in different sovereign  regions
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.custom: seo-python-october2019
 ---
 
-# Multi-cloud: Connect to all regions with the Azure SDK for Python
+# Multi-cloud: Connect to all regions with the Azure libraries for Python
 
-You can use the Azure SDK for Python to connect to all regions where Azure is [available](https://azure.microsoft.com/regions/services).
+You can use the Azure libraries for Python to connect to all regions where Azure is [available](https://azure.microsoft.com/regions/services).
 
-By default, the Azure SDK for Python is configured to connect to global Azure.
+By default, the Azure libraries are configured to connect to global Azure.
 
 ## Using pre-declared cloud definition
 

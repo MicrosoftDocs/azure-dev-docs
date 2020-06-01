@@ -69,9 +69,9 @@ These applications are packaged into archives with the *.jar* extension (JAR fil
 
 The following sections show you which service destinations meet your application requirements, and what responsibilities they involve.
 
-### Feature grid
+### Hosting options grid
 
-Use the following grid to identify the destinations that support the application types and features you require.
+Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
 |   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
