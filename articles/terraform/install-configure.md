@@ -153,7 +153,7 @@ In this section, you use the Code Shell editor to define a Terraform configurati
 
 ## Create and apply a Terraform execution plan
 
-Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there is no installation or configuration required. Once you create your configuration files, ou need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there is no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
