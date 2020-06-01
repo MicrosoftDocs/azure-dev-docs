@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Create a Linux VM with infrastructure in Azure using Terraform
+title: Tutorial  - Create a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/31/2020
 ---
 
-# Quickstart: Create a Linux VM with infrastructure in Azure using Terraform
+# Tutorial : Create a Linux VM with infrastructure in Azure using Terraform
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [install and configure Terraform](install-configure.md).
 
@@ -73,7 +73,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
     resource_group_name  = azurerm_resource_group.myterraformgroup.name
     virtual_network_name = azurerm_virtual_network.myterraformnetwork.name
-    address_prefixes       = "10.0.2.0/24"
+    address_prefixes       = ["10.0.2.0/24"]
 }
 ```
 
@@ -277,7 +277,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
     resource_group_name  = azurerm_resource_group.myterraformgroup.name
     virtual_network_name = azurerm_virtual_network.myterraformnetwork.name
-    address_prefixes       = "10.0.1.0/24"
+    address_prefixes       = ["10.0.1.0/24"]
 }
 
 # Create public IPs
