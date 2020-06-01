@@ -70,7 +70,7 @@ Based on your scenario, choose one of the following paths:
 As explained in the previous section, two of the ways to log into Azure are the following scenarios:
 
 - **Log in using a Microsoft account**: A Microsoft account can be associated with multiple Azure subscriptions - one of which is the default subscription. The default subscription is the one you use if you log in and don't switch to another.
-- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. That's why when you log in using a service principal, you know which Azure subscription is being used. Remember that the subscription information displays when you log in.
+- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. Remember that the subscription information displays when you log in.
 
 The following steps address the first scenario where you do the following tasks:
 
@@ -153,7 +153,7 @@ In this section, you use the Code Shell editor to define a Terraform configurati
 
 ## Create and apply a Terraform execution plan
 
-Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there is no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
