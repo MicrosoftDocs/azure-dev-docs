@@ -170,7 +170,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
     **Notes:**
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
     - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. That file can then be specified later when executing the plan. While not needed in an interactive test session, this pattern is useful in more scenarios where you're using Terraform from a script.
+    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persisting-execution-plans-for-later-deployment).
 
 1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
@@ -188,6 +188,32 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
     If successful, the command displays various properties of the newly created resource group.
 
+## Persisting execution plans for later deployment
+
+In the previous section, you saw how to run `terraform plan` to create an execution plan. You then saw that using `terraform apply` applies that plan. This pattern works well when the steps are interactive and sequential.
+
+For more complex scenarios - such as [running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation) - you can persist the execution plan to a file. Later, you can apply that execution plan.
+
+1. Run `terraform init`.
+
+    ```bash
+    terraform init
+    ```
+
+1. Run `terraform plan` with the `-out` parameter.
+
+    ```bash
+    terraform plan -out myTest.plan
+    ```
+
+1. Run `terraform apply`, specifying the name of the file from the previous step.
+
+    ```bash
+    terraform apply myTest.plan
+    ```
+
+**Notes**:
+- If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 ## Clean up resources
 
