@@ -1,13 +1,13 @@
 ---
 title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
 # Example: Use the Azure libraries to provision and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. (Equivalent Azure CLI commands are given at the end of the article.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -29,7 +29,7 @@ azure-cli-core
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```bash
+```cmd
 pip install -r requirements.txt
 ```
 
@@ -41,16 +41,16 @@ Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.
 
 Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
-# [bash](#tab/bash)
-
-```bash
-REPO_URL=<url_of_your_fork>
-```
-
 # [cmd](#tab/cmd)
 
 ```cmd
 set REPO_URL=<url_of_your_fork>
+```
+
+# [bash](#tab/bash)
+
+```bash
+REPO_URL=<url_of_your_fork>
 ```
 
 ---
@@ -163,7 +163,7 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 
 ## 5: Run the script
 
-```bash
+```cmd
 python provision_deploy_web_app.py
 ```
 
@@ -195,25 +195,6 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-# [bash](#tab/bash)
-
-```azurecli
-az group create -l centralus -n PythonAzureExample-WebApp-rg
-
-az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
-
-az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
-    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
-
-# You can use --deployment-source-url with the first create command. It's shown here
-# to match the sequence of the Python code.
-
-az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
-    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
-
-# Replace <your_fork> with the specific URL of your forked repository.
-```
-
 # [cmd](#tab/cmd)
 
 ```azurecli
@@ -233,10 +214,30 @@ az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-We
 # Replace <your_fork> with the specific URL of your forked repository.
 ```
 
+# [bash](#tab/bash)
+
+```azurecli
+az group create -l centralus -n PythonAzureExample-WebApp-rg
+
+az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
+
+az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
+    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
+
+# You can use --deployment-source-url with the first create command. It's shown here
+# to match the sequence of the Python code.
+
+az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
+    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
+
+# Replace <your_fork> with the specific URL of your forked repository.
+```
+
 ---
 
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
-- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

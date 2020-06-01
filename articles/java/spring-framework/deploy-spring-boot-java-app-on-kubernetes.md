@@ -112,8 +112,9 @@ The following steps walk you through building a Spring Boot web application and 
 
    ```xml
    <properties>
+      <!-- Note: If your ACR name contains upper case characters, be sure to convert them to lower case characters. -->
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.3.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
