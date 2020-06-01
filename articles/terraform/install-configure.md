@@ -170,7 +170,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
     **Notes:**
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
     - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persisting-execution-plans-for-later-deployment).
+    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persist-an-execution-plans-for-later-deployment).
 
 1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
@@ -188,7 +188,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
     If successful, the command displays various properties of the newly created resource group.
 
-## Persisting execution plans for later deployment
+## Persist an execution plans for later deployment
 
 In the previous section, you saw how to run `terraform plan` to create an execution plan. You then saw that using `terraform apply` applies that plan. This pattern works well when the steps are interactive and sequential.
 
