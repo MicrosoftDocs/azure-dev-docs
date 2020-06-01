@@ -210,13 +210,14 @@ The following steps illustrate the basic pattern for using this feature:
     terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
-1. Run `terraform apply`, specifying the name of the file from the previous step.
+1. Run `terraform apply`, specifying the name of the file from the previous step. 
 
     ```bash
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
 **Notes**:
+- In order to facilitate automation, running `terraform apply <filename>` doesn't require confirmation.
 - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 ## Clean up resources
