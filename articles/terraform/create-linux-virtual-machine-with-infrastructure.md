@@ -362,7 +362,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     }
 }
 
-# Create (and display) an SSA key
+# Create (and display) an SSH key
 resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
