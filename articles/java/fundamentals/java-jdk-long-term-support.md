@@ -51,7 +51,7 @@ Azul Zulu for Azure - Enterprise Edition builds of OpenJDK are a no-cost, multi-
 
 ## Supported Java versions and update schedule
 
-Azul Systems provides fully-supported [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) builds for all long-term support (LTS) and medium-term support (MTS) versions of Java, including Java SE 7, 8, 11, and 13. For more information, see the [Azul press release](https://www.azul.com/press_release/free-java-production-support-for-microsoft-azure-azure-stack) and the [Azure Product Support Lifecycle](https://www.azul.com/products/azul_support_roadmap/) roadmap.
+Azul Systems provides fully-supported [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) builds for all long-term support (LTS) and medium-term support (MTS) versions of Java, including Java SE 7, 8, 11, and 13. For more information, see the [Azul press release](https://www.azul.com/press_release/free-java-production-support-for-microsoft-azure-azure-stack) and the [Azul Product Support Lifecycle](https://www.azul.com/products/azul_support_roadmap/) roadmap.
 
 |Java SE version  |Support until  |
 |---------|----------|
