@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure Terraform in Azure Cloud Shell using Azure CLI
+title: Quickstart - Getting started with Terraform on Azure (Cloud Shell)
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure
 ms.topic: quickstart
@@ -7,7 +7,7 @@ ms.date: 05/30/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of getting Terraform configured using a simple example so that I can use Terraform to define and deploy my Azure infrastructure.
 ---
 
-# Quickstart: Configure Terraform in Azure Cloud Shell using Azure CLI
+# Quickstart: Getting started with Terraform on Azure (Cloud Shell)
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 

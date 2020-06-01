@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Configure Terraform in Azure Cloud Shell using Azure CLI
+          - text: Getting started - Cloud Shell
             url: install-configure.md
       - linkListType: tutorial
         links:

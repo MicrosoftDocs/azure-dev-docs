@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Configure Terraform - Azure Cloud Shell
+    - name: Getting started - Cloud Shell
       href: install-configure.md
 - name: Tutorials
   items:
