@@ -31,11 +31,6 @@ provider "azurerm" {
     # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
-    
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -202,7 +197,8 @@ resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
 }
-output "tls_private_key" { value = "${tls_private_key.example_ssh.private_key_pem}" }
+
+output "tls_private_key" { value = "tls_private_key.example_ssh.private_key_pem" }
 
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -254,11 +250,6 @@ provider "azurerm" {
     # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
-
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 
 # Create a resource group if it doesn't exist
