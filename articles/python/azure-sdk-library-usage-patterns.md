@@ -29,6 +29,10 @@ pip install azure-storage-blob
 
 You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
+## Logging
+
+The most recent Azure libraries use the Python standard `logging` library to generate log output. You can set the logging level for individual libraries, groups of libraries, or all libraries. Once you register a logging stream handler, you can then enable logging for a specific client object or a specific operation. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md).
+
 ## Inline JSON pattern for object arguments
 
 Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.

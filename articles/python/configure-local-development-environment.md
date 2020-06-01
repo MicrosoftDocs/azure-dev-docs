@@ -17,6 +17,8 @@ This article provides the one-time setup instructions to create and validate a l
 
 Once you've configured your workstation, you'll need only minimal added configuration to complete various quickstarts and tutorials elsewhere on this developer center and in the Azure documentation.
 
+Whether you can deploy Python code to any given Azure service depends on that service's specific support for the language. A good place to start is the [index of app hosting services](quickstarts-app-hosting.md).
+
 ## Install components
 
 ### Required components

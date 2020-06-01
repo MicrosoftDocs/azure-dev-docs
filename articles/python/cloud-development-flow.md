@@ -57,7 +57,7 @@ Monitoring gives you insight about how you might restructure your cloud applicat
 
 You're now familiar with the basic structure of Azure and the overall development flow: provision resources, write and test code, deploy the code to Azure, and then monitor and manage those resources.
 
-The next step is to get your workstation fully configured to work with that flow, after which you're ready to get rolling with the Azure libraries!
+The next step is to get familiar with the Azure libraries for Python, which you'll be using in many parts of the flow.
 
 > [!div class="nextstepaction"]
-> [Configure your local dev environment >>>](configure-local-development-environment.md)
+> [Learn to use the Azure libraries for Python >>>](azure-sdk-overview.md)
