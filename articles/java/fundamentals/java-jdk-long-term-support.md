@@ -37,7 +37,7 @@ Azul Zulu for Azure - Enterprise Edition builds of OpenJDK are a no-cost, multi-
 
 * 100% open source builds of OpenJDK packaged as Java Development Kits (JDKs), Java Runtime Environments (JREs), and Headless JREs. These binaries are fully compatible and compliant commercial builds of Java Standard Edition (SE) that can be used with Java applications or components on Azure and Azure Stack.
 * Provided with long-term support including bug fixes, performance enhancements, and security patches.
-* Available for developing and running Java applications on Windows, Linux, and MacOS.
+* Available for developing and running Java applications on Windows, Linux, and macOS.
 * Available as container images on Docker Hub and as virtual machines (Windows and Linux) on Azure Marketplace.
 * Used by Microsoft Azure to power many Azure services, such as:
   * App Service Windows
