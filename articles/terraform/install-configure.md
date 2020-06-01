@@ -194,7 +194,7 @@ In the previous section, you saw how to run `terraform plan` to create an execut
 
 For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
 
-If you use this feature, it is recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
+If you use this feature, it'ss recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
 
 The following steps illustrate the basic pattern:
 
