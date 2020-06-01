@@ -3,7 +3,7 @@ title: Quickstart - Create a Linux VM with infrastructure in Azure using Terrafo
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 05/31/2020
 ---
 
 # Quickstart: Create a Linux VM with infrastructure in Azure using Terraform
@@ -20,14 +20,14 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
 
-The `provider` section tells Terraform to use an Azure provider. To get values for `subscription_id`, `client_id`, `client_secret`, and `tenant_id`, see [Install and configure Terraform](install-configure.md). 
+The `provider` section tells Terraform to use an Azure provider. To get values for `subscription_id`, `client_id`, `client_secret`, and `tenant_id`, see [Install and configure Terraform](install-configure.md).
 
 > [!TIP]
 > If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
 
 ```hcl
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x. 
+    # The "feature" block is required for AzureRM provider 2.x.
     # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
@@ -198,6 +198,12 @@ The final step is to create a VM and use all the resources created. The followin
  SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
 
 ```hcl
+resource "tls_private_key" "example_ssh" {
+  algorithm = "RSA"
+  rsa_bits = 4096
+}
+output "tls_private_key" { value = "${tls_private_key.example_ssh.private_key_pem}" }
+
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
@@ -224,7 +230,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = file("/home/azureuser/.ssh/authorized_keys")
+        public_key     = "${tls_private_key.example_ssh.public_key_openssh}"
     }
 
     boot_diagnostics {
@@ -367,6 +373,13 @@ resource "azurerm_storage_account" "mystorageaccount" {
     }
 }
 
+# Create (and display) an SSA key
+resource "tls_private_key" "example_ssh" {
+  algorithm = "RSA"
+  rsa_bits = 4096
+}
+output "tls_private_key" { value = "${tls_private_key.example_ssh.private_key_pem}" }
+
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -394,7 +407,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = file("/home/azureuser/.ssh/authorized_keys")
+        public_key     = "${tls_private_key.example_ssh.public_key_openssh}"
     }
 
     boot_diagnostics {
@@ -406,10 +419,6 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     }
 }
 ```
-
-**Notes:**
-
-- Regarding the `admin_ssh_key` block, the Azure VM Agent requires that SSH Keys be written to the following path: `/home/{username}/.ssh/authorized_keys`. To run this sample on Windows, you might need to ensure that this directory structure exists. For more information about the `admin_ssh_key` block, see the [azurerm_linux_virtual_machine documentation on Terraform.io](https://www.terraform.io/docs/providers/azurerm/r/linux_virtual_machine.html).
 
 ## Build and deploy the infrastructure
 
