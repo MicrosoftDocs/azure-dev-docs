@@ -7,10 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Install and configure Terraform
+    - name: Configure Terraform - Azure Cloud Shell
       href: install-configure.md
-    - name: Create a Linux VM
-      href: create-linux-virtual-machine-with-infrastructure.md
 - name: Tutorials
   items:
     - name: Setup and configuration
@@ -65,6 +63,10 @@
           href: create-a-base-template-using-yeoman.md
         - name: Test Terraform modules using Terratest
           href: test-modules-using-terratest.md
+    - name: Virtual Machines
+      items:
+        - name: Create a Linux VM with infrastructure
+          href: create-linux-virtual-machine-with-infrastructure.md
 - name: Samples
   items:
     - name: Configuration templates

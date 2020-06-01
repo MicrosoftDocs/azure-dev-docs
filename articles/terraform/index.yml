@@ -28,10 +28,12 @@ landingContent:
   # Card
   - title: Install and configure Terraform
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Configure Terraform in Azure Cloud Shell using Azure CLI
+            url: install-configure.md
       - linkListType: tutorial
         links:
-          - text: Install and configure Terraform
-            url: install-configure.md
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Create a Terraform base template using Yeoman

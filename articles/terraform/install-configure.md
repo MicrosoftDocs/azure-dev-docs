@@ -1,146 +1,222 @@
 ---
-title: Quickstart - Install and configure Terraform to provision Azure resources 
-description: Learn how to install and configure Terraform to create Azure resources.
+title: Quickstart - Configure Terraform in Azure Cloud Shell using Azure CLI
+description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure
 ms.topic: quickstart
-ms.date: 04/26/2020
+ms.date: 05/30/2020
+# Customer intent: As someone new to Terraform and Azure, I want learn the basics of getting Terraform configured using a simple example so that I can use Terraform to define and deploy my Azure infrastructure.
 ---
 
-# Quickstart: Install and configure Terraform to provision Azure resources
+# Quickstart: Configure Terraform in Azure Cloud Shell using Azure CLI
  
-Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Install Terraform
+## Opening Azure Cloud Shell
 
-By default, the latest version of Terraform is installed for use in the [Azure Cloud Shell](/azure/cloud-shell/overview). If you choose to install Terraform locally, complete this step; otherwise, continue to [Configure Terraform access to Azure](#configure-terraform-access-to-azure).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
-1. [Install Terraform](https://www.terraform.io/downloads.html) specifying the appropriate package for your operating system.
-1. The download contains a single executable file. Define a global path to the executable based on your operating system:
-    - [Linux or MacOS](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux)
-    - [Windows](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
-1. Verify the global path configuration with the `terraform` command. If Terraform is found and runs, a list of available Terraform options displays:
+1. If you aren't already logged in, the Azure portal displays a list of available Microsoft accounts. Select a Microsoft account associated with one or more active Azure subscriptions and enter your credentials to continue.
 
-    ```console
-    azureuser@Azure:~$ terraform
-    Usage: terraform [--version] [--help] <command> [args]
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview).
+
+    ![Azure portal Cloud Shell icon](media/install-configure/portal-cloud-shell.png)
+
+1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
+
+## Log into your Microsoft account
+
+Cloud Shell is automatically authenticated under the Microsoft account with which you logged into the Azure portal. However, if you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts by using [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login). Here are two examples of using the `az login` command:
+
+Based on your scenario, choose one of the following paths:
+    
+- **You want to log in as a user**: Running the `az login` command without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once the command logs you in, return to the portal.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    **Notes**:
+    - Upon successful login, the `az login` command displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
+    - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
+
+- **You want to use a service principal, but don't have one yet**: Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
+
+    There are many options when [creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles). 
+    
+    Using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command, replace `<subscription_id>` with the ID of the subscription account you want to use.
+    
+    ```azurecli-interactive
+    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
+    ```
+
+    **Notes**:
+    - Upon successful completion, the `az ad sp create-for-rbac` command displays several values, including the autogenerated password. The password can't be retrieved if lost. Therefore, you should store it in a safe place. If you forget the password, [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
+    
+- **Log in using an Azure service principal**: Replace the placeholders in the following `az login` command with information from your service principal.
+
+    ```azurecli-interactive
+    az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
+    ```
+
+    **Notes**:
+    - Upon successful login, the `az login` command displays various properties for the Azure subscription - such as `id` and `name`.
+
+## Specify the current Azure subscription
+
+As explained in the previous section, two of the ways to log into Azure are the following scenarios:
+
+- **Log in using a Microsoft account**: A Microsoft account can be associated with multiple Azure subscriptions - one of which is the default subscription. The default subscription is the one you use if you log in and don't switch to another.
+- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. Therefore, when you log in using a service principal, you know which Azure subscription is being used. Remember that the subscription information displays when you log in.
+
+The following steps address the first scenario where you do the following tasks:
+
+- Verify the current Azure subscription
+- List all available Azure subscriptions for the current Microsoft account
+- Switch to another Azure subscription
+
+1. To verify the current Azure subscription, use the [az account show](/cli/azure/account#az-account-show) command.
+
+    ```azurecli-interactive
+    az account show
     ```
     
-## Configure Terraform access to Azure
+1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
 
-To enable Terraform to provision resources into Azure, create an [Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli). The service principal grants your Terraform scripts to provision resources in your Azure subscription.
+    ```azurecli-interactive
+    az account list --query "[].{name:name, subscriptionId:id}"
+    ```
 
-If you have multiple Azure subscriptions, first query your account with [az account list](/cli/azure/account#az-account-list) to get a list of subscription ID and tenant ID values:
+1. To use a specific Azure subscription for the current Cloud Shell session, use the [az account set](/cli/azure/account#az-account-set) command. Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
-```azurecli-interactive
-az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
-```
+    ```azurecli-interactive
+    az account set --subscription="<subscription_id>"
+    ```
 
-To use a selected subscription, set the subscription for this session with [az account set](/cli/azure/account#az-account-set). Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use:
+    **Notes**:
+    - The `az account set` command doesn't display the results of switching to the specified Azure subscription. However, you can use the `az account show` command to confirm that the current Azure subscription has changed.
 
-```azurecli-interactive
-az account set --subscription="${SUBSCRIPTION_ID}"
-```
+## Create a Terraform configuration file
 
-Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
+In this section, you use the Code Shell editor to define a Terraform configuration file.
 
-```azurecli-interactive
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
-```
+1. Change directories to the mounted file share where your work in Cloud Shell is persisted. For more information about how Cloud Shell persists your files, see [Connect your Microsoft Azure Files storage](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)
+    
+    ```bash
+    cd clouddrive
+    ```
 
-Your `appId`, `password`, `sp_name`, and `tenant` are returned. Make a note of the `appId` and `password`.
+1. Create a directory to hold the Terraform files for this demo.
 
-## Configure Terraform environment variables
+    ```bash
+    mkdir QuickstartTerraformTest
+    ```
 
-To configure Terraform to use your Azure AD service principal, set the following environment variables, which are then used by the [Azure Terraform modules](https://registry.terraform.io/modules/Azure). You can also set the environment if working with an Azure cloud other than Azure public.
+1. Change directories to the demo directory.
 
-- `ARM_SUBSCRIPTION_ID`
-- `ARM_CLIENT_ID`
-- `ARM_CLIENT_SECRET`
-- `ARM_TENANT_ID`
-- `ARM_ENVIRONMENT`
+    ```bash
+    cd QuickstartTerraformTest
+    ```
 
-You can use the following sample shell script to set those variables:
+1. Using your favorite editor, create a Terraform configuration file. This article uses the built-in Cloud Shell editor.
 
-```bash
-#!/bin/sh
-echo "Setting environment variables for Terraform"
-export ARM_SUBSCRIPTION_ID=your_subscription_id
-export ARM_CLIENT_ID=your_appId
-export ARM_CLIENT_SECRET=your_password
-export ARM_TENANT_ID=your_tenant_id
+    ```bash
+    code QuickstartTerraformTest.tf
+    ```
+ 
+1. Paste the following HCL into the new file.
 
-# Not needed for public, required for usgovernment, german, china
-export ARM_ENVIRONMENT=public
-```
+    ```hcl
+    provider "azurerm" {
+      # The "feature" block is required for AzureRM provider 2.x.
+      # If you are using version 1.x, the "features" block is not allowed.
+      version = "~>2.0"
+      features {}
+    }
+    resource "azurerm_resource_group" "rg" {
+            name = "QuickstartTerraformTest-rg"
+            location = "eastus"
+    }
+    ```
 
-## Run a sample script
+    **Notes**:
+    - The `provider` block specifies that the [Azure provider (`azurerm`)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
+    - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
+    - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for `azure_resource_group` are `name` and `location`.
 
-Create a file `test.tf` in an empty directory and paste in the following script.
+1. Save the file (**&lt;Ctrl>S**).
 
-```hcl
-provider "azurerm" {
-  # The "feature" block is required for AzureRM provider 2.x. 
-  # If you are using version 1.x, the "features" block is not allowed.
-  version = "~>2.0"
-  features {}
-}
-resource "azurerm_resource_group" "rg" {
-        name = "testResourceGroup"
-        location = "westus"
-}
-```
+1. Exit the editor (**&lt;Ctrl>Q**).
 
-Save the file and then initialize the Terraform deployment. This step downloads the Azure modules required to create an Azure resource group.
+## Create and apply a Terraform execution plan
 
-```bash
-terraform init
-```
+One of the benefits of using Cloud Shell is that it automatically has the latest version of Terraform installed. As a result, you need only run a couple of Terraform commands to deploy the infrastructure defined in your configuration files. The following steps illustrate how to initialize Terraform, create an execution play, and once you verify it, apply that execution plan.
 
-The output is similar to the following example:
+1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
-```console
-* provider.azurerm: version = "~> 0.3"
+    ```bash
+    terraform init
+    ```
+    
+1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
 
-Terraform has been successfully initialized!
-```
+    ```bash
+    terraform plan
+    ```
 
-You can preview the actions to be completed by the Terraform script with `terraform plan`. When ready to create the resource group, apply your Terraform plan as follows:
+    **Notes:**
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
+    - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. That file can then be specified later when executing the plan. While not needed in an interactive test session, this pattern is useful in more scenarios where you're using Terraform from a script.
 
-```bash
-terraform apply
-```
+1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
-The output is similar to the following example:
+    ```bash
+    terraform apply
+    ```
+    
+1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-```console
-An execution plan has been generated and is shown below.
-Resource actions are indicated with the following symbols:
-  + create
+1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
-Terraform will perform the following actions:
+    ```azurecli-interactive
+    az group show -n "QuickstartTerraformTest-rg"
+    ```
 
-  + azurerm_resource_group.rg
-      id:       <computed>
-      location: "westus"
-      name:     "testResourceGroup"
-      tags.%:   <computed>
+    If successful, the command displays various properties of the newly created resource group.
 
-azurerm_resource_group.rg: Creating...
-  location: "" => "westus"
-  name:     "" => "testResourceGroup"
-  tags.%:   "" => "<computed>"
-azurerm_resource_group.rg: Creation complete after 1s
-```
+
+## Clean up resources
+
+When no longer needed, delete the resources created in this article.
+
+1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
+
+    ```bash
+    terraform destroy
+    ```
+
+1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key. 
+
+1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+
+    ```azurecli-interactive
+    az group show -n "QuickstartTerraformTest-rg"
+    ```
+
+    **Notes**:
+    - If successful, the `az group show` command displays the fact that the resource group doesn't exist.
+
+1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files generated by Terraform.
+
+    ```bash
+    cd .. && rm -r QuickstartTerraformTest
+    ```
 
 ## Next steps
-
-In this article, you installed Terraform or used the Cloud Shell to configure Azure credentials and start creating resources in your Azure subscription. To create a more complete Terraform deployment in Azure, see the following article:
 
 > [!div class="nextstepaction"]
 > [Create an Azure VM with Terraform](create-linux-virtual-machine-with-infrastructure.md)
