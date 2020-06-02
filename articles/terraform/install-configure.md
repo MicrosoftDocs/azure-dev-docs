@@ -1,29 +1,31 @@
 ---
-title: Quickstart - Getting started with Terraform on Azure (Cloud Shell)
+title: Quickstart - Getting started with Terraform - Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
-keywords: azure devops terraform install configure
+keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 05/30/2020
-# Customer intent: As someone new to Terraform and Azure, I want learn the basics of getting Terraform configured using a simple example so that I can use Terraform to define and deploy my Azure infrastructure.
+ms.date: 06/01/2020
+# Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
-# Quickstart: Getting started with Terraform on Azure (Cloud Shell)
+# Quickstart: Getting started with Terraform - Azure Cloud Shell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+
+This article describes getting started with Terraform from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Opening Azure Cloud Shell
+## Opening Cloud Shell
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. If you aren't already logged in, the Azure portal displays a list of available Microsoft accounts. Select a Microsoft account associated with one or more active Azure subscriptions and enter your credentials to continue.
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview).
+1. Open Cloud Shell.
 
-    ![Azure portal Cloud Shell icon](media/install-configure/portal-cloud-shell.png)
+    ![Accessing Cloud Shell](media/install-configure/portal-cloud-shell.png)
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
 
@@ -101,7 +103,7 @@ The following steps address the first scenario where you do the following tasks:
 
 ## Create a Terraform configuration file
 
-In this section, you use the Code Shell editor to define a Terraform configuration file.
+In this section, you use the [Code Shell editor](/azure/cloud-shell/overview?#integrated-cloud-shell-editor) to define a Terraform configuration file.
 
 1. Change directories to the mounted file share where your work in Cloud Shell is persisted. For more information about how Cloud Shell persists your files, see [Connect your Microsoft Azure Files storage](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)
     
@@ -190,7 +192,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 ## Persist an execution plan for later deployment
 
-In the previous section, you saw how to run `terraform plan` to create an execution plan. You then saw that using `terraform apply` applies that plan. This pattern works well when the steps are interactive and sequential.
+In the previous section, you saw how to run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. You then saw that using [terraform apply](https://www.terraform.io/docs/commands/apply.html) applies that plan. This pattern works well when the steps are interactive and sequential.
 
 For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
 
@@ -198,7 +200,7 @@ If you use this feature, it'ss recommended that you read the article [Running Te
 
 The following steps illustrate the basic pattern for using this feature:
 
-1. Run `terraform init`.
+1. Run [terraform init](https://www.terraform.io/docs/commands/init.html).
 
     ```bash
     terraform init
@@ -230,7 +232,7 @@ When no longer needed, delete the resources created in this article.
     terraform destroy
     ```
 
-1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key. 
+1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
 
 1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
@@ -241,7 +243,7 @@ When no longer needed, delete the resources created in this article.
     **Notes**:
     - If successful, the `az group show` command displays the fact that the resource group doesn't exist.
 
-1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files generated by Terraform.
+1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
 
     ```bash
     cd .. && rm -r QuickstartTerraformTest
