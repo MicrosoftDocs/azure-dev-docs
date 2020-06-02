@@ -27,11 +27,7 @@ In this tutorial, you learn how to:
 > * Secure the application with Spring Boot classes and annotations
 > * Build and test your Java application
 
-Azure Active Directory is Microsoft's cloud scale enterprise identity
-solution.  Azure Active Directory B2C compliments the feature set of
-Azure Active Directory, allowing you to manage customer, consumer, and
-citizen access to your business-to-consumer (B2C) applications. Connect
-with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/services/active-directory/external-identities/b2c/).
+Azure Active Directory is Microsoft's cloud scale enterprise identity solution.  Azure Active Directory B2C compliments the feature set of Azure Active Directory, allowing you to manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. Connect with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/services/active-directory/external-identities/b2c/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -42,39 +38,28 @@ The following software and skill prerequisites are required in order to complete
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
-This article asks you to define a short string of your choice for items
-such as App Names, Maven `groupId`, `artifactId` and similar.  In the text, this
-value will be referred to as `yourString`.  For example, you could use
-your initials and the date, such as `ejb0518`.
+This article asks you to define a short string of your choice for items such as App Names, Maven `groupId`, `artifactId` and similar.  In the text, this value will be referred to as `yourString`.  For example, you could use your initials and the date, such as `ejb0518`.
 
 ## Create an app using Spring Initializr
 
 1. Browse to <https://start.spring.io/>.
 
-2. Fill out the values according to this guidance.  Note that the labels
-   and layout may differ from the image shown here.
+2. Fill out the values according to this guidance.  Note that the labels and layout may differ from the image shown here.
 
    * Under **Project**, select **Maven Project**.
-   
+
    * Under **Language**, select **Java**.
-   
+
    * Under **Spring Boot**, select **2.2.7**.
-   
-   * Under **Group**, **Artifact** and **Name** enter `yourString`.  The
-     UI may automatically fill some of these out as you type.
-     
-   * In the **Dependencies** pane, click "Add Dependencies".  Use the UI
-     to add dependencies on **Spring Web** and **Spring Security**.
-   
+
+   * Under **Group**, **Artifact** and **Name** enter `yourString`.  The UI may automatically fill some of these out as you type.
+
+   * In the **Dependencies** pane, click "Add Dependencies".  Use the UI to add dependencies on **Spring Web** and **Spring Security**.
+
    ![Fill in the values to generate the project](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/si-n.png)
 
 
-3. Click `Generate Project`, download the project to a path on your
-   local computer when prompted.  Move the downloaded file to a
-   directory titled `yourString`-project and unzip the file.  The file
-   layout should look something like the following, with `yourString` in
-   place of the value shown.
-   
+3. Click `Generate Project`, download the project to a path on your local computer when prompted.  Move the downloaded file to a directory titled `yourString`-project and unzip the file.  The file layout should look something like the following, with `yourString` in place of the value shown.
    ```
    .
    ├── HELP.md
@@ -132,56 +117,35 @@ your initials and the date, such as `ejb0518`.
 
 2. In the **Name** field, enter `yourString`.  Toggle the **include web
    app/ web API** control to **Yes**.
-   
-   * In the **Reply URL** field, enter `http://localhost:8080/home`.
-     Leave the other fields with their default values.
-     
-   Click **Create**.  It may take a short while before the application appears.  
+
+   * In the **Reply URL** field, enter `http://localhost:8080/home`. Leave the other fields with their default values.
+
+   Click **Create**.  It may take a short while before the application appears.
 
    ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
 
-3. Click on **Overview**, then **Applications**.  In the table of
-   applications, click on the row with name `yourString`.  In the
-   **General** pane select Keys, then click **Generate Key**.  In the
-   **App key** enter `yourString`key then click **Save**.  You may need
-   to wait a bit for the key to appear in the app key section, but when
-   it does, you must save aside its value.  It will be something like
-   `546KQ6Oj/FOK8.Qyv8XGN27C`.  For discussion, let this be `yourAppKey`.
-   If you leave the **Keys** section and come back, you will not be able
-   to see the key value.  In that case, you must create another key
-   and save its value aside.
-   
+3. Click on **Overview**, then **Applications**.  In the table of applications, click on the row with name `yourString`.  In the **General** pane select Keys, then click **Generate Key**.  In the **App key** enter `yourString`key then click **Save**.  You may need to wait a bit for the key to appear in the app key section, but when it does, you must save aside its value.  It will be something like `546KQ6Oj/FOK8.Qyv8XGN27C`.  For discussion, let this be `yourAppKey`. If you leave the **Keys** section and come back, you will not be able to see the key value.  In that case, you must create another key and save its value aside.
+
    > [!NOTE]
-   > 
-   > Occasionally the generated key may contain characters that are
-   > problematic for inclusion in the `application.yml` file, such as
-   > backslash or backtick.  In that case, discard that key and generate
-   > another one.
    >
-   
+   > Occasionally the generated key may contain characters that are problematic for inclusion in the `application.yml` file, such as backslash or backtick.  In that case, discard that key and generate another one.
 
    ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
 4. Click on **Overview**.  In the **Policies** section of the left pane, select **User flows**, then click **New user flow**.
 
-5. You will now leave this tutorial, execute another tutorial, and come
-   back to this tutorial when you are done.  Here are some things to
-   keep in mind when you go to the other tutorial.
-   
+5. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done.  Here are some things to keep in mind when you go to the other tutorial.
+
    * Start with the step that requests you to select **New User flow**.
-   
+
    * When this tutorial refers to `webapp1`, use `yourString` instead.
-   
-   * When you are selecting claims to return from the flows, ensure
-     **Display Name** is selected.  Without this claim, the app being
-     built in this tutorial will not work.
-   
-   * When you are asked to run the user flows, the redirect url you
-     specified above is not yet active.  You can still run the flows,
-     but the redirection will not complete successfully.  This is expected.
-     
+
+   * When you are selecting claims to return from the flows, ensure **Display Name** is selected.  Without this claim, the app being built in this tutorial will not work.
+
+   * When you are asked to run the user flows, the redirect url you specified above is not yet active.  You can still run the flows, but the redirection will not complete successfully.  This is expected.
+
    * When you reach "Next steps", return to this tutorial.
-   
+
    Follow all the steps in [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create user flows for "sign-up and sign in", "profile editing" and "password reset".
 
    AAD B2C supports local accounts as well as social identity providers. For an example of creating a GitHub identity provider, see [Set up sign-up and sign-in with a GitHub account using Azure Active Directory B2C](/azure/active-directory-b2c/identity-provider-github).
@@ -214,26 +178,16 @@ will connect your spring app to the AAD B2C instance.
        <version>See Below</version>
    </dependency>
    ```
-   
-   For the `azure-active-directory-b2c-spring-boot-starter`, use the
-   latest version available.  You may be able to use
-   [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter)
-   to look this up.  As of this writing the latest version is `2.2.4`.
-   
-   For the `spring-boot-starter-thymeleaf`, use the version corresponding
-   to the version of Spring Boot you selected above, for example
-   `2.2.7.RELASE`.
-   
-   For `thymeleaf-extras-springsecurity5`, use the latest version
-   available.  You may be able to use
-   [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5)
-   to look this up.  As of this writing, the latest version is `3.0.4.RELEASE`.
+
+   For the `azure-active-directory-b2c-spring-boot-starter`, use the latest version available.  You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up.  As of this writing the latest version is `2.2.4`.
+
+   For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.2.7.RELASE`.
+
+   For `thymeleaf-extras-springsecurity5`, use the latest version available.  You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up.  As of this writing, the latest version is `3.0.4.RELEASE`.
 
 4. Save and close the *pom.xml* file.
 
-   * Verify that your dependencies are correct by running `mvn
-     -DskipTests clean install`.  If you do not see `BUILD SUCCESS`,
-     troubleshoot and resolve the problem before continuing.
+   * Verify that your dependencies are correct by running `mvn -DskipTests clean install`.  If you do not see `BUILD SUCCESS`, troubleshoot and resolve the problem before continuing.
 
 5. Navigate to the *src/main/resources* folder in your project and create an *application.yml* file in a text editor.
 
@@ -253,33 +207,30 @@ will connect your spring app to the AAD B2C instance.
            profile-edit: B2C_1_profileediting1
            password-reset: B2C_1_passwordreset1
    ```
-   
-   Notice that the `client-secret` is enclosed in single quotes.  This
-   is necessary because the value of `yourAppKey` will almost certainly
-   contain some characters that require being inside single quotes when
-   present in YAML.
+
+   Notice that the `client-secret` is enclosed in single quotes.  This is necessary because the value of `yourAppKey` will almost certainly contain some characters that require being inside single quotes when present in YAML.
 
    > [!NOTE]
-   > 
+   >
    > As of this writing, the full list of Active Directory B2C Spring
    > Integration values that are available for use in *application.yml*
    > is the following:
-   > 
+   >
    > ```
    > azure:
    >   activedirectory:
    >     b2c:
-   >       tenant: 
-   >       oidc-enabled: 
-   >       client-id: 
-   >       client-secret: 
+   >       tenant:
+   >       oidc-enabled:
+   >       client-id:
+   >       client-secret:
    >       reply-url:  # should be absolute url.
-   >       logout-success-url: 
+   >       logout-success-url:
    >       user-flows:
-   >         sign-up-or-sign-in: 
+   >         sign-up-or-sign-in:
    >         profile-edit: # optional
    >         password-reset: # optional
-   
+
    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
 
 
@@ -289,60 +240,55 @@ will connect your spring app to the AAD B2C instance.
 
 9. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
 
-10. Enter the following code, changing `yourString` appropriately, then
-    save and close the file:
+10. Enter the following code, changing `yourString` appropriately, then save and close the file:
 
     ```java
     package yourString.yourString.controller;
-    
+
     import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
     import org.springframework.security.oauth2.core.user.OAuth2User;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.GetMapping;
-    
+
     @Controller
     public class WebController {
-    
+
         private void initializeModel(Model model, OAuth2AuthenticationToken token) {
             if (token != null) {
                 final OAuth2User user = token.getPrincipal();
-    
+
                 model.addAttribute("grant_type", user.getAuthorities());
                 model.addAllAttributes(user.getAttributes());
             }
         }
-    
+
         @GetMapping(value = "/")
         public String index(Model model, OAuth2AuthenticationToken token) {
             initializeModel(model, token);
-    
+
             return "home";
         }
-    
+
         @GetMapping(value = "/greeting")
         public String greeting(Model model, OAuth2AuthenticationToken token) {
             initializeModel(model, token);
-    
+
             return "greeting";
         }
-    
+
         @GetMapping(value = "/home")
         public String home(Model model, OAuth2AuthenticationToken token) {
             initializeModel(model, token);
-    
+
             return "home";
         }
     }
     ```
-    
-    Because every method in the controller calls `initializeModel()`,
-    and that method calls
-    `model.addAllAttributes(user.getAttributes());`, any HTML page in
-    `src/main/resources/templates` is able to access any of those
-    attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
-11. 8. Create a folder named *security* in `src/main/java/yourString/yourString`.
+    Because every method in the controller calls `initializeModel()`, and that method calls `model.addAllAttributes(user.getAttributes());`, any HTML page in `src/main/resources/templates` is able to access any of those attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
+
+11. Create a folder named *security* in `src/main/java/yourString/yourString`.
 
 12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
@@ -350,21 +296,21 @@ will connect your spring app to the AAD B2C instance.
 
     ```java
     package yourString.yourString.security;
-    
+
     import com.microsoft.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
     import org.springframework.security.config.annotation.web.builders.HttpSecurity;
     import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
     import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-    
+
     @EnableWebSecurity
     public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    
+
         private final AADB2COidcLoginConfigurer configurer;
-    
+
         public WebSecurityConfiguration(AADB2COidcLoginConfigurer configurer) {
             this.configurer = configurer;
         }
-    
+
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
@@ -377,9 +323,7 @@ will connect your spring app to the AAD B2C instance.
         }
     }
     ```
-14. Copy the `greeting.html` and `home.html` from [Azure AD B2C Spring Boot Sample](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/templates) to `src/main/resources/templates`, and replace the
-`${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with your user flow name
-respectively that completed earlier.
+14. Copy the `greeting.html` and `home.html` from [Azure AD B2C Spring Boot Sample](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/templates) to `src/main/resources/templates`, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with your user flow name respectively that completed earlier.
 
 ## Build and test your app
 
@@ -388,17 +332,8 @@ respectively that completed earlier.
 2. Build your Spring Boot application with Maven and run it; for example:
 
    > [!NOTE]
-   > 
-   > It is extremely important that the time according to the system
-   > clock under which the local spring boot app runs is accurate.  The
-   > is very little tolerance of clock skew when using OAuth 2.0.  Even
-   > three minutes of inaccuracy may cause the signin to fail with an
-   > error similar to `[invalid_id_token] An error occurred while
-   > attempting to decode the Jwt: Jwt used before
-   > 2020-05-19T18:52:10Z`.  As of this writing,
-   > [time.gov](https://time.gov/) has an indicator of how far off your
-   > clock is from the actual time.  The app was successfully run with a
-   > skew of +0.019 seconds.
+   >
+   > It is extremely important that the time according to the system clock under which the local spring boot app runs is accurate.  The is very little tolerance of clock skew when using OAuth 2.0.  Even three minutes of inaccuracy may cause the signin to fail with an error similar to `[invalid_id_token] An error occurred while attempting to decode the Jwt: Jwt used before 2020-05-19T18:52:10Z`.  As of this writing, [time.gov](https://time.gov/) has an indicator of how far off your clock is from the actual time.  The app was successfully run with a skew of +0.019 seconds.
    >
 
 
@@ -407,7 +342,7 @@ respectively that completed earlier.
    mvn -DskipTests spring-boot:run
    ```
 
-3. After your application is built and started by Maven, open `http://localhost:8080/` in a web browser; 
+3. After your application is built and started by Maven, open `http://localhost:8080/` in a web browser;
 you should be redirected to login page.
 
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)
@@ -420,11 +355,7 @@ you should be redirected to login page.
 
 ## Summary
 
-In this tutorial, you created a new Java web application using the Azure
-Active Directory B2C starter, configured a new Azure AD B2C tenant, and
-registered a new application in it, and then configured your application
-to use the Spring annotations and classes to protect the web app.
-
+In this tutorial, you created a new Java web application using the Azure Active Directory B2C starter, configured a new Azure AD B2C tenant, and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
