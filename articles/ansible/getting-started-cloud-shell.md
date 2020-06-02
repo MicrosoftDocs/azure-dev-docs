@@ -8,13 +8,9 @@ ms.date: 06/01/2020
 
 # Quickstart: Getting started with Ansible - Azure Cloud Shell
 
-[!INCLUDE [ansible-intro.md](includes/ansible-intro.md)]
+Azure Cloud Shell is a shell for managing Azure resources. Cloud Shell is accessed from the Azure portal and supports both Bash and PowerShell. In this article, you use the Bash environment and the Azure CLI to configure and run an Ansible playbook.
 
-This article describes getting started with Ansible from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
-
-[!INCLUDE [ansible-support.md](includes/ansible-support.md)]
-
-## Configure your environment
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configure Azure Cloud Shell** - If you're new to Azure Cloud Shell, see [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -34,7 +30,7 @@ az account list
 
 Using your Azure subscription ID, set the `AZURE_SUBSCRIPTION_ID` as follows:
 
-```Bash
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

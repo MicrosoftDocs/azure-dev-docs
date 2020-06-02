@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Getting started - Cloud Shell
+      href: getting-started-cloud-shell.md
     - name: Deploy Ansible solution template to CentOS
       href: solution-template-deploy.md
     - name: Install Ansible on Linux virtual machines
       href: install-on-linux-vm.md
       maintainContext: true
-    - name: Run playbooks in Cloud Shell
-      href: cloudshell-run-playbook.md
     - name: Work with Linux Virtual Machines
       expanded: true
       items:
