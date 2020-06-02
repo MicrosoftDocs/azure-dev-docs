@@ -1,13 +1,15 @@
 ---
 title: Provision an Azure MySQL database using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to provision an Azure MySQL database.
+description: Use the management libraries in the Azure SDK libraries for Python to provision an Azure MySQL, PostgresSQL, or MariaDB database.
 ms.date: 06/02/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure libraries to provision a MySQL database
+# Example: Use the Azure libraries to provision a database
 
 This example demonstrates how to use the Azure SDK management libraries in a Python script to provision an Azure MySQL database. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.) It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK).
+
+You can use similar code to provision a PostgreSQL or MariaDB database.
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -46,7 +48,11 @@ Create a Python file named *provision_db.py* with the following code. The commen
 import random, os
 from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource import ResourceManagementClient
+
+# For PostgreSQL, use the PostgreSQLManagement class.
+# For MariaDB, use the MariaDBManagement class.
 from azure.mgmt.rdbms.mysql import MySQLManagementClient
+
 from azure.mgmt.rdbms.mysql.models import ServerForCreate, ServerPropertiesForDefaultCreate, ServerVersion
 
 # Retrieve subscription ID from environment variable
@@ -147,6 +153,10 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 - [ServerPropertiesForDefaultCreate (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverpropertiesfordefaultcreate?view=azure-python)
 - [ServerVersion (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverversion?view=azure-python)
 
+Also see:
+    - [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql.postgresqlmanagementclient?view=azure-python)
+    - [MariaDBManagementClient (azure.mgmt.rdbms.mariadb)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mariadb.mariadbmanagementclient?view=azure-python)
+
 ## 4: Run the script
 
 ```cmd
@@ -156,6 +166,8 @@ python provision_db.py
 ## 5: Insert a record and query the database
 
 Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, which should be populated with the values from the provisioning code.
+
+This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
 ```python
 import os
@@ -218,7 +230,7 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script:
+The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres`](/cli/azure/postgres?view=azure-cli-latest) commands; for MariaDB, use [`az mariadb`](/cli/azure/mariadb?view=azure-cli-latest) commands.
 
 # [cmd](#tab/cmd)
 
