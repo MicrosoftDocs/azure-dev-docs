@@ -17,7 +17,7 @@ This article describes getting started with Terraform from the [Azure Cloud Shel
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!INCLUDE [hashicorp-terraform-support.md](hashicorp-support.md)]
+[!INCLUDE [hashicorp-terraform-support.md](hashicorp-terraform-support.md)]
 
 ## Open Cloud Shell
 
