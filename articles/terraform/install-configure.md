@@ -105,7 +105,7 @@ The following steps address the first scenario where you do the following tasks:
 
 ## Create a Terraform configuration file
 
-In this section, you use the [Code Shell editor](/azure/cloud-shell/overview?#integrated-cloud-shell-editor) to define a Terraform configuration file.
+In this section, you use the [Code Shell editor](/azure/cloud-shell/using-cloud-shell-editor) to define a Terraform configuration file.
 
 1. Change directories to the mounted file share where your work in Cloud Shell is persisted. For more information about how Cloud Shell persists your files, see [Connect your Microsoft Azure Files storage](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)
     
