@@ -27,18 +27,14 @@ In this tutorial, you learn how to:
 > * Secure the application with Spring Boot classes and annotations
 > * Build and test your Java application
 
-Azure Active Directory is Microsoft's cloud scale enterprise identity solution.  Azure Active Directory B2C compliments the feature set of Azure Active Directory, allowing you to manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. Connect with millions of users with the scalability and availability you need.  For more on Azure Active directory, see [the product home page](https://azure.microsoft.com/services/active-directory/).  For more on Azure Active Directory B2C, see [the product home page](https://azure.microsoft.com/services/active-directory/external-identities/b2c/).
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-scale enterprise identity solution. [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) compliments the feature set of Azure Active Directory, allowing you to manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites and Conventions
-
-The following software and skill prerequisites are required in order to complete the steps in this article:
+## Prerequisites
 
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
-
-This article asks you to define a short string of your choice for items such as App Names, Maven `groupId`, `artifactId` and similar.  In the text, this value will be referred to as `yourString`.  For example, you could use your initials and the date, such as `ejb0518`.
 
 ## Create an app using Spring Initializr
 
@@ -52,14 +48,15 @@ This article asks you to define a short string of your choice for items such as 
 
    * Under **Spring Boot**, select **2.2.7**.
 
-   * Under **Group**, **Artifact** and **Name** enter `yourString`.  The UI may automatically fill some of these out as you type.
+   * Under **Group**, **Artifact** and **Name** enter the same value, a short descriptive replacement for `yourString`.  The UI may automatically fill some of these out as you type.
 
    * In the **Dependencies** pane, click "Add Dependencies".  Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
    ![Fill in the values to generate the project](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/si-n.png)
 
 
-3. Click `Generate Project`, download the project to a path on your local computer when prompted.  Move the downloaded file to a directory titled `yourString`-project and unzip the file.  The file layout should look something like the following, with `yourString` in place of the value shown.
+3. Select `Generate Project`, then download the project to a path on your local computer.  Move the downloaded file to a directory named after your project and unzip the file.  The file layout should look something like the following, with the value you entered for **Group** in place of `yourProject`.
+
    ```
    .
    ├── HELP.md
@@ -69,18 +66,18 @@ This article asks you to define a short string of your choice for items such as 
    └── src
        ├── main
        │   ├── java
-       │   │   └── ejb0518
-       │   │       └── ejb0518
-       │   │           └── Ejb0518Application.java
+       │   │   └── yourProject
+       │   │       └── yourProject
+       │   │           └── YourProjectApplication.java
        │   └── resources
        │       ├── application.properties
        │       ├── static
        │       └── templates
        └── test
            └── java
-               └── ejb0518
-                   └── ejb0518
-                       └── Ejb0518ApplicationTests.java
+               └── yourProject
+                   └── yourProject
+                       └── YourProjectApplicationTests.java
    ```
 
 ## Create Azure Active Directory instance
@@ -101,7 +98,7 @@ This article asks you to define a short string of your choice for items such as 
 
    ![Create new Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-2-n.png)
 
-5. For **Organization name** Enter your `yourString`org.  For **Initial domain name**, enter `yourString`domain.  Click **Create**.
+5. For **Organization name** and **Initial domain name**, provide appropriate values, then select **Create**.
 
    ![Choose your Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-3-n.png)
 
@@ -111,34 +108,46 @@ This article asks you to define a short string of your choice for items such as 
 
 ### Add an application registration for your Spring Boot app
 
-1. In the **Manage** pane on the left, click **Applications**, and then click **Add**.
+1. In the **Manage** pane on the left, select **Applications**, and then select **Add**.
 
    ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. In the **Name** field, enter `yourString`.  Toggle the **include web
-   app/ web API** control to **Yes**.
+2. In the **Name** field, enter the value for **Group** from above, then set **include web app/ web API** control to **Yes**.
 
-   * In the **Reply URL** field, enter `http://localhost:8080/home`. Leave the other fields with their default values.
+3. Set **Reply URL** to `http://localhost:8080/home`.
 
-   Click **Create**.  It may take a short while before the application appears.
+4. Leave the other fields with their default values.
+
+5. Select **Create**.  It may take a short while before the application appears.
 
    ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
 
-3. Click on **Overview**, then **Applications**.  In the table of applications, click on the row with name `yourString`.  In the **General** pane select Keys, then click **Generate Key**.  In the **App key** enter `yourString`key then click **Save**.  You may need to wait a bit for the key to appear in the app key section, but when it does, you must save aside its value.  It will be something like `546KQ6Oj/FOK8.Qyv8XGN27C`.  For discussion, let this be `yourAppKey`. If you leave the **Keys** section and come back, you will not be able to see the key value.  In that case, you must create another key and save its value aside.
+6. Select **Overview**, then **Applications**.
+
+7. In the table of applications, select the row with name of your project.
+
+8. In the **General** pane select Keys, then select **Generate Key**.
+
+9. Set **App key** to `yourGroupIdkey`, replacing `yourGroupId` with the value you entered above for **Group**.
+
+10. Select **Save**.  Wait for the key to appear in the app key section, then copy it for use later in this article.
 
    > [!NOTE]
    >
+   > If you leave the **Keys** section and come back, you will not be able to see the key value.  In that case, you must create another key and copy it for future use.
    > Occasionally the generated key may contain characters that are problematic for inclusion in the `application.yml` file, such as backslash or backtick.  In that case, discard that key and generate another one.
 
    ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
-4. Click on **Overview**.  In the **Policies** section of the left pane, select **User flows**, then click **New user flow**.
+11. Select **Overview**.
 
-5. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done.  Here are some things to keep in mind when you go to the other tutorial.
+12. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
+
+13. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done.  Here are some things to keep in mind when you go to the other tutorial.
 
    * Start with the step that requests you to select **New User flow**.
 
-   * When this tutorial refers to `webapp1`, use `yourString` instead.
+   * When this tutorial refers to `webapp1`, use the value you entered for **Group** instead.
 
    * When you are selecting claims to return from the flows, ensure **Display Name** is selected.  Without this claim, the app being built in this tutorial will not work.
 
@@ -152,10 +161,9 @@ This article asks you to define a short string of your choice for items such as 
 
 ## Configure and compile your app
 
-Now that you have created the AAD B2C instance and some user flows, we
-will connect your spring app to the AAD B2C instance.
+Now that you've created the AAD B2C instance and some user flows, you'll connect your Spring app to the AAD B2C instance.
 
-1. From the command line, cd to the `yourString`-project directory where you unzipped the `yourString`.zip file.
+1. From the command line, cd to the directory where you unzipped the .zip file you downloaded from Spring Initializr.
 
 2. Navigate to the parent folder for your project, and open the `pom.xml` Maven project file in a text editor.
 
@@ -197,8 +205,8 @@ will connect your spring app to the AAD B2C instance.
    azure:
      activedirectory:
        b2c:
-         tenant: `yourString`domain
-         client-id: `yourString`
+         tenant: ejb0518domain
+         client-id: ejb0518
          client-secret: '`yourAppKey`'
          reply-url: http://localhost:8080/home
          logout-success-url: http://localhost:8080/home
@@ -236,14 +244,14 @@ will connect your spring app to the AAD B2C instance.
 
 7. Save and close the *application.yml* file.
 
-8. Create a folder named *controller* in `src/main/java/yourString/yourString`.
+8. Create a folder named *controller* in `src/main/java/yourGroupId/yourGroupId`, replacing `yourGroupId` with the value you entered for **Group**.
 
 9. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
 
-10. Enter the following code, changing `yourString` appropriately, then save and close the file:
+10. Enter the following code, changing `yourGroupId` appropriately, then save and close the file:
 
     ```java
-    package yourString.yourString.controller;
+    package yourGroupId.yourGroupId.controller;
 
     import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
     import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -288,14 +296,14 @@ will connect your spring app to the AAD B2C instance.
 
     Because every method in the controller calls `initializeModel()`, and that method calls `model.addAllAttributes(user.getAttributes());`, any HTML page in `src/main/resources/templates` is able to access any of those attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`.  The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication.  The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
-11. Create a folder named *security* in `src/main/java/yourString/yourString`.
+11. Create a folder named *security* in `src/main/java/yourGroupId/yourGroupId`, replacing `yourGroupId` with the value you entered for **Group**.
 
 12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
-13. Enter the following code, then save and close the file:
+13. Enter the following code, changing `yourGroupId` appropriately, then save and close the file:
 
     ```java
-    package yourString.yourString.security;
+    package yourGroupId.yourGroupId.security;
 
     import com.microsoft.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
     import org.springframework.security.config.annotation.web.builders.HttpSecurity;
