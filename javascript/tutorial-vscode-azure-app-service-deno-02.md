@@ -19,7 +19,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
     touch demo.ts
     ```
 
-1. Deno accepts running code from URLs directly. Write a simple HTTP server that answers all the requests with "Hello World". Use the following code:
+1. Deno accepts running code from URLs directly. Write a HTTP server that answers all the requests with "Hello World". Use the following code:
 
     ```typescript
     import { serve } from "https://deno.land/std@0.54.0/http/server.ts"
@@ -42,7 +42,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 
     ![Running the demo server](media/deploy-azure/deno-helloworld.png)
 
-    > You can also run this code by typing `deno run --allow-net https://gist.githubusercontent.com/khaosdoctor/cd2bbb28e682feb8d20a7aba47fc1e17/raw/5d79235d6496a37b148024121aaffa054484aba3/deno-demo.ts`
+    > You can also run this code by typing `deno run --allow-net https://gist.githubusercontent.com/khaosdoctor/cd2bbb28e682feb8d20a7aba47fc1e17/raw/92de998fd11f2a24ae40bbcb84f5262cfe9389b2/deno-demo.ts`
 
     <!-- TODO: THIS LINK SHOULD BE A MS-OWNED LINK -->
 
