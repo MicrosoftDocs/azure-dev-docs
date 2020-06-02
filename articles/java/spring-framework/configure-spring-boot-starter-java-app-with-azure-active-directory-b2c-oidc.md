@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    * Under **Group**, **Artifact** and **Name** enter the same value, a short descriptive replacement for `yourString`.  The UI may automatically fill some of these out as you type.
 
-   * In the **Dependencies** pane, click "Add Dependencies".  Use the UI to add dependencies on **Spring Web** and **Spring Security**.
+   * In the **Dependencies** pane, select "Add Dependencies".  Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
    ![Fill in the values to generate the project](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/si-n.png)
 
@@ -86,11 +86,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Log into <https://portal.azure.com>.
 
-2. Click **+Create a resource**, then **Identity**, and then **See all**.  Search for **Azure Active Directory B2C**.
+2. Select **+Create a resource**, then **Identity**, and then **See all**.  Search for **Azure Active Directory B2C**.
 
    ![Create new Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-1-n.png)
 
-3. Click **Create**.
+3. Select **Create**.
 
    ![Get your B2C tenant name](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-5-n.png)
 
@@ -102,7 +102,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    ![Choose your Azure Active Directory](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-3-n.png)
 
-6. When the Active Directory creation is complete, navigate to the new directory.  Or search for `b2c` and click `Azure AD B2C` service.
+6. When the Active Directory creation is complete, navigate to the new directory.  Or search for `b2c` and select `Azure AD B2C` service.
 
    ![Locate the Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-4-n.ng.png)
 
@@ -135,7 +135,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!NOTE]
    >
    > If you leave the **Keys** section and come back, you will not be able to see the key value.  In that case, you must create another key and copy it for future use.
-   > Occasionally the generated key may contain characters that are problematic for inclusion in the `application.yml` file, such as backslash or backtick.  In that case, discard that key and generate another one.
+   > Occasionally, the generated key may contain characters that are problematic for inclusion in the `application.yml` file, such as backslash or backtick.  In that case, discard that key and generate another one.
 
    ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
@@ -355,7 +355,7 @@ you should be redirected to login page.
 
    ![Login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)
 
-4. Click the link with text relating to signing in.  You should be redirected Azure AD B2C to start the authentication process.
+4. Select the link with text relating to signing in.  You should be redirected Azure AD B2C to start the authentication process.
 
 4. After you have logged in successfully, you should see the sample `home page` from the browser,
 
