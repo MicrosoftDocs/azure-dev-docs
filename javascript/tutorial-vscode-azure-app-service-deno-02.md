@@ -11,7 +11,7 @@ ms.date: 06/01/2020
 
 In this step, you create a simple Deno api using Deno's built-in webserver. You then run the app locally.
 
-1. In a terminal or command prompt, navigate to a location where you want to create the app folder.
+1. In a terminal or command prompt, navigate to a location where you want to create the app folder and create a new folder called `deno-demo`.
 
 1. Create a `demo.ts` file with the following command
 
@@ -23,9 +23,9 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 
     ```typescript
     import { serve } from "https://deno.land/std@0.54.0/http/server.ts"
-    const handler = serve({ port: 8000 })
+    const handler = serve({ port: 80 })
 
-    console.log("Serving at 8000")
+    console.log("Serving at 80")
 
     for await (const req of handler) {
      req.respond({ body: "Hello World!\n" })
@@ -38,7 +38,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
     deno run --allow-net ./demo.ts
     ```
 
-1. Test the app by opening a browser to `http://localhost:8000`. The site should appear as follows:
+1. Test the app by opening a browser to `http://localhost:80`. The site should appear as follows:
 
     ![Running the demo server](media/deploy-azure/deno-helloworld.png)
 
