@@ -44,7 +44,7 @@ The [Azure CLI](/cli/azure/?view=azure-cli-latest) is Azure's [open source](http
 
 You can also use [Azure PowerShell](/powershell/) in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
 
-In place of the local CLI or PowerShell, you can use the Azure Cloud Shell directly via [https://shell.azure.com/](https://shell.azure.com/). However, because Cloud Shell isn't a local environment, it's more suitable for one-off operations than automation.
+In place of the local CLI or PowerShell, you can use the Azure Cloud Shell directly via [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. However, because Cloud Shell isn't a local environment, it's more suitable for singular operations like you'd do through the portal rather than scripted automation.
 
 ## Azure REST API and Azure libraries
 

@@ -40,7 +40,7 @@ To set a level for a different library, use that library's name in the `logging.
 You can also use more general namespaces. For example,
 
 ```python
-import logging 
+import logging
 
 # Set the logging level for all azure-storage-* libraries
 logger = logging.getLogger('azure.storage')
