@@ -13,11 +13,13 @@ ms.date: 06/01/2020
 
 This article describes getting started with Terraform from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
 
-## Prerequisites
+## Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Opening Cloud Shell
+[!INCLUDE [hashicorp-terraform-support.md](hashicorp-support.md)]
+
+## Open Cloud Shell
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
