@@ -13,10 +13,7 @@ In this tutorial, you deploy a Deno application to Azure App Service (on Linux o
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Deno](https://deno.land/#installation).
-
-> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in to Azure
 
