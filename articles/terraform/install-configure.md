@@ -13,7 +13,7 @@ ms.date: 06/01/2020
 
 This article describes getting started with Terraform from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
 
-[!INCLUDE [hashicorp-terraform-support.md](includes/hashicorp-terraform-support.md)]
+[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Configure your environment
 
