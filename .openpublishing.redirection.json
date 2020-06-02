@@ -885,7 +885,7 @@
       "redirect_url": "/azure/devops/devsecops"
     },
     {
-      "source_path": "ansible/cloudshell-run-playbook.md",
+      "source_path": "developer/ansible/cloudshell-run-playbook.md",
       "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
     }
   ]
