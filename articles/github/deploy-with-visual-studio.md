@@ -1,8 +1,8 @@
 --- 
 title: Use Visual Studio to deploy apps from GitHub 
 description: Visual Studio and Visual Studio Code resources to deploy apps from GitHub  
-ms.author: kaelli
-author: KathrynEE
+author: N-Usha 
+ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
 ms.date: 05/05/2020

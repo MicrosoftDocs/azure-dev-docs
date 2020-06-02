@@ -2,7 +2,7 @@
 title: "Tutorial: Create and deploy serverless Azure Functions in Python with VS Code"
 description: Tutorial step 1, introduction and prerequisites.
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/19/2020
 ms.custom: seo-python-october2019
 ---
 
@@ -37,7 +37,7 @@ When installing Node.js, use the default options and do *not* select the option 
 
 Install the following software:
 
-- Python 3.7 or Python 3.6 as required by Azure Functions. [Python 3.7.5](https://www.python.org/downloads/release/python-375/) and [Python 3.6.8](https://www.python.org/downloads/release/python-368/) are the latest compatible versions. Scroll down on these pages to find the installers. When installing, select **Add Python 3.x to PATH** use the default options by selecting the **Install Now** option. On Windows, also select **Disable Path length limit** at the end of the process.
+- Python 3.6, 3.7, or 3.8 as required by Azure Functions. Install Python from [python.org](https://www.python.org/downloads). When installing, select **Add Python 3.x to PATH** use the default options by selecting the **Install Now** option. On Windows, also select **Disable Path length limit** at the end of the process.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Visual Studio Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).

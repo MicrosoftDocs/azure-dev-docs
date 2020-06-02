@@ -13,7 +13,7 @@ In this tutorial, you use Visual Studio Code to create a containerized Node.js a
 
 Watch this video for a complete walkthrough of the content in this article.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-containers-to-Azure-App-Service/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-containers-Azure-App-Service/player]
 
 ## Prerequisites
 
