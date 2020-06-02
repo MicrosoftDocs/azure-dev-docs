@@ -75,7 +75,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
       resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
       address_space       = ["192.168.0.0/16"]
 
-      tags {
+      tags = {
         environment = local.prefix-onprem
       }
     }
@@ -100,7 +100,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
         resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
         allocation_method   = "Dynamic"
 
-        tags {
+        tags = {
             environment = local.prefix-onprem
         }
     }
@@ -137,7 +137,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
             destination_address_prefix = "*"
         }
 
-        tags {
+        tags = {
             environment = "onprem"
         }
     }
@@ -178,7 +178,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-onprem
       }
     }

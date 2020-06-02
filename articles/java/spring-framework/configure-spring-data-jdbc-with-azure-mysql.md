@@ -24,7 +24,7 @@ This topic demonstrates creating a sample application that uses [Spring Data JDB
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RC1 -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for MySQL
@@ -37,7 +37,6 @@ logging.level.org.springframework.jdbc.core=DEBUG
 spring.datasource.url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
 spring.datasource.username=spring@$AZ_DATABASE_NAME
 spring.datasource.password=$AZ_MYSQL_PASSWORD
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 spring.datasource.initialization-mode=always
 ```

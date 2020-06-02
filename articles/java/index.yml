@@ -180,7 +180,7 @@ tools:
       url: eclipse-microprofile/index.yml
     - title: Maven
       imageSrc: https://docs.microsoft.com/media/logos/logo_maven.svg
-      url: /java/api/overview/azure/maven/README
+      url: https://github.com/Microsoft/azure-maven-plugins#readme
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: /cli/azure

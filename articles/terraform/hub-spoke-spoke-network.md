@@ -75,7 +75,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       resource_group_name = azurerm_resource_group.spoke1-vnet-rg.name
       address_space       = ["10.1.0.0/16"]
 
-      tags {
+      tags = {
         environment = local.prefix-spoke1
       }
     }
@@ -151,7 +151,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke1
       }
     }
@@ -197,7 +197,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       resource_group_name = azurerm_resource_group.spoke2-vnet-rg.name
       address_space       = ["10.2.0.0/16"]
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }
@@ -241,7 +241,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         private_ip_address_allocation = "Dynamic"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }
@@ -277,7 +277,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }

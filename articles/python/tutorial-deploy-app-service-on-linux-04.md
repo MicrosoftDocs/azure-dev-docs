@@ -1,8 +1,8 @@
 ---
 title: "Step 4: Configure a custom startup file for Python apps on Azure App Service on Linux"
-description: Tutorial step 4, instructing App Service how to start the web app.
+description: Tutorial step 4, instructing App Service how to start the web app including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 05/19/2020
 ms.custom: seo-python-october2019
 ---
 
@@ -16,14 +16,17 @@ Depending on how you've structured your app, you may need to create a custom sta
 
 The specific use cases of a custom startup command are as follows:
 
-- You have a **Flask** app whose startup file and app object are named something **other** than *application.py* and `app`, respectively. In other words, unless you have an *application.py* in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
+- You have a Flask app whose startup file and app object are named something **other** than *application.py* and `app`, respectively. In other words, unless you have an *application.py* in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
 - You want to start the Gunicorn web server with additional arguments beyond the defaults, which are `--bind=0.0.0.0 --timeout 600`.
+- Your app is built with a framework other than Flask or Django, or you want to use a different web server, in which case you need to customize the startup command.
 
 ## Create a startup file
 
 If you need a custom startup file, use the following steps:
 
-1. Create a file in your project named *startup.txt* (or another name of your choice) that contains your startup command. For Flask, see [Flask startup commands](#flask-startup-commands) in the next section. Django apps typically don't need customization.
+1. Create a file in your project named *startup.txt*, *startup.sh*, or another name of your choice that contains your startup command(s). See the later sections in this article for specifics on Django, Flask, and other frameworks.
+
+    A startup file can include multiple commands if needed.
 
 1. Commit the file to your code repository so it can be deployed with the rest of the app.
 
@@ -31,7 +34,7 @@ If you need a custom startup file, use the following steps:
 
     ![Open Application Settings in Portal in the App Service explorer](media/deploy-azure/open-application-settings-in-portal-for-app-service.png)
 
-1. In the Azure portal, sign in if necessary; then on the **Configuration** page, select **General settings**, enter the name of your startup file (like *startup.txt*) under **Stack settings** > **Startup Command**, then select **Save**.
+1. In the Azure portal, sign in if necessary; then on the **Configuration** page, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
 
     ![Setting the Startup Command file name in the Azure portal](media/deploy-azure/enter-startup-file-for-app-service-in-the-azure-portal.png)
 
@@ -40,11 +43,13 @@ If you need a custom startup file, use the following steps:
 
 1. The App Service restarts when you save changes. Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
 
+You can also specify a startup command with the Azure CLI [`az webapp create` command](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) by using the `--startup-file` argument.
+
 ## Django startup commands
 
 By default, App Service automatically locates the folder that contains your *wsgi.py* file and starts Gunicorn with the following command:
 
-```bash
+```cmd
 # <module> is the path to the folder that contains wsgi.py
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
@@ -53,7 +58,9 @@ If you want to change any of the Gunicorn arguments, such as using `--timeout 12
 
 ## Flask startup commands
 
-By default, the App Service on Linux container assumes that a Flask app's startup file is named *application.py* and resides in the app's root folder. It further assumes that the Flask app object defined within that file is named `app`. If your app isn't structured in this exact way, then your custom startup command must identify the app object's location:
+By default, the App Service on Linux container assumes that a Flask app's WSGI callable is named `app` and is contained in a file named *application.py* or *app.py* and resides in the app's root folder.
+
+If your app isn't structured in this exact way, then your custom startup command must identify the app object's location in the format *file:app_object*:
 
 1. **Different file name and/or app object name**: for example, if the app's startup file is *hello.py* and the app object is named `myapp`, the startup command is as follows:
 
@@ -81,6 +88,22 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 startup:app
     ```
+
+## Startup commands for other frameworks and web servers
+
+The App Service container that runs Python apps has Django and Flask installed by default, along with the gunicorn web server.
+
+To use a framework other than Django or Flask (such as Falcon, FastAPI, etc.), or to use a different web server, do the following:
+
+- Include the framework and/or web server in your *requirements.txt* file.
+- In your startup command, identify the WSGI callable as described in the [previous section for Flask](#flask-startup-commands).
+- To launch a web server other than gunicorn, use a `python -m` command instead of invoking the server directly. For example, the following command starts the uvicorn server, assuming that the WSGI callable is named `app` and is found in *application.py*:
+
+    ```sh
+    python -m uvicorn application:app --host 0.0.0.0
+    ```
+
+    You use `python -m` because web servers installed via *requirements.txt* are not added to the Python global environment and therefore cannot be invoked directly. The `python -m` command invokes the server from within the current virtual environment.
 
 > [!div class="nextstepaction"]
 > [I configured my startup file - continue to step 5 >>>](tutorial-deploy-app-service-on-linux-05.md)

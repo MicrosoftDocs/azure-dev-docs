@@ -1,15 +1,15 @@
 --- 
 title: Connect to GitHub from Azure and other services
 description: Resources to connect to GitHub from Azure and other services  
-ms.author: kaelli
-author: KathrynEE
+author: N-Usha 
+ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
 ms.date: 05/05/2020
 ---
 
 
-# Connect to GitHub from Azure and other services
+# Connect to GitHub from other Azure services
 
 The following articles provide details on connecting to GitHub from Azure and other services.  
 
