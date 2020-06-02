@@ -315,4 +315,8 @@ Before the [Azure Active Directory Authentication Library (ADAL) for Python](htt
 ## See also
 
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
-- [Example: Use the Azure SDK with Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

@@ -22,6 +22,8 @@
       href: azure-sdk-example-storage.md
     - name: "Example: Provision a web app with code"
       href: azure-sdk-example-web-app.md
+    - name: "Example: Provision & query a database"
+      href: azure-sdk-example-database.md
     - name: "Example: Provision a virtual machine"
       href: azure-sdk-example-virtual-machines.md
 - name: Get started with Azure services
