@@ -68,7 +68,7 @@ Logging levels are the same as the [standard logging library levels](https://doc
 | logging.WARNING (default) | A function fails to perform its intended task (but not when the function can recover, such as retrying a REST API call). Functions typically log a warning when raising exceptions. The warning level automatically enables the wrror level. |
 | logging.INFO              | Function operates normally or a service call is canceled. Info events typically include requests, responses, and headers. The info level automatically enables the error and warning levels. |
 | logging.DEBUG             | Detailed information that is commonly used for troubleshooting. Debug is the only logging level that includes sensitive information such as account keys in headers. Debug output typically includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. |
-| logging.NOTSET            | Disabled all logging. |
+| logging.NOTSET            | Disable all logging. |
 
 ### Library-specific logging level behavior
 
