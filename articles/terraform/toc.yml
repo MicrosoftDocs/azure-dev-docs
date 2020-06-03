@@ -7,10 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Install and configure Terraform
+    - name: Getting started - Cloud Shell
       href: install-configure.md
-    - name: Create a Linux VM
-      href: create-linux-virtual-machine-with-infrastructure.md
 - name: Tutorials
   items:
     - name: Setup and configuration
@@ -31,16 +29,6 @@
       items:
         - name: Deploy an Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
-    - name: Infrastructure
-      items:
-        - name: Create a VM cluster with Terraform modules
-          href: create-vm-cluster-module.md
-        - name: Create a VM cluster with Terraform and HCL
-          href: create-vm-cluster-with-infrastructure.md
-        - name: Provision VM scale set with infrastructure
-          href: create-vm-scaleset-network-disks-hcl.md
-        - name: Provision VM scale set from a Packer custom image
-          href: create-vm-scaleset-network-disks-using-packer-hcl.md
     - name: Networks
       items:
       - name: Hub and spoke topology 
@@ -65,6 +53,18 @@
           href: create-a-base-template-using-yeoman.md
         - name: Test Terraform modules using Terratest
           href: test-modules-using-terratest.md
+    - name: Virtual machines
+      items:
+        - name: Virtual machine with infrastructure
+          href: create-linux-virtual-machine-with-infrastructure.md
+        - name: Virtual machine cluster with Terraform modules
+          href: create-vm-cluster-module.md
+        - name: Virtual machine cluster with Terraform and HCL
+          href: create-vm-cluster-with-infrastructure.md
+        - name: Virtual machine scale set with infrastructure
+          href: create-vm-scaleset-network-disks-hcl.md
+        - name: Virtual machine scale set from Packer image
+          href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Samples
   items:
     - name: Configuration templates
