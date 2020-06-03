@@ -16,7 +16,7 @@
       href: configure-local-development-environment.md
     - name: Library usage patterns    
       href: azure-sdk-library-usage-patterns.md   
-    - Examples:
+    - name: Examples      
       items:
       - name: "Provision a resource group"
         href: azure-sdk-example-resource-group.md
