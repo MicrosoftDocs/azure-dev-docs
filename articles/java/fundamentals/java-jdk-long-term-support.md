@@ -85,7 +85,7 @@ The Azul Zulu for Azure - Enterprise Edition JDK releases:
 
 - Are supported for multiplatform. Zulu supports binaries for multiple platforms and versions:
 
-   * Windows client
+   * Windows
      * 10
      * 8.1
      * 8
