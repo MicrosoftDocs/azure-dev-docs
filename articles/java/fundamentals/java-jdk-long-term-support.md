@@ -76,7 +76,7 @@ The Azul Zulu for Azure - Enterprise Edition JDK releases:
 
 - Are production ready.
 
-   * 100% open-source for its builds of OpenJDK.
+   * 100% open source for its builds of OpenJDK.
    * Drop-in replacements for many Java SE distributions.
    * JDK, JRE, and headless JRE.
    * Java 7, 8, 11, and 13.
