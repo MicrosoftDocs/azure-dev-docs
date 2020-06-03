@@ -324,4 +324,5 @@ Before the [Azure Active Directory Authentication Library (ADAL) for Python](htt
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

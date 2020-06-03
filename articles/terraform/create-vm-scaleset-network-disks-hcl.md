@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](install-configure.md)
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell.md)
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -77,7 +77,7 @@ Within the Azure Cloud Shell, do the following steps:
 
    variable "tags" = {
     description = "A map of the tags to use for the resources that are deployed"
-    type        = map
+    type        = map(string)
 
     default = {
       environment = "codelab"

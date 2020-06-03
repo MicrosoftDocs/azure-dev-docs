@@ -190,7 +190,7 @@ Create the Terraform configuration file that declares the hub virtual network.
         private_ip_address_allocation = "Dynamic"
         subnet_id                     = azurerm_subnet.hub-gateway-subnet.id
       }
-      depends_on = ["azurerm_public_ip.hub-vpn-gateway1-pip"]
+      depends_on = [azurerm_public_ip.hub-vpn-gateway1-pip]
     }
 
     resource "azurerm_virtual_network_gateway_connection" "hub-onprem-conn" {
