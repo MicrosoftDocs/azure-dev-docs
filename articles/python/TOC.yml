@@ -16,18 +16,20 @@
       href: configure-local-development-environment.md
     - name: Library usage patterns    
       href: azure-sdk-library-usage-patterns.md   
-    - name: "Example: Provision a resource group"
-      href: azure-sdk-example-resource-group.md
-    - name: "Example: Provision Azure storage"
-      href: azure-sdk-example-storage.md
-    - name: "Example: Use Azure storage"
-      href: azure-sdk-example-storage-use.md
-    - name: "Example: Provision & deploy a web app"
-      href: azure-sdk-example-web-app.md
-    - name: "Example: Provision & query a database"
-      href: azure-sdk-example-database.md
-    - name: "Example: Provision a virtual machine"
-      href: azure-sdk-example-virtual-machines.md
+    - Examples:
+      items:
+      - name: "Provision a resource group"
+        href: azure-sdk-example-resource-group.md
+      - name: "Provision Azure storage"
+        href: azure-sdk-example-storage.md
+      - name: "Use Azure storage"
+        href: azure-sdk-example-storage-use.md
+      - name: "Provision & deploy a web app"
+        href: azure-sdk-example-web-app.md
+      - name: "Provision & query a database"
+        href: azure-sdk-example-database.md
+      - name: "Provision a virtual machine"
+        href: azure-sdk-example-virtual-machines.md
 - name: Explore specific Azure services
   items: 
   - name: App hosting
