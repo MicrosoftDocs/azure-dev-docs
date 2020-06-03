@@ -31,13 +31,13 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Getting started - Cloud Shell
-            url: install-configure.md
+            url: getting-started-cloud-shell.md
       - linkListType: tutorial
         links:
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Create a Terraform base template using Yeoman
-            url: create-a-base-template-using-yeoman.md
+            url: create-base-template-using-yeoman.md
           - text: Test Terraform modules using Terratest
             url: test-modules-using-terratest.md
             

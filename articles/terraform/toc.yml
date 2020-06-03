@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Getting started - Cloud Shell
-      href: install-configure.md
+      href: getting-started-cloud-shell.md
 - name: Tutorials
   items:
     - name: Setup and configuration
@@ -50,7 +50,7 @@
         - name: Install the Terraform Visual Studio Code extension
           href: configure-vs-code-extension-for-terraform.md
         - name: Create a Terraform base template using Yeoman
-          href: create-a-base-template-using-yeoman.md
+          href: create-base-template-using-yeoman.md
         - name: Test Terraform modules using Terratest
           href: test-modules-using-terratest.md
     - name: Virtual machines
