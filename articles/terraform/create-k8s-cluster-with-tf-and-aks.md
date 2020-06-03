@@ -23,7 +23,7 @@ In this tutorial, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell.md)
 
 - **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 

@@ -28,7 +28,7 @@ for all resources
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install and configure Terraform**: To provision VMs and other infrastructure in Azure, [install and configure Terraform](getting-started-cloud-shell)
+- **Install and configure Terraform**: To provision VMs and other infrastructure in Azure, [install and configure Terraform](getting-started-cloud-shell.md)
 
 ## Hub and spoke topology architecture
 
