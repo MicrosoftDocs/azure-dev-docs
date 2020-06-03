@@ -209,7 +209,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
         private_ip_address_allocation = "Dynamic"
         subnet_id                     = azurerm_subnet.onprem-gateway-subnet.id
       }
-      depends_on = ["azurerm_public_ip.onprem-vpn-gateway1-pip"]
+      depends_on = [azurerm_public_ip.onprem-vpn-gateway1-pip]
 
     }
     ```
