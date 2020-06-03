@@ -61,7 +61,7 @@ Azul Systems provides fully supported [Azul Zulu for Azure - Enterprise Edition]
 |[![Java 13 logo](media/supported-java-versions-java-13.png)](https://www.azul.com/downloads/azure-only/zulu/?&version=java-13) |March 2023 (MTS)|
 |[![Java 14 logo](media/supported-java-versions-java-14.png)](https://www.azul.com/downloads/azure-only/zulu/?version=java-14) |**Preview**|
 
-LTS and MTS JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed. This support includes backports of security updates and bug fixes reported in newer versions of Java, like Java 11, to Java 7 and 8. This backporting ensures the continued stability and security of older versions of Java. Azure customers can get these security updates and platform bug fixes without incurring any unplanned Java SE subscription fees.
+LTS and MTS JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed. This support includes backports to Java 7 and 8 of security updates and bug fixes reported in newer versions of Java, like Java 11. This backporting ensures the continued stability and security of older versions of Java. Azure customers can get these security updates and platform bug fixes without incurring any unplanned Java SE subscription fees.
 
 ## Benefits for developers
 
