@@ -197,6 +197,12 @@ This code uses the CLI-based authentication methods (`get_client_from_cli_profil
 
 To use such code in a production script (for example, to automate VM management), use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
 
+### Reference links for classes used in the code
+
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
+- [NetworkManagementClient (azure.mgmt.network)](/python/api/azure-mgmt-network/azure.mgmt.network.networkmanagementclient?view=azure-python)
+- [ComputeManagementClient (azure.mgmt.compute)](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient?view=azure-python)
+
 ## 4. Run the script
 
 ```cmd
@@ -292,6 +298,7 @@ Run this command if you don't need to keep the resources created in this example
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
 
 The following resources container more comprehensive examples using Python to create a virtual machine:
 
