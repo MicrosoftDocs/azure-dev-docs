@@ -8,7 +8,7 @@ ms.custom: seo-java-september2019
 
 # Java long-term support and medium-term support on Azure and Azure Stack
 
-Java developers on Azure and Azure Stack can build and run production Java applications by using the [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) JDK builds without incurring additional support costs. You can use any Java runtime you want on Azure, but when you use Zulu, you get free maintenance updates and can create support tickets with Microsoft.
+Java developers on Azure and Azure Stack can build and run production Java applications by using the [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) JDK builds without incurring additional support costs. You can use any Java runtime you want on Azure. But when you use Zulu, you get free maintenance updates and can create support tickets with Microsoft.
 
 Releases designated as long-term support (LTS) are the same LTS releases designated by Oracle and the OpenJDK community. For LTS releases, we provide at least 8 years of access to bug fixes, security updates, and other (Production Support) fixes as needed. We also provide 2 years of additional support intended to advise and assist users who are migrating to a newer JDK version (Extended Support).
 
@@ -51,7 +51,7 @@ Azul Zulu for Azure - Enterprise Edition builds of OpenJDK are free, multiplatfo
 
 ## Supported Java versions and update schedule
 
-Azul Systems provides fully-supported [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) builds for all long-term support (LTS) and medium-term support (MTS) versions of Java, including Java SE 7, 8, 11, and 13. For more information, see the [Azul press release](https://www.azul.com/press_release/free-java-production-support-for-microsoft-azure-azure-stack) and the [Azul Product Support Lifecycle](https://www.azul.com/products/azul_support_roadmap/) roadmap.
+Azul Systems provides fully supported [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/) builds for all long-term support (LTS) and medium-term support (MTS) versions of Java, including Java SE 7, 8, 11, and 13. For more information, see the [Azul press release](https://www.azul.com/press_release/free-java-production-support-for-microsoft-azure-azure-stack) and the [Azul Product Support Lifecycle](https://www.azul.com/products/azul_support_roadmap/) roadmap.
 
 |Java SE version  |Supported until  |
 |---------|----------|
