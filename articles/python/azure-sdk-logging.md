@@ -5,7 +5,7 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ---
 
-# Logging in the Azure libraries for Python
+# Configure logging in the Azure libraries for Python
 
 Azure Libraries for Python that appear on the [Latest releases](https://azure.github.io/azure-sdk/releases/latest/python.html) page provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
 

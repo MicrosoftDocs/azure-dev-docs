@@ -100,7 +100,7 @@
     href: how-to-manage-service-principals.md
   - name: Assign role permissions to security principals
     href: how-to-assign-role-permissions.md
-  - name: Logging
+  - name: Configure logging
     href: azure-sdk-logging.md
   - name: Configure REST API arguments
     href: azure-sdk-operation-config.md
