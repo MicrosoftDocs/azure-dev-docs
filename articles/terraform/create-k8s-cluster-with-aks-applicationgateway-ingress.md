@@ -27,7 +27,7 @@ In this tutorial, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](install-configure.md)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell)
 
 - **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
 

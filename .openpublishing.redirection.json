@@ -887,6 +887,10 @@
     {
       "source_path": "developer/ansible/cloudshell-run-playbook.md",
       "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "developer/terraform/install-configure.md",
+      "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
     }
   ]
 }
