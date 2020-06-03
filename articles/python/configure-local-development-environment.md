@@ -17,7 +17,7 @@ This article provides the one-time setup instructions to create and validate a l
 
 Once you've configured your workstation, you'll need only minimal added configuration to complete various quickstarts and tutorials elsewhere on this developer center and in the Azure documentation.
 
-Whether you can deploy Python code to any given Azure service depends on that service's specific support for the language. A good place to start is the [index of app hosting services](quickstarts-app-hosting.md).
+This setup for local development is a separate matter from [provisioning resources](cloud-development-flow.md) that make up your application's *cloud environment* on Azure. In your development process, you run code in your local dev environment that can access those cloud resources, but your code is not yet deployed to a [suitable hosting service](quickstarts-app-hosting.md) in the cloud. That deployment step comes later, as described in the [Azure development flow](cloud-development-flow.md) article.
 
 ## Install components
 
