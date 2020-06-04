@@ -1,7 +1,7 @@
 ---
 title: The Azure development flow
 description: An overview of the cloud development cycle on Azure, which involves provisioning, coding, testing, deployment, and management.
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ---
 
@@ -10,8 +10,6 @@ ms.topic: conceptual
 [Previous article: provisioning, accessing, and managing resources](cloud-development-provisioning.md)
 
 Now that you understand Azure's model of services and resources, you can understand the overall flow of developing cloud applications with Azure: **provision**, **code**, **test**, **deploy**, and **manage**.
-
-The following table summarizes the process:
 
 | Step | Primary tools | Activities |
 | --- | --- | --- |
