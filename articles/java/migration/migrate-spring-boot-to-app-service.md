@@ -52,9 +52,7 @@ It isn't feasible to document every possible external dependency in this guide. 
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Boot application, such strings will likely be found in *application.properties* or *application.yml*.
 
-#### Inventory certificates
-
-[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
+[!INCLUDE [inventory-certificates-h4](includes/inventory-certificates-h4.md)]
 
 [!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
 
