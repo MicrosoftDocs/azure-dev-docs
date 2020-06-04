@@ -121,6 +121,7 @@ Now that you understand the common patterns for using the Azure libraries for Py
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
 
 You can try these examples in any order as they are neither sequential nor interdependent.

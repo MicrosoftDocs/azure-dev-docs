@@ -194,5 +194,5 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
-- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
