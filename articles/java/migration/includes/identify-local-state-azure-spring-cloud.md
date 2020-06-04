@@ -16,8 +16,7 @@ In any of these cases, the original instance will remain running until the new i
 * No [singleton](https://en.wikipedia.org/wiki/Singleton_pattern) can be guaranteed to be truly single.
 * Any data that has not been persisted to outside storage will likely be lost far sooner than it would on a single physical server or VM.
 
-Before migrating to Azure Spring Cloud, ensure that your code does not contain local state that must not be lost or duplicated.
-If local state exists, change the code to store that state outside the application. Cloud-ready applications typically store application state in locations such as the following:
+Before migrating to Azure Spring Cloud, ensure that your code does not contain local state that must not be lost or duplicated. If local state exists, change the code to store that state outside the application. Cloud-ready applications typically store application state in locations such as the following:
 
 * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started)
 * [Azure CosmosDB](/azure/cosmos-db/create-sql-api-java)
