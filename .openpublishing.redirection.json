@@ -561,6 +561,10 @@
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
+      "source_path": "python/azure-sdk-overview.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },    
+    {
       "source_path": "python/python-sdk-azure-install.md",
       "redirect_url": "/azure/developer/python/azure-sdk-install"
     },

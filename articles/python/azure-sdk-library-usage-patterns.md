@@ -29,6 +29,35 @@ pip install azure-storage-blob
 
 You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
+## Asynchronous operations
+
+Many operations that you invoke through client and management client objects (such as [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations?view=azure-python#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
+
+An [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller?view=azure-python) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the actual result of the operation to become available.
+
+The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
+
+```python
+poller = app_service_client.web_apps.create_or_update(RESOURCE_GROUP_NAME,
+    WEB_APP_NAME,
+    {
+        "location": LOCATION,
+        "server_farm_id": plan_result.id,
+        "site_config": {
+            "linux_fx_version": "python|3.8"
+        }
+    }
+)
+
+web_app_result = poller.result()
+```
+
+In this case, the return value of `create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.models.site?view=azure-python) object.
+
+## Logging
+
+The most recent Azure libraries use the Python standard `logging` library to generate log output. You can set the logging level for individual libraries, groups of libraries, or all libraries. Once you register a logging stream handler, you can then enable logging for a specific client object or a specific operation. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md).
+
 ## Inline JSON pattern for object arguments
 
 Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.
@@ -110,7 +139,7 @@ operation = keyvault_client.vaults.create_or_update(
 )
 ```
 
-Because both forms are equivalent, you can  whichever you prefer and even intermix them.
+Because both forms are equivalent, you can choose whichever you prefer and even intermix them.
 
 If your JSON isn't formed properly, you typically get the error, "DeserializationError: Unable to deserialize to object: type, AttributeError: 'str' object has no attribute 'get'". A common cause of this error is that you're providing a single string for a property when the library expects a nested JSON object. For example, using `"sku": "standard"` in the previous example generates this error because the `sku` parameter is a `Sku` object that expects inline object JSON, in this case `{ "name": "standard"}`, which maps to the expected `SkuName` type.
 
