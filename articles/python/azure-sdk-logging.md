@@ -1,7 +1,7 @@
 ---
 title: Configure logging in the Azure libraries for Python
-description: The Azure libraries use the standard Python logging module and is configured on a per-library or per-operation basis.
-ms.date: 06/01/2020
+description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
+ms.date: 06/04/2020
 ms.topic: conceptual
 ---
 
@@ -65,7 +65,7 @@ Logging levels are the same as the [standard logging library levels](https://doc
 | Logging level             | Typical use |
 | ---                       | ---         |
 | logging.ERROR             | Failures where the application is unlikely to recover (such as out of memory). |
-| logging.WARNING (default) | A function fails to perform its intended task (but not when the function can recover, such as retrying a REST API call). Functions typically log a warning when raising exceptions. The warning level automatically enables the wrror level. |
+| logging.WARNING (default) | A function fails to perform its intended task (but not when the function can recover, such as retrying a REST API call). Functions typically log a warning when raising exceptions. The warning level automatically enables the error level. |
 | logging.INFO              | Function operates normally or a service call is canceled. Info events typically include requests, responses, and headers. The info level automatically enables the error and warning levels. |
 | logging.DEBUG             | Detailed information that is commonly used for troubleshooting. Debug is the only logging level that includes sensitive information such as account keys in headers. Debug output typically includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. |
 | logging.NOTSET            | Disable all logging. |

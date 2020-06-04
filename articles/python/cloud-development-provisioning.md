@@ -30,7 +30,7 @@ Within this developer center, we primarily show use of the CLI and Python code t
 
 The [Azure portal](https://portal.azure.com) is Azure's fully customizable, browser-based user interface through which you can provision and manage resources with all Azure services. To access the portal, you must first sign in using a Microsoft Account and then create a free Azure account with a subscription. (Once signed in, you can select the **?** icon and select **Launch guided tour** for a simple walkthrough of the main portal features.)
 
-**Pros**: The user interface makes it easy to explore services and all their the various configuration options. Setting configuration values is secure because no information is stored on the local workstation.
+**Pros**: The user interface makes it easy to explore services and all their various configuration options. Setting configuration values is secure because no information is stored on the local workstation.
 
 **Cons**: Working with the portal is a manual process and cannot be automated. To remember what you did to change a configuration, for example, means recording your steps in a separate document.
 
@@ -66,7 +66,7 @@ For more information, see [Autoscaling](/azure/architecture/best-practices/auto-
 
 Within Azure's resource model, you can imagine that, over time, you'll be provisioning many different resources across many Azure services for different applications. There are three levels of hierarchy that you can use to organize these resources:
 
-1. **Subscriptions**: each Azure subscription has its own billing account and oftentimes represents a distinct team or department within an organization. In general, you provision all the resources you need for any given application within the same subscription so they can benefit from features like shared authentication. However, because all resources can be accessed through public URLs and the necessary authorization tokens, it's certainly possible to spread resources across multiple subscriptions.
+1. **Subscriptions**: each Azure subscription has its own billing account and often represents a distinct team or department within an organization. In general, you provision all the resources you need for any given application within the same subscription so they can benefit from features like shared authentication. However, because all resources can be accessed through public URLs and the necessary authorization tokens, it's certainly possible to spread resources across multiple subscriptions.
 
 1. **Resource groups**: within a subscription, resource groups are containers for other resources, which you can then manage *as* a group. (For this reason, a resource group typically relates to a specific project.) Whenever you provision a resource, in fact, you must specify the group to which is belongs. Your first step with a new project is usually to create an appropriate resource group. And by deleting the resource group you de-allocate all of its contained resources rather than having to delete each resource individually. Trust us when we say that neglecting to organize your resource groups can lead to many headaches later on when you don't remember which resource belongs to which project!
 
