@@ -70,7 +70,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
       name     = "${local.prefix-hub-nva}-rg"
       location = local.hub-nva-location
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -88,7 +88,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         private_ip_address            = "10.0.0.36"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -124,7 +124,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -147,7 +147,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         }
     SETTINGS
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -178,7 +178,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_in_ip_address = "10.0.0.36"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -186,7 +186,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
     resource "azurerm_subnet_route_table_association" "hub-gateway-rt-hub-vnet-gateway-subnet" {
       subnet_id      = azurerm_subnet.hub-gateway-subnet.id
       route_table_id = azurerm_route_table.hub-gateway-rt.id
-      depends_on = ["azurerm_subnet.hub-gateway-subnet"]
+      depends_on = [azurerm_subnet.hub-gateway-subnet]
     }
 
     resource "azurerm_route_table" "spoke1-rt" {
@@ -208,7 +208,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_type  = "vnetlocal"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -216,13 +216,13 @@ Create the Terraform configuration file that declares an on-premises virtual net
     resource "azurerm_subnet_route_table_association" "spoke1-rt-spoke1-vnet-mgmt" {
       subnet_id      = azurerm_subnet.spoke1-mgmt.id
       route_table_id = azurerm_route_table.spoke1-rt.id
-      depends_on = ["azurerm_subnet.spoke1-mgmt"]
+      depends_on = [azurerm_subnet.spoke1-mgmt]
     }
 
     resource "azurerm_subnet_route_table_association" "spoke1-rt-spoke1-vnet-workload" {
       subnet_id      = azurerm_subnet.spoke1-workload.id
       route_table_id = azurerm_route_table.spoke1-rt.id
-      depends_on = ["azurerm_subnet.spoke1-workload"]
+      depends_on = [azurerm_subnet.spoke1-workload]
     }
 
     resource "azurerm_route_table" "spoke2-rt" {
@@ -244,7 +244,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
         next_hop_type  = "vnetlocal"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub-nva
       }
     }
@@ -252,13 +252,13 @@ Create the Terraform configuration file that declares an on-premises virtual net
     resource "azurerm_subnet_route_table_association" "spoke2-rt-spoke2-vnet-mgmt" {
       subnet_id      = azurerm_subnet.spoke2-mgmt.id
       route_table_id = azurerm_route_table.spoke2-rt.id
-      depends_on = ["azurerm_subnet.spoke2-mgmt"]
+      depends_on = [azurerm_subnet.spoke2-mgmt]
     }
 
     resource "azurerm_subnet_route_table_association" "spoke2-rt-spoke2-vnet-workload" {
       subnet_id      = azurerm_subnet.spoke2-workload.id
       route_table_id = azurerm_route_table.spoke2-rt.id
-      depends_on = ["azurerm_subnet.spoke2-workload"]
+      depends_on = [azurerm_subnet.spoke2-workload]
     }
 
     ```

@@ -1,8 +1,8 @@
 --- 
 title: Work with Azure DevOps and GitHub  
-description: Find resources that support integration of Azure DevOps and GitHub    
-ms.author: kaelli
-author: KathrynEE
+description: Find resources that support integration of Azure DevOps and GitHub  
+author: N-Usha 
+ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
 ms.date: 05/05/2020

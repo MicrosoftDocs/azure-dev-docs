@@ -118,6 +118,9 @@
       },
       "ms.prod": {
         "python/**/*.md": "azure-python"
+      },
+      "ms.custom": {
+        "python/**/*.md": "haspython"
       }
     },
     "template": [],

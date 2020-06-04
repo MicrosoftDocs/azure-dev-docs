@@ -17,7 +17,7 @@ To implement a static/JAMstack site on Azure, you employ a variety of tools and 
 - Choose any libraries you want for front-end development, such as Angular. You then upload these static HTML, CSS, and JavaScript files to Azure Blob Storage, which provides a built-in web server.
 - Create a reverse proxy so that all your traffic goes through one URL domain.
 
-You can watch a demonstration of the process with the //build 2019 session, [Productive front-end development with JavaScript, Visual Studio Code, and Azure](https://mybuild.techcommunity.microsoft.com/sessions/77038?source=sessions#top-anchor).
+You can watch a demonstration of the process with the //build 2019 session, [Productive front-end development with JavaScript, Visual Studio Code, and Azure](https://azure.microsoft.com/resources/videos/build-2019-productive-front-end-development-with-javascript-visual-studio-code-and-azure/).
 
 > [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
 

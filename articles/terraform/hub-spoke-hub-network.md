@@ -83,7 +83,7 @@ Create the Terraform configuration file that declares the hub virtual network.
       resource_group_name = azurerm_resource_group.hub-vnet-rg.name
       address_space       = ["10.0.0.0/16"]
 
-      tags {
+      tags = {
         environment = "hub-spoke"
       }
     }
@@ -121,7 +121,7 @@ Create the Terraform configuration file that declares the hub virtual network.
         private_ip_address_allocation = "Dynamic"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub
       }
     }
@@ -158,7 +158,7 @@ Create the Terraform configuration file that declares the hub virtual network.
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-hub
       }
     }
@@ -190,7 +190,7 @@ Create the Terraform configuration file that declares the hub virtual network.
         private_ip_address_allocation = "Dynamic"
         subnet_id                     = azurerm_subnet.hub-gateway-subnet.id
       }
-      depends_on = ["azurerm_public_ip.hub-vpn-gateway1-pip"]
+      depends_on = [azurerm_public_ip.hub-vpn-gateway1-pip]
     }
 
     resource "azurerm_virtual_network_gateway_connection" "hub-onprem-conn" {

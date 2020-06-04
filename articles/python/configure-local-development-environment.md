@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
-description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, then Azure SDK, and the necessary credentials for SDK authentication.
-ms.date: 05/12/2020
+description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
@@ -12,10 +12,12 @@ When creating cloud applications, developers typically prefer to test code on th
 This article provides the one-time setup instructions to create and validate a local dev environment that's suitable for Python on Azure:
 
 - [Install required components](#required-components), namely an Azure account, Python, and the Azure CLI.
-- [Configure authentication](#configure-authentication) for when you use Azure SDK libraries to provision, manage, and access Azure resources.
+- [Configure authentication](#configure-authentication) for when you use Azure libraries to provision, manage, and access Azure resources.
 - Review the process of [using Python virtual environments](#use-python-virtual-environments) for each of your projects.
 
 Once you've configured your workstation, you'll need only minimal added configuration to complete various quickstarts and tutorials elsewhere on this developer center and in the Azure documentation.
+
+This setup for local development is a separate matter from [provisioning resources](cloud-development-flow.md) that make up your application's *cloud environment* on Azure. In your development process, you run code in your local dev environment that can access those cloud resources, but your code is not yet deployed to a [suitable hosting service](quickstarts-app-hosting.md) in the cloud. That deployment step comes later, as described in the [Azure development flow](cloud-development-flow.md) article.
 
 ## Install components
 
@@ -25,11 +27,11 @@ Once you've configured your workstation, you'll need only minimal added configur
 | --- | --- |
 | [Azure account with an active subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=python-dev-center&mktingSource=environment-setup) | Accounts/subscriptions are free and include many free-to-use services. |
 | [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
-| [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure SDK management libraries. |
+| [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure management libraries. |
 
 Notes:
 
-- You install individual Azure SDK libraries on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project.
+- You install individual Azure library packages on a per-project basis depending on your needs. We recommend [using Python virtual environments](#use-python-virtual-environments) for each project. There is no standalone "SDK" installer for Python.
 - Although Azure PowerShell is generally equivalent to the Azure CLI, we recommend the Azure CLI when working with Python.
 
 ### Recommended components
@@ -66,17 +68,17 @@ az login
 
 The `az` command is the root command of the Azure CLI. What follows `az` is one or more specific commands, such as `login`. See the [az login](/cli/azure/authenticate-azure-cli) command reference.
 
-The Azure CLI normally maintains your sign in across sessions, but it's a good practice to run `az login` whenever you open a new terminal or command prompt.
+The Azure CLI normally maintains your sign-in across sessions, but it's a good practice to run `az login` whenever you open a new terminal or command prompt.
 
 ## Configure authentication
 
 As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
 
-The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure SDK.
+The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure libraries when needed.
 
 Each developer in your organization should perform these steps individually.
 
-### Create a service principal for development
+### Create a service principal and environment variables for development
 
 1. Open a terminal or command prompt in which you've signed into the Azure CLI (`az login`).
 
@@ -86,49 +88,37 @@ Each developer in your organization should perform these steps individually.
     az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
     ```
 
-    - If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
+    This command saves it output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
-    - `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command reference.
+    If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
-    - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
+1. Create environment variables that the Azure libraries require. (The `DefaultAzureCredential` object of the azure-identity library looks for these variables).
 
-    - The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. Different quickstarts and tutorials provide details for authorizing a service principal for the resources involved.
+    # [cmd](#tab/cmd)
 
-    - The command provides JSON output, which is saved in a file named *local-sp.json*.
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+    set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
+    set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
+    set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
+    ```
 
-    - The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
+    # [bash](#tab/bash)
 
-        <pre>
-        {
-          "clientId": "12345678-1111-2222-3333-1234567890ab",
-          "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
-          "subscriptionId": "00000000-0000-0000-0000-000000000000",
-          "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
-          "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-          "resourceManagerEndpointUrl": "https://management.azure.com/",
-          "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-          "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-          "galleryEndpointUrl": "https://gallery.azure.com/",
-          "managementEndpointUrl": "https://management.core.windows.net/"
-        }
-        </pre>
+    ```bash
+    AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
+    AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
+    AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
+    AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
+    ```
 
-        Without the `--sdk-auth` argument, the command generates simpler output:
+    ---
 
-        <pre>
-        {
-          "appId": "12345678-1111-2222-3333-1234567890ab",
-          "displayName": "localtest-sp-rbac",
-          "name": "http://localtest-sp-rbac",
-          "password": "abcdef00-4444-5555-6666-1234567890ab",
-          "tenant": "00112233-7777-8888-9999-aabbccddeeff"
-        }
-        </pre>
+    Replace the values shown in these commands with those of your specific service principal.
 
-        In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
 
-        > [!IMPORTANT]
-        > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
+    For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
 
 1. Safeguard the client ID and client secret (and any files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
 
@@ -136,35 +126,53 @@ Each developer in your organization should perform these steps individually.
 
     Furthermore, a development service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
 
-To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
+1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
-### Create environment variables for the Azure SDK
+#### What the create-for-rbac command does
 
-# [bash](#tab/bash)
+The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC).
 
-```bash
-AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
-AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
-AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
-AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
-```
+- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command reference.
 
-# [cmd](#tab/cmd)
+- The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-```cmd
-set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
-set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
-set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
-set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
-```
+- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. Different quickstarts and tutorials provide details for authorizing a service principal for the resources involved.
 
----
+- The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
 
-Replace the values shown in these commands with those of your specific service principal.
+- The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
 
-To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
+    <pre>
+    {
+      "clientId": "12345678-1111-2222-3333-1234567890ab",
+      "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
+    }
+    </pre>
 
-For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
+    Without the `--sdk-auth` argument, the command generates simpler output:
+
+    <pre>
+    {
+      "appId": "12345678-1111-2222-3333-1234567890ab",
+      "displayName": "localtest-sp-rbac",
+      "name": "http://localtest-sp-rbac",
+      "password": "abcdef00-4444-5555-6666-1234567890ab",
+      "tenant": "00112233-7777-8888-9999-aabbccddeeff"
+    }
+    </pre>
+
+    In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+
+    > [!IMPORTANT]
+    > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
 
 ## Use Python virtual environments
 
@@ -176,13 +184,13 @@ For every project, we recommend that you always create and activate a *virtual e
 
 1. Create the virtual environment:
 
-    # [bash](#tab/bash)
+    # [cmd](#tab/cmd)
 
     ```bash
     python -m venv .venv
     ```
 
-    # [cmd](#tab/cmd)
+    # [bash](#tab/bash)
 
     ```bash
     python -m venv .venv
@@ -194,16 +202,16 @@ For every project, we recommend that you always create and activate a *virtual e
 
 1. Activate the virtual environment:
 
-    # [bash](#tab/bash)
-
-    ```bash
-    source .venv/scripts/activate
-    ```
-
     # [cmd](#tab/cmd)
 
     ```bash
     .venv\scripts\activate
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    source .venv/scripts/activate
     ```
 
     ---
@@ -218,7 +226,7 @@ The global environment is where you do want to install tool packages that you wa
 
 We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, simply run the following command:
 
-```bash
+```cmd
 git init
 ```
 
@@ -234,7 +242,7 @@ You can also use any other source control tool of your choice; Git is simply one
 
 ## Next step
 
-With your local dev environment in place, let's now take a quick look at the Azure SDK.
+With your local dev environment in place, take a quick look at the common usage patterns for the Azure libraries:
 
 > [!div class="nextstepaction"]
-> [Use the Azure SDK >>>](azure-sdk-overview.md)
+> [Review common usage patterns >>>](azure-sdk-library-usage-patterns.md)

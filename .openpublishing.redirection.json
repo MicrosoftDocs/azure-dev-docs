@@ -505,9 +505,16 @@
       "redirect_url": "https://docs.microsoft.com/azure/developer/python"
     },
     {
+      "source_path": "articles/python/sdk/index.yml",
+      "redirect_url": "/azure/developer/python"
+    },
+    {
+      "source_path": "articles/python/sdk.md",
+      "redirect_url": "/azure/developer/python/sdk-library-api-reference.md"
+    },
+    {
       "source_path": "python/developer/azure-sdk-get-started.yml",
-      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group",
-      "redirect_document_id": true
+      "redirect_url": "https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group"
     },    
     {
       "source_path": "python/python-sdk-azure-sql-database-samples.md",
@@ -539,8 +546,7 @@
     },
     {
       "source_path": "python/python-sdk-azure-get-started.yml",
-      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group",
-      "redirect_document_id": true
+      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group"
     },
     {
       "source_path": "python/python-sdk-azure-multi-cloud.md",
@@ -554,6 +560,10 @@
       "source_path": "python/python-sdk-azure-overview.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
+    {
+      "source_path": "python/azure-sdk-overview.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },    
     {
       "source_path": "python/python-sdk-azure-install.md",
       "redirect_url": "/azure/developer/python/azure-sdk-install"
@@ -592,11 +602,19 @@
     },
     {
       "source_path": "python/quickstarts-messaging.md",
-      "redirect_url": "/azure/developer/python/quickstarts-messaging"
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
     },
     {
+      "source_path": "articles/python/quickstarts-messaging.md",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
+    },    
+    {
       "source_path": "python/quickstarts-security-integration.md",
-      "redirect_url": "/azure/developer/python/quickstarts-security-integration"
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
+    },
+    {
+      "source_path": "articles/python/quickstarts-security-integration.md",
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
       "source_path": "python/tutorial-deploy-app-service-on-linux-01.md",
@@ -865,6 +883,22 @@
     {
       "source_path": "dotnet-redirects/index.md",
       "redirect_url": "/dotnet/azure"
+    },
+    {
+      "source_path": "articles/devsecops/index.yml",
+      "redirect_url": "/azure/devops/devsecops"
+    },
+    {
+      "source_path": "developer/ansible/cloudshell-run-playbook.md",
+      "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "developer/terraform/install-configure.md",
+      "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "developer/terraform/create-a-base-template-using-yeoman.md",
+      "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
     }
   ]
 }

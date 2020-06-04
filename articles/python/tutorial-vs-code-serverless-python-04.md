@@ -2,7 +2,7 @@
 title: "Step 4: Debug the Azure Functions Python code locally with VS Code"
 description: Tutorial step 4, running the VS Code debugger locally to check your Python code.
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/19/2020
 ms.custom: seo-python-october2019
 ---
 
@@ -33,14 +33,6 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
-    # [bash](#tab/bash)
-
-    ```bash
-    # Mac OS/Linux: modify the URL if you're using a different function name
-    curl --header "Content-Type: application/json" --request POST \
-        --data '{"name":"Visual Studio Code"}' http://localhost:7071/api/HttpExample
-    ```
-
     # [PowerShell](#tab/powershell)
 
     ```powershell
@@ -52,6 +44,14 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
     In PowerShell, you can also use the [Invoke-WebRequest cmdlet](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-6).
 
+    # [bash](#tab/bash)
+
+    ```bash
+    # Mac OS/Linux: modify the URL if you're using a different function name
+    curl --header "Content-Type: application/json" --request POST \
+        --data '{"name":"Visual Studio Code"}' http://localhost:7071/api/HttpExample
+    ```
+
     ---
 
     Alternately, create a file like *data.json* that contains `{"name":"Visual Studio Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
@@ -59,6 +59,11 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 1. To test debugging the function, set a breakpoint on the line that reads `name = req.params.get('name')` and make a request to the URL again. The Visual Studio Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Visual Studio Code Tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial#configure-and-run-the-debugger).)
 
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
+
+> [!NOTE]
+> If you encounter the error, "Failed to verify 'AzureWebJobsStorage' connection specified in 'local.settings.json'.", the *local.settings.json* file in your project contains the line, `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`. This line indicates that the debugger expects to use the Azure Storage Emulator locally, but it's not installed. In this case, you can [install the Azure Storage Emulator](/azure/storage/common/storage-use-emulator#get-the-storage-emulator), [start and initialize the emulator](/azure/storage/common/storage-use-emulator#start-and-initialize-the-storage-emulator), and restart the debugger.
+>
+> Alternately, change the line in the JSON file to `"AzureWebJobsStorage": ""` and restart the debugger.
 
 > [!div class="nextstepaction"]
 > [I ran the debugger locally - continue to step 5 >>>](tutorial-vs-code-serverless-python-05.md)

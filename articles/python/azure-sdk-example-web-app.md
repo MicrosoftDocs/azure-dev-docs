@@ -1,13 +1,13 @@
 ---
-title: Provision and deploy a web app using the Azure SDK
-description: Use the management libraries in the Azure SDK for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 05/12/2020
+title: Provision and deploy a web app using the Azure SDK libraries
+description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
+ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure SDK to provision and deploy a web app
+# Example: Use the Azure libraries to provision and deploy a web app
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -17,19 +17,19 @@ If you haven't already, follow all the instructions on [Configure your local Pyt
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
-## 2: Install the needed management libraries
+## 2: Install the needed Azure library packages
 
 Create a file named *requirements.txt* with the following contents:
 
 ```text
 azure-mgmt-resource
 azure-mgmt-web
-azire-cli-core
+azure-cli-core
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```bash
+```cmd
 pip install -r requirements.txt
 ```
 
@@ -37,18 +37,20 @@ pip install -r requirements.txt
 
 Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You use a fork to ensure that you have permissions to deploy the repository to Azure.
 
-Then create an environment variable named `REPO_URL` with the URL of your fork. The code in the next section depends on this environment variable:
+![Forking the sample repository on GitHub](media/azure-sdk-example-web-app/fork-github-repository.png)
 
-# [bash](#tab/bash)
-
-```bash
-REPO_URL=<url_of_your_fork>
-```
+Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
 # [cmd](#tab/cmd)
 
 ```cmd
 set REPO_URL=<url_of_your_fork>
+```
+
+# [bash](#tab/bash)
+
+```bash
+REPO_URL=<url_of_your_fork>
 ```
 
 ---
@@ -68,7 +70,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 # Constants we need in multiple places: the resource group name and the region
 # in which we provision resources. You can change these values however you want.
-RESOURCE_GROUP_NAME = 'PythonSDKExample-WebApp-rg'
+RESOURCE_GROUP_NAME = 'PythonAzureExample-WebApp-rg'
 LOCATION = "centralus"
 
 # Step 1: Provision the resource group.
@@ -89,8 +91,8 @@ print(f"Provisioned resource group {rg_result.name}")
 # latter to create a reasonably unique name. If you've already provisioned a
 # web app and need to re-run the script, set the WEB_APP_NAME environment 
 # variable to that name instead.
-SERVICE_PLAN_NAME = 'PythonSDKExample-WebApp-plan'
-WEB_APP_NAME = os.environ.get("WEB_APP_NAME", f"PythonSDKExample-WebApp-{random.randint(1,100000):05}")
+SERVICE_PLAN_NAME = 'PythonAzureExample-WebApp-plan'
+WEB_APP_NAME = os.environ.get("WEB_APP_NAME", f"PythonAzureExample-WebApp-{random.randint(1,100000):05}")
 
 # Obtain the client object
 app_service_client = get_client_from_cli_profile(WebSiteManagementClient)
@@ -142,8 +144,8 @@ print(f"Provisioned web app {web_app_result.name} at {web_app_result.default_hos
 REPO_URL = 'https://github.com/kraigb/python-docs-hello-world'
 
 poller = app_service_client.web_apps.create_or_update_source_control(RESOURCE_GROUP_NAME,
-    WEB_APP_NAME, 
-    { 
+    WEB_APP_NAME,
+    {
         "location": "GitHub",
         "repo_url": REPO_URL,
         "branch": "master"
@@ -159,9 +161,14 @@ This code uses the CLI-based authentication methods (`get_client_from_cli_profil
 
 To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
 
+### Reference links for classes used in the code
+
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
+- [WebSiteManagementClient (azure.mgmt.web import)](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient?view=azure-python)
+
 ## 5: Run the script
 
-```bash
+```cmd
 python provision_deploy_web_app.py
 ```
 
@@ -170,19 +177,19 @@ python provision_deploy_web_app.py
 1. Visit the deployed web site by running the following command:
 
     ```azurecli
-    az webapp browse -n PythonSDKExample-WebApp-12345
+    az webapp browse -n PythonAzureExample-WebApp-12345
     ```
 
-    Replace "PythonSDKExample-WebApp-12345" with the specific name of your web app.
+    Replace "PythonAzureExample-WebApp-12345" with the specific name of your web app.
 
     You should see "Hello World!" in the browser.
 
-1. Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonSDKExample-WebApp-rg" is listed. Then Navigate into that list to verify the expected resources exist, namely the App Service Plan and the App Service.
+1. Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Then Navigate into that list to verify the expected resources exist, namely the App Service Plan and the App Service.
 
 ## 7: Clean up resources
 
 ```azurecli
-az group delete -n PythonSDKExample-WebApp-rg
+az group delete -n PythonAzureExample-WebApp-rg
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
@@ -193,39 +200,39 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-# [bash](#tab/bash)
+# [cmd](#tab/cmd)
 
 ```azurecli
-az group create -l centralus -n PythonSDKExample-WebApp-rg
+az group create -l centralus -n PythonAzureExample-WebApp-rg
 
-az appservice plan create -n PythonSDKExample-WebApp-plan --is-linux --sku F1
+az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
 
-az webapp create -g PythonSDKExample-WebApp-rg -n PythonSDKExample-WebApp-12345 \
-    --plan PythonSDKExample-WebApp-plan --runtime "python|3.8"
+az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 ^
+    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
 
 # You can use --deployment-source-url with the first create command. It's shown here
 # to match the sequence of the Python code.
 
-az webapp create -n PythonSDKExample-WebApp-12345 --plan PythonSDKExample-WebApp-plan \
+az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan ^
     --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
 
 # Replace <your_fork> with the specific URL of your forked repository.
 ```
 
-# [cmd](#tab/cmd)
+# [bash](#tab/bash)
 
 ```azurecli
-az group create -l centralus -n PythonSDKExample-WebApp-rg
+az group create -l centralus -n PythonAzureExample-WebApp-rg
 
-az appservice plan create -n PythonSDKExample-WebApp-plan --is-linux --sku F1
+az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
 
-az webapp create -g PythonSDKExample-WebApp-rg -n PythonSDKExample-WebApp-12345 ^
-    --plan PythonSDKExample-WebApp-plan --runtime "python|3.8"
+az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
+    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
 
 # You can use --deployment-source-url with the first create command. It's shown here
 # to match the sequence of the Python code.
 
-az webapp create -n PythonSDKExample-WebApp-12345 --plan PythonSDKExample-WebApp-plan ^
+az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
     --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
 
 # Replace <your_fork> with the specific URL of your forked repository.
@@ -233,7 +240,10 @@ az webapp create -n PythonSDKExample-WebApp-12345 --plan PythonSDKExample-WebApp
 
 ---
 
-## Next step
+## See also
 
-> [!div class="nextstepaction"]
-> [Example: Provision a virtual machine >>>](azure-sdk-example-virtual-machines.md)
+- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
+- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

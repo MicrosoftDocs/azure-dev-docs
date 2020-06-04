@@ -75,7 +75,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       resource_group_name = azurerm_resource_group.spoke1-vnet-rg.name
       address_space       = ["10.1.0.0/16"]
 
-      tags {
+      tags = {
         environment = local.prefix-spoke1
       }
     }
@@ -104,7 +104,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       allow_forwarded_traffic = true
       allow_gateway_transit   = false
       use_remote_gateways     = true
-      depends_on = ["azurerm_virtual_network.spoke1-vnet", "azurerm_virtual_network.hub-vnet" , "azurerm_virtual_network_gateway.hub-vnet-gateway"]
+      depends_on = [azurerm_virtual_network.spoke1-vnet, azurerm_virtual_network.hub-vnet , azurerm_virtual_network_gateway.hub-vnet-gateway]
     }
 
     resource "azurerm_network_interface" "spoke1-nic" {
@@ -151,7 +151,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke1
       }
     }
@@ -165,7 +165,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       allow_forwarded_traffic   = true
       allow_gateway_transit     = true
       use_remote_gateways       = false
-      depends_on = ["azurerm_virtual_network.spoke1-vnet", "azurerm_virtual_network.hub-vnet", "azurerm_virtual_network_gateway.hub-vnet-gateway"]
+      depends_on = [azurerm_virtual_network.spoke1-vnet, azurerm_virtual_network.hub-vnet, azurerm_virtual_network_gateway.hub-vnet-gateway]
     }
     ```
 
@@ -197,7 +197,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       resource_group_name = azurerm_resource_group.spoke2-vnet-rg.name
       address_space       = ["10.2.0.0/16"]
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }
@@ -226,7 +226,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       allow_forwarded_traffic = true
       allow_gateway_transit   = false
       use_remote_gateways     = true
-      depends_on = ["azurerm_virtual_network.spoke2-vnet", "azurerm_virtual_network.hub-vnet", "azurerm_virtual_network_gateway.hub-vnet-gateway"]
+      depends_on = [azurerm_virtual_network.spoke2-vnet, azurerm_virtual_network.hub-vnet, azurerm_virtual_network_gateway.hub-vnet-gateway]
     }
 
     resource "azurerm_network_interface" "spoke2-nic" {
@@ -241,7 +241,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         private_ip_address_allocation = "Dynamic"
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }
@@ -277,7 +277,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
         disable_password_authentication = false
       }
 
-      tags {
+      tags = {
         environment = local.prefix-spoke2
       }
     }
@@ -291,7 +291,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       allow_forwarded_traffic   = true
       allow_gateway_transit     = true
       use_remote_gateways       = false
-      depends_on = ["azurerm_virtual_network.spoke2-vnet", "azurerm_virtual_network.hub-vnet", "azurerm_virtual_network_gateway.hub-vnet-gateway"]
+      depends_on = [azurerm_virtual_network.spoke2-vnet, azurerm_virtual_network.hub-vnet, azurerm_virtual_network_gateway.hub-vnet-gateway]
     }
     ```
      
