@@ -17,6 +17,8 @@ This article provides the one-time setup instructions to create and validate a l
 
 Once you've configured your workstation, you'll need only minimal added configuration to complete various quickstarts and tutorials elsewhere on this developer center and in the Azure documentation.
 
+This setup for local development is a separate matter from [provisioning resources](cloud-development-flow.md) that make up your application's *cloud environment* on Azure. In your development process, you run code in your local dev environment that can access those cloud resources, but your code is not yet deployed to a [suitable hosting service](quickstarts-app-hosting.md) in the cloud. That deployment step comes later, as described in the [Azure development flow](cloud-development-flow.md) article.
+
 ## Install components
 
 ### Required components
@@ -66,7 +68,7 @@ az login
 
 The `az` command is the root command of the Azure CLI. What follows `az` is one or more specific commands, such as `login`. See the [az login](/cli/azure/authenticate-azure-cli) command reference.
 
-The Azure CLI normally maintains your sign in across sessions, but it's a good practice to run `az login` whenever you open a new terminal or command prompt.
+The Azure CLI normally maintains your sign-in across sessions, but it's a good practice to run `az login` whenever you open a new terminal or command prompt.
 
 ## Configure authentication
 
