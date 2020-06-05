@@ -23,7 +23,7 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 
 ### Generate the application by using Spring Initializr
 
-Generate the application on the command line by entering:
+Generate the application on the command line by running the following command:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RC1 -d javaVersion=8 | tar -xzvf -
@@ -33,7 +33,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
-After the `spring-boot-starter-webflux` dependency, add the following snippet:
+After the `spring-boot-starter-webflux` dependency, add the following text:
 
 ```xml
 <dependency>
@@ -45,7 +45,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ### Configure Spring Boot to use Azure SQL Database
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the *src/main/resources/application.properties* file, and add the following text:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
@@ -55,13 +55,12 @@ spring.r2dbc.username=spring@$AZ_DATABASE_NAME
 spring.r2dbc.password=$AZ_SQL_SERVER_PASSWORD
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_SQL_SERVER_PASSWORD` variable with the value that you configured at the beginning of this article.
+Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
 
-You should now be able to start your application by using the provided Maven wrapper:
+You should now be able to start your application by using the provided Maven wrapper as follows:
 
 ```bash
 ./mvnw spring-boot:run
@@ -80,7 +79,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
