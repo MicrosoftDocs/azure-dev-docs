@@ -11,7 +11,7 @@ ms.topic: article
 
 # Use Spring Data R2DBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) by using the R2DBC implementation for PostgreSQL from the [r2dbc-postgresql GitHub repository](https://github.com/r2dbc/r2dbc-postgresql).
+This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database. The sample will use the R2DBC implementation for PostgreSQL from the [r2dbc-postgresql](https://github.com/r2dbc/r2dbc-postgresql) repository on GitHub.
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -23,7 +23,7 @@ This topic demonstrates creating a sample application that uses [Spring Data R2D
 
 ### Generate the application by using Spring Initializr
 
-Generate the application on the command line by entering:
+Generate the application on the command line by using the following command:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RC1 -d javaVersion=8 | tar -xzvf -
@@ -31,9 +31,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ### Add the reactive PostgreSQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/r2dbc/r2dbc-postgresql).
-
-After the `spring-boot-starter-webflux` dependency, add the following snippet:
+Open the generated project's *pom.xml* file, and then add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/r2dbc/r2dbc-postgresql). After the `spring-boot-starter-webflux` dependency, add the following text:
 
 ```xml
 <dependency>
@@ -45,7 +43,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the *src/main/resources/application.properties* file, and add the following text:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG
@@ -65,7 +63,7 @@ spring.r2dbc.properties.sslMode=REQUIRE
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
 
-You should now be able to start your application by using the provided Maven wrapper:
+You should now be able to start your application by using the provided Maven wrapper as follows:
 
 ```bash
 ./mvnw spring-boot:run
@@ -84,7 +82,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again, using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run

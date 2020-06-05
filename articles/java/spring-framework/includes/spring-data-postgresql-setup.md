@@ -24,7 +24,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_POSTGRESQL_PASSWORD>`: The password of your PostgreSQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
-Next, create a resource group:
+Next, create a resource group by using the following command:
 
 ```azurecli
 az group create \
@@ -34,8 +34,7 @@ az group create \
 ```
 
 > [!NOTE]
-> We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/) to display JSON data and make it more readable.
-> If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
+> We use the `jq` utility to display JSON data and make it more readable. This utility is installed by default on [Azure Cloud Shell](https://shell.azure.com/). If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
 ## Create an Azure Database for PostgreSQL instance
 
@@ -44,7 +43,7 @@ The first thing we'll create is a managed PostgreSQL server.
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
 
-In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
+In [Azure Cloud Shell](https://shell.azure.com/), run the following command:
 
 ```azurecli
 az postgres server create \
@@ -64,7 +63,7 @@ This command creates a small PostgreSQL server.
 
 Azure Database for PostgreSQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
-Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running:
+Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
 ```azurecli
 az postgres server firewall-rule create \
@@ -78,7 +77,7 @@ az postgres server firewall-rule create \
 
 ### Configure a PostgreSQL database
 
-The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo`:
+The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by using the following command:
 
 ```azurecli
 az postgres db create \
