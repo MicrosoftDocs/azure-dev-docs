@@ -889,15 +889,15 @@
       "redirect_url": "/azure/devops/devsecops"
     },
     {
-      "source_path": "developer/ansible/cloudshell-run-playbook.md",
+      "source_path": "articles/ansible/cloudshell-run-playbook.md",
       "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
     },
     {
-      "source_path": "developer/terraform/install-configure.md",
+      "source_path": "articles/terraform/install-configure.md",
       "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
     },
     {
-      "source_path": "developer/terraform/create-a-base-template-using-yeoman.md",
+      "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
       "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
     }
   ]
