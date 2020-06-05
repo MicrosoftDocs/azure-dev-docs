@@ -75,7 +75,7 @@ The sample playbook code in this section is used to:
 - Create a subnet within the virtual network
 
 ```yml
-  - name: Ceate second virtual network
+  - name: Create second virtual network
     azure_rm_virtualnetwork:
       resource_group: "{{ resource_group_secondary }}"
       name: "{{ vnet_name2 }}"
