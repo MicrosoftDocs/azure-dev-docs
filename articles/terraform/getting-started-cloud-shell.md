@@ -11,7 +11,7 @@ ms.date: 06/01/2020
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
-This article describes getting started with Terraform from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
+This article describes getting started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) from the [Azure Cloud Shell](/azure/cloud-shell/overview) environment.
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
