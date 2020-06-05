@@ -41,11 +41,10 @@ spring.datasource.password=$AZ_POSTGRESQL_PASSWORD
 spring.datasource.initialization-mode=always
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_POSTGRESQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_POSTGRESQL_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!WARNING]
-> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use this in production.
+> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
 
 You should now be able to start your application by using the provided Maven wrapper as follows:
 
@@ -59,7 +58,7 @@ Here's a screenshot of the application running for the first time:
 
 ### Create the database schema
 
-Spring Boot will automatically execute the *src/main/resources/schema.sql* file in order to create a database schema. Create that file, with the following content:
+Spring Boot will automatically execute the *src/main/resources/schema.sql* file in order to create a database schema. Create that file and add the following content:
 
 ```sql
 DROP TABLE IF EXISTS todo;
