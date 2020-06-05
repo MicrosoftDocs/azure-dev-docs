@@ -1,5 +1,5 @@
 ---
-title: Deploy Deno apps to Azure App Service from Visual Studio Code
+title: Deploy Deno apps to Azure App Service from the Azure CLI
 description: Tutorial part 1, introduction and prerequisites.
 ms.topic: conceptual
 ms.date: 06/01/2020
