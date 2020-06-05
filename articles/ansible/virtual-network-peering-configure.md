@@ -179,7 +179,7 @@ There are two ways to get the complete sample playbook:
       name: "{{ vnet_name1 }}"
       address_prefix: "10.0.0.0/24"
       virtual_network: "{{ vnet_name1 }}"
-  - name: Ceate second virtual network
+  - name: Create second virtual network
     azure_rm_virtualnetwork:
       resource_group: "{{ resource_group_secondary }}"
       name: "{{ vnet_name2 }}"
@@ -262,7 +262,7 @@ changed: [localhost]
 TASK [Add subnet] 
 changed: [localhost]
 
-TASK [Ceate second virtual network] 
+TASK [Create second virtual network] 
 changed: [localhost]
 
 TASK [Add subnet] 
