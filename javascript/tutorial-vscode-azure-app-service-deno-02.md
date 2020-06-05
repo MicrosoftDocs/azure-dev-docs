@@ -13,12 +13,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 
 1. In a terminal or command prompt, navigate to a location where you want to create the app folder and create a new folder called `deno-demo`.
 
-1. Create a `demo.ts` file with the following command
-
-    ```bash
-    touch demo.ts
-    ```
-
+1. Create a new file called `demo.ts`
 1. Deno accepts running code from URLs directly. Write a HTTP server that answers all the requests with "Hello World". Use the following code:
 
     ```typescript
