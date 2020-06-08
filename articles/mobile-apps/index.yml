@@ -51,7 +51,7 @@ conceptualContent:
           text: Build a serverless mobile application back end with Azure Functions and other services
         - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
           itemType: quickstart
-          text: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
+          text: Get started with Azure Functions and Xamarin
         - url: /learn/modules/consume-rest-services.md
           itemType: learn
           text: Consume a RESTful Web Service with Xamarin
