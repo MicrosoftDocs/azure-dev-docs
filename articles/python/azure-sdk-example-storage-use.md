@@ -99,6 +99,10 @@ For these reasons, we recommend using the authentication method in production co
         blob_client.upload_blob(data)
     ```
 
+    Reference links:
+      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python)
+      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)
+
 1. Attempt to run the code (which fails intentionally):
 
     ```cmd
@@ -189,4 +193,6 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

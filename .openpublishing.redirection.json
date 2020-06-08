@@ -561,6 +561,10 @@
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
+      "source_path": "python/azure-sdk-overview.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },    
+    {
       "source_path": "python/python-sdk-azure-install.md",
       "redirect_url": "/azure/developer/python/azure-sdk-install"
     },
@@ -883,6 +887,18 @@
     {
       "source_path": "articles/devsecops/index.yml",
       "redirect_url": "/azure/devops/devsecops"
+    },
+    {
+      "source_path": "articles/ansible/cloudshell-run-playbook.md",
+      "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/terraform/install-configure.md",
+      "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
+      "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
     }
   ]
 }

@@ -7,13 +7,17 @@ ms.topic: conceptual
 
 # Use the Azure libraries (SDK) for Python
 
-The open-source Azure libraries for Python simplifies provisioning, managing, and using Azure resources from Python application code.
+The open-source Azure libraries for Python simplify provisioning, managing, and using Azure resources from Python application code.
 
 ## The details you really want to know
 
-- The libraries supports Python 2.7 and Python 3.5.3 or later, and it tested also with PyPy 5.4+.
+- The Azure libraries are how you communicate with Azure services *from* Python code that you run either locally or in the cloud. (Whether you can run Python code within the scope of a particular service depends on whether that service itself currently supports Python.)
+
+- The libraries support Python 2.7 and Python 3.5.3 or later, and it tested also with PyPy 5.4+.
 
 - The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the "SDK".
+
+- When running code locally, authenticating with Azure relies on environment variables as described on [Configure your local dev environment](configure-local-development-environment.md). 
 
 - You install the library packages you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
@@ -23,7 +27,7 @@ The open-source Azure libraries for Python simplifies provisioning, managing, an
 
 - Documentation for the libraries is found on the [Azure for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
 
-- To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
+- To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](azure-sdk-example-database.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
 
 ### Non-essential but still interesting details
 

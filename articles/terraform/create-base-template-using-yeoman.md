@@ -2,7 +2,7 @@
 title: Tutorial - Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 05/25/2020
 ---
 
 # Tutorial: Create a Terraform base template in Azure using Yeoman
@@ -22,7 +22,7 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Visual Studio Code**: [Download Visual Studio Code](https://code.visualstudio.com/download) for your platform.
-- **Terraform**: [Install Terraform](install-configure.md) to run the module created by Yeoman.
+- **Terraform**: [Install Terraform](getting-started-cloud-shell.md) to run the module created by Yeoman.
 - **Docker**: [Install Docker](https://www.docker.com/get-started) to run the module created by the Yeoman generator.
 - **Go programming language**: [Install Go](https://golang.org/) as Yeoman-generated test cases are code using the Go language.
 

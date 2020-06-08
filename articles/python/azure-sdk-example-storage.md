@@ -120,14 +120,18 @@ container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_A
 # special values there, so we just pass empty JSON.
 
 print(f"Provisioned blob container {container.name}")
-
 ```
 
 This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
 
 To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
 
-## 4. Run the script:
+### Reference links for classes used in the code
+
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
+- [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient?view=azure-python)
+
+## 4. Run the script
 
 ```cmd
 python provision_blob.py
@@ -220,4 +224,5 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

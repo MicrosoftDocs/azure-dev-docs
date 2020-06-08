@@ -25,9 +25,9 @@ This article walks you through creating a small VM cluster with the Terraform [A
 ## Set up authentication with Azure
 
 > [!TIP]
-> If you [use Terraform environment variables](install-configure.md) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> If you [use Terraform environment variables](getting-started-cloud-shell.md) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
- Review [Install Terraform and configure access to Azure](install-configure.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+ Review [Install Terraform and configure access to Azure](getting-started-cloud-shell.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```hcl
 variable subscription_id {}
