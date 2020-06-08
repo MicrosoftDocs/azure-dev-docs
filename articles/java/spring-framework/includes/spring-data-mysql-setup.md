@@ -9,7 +9,7 @@
 First, set up some environment variables by using the following commands:
 
 ```bash
-AZ_RESOURCE_GROUP=r2dbc-workshop
+AZ_RESOURCE_GROUP=database-workshop
 AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 AZ_LOCATION=<YOUR_AZURE_REGION>
 AZ_MYSQL_USERNAME=spring

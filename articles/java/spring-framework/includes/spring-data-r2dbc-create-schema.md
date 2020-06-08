@@ -4,7 +4,7 @@
  ms.author: judubois
 ---
 
-Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema:
+Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema, using the following code:
 
 ```java
     @Bean
@@ -17,4 +17,4 @@ Inside the main `DemoApplication` class, configure a new Spring bean that will c
     }
 ```
 
-This Spring bean uses a file called *schema.sql*, so create that file in the *src/main/resources* folder:
+This Spring bean uses a file called *schema.sql*, so create that file in the *src/main/resources* folder, and add the following text:

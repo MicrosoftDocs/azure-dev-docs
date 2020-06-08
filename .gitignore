@@ -5,5 +5,5 @@ _site/
 _themes*/
 _repo.*/
 .vs/
-
-.openpublishing.buildcore.ps1
+.vscode/
+.openpublishing.buildcore.ps1.vscode/
