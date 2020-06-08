@@ -6,7 +6,7 @@ ms.date: 4/15/2020
 
 ### Ensure console logging and configure diagnostic settings
 
-Configure your logging so that all applications in Azure Spring Cloud log to the console and not to files.
+Configure your logging so that all output is routed to the console and not to files.
 
 After an application is deployed to Azure Spring Cloud, [add a diagnostic setting](/azure/spring-cloud/diagnostic-services) to make logged events available for consumption, for example via Azure Monitor Log Analytics.
 
