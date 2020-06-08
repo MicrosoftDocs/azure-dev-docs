@@ -1,5 +1,5 @@
 - name: Mobile apps with Azure documentation
-  href: index.md
+  href: overview.md
 - name: Overview
   expanded: true
   items:
@@ -34,7 +34,7 @@
     - name: Continuous build and integration
       href: continuous-integration.md
     - name: Test on real devices
-      href: test.md
+      href: mobile-testing.md
     - name: Continuous delivery
       href: continuous-delivery.md
   - name: Telemetry

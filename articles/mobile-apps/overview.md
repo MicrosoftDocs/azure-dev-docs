@@ -1,6 +1,6 @@
 ---
-title: Build mobile applications with Visual Studio App Center and Azure services
-description: Learn how you can use services such as Visual Studio App Center to build real-world mobile applications along with other Azure services. 
+title: Build mobile applications with Azure services
+description: Learn how you can use Azure services to build real-world mobile applications.
 author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services

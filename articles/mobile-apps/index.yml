@@ -23,11 +23,11 @@ highlightedContent:
     # Card
     - title: Choose mobile development frameworks
       itemType: architecture
-      url: concepts/choose-a-mobile-framework.md    
+      url: choose-a-mobile-framework.md    
     # Card
     - title: Stages in Azure mobile application development
       itemType: architecture
-      url: concepts/mobile-cloud-development-stages.md    
+      url: mobile-cloud-development-stages.md    
     # Card
     - title: Build an entire mobile app with Azure
       itemType: video
@@ -46,7 +46,7 @@ conceptualContent:
     # Card
     - title: Call web services
       links: #(app service, functions, signal r, learn module)
-        - url: concepts/serverless-compute.md
+        - url: serverless-compute.md
           itemType: concept
           text: Build a serverless mobile application back end with Azure Functions and other services
         - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
@@ -61,13 +61,13 @@ conceptualContent:
         - url: /azure/api-management/api-management-key-concepts.md
           itemType: overview
           text: Azure API Management Overview
-        - url: concepts/real-teim-communication.md
+        - url: real-time-communication.md
           itemType: overview
           text: Build real-time applications with Azure SignalR Service     
     # Card
     - title: Save data
       links:
-        - url: concepts/data-storage.md
+        - url: data-storage.md
           itemType: concept
           text: Store, sync, and query mobile application data from the cloud
         - url: /azure/cosmos-db/create-sql-api-xamarin-dotnet.md    
@@ -76,19 +76,19 @@ conceptualContent:
         - url: /azure/cosmos-db/create-mongodb-xamarin.md
           itemType: quickstart
           text: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
-        - url: concepts/azure-storage.md
+        - url: azure-storage.md
           itemType: overview
           text: Cloud storage for highly secure, durable, scalable apps with Azure Storage   
         - url: /azure/storage/blobs/storage-quickstart-blobs-xamarin.md
           itemType: quickstart
           text: Work with blob storage          
-        - url: concepts/azure-cdn.md
+        - url: azure-cdn.md
           itemType: overview
           text: Content delivery with Azure Content Delivery Network
     # Card
     - title: Send push notifications
       links:
-        - url: concepts/push-notifications.md
+        - url: push-notifications.md
           itemType: overview
           text: Engage with your application users by sending push notifications
         - url: /azure/notification-hubs/create-notification-hub-portal.md
@@ -105,7 +105,7 @@ conceptualContent:
           text: Push rich content to devices                  
     - title: Authenticate users
       links:
-        - url: concepts/authentication.md
+        - url: authentication.md
           itemType: overview
           text: Add authentication and manage user identities in your mobile apps        
         - url: /azure/active-directory/develop/tutorial-v2-android.md
@@ -122,10 +122,10 @@ conceptualContent:
           text: Sign in users with a Swift iOS app        
     - title: DevOps
       links:
-        - url: concepts/continuous-delivery.md
+        - url: continuous-delivery.md
           itemType: concept
           text: Automate the deployment and release of your mobile applications with continuous delivery services
-        - url: concepts/continuous-integration.md
+        - url: continuous-integration.md
           itemType: concept
           text: Automate the lifecycle of your apps with continuous build and integration
         - url: /azure/devops/pipelines/get-started/key-pipelines-concepts.md
@@ -139,7 +139,7 @@ conceptualContent:
           text: App Center CodePush      
     - title: Analytics and crash reporting
       links:
-        - url: concepts/analytics.md
+        - url: analytics.md
           itemType: concept
           text: Analyze and understand mobile application use
         - url: /appcenter/analytics/overview.md
@@ -148,7 +148,7 @@ conceptualContent:
         - url: /appcenter/diagnostics/enabling-diagnostics.md
           itemType: how-to-guide
           text: Enabling diagnostics in an app
-        - url: concepts/diagnostics.md
+        - url: diagnostics.md
           itemType: concept
           text: Monitor failures and errors in real time for your mobile application        
         - url: /appcenter/analytics/log-flow.md
