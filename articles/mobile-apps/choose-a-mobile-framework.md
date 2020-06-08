@@ -9,7 +9,7 @@ ms.date: 06/08/2020
 ms.author: masoucou
 ---
 
-# Choose mobile development frameworks
+# Choose a mobile development framework
 
 Developers can use client-side technologies to build mobile applications themselves by using specific frameworks and patterns for a cross-platform approach. Based on their decision factors, developers can build:
 

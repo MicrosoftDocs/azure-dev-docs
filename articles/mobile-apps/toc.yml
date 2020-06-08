@@ -1,4 +1,4 @@
-- name: Mobile apps with Azure documentation
+- name: Azure for mobile developers documentation
   href: index.yml
 - name: Overview
   expanded: true
