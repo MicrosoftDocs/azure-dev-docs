@@ -1,5 +1,5 @@
 - name: Mobile apps with Azure documentation
-  href: overview.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
