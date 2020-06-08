@@ -73,13 +73,19 @@ The following table lists the arguments accepted by libraries that don't use the
 
 ## Configuration parameters - Core-based libraries
 
-For Core-based libraries, configuration falls into two groups: general configuration and policy configuration.
-
-### General parameters
+### Connection configuration
 
 | Parameter             | Type     | Default | Scope             | Description |
 | ---                   | ---      | ---     | ---               | ---         |
-| connection_timeout    | int      |         | Client            | Optionally sets the connect and read timeout value, in seconds. |
+| connection_timeout    | float    | 300     | Client            | Connection timeout, in seconds. |
+| read_timeout          | float    | 300     | Client            | Read/response timeout, in seconds. |
+| connection_verify     | bool     | False   | Client            | Enables SSL certificate verification. Can alternately be a string containing the path to a CA_BUNDLE file or directory with certificates of trusted CAs. |
+| connection_cert       | string   | None    | Client-side certificates. You can specify a local certificate to use as client side certificate, as a single file (containing the private key and the certificate), or as a tuple of both files' paths. |
+| connection_data_block_size | int | 4096 | The block size of data sent over the connection. | 
+
+Class: ConnectionConfiguration
+
+
 | transport             | any      |         | Client            | User-provided transport to send the HTTP request. |
 | client_request_id     | str      | None    | Operation         | Optional user specified identification of the request. |
 | require_encryption    | bool     | False   | Client, operation | Determines whether to enforce that objects are encrypted. |
