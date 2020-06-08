@@ -11,7 +11,7 @@ ms.topic: article
 
 # Use Spring Data JDBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/).
+This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database.
 
 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
@@ -21,7 +21,7 @@ This topic demonstrates creating a sample application that uses [Spring Data JDB
 
 ### Generate the application by using Spring Initializr
 
-Generate the application on the command line by entering:
+Generate the application on the command line by using the following command:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
@@ -29,7 +29,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresq
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the *src/main/resources/application.properties* file, and add the following text:
 
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
@@ -41,13 +41,12 @@ spring.datasource.password=$AZ_POSTGRESQL_PASSWORD
 spring.datasource.initialization-mode=always
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_POSTGRESQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_POSTGRESQL_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!WARNING]
-> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember this will delete your data at each restart, so this shouldn't be used in production!
+> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
 
-You should now be able to start your application by using the provided Maven wrapper:
+You should now be able to start your application by using the provided Maven wrapper as follows:
 
 ```bash
 ./mvnw spring-boot:run
@@ -59,14 +58,14 @@ Here's a screenshot of the application running for the first time:
 
 ### Create the database schema
 
-Spring Boot will automatically execute *src/main/resources/`schema.sql`* in order to create a database schema. Create that file, with the following content:
+Spring Boot will automatically execute the *src/main/resources/schema.sql* file in order to create a database schema. Create that file and add the following content:
 
 ```sql
 DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
