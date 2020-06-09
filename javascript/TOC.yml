@@ -4,7 +4,7 @@
   - name: Get started on Azure with JavaScript
     items:
     - name: Set up your dev environment
-      href: ../articles/javascript/configure-local-development-environment.md
+      href: configure-local-development-environment.md
   - name: Quickstarts
     expanded: true
     items:
