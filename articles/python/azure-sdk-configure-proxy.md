@@ -75,7 +75,7 @@ For example, the following code from the article [Example: use Azure storage](az
 blob_client = BlobClient(storage_url, container_name="blob-container-01",
     blob_name="sample-blob.txt", credential=credential,
     https_proxy={ "http://user:pass@10.10.1.10:1180" }
-    )
+)
 
 # Other forms that the proxy URL might take:
 # http_proxy = { "http://10.10.1.10:1180" }
