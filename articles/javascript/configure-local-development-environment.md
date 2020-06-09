@@ -257,7 +257,3 @@ You can also use any other source control tool of your choice; Git is simply one
 
 ## Next step
 
-With your local dev environment in place, take a quick look at the common usage patterns for the Azure libraries:
-
-> [!div class="nextstepaction"]
-> [Review common usage patterns >>>](azure-sdk-library-usage-patterns.md)
