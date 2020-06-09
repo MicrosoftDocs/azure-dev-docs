@@ -32,22 +32,22 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 > [!CAUTION]
 > If you plan to use an Azure resource as the runtime environment for your code, such as an Azure web app or an Azure Container Instance, you should verify your local Node.js development environment matches the Azure resource runtime you plan to use.
 
-### Optional workstation installations
+### Optional local installations
 
-The following common installations are optional to help with your local development tasks.
+The following common local workstation installations are optional to help with your local development tasks.
 
 |Name/Installer|Description|
 |--|--|
 | [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use a different source control tool if you prefer. |
 
-## One-time configuration of service principle
+## One-time configuration of service principal
 
-Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, other mechanisms. To conform to best practices, create resources and authenticate to resources using a service principal. A service principal allows you to concretely define access scope to the immediate development need.
+Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a service principal. A service principal allows you to concretely define the access scope to the immediate development need.
 
 Conceptually, the steps to create and use a service principal include:
 
 * Log in to Azure with your individual user account, such as joe@microsoft.com.
-* Create a named service principle with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
+* Create a named service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
 * Log off Azure with your user account.
 * Authenticate to Azure programmatically with service principal.
 * Service principal creates an Azure resource and uses the service associated with the service.
@@ -87,9 +87,9 @@ To make service principal creation easier, use the following steps and provided 
     az logout
     ```
 
-    For the remaining steps in this procedure, for each line in the file that does **not** begin with `#`, place the VSCode cursor on the line, then right-click to select **Run Line in Editor**.
+    For the remaining steps in this procedure, for each line in the file that does **not** begin with `#`, place the VSCode cursor on the line, then **right-click** to select **Run Line in Editor**.
 
-1. Select the line in the file that has the following command to authenticate to Azure with your own user account using the Azure CLI. This command opens an internet browser. Select your Azure account. Once your account is authenticated, close the browser window, you won't need it with the remaining tasks.
+1. Use right-click/Run Line in Editor on the following line to authenticate to Azure with your own user account using the Azure CLI. This command opens an internet browser. Select your Azure account. Once your account is authenticated, close the browser window, you won't need it with the remaining tasks.
 
     ```azurecli
     az login
@@ -114,7 +114,10 @@ To make service principal creation easier, use the following steps and provided 
 
     The subscription marked with `isDefault: true` is the subscription that receives the remaining commands. If you need to change the default subscription, use the `az account set --subscription <name or id>` command.
 
-1. Select the line in the file that has the following command to create the service principal tied to your user account. This service principal doesn't have any scoped permissions yet, due to the `--skip-assignment` parameter.
+
+<a name='create-service-principal-command'></a>
+
+1. Use right-click/Run Line in Editor on the following line to create the service principal tied to your user account. This service principal doesn't have any scoped permissions yet, due to the `--skip-assignment` parameter.
 
 
     ```azurecli
@@ -135,7 +138,7 @@ To make service principal creation easier, use the following steps and provided 
     }
     ```
 
-1. Select and the line in the file that has the following command to assign the scoped permission to create Azure resources. The `CONTRIBUTOR` scope allows the service principal to create Azure resources.
+1. Use right-click/Run Line in Editor on the following line to assign the scoped permission to create Azure resources. The `CONTRIBUTOR` scope allows the service principal to create Azure resources.
 
     ```azurecli
     az role assignment create --assignee APP-ID --role CONTRIBUTOR
@@ -158,7 +161,7 @@ To make service principal creation easier, use the following steps and provided 
 
     At this point, your service principal is ready to use.
 
-1. Log out of the Azure CLI with the following command:
+1. Use right-click/Run Line in Editor on the following line to log out of the Azure CLI with the following command:
 
     ```azurecli
     az logout
@@ -177,21 +180,79 @@ Each new project using Azure should include:
     - Older packages - Before using libraries without the @azure scope, make sure they are available from GitHub from within the Microsoft or Azure organizations.
 - Manage authentication information within the project securely. One common method is to use **[Dotenv](https://www.npmjs.com/package/dotenv)** to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
 
-### Sign in using a service principal
+### Create resource using service principal
 
-Test the new service principal's credentials and permissions by signing in. To sign in with a service principal, you need the `appId`, `tenant`, and `password` you saved from the [Create service principal](#create-service-principal) procedure into the `create-service-principal.json`.
+The following section provides an example of how to create an Azure service resource with a service principal. To sign in with a service principal, you need the `appId`, `tenant`, and `password` you saved from the [Create service principal](#create-service-principal) procedure into the `create-service-principal.json`.
 
-To sign in with a service principal using a password:
+1. Open VSCode and use the previously installed [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in VSCode to see the results.
 
-```azurecli-interactive
-az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
-```
+1. Create a new file named `create-service-resource.sh` and copy the following Azure commands into the file:
 
-Once you have signed in as the service principal, create any Azure resources you need for the quickstart you intend to use. Once you have the resource, you can use the resource's suggest authentication mechanism safely. That mechanism can be keys and endpoints, and connection string, or another method. Set the values of the mechanism, along with typical Azure information, to environment variables, show in the [next section](#create-environment-variables-for-the-azure-libraries).
+    ```azurecli
+    ####################################
+    # Login as service principal
+    ####################################
+    # User name for command is the app id
+    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 
-The point is that resource was created with the service principal instead of your own user account.
+    ####################################
+    # Create resource group
+    ####################################
+
+    # Create resource group in westus region - check your quickstart if it requires a specific region, then change this value to the appropriate region
+    # Common naming convention for resource group is `USERNAME-REGION-PURPOSE`
+    az group create --location WESTUS --name JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+
+    ####################################
+    # Create specific service resource
+    ####################################
+
+    # Create resource in westus
+    # This is an example of creating a Cognitive Services LUIS resource
+    # Review your quickstart to find the exact command
+    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind LUIS --sku F0 --location WESTUS --yes
+
+    ####################################
+    # Get resource keys
+    ####################################
+
+    # Get resource keys
+    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    ```
+
+1. Use right-click/Run Line in Editor on the following line to login with the service principal. The variables in all caps were returned in the response from the [previous command to create the service principal](#create-service-principal-command).
+
+    ```azurecli
+    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
+    ```
+
+1. Use right-click/Run Line in Editor on the following line to create a resource group for all resources you need to create for the quickstart. The resource group region can only contain resources from that region.
+
+    ```azurecli
+    az group create --location WESTUS --name JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    ```
+
+    When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
+
+1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services LUIS resource. This is an example, your own resource will have a different command.
+
+    ```azurecli
+    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind LUIS --sku F0 --location WESTUS --yes
+    ```
+
+    The LUIS resource uses a key and endpoint which you need to use the quickstarts for LUIS.
+
+1. Use right-click/Run Line in Editor on the following line to get the LUIS key and endpoint. Authentication to the LUIS service uses the key and endpoint.
+
+    ```azurecli
+    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    ```
 
 ### Create environment variables for the Azure libraries
+
+To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check the file in to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
+
+In the following examples the client ID is the service principal id and service principal secret.
 
 # [bash](#tab/bash)
 
@@ -215,13 +276,9 @@ set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
 
 Replace the values shown in these commands with those of your specific service principal.
 
-To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
-
-For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
-
 ### Install NPM packages
 
-For every project, we recommend that you always create a `package.json` file using the following steps:
+For every project, we recommend that you always create a separate folder, and its own `package.json` file using the following steps:
 
 1. Open a terminal, command prompt, or bash shell and create a new folder to the project. Then move into that new folder.
 
@@ -236,6 +293,12 @@ For every project, we recommend that you always create a `package.json` file usi
     ```
 
     This command runs the NPM command to create the package.json file and initialize the minimum properties. As you install Azure SDK library packages with NPM or Yarn, the package.json file captures that installation information.
+
+1. Install the Azure SDK libraries you need for the quickstart. The following command is an example.
+
+    ```console
+    npm install @azure/cognitiveservices-luis-runtime
+    ```
 
 ## Use source control
 
