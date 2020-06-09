@@ -28,15 +28,19 @@ App Service offers specific versions of Java SE. To ensure compatibility, migrat
 
 ### Inventory external resources
 
-Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in *src/main/directory* in a file typically called *application.properties* or *application.yml*. Additionally, check the production deployment's environment variables for any pertinent configuration settings.
+Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in the *src/main/directory* folder, in a file typically called *application.properties* or *application.yml*. Additionally, check the production deployment's environment variables for any pertinent configuration settings.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
-Once you've identified the broker or brokers in use, find the corresponding settings, which are typically in the *application.properties* and *application.yml* files for Spring Boot.
+After you've identified the broker or brokers in use, find the corresponding settings. In Spring Boot applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory.
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
+
+[!INCLUDE [identify-external-caches-azure-spring-cloud](includes/identify-external-caches-azure-spring-cloud.md)]
+
+[!INCLUDE [inventory-identity-providers-spring-boot](includes/inventory-identity-providers-spring-boot.md)]
 
 #### All other external resources
 
@@ -48,9 +52,7 @@ It isn't feasible to document every possible external dependency in this guide. 
 
 Check all properties and configuration files and all environment variables on the production deployment(s) for any secret strings and passwords. In a Spring Boot application, such strings will likely be found in *application.properties* or *application.yml*.
 
-#### Inventory certificates
-
-[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
+[!INCLUDE [inventory-certificates-h4](includes/inventory-certificates-h4.md)]
 
 [!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
 
@@ -141,6 +143,8 @@ Follow [these steps to migrate connection strings and other settings](/azure/app
 ![App Service Application Configuration](media/migrate-spring-boot-to-app-service/app-service-parameterized-spring-boot-app-settings.png)
 
 [!INCLUDE [migrate-scheduled-jobs](includes/migrate-scheduled-jobs.md)]
+
+[!INCLUDE [migrate-identity-provider-app-service.md](includes/migrate-identity-provider-app-service.md)]
 
 ### Restart and smoke-test
 

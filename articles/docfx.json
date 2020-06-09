@@ -120,7 +120,7 @@
         "python/**/*.md": "azure-python"
       },
       "ms.custom": {
-        "python/**/*.md": "haspython"
+        "python/**/*.md": "tracking-python"
       }
     },
     "template": [],

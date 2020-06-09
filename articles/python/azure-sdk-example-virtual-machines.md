@@ -298,7 +298,7 @@ Run this command if you don't need to keep the resources created in this example
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Provision and query a database](azure-sdk-example-database.md)
 
 The following resources container more comprehensive examples using Python to create a virtual machine:
 
