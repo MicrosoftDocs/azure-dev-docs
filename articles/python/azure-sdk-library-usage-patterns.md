@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns with the Azure SDK libraries for Python
-ms.date: 05/26/2020
+ms.date: 06/09/2020
 ms.topic: conceptual
 ---
 
@@ -54,9 +54,52 @@ web_app_result = poller.result()
 
 In this case, the return value of `create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.models.site?view=azure-python) object.
 
+## Exceptions
+
+In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, then, you can use `try...except` blocks around library operations.
+
+For more information on the type of exceptions that may be raised, consult the documentation for the operation in question.
+
 ## Logging
 
 The most recent Azure libraries use the Python standard `logging` library to generate log output. You can set the logging level for individual libraries, groups of libraries, or all libraries. Once you register a logging stream handler, you can then enable logging for a specific client object or a specific operation. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md).
+
+## Proxy configuration
+
+To specify a proxy you can use environment variables or optional arguments. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md).
+
+## Optional arguments for client objects and methods
+
+In the library reference documentation, you often see a `**kwargs` or `**operation_config**` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
+
+### Arguments for libraries based on azure.core
+
+These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python).
+
+| Name                       | Type | Default     | Description |
+| ---                        | ---  | ---         | ---         |
+| logging_enable             | bool | False       | Enables logging. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md). |
+| http_proxy<br/>https_proxy | dict | {}          | Proxy server URL. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
+| connection_timeout         | int  | 300         | The timeout in seconds for making a connection to Azure REST API endpoints. |
+| read_timeout               | int  | 300         | The timeout in seconds for completing an Azure REST API operation (that is, waiting for a response). |
+| retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
+| retry_mode                 | enum | exponential | How retries are handled. 'exponential' indicates (TODO); 'single' indicates (TODO). |
+
+Individual libraries are not obligated to support any of these arguments, so always consult the reference documentation for each library for exact details.
+
+### Arguments for non-core libraries
+
+| Name               | Type | Default | Description |
+| ---                | ---  | ---     | ---         |
+| verify             | bool | True    | Verify the SSL certificate. |
+| cert               | str  | None    | Path to local certificate for client-side verification. |
+| timeout            | int  | 30      | Timeout for establishing a server connection in seconds. |
+| allow_redirects    | bool | False   | Enable redirects. |
+| max_redirects      | int  | 30      | Maximum number of allowed redirects. |
+| proxies            | dict | {}      | Proxy server URL. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
+| use_env_proxies    | bool | False   | Enable reading of proxy settings from local environment variables. |
+| retries            | int  | 10      | Total number of allowable retry attempts. |
+| enable_http_logger | bool | False   | Enable logs of HTTP in debug mode. |
 
 ## Inline JSON pattern for object arguments
 

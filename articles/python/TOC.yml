@@ -106,10 +106,10 @@
     href: how-to-assign-role-permissions.md
   - name: Configure logging
     href: azure-sdk-logging.md
-  - name: Configure REST API arguments
-    href: azure-sdk-operation-config.md
-  - name: Multi-cloud development
-    href: azure-sdk-multi-cloud.md
+  - name: Configure proxies
+    href: azure-sdk-configure-proxy.md
+  - name: Use sovereign domains
+    href: azure-sdk-sovereign-domains.md
 - name: Samples
   items: 
   - name: Web apps & serverless
