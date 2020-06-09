@@ -3,7 +3,7 @@ title: Quickstart - Getting started with Terraform - Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 06/01/2020
+ms.date: 06/08/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -105,7 +105,7 @@ The following steps address the first scenario where you do the following tasks:
 
 ## Create a Terraform configuration file
 
-In this section, you use the [Code Shell editor](/azure/cloud-shell/using-cloud-shell-editor) to define a Terraform configuration file.
+In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
 
 1. Change directories to the mounted file share where your work in Cloud Shell is persisted. For more information about how Cloud Shell persists your files, see [Connect your Microsoft Azure Files storage](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage)
     
@@ -125,7 +125,7 @@ In this section, you use the [Code Shell editor](/azure/cloud-shell/using-cloud-
     cd QuickstartTerraformTest
     ```
 
-1. Using your favorite editor, create a Terraform configuration file. This article uses the built-in Cloud Shell editor.
+1. Using your favorite editor, create a Terraform configuration file. This article uses the built-in [Code Shell editor](/azure/cloud-shell/using-cloud-shell-editor).
 
     ```bash
     code QuickstartTerraformTest.tf
