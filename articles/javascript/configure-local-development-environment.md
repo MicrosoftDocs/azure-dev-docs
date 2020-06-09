@@ -70,24 +70,46 @@ To make service principal creation easier, use the following steps and provided 
     # Login - command opens browser, select your account to finish authentication, then close browser
     az login
 
+    ####################################
+    # Optional, set default subscription
+    ####################################
+
     # If you have more than 1 subscription, use the `list` command to find the subscription, then use the `set` command to set the default by name or id
     az account list
     az account set --subscription MYCOMPANYSUBSCRIPTION
 
+    ####################################
+    # Create service principal
+    ####################################
+
     # Create a service principal with a name that indicates its purpose and owner - the response includes the `appId` which is necessary in some of the remaining commands
     az ad sp create-for-rbac --name JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS --skip-assignment
+
+    ####################################
+    # Add role of contributor
+    ####################################
 
     # Add contributor role to service principal so it can create Azure resources
     az role assignment create --assignee APP-ID --role CONTRIBUTOR
 
+    ####################################
+    # Optional, verify role assignment
+    ####################################
+
     # Verify role assignment for service principal
     az role assignment list --assignee APP-ID
+
+    ####################################
+    # Logout
+    ####################################
 
     # Logout off Azure CLI
     az logout
     ```
 
     For the remaining steps in this procedure, for each line in the file that does **not** begin with `#`, place the VSCode cursor on the line, then **right-click** to select **Run Line in Editor**.
+
+    :::image type="content" source="media/development-setup/vscode-rightclick-run-line-in-editor.png" alt-text="For the remaining steps in this procedure, for each line in the file that does not begin with `#`, place the VSCode cursor on the line, then right-click to select `Run Line in Editor`.":::
 
 1. Use right-click/Run Line in Editor on the following line to authenticate to Azure with your own user account using the Azure CLI. This command opens an internet browser. Select your Azure account. Once your account is authenticated, close the browser window, you won't need it with the remaining tasks.
 

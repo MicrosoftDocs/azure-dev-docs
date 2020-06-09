@@ -1,6 +1,10 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
+  - name: Get started on Azure with JavaScript
+    items:
+    - name: Set up your dev environment
+      href: ../articles/javascript/configure-local-development-environment.md
   - name: Quickstarts
     expanded: true
     items:
@@ -8,12 +12,12 @@
       items:
       - name: Static sites
         href: tutorial-vscode-static-website-node-01.md
-      - name: Web apps and APIs
+      - name: Web app and APIs
         href: tutorial-vscode-azure-app-service-node-01.md
-      - name: Serverless 
+      - name: Serverless
         href: tutorial-vscode-serverless-node-01.md
       - name: Docker
-        href: tutorial-vscode-docker-node-01.md 
+        href: tutorial-vscode-docker-node-01.md
       - name: Kubernetes
         href: /azure/aks/kubernetes-walkthrough?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Linux VMs
@@ -63,7 +67,7 @@
       - name: Key Vault
         href: /azure/key-vault/quick-create-cli?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Messaging and integration
-      items: 
+      items:
       - name: Event Grid
         href: /azure/event-grid/custom-event-quickstart?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Service Bus
@@ -77,7 +81,7 @@
       - name: Big data streaming
         href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
     - name: Cognitive Services
-      items: 
+      items:
       - name: Text Analytics
         href: /azure/cognitive-services/text-analytics/quickstarts/nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
       - name: Computer Vision
@@ -176,10 +180,10 @@
       href: node-howto-create-static-site-jamstack.md
     - name: Automate monitoring
       href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
-    - name: Create a REST API 
+    - name: Create a REST API
       href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
   - name: Samples
-    items: 
+    items:
     - name: Web apps & serverless
       href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps
     - name: Databases
