@@ -23,3 +23,11 @@ Microsoft has a comprehensive set of [DevOps solutions](https://azure.microsoft.
 - Provides greater agility, improves customer responsiveness, and reduces time to market.
 - Extends agility by bringing together people, process, and products to enable continuous delivery of value to users.
 - Leads to reduced costs when organizations follow DevOps practices. Organizations are better able to achieve their goals no matter what their mission is.
+
+## Next steps
+
+Find out more about mobile DevOps topics:
+
+- [Continuous build and integration](continuous-integration.md)
+- [Test mobile apps](test-mobile-apps.md)
+- [Continuous delivery](continuous-delivery.md)

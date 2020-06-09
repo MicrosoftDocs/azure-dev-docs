@@ -56,7 +56,7 @@ Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insig
   - Funnels to analyze and monitor conversion rates.
   - Retention to analyze how well your application retains users over time.
   - Workbooks to combine visualizations and text into a shareable report.
-    - Cohorts to name and save specific groups of users or events so they can be easily referenced from other analytics tools.
+  - Cohorts to name and save specific groups of users or events so they can be easily referenced from other analytics tools.
 
 ### Azure Monitor references
 

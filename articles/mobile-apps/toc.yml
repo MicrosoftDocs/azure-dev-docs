@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: Choose a mobile development framework
-    href: choose-a-mobile-framework.md
+    href: choose-mobile-framework.md
   - name: Stages in mobile app cloud development
     href: mobile-cloud-development-stages.md
 - name: Concepts
@@ -18,7 +18,7 @@
     - name: Azure Storage
       href: azure-storage.md
     - name: Azure Content Delivery Network
-      href: azure-cdn.md
+      href: azure-content-delivery-network.md
   - name: Compute
     items:
       - name: Serverless compute
@@ -34,7 +34,7 @@
     - name: Continuous build and integration
       href: continuous-integration.md
     - name: Test on real devices
-      href: mobile-testing.md
+      href: test-mobile-apps.md
     - name: Continuous delivery
       href: continuous-delivery.md
   - name: Telemetry
