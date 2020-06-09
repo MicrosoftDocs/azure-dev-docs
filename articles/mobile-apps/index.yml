@@ -128,7 +128,7 @@ conceptualContent:
         - url: continuous-integration.md
           itemType: concept
           text: Automate the lifecycle of your apps with continuous build and integration
-        - url: "https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops"
+        - url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
           itemType: concept
           text: Key concepts for new Azure Pipelines users
         - url: /appcenter/distribution/uploading.md
@@ -145,7 +145,7 @@ conceptualContent:
         - url: /appcenter/analytics/overview.md
           itemType: overview
           text: App Center Analytics
-        - url: "https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
+        - url: https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
           itemType: how-to-guide
           text: Enabling diagnostics in an app
         - url: diagnostics.md
