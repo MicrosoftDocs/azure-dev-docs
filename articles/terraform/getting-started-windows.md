@@ -51,30 +51,37 @@ Based on your scenario, choose one of the following paths:
 
 - **You want to use a service principal, but don't have one yet**: Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
-    There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles). 
-    
-    Using [New-AzADServicePrincipal](https://docs.microsoft.com/en-us/powershell/module/Az.Resources/New-AzADServicePrincipal), replace `<subscription_id>` with the ID of the subscription account you want to use.
+    There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+
+    Calling [New-AzADServicePrincipal](https://docs.microsoft.com/en-us/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. Therefore, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password. 
+
+    Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
     
     ```powershell
     $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
     ```
 
-    When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`.
+    Enter the following to display the names of the service principal:
 
-    As a result, the way to retrieve the passwords is to call `New-AzADServicePrincipal` with the results being saved to a variable.
+    ```powershell
+    $sp.ServicePrincipalNames
+    ```
 
-    In the preceding example, the variable `$sp` holds the results of the call to `New-AzADServicePrincipal`. Within the `$sp` variable is a member called `Secret` that contains the password.
-
-    Since the password is of type `SecureString`, you must call `ConvertFrom-SecureString` to convert it to text:
+    Call `ConvertFrom-SecureString` to display the password as text:
 
     ```powershell
     $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
     ```
 
-    At this point, the service principal password is displayed. The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
+    **Notes**:
+    - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
+    - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-- **Log in using an Azure service principal**: Replace the placeholders in the following `az login` command with information from your service principal.
+- **Log in using an Azure service principal**: You use `Connect-AzAccount` to log into a specific Azure subscription using a service principal. 
 
+
+$Credential = Get-Credential
+Connect-AzAccount -Credential $Credential -Tenant 'xxxx-xxxx-xxxx-xxxx' -ServicePrincipal
 
 
 
