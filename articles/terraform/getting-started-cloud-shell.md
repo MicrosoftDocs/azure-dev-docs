@@ -15,7 +15,7 @@ This article describes getting started with [Terraform on Azure](https://www.ter
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
-## Configure your environment
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
