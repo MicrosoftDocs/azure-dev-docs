@@ -39,7 +39,7 @@ Based on your scenario, choose one of the following paths:
     
 - **You want to log in as a user**: Running `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once the command logs you in, return to the portal.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -53,7 +53,7 @@ Based on your scenario, choose one of the following paths:
     
     Using [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac), replace `<subscription_id>` with the ID of the subscription account you want to use.
     
-    ```azurecli-interactive
+    ```azurecli
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
     ```
 
@@ -62,7 +62,7 @@ Based on your scenario, choose one of the following paths:
     
 - **Log in using an Azure service principal**: Replace the placeholders in the following `az login` command with information from your service principal.
 
-    ```azurecli-interactive
+    ```azurecli
     az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
     ```
 
@@ -84,19 +84,19 @@ The following steps address the first scenario where you do the following tasks:
 
 1. To verify the current Azure subscription, use the [az account show](/cli/azure/account#az-account-show) command.
 
-    ```azurecli-interactive
+    ```azurecli
     az account show
     ```
     
 1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
 
-    ```azurecli-interactive
+    ```azurecli
     az account list --query "[].{name:name, subscriptionId:id}"
     ```
 
 1. To use a specific Azure subscription for the current Cloud Shell session, use the [az account set](/cli/azure/account#az-account-set) command. Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
-    ```azurecli-interactive
+    ```azurecli
     az account set --subscription="<subscription_id>"
     ```
 
@@ -186,7 +186,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
 
-    ```azurecli-interactive
+    ```azurecli
     az group show -n "QuickstartTerraformTest-rg"
     ```
 
@@ -238,7 +238,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?#az-group-show).
 
-    ```azurecli-interactive
+    ```azurecli
     az group show -n "QuickstartTerraformTest-rg"
     ```
 
