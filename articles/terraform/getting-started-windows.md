@@ -17,15 +17,21 @@ ms.date: 06/09/2020
 
 ## Install latest version of PowerShell for Windows
 
-PowerShell 7.x and later is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows.
+PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows.
 
-To install the latest version of PowerShell, follow the instructions in the article, [Installing PowerShell on Windows](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7).
+If you have PowerShell installed, you can verify the version by entering the following at a PowerShell prompt:
+
+```powershell-interactive
+$PSVersionTable.PSVersion
+```
+
+Follow the instructions in the article, [Installing PowerShell on Windows](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7) to install the latest version of PowerShell.
 
 ## Install Azure PowerShell Az module
 
 This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-4.2.0).
 
-To install the Az module, follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## Specify Azure subscription
 
