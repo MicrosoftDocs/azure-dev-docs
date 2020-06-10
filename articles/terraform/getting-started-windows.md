@@ -21,7 +21,7 @@ PowerShell 7 (or later) is the recommended version of PowerShell for use with Az
 
 If you have PowerShell installed, you can verify the version by entering the following at a PowerShell prompt:
 
-```powershell-interactive
+```powershell
 $PSVersionTable.PSVersion
 ```
 
@@ -29,7 +29,7 @@ Follow the instructions in the article, [Installing PowerShell on Windows](https
 
 ## Install Azure PowerShell Az module
 
-This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-4.2.0).
+This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
@@ -39,33 +39,40 @@ Once you've installed the latest version of PowerShell and the Az module, you're
 
 1. Open a PowerShell instance as Administrator.
 
-1. Connect to Azure.
+1. Connect to Azure using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount).
 
     ```powershell
     Connect-AzAccount
     ```
+
+    **Notes**:
+    - Running this command will result in a URL and code being displayed. You'll need to browse to the URL and provide the code. At that point, you'll log into the Microsoft account associated with the active Azure subscription you want to use.
+    - Once you've logged in, the command displays the default Azure subscription for the Microsoft account.
     
-1. To view the Azure subscriptions associated with the Microsoft account used to connect to Azure, run the [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/Get-AzSubscription?view=azps-4.1.0) cmdlet:
+1. To view all the Azure subscriptions associated with the Microsoft account used to connect to Azure, run [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/Get-AzSubscription).
 
     ```powershell
     Get-AzSubscription
     ```
 
-1. To use a specific Azure subscription for the current PowerShell session, use one of the two following examples of [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-4.1.0).
+1. To use a specific Azure subscription for the current PowerShell session, use one of the two following examples of [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
 
     Replace the `<subscription_id>` placeholder with the ID of the subscription you want to use:
 
     ```powershell
-    Set-AzContext -SubscriptionId "<subscription_id"
+    Set-AzContext -SubscriptionId "<subscription_id>"
     ```
 
     Replace the `<subscription_name>` placeholder with the name of the subscription you want to use:
 
     ```powershell
-    Set-AzContext -SubscriptionId "<subscription_name"
+    Set-AzContext -SubscriptionName "<subscription_name>"
     ```
 
-1. To verify the current Azure subscription, use the [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext?view=azps-4.1.0) cmdlet.
+    **Notes**:
+    - The preceding examples use the `-SubscriptionId` and `-SubscriptionName` parameters. Technically, they're both aliases for the `-Subscription` parameter. Therefore, they can all be used interchangeably. However, that could change in the future. Also, using the specifying the intended parameter is better for the clarity of your code
+
+1. Once you set the context, a current context displays. However, if at anytime you want to verify the current Azure subscription, use the [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
 
     ```powershell
     Get-AzContext
@@ -98,31 +105,15 @@ Once you've installed the latest version of PowerShell and the Az module, you're
     ...
     ```
 
-
-
-
-
-
-
-
-
-https://www.terraform.io/docs/providers/azurerm/guides/service_principal_client_secret.html
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Create and run a sample script
 
-1. Create a file `test.tf` in an empty directory and paste in the following script.
+1. Create a directory to hold the Terraform files for this demo.
+
+1. Change directories to the demo directory.
+
+1. Using your favorite editor, create a Terraform configuration file named `QuickstartTerraformTest.tf`.
+
+1. Paste the following HCL into the new file.
 
     ```hcl
     provider "azurerm" {
@@ -136,3 +127,109 @@ https://www.terraform.io/docs/providers/azurerm/guides/service_principal_client_
             location = "eastus"
     }
     ```
+
+    **Notes**:
+    - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
+    - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
+    - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
+
+## Create and apply a Terraform execution plan
+
+Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+
+1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
+
+    ```bash
+    terraform init
+    ```
+    
+1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
+
+    ```bash
+    terraform plan
+    ```
+
+    **Notes:**
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
+    - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persist-an-execution-plan-for-later-deployment).
+
+1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
+
+    ```bash
+    terraform apply
+    ```
+    
+1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
+
+1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+
+    ```azurecli
+    az group show -n "QuickstartTerraformTest-rg"
+    ```
+
+    If successful, the command displays various properties of the newly created resource group.
+
+## Persist an execution plan for later deployment
+
+In the previous section, you saw how to run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. You then saw that using [terraform apply](https://www.terraform.io/docs/commands/apply.html) applies that plan. This pattern works well when the steps are interactive and sequential.
+
+For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
+
+If you use this feature, it'ss recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
+
+The following steps illustrate the basic pattern for using this feature:
+
+1. Run [terraform init](https://www.terraform.io/docs/commands/init.html).
+
+    ```bash
+    terraform init
+    ```
+
+1. Run `terraform plan` with the `-out` parameter.
+
+    ```bash
+    terraform plan -out QuickstartTerraformTest.tfplan
+    ```
+
+1. Run `terraform apply`, specifying the name of the file from the previous step.
+
+    ```bash
+    terraform apply QuickstartTerraformTest.tfplan
+    ```
+
+**Notes**:
+- To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
+- If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
+
+## Clean up resources
+
+When no longer needed, delete the resources created in this article.
+
+1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
+
+    ```bash
+    terraform destroy
+    ```
+
+1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
+
+1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+
+    ```azurecli
+    az group show -n "QuickstartTerraformTest-rg"
+    ```
+
+    **Notes**:
+    - If successful, the `az group show` command displays the fact that the resource group doesn't exist.
+
+1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
+
+    ```bash
+    cd .. && rm -r QuickstartTerraformTest
+    ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an Azure VM with Terraform](create-linux-virtual-machine-with-infrastructure.md)
