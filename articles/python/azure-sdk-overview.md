@@ -45,7 +45,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
   - This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) library.
 
-  - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](azure-sdk-library-package-index.md#libraries-usingazurecore). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
+  - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](azure-sdk-library-package-index.md#libraries-using-azurecore). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
 
   - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
 
