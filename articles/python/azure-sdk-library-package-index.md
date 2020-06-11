@@ -15,6 +15,6 @@ ms.topic: conceptual
 
 [!INCLUDE [python-new-releases](../includes/python-new.md)]
 
-### All libraries
+## All libraries
 
 [!INCLUDE [python-all-libraries](../includes/python-all.md)]
