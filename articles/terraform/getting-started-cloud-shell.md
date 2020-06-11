@@ -78,11 +78,11 @@ As explained in the previous section, two of the ways to log into Azure are the 
 
 The following steps address the first scenario where you do the following tasks:
 
-- Verify the current Azure subscription
+- View the current Azure subscription
 - List all available Azure subscriptions for the current Microsoft account
 - Switch to another Azure subscription
 
-1. To verify the current Azure subscription, use the [az account show](/cli/azure/account#az-account-show) command.
+1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
 
     ```azurecli
     az account show

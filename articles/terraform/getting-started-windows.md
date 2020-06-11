@@ -79,60 +79,65 @@ Based on your scenario, choose one of the following paths:
 
 - **Log in using an Azure service principal**: To log into an Azure subscription using a service principal, you call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
-    - Iteractive pattern - You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then to `Connect-AzAccount`.
+    - **Iteractive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
 
-        test test        
+        Call `Get-Credential` and manually enter a service principal name and password:
 
         ```powershell
         $Credential = Get-Credential
-        Connect-AzAccount -Credential $Credential -Tenant <tenandId> -ServicePrincipal
         ```
 
-    - Script pattern - You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
+        Call `Connect-AzAccount`, passing the `PsCredential` object. (Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.)
+
+        ```powershell
+        Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
+        ```
+
+    - **Script pattern**: You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
+
+        Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
+
+        ```powershell
+        $spName = "<servicePrincipalName"
+        $spPassword = ConvertTo-SecureString "<servicePrincipalPassword>" -AsPlainText -Force
+        $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
+        ```
+
+        Call `Connect-AzAccount`, passing the constructed `PsCredential` object:
+
+        ```powershell
+        Connect-AzAccount -Credential $psCredential -TenantId "<azureSubscriptionTenantId>"  -ServicePrincipal
+        ```
 
 ## Specify the current Azure subscription
 
-Once you've installed the latest version of PowerShell and the Az module, you're ready to connect to Azure.
+As explained in the previous section, two of the ways to log into Azure are the following scenarios:
 
-1. Open a PowerShell instance as Administrator.
+- **Log in using a Microsoft account**: A Microsoft account can be associated with multiple Azure subscriptions - one of which is the default subscription. The default subscription is the one you use if you log in and don't switch to another.
+- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. Remember that the subscription information displays when you log in.
 
-1. Connect to Azure using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount).
+The following steps address the first scenario where you do the following tasks:
 
-    ```powershell
-    Connect-AzAccount
+- Verify the current Azure subscription
+- List all available Azure subscriptions for the current Microsoft account
+- Switch to another Azure subscription
+
+1. To view the current Azure subscription, use [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
+
+    ```azurecli
+    Get-AzContext
     ```
 
-    **Notes**:
-    - Running this command will result in a URL and code being displayed. You'll need to browse to the URL and provide the code. At that point, you'll log into the Microsoft account associated with the active Azure subscription you want to use.
-    - Once you've logged in, the command displays the default Azure subscription for the Microsoft account.
-    
-1. To view all the Azure subscriptions associated with the Microsoft account used to connect to Azure, run [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/Get-AzSubscription).
+1. If you have access to multiple available Azure subscriptions, use [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) to display a list of subscription name ID values:
 
-    ```powershell
+    ```azurecli
     Get-AzSubscription
     ```
 
-1. To use a specific Azure subscription for the current PowerShell session, use one of the two following examples of [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
-
-    Replace the `<subscription_id>` placeholder with the ID of the subscription you want to use:
+1. To use a specific Azure subscription for the current PowerShell session, use the [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) command. Replace the `<subscription_id>` placeholder with the ID of the subscription you want to use:
 
     ```powershell
     Set-AzContext -SubscriptionId "<subscription_id>"
-    ```
-
-    Replace the `<subscription_name>` placeholder with the name of the subscription you want to use:
-
-    ```powershell
-    Set-AzContext -SubscriptionName "<subscription_name>"
-    ```
-
-    **Notes**:
-    - The preceding examples use the `-SubscriptionId` and `-SubscriptionName` parameters. Technically, they're both aliases for the `-Subscription` parameter. Therefore, they can all be used interchangeably. However, that could change in the future. Also, using the specifying the intended parameter is better for the clarity of your code
-
-1. Once you set the context, a current context displays. However, if at anytime you want to verify the current Azure subscription, use the [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
-
-    ```powershell
-    Get-AzContext
     ```
 
 ## Install Terraform
