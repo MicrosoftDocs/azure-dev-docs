@@ -33,15 +33,15 @@ This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/po
 
 Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## Log into your Microsoft account
+## Log into Azure
 
-if you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts by using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount). 
+There are several options that allow you to log into an Azure subscription.
 
-Based on your scenario, choose one of the following paths:
+- [Log into your Microsoft account](#log-into-your-microsoft-account)
 
-### Log in as a user
+### Log into your Microsoft account
 
-Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+If you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts by using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount). Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
     ```powershell
     Connect-AzAccount
