@@ -39,7 +39,9 @@ if you have multiple Microsoft accounts with Azure subscriptions, you can log in
 
 Based on your scenario, choose one of the following paths:
 
-- **You want to log in as a user**: Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+### Log in as a user
+
+Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
     ```powershell
     Connect-AzAccount
@@ -48,35 +50,42 @@ Based on your scenario, choose one of the following paths:
     **Notes**:
     - Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
-- **You want to use a service principal, but don't have one yet**: Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
+
+### Create an Azure service principal
+
+To log into an Azure subscription using a service principal, you first need access to a service principal.
+
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
     There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
     Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. Therefore, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password. 
 
-    Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
+    1. Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
     
-    ```powershell
-    $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
-    ```
+        ```powershell
+        $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
+        ```
+    
+    1. Enter the following to display the names of the service principal:
 
-    Enter the following to display the names of the service principal:
+        ```powershell
+        $sp.ServicePrincipalNames
+        ```
+    
+    1. Call `ConvertFrom-SecureString` to display the password as text:
 
-    ```powershell
-    $sp.ServicePrincipalNames
-    ```
-
-    Call `ConvertFrom-SecureString` to display the password as text:
-
-    ```powershell
-    $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
-    ```
-
+        ```powershell
+        $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
+        ```
+    
     **Notes**:
     - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-- **Log in using an Azure service principal**: To log into an Azure subscription using a service principal, you call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
+### Log in using an Azure service principal
+
+To log into an Azure subscription using a service principal, call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
     - **Iteractive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
 
@@ -107,6 +116,15 @@ Based on your scenario, choose one of the following paths:
         ```powershell
         Connect-AzAccount -Credential $psCredential -TenantId "<azureSubscriptionTenantId>"  -ServicePrincipal
         ```
+
+
+
+
+
+
+
+
+
 
 ## Specify the current Azure subscription
 
