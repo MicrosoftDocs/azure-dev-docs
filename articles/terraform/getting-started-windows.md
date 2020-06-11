@@ -53,7 +53,7 @@ Based on your scenario, choose one of the following paths:
 
     There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-    Calling [New-AzADServicePrincipal](https://docs.microsoft.com/en-us/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. Therefore, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password. 
+    Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. Therefore, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password. 
 
     Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
     
@@ -75,11 +75,11 @@ Based on your scenario, choose one of the following paths:
 
     **Notes**:
     - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
-    - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
+    - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
 - **Log in using an Azure service principal**: To log into an Azure subscription using a service principal, you call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
-    - Iteractive pattern - You call `Get-Credential` and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then to `Connect-AzAccount`.
+    - Iteractive pattern - You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then to `Connect-AzAccount`.
 
         test test        
 
@@ -90,7 +90,7 @@ Based on your scenario, choose one of the following paths:
 
     - Script pattern - You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
 
-## Specify Azure subscription
+## Specify the current Azure subscription
 
 Once you've installed the latest version of PowerShell and the Az module, you're ready to connect to Azure.
 
