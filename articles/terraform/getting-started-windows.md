@@ -46,8 +46,7 @@ Based on your scenario, choose one of the following paths:
     ```
 
     **Notes**:
-    - Upon successful login, `Connect-AzAccount` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
-    - A list of properties displays for the default subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
+    - Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
 - **You want to use a service principal, but don't have one yet**: Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
