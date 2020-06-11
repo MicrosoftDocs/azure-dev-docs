@@ -77,15 +77,18 @@ Based on your scenario, choose one of the following paths:
     - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-- **Log in using an Azure service principal**: You use `Connect-AzAccount` to log into a specific Azure subscription using a service principal. 
+- **Log in using an Azure service principal**: To log into an Azure subscription using a service principal, you call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
+    - Iteractive pattern - You call `Get-Credential` and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then to `Connect-AzAccount`.
 
-$Credential = Get-Credential
-Connect-AzAccount -Credential $Credential -Tenant 'xxxx-xxxx-xxxx-xxxx' -ServicePrincipal
+        test test        
 
+        ```powershell
+        $Credential = Get-Credential
+        Connect-AzAccount -Credential $Credential -Tenant <tenandId> -ServicePrincipal
+        ```
 
-
-
+    - Script pattern - You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
 
 ## Specify Azure subscription
 
