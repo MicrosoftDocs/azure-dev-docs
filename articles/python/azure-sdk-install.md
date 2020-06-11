@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # How to install Azure library packages for Python
 
-The Azure SDK for Python is composed solely of many individual libraries that are listed on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html). You install the specific library packages you need for a project using `pip install`.
+The Azure SDK for Python is composed solely of many individual libraries that are listed later in this article in the [Package index](#package-index). You install the specific library packages you need for a project using `pip install`.
 
 With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries).
 
@@ -72,3 +72,13 @@ pip uninstall azure-storage-blob
 ```
 
 To uninstall a library, use `pip uninstall <library>`.
+
+## Package index
+
+### Libraries updated to use azure.core
+
+[!INCLUDE [python-new-releases](../includes/python-new.md)]
+
+### All libraries
+
+[!INCLUDE [python-all-libraries](../includes/python-all.md)]

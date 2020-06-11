@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure libraries for Python usage patterns
 
-The Azure SDK for Python is composed solely of many independent libraries, which are listed on the [Azure SDK for Python index page](https://azure.github.io/azure-sdk/releases/latest/all/python.html).
+The Azure SDK for Python is composed solely of many independent libraries, which are listed on the [Python SDK package index](azure-sdk-install.md#package-index).
 
 All the libraries share certain common characteristics and usage patterns, such as installation and the use of inline JSON for object arguments.
 
