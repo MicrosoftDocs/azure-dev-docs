@@ -37,7 +37,7 @@ When installing Node.js, use the default options and do *not* select the option 
 
 Install the following software:
 
-- Python 3.6, 3.7, or 3.8 as required by Azure Functions. Install Python from [python.org](https://www.python.org/downloads). When installing, select **Add Python 3.x to PATH** use the default options by selecting the **Install Now** option. On Windows, also select **Disable Path length limit** at the end of the process.
+- A 64-bit version of Python 3.6, 3.7, or 3.8 as required by Azure Functions. Install Python from [python.org](https://www.python.org/downloads). When installing, select **Add Python 3.x to PATH** use the default options by selecting the **Install Now** option. On Windows, also select **Disable Path length limit** at the end of the process.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Visual Studio Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
