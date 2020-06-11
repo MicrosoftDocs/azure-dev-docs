@@ -31,43 +31,54 @@ This article describes getting started with [Terraform on Azure](https://www.ter
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
 
-## Log into your Microsoft account
+## Log into Azure
 
-Cloud Shell is automatically authenticated under the Microsoft account with which you logged into the Azure portal. However, if you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts by using [az login](/cli/azure/reference-index?#az-login).
+Cloud Shell is automatically authenticated under the Microsoft account with which you logged into the Azure portal.
 
-Based on your scenario, choose one of the following paths:
+Also, once logged into your Microsoft account, you are automatically logged into the default Azure subscription for that account. If the current Microsoft account is correct, and you want to switch subscriptions, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
+
+If you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts using any of the following options:
+
+- [Log into your Microsoft account](#log-into-your-microsoft-account)
+- [Log in using an Azure service principal](#log-into-azure-using-an-azure-service-principal)
+
+### Log into your Microsoft account
+
+Calling `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+
+```azurecli
+az login
+```
+
+Notes:
+- Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
+- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
+
+### Log into Azure using an Azure service principal
+
+**Create an Azure service principal**: To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
+
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
+
+There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+
+Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
     
-- **You want to log in as a user**: Running `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+```azurecli
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
+```
 
-    ```azurecli
-    az login
-    ```
-
-    **Notes**:
-    - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
-    - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
-
-- **You want to use a service principal, but don't have one yet**: Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
-
-    There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create a service principal with a **Contributor** role (the default role). The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles). 
+Notes:
+- Upon successful completion, `az ad sp create-for-rbac` displays several values, including the autogenerated password. The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
     
-    Using [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac), replace `<subscription_id>` with the ID of the subscription account you want to use.
-    
-    ```azurecli
-    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
-    ```
+**Log in using an Azure service principal**: In the following call to `az login`, replace the placeholders with the information from your service principal.
 
-    **Notes**:
-    - Upon successful completion, `az ad sp create-for-rbac` displays several values, including the autogenerated password. The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-    
-- **Log in using an Azure service principal**: In the following call to `az login`, replace the placeholders with the information from your service principal.
+```azurecli
+az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
+```
 
-    ```azurecli
-    az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
-    ```
-
-    **Notes**:
-    - Upon successful login, `az login` displays various properties for the Azure subscription - such as `id` and `name`.
+Notes:
+- Upon successful login, `az login` displays various properties for the Azure subscription - such as `id` and `name`.
 
 ## Specify the current Azure subscription
 
@@ -100,7 +111,7 @@ The following steps address the first scenario where you do the following tasks:
     az account set --subscription="<subscription_id>"
     ```
 
-    **Notes**:
+    Notes:
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
 ## Create a Terraform configuration file
@@ -146,7 +157,7 @@ In this section, you learn how to create a Terraform configuration file that cre
     }
     ```
 
-    **Notes**:
+    Notes:
     - The `provider` block specifies that the [Azure provider (`azurerm`)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for `azure_resource_group` are `name` and `location`.
@@ -220,7 +231,7 @@ The following steps illustrate the basic pattern for using this feature:
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
-**Notes**:
+Notes:
 - To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
 - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
@@ -242,7 +253,7 @@ When no longer needed, delete the resources created in this article.
     az group show -n "QuickstartTerraformTest-rg"
     ```
 
-    **Notes**:
+    Notes:
     - If successful, `az group show` displays the fact that the resource group doesn't exist.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
