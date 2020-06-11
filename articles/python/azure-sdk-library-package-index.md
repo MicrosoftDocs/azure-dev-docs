@@ -8,6 +8,7 @@ ms.topic: conceptual
 # Azure libraries package index
 
 [Libraries using azure.core](#libraries-using-azurecore)
+
 [All libraries](#all-libraries)
 
 ## Libraries using azure.core
