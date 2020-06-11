@@ -3,7 +3,7 @@ title: Quickstart - Getting started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 06/09/2020
+ms.date: 06/11/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -285,7 +285,11 @@ When no longer needed, delete the resources created in this article.
     **Notes**:
     - If successful, `Get-AzResourceGroup` displays the fact that the resource group doesn't exist.
 
-1. Change directories to the parent directory and remove the demo directory.
+1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
+
+    ```bash
+    cd .. && rm -r QuickstartTerraformTest
+    ```
 
 ## Next steps
 
