@@ -48,7 +48,7 @@ If you have multiple Microsoft accounts with Azure subscriptions, you can log in
 Connect-AzAccount
 ```
 
-**Notes**:
+Notes:
 - Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
 ### Log into Azure using an Azure service principal
@@ -79,7 +79,7 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
     $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
     ```
 
-**Notes**:
+Notes:
 - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
@@ -196,7 +196,7 @@ The following steps address the first scenario where you do the following tasks:
     }
     ```
 
-    **Notes**:
+    Notes:
     - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
@@ -266,7 +266,7 @@ The following steps illustrate the basic pattern for using this feature:
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
-**Notes**:
+Notes:
 - To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
 - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
@@ -288,7 +288,7 @@ When no longer needed, delete the resources created in this article.
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
-    **Notes**:
+    Notes:
     - If successful, `Get-AzResourceGroup` displays the fact that the resource group doesn't exist.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
