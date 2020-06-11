@@ -33,13 +33,14 @@ This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/po
 
 Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## Log into Azure
+## Understand your Azure login options
 
 There are several options that allow you to log into an Azure subscription.
 
 - [Log into your Microsoft account](#log-into-your-microsoft-account)
+- [Log in using an Azure service principal](#log-in-using-an-azure-service-principal)
 
-### Log into your Microsoft account
+## Log into your Microsoft account
 
 If you have multiple Microsoft accounts with Azure subscriptions, you can log into one of those accounts by using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount). Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
@@ -50,6 +51,7 @@ If you have multiple Microsoft accounts with Azure subscriptions, you can log in
 **Notes**:
 - Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
+## Log into Azure using an Azure service principal
 
 ### Create an Azure service principal
 
@@ -83,7 +85,7 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-### Log in using an Azure service principal
+### Use an Azure service principal to log in
 
 To log into an Azure subscription using a service principal, call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
