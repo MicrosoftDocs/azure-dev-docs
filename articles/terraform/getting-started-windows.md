@@ -124,13 +124,13 @@ The following steps address the first scenario where you do the following tasks:
 
 1. To view the current Azure subscription, use [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
 
-    ```azurecli
+    ```powershell
     Get-AzContext
     ```
 
 1. If you have access to multiple available Azure subscriptions, use [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) to display a list of subscription name ID values:
 
-    ```azurecli
+    ```powershell
     Get-AzSubscription
     ```
 
@@ -201,13 +201,13 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
-    ```bash
+    ```powershell
     terraform init
     ```
     
 1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
 
-    ```bash
+    ```powershell
     terraform plan
     ```
 
@@ -218,7 +218,7 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
-    ```bash
+    ```powershell
     terraform apply
     ```
     
@@ -226,8 +226,8 @@ Cloud Shell automatically has the latest version of Terraform installed. Also, T
 
 1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
-    ```azurecli
-    az group show -n "QuickstartTerraformTest-rg"
+    ```powershell
+    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
     If successful, the command displays various properties of the newly created resource group.
@@ -244,19 +244,19 @@ The following steps illustrate the basic pattern for using this feature:
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html).
 
-    ```bash
+    ```powershell
     terraform init
     ```
 
 1. Run `terraform plan` with the `-out` parameter.
 
-    ```bash
+    ```powershell
     terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
 1. Run `terraform apply`, specifying the name of the file from the previous step.
 
-    ```bash
+    ```powershell
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
@@ -270,7 +270,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
 
-    ```bash
+    ```powershell
     terraform destroy
     ```
 
@@ -278,18 +278,14 @@ When no longer needed, delete the resources created in this article.
 
 1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
-    ```azurecli
-    az group show -n "QuickstartTerraformTest-rg"
+    ```powershell
+    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
     **Notes**:
-    - If successful, the `az group show` command displays the fact that the resource group doesn't exist.
+    - If successful, `Get-AzResourceGroup` displays the fact that the resource group doesn't exist.
 
-1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
-
-    ```bash
-    cd .. && rm -r QuickstartTerraformTest
-    ```
+1. Change directories to the parent directory and remove the demo directory.
 
 ## Next steps
 
