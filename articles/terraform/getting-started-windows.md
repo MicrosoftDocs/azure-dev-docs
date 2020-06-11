@@ -104,7 +104,7 @@ Notes:
     1. Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
 
         ```powershell
-        $spName = "<servicePrincipalName"
+        $spName = "<servicePrincipalName>"
         $spPassword = ConvertTo-SecureString "<servicePrincipalPassword>" -AsPlainText -Force
         $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
         ```
