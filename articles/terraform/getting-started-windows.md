@@ -47,8 +47,8 @@ Running `Connect-AzAccount` without any parameters displays a URL and a code. Br
     Connect-AzAccount
     ```
 
-    **Notes**:
-    - Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
+**Notes**:
+- Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
 
 ### Create an Azure service principal
@@ -66,19 +66,19 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
     ```powershell
     $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
     ```
-    
+
 1. Enter the following to display the names of the service principal:
 
     ```powershell
     $sp.ServicePrincipalNames
     ```
-    
+
 1. Call `ConvertFrom-SecureString` to display the password as text:
 
     ```powershell
     $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
     ```
-    
+
 **Notes**:
 - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
@@ -87,23 +87,23 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 
 To log into an Azure subscription using a service principal, call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
-    - **Iteractive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
+- **Iteractive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
 
-        Call `Get-Credential` and manually enter a service principal name and password:
+    1. Call `Get-Credential` and manually enter a service principal name and password:
 
         ```powershell
         $Credential = Get-Credential
         ```
 
-        Call `Connect-AzAccount`, passing the `PsCredential` object. (Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.)
+    2. Call `Connect-AzAccount`, passing the `PsCredential` object. (Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.)
 
         ```powershell
         Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
         ```
 
-    - **Script pattern**: You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
+- **Script pattern**: You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
 
-        Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
+    1. Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
 
         ```powershell
         $spName = "<servicePrincipalName"
@@ -111,20 +111,11 @@ To log into an Azure subscription using a service principal, call `Connect-AzAcc
         $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
         ```
 
-        Call `Connect-AzAccount`, passing the constructed `PsCredential` object:
+    1. Call `Connect-AzAccount`, passing the constructed `PsCredential` object:
 
         ```powershell
         Connect-AzAccount -Credential $psCredential -TenantId "<azureSubscriptionTenantId>"  -ServicePrincipal
         ```
-
-
-
-
-
-
-
-
-
 
 ## Specify the current Azure subscription
 
