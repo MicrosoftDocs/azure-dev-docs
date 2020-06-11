@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Configure logging in the Azure libraries for Python
 
-Azure Libraries for Python that appear on the [Latest releases](https://azure.github.io/azure-sdk/releases/latest/python.html) page provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
+Azure Libraries for Python that are [based on azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) page provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
 
 Logger output is not enabled by default. To enable logging:
 
