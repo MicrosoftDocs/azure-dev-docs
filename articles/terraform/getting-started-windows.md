@@ -39,7 +39,7 @@ if you have multiple Microsoft accounts with Azure subscriptions, you can log in
 
 Based on your scenario, choose one of the following paths:
 
-- **You want to log in as a user**: Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once the command logs you in, return to the portal.
+- **You want to log in as a user**: Running `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
     ```powershell
     Connect-AzAccount
@@ -134,7 +134,7 @@ The following steps address the first scenario where you do the following tasks:
     Get-AzSubscription
     ```
 
-1. To use a specific Azure subscription for the current PowerShell session, use the [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) command. Replace the `<subscription_id>` placeholder with the ID of the subscription you want to use:
+1. To use a specific Azure subscription for the current PowerShell session, use [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext). Replace the `<subscription_id>` placeholder with the ID of the subscription you want to use:
 
     ```powershell
     Set-AzContext -SubscriptionId "<subscription_id>"
