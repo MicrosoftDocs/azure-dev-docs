@@ -22,9 +22,9 @@ import os
 os.environ["HTTP_PROXY"] = "http://10.10.1.10:1180"
 
 # Alternate URL and variable forms:
-# os.environ["HTTP_PROXY"] = "http://user:pass@10.10.1.10:1180"
+# os.environ["HTTP_PROXY"] = "http://username:password@10.10.1.10:1180"
 # os.environ["HTTPS_PROXY"] = "http://10.10.1.10:1180"
-# os.environ["HTTPS_PROXY"] = "http://user:pass@10.10.1.10:1180"
+# os.environ["HTTPS_PROXY"] = "http://username:password@10.10.1.10:1180"
 ```
 
 ### From the CLI
@@ -36,13 +36,13 @@ rem Non-authenticated HTTP server:
 set HTTP_PROXY=http://10.10.1.10:1180
 
 rem Authenticated HTTP server:
-set HTTP_PROXY=http://user:pass@10.10.1.10:1180
+set HTTP_PROXY=http://username:password@10.10.1.10:1180
 
 rem Non-authenticated HTTPS server:
 set HTTPS_PROXY=http://10.10.1.10:1180
 
 rem Authenticated HTTPS server:
-set HTTPS_PROXY=http://user:pass@10.10.1.10:1180
+set HTTPS_PROXY=http://username:password@10.10.1.10:1180
 ```
 
 # [bash](#tab/bash)
@@ -52,13 +52,13 @@ set HTTPS_PROXY=http://user:pass@10.10.1.10:1180
 HTTP_PROXY=http://10.10.1.10:1180
 
 # Authenticated HTTP server:
-HTTP_PROXY=http://user:pass@10.10.1.10:1180
+HTTP_PROXY=http://username:password@10.10.1.10:1180
 
 # Non-authenticated HTTPS server:
 HTTPS_PROXY=http://10.10.1.10:1180
 
 # Authenticated HTTPS server:
-HTTPS_PROXY=http://user:pass@10.10.1.10:1180
+HTTPS_PROXY=http://username:password@10.10.1.10:1180
 ```
 
 ---
@@ -74,11 +74,11 @@ For example, the following code from the article [Example: use Azure storage](az
 
 blob_client = BlobClient(storage_url, container_name="blob-container-01",
     blob_name="sample-blob.txt", credential=credential,
-    proxies={ "https": "https://user:pass@10.10.1.10:1180" }
+    proxies={ "https": "https://username:password@10.10.1.10:1180" }
 )
 
 # Other forms that the proxy URL might take:
 # proxies={ "http": "http://10.10.1.10:1180" }
-# proxies={ "http": "http://user:pass@10.10.1.10:1180" }
+# proxies={ "http": "http://username:password@10.10.1.10:1180" }
 # proxies={ "https": "https://10.10.1.10:1180" }
 ```
