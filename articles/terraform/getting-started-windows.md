@@ -3,7 +3,7 @@ title: Quickstart - Getting started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/12/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -42,7 +42,7 @@ There are several options that allow you to log into an Azure subscription.
 
 ### Log into your Microsoft account
 
-Calling `Connect-AzAccount` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+Calling [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
 ```powershell
 Connect-AzAccount
@@ -124,7 +124,7 @@ As explained in the previous section, two of the ways to log into Azure are the 
 
 The following steps address the first scenario where you do the following tasks:
 
-- Verify the current Azure subscription
+- View the current Azure subscription
 - List all available Azure subscriptions for the current Microsoft account
 - Switch to another Azure subscription
 
