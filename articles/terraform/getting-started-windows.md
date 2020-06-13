@@ -15,7 +15,7 @@ ms.date: 06/12/2020
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure the Azure PowerShell Az module
+## Configure your environment
 
 1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following at a PowerShell prompt:
 
