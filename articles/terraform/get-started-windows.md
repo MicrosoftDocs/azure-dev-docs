@@ -238,7 +238,7 @@ Once you create your configuration files, this section explains how to create an
     
 1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
@@ -290,7 +290,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the play, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
