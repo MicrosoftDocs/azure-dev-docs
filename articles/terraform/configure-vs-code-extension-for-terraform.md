@@ -20,7 +20,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Terraform**: [Install and configure Terraform](getting-started-cloud-shell.md).
+- **Terraform**: [Install and configure Terraform](get-started-cloud-shell.md).
 - **Visual Studio Code**: Install the version of [Visual Studio Code](https://code.visualstudio.com/download) that is appropriate for your environment.
 
 ## Prepare your dev environment

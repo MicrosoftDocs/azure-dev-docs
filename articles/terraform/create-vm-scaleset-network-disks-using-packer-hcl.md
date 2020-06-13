@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Terraform**: [Install Terraform and configure access to Azure](getting-started-cloud-shell.md).
+- **Terraform**: [Install Terraform and configure access to Azure](get-started-cloud-shell.md).
 - **SSH key pair**: [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys).
 - **Packer**:  [Install Packer](https://www.packer.io/docs/install/index.html).
 
