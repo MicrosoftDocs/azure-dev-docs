@@ -903,10 +903,6 @@
     {
       "source_path": "articles/terraform/getting-started-cloud-shell.md",
       "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
-    },
-    {
-      "source_path": "articles/terraform/getting-started-windows.md",
-      "redirect_url": "/azure/developer/terraform/get-started-windows"
     }
   ]
 }
