@@ -26,10 +26,8 @@ This article describes how to get started with [Terraform on Azure](https://www.
     ```powershell
     $PSVersionTable.PSVersion
     ```
-    
-1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7).
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI]((/cli/azure/install-azure-cli-windows?view=azure-cli-latest)).
+1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7).
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
@@ -46,11 +44,11 @@ This article describes how to get started with [Terraform on Azure](https://www.
     Notes:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI]((/cli/azure/install-azure-cli-windows?view=azure-cli-latest)).
+
 ## Log into Azure
 
-1. Open an instance of PowerShell.
-
-There are several options that allow you to log into an Azure subscription.
+There are several options that allow you to log into an Azure subscription:
 
 - [Log into your Microsoft account](#log-into-your-microsoft-account)
 - [Log in using an Azure service principal](#log-into-azure-using-an-azure-service-principal)
