@@ -37,7 +37,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. [Update your system's global path](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) to the executable.
 
-1. Verify the global path configuration with the `terraform` command. If the Terraform executable is found, a list of available Terraform options displays:
+1. Verify the global path configuration with the `terraform` command.
 
     ```powershell
     terraform
