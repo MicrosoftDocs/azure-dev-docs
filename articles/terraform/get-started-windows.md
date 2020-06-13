@@ -29,7 +29,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
     
 1. Follow the instructions in the article, [Installing PowerShell on Windows](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7) to install the latest version of PowerShell.
 
-1. This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI]((/cli/azure/install-azure-cli-windows?view=azure-cli-latest)).
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
@@ -171,9 +171,9 @@ The following steps address the first scenario where you do the following tasks:
 
 In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
 
-1. Create a directory to hold the Terraform files for this demo.
+1. Create a directory named `QuickstartTerraformTest` to hold the Terraform files for this demo.
 
-1. Change directories to the demo directory.
+1. Change directories to the new directory.
 
 1. Using your favorite editor, create a Terraform configuration file named `QuickstartTerraformTest.tf`.
 
