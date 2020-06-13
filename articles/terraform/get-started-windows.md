@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following at a PowerShell prompt:
+1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -31,7 +31,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-1. Open an instance of the version of PowerShell that you just installed.
+1. Open an instance of PowerShell.
 
 ## Log into Azure
 
@@ -59,7 +59,7 @@ Automated tools that deploy or use Azure services - such as Terraform - should a
 
 There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. Therefore, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
+Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
 
 1. Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
 
