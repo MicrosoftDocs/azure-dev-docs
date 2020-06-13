@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 06/12/2020
+ms.date: 06/13/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -31,9 +31,24 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. This article uses the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Follow the instructions in the article, [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-1. Open an instance of PowerShell.
+1. [Download Terraform](https://www.terraform.io/downloads.html).
+
+1. From the download, extract the executable to a directory of your choosing.
+
+1. [Update your system's global path](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) to the executable.
+
+1. Verify the global path configuration with the `terraform` command. If the Terraform executable is found, a list of available Terraform options displays:
+
+    ```powershell
+    terraform
+    ```
+
+    Notes:
+    - If the Terraform executable is found, it will list the syntax and available commands.
 
 ## Log into Azure
+
+1. Open an instance of PowerShell.
 
 There are several options that allow you to log into an Azure subscription.
 
@@ -150,33 +165,6 @@ The following steps address the first scenario where you do the following tasks:
 
     ```powershell
     Select-AzContext <context_name>
-    ```
-
-## Configure Terraform
-
-1. [Download Terraform](https://www.terraform.io/downloads.html).
-
-1. From the download, extract the executable to a directory of your choosing.
-
-1. [Update your system's global path](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) to the executable.
-
-1. Verify the global path configuration with the `terraform` command. If the Terraform executable is found, a list of available Terraform options displays:
-
-    ```powershell
-    terraform
-    ```
-
-    If the Terraform executable is found, it will list the syntax and available commands:
-
-    ```output
-    Usage: terraform [-version] [-help] <command> [args]
-
-    The available commands for execution are listed below.
-    The most common, useful commands are shown first, followed by
-    less common or more advanced commands. If you're just getting
-    started with Terraform, stick with the common commands. For the
-    other commands, please read the help and docs before usage.
-    ...
     ```
 
 ## Create a Terraform configuration file

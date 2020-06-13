@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 06/12/2020
+ms.date: 06/13/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -30,6 +30,9 @@ This article describes how to get started with [Terraform on Azure](https://www.
     ![Accessing Cloud Shell](media/install-configure/portal-cloud-shell.png)
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
+
+Notes:
+- Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## Log into Azure
 
@@ -113,10 +116,6 @@ The following steps address the first scenario where you do the following tasks:
 
     Notes:
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
-
-## Configure Terraform
-
-Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## Create a Terraform configuration file
 
