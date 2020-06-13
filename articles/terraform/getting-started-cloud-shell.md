@@ -19,7 +19,7 @@ This article describes getting started with [Terraform on Azure](https://www.ter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Open Cloud Shell
+## Configure your environment
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
