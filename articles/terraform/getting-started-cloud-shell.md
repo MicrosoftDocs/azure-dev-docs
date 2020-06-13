@@ -3,7 +3,7 @@ title: Quickstart - Getting started with Terraform using Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/12/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -19,7 +19,7 @@ This article describes getting started with [Terraform on Azure](https://www.ter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure Azure Cloud Shell
+## Configure your environment
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
