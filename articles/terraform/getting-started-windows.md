@@ -142,7 +142,7 @@ The following steps address the first scenario where you do the following tasks:
     Set-AzContext -SubscriptionId "<subscription_id>"
     ```
 
-## Install Terraform
+## Configure Terraform
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 

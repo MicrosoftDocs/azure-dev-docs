@@ -114,6 +114,10 @@ The following steps address the first scenario where you do the following tasks:
     Notes:
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
+## Configure Terraform
+
+Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
+
 ## Create a Terraform configuration file
 
 In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
@@ -168,7 +172,7 @@ In this section, you learn how to create a Terraform configuration file that cre
 
 ## Create and apply a Terraform execution plan
 
-Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
