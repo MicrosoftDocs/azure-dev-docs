@@ -171,6 +171,8 @@ The following steps address the first scenario where you do the following tasks:
 
 ## Create a Terraform configuration file
 
+In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
+
 1. Create a directory to hold the Terraform files for this demo.
 
 1. Change directories to the demo directory.
