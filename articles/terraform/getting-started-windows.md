@@ -169,7 +169,7 @@ The following steps address the first scenario where you do the following tasks:
     ...
     ```
 
-## Create and run a sample script
+## Create a Terraform configuration file
 
 1. Create a directory to hold the Terraform files for this demo.
 
