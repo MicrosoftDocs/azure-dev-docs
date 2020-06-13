@@ -15,7 +15,7 @@ ms.date: 06/12/2020
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure your environment
+## Configure the Azure PowerShell Az module
 
 1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following at a PowerShell prompt:
 
@@ -199,7 +199,7 @@ The following steps address the first scenario where you do the following tasks:
 
 ## Create and apply a Terraform execution plan
 
-Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required. Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+Once you create your configuration files, this section explains how to create an *execution plan* and apply it to your cloud infrastructure.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 

@@ -19,7 +19,7 @@ This article describes getting started with [Terraform on Azure](https://www.ter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure your environment
+## Configure the Azure PowerShell Az module
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
@@ -172,14 +172,14 @@ In this section, you learn how to create a Terraform configuration file that cre
 
 ## Create and apply a Terraform execution plan
 
-Once you create your configuration files, you need only run a couple of Terraform commands to create an execution play. Once you create the execution plan, you can verify it and deploy it.
+Once you create your configuration files, this section explains how to create an *execution plan* and apply it to your cloud infrastructure.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
     ```bash
     terraform init
     ```
-    
+
 1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
 
     ```bash
@@ -196,7 +196,7 @@ Once you create your configuration files, you need only run a couple of Terrafor
     ```bash
     terraform apply
     ```
-    
+
 1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
 
 1. Once you confirm the execution of the play, test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
