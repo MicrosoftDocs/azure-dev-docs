@@ -21,13 +21,13 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt. This demo was tested using PowerShell 7.0.2 on Windows 10.
+1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7).
+1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). (This demo was tested using PowerShell 7.0.2 on Windows 10)
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
@@ -44,7 +44,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
     Notes:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
-1. As Terraform uses the Azure CLI to [authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI 2.7.0.
+1. Terraform uses the Azure CLI to [authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html). As such, need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). (This demo was tested using Azure CLI 2.7.0)
 
 ## Authenticate to Azure
 
@@ -126,11 +126,25 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
 In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
 
-1. Create a directory named `QuickstartTerraformTest` to hold the Terraform files for this demo.
+1. Change directories to the directory where you create the demo directory to hold your Terraform files.
 
-1. Change directories to the new directory.
+1. Create a directory to hold the Terraform files for this demo.
 
-1. Using your favorite editor, create a Terraform configuration file named `QuickstartTerraformTest.tf`.
+    ```powershell
+    mkdir QuickstartTerraformTest
+    ```
+
+1. Change directories to the demo directory.
+
+    ```powershell
+    cd QuickstartTerraformTest
+    ```
+
+1. Using your favorite editor, create a Terraform configuration file. This article uses [Visual Studio Code](https://code.visualstudio.com/Download).
+
+    ```powershell
+    code QuickstartTerraformTest.tf
+    ```
 
 1. Paste the following HCL into the new file.
 
@@ -152,6 +166,10 @@ In this section, you learn how to create a Terraform configuration file that cre
     - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
+
+1. Save the file (**&lt;Ctrl>S**).
+
+1. Exit the editor (**&lt;Ctrl>&lt;F4>**).
 
 ## Create and apply a Terraform execution plan
 

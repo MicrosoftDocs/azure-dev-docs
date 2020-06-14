@@ -83,10 +83,6 @@ Notes:
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
-Notes:
-
-- Upon successful login, `az login` displays various properties for the Azure subscription - such as `id` and `name`.
-
 ## Specify the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how to switch between subscriptions:
@@ -212,7 +208,7 @@ In the previous section, you saw how to run [terraform plan](https://www.terrafo
 
 For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
 
-If you use this feature, it'ss recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
+If you use this feature, it's recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
 
 The following steps illustrate the basic pattern for using this feature:
 
