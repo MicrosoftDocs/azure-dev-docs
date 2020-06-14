@@ -83,7 +83,7 @@ Notes:
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
-## Specify the current Azure subscription
+## Set the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how to switch between subscriptions:
 

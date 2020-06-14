@@ -96,7 +96,7 @@ $env:ARM_CLIENT_SECRET="<service_principal_password>"
 $env:ARM_TENANT_ID="<service_principal_tenant_id>"
 ```
 
-## Specify the current Azure subscription
+## Set the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how to switch between subscriptions:
 
@@ -201,15 +201,15 @@ Once you create your configuration files, this section explains how to create an
 
 1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
 
-    ```powershell
-    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
+    ```azurecli
+    az group show -n "QuickstartTerraformTest-rg"
     ```
 
     Notes:
 
-    - If successful, the command displays various properties of the newly created resource group.
+    - If successful, `az group show` displays various properties of the newly created resource group.
 
 ## Persist an execution plan for later deployment
 
@@ -250,20 +250,20 @@ When no longer needed, delete the resources created in this article.
 
 1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
 
-    ```powershell
+    ```bash
     terraform destroy
     ```
 
-1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
+1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
+1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?#az-group-show).
 
-    ```powershell
-    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
+    ```azurecli
+    az group show -n "QuickstartTerraformTest-rg"
     ```
 
     Notes:
-    - If successful, `Get-AzResourceGroup` displays the fact that the resource group doesn't exist.
+    - If successful, `az group show` displays the fact that the resource group doesn't exist.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
 
