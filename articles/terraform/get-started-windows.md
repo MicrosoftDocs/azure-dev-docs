@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt:
+1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt. This demo was tested using PowerShell 7.0.2 on Windows 10.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -44,7 +44,28 @@ This article describes how to get started with [Terraform on Azure](https://www.
     Notes:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI]((/cli/azure/install-azure-cli-windows?view=azure-cli-latest)).
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI 2.7.0.
+
+1. Once you 
+1. 
+1. 
+1. 
+1. Authenticating using the Azure CLI is only supported as a User (not a Service Principal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Log into Azure
 
