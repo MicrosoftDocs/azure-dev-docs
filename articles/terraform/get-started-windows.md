@@ -50,12 +50,12 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
 
-- [Authenticate via Microsoft account](#authenticate-via-microsoft-account): This is the recommended way to authenticate when using Terraform interactively.
-- [Authenticate via Azure service principal](#authenticate-via-azure-service-principal): This is one preferred way to authenticate when using Terraform from code.
+- When using Terraform interactively, [authenticating via Microsoft account](#authenticate-via-microsoft-account) is recommended.
+- When using Terraform from code, [authenticating via Azure service principal](#authenticate-via-azure-service-principal) is one recommended way.
 
 ### Authenticate via Microsoft account
 
-As mentioned earlier, Terraform only supports authentication to Azure via the Azure CLI. Neither the PowerShell AzureRM module nor the new PowerShell Az module are supported for the purpose of authenticating to Azure.
+As mentioned earlier, Terraform only supports authentication to Azure via the Azure CLI.
 
 Calling `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 

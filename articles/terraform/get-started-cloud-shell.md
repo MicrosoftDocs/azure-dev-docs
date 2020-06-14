@@ -42,8 +42,8 @@ Also, once logged into your Microsoft account, you are automatically logged into
 
 Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
 
-- [Authenticate via Microsoft account](#authenticate-via-microsoft-account): This is the recommended way to authenticate when using Terraform interactively.
-- [Authenticate via Azure service principal](#authenticate-via-azure-service-principal): This is one preferred way to authenticate when using Terraform from code.
+- When using Terraform interactively, [authenticating via Microsoft account](#authenticate-via-microsoft-account) is recommended.
+- When using Terraform from code, [authenticating via Azure service principal](#authenticate-via-azure-service-principal) is one recommended way.
 
 ### Authenticate via Microsoft account
 
