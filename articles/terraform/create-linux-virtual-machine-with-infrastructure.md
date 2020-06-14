@@ -3,7 +3,7 @@ title: Tutorial  - Create a Linux VM with infrastructure in Azure using Terrafor
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: tutorial
-ms.date: 05/31/2020
+ms.date: 06/14/2020
 ---
 
 # Tutorial : Create a Linux VM with infrastructure in Azure using Terraform
@@ -458,7 +458,7 @@ If everything looks correct and you're ready to build the infrastructure in Azur
 terraform apply
 ```
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm):
+Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
