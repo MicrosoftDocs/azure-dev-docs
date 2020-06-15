@@ -37,3 +37,10 @@ After logging in, you see a list of subscriptions associated with your Azure acc
 
 > [!div class="nextstepaction"]
 > [I installed and logged in with Azure CLI](tutorial-vscode-azure-app-service-deno-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=getting-started)
+
+## Next steps
+
+[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [I'm done](node-howto-deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=clean-up-resources)
