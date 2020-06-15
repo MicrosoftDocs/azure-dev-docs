@@ -44,7 +44,7 @@ Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.
 
 The following sections (numbered 4a and 4b) demonstrate two means to access the blob container.
 
-The [first method (4a)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authentication Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (4a)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (4b)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
