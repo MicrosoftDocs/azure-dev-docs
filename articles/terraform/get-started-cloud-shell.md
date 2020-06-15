@@ -36,11 +36,9 @@ Notes:
 
 ## Authenticate to Azure
 
-Cloud Shell is automatically authenticated under the Microsoft account with which you logged into the Azure portal.
+Cloud Shell is automatically authenticated under the Microsoft account with which you logged into the Azure portal. If you have multiple Azure subscriptions, you can [switch to one of your other subscriptions](#set-the-current-azure-subscription).
 
-Also, once logged into your Microsoft account, you're automatically logged into the default Azure subscription for that account. If the current Microsoft account is correct, and you want to switch subscriptions, see the section, [Specify the current Azure subscription](#set-the-current-azure-subscription).
-
-Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
+If you want to log into another Microsoft account, Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
 
 - When using Terraform interactively, [authenticating via Microsoft account](#authenticate-via-microsoft-account) is recommended.
 - When using Terraform from code, [authenticating via Azure service principal](#authenticate-via-azure-service-principal) is one recommended way.
