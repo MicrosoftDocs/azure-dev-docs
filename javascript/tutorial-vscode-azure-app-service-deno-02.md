@@ -35,7 +35,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 
 1. Test the app by opening a browser to `http://localhost:80`. The site should appear as follows:
 
-    ![Running the demo server](media/deploy-azure/deno-helloworld.png)
+    ![Running the demo server](media/deploy-azure/deno-hello-world.png)
 
     > You can also run this code by typing `deno run --allow-net https://gist.githubusercontent.com/khaosdoctor/cd2bbb28e682feb8d20a7aba47fc1e17/raw/92de998fd11f2a24ae40bbcb84f5262cfe9389b2/deno-demo.ts`
 
