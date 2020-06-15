@@ -5,9 +5,13 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ---
 
-## Clean up resources
+# Clean up
 
 [Previous step: Deploy the app](tutorial-vscode-azure-app-service-deno-03.md)
+
+In this section, we'll remove and cleanup all the created resources.
+
+## Remove your resources
 
 The App Service you created includes a backing App Service Plan running on a free pricing tier, so you won't incur any ongoing costs.
 
