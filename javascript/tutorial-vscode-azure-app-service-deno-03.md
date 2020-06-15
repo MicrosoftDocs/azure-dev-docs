@@ -19,7 +19,7 @@ In this step, you deploy your Deno app to Azure using Azure CLI.
     az groups create -n deno-quickstart -l eastus
     ```
 
-    > If you decide to change the name of the resource group, be sure to update all the `-g` flags in the following steps
+    If you decide to change the name of the resource group, be sure to update all the `-g` flags in the following steps
 
 1. Create an AppService Plan named `deno-plan` that will hold your website using this command:
 
