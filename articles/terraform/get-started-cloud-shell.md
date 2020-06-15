@@ -83,7 +83,7 @@ az login --service-principal -u <service_principal_name> -p "<service_principal_
 
 ## Set the current Azure subscription
 
-A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how to switch between subscriptions:
+A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
 
 1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
 
