@@ -20,20 +20,20 @@ In this tutorial, you deploy a Deno application to Azure App Service (on Linux o
 
 The easiest way to get started with the Azure CLI is by running it in an Azure Cloud Shell environment through your browser. To learn about Cloud Shell, see  [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-When you're ready to install the CLI, see the [installation instructions](install-azure-cli.md).
+When you're ready to install the CLI, see the [installation instructions](../articles/azure-cli/install-azure-cli.md).
 
 After installing the CLI for the first time, check that it's installed and you've got the correct version by running `az --version`.
 
 > [!NOTE]
-> If you're using the Azure classic deployment model, [install the Azure classic CLI](install-classic-cli.md).
+> If you're using the Azure classic deployment model, [install the Azure classic CLI](../articles/azure-cli/install-classic-cli.md).
 
 ## Sign in
 
 Before using any CLI commands with a local install, you need to sign in with [az login](/cli/azure/reference-index#az-login).
 
-[!INCLUDE [interactive-login](includes/interactive-login.md)]
+[!INCLUDE [interactive-login](../articles/azure-cli/includes/interactive-login.md)]
 
-After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](manage-azure-subscriptions-azure-cli.md).
+After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](../articles/azure-cli/manage-azure-subscriptions-azure-cli.md).
 
 > [!div class="nextstepaction"]
 > [I installed and logged in with Azure CLI](tutorial-vscode-azure-app-service-deno-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=getting-started)
