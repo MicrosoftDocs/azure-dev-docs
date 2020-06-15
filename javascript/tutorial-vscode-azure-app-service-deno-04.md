@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ---
 
-# Clean up resources
+## Clean up resources
 
 [Previous step: Deploy the app](tutorial-vscode-azure-app-service-deno-03.md)
 
