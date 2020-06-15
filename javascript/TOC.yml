@@ -118,12 +118,10 @@
             href: tutorial-vscode-azure-app-service-deno-01.md
           - name: Create the app
             href: tutorial-vscode-azure-app-service-deno-02.md
-          - name: Deploy the API
+          - name: Deploy the app to Azure
             href: tutorial-vscode-azure-app-service-deno-03.md
-          - name: Stream logs
-            href: tutorial-vscode-azure-app-service-deno-04.md
           - name: Clean up resources
-            href: tutorial-vscode-azure-app-service-deno-05.md
+            href: tutorial-vscode-azure-app-service-deno-04.md
       - name: Deploy containers with VS Code
         items:
           - name: Introduction and prerequisites
