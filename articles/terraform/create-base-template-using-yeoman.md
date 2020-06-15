@@ -136,7 +136,7 @@ The following files were created by the Yeoman module generator:
     - Test cases are written in Go.
     - All codes in test are end-to-end tests.
     - End-to-end tests attempt to provision all of the items defined under `fixture`. The results in the `template_output.go` file are compared with the pre-defined expected values.
-    - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies. 
+    - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies.
 
 For more information about the Yeoman generator for Azure https://github.com/Azure/generator-az-terra-module, see the [Terratest documentation](https://terratest.gruntwork.io/docs/).
 

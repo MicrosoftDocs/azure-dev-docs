@@ -373,7 +373,7 @@ In Cloud Shell, do the following steps:
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password of your choosing, as well as the location for your resources.)
+1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password and the location for your resources.)
 
     ```bash
     terraform plan
