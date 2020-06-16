@@ -1,7 +1,7 @@
 ---
-title: Provision and use Azure Storage with the Azure SDK for Python
+title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access a pre-provisioned blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 05/29/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
 ---
 
@@ -42,11 +42,11 @@ Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.
 
 ## 4: Use blob storage from app code
 
-The following sections (numbered 4a and 4b) demonstrate two means to access the blob container.
+The following sections (numbered 4a and 4b) demonstrate two means to access the blob container provisioned through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (4a)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authentication Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
-The [second method (4b)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
+The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
 - A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string provides grants broader authorization than may be required.
 
@@ -111,7 +111,7 @@ For these reasons, we recommend using the authentication method in production co
 
     Because the local service principal that you're using does not have permission to access the blob container, you see the error: "This request is not authorized to perform this operation using this permission."
 
-1. To grant permissions for the container to the service principal, use the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) (it's a long one!):
+1. Grant container permissions fto the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) (it's a long one!):
 
     # [cmd](#tab/cmd)
 
