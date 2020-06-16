@@ -43,7 +43,7 @@ landingContent:
           - text: Deploy full-stack Node.js applications from Visual Studio Code
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deploy Deno applications to App Service with the Azure CLI
-            url: tutorial-vscode-azure-app-service-deno-01.md
+            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
           - text: Deploy containerized applications from Visual Studio Code
             url: tutorial-vscode-docker-node-01.md
   - title: Build, deploy, and monitor applications with Azure

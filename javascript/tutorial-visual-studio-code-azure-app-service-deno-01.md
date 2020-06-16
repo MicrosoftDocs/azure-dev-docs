@@ -11,7 +11,7 @@ In this tutorial, you deploy a Deno application to Azure App Service (on Linux o
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-deno&mktingSource=vscode-tutorial-appservice-deno)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Deno](https://deno.land/#installation)
 - Having Azure CLI installed and logged in
@@ -36,7 +36,7 @@ Before using any CLI commands with a local install, you need to sign in with [az
 After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
 > [!div class="nextstepaction"]
-> [I installed and logged in with Azure CLI](tutorial-vscode-azure-app-service-deno-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=getting-started)
+> [I installed and logged in with Azure CLI](tutorial-visual-studio-code-azure-app-service-deno-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=getting-started)
 
 ## Next steps
 

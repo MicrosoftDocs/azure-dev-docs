@@ -7,7 +7,7 @@ ms.date: 06/01/2020
 
 # Clean up
 
-[Previous step: Deploy the app](tutorial-vscode-azure-app-service-deno-03.md)
+[Previous step: Deploy the app](tutorial-visual-studio-code-azure-app-service-deno-03.md)
 
 In this section, we'll remove and cleanup all the created resources.
 

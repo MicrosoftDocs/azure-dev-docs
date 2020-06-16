@@ -7,7 +7,7 @@ ms.date: 06/01/2020
 
 # Test local Deno apps
 
-[Previous step: Introduction and prerequisites](tutorial-vscode-azure-app-service-deno-01.md)
+[Previous step: Introduction and prerequisites](tutorial-visual-studio-code-azure-app-service-deno-01.md)
 
 In this step, you create a simple Deno api using Deno's built-in webserver. You then run the app locally.
 
@@ -44,7 +44,7 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 1. Press **Ctrl**+**C** in the terminal to stop the server.
 
 > [!div class="nextstepaction"]
-> [I created the Deno app](tutorial-vscode-azure-app-service-deno-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=create-app)
+> [I created the Deno app](tutorial-visual-studio-code-azure-app-service-deno-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=create-app)
 
 ## Next steps
 

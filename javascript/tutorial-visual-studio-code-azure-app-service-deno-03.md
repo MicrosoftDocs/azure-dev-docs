@@ -7,7 +7,7 @@ ms.date: 06/01/2020
 
 # Deploy Deno apps to Azure
 
-[Previous step: Create the app](tutorial-vscode-azure-app-service-deno-02.md)
+[Previous step: Create the app](tutorial-visual-studio-code-azure-app-service-deno-02.md)
 
 In this step, you deploy your Deno app to Azure using Azure CLI.
 
@@ -69,7 +69,7 @@ Now the AppService is configured and it's waiting to receive the app from the pr
 1. Test the application by going to `https://<your-app-name>.azurewebsites.net`
 
 > [!div class="nextstepaction"]
-> [My site is on Azure](tutorial-vscode-azure-app-service-deno-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=deploy-app)
+> [My site is on Azure](tutorial-visual-studio-code-azure-app-service-deno-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=deploy-app)
 
 ## Next steps
 
