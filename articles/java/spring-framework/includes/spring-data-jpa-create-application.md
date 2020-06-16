@@ -1,6 +1,6 @@
 ---
  author: judubois
- ms.date: 05/06/2020
+ ms.date: 06/16/2020
  ms.author: judubois
 ---
 
@@ -9,8 +9,11 @@ Create a new `Todo` Java class, next to the `DemoApplication` class, and add the
 ```java
 package com.example.demo;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Todo {
 
     public Todo() {
@@ -23,6 +26,7 @@ public class Todo {
     }
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String description;
@@ -62,23 +66,39 @@ public class Todo {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Todo)) {
+            return false;
+        }
+        return id != null && id.equals(((Todo) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 }
 ```
 
-This class is a domain model mapped on the `todo` table that you created before.
+This class is a domain model mapped on the `todo` table, that will be automatically created by JPA.
 
 To manage that class, you'll need a repository. Define a new `TodoRepository` interface in the same package:
 
 ```java
 package com.example.demo;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TodoRepository extends CrudRepository<Todo, Long> {
+public interface TodoRepository extends JpaRepository<Todo, Long> {
 }
 ```
 
-This repository is a repository that Spring Data JDBC manages.
+This repository is a repository that Spring Data JPA manages.
 
 Finish the application by creating a controller that can store and retrieve data. Implement a `TodoController` class in the same package, and add the following code:
 
@@ -126,14 +146,14 @@ First, create a new "todo" item in the database using the following command:
 ```bash
 curl --header "Content-Type: application/json" \
     --request POST \
-    --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
+    --data '{"description":"configuration","details":"congratulations, you have set up JPA correctly!","done": "true"}' \
     http://127.0.0.1:8080
 ```
 
 This command should return the created item as follows:
 
 ```json
-{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}
+{"id":1,"description":"configuration","details":"congratulations, you have set up JPA correctly!","done":true}
 ```
 
 Next, retrieve the data by using a new cURL request as follows:
@@ -145,5 +165,5 @@ curl http://127.0.0.1:8080
 This command will return the list of "todo" items, including the item you've created, as follows:
 
 ```json
-[{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}]
+[{"id":1,"description":"configuration","details":"congratulations, you have set up JPA correctly!","done":true}]
 ```
