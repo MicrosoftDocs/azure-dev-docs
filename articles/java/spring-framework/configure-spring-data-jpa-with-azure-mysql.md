@@ -1,19 +1,19 @@
 ---
-title: Use Spring Data JDBC with Azure Database for MySQL
-description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
+title: Use Spring Data JPA with Azure Database for MySQL
+description: Learn how to use Spring Data JPA with an Azure Database for MySQL database.
 documentationcenter: java
-ms.date: 04/07/2020
+ms.date: 06/16/2020
 ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
 ---
 
-# Use Spring Data JDBC with Azure Database for MySQL
+# Use Spring Data JPA with Azure Database for MySQL
 
-This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
+This topic demonstrates creating a sample application that uses [Spring Data JPA](https://spring.io/projects/spring-data-jpa) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
 
-[JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
+[The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
@@ -24,7 +24,7 @@ This topic demonstrates creating a sample application that uses [Spring Data JDB
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for MySQL
@@ -32,20 +32,21 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d 
 Open the *src/main/resources/application.properties* file, and add:
 
 ```properties
-logging.level.org.springframework.jdbc.core=DEBUG
+logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
 spring.datasource.username=spring@$AZ_DATABASE_NAME
 spring.datasource.password=$AZ_MYSQL_PASSWORD
 
-spring.datasource.initialization-mode=always
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
 - Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
 - Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
 
 > [!WARNING]
-> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember this will delete your data at each restart, so this shouldn't be used in production!
+> The configuration property `spring.jpa.hibernate.ddl-auto=create-drop` means that Spring Boot will automatically create a database schema at application start-up, and will try to delete it when it shuts down. This is great for testing, but this shouldn't be used in production!
 
 > [!NOTE]
 > We append `?serverTimezone=UTC` to the configuration property `spring.datasource.url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
@@ -58,39 +59,24 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-[![The running application](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-01.png)](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-01.png#lightbox)
-
-### Create the database schema
-
-Spring Boot will automatically execute *src/main/resources/`schema.sql`* in order to create a database schema. Create that file, with the following content:
-
-```sql
-DROP TABLE IF EXISTS todo;
-CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
-```
-
-Stop the running application, and start it again. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
-
-```bash
-./mvnw spring-boot:run
-```
+[![The running application](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-01.png)](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-01.png#lightbox)
 
 ## Code the application
 
-Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
+Next, add the Java code that will use JPA to store and retrieve data from your MySQL server.
 
-[!INCLUDE [spring-data-jdbc-create-application.md](includes/spring-data-jdbc-create-application.md)]
+[!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
 
 Here's a screenshot of these cURL requests:
 
-[![Test with cURL](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-02.png)](media/configure-spring-data-jdbc-with-azure-mysql/create-mysql-02.png#lightbox)
+[![Test with cURL](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-02.png)](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-02.png#lightbox)
 
-Congratulations! You've created a Spring Boot application that uses JDBC to store and retrieve data from Azure Database for MySQL.
+Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for MySQL.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
 ### Additional resources
 
-For more information about Spring Data JDBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference).
+For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
 
 For more information about using Azure with Java, see [Azure for Java developers](/azure/developer/java/) and [Working with Azure DevOps and Java](/azure/devops/).
