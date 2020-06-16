@@ -80,10 +80,11 @@ These arguments apply to those libraries listed on [Python - New Libraries](http
 | ---                        | ---  | ---         | ---         |
 | logging_enable             | bool | False       | Enables logging. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md). |
 | proxies                    | dict | {}          | Proxy server URLs. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
+| use_env_settings           | bool | True        | If True, allows use of `HTTP_PROXY` and `HTTPS_PROXY` environment variables for proxies. If False, the environment variables are ignored. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
 | connection_timeout         | int  | 300         | The timeout in seconds for making a connection to Azure REST API endpoints. |
 | read_timeout               | int  | 300         | The timeout in seconds for completing an Azure REST API operation (that is, waiting for a response). |
 | retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
-| retry_mode                 | enum | exponential | How retries are handled. 'exponential' indicates (TODO); 'single' indicates (TODO). |
+| retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If 'single', retries are made at regular intervals. If 'exponential', each retry waits twice as long as the previous retry. |
 
 Individual libraries are not obligated to support any of these arguments, so always consult the reference documentation for each library for exact details.
 

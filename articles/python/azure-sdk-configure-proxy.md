@@ -1,7 +1,7 @@
 ---
 title: Configuring proxies when using Azure libraries
 description: Use HTTP[S]_PROXY environment variables to define a proxy for an entire script or app, or use optional named arguments for client constructors or operation methods.
-ms.date: 06/09/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ---
 
@@ -14,6 +14,8 @@ You can then configure a proxy globally by using environment variables, or you c
 ## Global configuration
 
 To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the server URL. These variables work any version of the Azure libraries.
+
+These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 
 ### From Python code
 
