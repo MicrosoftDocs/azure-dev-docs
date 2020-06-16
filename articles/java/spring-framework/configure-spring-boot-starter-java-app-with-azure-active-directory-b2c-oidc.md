@@ -226,7 +226,7 @@ Now that you've created the AAD B2C instance and some user flows, you'll connect
     >         password-reset: # optional
     > ```
     >
-    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/ azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
+    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
 
 7. Save and close the *application.yml* file.
 
