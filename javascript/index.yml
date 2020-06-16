@@ -42,6 +42,8 @@ landingContent:
             url: tutorial-vscode-serverless-node-01.md
           - text: Deploy full-stack Node.js applications from Visual Studio Code
             url: tutorial-vscode-azure-app-service-node-01.md
+          - text: Deploy Deno applications to App Service with the Azure CLI
+            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
           - text: Deploy containerized applications from Visual Studio Code
             url: tutorial-vscode-docker-node-01.md
   - title: Build, deploy, and monitor applications with Azure
@@ -52,7 +54,7 @@ landingContent:
             url: /azure/azure-monitor/overview?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
       - linkListType: quickstart
         links:
-          - text:  Set up CI/CD for Node.js applications in Azure Pipelines
+          - text: Set up CI/CD for Node.js applications in Azure Pipelines
             url: /azure/devops-project/azure-devops-project-nodejs?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
           - text: Monitor deployed applications with Azure Monitor
             url: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
