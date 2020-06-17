@@ -43,7 +43,7 @@ Add the following to your project's *pom.xml* file:
 
 **Enable log4j using a  properties file**
 
-Create a *log4j.properties* file in the *./src/main/resource* directory of your project and add the following:
+Create a *log4j.properties* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```properties
 log4j.rootLogger=INFO, A1
@@ -55,7 +55,7 @@ log4j.logger.com.azure.core=ERROR
 
 **Enable log4j using an XML file**
 
-Create a *log4j.xml* file in the *./src/main/resource* directory of your project and add the following:
+Create a *log4j.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```xml
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
@@ -99,7 +99,7 @@ Add the following to your project's *pom.xml* file:
 
 **Enable log4j 2 using a  properties file**
 
-Create a *log4j2.properties* file in the *./src/main/resource* directory of your project and add the following:
+Create a *log4j2.properties* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```properties
 appender.console.type = Console
@@ -116,7 +116,7 @@ rootLogger.appenderRef.stdout.ref = STDOUT
 
 **Enable log4j 2 using an XML file**
 
-Create a *log4j2.xml* file in the *./src/main/resource* directory of your project and add the following:
+Create a *log4j2.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -157,7 +157,7 @@ Add the following to your project's *pom.xml* file:
 
 **Enable logback using an XML file**
 
-Create a *logback.xml* file  in the *./src/main/resources* directory of your project and add the following:
+Create a *logback.xml* file  in the *./src/main/resources* directory of your project and add the following content:
 
 ```xml
 <configuration>
@@ -177,15 +177,15 @@ Create a *logback.xml* file  in the *./src/main/resources* directory of your pro
 
 ### Use logback in a Spring Boot application
 
-The following examples show some configurations for using logback with Spring. You will typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
+The following examples show some configurations for using logback with Spring. You'll typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
 
-You can configure your application to read logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following:
+You can configure your application to read logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following content:
 
 ```properties
 logging.config=classpath:logback.xml
 ```
 
-To create a simple logback configuration for logging to the console, add the following to your *logback.xml* file:
+To create a logback configuration for logging to the console, add the following to your *logback.xml* file:
 
 ```xml 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -205,7 +205,7 @@ To create a simple logback configuration for logging to the console, add the fol
 </configuration>
 ```
 
-To configure logging to a file which is rolled over after each hour and archived in gzip format, add the following to your *logback.xml* file:
+To configure logging to a file that is rolled over after each hour and archived in gzip format, add the following to your *logback.xml* file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,7 +233,7 @@ To configure logging to a file which is rolled over after each hour and archived
 
 ## Configure fallback logging for temporary debugging
 
-In scenarios where it’s not possible to redeploy your application with an SLF4J logger, you can use the fallback logger that is built into the Azure client libraries for Java, in Azure Core 1.3.0 or later. To enable this logger, you must first confirm there is no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. After you set the environment variable, you’ll need to restart your application to start generating logs.
+In scenarios where it’s not possible to redeploy your application with an SLF4J logger, you can use the fallback logger built into the Azure client libraries for Java, in Azure Core 1.3.0 or later. To enable this logger, you must first confirm there is no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. After you set the environment variable, you’ll need to restart your application to start generating logs.
 
 The following table shows the allowed values for this environment variable.
 
