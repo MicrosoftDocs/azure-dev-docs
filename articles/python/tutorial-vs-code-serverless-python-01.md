@@ -14,6 +14,8 @@ Azure Functions runs your code in a serverless environment without needing to pr
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** button at the end of each article to submit feedback.
 
+For a demonstration video, see [Build Azure Functions with VS Code](https://www.youtube.com/watch?v=9bMsdBYy-D0&feature=youtu.be&ocid=AID3006292) (youtube.com) from virtual PyCon 2020.
+
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
