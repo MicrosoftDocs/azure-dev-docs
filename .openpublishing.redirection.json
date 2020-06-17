@@ -550,12 +550,20 @@
     },
     {
       "source_path": "python/python-sdk-azure-multi-cloud.md",
-      "redirect_url": "/azure/developer/python/azure-sdk-multi-cloud"
+      "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
     },
     {
+      "source_path": "developer/python/azure-sdk-multi-cloud.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
+    },    
+    {
       "source_path": "python/python-sdk-azure-operation-config.md",
-      "redirect_url": "/azure/developer/python/azure-sdk-operation-config"
+      "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
     },
+    {
+      "source_path": "developer/python/azure-sdk-operation-config.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
+    },    
     {
       "source_path": "python/python-sdk-azure-overview.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
