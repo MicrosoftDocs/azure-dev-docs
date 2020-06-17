@@ -88,6 +88,7 @@ Configure App settings and Connection Strings using the actions:
 
 - [Docker login](https://github.com/Azure/docker-login)  
 - [Deploy to Azure Container Instances](https://github.com/Azure/aci-deploy)
+- [Container scanning action](https://github.com/Azure/container-scan)
 
 ## Deploy to Kubernetes
 
