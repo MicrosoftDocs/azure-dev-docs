@@ -140,7 +140,7 @@ Create a *log4j2.xml* file in the *./src/main/resource* directory of your projec
 
 ### Use logback
 
-The following examples show configurations for the logback logging framework. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
+The following examples show basic configurations for the logback logging framework. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
 
 **Enable logback by adding a Maven dependency**
 
@@ -177,9 +177,15 @@ Create a *logback.xml* file  in the *./src/main/resources* directory of your pro
 
 ### Use logback in a Spring Boot application
 
-[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks. To enable logback logging, create a file called *logback.xml* under *./src/main/resources* directory of your project. This file will contain the logging configurations to customize your logging needs. More information on configuring *logback.xml* can be found [here](https://logback.qos.ch/manual/configuration.html).
+The following examples show some configurations for using logback with Spring. You will typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
 
-A simple logback configuration to log to console can be configured as follows:
+You can configure your application to read logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following:
+
+```properties
+logging.config=classpath:logback.xml
+```
+
+To create a simple logback configuration for logging to the console, add the following to your *logback.xml* file:
 
 ```xml 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -199,15 +205,7 @@ A simple logback configuration to log to console can be configured as follows:
 </configuration>
 ```
 
-Spring looks at this file for various configurations including logging. You can configure your application to read logback configurations from any file. So, this is where you will link your *logback.xml* file to your spring application. Add the following line to do so:
-
-Create another file called *application.properties* under the same directory *./src/main/resources*.
-
-```properties
-logging.config=classpath:logback.xml
-```
-
-To configure logging to a file which is rolled over after each hour and archived in gzip format:
+To configure logging to a file which is rolled over after each hour and archived in gzip format, add the following to your *logback.xml* file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
