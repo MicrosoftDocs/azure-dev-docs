@@ -20,15 +20,19 @@ The Azure SDK for Java client libraries use the [Simple Logging Facade for Java]
 
 ## Declare a logging framework
 
-Before you implement these loggers, you must declare the relevant framework as a dependency in your project. For more information, see the  [SLF4J user manual](http://www.slf4j.org/manual.html#projectDep).
+Before you implement these loggers, you must declare the relevant framework as a dependency in your project. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html#projectDep).
 
-### Use log4j logging framework
+The following sections provide configuration examples for common logging frameworks.
 
-For more information related to log4j, please refer [here](http://logging.apache.org/log4j/1.2/).
+### Use log4j
 
-**Adding maven dependencies**
+The following examples show configurations for the log4j logging framework. For more information, see [the log4j documentation](https://logging.apache.org/log4j/1.2/).
 
-```
+**Enable log4j by adding a Maven dependency**
+
+Add the following to your project's *pom.xml* file:
+
+```xml
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -37,11 +41,9 @@ For more information related to log4j, please refer [here](http://logging.apache
 </dependency>
 ```
 
-**Using property file**
+**Enable log4j using a  properties file**
 
-Usually, to enable log4j in property file, you can create `log4j.properties` under `./src/main/resource` directory of your project.
-
-Log4j example:
+Create a *log4j.properties* file in the *./src/main/resource* directory of your project and add the following:
 
 ```properties
 log4j.rootLogger=INFO, A1
@@ -51,11 +53,9 @@ log4j.appender.A1.layout.ConversionPattern=%m%n
 log4j.logger.com.azure.core=ERROR
 ```
 
-**Using xml**
+**Enable log4j using an XML file**
 
-Usually, to enable log4j in property file, you can create `log4j.xml` under `./src/main/resource` directory of your project.
-
-log4j example:
+Create a *log4j.xml* file in the *./src/main/resource* directory of your project and add the following:
 
 ```xml
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
@@ -80,11 +80,13 @@ log4j example:
 </log4j:configuration>
 ```
 
-### Use log4j2 logging framework
+### Use log4j 2
 
-For more information related to log4j2, please refer [here](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+The following examples show configurations for the log4j 2 logging framework. For more information, see [the log4j 2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-**Adding maven dependencies**
+**Enable log4j 2 by adding a Maven dependency**
+
+Add the following to your project's *pom.xml* file:
 
 ```
 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
@@ -95,11 +97,9 @@ For more information related to log4j2, please refer [here](https://logging.apac
 </dependency>
 ```
 
-**Using property file**
+**Enable log4j 2 using a  properties file**
 
-Usually, to enable log4j2 in property file, you can create `log4j2.properties` under `./src/main/resource` directory of your project.
-
-Log4j2 example:
+Create a *log4j2.properties* file in the *./src/main/resource* directory of your project and add the following:
 
 ```properties
 appender.console.type = Console
@@ -114,9 +114,9 @@ rootLogger.appenderRefs = stdout
 rootLogger.appenderRef.stdout.ref = STDOUT
 ```
 
-**Using xml**
+**Enable log4j 2 using an XML file**
 
-Usually, to enable log4j2 in property file, you can create `log4j2.xml` under `./src/main/resource` directory of your project.
+Create a *log4j2.xml* file in the *./src/main/resource* directory of your project and add the following:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -138,10 +138,13 @@ Usually, to enable log4j2 in property file, you can create `log4j2.xml` under `.
 </Configuration>
 ```
 
-### Use logback logging framework
-To enable logback logging in config file, create a file called `logback.xml` under `./src/main/resources` directory of your project. For more information relate to logback, please refer [here](http://logback.qos.ch/manual/configuration.html)
+### Use logback
 
-**Adding maven dependencies**
+The following examples show configurations for the logback logging framework. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
+
+**Enable logback by adding a Maven dependency**
+
+Add the following to your project's *pom.xml* file:
 
 ```
 <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
@@ -151,6 +154,10 @@ To enable logback logging in config file, create a file called `logback.xml` und
     <version>[0.2.5,)</version> <!-- Version number 0.2.5 and above -->
 </dependency>
 ```
+
+**Enable logback using an XML file**
+
+Create a *logback.xml* file  in the *./src/main/resources* directory of your project and add the following:
 
 ```xml
 <configuration>
@@ -168,12 +175,9 @@ To enable logback logging in config file, create a file called `logback.xml` und
 </configuration>
 ```
 
-### Use logback logging framework in a Spring Boot application
+### Use logback in a Spring Boot application
 
-[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks.
-To enable logback logging, create a file called `logback.xml` under `./src/main/resources` directory of your project.
-This file will contain the logging configurations to customize your logging needs. More information 
-on configuring `logback.xml` can be found [here](https://logback.qos.ch/manual/configuration.html). 
+[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks. To enable logback logging, create a file called *logback.xml* under *./src/main/resources* directory of your project. This file will contain the logging configurations to customize your logging needs. More information on configuring *logback.xml* can be found [here](https://logback.qos.ch/manual/configuration.html).
 
 A simple logback configuration to log to console can be configured as follows:
 
@@ -195,9 +199,10 @@ A simple logback configuration to log to console can be configured as follows:
 </configuration>
 ```
 
-Spring looks at this file for various configurations including logging. You can configure your application to read logback configurations from any file. So, this is where you will link your `logback.xml` to your spring application. Add the following line to do so:
+Spring looks at this file for various configurations including logging. You can configure your application to read logback configurations from any file. So, this is where you will link your *logback.xml* file to your spring application. Add the following line to do so:
 
-Create another file called `application.properties` under the same directory `./src/main/resources`.
+Create another file called *application.properties* under the same directory *./src/main/resources*.
+
 ```properties
 logging.config=classpath:logback.xml
 ```
