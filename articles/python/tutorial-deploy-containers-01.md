@@ -12,7 +12,7 @@ This article walks you through the process of using Visual Studio Code to deploy
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** link at the end of each article to submit feedback.
 
-For a related demonstration video, see [Django Apps in VS Code dev containers](https://www.youtube.com/watch?v=t79HDLC5kQA&feature=youtu.be&ocid=AID3006292) (youtube.com) from virtual PyCon 2020.
+For a related demonstration video, see <a href="https://www.youtube.com/watch?v=t79HDLC5kQA&feature=youtu.be&ocid=AID3006292" target="_blank">Django Apps in VS Code dev containers</a> (youtube.com) from virtual PyCon 2020.
 
 ## Prerequisites
 

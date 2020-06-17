@@ -29,7 +29,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](azure-sdk-example-database.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
 
-- For a demonstration video, see [Using Azure SDKs to interact with Azure resource](https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292) (youtube.com) from virtual PyCon 2020.
+- For a demonstration video, see <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resource</a> (youtube.com) from virtual PyCon 2020.
 
 ### Non-essential but still interesting details
 
