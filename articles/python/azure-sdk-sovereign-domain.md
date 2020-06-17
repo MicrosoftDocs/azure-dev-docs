@@ -12,9 +12,18 @@ You can use the Azure libraries for Python to connect to all regions where Azure
 
 By default, the Azure libraries are configured to connect to global Azure.
 
-## Using pre-declared cloud definition
+## Using pre-defined sovereign cloud definitions
 
-Use the `azure_cloud` module of `msrestazure` (0.4.11+):
+Pre-defined sovereign cloud definitions are defined in the `azure_cloud` module of `msrestazure` (0.4.11+):
+
+- `AZURE_PUBLIC_CLOUD`
+- `AZURE_CHINA_CLOUD`
+- `AZURE_US_GOV_CLOUD`
+- `AZURE_GERMAN_CLOUD`
+
+To apply a definition across all your code by defining an environment variable named `AZURE_CLOUD` using one of the values in the previous list. (`AZURE_PUBLIC_CLOUD` is the default value.)
+
+To apply a definition within specific operations, import the desired definition from `msrest.azure_cloud` and use it when creating credentials and client objects:
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -28,16 +37,9 @@ client = ResourceManagementClient(credentials,
     subscription_id, base_url=AZURE_CHINA_CLOUD.endpoints.resource_manager)
 ```
   
-Available cloud definitions are as follows:
-
-- `AZURE_PUBLIC_CLOUD`
-- `AZURE_CHINA_CLOUD`
-- `AZURE_US_GOV_CLOUD`
-- `AZURE_GERMAN_CLOUD`
-
 ## Using your own cloud definition
 
-In this code, you use `get_cloud_from_metadata_endpoint` with the Azure Resource Manager endpoint for the private cloud (such as one built on Azure Stack):
+In the following code, you use `get_cloud_from_metadata_endpoint` with the Azure Resource Manager endpoint for the private cloud (such as one built on Azure Stack):
 
 ```python
 from msrestazure.azure_cloud import get_cloud_from_metadata_endpoint
