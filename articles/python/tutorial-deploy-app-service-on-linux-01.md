@@ -12,6 +12,8 @@ This article walks you through using Visual Studio Code to deploy a Python appli
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** link at the end of each article to submit feedback.
 
+For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc-sA&feature=youtu.be&ocid=AID3006292" target="_blank">Build WebApps with VS Code and Azure App Service</a> (youtube.com) from virtual PyCon 2020.
+
 > [!TIP]
 > [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described on [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python). The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7).
 
