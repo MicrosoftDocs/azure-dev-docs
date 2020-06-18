@@ -129,6 +129,12 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
     
     ![Add functions to the project output](media/quickstart-functions/add-functions-output.png)
 
+## Cleaning Up Functions
+
+1. Deleting Azure Functions in Azure Explorer
+      
+      
+
 ## Next steps
 
 You've created a Java functions project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
