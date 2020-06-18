@@ -29,7 +29,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql -d b
 
 ### Configure Spring Boot to use Azure Database for MySQL
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the *src/main/resources/application.properties* file, and add the following. Be sure to replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_MYSQL_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
