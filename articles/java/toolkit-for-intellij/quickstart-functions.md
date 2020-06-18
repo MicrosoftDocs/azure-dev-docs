@@ -133,6 +133,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 1. Deleting Azure Functions in Azure Explorer
       
+      ![Add functions to the project select trigger](media/quickstart-functions/delete-function.png)
       
 
 ## Next steps
