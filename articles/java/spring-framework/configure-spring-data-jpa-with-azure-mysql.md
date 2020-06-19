@@ -42,7 +42,6 @@ spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
-
 > [!WARNING]
 > The configuration property `spring.jpa.hibernate.ddl-auto=create-drop` means that Spring Boot will automatically create a database schema at application start-up, and will try to delete it when it shuts down. This is great for testing, but this shouldn't be used in production!
 
