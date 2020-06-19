@@ -1,6 +1,6 @@
 ---
-title: Use Spring Data JPA with Azure Database for MySQL
-description: Learn how to use Spring Data JPA with an Azure Database for MySQL database.
+title: Use Spring Data JPA with Azure Database for PostgreSQL
+description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
 ms.date: 06/19/2020
 ms.service: postgresql
@@ -29,14 +29,14 @@ curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
-Open the *src/main/resources/application.properties* file, and add the following. Be sure to replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_MYSQL_PASSWORD` variable with the values that you configured at the beginning of this article.
+Open the *src/main/resources/application.properties* file, and add the following. Be sure to replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_POSTGRESQL_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.url=jdbc:postgresql://$AZ_DATABASE_NAME.postgres.database.azure.com:5432/demo
 spring.datasource.username=spring@$AZ_DATABASE_NAME
-spring.datasource.password=$AZ_MYSQL_PASSWORD
+spring.datasource.password=$AZ_POSTGRESQL_PASSWORD
 
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop
@@ -57,15 +57,15 @@ Here's a screenshot of the application running for the first time:
 
 ## Code the application
 
-Next, add the Java code that will use JPA to store and retrieve data from your MySQL server.
+Next, add the Java code that will use JPA to store and retrieve data from your PostgreSQL server.
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
 
 Here's a screenshot of these cURL requests:
 
-[![Test with cURL](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-02.png)](media/configure-spring-data-jpa-with-azure-mysql/create-mysql-02.png#lightbox)
+[![Test with cURL](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png)](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png#lightbox)
 
-Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for MySQL.
+Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for PostgreSQL.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
