@@ -1,5 +1,5 @@
-| Service | Package | Docs | Source |
-| ------- | ------- | ---- | ------ |
+| Name | Package | Docs | Source |
+| ---- | ------- | ---- | ------ |
 | azure | pypi [5.0.0](https://pypi.org/project/azure/5.0.0) |  |  |
 | azure-ai-formrecognizer | pypi [1.0.0b3](https://pypi.org/project/azure-ai-formrecognizer/1.0.0b3) |  | github [1.0.0b3](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_1.0.0b3/sdk/formrecognizer/azure-ai-formrecognizer/) |
 | azure-ai-nspkg | pypi [1.0.0](https://pypi.org/project/azure-ai-nspkg/1.0.0) |  |  |
@@ -12,7 +12,7 @@
 | azure-cognitiveservices-inkrecognizer | pypi [1.0.0b1](https://pypi.org/project/azure-cognitiveservices-inkrecognizer/1.0.0b1) |  |  |
 | azure-cognitiveservices-knowledge-nspkg | pypi [3.0.0](https://pypi.org/project/azure-cognitiveservices-knowledge-nspkg/3.0.0) |  |  |
 | azure-cognitiveservices-knowledge-qnamaker | pypi [0.2.0](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/0.2.0) |  |  |
-| azure-cognitiveservices-language-luis | pypi [0.6.0](https://pypi.org/project/azure-cognitiveservices-language-luis/0.6.0) |  |  |
+| azure-cognitiveservices-language-luis | pypi [0.7.0](https://pypi.org/project/azure-cognitiveservices-language-luis/0.7.0) |  |  |
 | azure-cognitiveservices-language-nspkg | pypi [3.0.1](https://pypi.org/project/azure-cognitiveservices-language-nspkg/3.0.1) |  |  |
 | azure-cognitiveservices-language-spellcheck | pypi [2.0.0](https://pypi.org/project/azure-cognitiveservices-language-spellcheck/2.0.0) |  |  |
 | azure-cognitiveservices-language-textanalytics | pypi [0.2.0](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/0.2.0) |  |  |
@@ -61,6 +61,7 @@
 | azure-mgmt-attestation | pypi [0.1.0](https://pypi.org/project/azure-mgmt-attestation/0.1.0) |  |  |
 | azure-mgmt-authorization | pypi [0.60.0](https://pypi.org/project/azure-mgmt-authorization/0.60.0) |  |  |
 | azure-mgmt-automation | pypi [0.1.1](https://pypi.org/project/azure-mgmt-automation/0.1.1) |  |  |
+| azure-mgmt-avs | pypi [0.1.0](https://pypi.org/project/azure-mgmt-avs/0.1.0) |  |  |
 | azure-mgmt-azurestack | pypi [0.1.0](https://pypi.org/project/azure-mgmt-azurestack/0.1.0) |  |  |
 | azure-mgmt-batch | pypi [9.0.0](https://pypi.org/project/azure-mgmt-batch/9.0.0) |  |  |
 | azure-mgmt-batchai | pypi [2.0.0](https://pypi.org/project/azure-mgmt-batchai/2.0.0) |  |  |
@@ -70,7 +71,7 @@
 | azure-mgmt-cognitiveservices | pypi [6.2.0](https://pypi.org/project/azure-mgmt-cognitiveservices/6.2.0) |  |  |
 | azure-mgmt-commerce | pypi [1.0.1](https://pypi.org/project/azure-mgmt-commerce/1.0.1) |  |  |
 | azure-mgmt-common | pypi [0.20.0](https://pypi.org/project/azure-mgmt-common/0.20.0) |  |  |
-| azure-mgmt-compute | pypi [12.0.0](https://pypi.org/project/azure-mgmt-compute/12.0.0) |  |  |
+| azure-mgmt-compute | pypi [12.1.0](https://pypi.org/project/azure-mgmt-compute/12.1.0) |  |  |
 | azure-mgmt-consumption | pypi [3.0.0](https://pypi.org/project/azure-mgmt-consumption/3.0.0) |  |  |
 | azure-mgmt-containerinstance | pypi [1.5.0](https://pypi.org/project/azure-mgmt-containerinstance/1.5.0) |  |  |
 | azure-mgmt-containerregistry | pypi [2.8.0](https://pypi.org/project/azure-mgmt-containerregistry/2.8.0) |  |  |
@@ -82,7 +83,7 @@
 | azure-mgmt-databox | pypi [0.2.0](https://pypi.org/project/azure-mgmt-databox/0.2.0) |  |  |
 | azure-mgmt-databoxedge | pypi [0.1.0](https://pypi.org/project/azure-mgmt-databoxedge/0.1.0) |  |  |
 | azure-mgmt-databricks | pypi [0.1.0](https://pypi.org/project/azure-mgmt-databricks/0.1.0) |  |  |
-| azure-mgmt-datafactory | pypi [0.10.0](https://pypi.org/project/azure-mgmt-datafactory/0.10.0) |  |  |
+| azure-mgmt-datafactory | pypi [0.11.0](https://pypi.org/project/azure-mgmt-datafactory/0.11.0) |  |  |
 | azure-mgmt-datalake-analytics | pypi [0.6.0](https://pypi.org/project/azure-mgmt-datalake-analytics/0.6.0) |  |  |
 | azure-mgmt-datalake-nspkg | pypi [3.0.1](https://pypi.org/project/azure-mgmt-datalake-nspkg/3.0.1) |  |  |
 | azure-mgmt-datalake-store | pypi [0.5.0](https://pypi.org/project/azure-mgmt-datalake-store/0.5.0) |  |  |
@@ -91,11 +92,12 @@
 | azure-mgmt-deploymentmanager | pypi [0.2.0](https://pypi.org/project/azure-mgmt-deploymentmanager/0.2.0) |  |  |
 | azure-mgmt-devspaces | pypi [0.2.0](https://pypi.org/project/azure-mgmt-devspaces/0.2.0) |  |  |
 | azure-mgmt-devtestlabs | pypi [4.0.0](https://pypi.org/project/azure-mgmt-devtestlabs/4.0.0) |  |  |
+| azure-mgmt-digitaltwins | pypi [0.1.0](https://pypi.org/project/azure-mgmt-digitaltwins/0.1.0) |  |  |
 | azure-mgmt-dns | pypi [3.0.0](https://pypi.org/project/azure-mgmt-dns/3.0.0) |  |  |
 | azure-mgmt-documentdb | pypi [0.1.3](https://pypi.org/project/azure-mgmt-documentdb/0.1.3) |  |  |
 | azure-mgmt-edgegateway | pypi [0.1.0](https://pypi.org/project/azure-mgmt-edgegateway/0.1.0) |  |  |
 | azure-mgmt-eventgrid | pypi [2.2.0](https://pypi.org/project/azure-mgmt-eventgrid/2.2.0) |  |  |
-| azure-mgmt-eventhub | pypi [3.1.0](https://pypi.org/project/azure-mgmt-eventhub/3.1.0) |  |  |
+| azure-mgmt-eventhub | pypi [4.0.0](https://pypi.org/project/azure-mgmt-eventhub/4.0.0) |  |  |
 | azure-mgmt-frontdoor | pypi [0.3.0](https://pypi.org/project/azure-mgmt-frontdoor/0.3.0) |  |  |
 | azure-mgmt-hanaonazure | pypi [0.14.0](https://pypi.org/project/azure-mgmt-hanaonazure/0.14.0) |  |  |
 | azure-mgmt-hdinsight | pypi [1.5.1](https://pypi.org/project/azure-mgmt-hdinsight/1.5.1) |  |  |
@@ -153,13 +155,13 @@
 | azure-mgmt-signalr | pypi [0.4.0](https://pypi.org/project/azure-mgmt-signalr/0.4.0) |  |  |
 | azure-mgmt-sql | pypi [0.18.0](https://pypi.org/project/azure-mgmt-sql/0.18.0) |  |  |
 | azure-mgmt-sqlvirtualmachine | pypi [0.5.0](https://pypi.org/project/azure-mgmt-sqlvirtualmachine/0.5.0) |  |  |
-| azure-mgmt-storage | pypi [10.0.0](https://pypi.org/project/azure-mgmt-storage/10.0.0) |  |  |
+| azure-mgmt-storage | pypi [11.0.0](https://pypi.org/project/azure-mgmt-storage/11.0.0) |  |  |
 | azure-mgmt-storagecache | pypi [0.3.0](https://pypi.org/project/azure-mgmt-storagecache/0.3.0) |  |  |
 | azure-mgmt-storageimportexport | pypi [0.1.0](https://pypi.org/project/azure-mgmt-storageimportexport/0.1.0) |  |  |
 | azure-mgmt-storagesync | pypi [0.2.0](https://pypi.org/project/azure-mgmt-storagesync/0.2.0) |  |  |
 | azure-mgmt-subscription | pypi [0.6.0](https://pypi.org/project/azure-mgmt-subscription/0.6.0) |  |  |
 | azure-mgmt-support | pypi [1.0.0](https://pypi.org/project/azure-mgmt-support/1.0.0) |  |  |
-| azure-mgmt-synapse | pypi [0.2.0](https://pypi.org/project/azure-mgmt-synapse/0.2.0) |  |  |
+| azure-mgmt-synapse | pypi [0.3.0](https://pypi.org/project/azure-mgmt-synapse/0.3.0) |  |  |
 | azure-mgmt-timeseriesinsights | pypi [0.2.0](https://pypi.org/project/azure-mgmt-timeseriesinsights/0.2.0) |  |  |
 | azure-mgmt-trafficmanager | pypi [0.51.0](https://pypi.org/project/azure-mgmt-trafficmanager/0.51.0) |  |  |
 | azure-mgmt-vmwarecloudsimple | pypi [0.2.0](https://pypi.org/project/azure-mgmt-vmwarecloudsimple/0.2.0) |  |  |
