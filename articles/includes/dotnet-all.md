@@ -1,10 +1,14 @@
-| Service | Package | Docs | Source |
-| ------- | ------- | ---- | ------ |
+| Name | Package | Docs | Source |
+| ---- | ------- | ---- | ------ |
+| Azure.AI.TextAnalytics | nuget [1.0.0](https://www.nuget.org/packages/Azure.AI.TextAnalytics/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/AI.TextAnalytics-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_1.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/) |
 | Azure.Batch.FileStaging | nuget [8.0.1](https://www.nuget.org/packages/Azure.Batch.FileStaging/8.0.1) |  |  |
 | Azure.Core | nuget [1.2.2](https://www.nuget.org/packages/Azure.Core/1.2.2) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Core-readme/) | github [1.2.2](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.2.2/sdk/core/Azure.Core/) |
 | Azure.Cosmos | nuget [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](https://docs.microsoft.com/dotnet/api/azure.cosmos?view=azure-dotnet-preview) | github [4.0.0-preview3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Cosmos_4.0.0-preview3/sdk/https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3/Azure.Cosmos/) |
 | Azure.Data.AppConfiguration | nuget [1.0.0](https://www.nuget.org/packages/Azure.Data.AppConfiguration/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Data.AppConfiguration-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.0.0/sdk/appconfiguration/Azure.Data.AppConfiguration/) |
 | Azure.DCAP.Windows | nuget [1.2.0](https://www.nuget.org/packages/Azure.DCAP.Windows/1.2.0) |  |  |
+| Azure.Extensions.AspNetCore.Configuration.Secrets | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.Configuration.Secrets/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.Configuration.Secrets-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/) |
+| Azure.Extensions.AspNetCore.DataProtection.Blobs | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Blobs/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Blobs-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/) |
+| Azure.Extensions.AspNetCore.DataProtection.Keys | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Keys/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Keys-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/) |
 | Azure.Identity | nuget [1.1.1](https://www.nuget.org/packages/Azure.Identity/1.1.1) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Identity-readme/) | github [1.1.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.1.1/sdk/identity/Azure.Identity/) |
 | Azure.Messaging.EventHubs | nuget [5.1.0](https://www.nuget.org/packages/Azure.Messaging.EventHubs/5.1.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Messaging.EventHubs-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.1.0/sdk/eventhub/Azure.Messaging.EventHubs/) |
 | Azure.Messaging.EventHubs.Processor | nuget [5.1.0](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/5.1.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Messaging.EventHubs.Processor-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.1.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/) |
@@ -51,12 +55,13 @@
 | Microsoft.Azure.Common | nuget [2.2.1](https://www.nuget.org/packages/Microsoft.Azure.Common/2.2.1) |  |  |
 | Microsoft.Azure.Common.Dependencies | nuget [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Common.Dependencies/1.0.0) |  |  |
 | Microsoft.Azure.ConfigurationManager | nuget [4.0.0](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/4.0.0) |  |  |
-| Microsoft.Azure.Cosmos | nuget [3.9.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.1) |  |  |
-| Microsoft.Azure.Cosmos.Direct | nuget [3.10.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.10.0) |  |  |
+| Microsoft.Azure.Cosmos | nuget [3.10.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.10.1) |  |  |
+| Microsoft.Azure.Cosmos.Direct | nuget [3.11.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.11.0) |  |  |
 | Microsoft.Azure.Cosmos.Table | nuget [1.0.7](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table/1.0.7) |  |  |
 | Microsoft.Azure.CosmosDB.BulkExecutor | nuget [1.8.9](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/1.8.9) |  |  |
 | Microsoft.Azure.CosmosDB.Table | nuget [2.1.2](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/2.1.2) |  |  |
 | Microsoft.Azure.DataLake.Store | nuget [1.1.20](https://www.nuget.org/packages/Microsoft.Azure.DataLake.Store/1.1.20) |  |  |
+| Microsoft.Azure.DataLake.USQL.SDK | nuget [1.4.200110](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.200110) |  |  |
 | Microsoft.Azure.DCAP | nuget [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.6.0) |  |  |
 | Microsoft.Azure.DocumentDB | nuget [2.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.0) |  |  |
 | Microsoft.Azure.DocumentDB.ChangeFeedProcessor | nuget [2.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.0) |  |  |
@@ -161,7 +166,7 @@
 | Microsoft.Azure.Management.SignalR | nuget [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.SignalR/1.1.0) |  |  |
 | Microsoft.Azure.Management.Sql.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.SqlVirtualMachine | nuget [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.SqlVirtualMachine/1.0.0) |  |  |
-| Microsoft.Azure.Management.Storage | nuget [17.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/17.0.0) |  |  |
+| Microsoft.Azure.Management.Storage | nuget [17.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/17.1.0) |  |  |
 | Microsoft.Azure.Management.Storage.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.StorageCache | nuget [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.StorageCache/1.1.0) |  |  |
 | Microsoft.Azure.Management.StorageSync | nuget [5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.StorageSync/5.0.0) |  |  |
@@ -178,6 +183,7 @@
 | Microsoft.Azure.Search.Data | nuget [10.1.0](https://www.nuget.org/packages/Microsoft.Azure.Search.Data/10.1.0) |  |  |
 | Microsoft.Azure.Search.Service | nuget [10.1.0](https://www.nuget.org/packages/Microsoft.Azure.Search.Service/10.1.0) |  |  |
 | Microsoft.Azure.ServiceBus | nuget [4.1.3](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/4.1.3) |  |  |
+| Microsoft.Azure.ServiceBus.MessageIdPlugin | nuget [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.MessageIdPlugin/2.0.0) |  |  |
 | Microsoft.Azure.Services.AppAuthentication | nuget [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/1.5.0) |  |  |
 | Microsoft.Azure.SignalR | nuget [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR/1.5.0) |  |  |
 | Microsoft.Azure.SignalR.AspNet | nuget [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR.AspNet/1.5.0) |  |  |
@@ -262,6 +268,7 @@
 | wastorage.v120 | nuget [4.0.0](https://www.nuget.org/packages/wastorage.v120/4.0.0) |  |  |
 | wastorage.v140 | nuget [4.0.0](https://www.nuget.org/packages/wastorage.v140/4.0.0) |  |  |
 | WindowsAzure.Caching | nuget [1.7.0](https://www.nuget.org/packages/WindowsAzure.Caching/1.7.0) |  |  |
+| windowsazure.mediaservices | nuget [4.2.0](https://www.nuget.org/packages/windowsazure.mediaservices/4.2.0) |  |  |
 | WindowsAzure.MobileServices | nuget [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |  |  |
 | WindowsAzure.MobileServices.Backend | nuget [1.0.478](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/1.0.478) |  |  |
 | WindowsAzure.MobileServices.Backend.Entity | nuget [1.0.478](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Entity/1.0.478) |  |  |
@@ -272,5 +279,6 @@
 | WindowsAzure.MobileServices.Backend.Tables | nuget [1.0.478](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Tables/1.0.478) |  |  |
 | WindowsAzure.MobileServices.SQLiteStore | nuget [1.0.4](https://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.4) |  |  |
 | WindowsAzure.MobileServices.WinJS | nuget [1.2.5](https://www.nuget.org/packages/WindowsAzure.MobileServices.WinJS/1.2.5) |  |  |
+| WindowsAzure.ServiceBus | nuget [6.0.2](https://www.nuget.org/packages/WindowsAzure.ServiceBus/6.0.2) |  |  |
 | WindowsAzure.Storage | nuget [9.3.3](https://www.nuget.org/packages/WindowsAzure.Storage/9.3.3) |  |  |
 
