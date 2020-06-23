@@ -1,5 +1,5 @@
-| Service | Package | Docs | Source |
-| ------- | ------- | ---- | ------ |
+| Name | Package | Docs | Source |
+| ---- | ------- | ---- | ------ |
 | App Configuration | maven [1.1.2](https://search.maven.org/artifact/com.azure/azure-data-appconfiguration/1.1.2/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme/) | github [1.1.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.1.2/sdk/appconfiguration/azure-data-appconfiguration/) |
 | Cognitive Search | maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-search-documents/1.0.0-beta.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme/) | github [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_1.0.0-beta.4/sdk/search/azure-search-documents/) |
 | Core | maven [1.5.1](https://search.maven.org/artifact/com.azure/azure-core/1.5.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-readme/) | github [1.5.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.5.1/sdk/core/azure-core/) |
@@ -23,5 +23,5 @@
 | Storage - File Shares | maven [12.5.0](https://search.maven.org/artifact/com.azure/azure-storage-file-share/12.5.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-file-share-readme/) | github [12.5.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.5.0/sdk/storage/azure-storage-file-share/) |
 | Storage - Queues | maven [12.5.2](https://search.maven.org/artifact/com.azure/azure-storage-queue/12.5.2/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-queue-readme/) | github [12.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.5.2/sdk/storage/azure-storage-queue/) |
 | Text Analytics | maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-ai-textanalytics/1.0.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_1.0.0/sdk/textanalytics/azure-ai-textanalytics/) |
-| Tracing | maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-core-tracing-opentelemetry/1.0.0-beta.5/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-tracing-opentelemetry-readme/) | github [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.5/sdk/core/azure-core-tracing-opentelemetry/) |
+| Tracing | maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-core-tracing-opentelemetry/1.0.0-beta.5/jar/) |  | github [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.5/sdk/core/azure-core-tracing-opentelemetry/) |
 
