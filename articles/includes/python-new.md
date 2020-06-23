@@ -1,5 +1,5 @@
-| Service | Package | Docs | Source |
-| ------- | ------- | ---- | ------ |
+| Name | Package | Docs | Source |
+| ---- | ------- | ---- | ------ |
 | App Configuration | pypi [1.0.0](https://pypi.org/project/azure-appconfiguration/1.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/appconfiguration-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.0.0/sdk/appconfiguration/azure-appconfiguration/) |
 | Cognitive Search | pypi [1.0.0b4](https://pypi.org/project/azure-search-documents/1.0.0b4) | [docs](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme/) | github [1.0.0b4](https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_1.0.0b4/sdk/search/azure-search-documents/) |
 | Core | pypi [1.6.0](https://pypi.org/project/azure-core/1.6.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/core-readme/) | github [1.6.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.6.0/sdk/core/azure-core/) |
