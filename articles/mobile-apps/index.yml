@@ -142,7 +142,7 @@ conceptualContent:
         - url: analytics.md
           itemType: concept
           text: Analyze and understand mobile application use
-        - url: https://docs.microsoft.com/appcenter/analytics/overview.md
+        - url: /appcenter/analytics/overview
           itemType: overview
           text: App Center Analytics
         - url: https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
@@ -151,7 +151,7 @@ conceptualContent:
         - url: diagnostics.md
           itemType: concept
           text: Monitor failures and errors in real time for your mobile application        
-        - url: https://docs.microsoft.com/appcenter/analytics/log-flow.md
+        - url: /appcenter/analytics/log-flow
           itemType: tutorial
           text: Receive real time analytics
         
