@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure for mobile developers # < 60 chars
+title: Azure for mobile developers documentation # < 60 chars
 summary: Find the information you need to develop mobile apps on Azure # < 160 chars
 
 metadata:
-  title: Azure for mobile developers # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Find the information you need to develop mobile apps on Azure # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure for mobile developers documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Find the information you need to develop mobile apps on Azure. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: mobile-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: mobile-services # Optional; Remove if no subservice is used.
   ms.topic: landing-page # Required
