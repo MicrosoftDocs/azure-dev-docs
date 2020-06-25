@@ -1,7 +1,6 @@
 - name: Azure for mobile developers documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: Choose a mobile development framework
     href: choose-mobile-framework.md
