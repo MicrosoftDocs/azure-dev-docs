@@ -61,13 +61,12 @@ You should change those properties directly near the top of the *pom.xml* file:
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <azure.functions.maven.plugin.version>1.5.0</azure.functions.maven.plugin.version>
-    <azure.functions.java.library.version>1.3.1</azure.functions.java.library.version>
     <functionAppName>my-spring-function</functionAppName>
     <functionAppRegion>westus</functionAppRegion>
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
     <functionResourceGroup>my-resource-group</functionResourceGroup>
     <start-class>com.example.HelloFunction</start-class>
-    <spring.boot.wrapper.version>1.0.24.RELEASE</spring.boot.wrapper.version>
+    <spring.boot.wrapper.version>1.0.25.RELEASE</spring.boot.wrapper.version>
 </properties>
 ```
 
