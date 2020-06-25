@@ -40,14 +40,10 @@ landingContent:
   # Card (optional)
   - title: Call web services
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Build a serverless mobile application back end with Azure Functions and other services
             url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
-          - text: Azure SignalR Service with Xamarin.Forms
-            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
-      - linkListType: overview
-        links:
           - text: Build real-time applications with Azure SignalR Service
             url: real-time-communication.md
           - text: Azure API Management Overview
@@ -55,7 +51,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Functions and Xamarin
-            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions          
+            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+          - text: Azure SignalR Service with Xamarin.Forms
+            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
       - linkListType: learn
         links:
           - text: Consume a RESTful Web Service with Xamarin
@@ -64,12 +62,10 @@ landingContent:
   # Card (optional)
   - title: Save data
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Store, sync, and query mobile application data from the cloud
-            url: data-storage.md
       - linkListType: overview
         links:
+          - text: Store, sync, and query mobile application data from the cloud
+            url: data-storage.md      
           - text: Cloud storage for highly secure, durable, scalable apps with Azure Storage   
             url: azure-storage.md
           - text: Content delivery with Azure Content Delivery Network
@@ -99,29 +95,23 @@ landingContent:
           - text: Send push notifications to Android devices
             url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started
           - text: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging
-            url: https://docs.microsoft.com/azure/notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging
-      - linkListType: how-to-guide
-        links:
+            url: https://docs.microsoft.com/azure/notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging      
           - text: Push rich content to devices
             url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich
 
   # Card
-  - title: Authenticate users
+  - title: Authenticate users 
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Supported authentication flows with Microsoft Authentication Library (MSAL)
-            url: https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows
       - linkListType: overview
         links:
+          - text: Supported authentication flows with Microsoft Authentication Library (MSAL)
+            url: https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows      
           - text: Add authentication and manage user identities in your mobile apps
             url: authentication.md
       - linkListType: tutorial
         links:
           - text: Sign in users and call the Microsoft Graph from an Android application
-            url: https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android
-      - linkListType: how-to-guide
-        links:
+            url: https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android      
           - text: Add a native client application to your Azure Active Directory B2C tenant
             url: https://docs.microsoft.com/azure/active-directory-b2c/add-native-application
       - linkListType: sample
