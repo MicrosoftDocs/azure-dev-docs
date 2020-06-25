@@ -277,7 +277,7 @@ In this section, the Yeoman generator is used to create and test a module in Clo
 
     ![Rake build](media/create-a-base-template-using-yeoman/ymg-rake-build.png)
 
-1. Run the following command to run the text:
+1. Run the following command to run the test:
 
     ```bash
     rake e2e
