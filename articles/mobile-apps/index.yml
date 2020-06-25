@@ -46,10 +46,8 @@ landingContent:
         links:
           - text: Build a serverless mobile application back end with Azure Functions and other services
             url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
-          - text: Build real-time applications with Azure SignalR Service
-            url: real-time-communication.md
-          - text: Azure API Management Overview
-            url: https://docs.microsoft.com/azure/api-management/api-management-key-concepts      
+          - text: Build real-time applications with Azure SignalR
+            url: real-time-communication.md          
       - linkListType: quickstart
         links:
           - text: Get started with Azure Functions and Xamarin
