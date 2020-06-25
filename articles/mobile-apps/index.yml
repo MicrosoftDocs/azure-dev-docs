@@ -36,6 +36,8 @@ landingContent:
         links:
           - text: Build an entire mobile app with Azure
             url: https://channel9.msdn.com/Shows/Partly-Cloudy
+          - text: Build a custom mobile backend for your app
+            url: https://channel9.msdn.com/events/dotnetConf/Focus-on-Xamarin/Stitching-Together-a-Mobile-Backend-for-Your-App
 
   # Card (optional)
   - title: Call web services
