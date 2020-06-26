@@ -120,6 +120,21 @@ productDirectory:
           text: Create a virtual machine
         - url: https://docs.microsoft.com/cli/azure/
           text: See more in the Azure CLI developer center
+    - title: Mobile
+      imageSrc: https://static.docs.com/ui/media/product/azure/devices.svg
+      links:
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/serverless-compute
+          text: Build a serverless mobile app
+        - url: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-xamarin-dotnet
+          text: Save data with Azure Cosmos DB
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/push-notifications
+          text: Send push notifications to engage users
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/authentication
+          text: Add authentication and manage user identities
+        - url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+          text: Key concepts for new Azure Pipelines users
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps
+          text: See more in the Mobile app developer center
 #tools:
 #conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
