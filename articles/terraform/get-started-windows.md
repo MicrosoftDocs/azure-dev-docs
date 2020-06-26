@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 06/14/2020
+ms.date: 06/26/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
