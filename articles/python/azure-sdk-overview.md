@@ -19,7 +19,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - When running code locally, authenticating with Azure relies on environment variables as described on [Configure your local dev environment](configure-local-development-environment.md). 
 
-- You install the library packages you need with `pip install <library_name>`, using the library names on the [release list](https://azure.github.io/azure-sdk/releases/latest/all/python.html). For further details, see [Install Azure libraries](azure-sdk-install.md).
+- You install the library packages you need with `pip install <library_name>`, using the library names on the [Python SDK package index](azure-sdk-library-package-index.md). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
 - There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
@@ -28,6 +28,8 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 - Documentation for the libraries is found on the [Azure for Python Reference](/python/api/overview/azure/?view=azure-python), which is organized by Azure Service, or the [Python API browser](/python/api/?view=azure-python), which is organized by package name. At present, you often need to click to a number of layers to get to the classes and methods you care about. Allow us to apologize in advance for this sub-par experience. We're working to improve it!
 
 - To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](azure-sdk-example-database.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
+
+- For a demonstration video, see <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resource</a> (youtube.com) from virtual PyCon 2020.
 
 ### Non-essential but still interesting details
 
@@ -45,7 +47,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
   - This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) library.
 
-  - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](https://azure.github.io/azure-sdk/releases/latest/#python). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
+  - The libraries that currently work with the Core library are listed on [Azure SDK for Python latest releases](azure-sdk-library-package-index.md#libraries-using-azurecore). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
 
   - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
 

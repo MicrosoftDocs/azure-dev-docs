@@ -1,0 +1,180 @@
+### YamlMime:Landing
+
+title: Azure for mobile developers documentation # < 60 chars
+summary: Find the information you need to develop mobile apps on Azure. # < 160 chars
+
+metadata:
+  title: Azure for mobile developers documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Find the information you need to develop mobile apps on Azure. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: mobile-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: mobile-services # Optional; Remove if no subservice is used.
+  ms.topic: landing-page # Required
+  ms.collection: collection # Optional; Remove if no collection is used.    
+  author: codemillmatt #Required; your GitHub user alias, with correct capitalization.
+  ms.author: masoucou #Required; microsoft alias of author; optional team alias.
+  ms.date: 06/25/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started with mobile on Azure
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Choose mobile development frameworks
+            url: choose-mobile-framework.md
+          - text: Stages in Azure mobile application development
+            url: mobile-cloud-development-stages.md
+      - linkListType: learn
+        links:
+          - text: Build mobile apps with Xamarin.Forms
+            url: https://docs.microsoft.com/learn/paths/build-mobile-apps-with-xamarin-forms/
+      - linkListType: video
+        links:
+          - text: Build an entire mobile app with Azure
+            url: https://channel9.msdn.com/Shows/Partly-Cloudy
+          - text: Build a custom mobile backend for your app
+            url: https://channel9.msdn.com/events/dotnetConf/Focus-on-Xamarin/Stitching-Together-a-Mobile-Backend-for-Your-App
+
+  # Card (optional)
+  - title: Call web services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Build a serverless mobile application back end with Azure Functions and other services
+            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+          - text: Build real-time applications with Azure SignalR
+            url: real-time-communication.md          
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Functions and Xamarin
+            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+          - text: Azure SignalR Service with Xamarin.Forms
+            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
+      - linkListType: learn
+        links:
+          - text: Consume a RESTful Web Service with Xamarin
+            url: https://docs.microsoft.com/learn/modules/consume-rest-services
+
+  # Card (optional)
+  - title: Save data
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Store, sync, and query mobile application data from the cloud
+            url: data-storage.md      
+          - text: Cloud storage for highly secure, durable, scalable apps with Azure Storage   
+            url: azure-storage.md
+          - text: Content delivery with Azure Content Delivery Network
+            url: azure-content-delivery-network.md
+      - linkListType: quickstart
+        links:
+          - text: Save data with Azure Cosmos DB
+            url: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-xamarin-dotnet
+          - text: Work with blob storage
+            url: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-xamarin
+          - text: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
+            url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-xamarin
+
+  # Card
+  - title: Send push notifications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Engage with your application users by sending push notifications
+            url: push-notifications.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure notification hub in the Azure portal
+            url: https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal
+      - linkListType: tutorial
+        links:
+          - text: Send push notifications to Android devices
+            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started
+          - text: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging
+            url: https://docs.microsoft.com/azure/notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging      
+          - text: Push rich content to devices
+            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich
+
+  # Card
+  - title: Authenticate users 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Supported authentication flows with Microsoft Authentication Library (MSAL)
+            url: https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows      
+          - text: Add authentication and manage user identities in your mobile apps
+            url: authentication.md
+      - linkListType: tutorial
+        links:
+          - text: Sign in users and call the Microsoft Graph from an Android application
+            url: https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android      
+          - text: Add a native client application to your Azure Active Directory B2C tenant
+            url: https://docs.microsoft.com/azure/active-directory-b2c/add-native-application
+      - linkListType: sample
+        links:
+          - text: Sign in users with a Swift iOS app
+            url: https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
+
+  # Card
+  - title: Automate builds and deployments with DevOps
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Automate the deployment and release of your mobile applications with continuous delivery services
+            url: continuous-delivery.md
+          - text: Automate the lifecycle of your apps with continuous build and integration
+            url: continuous-integration.md
+          - text: Key concepts for new Azure Pipelines users
+            url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+      - linkListType: overview
+        links:
+          - text: Release a build with App Center
+            url: https://docs.microsoft.com/appcenter/distribution/uploading
+      - linkListType: how-to-guide
+        links:
+          - text: App Center CodePush
+            url: https://docs.microsoft.com/appcenter/distribution/codepush
+
+  # Card
+  - title: Track analytics and crashes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Analyze and understand mobile application use
+            url: analytics.md
+          - text: Monitor failures and errors in real time for your mobile application        
+            url: diagnostics.md
+      - linkListType: overview
+        links:
+          - text: App Center Analytics
+            url: https://docs.microsoft.com/appcenter/analytics/overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enabling diagnostics in an app
+            url: https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
+      - linkListType: tutorial
+        links:
+          - text: Receive real time analytics
+            url: https://docs.microsoft.com/appcenter/analytics/log-flow.md
+
+  # Card
+  - title: Develop with SDKs
+    linkLists:
+      - linkListType: download
+        links:
+          - text: iOS
+            url: https://github.com/Azure/azure-sdk-for-ios
+          - text: Android
+            url: https://github.com/Azure/azure-sdk-for-android
+          - text: .NET / Xamarin
+            url: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
+          - text: Microsoft Authentication Library (MSAL) for iOS
+            url: https://github.com/AzureAD/microsoft-authentication-library-common-for-objc
+          - text: Microsoft Authentication Library (MSAL) for Android
+            url: https://github.com/AzureAD/microsoft-authentication-library-for-android
+          - text: Microsoft Authentication Library (MSAL) for .NET / Xamarin
+            url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet

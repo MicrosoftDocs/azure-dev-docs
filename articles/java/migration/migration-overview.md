@@ -73,7 +73,7 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
@@ -95,7 +95,7 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|                                                                       | App Service | Azure Spring Cloud | AKS | Virtual Machines |
+|                                                                       | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
 |---|---|---|---|---|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
@@ -135,9 +135,9 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first conver
 
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | guidance<br>planned | [guidance][14]      | guidance<br>planned |
-| Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15]      | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A                 | [guidance][3]       | guidance<br>planned |
+| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | [guidance][16] | [guidance][14]      | guidance<br>planned |
+| Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15] | guidance<br>planned | guidance<br>planned |
+| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A            | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
@@ -166,3 +166,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [14]: migrate-spring-boot-to-azure-kubernetes-service.md
 [15]: migrate-spring-cloud-to-azure-spring-cloud.md
+[16]: migrate-spring-boot-to-azure-spring-cloud.md

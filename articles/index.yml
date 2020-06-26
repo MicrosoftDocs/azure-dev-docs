@@ -27,7 +27,7 @@ metadata:
 #      url: https://docs.microsoft.com/java/api/
 productDirectory:
 #  title: Developer centers
-#  summary: 
+#  summary:
   items:
     # Card
     - title: Python
@@ -48,17 +48,17 @@ productDirectory:
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
-        - url: https://docs.microsoft.com/azure/javascript/tutorial-vscode-static-website-node-01?tabs=bash
+        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-static-website-node-01?tabs=bash
           text: Create and deploy a static website
-        - url: https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01?tabs=bash
+        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-azure-app-service-node-01?tabs=bash
           text: Deploy a Node.js app to Azure App Service
-        - url: https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01?tabs=bash
+        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01?tabs=bash
           text: Deploy an Azure Functions application
-        - url: https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01?tabs=bash
+        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01?tabs=bash
           text: Deploy a Node.js app using Docker containers
-        - url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+        - url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           text: Migrate a MongoDB web app to Azure Cosmos DB
-        - url: https://docs.microsoft.com/azure/javascript/
+        - url: https://docs.microsoft.com/azure/developer/javascript/
           text: See more in the JavaScript developer center
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
@@ -100,9 +100,9 @@ productDirectory:
         - url: https://docs.microsoft.com/powershell/azure/install-az-ps
           text: Install
         - url: https://docs.microsoft.com/powershell/azure/authenticate-azureps
-          text: Sign in 
+          text: Sign in
         - url: https://docs.microsoft.com/powershell/azure/context-persistence
-          text: Persist credential contexts 
+          text: Persist credential contexts
         - url: https://docs.microsoft.com/powershell/azure/
           text: See more in the Azure PowerShell developer center
     - title: Azure CLI
@@ -120,8 +120,23 @@ productDirectory:
           text: Create a virtual machine
         - url: https://docs.microsoft.com/cli/azure/
           text: See more in the Azure CLI developer center
+    - title: Mobile
+      imageSrc: https://static.docs.com/ui/media/product/azure/devices.svg
+      links:
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/serverless-compute
+          text: Build a serverless mobile app
+        - url: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-xamarin-dotnet
+          text: Save data with Azure Cosmos DB
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/push-notifications
+          text: Send push notifications to engage users
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps/authentication
+          text: Add authentication and manage user identities
+        - url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+          text: Key concepts for new Azure Pipelines users
+        - url: https://docs.microsoft.com/azure/developer/mobile-apps
+          text: See more in the Mobile app developer center
 #tools:
-#conceptualContent: 
+#conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 #additionalContent:
 additionalContent:

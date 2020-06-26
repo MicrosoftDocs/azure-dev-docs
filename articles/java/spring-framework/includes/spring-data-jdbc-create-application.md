@@ -4,7 +4,7 @@
  ms.author: judubois
 ---
 
-Create a new `Todo` Java class, next to the `DemoApplication` class:
+Create a new `Todo` Java class, next to the `DemoApplication` class, and add the following code:
 
 ```java
 package com.example.demo;
@@ -111,7 +111,7 @@ public class TodoController {
 }
 ```
 
-Finally, halt the application and start it again:
+Finally, halt the application and start it again using the following command:
 
 ```bash
 ./mvnw spring-boot:run
@@ -121,28 +121,28 @@ Finally, halt the application and start it again:
 
 To test the application, you can use cURL.
 
-First, create a new "todo" item in the database:
+First, create a new "todo" item in the database using the following command:
 
 ```bash
-curl  --header "Content-Type: application/json" \
-          --request POST \
-          --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
-          http://127.0.0.1:8080
+curl --header "Content-Type: application/json" \
+    --request POST \
+    --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
+    http://127.0.0.1:8080
 ```
 
-This command should return the created item:
+This command should return the created item as follows:
 
 ```json
 {"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}
 ```
 
-Next, retrieve the data by using a new cURL request:
+Next, retrieve the data by using a new cURL request as follows:
 
 ```bash
 curl http://127.0.0.1:8080
 ```
 
-This command will return the list of "todo" items, including the item you've created:
+This command will return the list of "todo" items, including the item you've created, as follows:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}]

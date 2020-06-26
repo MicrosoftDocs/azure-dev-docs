@@ -4,7 +4,7 @@
  ms.author: judubois
 ---
 
-Create a new `Todo` Java class, next to the `DemoApplication` class:
+Create a new `Todo` Java class, next to the `DemoApplication` class, using the following code:
 
 ```java
 package com.example.demo;
@@ -67,7 +67,7 @@ public class Todo {
 
 This class is a domain model mapped on the `todo` table that you created before.
 
-To manage that class, you'll need a repository. Define a new `TodoRepository` interface in the same package:
+To manage that class, you'll need a repository. Define a new `TodoRepository` interface in the same package, using the following code:
 
 ```java
 package com.example.demo;
@@ -113,7 +113,7 @@ public class TodoController {
 }
 ```
 
-Finally, halt the application and start it again:
+Finally, halt the application and start it again using the following command:
 
 ```bash
 ./mvnw spring-boot:run
@@ -123,28 +123,28 @@ Finally, halt the application and start it again:
 
 To test the application, you can use cURL.
 
-First, create a new "todo" item in the database:
+First, create a new "todo" item in the database using the following command:
 
 ```bash
-curl  --header "Content-Type: application/json" \
-          --request POST \
-          --data '{"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done": "true"}' \
-          http://127.0.0.1:8080
+curl --header "Content-Type: application/json" \
+    --request POST \
+    --data '{"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done": "true"}' \
+    http://127.0.0.1:8080
 ```
 
-This command should return the created item:
+This command should return the created item, as shown here:
 
 ```json
 {"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}
 ```
 
-Next, retrieve the data by using a new cURL request:
+Next, retrieve the data by using a new cURL request with the following command:
 
 ```bash
 curl http://127.0.0.1:8080
 ```
 
-This command will return the list of "todo" items, including the item you've created:
+This command will return the list of "todo" items, including the item you've created, as shown here:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done":true}]
