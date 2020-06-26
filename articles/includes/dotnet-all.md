@@ -1,6 +1,6 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| Azure.AI.TextAnalytics | nuget [1.0.0](https://www.nuget.org/packages/Azure.AI.TextAnalytics/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/AI.TextAnalytics-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_1.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/) |
+| Azure.AI.TextAnalytics | nuget [1.0.1](https://www.nuget.org/packages/Azure.AI.TextAnalytics/1.0.1) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/AI.TextAnalytics-readme/) | github [1.0.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_1.0.1/sdk/textanalytics/Azure.AI.TextAnalytics/) |
 | Azure.Batch.FileStaging | nuget [8.0.1](https://www.nuget.org/packages/Azure.Batch.FileStaging/8.0.1) |  |  |
 | Azure.Core | nuget [1.2.2](https://www.nuget.org/packages/Azure.Core/1.2.2) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Core-readme/) | github [1.2.2](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.2.2/sdk/core/Azure.Core/) |
 | Azure.Cosmos | nuget [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](https://docs.microsoft.com/dotnet/api/azure.cosmos?view=azure-dotnet-preview) | github [4.0.0-preview3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Cosmos_4.0.0-preview3/sdk/https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3/Azure.Cosmos/) |
@@ -56,7 +56,7 @@
 | Microsoft.Azure.Common.Dependencies | nuget [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Common.Dependencies/1.0.0) |  |  |
 | Microsoft.Azure.ConfigurationManager | nuget [4.0.0](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/4.0.0) |  |  |
 | Microsoft.Azure.Cosmos | nuget [3.10.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.10.1) |  |  |
-| Microsoft.Azure.Cosmos.Direct | nuget [3.11.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.11.0) |  |  |
+| Microsoft.Azure.Cosmos.Direct | nuget [3.11.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.11.1) |  |  |
 | Microsoft.Azure.Cosmos.Table | nuget [1.0.7](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table/1.0.7) |  |  |
 | Microsoft.Azure.CosmosDB.BulkExecutor | nuget [1.8.9](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/1.8.9) |  |  |
 | Microsoft.Azure.CosmosDB.Table | nuget [2.1.2](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/2.1.2) |  |  |
@@ -84,13 +84,14 @@
 | Microsoft.Azure.Management.Batch.Fluent | nuget [1.26.1](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch.Fluent/1.26.1) |  |  |
 | Microsoft.Azure.Management.BatchAI | nuget [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/2.0.0) |  |  |
 | Microsoft.Azure.Management.BatchAI.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI.Fluent/1.34.0) |  |  |
+| Microsoft.Azure.Management.Billing | nuget [4.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Billing/4.0.0) |  |  |
 | Microsoft.Azure.Management.Cdn | nuget [2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Cdn/2.1.0) |  |  |
 | Microsoft.Azure.Management.Cdn.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Cdn.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.CognitiveServices | nuget [7.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/7.0.0) |  |  |
 | Microsoft.Azure.Management.Compute | nuget [37.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/37.0.0) |  |  |
 | Microsoft.Azure.Management.Compute.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.Consumption | nuget [3.0.2](https://www.nuget.org/packages/Microsoft.Azure.Management.Consumption/3.0.2) |  |  |
-| Microsoft.Azure.Management.ContainerInstance | nuget [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerInstance/2.0.0) |  |  |
+| Microsoft.Azure.Management.ContainerInstance | nuget [3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerInstance/3.0.0) |  |  |
 | Microsoft.Azure.Management.ContainerInstance.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerInstance.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.ContainerRegistry | nuget [4.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerRegistry/4.0.0) |  |  |
 | Microsoft.Azure.Management.ContainerRegistry.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerRegistry.Fluent/1.34.0) |  |  |
@@ -234,7 +235,7 @@
 | Microsoft.Hadoop.Client | nuget [1.5.13](https://www.nuget.org/packages/Microsoft.Hadoop.Client/1.5.13) |  |  |
 | Microsoft.Rest.ClientRuntime | nuget [2.3.21](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime/2.3.21) |  |  |
 | Microsoft.Rest.ClientRuntime.Azure | nuget [3.3.19](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure/3.3.19) |  |  |
-| Microsoft.Rest.ClientRuntime.Azure.Authentication | nuget [2.4.0](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.4.0) |  |  |
+| Microsoft.Rest.ClientRuntime.Azure.Authentication | nuget [2.4.1](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.4.1) |  |  |
 | Microsoft.Rest.ClientRuntime.Azure.TestFramework | nuget [1.7.7](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.TestFramework/1.7.7) |  |  |
 | Microsoft.Rest.ClientRuntime.Etw | nuget [2.1.3](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Etw/2.1.3) |  |  |
 | Microsoft.Rest.ClientRuntime.Log4Net | nuget [2.1.4](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Log4Net/2.1.4) |  |  |
