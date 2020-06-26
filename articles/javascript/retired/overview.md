@@ -7,11 +7,11 @@ ms.topic: article
 
 # Azure modules for JavaScript
 
-Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as [npm modules](../node-sdk-azure-install.md) for use in your projects. 
+Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as npm modules](/api/?view=azure-node-latest.md) for use in your projects.
 
 ## Manage Azure resources
 
-Use management modules to create and query resources from your apps or to build your own Azure automation tools. 
+Use management modules to create and query resources from your apps or to build your own Azure automation tools.
 
 For example, to create a Linux VM using an existing network interface, you would write the following code:
 
@@ -28,7 +28,7 @@ const subscriptionId = process.env['AZURE_SUBSCRIPTION_ID'];
 msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (err, credentials, subscriptions) {
     if (err) return console.log(err);
     const computeClient = new ComputeManagementClient(credentials, subscriptionId);
-    // customize the VM 
+    // customize the VM
     const vmParameters = {
         location: "eastus",
         osProfile: {
@@ -61,7 +61,7 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
             },
         }
     };
- 
+
     // create the VM
     computeClient.virtualMachines.createOrUpdate("myResourceGroup", "newLinuxVM", vmParameters, function (err, data) {
         if (err) return console.log(err);
@@ -70,11 +70,11 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
 });
 ```
 
-Review the [install instructions](../node-sdk-azure-install.md) for a full list of the modules and the [get started article](../node-sdk-azure-get-started.md) to set up authentication and run sample code to create and update resources against your own Azure subscription. 
+Review the [install instructions](/api/?view=azure-node-latest) for a full list of the modules and the [get started article](../index.yml) to set up authentication and run sample code to create and update resources against your own Azure subscription.
 
 ## Connect to Azure services
 
-In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](../node-sdk-azure-install.md) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
+In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](/api/?view=azure-node-latest) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
 
 For example, to print out the contents of every blob in an Azure storage container:
 
@@ -91,8 +91,8 @@ blobService.listBlobsSegmented('testcontainer', null, function(error, result, re
 
 The following samples cover common tasks with the Azure management modules and have code ready to use in your own apps:
 
-- [Virtual machines](../node-samples-services-compute.md)
-- [Web apps](../node-samples-services-web-and-mobile.md)
-- [SQL Database](../node-samples-services-database.md)
-   
+- [Virtual machines](/samples/browse/?languages=javascript%2Cnodejs)
+- [Web apps](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps)
+- [SQL Database](/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database)
+
 A [reference](/javascript/api) is available for all modules in both the service and management modules. New features, breaking changes, and migration instructions from previous versions are available in the [release notes](https://github.com/Azure/azure-sdk-for-node/releases).

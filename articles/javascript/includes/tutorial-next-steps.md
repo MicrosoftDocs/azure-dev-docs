@@ -11,7 +11,7 @@ You can install all the Azure extensions together by installing the
 
 To learn more about working with Azure using Node.js, visit the resources below:
 
-* [Azure for Node.js developer center](https://docs.microsoft.com/azure/javascript).
+* [Azure for Node.js developer center](https://docs.microsoft.com/azure/developer/javascript).
 * [Azure Cosmos DB bindings for Azure Functions 2.x](https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2?tabs=javascript)
 * [Azure Functions JavaScript Developer Guide ](https://docs.microsoft.com/azure/azure-functions/functions-reference-node)
 * [Blog Post: Creating CRUD application with Azure Functions & MongoDB - Dev.to](https://dev.to/azure/ezra-s-potluck-day-4-of-25daysofserverless-challenge-4pd6)

@@ -52,16 +52,26 @@
         "ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback"
+        "terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "javascript/**/*.md": "https://github.com/Azure/azure-sdk-for-js/issues"
       },
       "product_feedback_url": {
         "python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
-        "python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues"
+        "python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
+        "tutorial-vscode-azure-app-service-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-vscode-azure-cli-node*.md" : "https://github.com/Azure/azure-cli/issues",
+        "tutorial-vscode-docker-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
+        "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
+        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
           "depot_name": "MSDN.python-sdk",
+          "folder_relative_path_in_docset": "docs-ref-conceptual"
+        },
+        "javascript":{
+          "depot_name": "MSDN.node-api",
           "folder_relative_path_in_docset": "docs-ref-conceptual"
         }
       },
@@ -75,7 +85,8 @@
         "ansible/**/*.md": "TomArcherMsft",
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",
-        "terraform/**/*.md": "TomArcherMsft"
+        "terraform/**/*.md": "TomArcherMsft",
+        "javascript/**/*.md": "btholt"
       },
       "manager": {
         "**/*.md": "barbkess",
@@ -91,12 +102,14 @@
         "ansible/**/*.md": "tarcher",
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
-        "terraform/**/*.md": "tarcher"
+        "terraform/**/*.md": "tarcher",
+        "javascript/**/*.md": "brholt"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
         "python/**/*.md": "python",
-        "go/**/*.md": "go"
+        "go/**/*.md": "go",
+        "javascript/**/*.md": "nodejs"
       },
       "ms.service": {
         "go/**/*.md": "azure",
@@ -117,7 +130,8 @@
         "**/includes/**/*.md": "include"
       },
       "ms.prod": {
-        "python/**/*.md": "azure-python"
+        "python/**/*.md": "azure-python",
+        "javascript/**/*.md": "azure-nodejs"
       },
       "ms.custom": {
         "python/**/*.md": "tracking-python"
@@ -127,7 +141,8 @@
     "dest": {
       ".": "azure-dev-docs",
       "go": "azure-go",
-      "python": "azure-python"
+      "python": "azure-python",
+      "javascript": "azure-javascript"
     },
     "markdownEngineName": "markdig"
   }
