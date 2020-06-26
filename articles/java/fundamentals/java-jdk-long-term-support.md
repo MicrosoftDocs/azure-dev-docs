@@ -63,6 +63,8 @@ Azul Systems provides fully supported [Azul Zulu for Azure - Enterprise Edition]
 
 LTS and MTS JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed. This support includes backports to Java 7 and 8 of security updates and bug fixes reported in newer versions of Java, like Java 11. This backporting ensures the continued stability and security of older versions of Java. Azure customers can get these security updates and platform bug fixes without incurring any unplanned Java SE subscription fees.
 
+Currently, Azure Functions requires Java 8, and support for Java 11 is still in development.
+
 ## Benefits for developers
 
 The Azul Zulu for Azure - Enterprise Edition JDK releases:
@@ -71,7 +73,7 @@ The Azul Zulu for Azure - Enterprise Edition JDK releases:
 
    * Zulu binaries are production-ready and backed by Microsoft and Azul Systems.
    * Zulu comes with free long-term support (LTS) for Java 7, 8, and 11 and medium-term support (MTS) for Java 13. (LTS will be provided for Java 17 as well.) You can upgrade Java versions only when you need to.
-   * Java 7 is supported until July 2023. Java 8 and 11 are supported until September 2027. Java 13 is supported until March 2023.
+   * Java 7 is supported until July 2023. Java 8 is supported until December 2030. Java 11 is supported until September 2027. Java 13 is supported until March 2023.
    * Microsoft is committed to running Zulu internally on machines that power many Azure services.
 
 - Are production ready.
