@@ -11,7 +11,6 @@
           "**/includes/**",
           "_themes/**",
           "_themes.pdf/**",
-          "**/docfx.json",
           "README.md",
           "LICENSE",
           "LICENSE-CODE",
@@ -23,62 +22,23 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg",
-          "**/*.gif"          
+          "**/*.jpg"
         ],
         "exclude": [
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
-          "_themes.pdf/**",
-          "**/docfx.json"
+          "_themes.pdf/**"
         ]
       }
     ],
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/javascript/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
-      "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
-      "feedback_product_url": "https://github.com/Azure/azure-sdk-for-js/issues",
-      "_op_documentIdPathDepotMapping": {
-        "./": {
-          "depot_name": "MSDN.node-api",
-          "folder_relative_path_in_docset": "docs-ref-conceptual"
-        }
-      }
-    },
-    "fileMetadata": {
-      "author": {
-        "**/*.md": "btholt"        
-      },
-      "manager": {
-        "**/*.md": "barbkess"        
-      },
-      "ms.author": {
-        "**/*.md": "brholt"
-      },      
-      "ms.devlang": {
-        "**/*.md": "nodejs"
-      },      
-      "ms.prod": {
-        "**/*.md": "azure-nodejs"        
-      },
-      "ms.topic": {
-        "includes/**/*.md": "include"
-      },
-      "product_feedback_url": {
-        "tutorial-vscode-azure-app-service-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
-        "tutorial-vscode-azure-cli-node*.md" : "https://github.com/Azure/azure-cli/issues",
-        "tutorial-vscode-docker-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
-        "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
-        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues"
-      }
+      "feedback_system": "None"
     },
     "template": [],
-    "dest": "azure-javascript",
+    "dest": "azure-javascript-sdk-conceptual",
     "markdownEngineName": "markdig"
   }
 }
