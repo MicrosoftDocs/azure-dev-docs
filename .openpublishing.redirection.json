@@ -5,6 +5,10 @@
       "redirect_url": "/azure/developer/java"
     },
     {
+      "source_path": "javascript/index.yml",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
       "source_path": "javascript/node-sdk-azure-install.md",
       "redirect_url": "/javascript/api/?view=azure-node-latest"
     },
