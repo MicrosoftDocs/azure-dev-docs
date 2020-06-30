@@ -151,7 +151,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: App Center Analytics
-            url: https://docs.microsoft.com/appcenter/analytics/overview.md
+            url: https://docs.microsoft.com/appcenter/analytics/overview
       - linkListType: how-to-guide
         links:
           - text: Enabling diagnostics in an app
@@ -159,7 +159,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Receive real time analytics
-            url: https://docs.microsoft.com/appcenter/analytics/log-flow.md
+            url: https://docs.microsoft.com/appcenter/analytics/log-flow
 
   # Card
   - title: Develop with SDKs
