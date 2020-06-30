@@ -9,7 +9,7 @@ ms.date: 1/27/2020
 
 # Integrate Azure Active Directory Domain Services (Azure AD DS) with WebLogic Server via Lightweight Directory Access Protocol (LDAP)
 
-Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure.  [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) include support to populate the built in security realm with users from Azure Active Directory Domain Services (Azure AD DS) via Secure Lightweight Directory Access Protocol (LDAPS).  This integration enables developers to use the standard `<security-role>` element, and all of its related security features, in their Java EE on Azure applications, while having the user information flow from Azure AD DS.
+Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure.  [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) include support to populate the built-in security realm with users from Azure Active Directory Domain Services (Azure AD DS) via Secure Lightweight Directory Access Protocol (LDAP).  This integration enables developers to use the standard `<security-role>` element, and all of its related security features, in their Java EE on Azure applications, while having the user information flow from Azure AD DS.
 
 This guide walks you through the steps to integrate an Azure deployed WLS with Azure AD DS via standard LDAP.  It's divided into two parts. [Azure Active Directory configuration](#azure-active-directory-configuration) and [WLS configuration](#wls-configuration).
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 ## Migration Context
 
 * If you already have an Azure AD tenant without Domain Services exposed via LDAP, this guide will show how to expose the LDAP capability and integrate it with WLS.
-* If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
+* If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
 * If you are optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
 
@@ -93,7 +93,7 @@ Complete the tutorial **Configure secure LDAP for an Azure Active Directory Doma
    > These programs are used to obtain the values to pass to the WLS configuration.
    >
 * In the section **Configure DNS zone for external access**, note down the value for "Secure LDAP external IP address".  You'll use it later.
-* Do not execute the steps in **Clean up resources** until instructed to do so in this guide.
+* Do not execute the steps in **Clean-up resources** until instructed to do so in this guide.
 
 With the above variations in mind, complete [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).  
 
