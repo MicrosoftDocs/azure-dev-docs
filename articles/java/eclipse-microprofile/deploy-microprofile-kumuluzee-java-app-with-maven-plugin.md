@@ -29,11 +29,11 @@ To complete the steps in this tutorial, you'll need to have the following instal
 The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE application is by using [Azure CLI](/cli/azure/).
 
 Sign into your Azure account by using the Azure CLI:
-   
-   ```shell
-   az login
-   ```
-   
+
+```shell
+az login
+```
+
 Follow the instructions to complete the sign-in process.
 
 ## Create sample app from MicroProfile Starter
@@ -42,55 +42,54 @@ In this section, you will create a KumuluzEE application and test it locally.
 
 ### Create Java SE 8 base Project
 
-1. Open Web Browser and acccess to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![](./media/KumuluzEE/microprofile-starter-KumuluzEE.png)
+1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+![MicroProfile Starter for Kumuluz EE](./media/KumuluzEE/microprofile-starter-KumuluzEE.png)
 
 1. Input or Select the field like follows.  
 
-	|  Input Field  |  Input/Select Value  |
-	| ---- | ---- |
-	|  groupId  |  com.microsoft.azure.samples.kumuluzee  |
-	|  artifactId  |  kumuluzEE-hello-azure  |
-	|  MicroProfile Version  |  MP 3.2  |
-	|  Java SE Version  |  Javav 8  |
-	|  MicroProfile Runtime  |  KumuluzEE  |
-	|  Examples for Specifications  |  Metrics, OpenAPI  |
+|  Input Field  |  Input/Select Value  |
+| ---- | ---- |
+|  groupId  |  com.microsoft.azure.samples.kumuluzee  |
+|  artifactId  |  kumuluzEE-hello-azure  |
+|  MicroProfile Version  |  MP 3.2  |
+|  Java SE Version  |  Java 8  |
+|  MicroProfile Runtime  |  KumuluzEE  |
+|  Examples for Specifications  |  Metrics, OpenAPI  |
 
 1. Download the project  
 Push the `DOWNLOAD` button.
 
-1. Unzip the archive file; for exaple:
+1. Unzip the archive file; for example:
 
-   ```shell
-   unzip kumuluzEE-hello-azure.zip
-   ```
+```shell
+unzip kumuluzEE-hello-azure.zip
+```
 
 ### Run the application in Local environment
 
 1. Change directory to the completed project; for example:
-   ```shell
-   cd kumuluzEE-hello-azure/
-   ```
+
+```shell
+cd kumuluzEE-hello-azure/
+```
 
 1. Build the project using Maven; for example:
 
-   ```shell
-   mvn clean package
-   ```
+```shell
+mvn clean package
+```
 
 1. Run the Application using following command:
 
-   ```shell
-   java -jar target/kumuluzEE-hello-azure.jar
-   ```
-
+```shell
+java -jar target/kumuluzEE-hello-azure.jar
+```
 
 1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
 
-   ```shell
-   curl http://localhost:8080/data/hello
-   ```
-
+```shell
+curl http://localhost:8080/data/hello
+```
 
 1. You should see the following message displayed: **Hello World**.
 
@@ -102,71 +101,72 @@ In this section, you will configure the KumuluzEE project `pom.xml` so that Mave
 
 2. In the `<build>` section of the pom.xml, add the following `<plugin>` entry inside the `<plugins>` tag.
 
-	```xml
-	<build>
-	  <finalName>kumuluzEE-hello-azure</finalName>
-	  <plugins>
-	    <plugin>
-	      <groupId>com.microsoft.azure</groupId>
-	      <artifactId>azure-webapp-maven-plugin</artifactId>
-	      <version>1.9.1</version>
-	    </plugin>
-	  </plugins>
-	</build>
-	```
+```xml
+<build>
+  <finalName>kumuluzEE-hello-azure</finalName>
+  <plugins>
+    <plugin>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-webapp-maven-plugin</artifactId>
+      <version>1.9.1</version>
+    </plugin>
+  </plugins>
+</build>
+```
 
-3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
-    
-   ```cmd
-   mvn azure-webapp:config
-   ```
-	Options Parameter:  
-	
-	|  Inpungt Field  |  Input/Select Value  |
-	| ---- | ---- |
-	|  Define value for OS(Default: Linux):  | 1. linux  |
-	|  Define value for javaVersion(Default: Java 8):   | 1. Java 8  |
-	|  Confirm (Y/N) | y |
-	
-	You can configure with the following command:
+1. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
 
-   ```cmd
-	$ mvn azure-webapp:config
-	[INFO] Scanning for projects...
-	[INFO] 
-	[INFO] ----< com.microsoft.azure.samples.kumuluzee:kumuluzEE-hello-azure >-----
-	[INFO] Building kumuluzEE-hello-azure 1.0-SNAPSHOT
-	[INFO] --------------------------------[ jar ]---------------------------------
-	[INFO] 
-	[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ kumuluzEE-hello-azure ---
-	Define value for OS(Default: Linux): 
-	1. linux [*]
-	2. windows
-	3. docker
-	Enter index to use: 
-	Define value for javaVersion(Default: Java 8): 
-	1. Java 11
-	2. Java 8 [*]
-	Enter index to use: 
-	Please confirm webapp properties
-	AppName : kumuluzEE-hello-azure-1591845878159
-	ResourceGroup : kumuluzEE-hello-azure-1591845878159-rg
-	Region : westeurope
-	PricingTier : PremiumV2_P1v2
-	OS : Linux
-	RuntimeStack : JAVA 8-jre8
-	Deploy to slot : false
-	Confirm (Y/N)? : y
-	[INFO] Saving configuration to pom.
-	[INFO] ------------------------------------------------------------------------
-	[INFO] BUILD SUCCESS
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time:  10.329 s
-	[INFO] Finished at: 2020-06-11T12:24:45+09:00
-	[INFO] ------------------------------------------------------------------------
-   ```
+```cmd
+mvn azure-webapp:config
+```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
+Options Parameter:  
+
+|  Input Field  |  Input/Select Value  |
+| ---- | ---- |
+|  Define value for OS(Default: Linux):  | 1. linux  |
+|  Define value for javaVersion(Default: Java 8):   | 1. Java 8  |
+|  Confirm (Y/N) | y |
+
+You can configure with the following command:
+
+```cmd
+$ mvn azure-webapp:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----< com.microsoft.azure.samples.kumuluzee:kumuluzEE-hello-azure >-----
+[INFO] Building kumuluzEE-hello-azure 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ kumuluzEE-hello-azure ---
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use:
+Define value for javaVersion(Default: Java 8):
+1. Java 11
+2. Java 8 [*]
+Enter index to use:
+Please confirm webapp properties
+AppName : kumuluzEE-hello-azure-1591845878159
+ResourceGroup : kumuluzEE-hello-azure-1591845878159-rg
+Region : westeurope
+PricingTier : PremiumV2_P1v2
+OS : Linux
+RuntimeStack : JAVA 8-jre8
+Deploy to slot : false
+Confirm (Y/N)? : y
+[INFO] Saving configuration to pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.329 s
+[INFO] Finished at: 2020-06-11T12:24:45+09:00
+[INFO] ------------------------------------------------------------------------
+```
+
+1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
  Finally you can see the following XML entry for `azure-webapp-maven-plugin`.
 
    ```xml
@@ -213,7 +213,6 @@ In this section, you will configure the KumuluzEE project `pom.xml` so that Mave
       </plugin>
    ```
 
-
 ## Deploy the app to Azure
 
 Once you have configured all of the settings in the preceding sections of this article, you are ready to deploy your web app to Azure. To do so, use the following steps:
@@ -226,29 +225,27 @@ Once you have configured all of the settings in the preceding sections of this a
 
 1. Deploy your web app to Azure by using Maven; for example:
 
-   ```shell
-   mvn azure-webapp:deploy
-   ```
+```shell
+mvn azure-webapp:deploy
+```
 
-	If you succeeded the deployment, you can see the following message on console.
+If you succeeded the deployment, you can see the following message on console.
 
-   ```shell
-   mvn azure-webapp:deploy
+```shell
+mvn azure-webapp:deploy
 
-	[INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1591845878159.azurewebsites.net
-	[INFO] ------------------------------------------------------------------------
-	[INFO] BUILD SUCCESS
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time:  02:28 min
-	[INFO] Finished at: 2020-06-11T12:31:44+09:00
-	[INFO] ------------------------------------------------------------------------
-	```
+[INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1591845878159.azurewebsites.net
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:28 min
+[INFO] Finished at: 2020-06-11T12:31:44+09:00
+[INFO] ------------------------------------------------------------------------
+```
 
+Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
 
-	Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
-	
-	
-	![](./media/KumuluzEE/Kumuluzee-front-page.png)
+![Kumuluz EE Front Page](./media/KumuluzEE/Kumuluzee-front-page.png)
 
 When your web has been deployed, you will be able to manage it through the [Azure portal].
 
@@ -256,19 +253,19 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
    ![Web app listed in Azure portal App Services](./media/KumuluzEE/KumuluzEE-Azure-Portal-rg.png)
 
-* And you can access to your web app by click the `Browse` button in the **Overview** for your web app.  
-Verify that the deployment was successful and Running. You should see the following screen displayed: 
+* And you can access to your web app by clicking the `Browse` button in the **Overview** for your web app.  
+Verify that the deployment was successful and Running. You should see the following screen displayed:
 
    ![Find the URL for your web app in Azure portal App Services](./media/KumuluzEE/KumuluzEE-Azure-Portal-manage.png)
 
+## Clean up Resources
 
-## Clean up resources
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-- From the Azure portal, select Resource group from the left menu.
-- Enter **microprofile** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
-- Select the resource group created in this tutorial.
-- Select Delete resource group from the top menu.
+* From the Azure portal, select Resource group from the left menu.
+* Enter **microprofile** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
+* Select the resource group created in this tutorial.
+* Select Delete resource group from the top menu.
 
 ## Next steps
 
@@ -277,7 +274,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 > [!div class="nextstepaction"]
 > [MicroProfile on Azure](/azure/developer/java/spring-framework)
 
-### Additional esources
+### Additional Resources
 
 For more information about the various technologies discussed in this article, see the following articles:
 
@@ -303,7 +300,6 @@ For more information about the various technologies discussed in this article, s
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->
-
 
 [AP01]: media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
 [AP02]: media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png

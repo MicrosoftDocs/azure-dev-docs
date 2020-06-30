@@ -29,52 +29,51 @@ To complete the steps in this tutorial, you'll need to have the following instal
 The simplest and easiest way to get the Maven Plugin deploying your Helidon application is by using [Azure CLI](/cli/azure/).
 
 Sign into your Azure account by using the Azure CLI:
-   
+
    ```azurecli
    az login
    ```
-   
+
 Follow the instructions to complete the sign-in process.
 
 ## Create sample app from MicroProfile Starter
 
 In this section, you will create a Helidon application and test it locally.
 
-1. Open Web Browser and acccess to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![](./media/helidon/microprofile-starter-helidon.png)
+1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
 
 1. Input or Select the field like follows.  
 
-	|  Input Field  |  Input/Select Value  |
-	| ---- | ---- |
-	|  groupId  |  com.microsoft.azure.samples.helidon  |
-	|  artifactId  |  helidon-hello-azure  |
-	|  MicroProfile Version  |  MP 3.2  |
-	|  Java SE Version  |  Javav 11  |
-	|  MicroProfile Runtime  |  Helidon  |
-	|  Examples for Specifications  |  Metrics, OpenAPI  |
+|  Input Field  |  Input/Select Value  |
+| ---- | ---- |
+|  groupId  |  com.microsoft.azure.samples.helidon  |
+|  artifactId  |  helidon-hello-azure  |
+|  MicroProfile Version  |  MP 3.2  |
+|  Java SE Version  |  Java 11  |
+|  MicroProfile Runtime  |  Helidon  |
+|  Examples for Specifications  |  Metrics, OpenAPI  |
 
 1. Download the project  
 Push the `DOWNLOAD` button.
 
-1. Unzip the archive file; for exaple:
+1. Unzip the archive file; for example:
 
    ```shell
    unzip helidon-hello-azure.zip
    ```
-   
+
 1. Or you can create the project with following command:
 
-	```shell
-	mvn -U archetype:generate -DinteractiveMode=false \
-	    -DarchetypeGroupId=io.helidon.archetypes \
-	    -DarchetypeArtifactId=helidon-quickstart-se \
-	    -DarchetypeVersion=2.0.0 \
-	    -DgroupId=com.microsoft.azure.samples.helidon \
-	    -DartifactId=helidon-hello-azure \
-	    -Dpackage=com.microsoft.azure.samples.helidon
-	```
-
+```shell
+mvn -U archetype:generate -DinteractiveMode=false \
+    -DarchetypeGroupId=io.helidon.archetypes \
+    -DarchetypeArtifactId=helidon-quickstart-se \
+    -DarchetypeVersion=2.0.0 \
+    -DgroupId=com.microsoft.azure.samples.helidon \
+    -DartifactId=helidon-hello-azure \
+    -Dpackage=com.microsoft.azure.samples.helidon
+```
 
 1. Change directory to the completed project; for example:
 
@@ -91,7 +90,7 @@ Push the `DOWNLOAD` button.
 1. When the web app has been created, start the web app using Maven; for example:
 
    ```shell
-   java -jar target/helidon-hello-azure.jar 
+   java -jar target/helidon-hello-azure.jar
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
@@ -110,115 +109,116 @@ In this section, you will configure the Helidon project `pom.xml` so that Maven 
 
 2. In the `<build>` section of the pom.xml, add the following `<plugin>` entry inside the `<plugins>` tag.
 
-	```xml
-	  <build>
-	    <finalName>helidon-hello-azure</finalName>
-	    <plugins>
-	      <plugin>
-	        <groupId>com.microsoft.azure</groupId>
-	        <artifactId>azure-webapp-maven-plugin</artifactId>
-	        <version>1.9.1</version>
-	      </plugin>
-	    </plugins>
-	  </build>
-	```
+```xml
+  <build>
+    <finalName>helidon-hello-azure</finalName>
+    <plugins>
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.9.1</version>
+      </plugin>
+    </plugins>
+  </build>
+```
 
-3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
-    
-   ```cmd
-   mvn azure-webapp:config
-   ```
+1. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+
+```cmd
+mvn azure-webapp:config
+```
+
 Options Parameter:  
-	
-	|  Inpungt Field  |  Input/Select Value  |
-	| ---- | ---- |
-	|  Define value for OS(Default: Linux):  | 1. linux  |
-	|  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
-	|  Confirm (Y/N) | y |
 
-	You can configure with the following command:
+|  Input Field  |  Input/Select Value  |
+| ---- | ---- |
+|  Define value for OS(Default: Linux):  | 1. linux  |
+|  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
+|  Confirm (Y/N) | y |
 
-   ```cmd
-	$ mvn azure-webapp:config
-	[INFO] Scanning for projects...
-	[INFO] 
-	[INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
-	[INFO] Building helidon-hello-azure 1.0-SNAPSHOT
-	[INFO] --------------------------------[ jar ]---------------------------------
-	[INFO] 
-	[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helidon-hello-azure ---
-	Define value for OS(Default: Linux): 
-	1. linux [*]
-	2. windows
-	3. docker
-	Enter index to use: 
-	Define value for javaVersion(Default: Java 8): 
-	1. Java 11
-	2. Java 8 [*]
-	Enter index to use: 1
-	Please confirm webapp properties
-	AppName : helidon-hello-azure-1591663020899
-	ResourceGroup : helidon-hello-azure-1591663020899-rg
-	Region : westeurope
-	PricingTier : PremiumV2_P1v2
-	OS : Linux
-	RuntimeStack : JAVA 11-java11
-	Deploy to slot : false
-	Confirm (Y/N)? : y
-	[INFO] Saving configuration to pom.
-	[INFO] ------------------------------------------------------------------------
-	[INFO] BUILD SUCCESS
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time:  17.452 s
-	[INFO] Finished at: 2020-06-09T09:37:12+09:00
-	[INFO] ------------------------------------------------------------------------
-   ```
+You can configure with the following command:
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. And add the `<include>/libs/*.jar</include>` to the resources in deployment.
+```cmd
+mvn azure-webapp:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
+[INFO] Building helidon-hello-azure 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helidon-hello-azure ---
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use:
+Define value for javaVersion(Default: Java 8):
+1. Java 11
+2. Java 8 [*]
+Enter index to use: 1
+Please confirm webapp properties
+AppName : helidon-hello-azure-1591663020899
+ResourceGroup : helidon-hello-azure-1591663020899-rg
+Region : westeurope
+PricingTier : PremiumV2_P1v2
+OS : Linux
+RuntimeStack : JAVA 11-java11
+Deploy to slot : false
+Confirm (Y/N)? : y
+[INFO] Saving configuration to pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.452 s
+[INFO] Finished at: 2020-06-09T09:37:12+09:00
+[INFO] ------------------------------------------------------------------------
+```
 
-   ```xml
-      <plugin> 
-        <groupId>com.microsoft.azure</groupId>  
-        <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>1.9.1</version>  
-        <configuration>
-          <schemaVersion>V2</schemaVersion>
-          <resourceGroup>microprofile</resourceGroup>
-          <appName>helidon-hello-azure-1591663020899</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>japaneast</region>
-          <runtime>
-            <os>linux</os>
-            <javaVersion>java11</javaVersion>
-            <webContainer>java11</webContainer>
-          </runtime>
-          <appSettings>
-            <property>
-              <name>PORT</name>
-              <value>8080</value>
-            </property>
-            <property>
-              <name>WEBSITES_PORT</name>
-              <value>8080</value>
-            </property>
-            <property>
-              <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
-              <value>600</value>
-            </property>
-          </appSettings>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                  <include>/libs/*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
-   ```
+1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. And add the `<include>/libs/*.jar</include>` to the resources in deployment.
+
+```xml
+   <plugin>
+     <groupId>com.microsoft.azure</groupId>  
+     <artifactId>azure-webapp-maven-plugin</artifactId>  
+     <version>1.9.1</version>  
+     <configuration>
+       <schemaVersion>V2</schemaVersion>
+       <resourceGroup>microprofile</resourceGroup>
+       <appName>helidon-hello-azure-1591663020899</appName>
+       <pricingTier>P1v2</pricingTier>
+       <region>japaneast</region>
+       <runtime>
+         <os>linux</os>
+         <javaVersion>java11</javaVersion>
+         <webContainer>java11</webContainer>
+       </runtime>
+       <appSettings>
+         <property>
+           <name>PORT</name>
+           <value>8080</value>
+         </property>
+         <property>
+           <name>WEBSITES_PORT</name>
+           <value>8080</value>
+         </property>
+         <property>
+           <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
+           <value>600</value>
+         </property>
+       </appSettings>
+       <deployment>
+         <resources>
+           <resource>
+             <directory>${project.basedir}/target</directory>
+             <includes>
+               <include>*.jar</include>
+               <include>/libs/*.jar</include>
+             </includes>
+           </resource>
+         </resources>
+       </deployment>
+     </configuration>
+```
 
 ## Deploy the app to Azure
 
@@ -248,15 +248,16 @@ When your web has been deployed, you will be able to manage it through the [Azur
 
    ![Find the URL for your web app in Azure portal App Services](./media/helidon/Azure-Portal-AppService-Overview.png)
 
-Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World** 
+Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 
-## Clean up resources
+## Clean up Resources
+
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-- From the Azure portal, select Resource group from the left menu.
-- Enter **microprofile** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
-- Select the resource group created in this tutorial.
-- Select Delete resource group from the top menu.
+* From the Azure portal, select Resource group from the left menu.
+* Enter **microprofile** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
+* Select the resource group created in this tutorial.
+* Select Delete resource group from the top menu.
 
 ## Next steps
 
@@ -265,7 +266,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 > [!div class="nextstepaction"]
 > [MicroProfile on Azure](/azure/developer/java/spring-framework)
 
-### Additional esources
+### Additional Resources
 
 For more information about the various technologies discussed in this article, see the following articles:
 
@@ -291,7 +292,6 @@ For more information about the various technologies discussed in this article, s
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->
-
 
 [AP01]: media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
 [AP02]: media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png
