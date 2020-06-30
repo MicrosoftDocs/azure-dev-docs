@@ -44,7 +44,6 @@ In this section, you will create a Helidon application and test it locally.
 ![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
 
 1. Input or Select the field like follows.  
-
 |  Input Field  |  Input/Select Value  |
 | ---- | ---- |
 |  groupId  |  com.microsoft.azure.samples.helidon  |
@@ -59,43 +58,43 @@ Push the `DOWNLOAD` button.
 
 1. Unzip the archive file; for example:
 
-   ```shell
+   ```bash
    unzip helidon-hello-azure.zip
    ```
 
 1. Or you can create the project with following command:
 
-```shell
-mvn -U archetype:generate -DinteractiveMode=false \
-    -DarchetypeGroupId=io.helidon.archetypes \
-    -DarchetypeArtifactId=helidon-quickstart-se \
-    -DarchetypeVersion=2.0.0 \
-    -DgroupId=com.microsoft.azure.samples.helidon \
-    -DartifactId=helidon-hello-azure \
-    -Dpackage=com.microsoft.azure.samples.helidon
-```
+   ```bash
+   mvn -U archetype:generate -DinteractiveMode=false \
+       -DarchetypeGroupId=io.helidon.archetypes \
+       -DarchetypeArtifactId=helidon-quickstart-se \
+       -DarchetypeVersion=2.0.0 \
+       -DgroupId=com.microsoft.azure.samples.helidon \
+       -DartifactId=helidon-hello-azure \
+       -Dpackage=com.microsoft.azure.samples.helidon
+   ```
 
 1. Change directory to the completed project; for example:
 
-   ```shell
+   ```bash
    cd helidon-hello-azure/
    ```
 
 1. Build the JAR file using Maven; for example:
 
-   ```shell
+   ```bash
    mvn clean package
    ```
 
 1. When the web app has been created, start the web app using Maven; for example:
 
-   ```shell
+   ```bash
    java -jar target/helidon-hello-azure.jar
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
 
-   ```shell
+   ```bash
    curl http://localhost:8080/data/hello
    ```
 
@@ -107,76 +106,76 @@ In this section, you will configure the Helidon project `pom.xml` so that Maven 
 
 1. Open `pom.xml` in a code editor.
 
-2. In the `<build>` section of the pom.xml, add the following `<plugin>` entry inside the `<plugins>` tag.
+2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag.
 
-```xml
-  <build>
-    <finalName>helidon-hello-azure</finalName>
-    <plugins>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.1</version>
-      </plugin>
-    </plugins>
-  </build>
-```
+   ```xml
+   <build>
+     <finalName>helidon-hello-azure</finalName>
+     <plugins>
+       <plugin>
+         <groupId>com.microsoft.azure</groupId>
+         <artifactId>azure-webapp-maven-plugin</artifactId>
+         <version>1.9.1</version>
+       </plugin>
+     </plugins>
+   </build>
+   ```
 
-1. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
 
-```cmd
-mvn azure-webapp:config
-```
+   ```bash
+   mvn azure-webapp:config
+   ```
 
-Options Parameter:  
+   Options Parameter:  
 
-|  Input Field  |  Input/Select Value  |
-| ---- | ---- |
-|  Define value for OS(Default: Linux):  | 1. linux  |
-|  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
-|  Confirm (Y/N) | y |
+   |  Input Field  |  Input/Select Value  |
+   | ---- | ---- |
+   |  Define value for OS(Default: Linux):  | 1. linux  |
+   |  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
+   |  Confirm (Y/N) | y |
 
-You can configure with the following command:
+   You can configure with the following command:
 
-```cmd
-mvn azure-webapp:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
-[INFO] Building helidon-hello-azure 1.0-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helidon-hello-azure ---
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use:
-Define value for javaVersion(Default: Java 8):
-1. Java 11
-2. Java 8 [*]
-Enter index to use: 1
-Please confirm webapp properties
-AppName : helidon-hello-azure-1591663020899
-ResourceGroup : helidon-hello-azure-1591663020899-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Linux
-RuntimeStack : JAVA 11-java11
-Deploy to slot : false
-Confirm (Y/N)? : y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.452 s
-[INFO] Finished at: 2020-06-09T09:37:12+09:00
-[INFO] ------------------------------------------------------------------------
-```
+   ```bash
+   mvn azure-webapp:config
+   [INFO] Scanning for projects...
+   [INFO]
+   [INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
+   [INFO] Building helidon-hello-azure 1.0-SNAPSHOT
+   [INFO] --------------------------------[ jar ]---------------------------------
+   [INFO]
+   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helidon-hello-azure ---
+   Define value for OS(Default: Linux):
+   1. linux [*]
+   2. windows
+   3. docker
+   Enter index to use:
+   Define value for javaVersion(Default: Java 8):
+   1. Java 11
+   2. Java 8 [*]
+   Enter index to use: 1
+   Please confirm webapp properties
+   AppName : helidon-hello-azure-1591663020899
+   ResourceGroup : helidon-hello-azure-1591663020899-rg
+   Region : westeurope
+   PricingTier : PremiumV2_P1v2
+   OS : Linux
+   RuntimeStack : JAVA 11-java11
+   Deploy to slot : false
+   Confirm (Y/N)? : y
+   [INFO] Saving configuration to pom.
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  17.452 s
+   [INFO] Finished at: 2020-06-09T09:37:12+09:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. And add the `<include>/libs/*.jar</include>` to the resources in deployment.
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. And add the `<include>/libs/*.jar</include>` to the resources in deployment.
 
-```xml
+   ```xml
    <plugin>
      <groupId>com.microsoft.azure</groupId>  
      <artifactId>azure-webapp-maven-plugin</artifactId>  
@@ -218,7 +217,7 @@ Confirm (Y/N)? : y
          </resources>
        </deployment>
      </configuration>
-```
+   ```
 
 ## Deploy the app to Azure
 
@@ -226,13 +225,13 @@ Once you have configured all of the settings in the preceding sections of this a
 
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
 
-   ```shell
+   ```bash
    mvn clean package
    ```
 
 1. Deploy your web app to Azure by using Maven; for example:
 
-   ```shell
+   ```bash
    mvn azure-webapp:deploy
    ```
 

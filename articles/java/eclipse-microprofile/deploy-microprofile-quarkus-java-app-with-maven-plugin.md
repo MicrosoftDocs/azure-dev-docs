@@ -30,7 +30,7 @@ The simplest and easiest way to get the Maven Plugin deploying your Quarkus appl
 
 Sign into your Azure account by using the Azure CLI:
 
-```shell
+```azurecli
 az login
 ```
 
@@ -45,32 +45,32 @@ In this section, you will create a Quarkus application and test it locally.
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
 ![MicroProfile Starter for Quarkus](./media/Quarkus/microprofile-starter-Quarkus.png)
 
-1. Input or Select the field like follows.  
+2. Input or Select the field like follows.  
 
-|  Input Field  |  Input/Select Value  |
-| ---- | ---- |
-|  groupId  |  com.microsoft.azure.samples.quarkus  |
-|  artifactId  |  quarkus-hello-azure  |
-|  MicroProfile Version  |  MP 3.2  |
-|  Java SE Version  |  Java 11  |
-|  MicroProfile Runtime  |  Quarkus  |
-|  Examples for Specifications  |  Metrics, OpenAPI  |
+   |  Input Field  |  Input/Select Value  |
+   | ---- | ---- |
+   |  groupId  |  com.microsoft.azure.samples.quarkus  |
+   |  artifactId  |  quarkus-hello-azure  |
+   |  MicroProfile Version  |  MP 3.2  |
+   |  Java SE Version  |  Java 8  |
+   |  MicroProfile Runtime  |  Quarkus  |
+   |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-1. Download the project  
-Push the `DOWNLOAD` button.
+3. Download the project  
+   Push the `DOWNLOAD` button.
 
-1. Unzip the archive file; for example:
+4. Unzip the archive file; for example:
 
-```shell
-unzip Quarkus-hello-azure.zip
-```
+   ```bash
+   unzip Quarkus-hello-azure.zip
+   ```
 
 ### Create Java SE 11 base Project
 
 In order to create the Java 11 base project, you can execute with following commands:
 
 ```bash
-mvn io.quarkus:quarkus-maven-plugin:1.5.0.Final:create \
+mvn io.quarkus:quarkus-maven-plugin:1.5.2.Final:create \
   -DprojectGroupId=com.microsoft.azure.samples.quarkus \
   -DprojectArtifactId=quarkus-hello-azure  \
   -DclassName="com.microsoft.azure.samples.quarkus.App"
@@ -80,31 +80,31 @@ mvn io.quarkus:quarkus-maven-plugin:1.5.0.Final:create \
 
 1. Change directory to the completed project; for example:
 
-```bash
-cd quarkus-hello-azure/
-```
+   ```bash
+   cd quarkus-hello-azure/
+   ```
 
-1. Build and Run the project using Maven; for example:
+2. Build and Run the project using Maven; for example:
 
-```bash
-mvn quarkus:dev
-```
+   ```bash
+   mvn quarkus:dev
+   ```
 
-1. Test the web application by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
+3. Test the web application by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
 
-For Java SE 8 Project:
+   For Java SE 8 Project:
 
-```shell
-curl http://localhost:8080/data/hello
-```
+   ```bash
+   curl http://localhost:8080/data/hello
+   ```
 
-For Java SE 11 Project:
+   For Java SE 11 Project:
 
-```bash
-curl localhost:8080/hello
-```
+   ```bash
+   curl localhost:8080/hello
+   ```
 
-1. You should see the following message displayed: **Hello World** or **hello**
+4. You should see the following message displayed: **Hello World** or **hello**
 
 ## Configure Maven Plugin for Azure App Service
 
@@ -112,72 +112,72 @@ In this section, you will configure the Quarkus project `pom.xml` so that Maven 
 
 1. Open `pom.xml` in a code editor.
 
-2. In the `<build>` section of the pom.xml, add the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`s.
+2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`s.
 
-```xml
-<plugin>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.1</version>
-</plugin>
-```
+   ```xml
+   <plugin>
+     <groupId>com.microsoft.azure</groupId>
+     <artifactId>azure-webapp-maven-plugin</artifactId>
+       <version>1.9.1</version>
+   </plugin>
+   ```
 
-1. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
 
-```cmd
-mvn azure-webapp:config
-```
+   ```bash
+   mvn azure-webapp:config
+   ```
 
-Options Parameter:  
+   Options Parameter:  
 
-|  Input Field  |  Input/Select Value  |
-| ---- | ---- |
-|  Define value for OS(Default: Linux):  | 1. linux  |
-|  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
-|  Confirm (Y/N) | y |
+   |  Input Field  |  Input/Select Value  |
+   | ---- | ---- |
+   |  Define value for OS(Default: Linux):  | 1. linux  |
+   |  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
+   |  Confirm (Y/N) | y |
 
-You can configure with the following command:
+   You can configure with the following command:
 
-```cmd
-$ mvn azure-webapp:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------< com.microsoft.azure.samples.quarkus:quarkus-hello-azure >-------
-[INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ quarkus-hello-azure ---
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use:
-Define value for javaVersion(Default: Java 8):
-1. Java 11
-2. Java 8 [*]
-Enter index to use: 1
-Please confirm webapp properties
-AppName : quarkus-hello-azure-1591836715762
-ResourceGroup : quarkus-hello-azure-1591836715762-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Linux
-RuntimeStack : JAVA 11-java11
-Deploy to slot : false
-Confirm (Y/N)? : y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.778 s
-[INFO] Finished at: 2020-06-11T09:52:05+09:00
-[INFO] ------------------------------------------------------------------------
-```
+   ```bash
+   $ mvn azure-webapp:config
+   [INFO] Scanning for projects...
+   [INFO]
+   [INFO] ------< com.microsoft.azure.samples.quarkus:quarkus-hello-azure >-------
+   [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
+   [INFO] --------------------------------[ jar ]---------------------------------
+   [INFO]
+   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ quarkus-hello-azure ---
+   Define value for OS(Default: Linux):
+   1. linux [*]
+   2. windows
+   3. docker
+   Enter index to use:
+   Define value for javaVersion(Default: Java 8):
+   1. Java 11
+   2. Java 8 [*]
+   Enter index to use: 1
+   Please confirm webapp properties
+   AppName : quarkus-hello-azure-1591836715762
+   ResourceGroup : quarkus-hello-azure-1591836715762-rg
+   Region : westeurope
+   PricingTier : PremiumV2_P1v2
+   OS : Linux
+   RuntimeStack : JAVA 11-java11
+   Deploy to slot : false
+   Confirm (Y/N)? : y
+   [INFO] Saving configuration to pom.
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  17.778 s
+   [INFO] Finished at: 2020-06-11T09:52:05+09:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
  Finally you can see the following XML entry for `azure-webapp-maven-plugin`.
 
-```xml
+   ```xml
       <plugin>
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
@@ -219,11 +219,11 @@ Confirm (Y/N)? : y
           </deployment>
         </configuration>
       </plugin>
-```
+   ```
 
-1. Added a following entry to properties file (`src/main/resources/application.properties`) to create the Uber (FAT) jar.
+5. Added a following entry to properties file (`src/main/resources/application.properties`) to create the Uber (FAT) jar.
 
-`quarkus.package.uber-jar=true`
+   `quarkus.package.uber-jar=true`
 
 ## Deploy the app to Azure
 
@@ -231,42 +231,42 @@ Once you have configured all of the settings in the preceding sections of this a
 
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
 
-   ```shell
+   ```bash
    mvn clean package
    ```
 
-1. Deploy your web app to Azure by using Maven; for example:
+2. Deploy your web app to Azure by using Maven; for example:
 
-```shell
-mvn azure-webapp:deploy
-```
+   ```bash
+   mvn azure-webapp:deploy
+   ```
 
-If you succeeded the deployment, you can see the following message on console.
+   If you succeeded the deployment, you can see the following message on console.
 
-```shell
-mvn azure-webapp:deploy
+   ```bash
+   mvn azure-webapp:deploy
 
-[INFO] Successfully deployed the artifact to https://quarkus-hello-azure-1591836715762.azurewebsites.net
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:20 min
-[INFO] Finished at: 2020-06-11T10:06:51+09:00
-[INFO] ------------------------------------------------------------------------
-```
+   [INFO] Successfully deployed the artifact to https://quarkus-hello-azure-1591836715762.azurewebsites.net
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  02:20 min
+   [INFO] Finished at: 2020-06-11T10:06:51+09:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-Maven will deploy your web application to Azure; if the web application or web application plan does not already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+   Maven will deploy your web application to Azure; if the web application or web application plan does not already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
 
-![Front Page for Quarkus](./media/Quarkus/Quarkus-front-page-11.png)
+   ![Front Page for Quarkus](./media/Quarkus/Quarkus-front-page-11.png)
 
-When your web application has been deployed, you will be able to manage it through the [Azure portal].
+   When your web application has been deployed, you will be able to manage it through the [Azure portal].
 
-* Your web application will be listed in **microprofile** resource group:
+   * Your web application will be listed in **microprofile** resource group:
 
    ![Web app listed in Azure portal App Services](./media/Quarkus/Quarkus-Azure-Portal-rg.png)
 
-* And you can access to your web application by clicking the `Browse` button in the **Overview** for your web app.  
-Verify that the deployment was successful and Running. You should see the following screen displayed:
+   * And you can access to your web application by clicking the `Browse` button in the **Overview** for your web app.  
+   Verify that the deployment was successful and Running. You should see the following screen displayed:
 
    ![Find the URL for your web app in Azure portal App Services](./media/Quarkus/Quarkus-Azure-Portal-manage.png)
 

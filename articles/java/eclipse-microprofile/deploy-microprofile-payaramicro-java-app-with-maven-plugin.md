@@ -30,7 +30,7 @@ The simplest and easiest way to get the Maven Plugin deploying your PayaraMicro 
 
 Sign into your Azure account by using the Azure CLI:
 
-```shell
+```azurecli
 az login
 ```
 
@@ -41,55 +41,55 @@ Follow the instructions to complete the sign-in process.
 In this section, you will create a PayaraMicro application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![MicroProfile Starter for Payara Micro](./media/PayaraMicro/microprofile-starter-PayaraMicro.png)
+   ![MicroProfile Starter for Payara Micro](./media/PayaraMicro/microprofile-starter-PayaraMicro.png)
 
-1. Input or Select the field like follows.  
+2. Input or Select the field like follows.  
 
-|  Input Field  |  Input/Select Value  |
-| ---- | ---- |
-|  groupId  |  com.microsoft.azure.samples.payaramicro  |
-|  artifactId  |  payaramicro-hello-azure  |
-|  MicroProfile Version  |  MP 3.2  |
-|  Java SE Version  |  Java 11  |
-|  MicroProfile Runtime  |  PayaraMicro  |
-|  Examples for Specifications  |  Metrics, OpenAPI  |
+   |  Input Field  |  Input/Select Value  |
+   | ---- | ---- |
+   |  groupId  |  com.microsoft.azure.samples.payaramicro  |
+   |  artifactId  |  payaramicro-hello-azure  |
+   |  MicroProfile Version  |  MP 3.2  |
+   |  Java SE Version  |  Java 11  |
+   |  MicroProfile Runtime  |  PayaraMicro  |
+   |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-1. Download the project  
-Push the `DOWNLOAD` button.
+3. Download the project  
+   Push the `DOWNLOAD` button.
 
-1. Unzip the archive file; for example:
+4. Unzip the archive file; for example:
 
-```shell
-unzip PayaraMicro-hello-azure.zip
-```
+   ```bash
+   unzip PayaraMicro-hello-azure.zip
+   ```
 
 ### Run the application in Local environment
 
 1. Change directory to the completed project; for example:
 
-```shell
-cd payaramicro-hello-azure/
-```
+   ```bash
+   cd payaramicro-hello-azure/
+   ```
 
-1. Build the project using Maven; for example:
+2. Build the project using Maven; for example:
 
-```shell
-mvn clean package
-```
+   ```bash
+   mvn clean package
+   ```
 
-1. Run the project; for example:
+3. Run the project; for example:
 
-```shell
-java -jar target/payaramicro-hello-azure-microbundle.jar
-```
+   ```bash
+   java -jar target/payaramicro-hello-azure-microbundle.jar
+   ```
 
-1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
+4. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
 
-```shell
-curl http://localhost:8080/data/hello
-```
+   ```bash
+   curl http://localhost:8080/data/hello
+   ```
 
-1. You should see the following message displayed: **Hello World**
+5. You should see the following message displayed: **Hello World**
 
 ## Configure Maven Plugin for Azure App Service
 
@@ -97,85 +97,85 @@ In this section, you will configure the PayaraMicro project `pom.xml` so that Ma
 
 1. Open `pom.xml` in a code editor.
 
-2. In the `<build>` section of the pom.xml, add the following `<plugin>` entry inside the `<plugins>` tag.
+2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag.
 
-```xml
-  <build>
-    <finalName>payaramicro-hello-azure</finalName>
-    <plugins>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-          <version>1.9.1</version>
-      </plugin>
-    </plugins>
-  </build>
-```
+   ```xml
+   <build>
+     <finalName>payaramicro-hello-azure</finalName>
+     <plugins>
+       <plugin>
+         <groupId>com.microsoft.azure</groupId>
+         <artifactId>azure-webapp-maven-plugin</artifactId>
+           <version>1.9.1</version>
+       </plugin>
+     </plugins>
+   </build>
+   ```
 
-1. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
 
-```cmd
-mvn azure-webapp:config
-```
+   ```cmd
+   mvn azure-webapp:config
+   ```
 
-Options Parameter:  
+   Options Parameter:  
 
-|  Input Field  |  Input/Select Value  |
-| ---- | ---- |
-|  Define value for OS(Default: Linux):  | 1. linux  |
-|  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
-|  Define value for runtimeStack(Default: TOMCAT 8.5): | TOMCAT 8.5 |
-|  Confirm (Y/N) | y |
+   |  Input Field  |  Input/Select Value  |
+   | ---- | ---- |
+   |  Define value for OS(Default: Linux):  | 1. linux  |
+   |  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
+   |  Define value for runtimeStack(Default: TOMCAT 8.5): | TOMCAT 8.5 |
+   |  Confirm (Y/N) | y |
 
-[!NOTE]
-Even though we don't use the Tomcat, select the `TOMCAT 8.5` in this time? During the detail configuration, we will modify the value from the `TOMCAT 8.5` to `Java11` later.**
+   [!NOTE]
+   Even though we don't use the Tomcat, select the `TOMCAT 8.5` in this time? During the detail configuration, we will modify the value from the `TOMCAT 8.5` to `Java11` later.**
 
-You can configure with the following command:
+   You can configure with the following command:
 
-```cmd
-mvn azure-webapp:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] --< com.microsoft.azure.samples.payaramicro:payaramicro-hello-azure >---
-[INFO] Building payaramicro-hello-azure 1.0-SNAPSHOT
-[INFO] --------------------------------[ war ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ payaramicro-hello-azure ---
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use:
-Define value for javaVersion(Default: Java 8):
-1. Java 11
-2. Java 8 [*]
-Enter index to use: 1
-Define value for runtimeStack(Default: TOMCAT 8.5):
-1. TOMCAT 9.0
-2. TOMCAT 8.5 [*]
-Enter index to use:
-Please confirm webapp properties
-AppName : payaramicro-hello-azure-1591860934798
-ResourceGroup : payaramicro-hello-azure-1591860934798-rg
-Region : westeurope
-PricingTier : PremiumV2_P1v2
-OS : Linux
-RuntimeStack : TOMCAT 8.5-java11
-Deploy to slot : false
-Confirm (Y/N)? : y
-[INFO] Saving configuration to pom.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.443 s
-[INFO] Finished at: 2020-06-11T16:35:49+09:00
-[INFO] ------------------------------------------------------------------------
-```
+   ```cmd
+   mvn azure-webapp:config
+   [INFO] Scanning for projects...
+   [INFO]
+   [INFO] --< com.microsoft.azure.samples.payaramicro:payaramicro-hello-azure >---
+   [INFO] Building payaramicro-hello-azure 1.0-SNAPSHOT
+   [INFO] --------------------------------[ war ]---------------------------------
+   [INFO]
+   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ payaramicro-hello-azure ---
+   Define value for OS(Default: Linux):
+   1. linux [*]
+   2. windows
+   3. docker
+   Enter index to use:
+   Define value for javaVersion(Default: Java 8):
+   1. Java 11
+   2. Java 8 [*]
+   Enter index to use: 1
+   Define value for runtimeStack(Default: TOMCAT 8.5):
+   1. TOMCAT 9.0
+   2. TOMCAT 8.5 [*]
+   Enter index to use:
+   Please confirm webapp properties
+   AppName : payaramicro-hello-azure-1591860934798
+   ResourceGroup : payaramicro-hello-azure-1591860934798-rg
+   Region : westeurope
+   PricingTier : PremiumV2_P1v2
+   OS : Linux
+   RuntimeStack : TOMCAT 8.5-java11
+   Deploy to slot : false
+   Confirm (Y/N)? : y
+   [INFO] Saving configuration to pom.
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  19.443 s
+   [INFO] Finished at: 2020-06-11T16:35:49+09:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-1. Modify the Runtime from `TOMCAT 8.5` to `java11` and Deployment file from `*.war` to `*.jar`. Then add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
+4. Modify the Runtime from `TOMCAT 8.5` to `java11` and Deployment file from `*.war` to `*.jar`. Then add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
  Finally you can see the following XML entry for `azure-webapp-maven-plugin`.
 
- ```xml
+    ```xml
     <plugin>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-webapp-maven-plugin</artifactId>
@@ -217,7 +217,7 @@ Confirm (Y/N)? : y
         </deployment>
       </configuration>
     </plugin>
-```
+   ```
 
 ## Deploy the app to Azure
 
@@ -225,41 +225,41 @@ Once you have configured all of the settings in the preceding sections of this a
 
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
 
-   ```shell
+   ```bash
    mvn clean package
    ```
 
-1. Deploy your web app to Azure by using Maven; for example:
+2. Deploy your web app to Azure by using Maven; for example:
 
-```shell
-mvn azure-webapp:deploy
-```
+   ```bash
+   mvn azure-webapp:deploy
+   ```
 
-If you succeeded the deployment, you can see the following message on console.
+   If you succeeded the deployment, you can see the following message on console.
 
-```shell
-mvn azure-webapp:deploy
+   ```bash
+   mvn azure-webapp:deploy
 
-[INFO] Successfully deployed the artifact to https://payaramicro-hello-azure-1591860934798.azurewebsites.net
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  03:04 min
-[INFO] Finished at: 2020-06-11T16:49:57+09:00
-[INFO] ------------------------------------------------------------------------
-```
+   [INFO] Successfully deployed the artifact to https://payaramicro-hello-azure-1591860934798.azurewebsites.net
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  03:04 min
+   [INFO] Finished at: 2020-06-11T16:49:57+09:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+   Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
 
-![Front Page of Payara Micro](./media/PayaraMicro/PayaraMicro-front-page.png)
+   ![Front Page of Payara Micro](./media/PayaraMicro/PayaraMicro-front-page.png)
 
-When your web has been deployed, you will be able to manage it through the [Azure portal].
+   When your web has been deployed, you will be able to manage it through the [Azure portal].
 
-* Your web app will be listed in **microprofile** resource group:
+   * Your web app will be listed in **microprofile** resource group:
 
    ![Web app listed in Azure portal App Services](./media/PayaraMicro/PayaraMicro-Azure-Portal-rg.png)
 
-* And you can access to your web app by clicking the `Browse` button in the **Overview** for your web app.  
+   * And you can access to your web app by clicking the `Browse` button in the **Overview** for your web app.  
 Verify that the deployment was successful and Running. You should see the following screen displayed:
 
    ![Find the URL for your web app in Azure portal App Services](./media/PayaraMicro/PayaraMicro-Azure-Portal-manage.png)
