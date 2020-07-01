@@ -13,7 +13,7 @@ ms.author: masoucou
 
 No matter what kind of application you build, you will likely generate and process data. Your application's users have high expectations. They want the application to work fast and seamlessly, in all circumstances. Most applications also work across multiple devices. You might access your application from a desktop or mobile device. Multiple users might use the application at the same time and share data with the expectation of getting instant and real-time access to data.
 
-Your application users won't always have internet connectivity. Applications are designed and expected to work with or without an internet connection. Developers must choose the right solution for storing and syncing their data to the cloud to provide a great customer experience for their application.
+Your application users won't always have internet connectivity. Applications are designed and expected to work with or without an internet connection. Developers must choose the right solution for storing and syncing their data to the cloud to provide a great customer experience for their application which may include developing your own offline data store.
 
 Microsoft provides a variety of services that eliminate the need to spin up servers, pick your database, or worry about scale or security to provide as rich experience as possible. These services provide a great developer experience that lets you store application data in the cloud by using SQL or NoSQL APIs. You can also sync data on all devices and enable the application to work with or without a network connection to help build scalable and robust applications.
 

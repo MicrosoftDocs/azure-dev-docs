@@ -30,8 +30,8 @@
 | azure-cognitiveservices-search-websearch | pypi [2.0.0](https://pypi.org/project/azure-cognitiveservices-search-websearch/2.0.0) |  |  |
 | azure-cognitiveservices-vision-computervision | pypi [0.6.0](https://pypi.org/project/azure-cognitiveservices-vision-computervision/0.6.0) |  |  |
 | azure-cognitiveservices-vision-contentmoderator | pypi [1.0.0](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/1.0.0) |  |  |
-| azure-cognitiveservices-vision-customvision | pypi [2.0.0](https://pypi.org/project/azure-cognitiveservices-vision-customvision/2.0.0) |  |  |
-| azure-cognitiveservices-vision-face | pypi [0.4.0](https://pypi.org/project/azure-cognitiveservices-vision-face/0.4.0) |  |  |
+| azure-cognitiveservices-vision-customvision | pypi [3.0.0](https://pypi.org/project/azure-cognitiveservices-vision-customvision/3.0.0) |  |  |
+| azure-cognitiveservices-vision-face | pypi [0.4.1](https://pypi.org/project/azure-cognitiveservices-vision-face/0.4.1) |  |  |
 | azure-cognitiveservices-vision-nspkg | pypi [3.0.1](https://pypi.org/project/azure-cognitiveservices-vision-nspkg/3.0.1) |  |  |
 | azure-common | pypi [1.1.25](https://pypi.org/project/azure-common/1.1.25) |  |  |
 | azure-core | pypi [1.6.0](https://pypi.org/project/azure-core/1.6.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/core-readme/) | github [1.6.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.6.0/sdk/core/azure-core/) |
@@ -186,7 +186,7 @@
 | azure-synapse | pypi [0.1.0](https://pypi.org/project/azure-synapse/0.1.0) |  |  |
 | azure-template | pypi [0.0.6](https://pypi.org/project/azure-template/0.0.6) |  |  |
 | doc-warden | pypi [0.6.1](https://pypi.org/project/doc-warden/0.6.1) |  |  |
-| msrest | pypi [0.6.16](https://pypi.org/project/msrest/0.6.16) |  |  |
+| msrest | pypi [0.6.17](https://pypi.org/project/msrest/0.6.17) |  |  |
 | msrestazure | pypi [0.6.3](https://pypi.org/project/msrestazure/0.6.3) |  |  |
 | tox-monorepo | pypi [0.1.2](https://pypi.org/project/tox-monorepo/0.1.2) |  |  |
 | uamqp | pypi [1.2.8](https://pypi.org/project/uamqp/1.2.8) |  |  |
