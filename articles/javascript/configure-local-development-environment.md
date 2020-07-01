@@ -200,12 +200,12 @@ Each new project using Azure should:
 
 ### Library versions
 
-All Azure libraries are moving to the `@azure` scope. 
+All Azure libraries are moving to the `@azure` scope.
 
 | Library type | Description|
 |--|--|
 |Modern|Scoped to `@azure`, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.|
-|Older packages|Typically begin wth `azure-`. Many package begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
+|Older packages|Typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
 
 ### Create resource using service principal
 
@@ -267,7 +267,7 @@ The following section provides an example of how to create an Azure service reso
     az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind LUIS --sku F0 --location WESTUS --yes
     ```
 
-    The LUIS resource uses a key and endpoint which you need to use the quickstarts for LUIS.
+    The LUIS resource uses a key and endpoint, which you need to use the quickstarts for LUIS.
 
 1. Use right-click/Run Line in Editor on the following line to get the LUIS key and endpoint. Authentication to the LUIS service uses the key and endpoint.
 
@@ -277,9 +277,9 @@ The following section provides an example of how to create an Azure service reso
 
 ### Create environment variables for the Azure libraries
 
-To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check the file in to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
+To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
-In the following examples the client ID is the service principal id and service principal secret.
+In the following examples, the client ID is the service principal ID and service principal secret.
 
 # [bash](#tab/bash)
 
@@ -329,7 +329,7 @@ For every project, we recommend that you always create a separate folder, and it
 
 ## Use source control
 
-We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, simply run the following command:
+We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, run the following command:
 
 ```bash
 git init
@@ -345,5 +345,6 @@ Visual Studio Code includes a number of built-in git features. For more informat
 
 You can also use any other source control tool of your choice; Git is simply one of the most widely used and supported.
 
-## Next step
+## Next steps
 
+* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
