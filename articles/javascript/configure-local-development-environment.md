@@ -193,13 +193,13 @@ To make service principal creation easier, use the following steps and provided 
 
 Because the Azure SDK libraries are provided individually for each service, there isn't a single downloadable package to access all of the Azure resources. You install each library based on the Azure service you want to use.
 
-![Conceptual image of local machine connecting to Azure cloud resource such as Cosmos and Storage (more than 1 resource) with SDK]()
-
-Each new project using Azure should include:
+Each new project using Azure should:
 - Create Azure resources or find authentication information for existing Azure resources
 - Install Azure SDK libraries from NPM or Yarn
-    - Modern Azure SDK libraries - These are scoped to **@azure**, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.
-    - Older packages - Before using libraries without the @azure scope, make sure they are available from GitHub from within the Microsoft or Azure organizations.
+    | Library type | Description|
+    |--|--|
+    |Modern|Scoped to `@azure`, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.|
+    |Older packages|Typically begin wth `azure-`. Many package begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
 - Manage authentication information within the project securely. One common method is to use **[Dotenv](https://www.npmjs.com/package/dotenv)** to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
 
 ### Create resource using service principal
