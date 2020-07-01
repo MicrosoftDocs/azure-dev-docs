@@ -195,12 +195,17 @@ Because the Azure SDK libraries are provided individually for each service, ther
 
 Each new project using Azure should:
 - Create Azure resources or find authentication information for existing Azure resources
-- Install Azure SDK libraries from NPM or Yarn
-    | Library type | Description|
-    |--|--|
-    |Modern|Scoped to `@azure`, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.|
-    |Older packages|Typically begin wth `azure-`. Many package begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
+- Install Azure SDK libraries from NPM or Yarn. Learn about [library versions](#library-versions).
 - Manage authentication information within the project securely. One common method is to use **[Dotenv](https://www.npmjs.com/package/dotenv)** to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
+
+### Library versions
+
+All Azure libraries are moving to the `@azure` scope. 
+
+| Library type | Description|
+|--|--|
+|Modern|Scoped to `@azure`, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.|
+|Older packages|Typically begin wth `azure-`. Many package begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
 
 ### Create resource using service principal
 
