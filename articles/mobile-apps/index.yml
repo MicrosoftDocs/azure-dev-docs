@@ -92,10 +92,10 @@ landingContent:
             url: https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal
       - linkListType: tutorial
         links:
+          - text: Send push notifications to Xamarin.Forms apps using ASP.NET Core and Azure Notification Hubs
+            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms
           - text: Send push notifications to Android devices
-            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started
-          - text: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging
-            url: https://docs.microsoft.com/azure/notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging      
+            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started          
           - text: Push rich content to devices
             url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich
 
