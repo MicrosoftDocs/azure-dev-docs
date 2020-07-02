@@ -48,30 +48,6 @@ To create a storage account by using the Azure Explorer, do the following:
 
 4. When you have specified all of the preceding options, click **OK**.
 
-## Create a storage container in IntelliJ
-
-To create a storage container by using the Azure Explorer, do the following:
-
-1. In the Azure Explorer view, right-click the storage account where you want to create a container, and then click **Create blob container**.
-
-   ![Create blob container command][CC01]
-
-2. In the **Create blob container** dialog box, specify the name for your container, and then click **OK**. For more information about naming storage containers, see [Naming and referencing containers, blobs, and metadata].
-
-   ![Create Storage Container Dialog Box][CC02]
-
-## Delete a storage container in IntelliJ
-
-To delete a storage container by using the Azure Explorer, do the following:
-
-1. In the Azure Explorer view, right-click the storage container, and then click **Delete**.
-
-   ![Delete storage container command][DC01]
-
-2. In the confirmation window, click **Yes**.
-
-   ![Delete storage container confirmation window][DC02]
-
 ## Delete a storage account in IntelliJ
 
 To delete a storage account by using the Azure Explorer, do the following:
