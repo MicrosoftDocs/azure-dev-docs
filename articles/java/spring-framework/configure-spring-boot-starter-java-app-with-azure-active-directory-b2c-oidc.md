@@ -226,7 +226,7 @@ Now that you've created the AAD B2C instance and some user flows, you'll connect
     >         password-reset: # optional
     > ```
     >
-    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/application.yml) on GitHub.
+    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/application.yml) on GitHub.
 
 7. Save and close the *application.yml* file.
 
@@ -318,7 +318,7 @@ Now that you've created the AAD B2C instance and some user flows, you'll connect
     }
     ```
 
-14. Copy the *greeting.html* and *home.html* files from [Azure AD B2C Spring Boot Sample](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-active-directory-b2c-oidc-spring-boot-sample/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+14. Copy the *greeting.html* and *home.html* files from [Azure AD B2C Spring Boot Sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 
