@@ -33,6 +33,7 @@ Open the *src/main/resources/application.properties* file, and add the following
 
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
+
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 spring.datasource.username=spring@$AZ_DATABASE_NAME
 spring.datasource.password=$AZ_SQL_SERVER_PASSWORD
