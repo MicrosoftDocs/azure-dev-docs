@@ -39,7 +39,7 @@ This Spring Boot Starter provides auto-configuration support for Azure Services;
 
 For examples of how to use the various Azure features that are provided by this starter, see the following:
 
-* <https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -84,7 +84,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* <https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-active-directory-spring-boot-sample>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -129,7 +129,7 @@ This Spring Boot Starter provides Spring value annotation support for integratio
 
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
-* <https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-keyvault-secrets-spring-boot-sample>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-keyvault-secrets>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -175,8 +175,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-
-* <https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-storage-spring-boot-sample>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-storage-blob>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
