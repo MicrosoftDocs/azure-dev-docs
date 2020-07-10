@@ -1,23 +1,23 @@
 ---
-title: Configure Oracle WebLogic Server for use with Azure Active Directory via LDAP
+title: End-user Authorization and Authentication for Java Apps on WebLogic Server
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
 author: edburns
 ms.author: edburns
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 07/09/2020
 ---
 
-# Integrate Azure Active Directory Domain Services (Azure AD DS) with WebLogic Server via Lightweight Directory Access Protocol (LDAP)
+# End-user Authorization and Authentication for Java Apps on WebLogic Server
 
-Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure.  [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) include support to populate the built-in security realm with users from Azure Active Directory Domain Services (Azure AD DS) via Secure Lightweight Directory Access Protocol (LDAP).  This integration enables developers to use the standard `<security-role>` element, and all of its related security features, in their Java EE on Azure applications, while having the user information flow from Azure AD DS.
+Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure.  [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) let you populate the built-in security realm with users from Azure Active Directory Domain Services (Azure AD DS).  Use the standard `<security-role>` element, in your Java EE on Azure applications; the user information flows from Azure AD DS.
 
-This guide walks you through the steps to integrate an Azure deployed WLS with Azure AD DS via standard LDAP.  It's divided into two parts. [Azure Active Directory configuration](#azure-active-directory-configuration) and [WLS configuration](#wls-configuration).
+This guide will help you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Azure Active Directory.  It's divided into two parts. [Azure Active Directory configuration](#azure-active-directory-configuration) and [WLS configuration](#wls-configuration).
 
 In this guide you learn how to:
 
 > [!div class="checklist"]
 > * Create and configure an Azure Active Directory Domain Services managed domain
-> * Configure secure LDAP for an Azure Active Directory Domain Services managed domain
+> * Configure secure Lightweight Directory Access Protocol (LDAP) for an Azure AD DS managed domain
 > * Enable WebLogic Server to access LDAP as its default security realm
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
