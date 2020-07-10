@@ -70,7 +70,7 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
 });
 ```
 
-Review the [install instructions](/api/?view=azure-node-latest) for a full list of the modules and the [get started article](../index.yml) to set up authentication and run sample code to create and update resources against your own Azure subscription.
+Review the [install instructions](https://docs.microsoft.com/javascript/api/overview/azure/sql?view=azure-node-latest) for a full list of the modules and the [get started article](../index.yml) to set up authentication and run sample code to create and update resources against your own Azure subscription.
 
 ## Connect to Azure services
 
