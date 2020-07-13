@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 01/22/2019
+ms.custom: devx-track-java
 ---
 
 # Migrate Spring Boot applications to Azure App Service

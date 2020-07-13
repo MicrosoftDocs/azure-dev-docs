@@ -7,6 +7,7 @@ ms.service: multiple
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2018
+ms.custom: devx-track-java
 ---
 
 # Adding a root certificate to the Java CA certificates store

@@ -9,6 +9,7 @@ ms.date: 11/29/2019
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Configure a Spring Boot Initializer app to use Application Insights

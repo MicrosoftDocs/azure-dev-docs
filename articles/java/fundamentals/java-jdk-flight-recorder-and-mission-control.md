@@ -3,7 +3,7 @@ title: Review data with Zulu Flight Recorder and Mission Control
 description: Guidance for using Zulu Flight Recorder and Mission Control to collect and review app data.
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Monitor and manage Java workloads with Zulu Flight Recorder and Zulu Mission Control

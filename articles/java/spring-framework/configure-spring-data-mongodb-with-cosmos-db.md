@@ -7,6 +7,7 @@ ms.date: 12/19/2018
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # How to use Spring Data MongoDB API with Azure Cosmos DB
