@@ -6,6 +6,7 @@ ms.assetid: e5a36699-2d96-4571-84f9-a6af13f3c067
 ms.topic: article
 ms.date: 03/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Create virtual machines across multiple regions from your Java applications

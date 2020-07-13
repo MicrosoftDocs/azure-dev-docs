@@ -8,6 +8,7 @@ tags: java
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: dagrieve
+ms.custom: devx-track-java
 ---
 
 # Reasons to move to Java 11

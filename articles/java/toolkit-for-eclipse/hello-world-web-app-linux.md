@@ -8,6 +8,7 @@ ms.date: 12/20/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Deploy a Hello World web app to a Linux container in the cloud using the Azure Toolkit for Eclipse

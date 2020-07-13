@@ -10,6 +10,7 @@ ms.date: 07/31/2019
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
+ms.custom: devx-track-java
 ---
 
 # CI/CD for MicroProfile apps using Azure Pipelines

@@ -10,6 +10,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: dagrieve
+ms.custom: devx-track-java
 ---
 
 # Transition from Java 8 to Java 11

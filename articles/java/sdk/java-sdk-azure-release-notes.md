@@ -5,6 +5,7 @@ keywords: Azure,  Java, API, reference,  notes,  updates, deprecate
 ms.assetid: 1f128cf9-f747-4344-84e1-f9964709deb8
 ms.topic: reference
 ms.date: 3/06/2016
+ms.custom: devx-track-java
 ---
 
 # Release Notes 

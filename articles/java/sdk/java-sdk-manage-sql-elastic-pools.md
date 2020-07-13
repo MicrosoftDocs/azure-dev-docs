@@ -6,6 +6,7 @@ ms.assetid: 9b461de8-46bc-4650-8e9e-59531f4e2a53
 ms.topic: article
 ms.date: 3/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Manage Azure SQL databases in elastic pools from your Java applications

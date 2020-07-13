@@ -7,6 +7,7 @@ ms.service: postgresql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Use Spring Data JPA with Azure Database for PostgreSQL

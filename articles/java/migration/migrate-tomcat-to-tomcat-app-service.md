@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate Tomcat applications to Tomcat on Azure App Service
