@@ -7,7 +7,7 @@ ms.topic: article
 
 # Azure modules for JavaScript
 
-Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as npm modules](/api/?view=azure-node-latest.md) for use in your projects.
+Manage Azure resources and connect to services from your JavaScript applications with the Azure modules for JavaScript. The code is available as [npm modules](https://docs.microsoft.com/javascript/api/overview/azure/sql?view=azure-node-latest) for use in your projects.
 
 ## Manage Azure resources
 
@@ -70,7 +70,7 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
 });
 ```
 
-Review the [install instructions](/api/?view=azure-node-latest) for a full list of the modules and the [get started article](../index.yml) to set up authentication and run sample code to create and update resources against your own Azure subscription.
+Review the [install instructions](https://docs.microsoft.com/javascript/api/overview/azure/sql?view=azure-node-latest) for a full list of the modules and the [get started article](../index.yml) to set up authentication and run sample code to create and update resources against your own Azure subscription.
 
 ## Connect to Azure services
 
