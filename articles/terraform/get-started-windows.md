@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 06/26/2020
+ms.date: 07/13/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -21,13 +21,13 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
+1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt. This demo was tested using PowerShell 7.0.2 on Windows 10.
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). (This demo was tested using PowerShell 7.0.2 on Windows 10)
+1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7).
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
@@ -44,107 +44,157 @@ This article describes how to get started with [Terraform on Azure](https://www.
     Notes:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
-1. Terraform uses the Azure CLI to [authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html). As such, need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). (This demo was tested using Azure CLI 2.7.0)
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI 2.7.0.
 
-## Authenticate to Azure
+1. Once you 
+1. 
+1. 
+1. 
+1. Authenticating using the Azure CLI is only supported as a User (not a Service Principal)
 
-Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
 
-- When using Terraform interactively, [authenticating via Microsoft account](#authenticate-via-microsoft-account) is recommended.
-- When using Terraform from code, [authenticating via Azure service principal](#authenticate-via-azure-service-principal) is one recommended way.
 
-### Authenticate via Microsoft account
 
-As mentioned earlier, Terraform only supports authentication to Azure via the Azure CLI.
 
-Calling `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
 
-```azurecli
-az login
+
+
+
+
+
+
+
+
+
+
+## Log into Azure
+
+There are several options that allow you to log into an Azure subscription:
+
+- [Log into your Microsoft account](#log-into-your-microsoft-account)
+- [Log in using an Azure service principal](#log-into-azure-using-an-azure-service-principal)
+
+### Log into your Microsoft account
+
+Calling [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+
+```powershell
+Connect-AzAccount
 ```
 
 Notes:
+- Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
 
-- Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
-- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#set-the-current-azure-subscription).
-
-### Authenticate via Azure service principal
+### Log into Azure using an Azure service principal
 
 **Create an Azure service principal**: To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
-There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
+Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
 
-```azurecli
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
-```
+1. Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
+
+    ```powershell
+    $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
+    ```
+
+1. Enter the following to display the names of the service principal:
+
+    ```powershell
+    $sp.ServicePrincipalNames
+    ```
+
+1. Call `ConvertFrom-SecureString` to display the password as text:
+
+    ```powershell
+    $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
+    ```
 
 Notes:
+- At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
+- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-- Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
-- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+**Use an Azure service principal to log in**: To log into an Azure subscription using a service principal, call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
 
-**Specifying the service principal information**: Terraform doesn't support logging into Azure with a service principal via the `az login` command. Instead, you use environment variables to hold the values needed to authenticate to Azure. Create the following environment variables, replacing the placeholders with the appropriate values.
+- **Interactive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
 
-```powershell
-$env:ARM_SUBSCRIPTION_ID="<subscription_id>"
-$env:ARM_CLIENT_ID="<service_principal_app_id>"
-$env:ARM_CLIENT_SECRET="<service_principal_password>"
-$env:ARM_TENANT_ID="<service_principal_tenant_id>"
-```
+    1. Call `Get-Credential` and manually enter a service principal name and password:
 
-## Set the current Azure subscription
+        ```powershell
+        $Credential = Get-Credential
+        ```
 
-A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how to switch between subscriptions:
+    2. Call `Connect-AzAccount`, passing the `PsCredential` object. (Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.)
 
-1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
+        ```powershell
+        Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
+        ```
 
-    ```azurecli
-    az account show
+- **Script pattern**: You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
+
+    1. Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
+
+        ```powershell
+        $spName = "<servicePrincipalName>"
+        $spPassword = ConvertTo-SecureString "<servicePrincipalPassword>" -AsPlainText -Force
+        $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
+        ```
+
+    1. Call `Connect-AzAccount`, passing the constructed `PsCredential` object:
+
+        ```powershell
+        Connect-AzAccount -Credential $psCredential -TenantId "<azureSubscriptionTenantId>"  -ServicePrincipal
+        ```
+
+## Specify the current Azure subscription
+
+As explained in the previous section, two of the ways to log into Azure are the following scenarios:
+
+- **Log in using a Microsoft account**: A Microsoft account can be associated with multiple Azure subscriptions - one of which is the default subscription. The default subscription is the one you use if you log in and don't switch to another.
+- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. Remember that the subscription information displays when you log in.
+
+The following steps address the first scenario where you do the following tasks:
+
+- View the current Azure subscription
+- List all available Azure subscriptions for the current Microsoft account
+- Switch to another Azure subscription
+
+1. To view the current Azure subscription, use [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
+
+    ```powershell
+    Get-AzContext
     ```
 
-1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
+1. If you have access to multiple available Azure subscriptions, use `Get-AzContext -ListAvailable`:
 
-    ```azurecli
-    az account list --query "[].{name:name, subscriptionId:id}"
+    ```powershell
+    Get-AzContext -ListAvailable | Select Name
     ```
 
-1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az-account-set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
+1. The autogenerated context names can be unwieldy. To make the context names more readable (and easier to use as parameters), you can rename the contexts. Renaming a context is done via [Rename-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/rename-azcontext).
 
-    ```azurecli
-    az account set --subscription="<subscription_id>"
+    ```powershell
+    Rename-AzContext -SourceName <current_context_name> -TargetName <new_context_Name>
     ```
 
-    Notes:
+1. To use a specific Azure subscription for the current PowerShell session, use [Select-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/select-azcontext).
 
-    - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
+    ```powershell
+    Select-AzContext <context_name>
+    ```
 
 ## Create a Terraform configuration file
 
 In this section, you learn how to create a Terraform configuration file that creates an Azure resource group.
 
-1. Change directories to the directory where you create the demo directory to hold your Terraform files.
+1. Create a directory named `QuickstartTerraformTest` to hold the Terraform files for this demo.
 
-1. Create a directory to hold the Terraform files for this demo.
+1. Change directories to the new directory.
 
-    ```powershell
-    mkdir QuickstartTerraformTest
-    ```
-
-1. Change directories to the demo directory.
-
-    ```powershell
-    cd QuickstartTerraformTest
-    ```
-
-1. Using your favorite editor, create a Terraform configuration file. This article uses [Visual Studio Code](https://code.visualstudio.com/Download).
-
-    ```powershell
-    code QuickstartTerraformTest.tf
-    ```
+1. Using your favorite editor, create a Terraform configuration file named `QuickstartTerraformTest.tf`.
 
 1. Paste the following HCL into the new file.
 
@@ -162,14 +212,9 @@ In this section, you learn how to create a Terraform configuration file that cre
     ```
 
     Notes:
-
     - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
-
-1. Save the file (**&lt;Ctrl>S**).
-
-1. Exit the editor (**&lt;Ctrl>&lt;F4>**).
 
 ## Create and apply a Terraform execution plan
 
@@ -187,8 +232,7 @@ Once you create your configuration files, this section explains how to create an
     terraform plan
     ```
 
-    Notes:
-
+    **Notes:**
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
     - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persist-an-execution-plan-for-later-deployment).
@@ -198,18 +242,16 @@ Once you create your configuration files, this section explains how to create an
     ```powershell
     terraform apply
     ```
-
+    
 1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
+1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
-    ```azurecli
-    az group show -n "QuickstartTerraformTest-rg"
+    ```powershell
+    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
-    Notes:
-
-    - If successful, `az group show` displays various properties of the newly created resource group.
+    If successful, the command displays various properties of the newly created resource group.
 
 ## Persist an execution plan for later deployment
 
@@ -240,7 +282,6 @@ The following steps illustrate the basic pattern for using this feature:
     ```
 
 Notes:
-
 - To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
 - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
@@ -250,20 +291,20 @@ When no longer needed, delete the resources created in this article.
 
 1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
 
-    ```bash
+    ```powershell
     terraform destroy
     ```
 
-1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm by entering `yes` and pressing the **Enter** key.
+1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
 
-1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?#az-group-show).
+1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show).
 
-    ```azurecli
-    az group show -n "QuickstartTerraformTest-rg"
+    ```powershell
+    Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
     Notes:
-    - If successful, `az group show` displays the fact that the resource group doesn't exist.
+    - If successful, `Get-AzResourceGroup` displays the fact that the resource group doesn't exist.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
 
