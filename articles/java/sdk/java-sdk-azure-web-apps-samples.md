@@ -7,7 +7,7 @@ ms.date: 04/16/2017
 ms.topic: article
 ms.service: multiple
 ms.assetid: 43633e5c-9fb1-4807-ba63-e24c126754e2
-ms.custom: seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Azure management libraries for Java - Web app samples 
