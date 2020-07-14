@@ -73,7 +73,7 @@ export TOMCAT_HOME=<Tomcat install directory>
 
 ```ps
 $env:TOMCAT_HOME="<Tomcat install directory>"
-````
+```
 
 # [Cmd](#tab/cmd)
 
