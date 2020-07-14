@@ -8,6 +8,7 @@ ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter for Azure Key Vault

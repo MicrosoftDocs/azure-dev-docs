@@ -6,6 +6,7 @@ ms.assetid: b55923b7-d60a-460d-b77c-af5fac67f1cc
 ms.topic: article
 ms.date: 3/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Manage Azure virtual machine scale sets from your Java applications

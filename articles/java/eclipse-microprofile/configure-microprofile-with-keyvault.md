@@ -10,6 +10,7 @@ ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
+ms.custom: devx-track-java
 ---
 
 # Configure MicroProfile with Azure Key Vault

@@ -7,7 +7,7 @@ ms.date: 04/16/2017
 ms.topic: article
 ms.service: multiple
 ms.assetid: 10f457e3-578b-4655-8cd1-51339226ee7d
-ms.custom: seo-java-september2019
+ms.custom: seo-java-september2019, devx-track-java
 ---
 
 # Authenticate with the Azure libraries for Java

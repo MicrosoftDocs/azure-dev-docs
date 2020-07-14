@@ -3,6 +3,7 @@ title: Create your first function in Azure using IntelliJ IDEA
 description: Create and publish to Azure a simple HTTP triggered function by using Azure toolkit for IntelliJ. 
 ms.topic: quickstart
 ms.date: 03/26/2020
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Create an Azure Functions project using IntelliJ IDEA

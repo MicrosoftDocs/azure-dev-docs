@@ -5,7 +5,7 @@ author: rloutlaw
 ms.assetid: b55923b7-d60a-460d-b77c-af5fac67f1cc
 ms.topic: article
 ms.date: 11/13/2018
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, devx-track-java
 ---
 
 # Azure tools for Java developers

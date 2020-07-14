@@ -7,7 +7,7 @@ ms.date: 04/16/2017
 ms.topic: article
 ms.service: multiple
 ms.assetid: f452468b-7aae-4944-abad-0b1aaf19170d
-ms.custom: seo-java-july2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-september2019, devx-track-java
 ---
 
 # Patterns and best practices for development with the Azure libraries for Java 

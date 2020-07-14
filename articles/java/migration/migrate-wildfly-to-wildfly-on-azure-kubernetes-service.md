@@ -5,6 +5,7 @@ author: mriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 3/16/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate WildFly applications to WildFly on Azure Kubernetes Service

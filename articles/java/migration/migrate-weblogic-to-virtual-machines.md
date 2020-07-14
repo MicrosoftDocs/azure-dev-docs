@@ -5,6 +5,7 @@ author: edburns
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 1/27/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate WebLogic applications to Azure Virtual Machines

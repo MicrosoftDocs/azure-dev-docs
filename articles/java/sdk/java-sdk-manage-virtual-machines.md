@@ -6,8 +6,8 @@ ms.assetid: 88629aee-6279-433e-a08b-4f8e290446d0
 ms.topic: article
 ms.date: 3/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
-
 
 # Manage Azure virtual machines from your Java applications
 

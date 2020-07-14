@@ -7,6 +7,7 @@ ms.author: brendm
 ms.date: 03/25/2020
 ms.topic: article
 ms.service: multiple
+ms.custom: devx-track-java
 ---
 
 # Configure logging with the Azure SDK for Java

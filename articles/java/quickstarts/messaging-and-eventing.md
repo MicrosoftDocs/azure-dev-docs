@@ -3,6 +3,7 @@ title: Quickstarts for messaging and eventing for Java apps on Azure
 description: List of getting started material in the Azure documentation for messaging and eventing for Java apps.
 ms.date: 04/09/2020
 ms.topic: conceptual
+ms.custom: devx-track-java
 ---
 
 # Caching for Java apps on Azure
