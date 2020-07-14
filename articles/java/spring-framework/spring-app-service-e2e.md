@@ -28,7 +28,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 To get started with the sample app, clone and prepare the source repo using the following commands.
 
-# [Bash](#tab/bash)
+# [bash](#tab/bash)
 
 ```bash
 git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
