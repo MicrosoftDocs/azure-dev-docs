@@ -152,9 +152,7 @@ At this point, you should be logged into an Azure subscription. Now, let's write
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
 
-1. Save the file (**&lt;Ctrl>S**).
-
-1. Exit the editor (**&lt;Ctrl>&lt;F4>**).
+1. Save the file.
 
 ## Create and apply a Terraform execution plan
 
