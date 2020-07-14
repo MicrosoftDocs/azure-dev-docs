@@ -132,7 +132,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 1. When the confirmation appears, select **OK**.
 
-    ![Do you want to open Cloud Shell?](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloud-shell.png)
+    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloud-shell.png)
 
 1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
