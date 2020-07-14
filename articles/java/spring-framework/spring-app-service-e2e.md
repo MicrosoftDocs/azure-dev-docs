@@ -438,7 +438,6 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 
 Next, build the app, then test it locally by deploying and running it with Tomcat.
 
-
 # [bash](#tab/bash)
 
 ```bash
