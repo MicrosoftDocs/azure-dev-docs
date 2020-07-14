@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. The latest PowerShell module that allows interaction with Azure resources is called the PowerShell Az module. Sometimes you will hear this colloquially referred to as "PowerShell Azure". When using the PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
+1. The latest PowerShell module that allows interaction with Azure resources is called the PowerShell Az module. Sometimes you'll hear this colloquially module referred to as "PowerShell Azure". When using the PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -52,7 +52,7 @@ To log into an Azure subscription using a service principal, you first need acce
 
 There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
+Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password isn't displayed as it is returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
 
 1. Get the subscription ID for the Azure subscription you want to use. If you don't know the subscription ID, you can get the value from the [Azure portal](https://portal.azure.com/).
 
@@ -86,7 +86,7 @@ Notes:
 
 ## Log in to Azure using a service principal
 
-To log into an Azure subscription using a service principal, call [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). 
+To log into an Azure subscription using a service principal, call [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential).
 
 1. Get a [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
 
@@ -137,7 +137,7 @@ In this section, you learn how to create a Terraform configuration file that cre
     ```hcl
     provider "azurerm" {
       # The "feature" block is required for AzureRM provider 2.x.
-      # If you're using version 1.x, the "features" block is not allowed.
+      # If you're using version 1.x, the "features" block isn't allowed.
       version = "~>2.0"
       features {}
     }

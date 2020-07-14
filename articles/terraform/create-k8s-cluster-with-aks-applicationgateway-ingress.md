@@ -31,7 +31,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the `appId`, `displayName`, and `password`.
 
 - **Obtain the Service Principal Object ID**: Run the following command in Cloud Shell: `az ad sp list --display-name <displayName>`
 
