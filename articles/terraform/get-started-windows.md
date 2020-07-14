@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script cli powershell
 ms.topic: quickstart
-ms.date: 07/13/2020
+ms.date: 07/14/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. PowerShell 7 (or later) is the recommended version of PowerShell for use with Azure PowerShell on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt. This demo was tested using PowerShell 7.0.2 on Windows 10.
+1. The latest PowerShell module that allows interaction with Azure resources is called the PowerShell Az module. Sometimes you will hear this colloquially referred to as "PowerShell Azure". When using the PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt. This demo was tested using PowerShell 7.0.2 on Windows 10.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -44,70 +44,37 @@ This article describes how to get started with [Terraform on Azure](https://www.
     Notes:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI 2.7.0.
+## Create an Azure service principal
 
-1. Once you 
-1. 
-1. 
-1. 
-1. Authenticating using the Azure CLI is only supported as a User (not a Service Principal)
+When using PowerShell and Terraform, you must log in using a service principal.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Log into Azure
-
-There are several options that allow you to log into an Azure subscription:
-
-- [Log into your Microsoft account](#log-into-your-microsoft-account)
-- [Log in using an Azure service principal](#log-into-azure-using-an-azure-service-principal)
-
-### Log into your Microsoft account
-
-Calling [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
-
-```powershell
-Connect-AzAccount
-```
-
-Notes:
-- Upon successful login, `Connect-AzAccount` displays the default Azure subscription associated with the logged-Microsoft account. To learn how to switch to another Azure subscription, see the section, [Specify the current Azure subscription](#specify-the-current-azure-subscription).
-
-### Log into Azure using an Azure service principal
-
-**Create an Azure service principal**: To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
-
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
+To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
 There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password is not displayed as it is returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then query the variable for the password.
 
-1. Enter the following command, replacing  `<subscription_id>` with the ID of the subscription account you want to use.
+1. Get the subscription ID for the Azure subscription you want to use. If you don't know the subscription ID, you can get the value from the [Azure portal](https://portal.azure.com/).
+
+    1. Log into the [Azure portal](https://portal.azure.com/).
+    1. Under **Azure services**, select **Subscriptions**.
+    1. The table listing of subscriptions contains a column with each subscription's ID.
+
+1. Start PowerShell.
+
+1. Create a new service principal using [New-AzADServicePrincipal](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azadserviceprincipal). Replace `<subscription_id>` with your Azure subscription ID.
 
     ```powershell
     $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
     ```
 
-1. Enter the following to display the names of the service principal:
+1. Display the names of the service principal:
 
     ```powershell
     $sp.ServicePrincipalNames
     ```
 
-1. Call `ConvertFrom-SecureString` to display the password as text:
+1. Display the autogenerated password as text, [ConvertFrom-SecureString](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/convertfrom-securestring) :
 
     ```powershell
     $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
@@ -117,25 +84,19 @@ Notes:
 - At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-**Use an Azure service principal to log in**: To log into an Azure subscription using a service principal, call `Connect-AzAccount` and pass in an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). There are two options: interactive and script.
+## Log in to Azure using a service principal
 
-- **Interactive pattern**: You call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter the credentials when asked for them. The call to `Get-Credential` returns a `PsCredential`object that you then pass to `Connect-AzAccount`.
+To log into an Azure subscription using a service principal, call [Connect-AzAccount](https://docs.microsoft.com/en-us/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential). 
 
-    1. Call `Get-Credential` and manually enter a service principal name and password:
+1. Get a [PsCredential](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
 
-        ```powershell
-        $Credential = Get-Credential
-        ```
-
-    2. Call `Connect-AzAccount`, passing the `PsCredential` object. (Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.)
+    1. Call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
         ```powershell
-        Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
+        $psCredential = Get-Credential
         ```
 
-- **Script pattern**: You construct a `PsCredential` object and pass it to `Connect-AzConnect`.
-
-    1. Construct a `Get-Credential`. (Replace the placeholders with the appropriate values for your Azure subscription and service principal.)
+    1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your Azure subscription and service principal. This pattern is how you would log in from a script.
 
         ```powershell
         $spName = "<servicePrincipalName>"
@@ -143,47 +104,10 @@ Notes:
         $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
         ```
 
-    1. Call `Connect-AzAccount`, passing the constructed `PsCredential` object:
-
-        ```powershell
-        Connect-AzAccount -Credential $psCredential -TenantId "<azureSubscriptionTenantId>"  -ServicePrincipal
-        ```
-
-## Specify the current Azure subscription
-
-As explained in the previous section, two of the ways to log into Azure are the following scenarios:
-
-- **Log in using a Microsoft account**: A Microsoft account can be associated with multiple Azure subscriptions - one of which is the default subscription. The default subscription is the one you use if you log in and don't switch to another.
-- **Log in using an Azure service principal**: A service principal is specific to an Azure subscription. Remember that the subscription information displays when you log in.
-
-The following steps address the first scenario where you do the following tasks:
-
-- View the current Azure subscription
-- List all available Azure subscriptions for the current Microsoft account
-- Switch to another Azure subscription
-
-1. To view the current Azure subscription, use [Get-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext).
+1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.
 
     ```powershell
-    Get-AzContext
-    ```
-
-1. If you have access to multiple available Azure subscriptions, use `Get-AzContext -ListAvailable`:
-
-    ```powershell
-    Get-AzContext -ListAvailable | Select Name
-    ```
-
-1. The autogenerated context names can be unwieldy. To make the context names more readable (and easier to use as parameters), you can rename the contexts. Renaming a context is done via [Rename-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/rename-azcontext).
-
-    ```powershell
-    Rename-AzContext -SourceName <current_context_name> -TargetName <new_context_Name>
-    ```
-
-1. To use a specific Azure subscription for the current PowerShell session, use [Select-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/select-azcontext).
-
-    ```powershell
-    Select-AzContext <context_name>
+    Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
     ```
 
 ## Create a Terraform configuration file
