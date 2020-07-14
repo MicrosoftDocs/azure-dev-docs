@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. The latest PowerShell module that allows interaction with Azure resources is called the PowerShell Az module. Sometimes you'll hear this colloquially module referred to as "PowerShell Azure". When using the PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
+1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
     ```powershell
     $PSVersionTable.PSVersion
