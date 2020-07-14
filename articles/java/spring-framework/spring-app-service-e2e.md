@@ -48,7 +48,6 @@ cd spring-framework-petclinic
 git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
 cd spring-framework-petclinic
 ```
-ms.custom: devx-track-java
 ---
 
 ## Build and run the HSQLDB sample locally
@@ -556,7 +555,6 @@ az group delete --name $env:RESOURCEGROUP_NAME
 ```bash
 az group delete --name %RESOURCEGROUP_NAME%
 ```
-ms.custom: devx-track-java
 ---
 
 ## Next steps
