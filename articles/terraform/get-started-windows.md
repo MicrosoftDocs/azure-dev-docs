@@ -21,7 +21,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 ## Configure your environment
 
-1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms, including Windows. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
+1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -151,8 +151,6 @@ At this point, you should be logged into an Azure subscription. Now, let's write
     - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
-
-1. Save the file.
 
 ## Create and apply a Terraform execution plan
 
