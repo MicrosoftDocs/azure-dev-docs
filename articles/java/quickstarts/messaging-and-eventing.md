@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-java
 ---
 
-# Caching for Java apps on Azure
+# Messaging and eventing for Java apps on Azure
 
 The following articles help you get started with various messaging and eventing options on Azure:
 
