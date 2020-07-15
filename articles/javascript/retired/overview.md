@@ -74,7 +74,7 @@ Review the [install instructions](https://docs.microsoft.com/javascript/api/over
 
 ## Connect to Azure services
 
-In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](https://docs.microsoft.com/en-us/javascript/api/overview/azure/sql?view=azure-node-latest) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
+In addition to using the Azure modules to create and manage resources within Azure, you can also use packages to connect and use Azure cloud services in your apps. For example, you might update a table SQL Database or upload files to Azure Storage. Select the package you need for a particular service from the [complete list](https://docs.microsoft.com/javascript/api/overview/azure/sql?view=azure-node-latest) and visit the [JavaScript developer center](https://azure.microsoft.com/develop/nodejs/) for tutorials and sample code to learn how to use the modules in your apps.
 
 For example, to print out the contents of every blob in an Azure storage container:
 
