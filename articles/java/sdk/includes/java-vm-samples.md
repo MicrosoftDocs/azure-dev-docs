@@ -1,7 +1,6 @@
 | Sample  | Description |
-
-| **Create virtual machines** || 
 |---|---|
+| **Create virtual machines** ||
 | [Manage virtual machines][1] | Create, modify, start, stop, and delete virtual machines. |
 | [Create a virtual machine from a custom image][2] | Create a custom virtual machine image and use it to create new virtual machines. | 
 | [Create a virtual machine using specialized VHD from a snapshot][3] | Create snapshot from the virtual machine's OS and data disks, create managed disks from the snapshots, and then create a virtual machine by attaching the managed disks. |  
