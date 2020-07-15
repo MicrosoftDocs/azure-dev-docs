@@ -6,6 +6,7 @@ ms.assetid: 49be8b66-3b56-4c10-8f14-9d326d815cb4
 ms.topic: article
 ms.date: 3/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Manage Azure storage accounts from your Java applications

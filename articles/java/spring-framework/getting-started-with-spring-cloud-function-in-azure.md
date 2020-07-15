@@ -9,6 +9,7 @@ ms.date: 07/17/2019
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Getting started with Spring Cloud Function in Azure
@@ -60,7 +61,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <azure.functions.maven.plugin.version>1.5.0</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.6.0</azure.functions.maven.plugin.version>
     <functionAppName>my-spring-function</functionAppName>
     <functionAppRegion>westus</functionAppRegion>
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
@@ -345,7 +346,7 @@ Click on the function:
 Now, as you did in the previous section, use cURL to access the running function. Please replace `your-function-name` by your real function name:
 
 ```bash
-curl https:/your-function-name.azurewebsites.net/api/hello -d "{\"name\":\"Azure\"}"
+curl https://your-function-name.azurewebsites.net/api/hello -d "{\"name\":\"Azure\"}"
 ```
 
 Like in the previous section, the Function should answer you with a `Greeting` object, still in JSON format:

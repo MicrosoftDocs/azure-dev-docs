@@ -8,6 +8,7 @@ ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
+ms.custom: devx-track-java
 ---
 
 # Create a Hello World web app for Azure using the legacy toolkit for Eclipse
@@ -123,7 +124,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
    h. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected. (App Service Plans specify information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.)
       
-       You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+      You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
       
       * Click **New...**
       * The **New App Service Plan** dialog box will be displayed:

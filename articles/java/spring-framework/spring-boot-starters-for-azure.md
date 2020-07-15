@@ -6,6 +6,7 @@ ms.date: 12/19/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Spring Boot Starters for Azure

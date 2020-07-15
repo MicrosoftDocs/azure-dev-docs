@@ -6,6 +6,7 @@ ms.date: 11/13/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Manage virtual machines by using the Azure Explorer for Eclipse

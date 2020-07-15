@@ -8,6 +8,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter with the Azure Storage API

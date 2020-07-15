@@ -7,6 +7,7 @@ ms.date: 02/06/2020
 ms.service: cache
 ms.tgt_pltfrm: cache-redis
 ms.topic: conceptual
+ms.custom: devx-track-java
 ---
 
 # Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache

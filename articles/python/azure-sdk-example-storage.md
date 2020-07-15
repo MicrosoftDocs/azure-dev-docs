@@ -5,7 +5,7 @@ ms.date: 05/29/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure libraries with Azure Storage
+# Example: Provision Azure Storage using the Azure libraries for Python
 
 In this article, you learn how to use the Azure management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article.)
 

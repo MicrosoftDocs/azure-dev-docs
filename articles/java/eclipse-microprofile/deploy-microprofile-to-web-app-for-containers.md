@@ -11,6 +11,7 @@ ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
+ms.custom: devx-track-java
 ---
 
 # Deploy a Java-based MicroProfile service to Azure Web App for Containers
