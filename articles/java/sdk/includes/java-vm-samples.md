@@ -1,3 +1,5 @@
+| Sample  | Description |
+
 | **Create virtual machines** || 
 |---|---|
 | [Manage virtual machines][1] | Create, modify, start, stop, and delete virtual machines. |

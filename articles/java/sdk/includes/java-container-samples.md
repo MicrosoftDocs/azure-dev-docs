@@ -1,4 +1,4 @@
-|  |  |
+| Sample  | Description |
 |---------|---------|
 | [Manage Azure Container Registries][1] | Create a new Azure Container registry and add an new image. | 
 | [Manage Azure Container Service][2] | Create an Azure Container Service with Kubernetes orchestration. | 

@@ -14,7 +14,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 
 The following table links to Java source you can use to create and configure web apps.
 
-| Topic | Description |
+| Sample | Description |
 |---|---|
 | **Create an app** ||
 | [Create a web app and deploy from FTP or GitHub][1] | Deploy web apps from local Git, FTP, and continuous integration from GitHub. |
