@@ -5,7 +5,7 @@ ms.date: 06/15/2020
 ms.topic: conceptual
 ---
 
-# Example: Use the Azure libraries with Azure Storage
+# Example: Access Azure Storage using the Azure libraries for Pyhon
 
 This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you have provisioned the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
