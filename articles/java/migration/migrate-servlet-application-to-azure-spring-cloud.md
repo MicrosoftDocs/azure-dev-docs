@@ -47,7 +47,17 @@ Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with 
 
 Inventory any scheduled jobs, inside or outside the application server.
 
+#### Determine whether non-HTTP connectors are used
 
+Azure Spring Cloud supports only a HTTP connections on a single, non-customizable HTTP ports. If your application requires additional ports or additional protocols, do not use Azure Spring Cloud.
+
+To identify HTTP connectors used by your application, look for `<Connector>` elements inside the *server.xml* file in your Tomcat configuration.
+
+#### Determine whether SSL session tracking is used
+
+On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/docs/current/reference/html5/index.html) instead.
+
+#### Determine whether MemoryRealm is used
 
 ## Migration
 
