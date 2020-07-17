@@ -77,7 +77,7 @@ Provision an Azure Spring Cloud instance in your Azure subscription, if one does
 
 [!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
 
-[!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-cloud](articles\java\migration\includes\migrate-all-certificates-to-keyvault-azure-spring-cloud.md)]
+[!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-cloud](includes/migrate-all-certificates-to-keyvault-azure-spring-cloud.md)]
 
 ### Remove application performance management (APM) integrations
 
