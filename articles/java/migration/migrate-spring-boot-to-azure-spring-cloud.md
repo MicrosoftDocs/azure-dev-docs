@@ -77,9 +77,7 @@ Provision an Azure Spring Cloud instance in your Azure subscription, if one does
 
 [!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
 
-### Migrate all certificates to KeyVault
-
-Azure Spring Cloud doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
+[!INCLUDE [migrate-all-certificates-to-keyvault-azure-spring-cloud](articles\java\migration\includes\migrate-all-certificates-to-keyvault-azure-spring-cloud.md)]
 
 ### Remove application performance management (APM) integrations
 
