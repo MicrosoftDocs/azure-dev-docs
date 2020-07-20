@@ -13,7 +13,7 @@ ms.date: 6/16/2020
 
 ### Switch to a supported platform
 
-App Service offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
+Azure Spring Cloud offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
@@ -61,7 +61,7 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/docs/current/reference/html5/index.html) instead.
 
-#### Determine whether Tomcat realms are used.
+#### Determine whether Tomcat realms are used
 
 
 
