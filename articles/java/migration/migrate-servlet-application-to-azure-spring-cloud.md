@@ -35,6 +35,10 @@ Identify what tool(s) are used to build/package the application, including downl
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
+### Determine if Tomcat is connected to a web server
+
+Tomcat can be connected to a static web server, such as Apache, via a tomcat connector, such as `mod_jk`. Inspect the `workers.properties` file in the `conf` directory to determine if such a connection exists.
+
 ### Special cases
 
 Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it's important to ensure that they're either inapplicable to your application or correctly resolved.
@@ -69,6 +73,10 @@ Inspect the `web.xml` in the application for any `<filter>` elements. See the [T
 
 ## Migration
 
+### Remove connection to web server, if present
+
+If Tomcat is connected to a static web server, typically to Apache via `mod_jk`, disable that connection so that Tomcat runs as a standalone server, creating web redirects from the standard server as needed. Consider migrating static web content to [Azure Storage](/azure/storage/blobs/storage-blob-static-website) with [CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
+
 ### Update to Tomcat 9
 
 If your current application is running on version of Tomcat prior to 9, migrate to Tomcat 9 and verify the application is fully functional. Consult the [Tomcat 9 Migration Guide](http://tomcat.apache.org/migration-9.html) for more information.
@@ -94,6 +102,8 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
     </dependency>
     ```
 
+    Although this is formerly a tomcat application, do not add `war` as target packaging.
+
 1. Replace Tomcat data sources with Spring Beans. See [Spring Data JDBC documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for more information. Replace any [explicit context lookups](http://tomcat.apache.org/tomcat-9.0-doc/jndi-resources-howto.html#Using_resources) with [Spring Bean injections](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection).
 
 1. Replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC.
@@ -104,7 +114,7 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 1. Recreate Servlet filters configured in `web.xml` with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
 
-Verify that the resulting application runs with full functionality before proceeding.
+Test the application by running `mvn spring-boot:run`. Verify that the resulting application runs with full functionality before proceeding.
 
 ### Migrate to Azure Spring Cloud
 
