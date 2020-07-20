@@ -16,7 +16,7 @@
 | Azure.Cosmos | nuget [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](https://docs.microsoft.com/dotnet/api/azure.cosmos?view=azure-dotnet-preview) | github [4.0.0-preview3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Cosmos_4.0.0-preview3/sdk/https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3/Azure.Cosmos/) |
 | Azure.Data.AppConfiguration | nuget [1.0.1](https://www.nuget.org/packages/Azure.Data.AppConfiguration/1.0.1) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Data.AppConfiguration-readme/) | github [1.0.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.AppConfiguration_1.0.1/sdk/appconfiguration/Azure.Data.AppConfiguration/) |
 | Azure.DCAP.Windows | nuget [1.2.0](https://www.nuget.org/packages/Azure.DCAP.Windows/1.2.0) |  |  |
-| Azure.DigitalTwins.Core | nuget [1.0.0-preview.2](https://www.nuget.org/packages/Azure.DigitalTwins.Core/1.0.0-preview.2) |  |  |
+| Azure.DigitalTwins.Core | nuget [1.0.0-preview.3](https://www.nuget.org/packages/Azure.DigitalTwins.Core/1.0.0-preview.3) |  |  |
 | Azure.Extensions.AspNetCore.Configuration.Secrets | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.Configuration.Secrets/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.Configuration.Secrets-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/) |
 | Azure.Extensions.AspNetCore.DataProtection.Blobs | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Blobs/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Blobs-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/) |
 | Azure.Extensions.AspNetCore.DataProtection.Keys | nuget [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Keys/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Keys-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/) |
@@ -110,9 +110,9 @@
 | Microsoft.Azure.DataLake.Store | nuget [1.2.3-alpha](https://www.nuget.org/packages/Microsoft.Azure.DataLake.Store/1.2.3-alpha) |  |  |
 | Microsoft.Azure.DataLake.USQL.SDK | nuget [1.4.200110](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.200110) |  |  |
 | Microsoft.Azure.DCAP | nuget [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.6.0) |  |  |
-| Microsoft.Azure.DocumentDB | nuget [2.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.1) |  |  |
+| Microsoft.Azure.DocumentDB | nuget [2.11.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.2) |  |  |
 | Microsoft.Azure.DocumentDB.ChangeFeedProcessor | nuget [2.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.0) |  |  |
-| Microsoft.Azure.DocumentDB.Core | nuget [2.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.1) |  |  |
+| Microsoft.Azure.DocumentDB.Core | nuget [2.11.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.2) |  |  |
 | Microsoft.Azure.EventGrid | nuget [3.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/3.2.0) |  |  |
 | Microsoft.Azure.EventHubs | nuget [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/4.2.0) |  |  |
 | Microsoft.Azure.EventHubs.Processor | nuget [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/4.2.0) |  |  |
@@ -193,14 +193,14 @@
 | Microsoft.Azure.Management.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.FrontDoor | nuget [3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.FrontDoor/3.0.0) |  |  |
 | Microsoft.Azure.Management.Graph.RBAC.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Graph.RBAC.Fluent/1.34.0) |  |  |
-| Microsoft.Azure.Management.GuestConfiguration | nuget [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.GuestConfiguration/1.2.0) |  |  |
+| Microsoft.Azure.Management.GuestConfiguration | nuget [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.GuestConfiguration/1.3.0) |  |  |
 | Microsoft.Azure.Management.HDInsight | nuget [5.4.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.4.0) |  |  |
 | Microsoft.Azure.Management.HDInsight.Job | nuget [2.0.7](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight.Job/2.0.7) |  |  |
 | Microsoft.Azure.Management.HealthcareApis | nuget [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HealthcareApis/1.1.0) |  |  |
 | Microsoft.Azure.Management.HybridCompute | nuget [0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.HybridCompute/0.1.0-preview) |  |  |
 | Microsoft.Azure.Management.HybridData | nuget [1.0.1](https://www.nuget.org/packages/Microsoft.Azure.Management.HybridData/1.0.1) |  |  |
 | Microsoft.Azure.Management.Intune | nuget [0.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Intune/0.2.0-preview) |  |  |
-| Microsoft.Azure.Management.IotCentral | nuget [2.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral/2.2.0) |  |  |
+| Microsoft.Azure.Management.IotCentral | nuget [2.3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral/2.3.0) |  |  |
 | Microsoft.Azure.Management.IotHub | nuget [2.10.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.IotHub/2.10.0-preview) |  |  |
 | Microsoft.Azure.Management.KeyVault | nuget [3.0.1](https://www.nuget.org/packages/Microsoft.Azure.Management.KeyVault/3.0.1) |  |  |
 | Microsoft.Azure.Management.KeyVault.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.KeyVault.Fluent/1.34.0) |  |  |
@@ -270,7 +270,7 @@
 | Microsoft.Azure.Management.RemoteApp | nuget [1.0.9](https://www.nuget.org/packages/Microsoft.Azure.Management.RemoteApp/1.0.9) |  |  |
 | Microsoft.Azure.Management.Reservations | nuget [1.13.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Reservations/1.13.0-preview) |  |  |
 | Microsoft.Azure.Management.ResourceGraph | nuget [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/2.0.0) |  |  |
-| Microsoft.Azure.Management.ResourceManager | nuget [3.7.3-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager/3.7.3-preview) |  |  |
+| Microsoft.Azure.Management.ResourceManager | nuget [3.8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager/3.8.0-preview) |  |  |
 | Microsoft.Azure.Management.ResourceManager.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.Resources | nuget [2.20.1-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Resources/2.20.1-preview) |  |  |
 | Microsoft.Azure.Management.SampleProjectPublish | nuget [0.9.0-Preview](https://www.nuget.org/packages/Microsoft.Azure.Management.SampleProjectPublish/0.9.0-Preview) |  |  |
@@ -292,7 +292,7 @@
 | Microsoft.Azure.Management.Storage | nuget [17.1.1](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/17.1.1) |  |  |
 | Microsoft.Azure.Management.Storage.Fluent | nuget [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.StorageCache | nuget [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.StorageCache/1.1.0) |  |  |
-| Microsoft.Azure.Management.StorageSync | nuget [5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.StorageSync/5.0.0) |  |  |
+| Microsoft.Azure.Management.StorageSync | nuget [5.0.1](https://www.nuget.org/packages/Microsoft.Azure.Management.StorageSync/5.0.1) |  |  |
 | Microsoft.Azure.Management.StorSimple.Fluent | nuget [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.StorSimple.Fluent/1.9.1-beta) |  |  |
 | Microsoft.Azure.Management.Storsimple8000series | nuget [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storsimple8000series/1.0.0) |  |  |
 | Microsoft.Azure.Management.StreamAnalytics | nuget [2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.StreamAnalytics/2.1.0) |  |  |
