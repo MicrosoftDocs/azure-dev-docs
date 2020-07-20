@@ -35,7 +35,6 @@ Identify what tool(s) are used to build/package the application, including downl
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
-
 ### Special cases
 
 Certain production scenarios may require additional changes or impose additional limitations. While such scenarios can be infrequent, it's important to ensure that they're either inapplicable to your application or correctly resolved.
@@ -63,6 +62,10 @@ On Azure Spring Cloud, the SSL session will terminate prior to reaching your app
 #### Determine whether Tomcat realms are used
 
 On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. Inspect your `server.xml` file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
+
+#### Determine whether servlet filters are used
+
+Inspect the `web.xml` in the application for any `<filter>` elements. See the [Tomcat filter documentation](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html) for a list of available filters.
 
 ## Migration
 
