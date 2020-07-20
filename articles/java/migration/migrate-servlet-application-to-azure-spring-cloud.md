@@ -1,13 +1,13 @@
 ---
 title: Migrate servlet applications to Azure Spring Cloud
-description: This guide describes what you should be aware of when you want to migrate an existing servlet application to Azure Spring Cloud
+description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Cloud
 author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 6/16/2020
 ---
 
-# Migrate Servlet Application to Azure Spring Cloud
+# Migrate Tomcat Application to Azure Spring Cloud
 
 ## Pre-Migration
 
@@ -16,8 +16,6 @@ ms.date: 6/16/2020
 Azure Spring Cloud offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
-
-[!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
 [!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
 
@@ -36,6 +34,7 @@ Identify what tool(s) are used to build/package the application, including downl
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code-no-title](includes/determine-whether-your-application-contains-os-specific-code-no-title.md)]
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+
 
 ### Special cases
 
@@ -63,7 +62,7 @@ On Azure Spring Cloud, the SSL session will terminate prior to reaching your app
 
 #### Determine whether Tomcat realms are used
 
-
+On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. Inspect your `server.xml` file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
 
 ## Migration
 
@@ -79,7 +78,7 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 ### Migrate to Spring Boot
 
-1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the application server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
+1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
 
 1. Add the Spring Boot parent POM your POM file as [shown here](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-pom).
 
@@ -97,6 +96,8 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 1. Replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC.
 
 1. Recreate all other JNDI dependencies with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection). Favor using Spring-idomatic mechanisms, such as using [Spring JMS](https://spring.io/guides/gs/messaging-jms/) for messaging.
+
+1. Replace Tomcat Realms with [Spring Security](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-filters-review). Consider using Azure Active Directory for authorization management via the [Spring Boot Starter for Active Directory](/azure/developer/java/spring-framework/spring-boot-starters-for-azure#azure-active-directory).
 
 1. Recreate Servlet filters configured in `web.xml` with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
 
