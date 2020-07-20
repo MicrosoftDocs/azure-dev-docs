@@ -78,6 +78,8 @@ Inventory any scheduled jobs, inside or outside the application server.
 
 To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
 
+
+
 #### Determine whether non-HTTP connectors are used
 
 App Service supports only a single HTTP connector. If your application requires additional connectors, such as the AJP connector, don't use App Service.
