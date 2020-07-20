@@ -7,6 +7,8 @@ ms.topic: conceptual
 ms.date: 6/16/2020
 ---
 
+# Migrate Servlet Application to Azure Spring Cloud
+
 ## Pre-Migration
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
@@ -57,7 +59,9 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/docs/current/reference/html5/index.html) instead.
 
-#### Determine whether MemoryRealm is used
+#### Determine whether Tomcat realms are used.
+
+
 
 ## Migration
 
