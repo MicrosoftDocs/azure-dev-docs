@@ -89,6 +89,15 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 ### Migrate to Spring Boot
 
+The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Cloud. If any element in the Legacy column is used in the application, it should be replaced with the corresponeding element in the Minimum or, ideally, Recommended column.
+
+|Legacy    |Minimum    |Recommended|
+|---|---|---|
+|[JDBC via DataSource](https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html)|[Spring Data Datasource](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-sql) with [JDBC Template](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template)|Consider Spring Data and JPA, if appropriate.|
+|Servlets |Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and annotate with `@WebServlet`|Rewrite as [Spring-MVC Controllers (with `@RestController`](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller))
+|Java Server Pages (JSPs) |[JSP Views for Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp)|Do not host presentation code with backend code|
+|Java Message Service (JMS)|Instantiate connection factory as a [Spring Bean]((https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection)|Use [Spring JMS](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jms-using)
+
 1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
 
 1. Add the Spring Boot parent POM your POM file as [shown here](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-pom).
@@ -104,9 +113,9 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
     Although this is formerly a tomcat application, do not add `war` as target packaging.
 
-1. Replace Tomcat data sources with Spring Beans. See [Spring Data JDBC documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for more information. Replace any [explicit context lookups](http://tomcat.apache.org/tomcat-9.0-doc/jndi-resources-howto.html#Using_resources) with [Spring Bean injections](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection).
+1. Replace Tomcat data sources with Spring datasources. [Configure Spring Datasources](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-a-datasource) for all the databases used by the application. If any code executes direct SQL queries, modify it to [use JdbcTemplate](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template). See the [Spring Framework documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc) and [Spring Data documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for additional data access features, such as transaction management and CRUD tooling.
 
-1. Replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC.
+1. While it is possible to have servlet implementations inside an [embedded servlet container](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container), we do not recommend doing so. Instead, replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC. See [Spring MVC annotated controller reference](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web.html#mvc-controller) for more information.
 
 1. Recreate all other JNDI dependencies with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection). Favor using Spring-idiomatic mechanisms, such as using [Spring JMS](https://spring.io/guides/gs/messaging-jms/) for messaging.
 
