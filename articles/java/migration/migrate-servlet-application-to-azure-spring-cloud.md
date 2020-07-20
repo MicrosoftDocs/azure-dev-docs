@@ -92,6 +92,8 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 1. Replace Tomcat data sources with Spring Beans. See [Spring Data JDBC documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for more information. Replace any [explicit context lookups](http://tomcat.apache.org/tomcat-9.0-doc/jndi-resources-howto.html#Using_resources) with [Spring Bean injections](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection).
 
+1. Replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC.
+
 1. Recreate all other JNDI dependencies with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection). Favor using Spring-idomatic mechanisms, such as using [Spring JMS](https://spring.io/guides/gs/messaging-jms/) for messaging.
 
 1. Recreate Servlet filters configured in `web.xml` with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
