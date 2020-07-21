@@ -29,7 +29,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). This demo was tested using PowerShell 7.0.2 on Windows 10.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI]((/cli/azure/install-azure-cli-windows?view=azure-cli-latest)).
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
