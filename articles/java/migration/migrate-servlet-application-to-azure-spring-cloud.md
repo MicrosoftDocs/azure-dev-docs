@@ -9,6 +9,8 @@ ms.date: 6/16/2020
 
 # Migrate Tomcat Application to Azure Spring Cloud
 
+This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Spring Cloud.
+
 ## Pre-Migration
 
 ### Switch to a supported platform
@@ -25,7 +27,11 @@ Identify what tool(s) are used to build/package the application, including downl
 
 [!INCLUDE [inventory-external-resources](includes/inventory-external-resources.md)]
 
-[!INCLUDE [inventory-secrets](includes/inventory-secrets.md)]
+### Inventory secrets
+
+#### Passwords and secure strings
+
+Check all properties and configuration files on the production server(s) for any secret strings and passwords. Be sure to check *server.xml* and *context.xml* in *$CATALINA_BASE/conf*. You may also find configuration files containing passwords or credentials inside your application in *META-INF/context.xml*.
 
 [!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
@@ -47,11 +53,7 @@ Certain production scenarios may require additional changes or impose additional
 
 Inspect the application's `web.xml` for any [configured filters](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#Expires_Filter/Basic_configuration_sample).
 
-#### Determine whether application relies on scheduled jobs
-
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service won't prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
-
-Inventory any scheduled jobs, inside or outside the application server.
+[!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud.md)]
 
 #### Determine whether non-HTTP connectors are used
 
@@ -89,14 +91,14 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 ### Migrate to Spring Boot
 
-The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Cloud. If any element in the Legacy column is used in the application, it should be replaced with the corresponeding element in the Minimum or, ideally, Recommended column.
+The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Cloud. If any element in the Legacy column is used in the application, it should be replaced with the corresponding element in the Minimum or, ideally, Recommended column.
 
 |Legacy    |Minimum    |Recommended|
 |---|---|---|
 |[JDBC via DataSource](https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html)|[Spring Data Datasource](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-sql) with [JDBC Template](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template)|Consider Spring Data and JPA, if appropriate.|
 |Servlets |Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and annotate with `@WebServlet`|Rewrite as [Spring-MVC Controllers (with `@RestController`](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller))
-|Java Server Pages (JSPs) |[JSP Views for Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp)|Do not host presentation code with backend code|
-|Java Message Service (JMS)|Instantiate connection factory as a [Spring Bean]((https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection)|Use [Spring JMS](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jms-using)
+|Java Server Pages (JSPs) |[JSP Views for Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp)|Host the view layer separately|
+|Java Message Service (JMS)|Instantiate connection factory as a [Spring Bean](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection)|Use [Spring JMS](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jms-using)
 
 1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
 
