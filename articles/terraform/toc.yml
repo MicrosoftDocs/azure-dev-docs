@@ -9,8 +9,8 @@
   items:
     - name: Get started - Cloud Shell
       href: get-started-cloud-shell.md
-    - name: Get started - Windows
-      href: get-started-windows.md
+    - name: Get started - PowerShell
+      href: get-started-powershell.md
 - name: Tutorials
   items:
     - name: Setup and configuration
