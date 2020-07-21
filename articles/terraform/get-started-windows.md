@@ -159,9 +159,9 @@ At this point, you should be logged into an Azure subscription. Now, let's write
 In order for Terraform to use the intended Azure subscription, set environment variables. You can either do this at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
 ```powershell
-$env:ARM_CLIENT_ID="<servicePrincipleAppid>"
-$env:ARM_SUBSCRIPTION_ID="<azureSubscriptionId>"
-$env:ARM_TENANT_ID="<azureSubscriptionTenantId>"
+$env:ARM_CLIENT_ID=<servicePrincipleAppid>
+$env:ARM_SUBSCRIPTION_ID=<azureSubscriptionId>
+$env:ARM_TENANT_ID=<azureSubscriptionTenantId>
 ```
 
 ## Create and apply a Terraform execution plan
