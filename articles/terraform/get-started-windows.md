@@ -156,7 +156,7 @@ At this point, you should be logged into an Azure subscription. Now, let's write
 
 ## Create and apply a Terraform execution plan
 
-Once you create your configuration file, this section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your security principal.
+Once you create your configuration file, this section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
@@ -172,8 +172,8 @@ Once you create your configuration file, this section explains how to create an 
 
     **Notes:**
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan that you reviewed is exactly what is applied.
-    - For persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
+    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html) specifying the name of the file from the previous step.
 
@@ -181,9 +181,7 @@ Once you create your configuration file, this section explains how to create an 
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
-1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
-
-1. Once you confirm the execution of the plan, test that the resource group was successfully created using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
+1. Once the execution plan is applied, you can test that the resource group was successfully created using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
