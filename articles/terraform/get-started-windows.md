@@ -154,6 +154,16 @@ At this point, you should be logged into an Azure subscription. Now, let's write
     - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
 
+## Set environment variables
+
+In order for Terraform to use the intended Azure subscription, set environment variables. You can either do this at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
+
+```powershell
+$env:ARM_CLIENT_ID="<servicePrincipleAppid>"
+$env:ARM_SUBSCRIPTION_ID="<azureSubscriptionId>"
+$env:ARM_TENANT_ID="<azureSubscriptionTenantId>"
+```
+
 ## Create and apply a Terraform execution plan
 
 Once you create your configuration file, this section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
@@ -199,9 +209,7 @@ When no longer needed, delete the resources created in this article.
     terraform destroy -auto-approve
     ```
 
-1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
-
-1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
+1. Verify that the resource group was deleted by using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
