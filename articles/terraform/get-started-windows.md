@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using PowerShell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 07/14/2020
+ms.date: 07/16/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -88,6 +88,8 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 
 To log into an Azure subscription using a service principal, call [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential).
 
+1. Start PowerShell.
+
 1. Get a [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
 
     1. Call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
@@ -101,13 +103,13 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
         ```powershell
         $spName = "<servicePrincipalName>"
         $spPassword = ConvertTo-SecureString "<servicePrincipalPassword>" -AsPlainText -Force
-        $psCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
+        $spCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
         ```
 
 1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.
 
     ```powershell
-    Connect-AzAccount -Credential $Credential -Tenant <azureSubscriptionTenantId> -ServicePrincipal
+    Connect-AzAccount -Credential $spCredential -Tenant "<azureSubscriptionTenantId>" -ServicePrincipal
     ```
 
 ## Create a Terraform configuration file
@@ -142,7 +144,7 @@ At this point, you should be logged into an Azure subscription. Now, let's write
       features {}
     }
     resource "azurerm_resource_group" "rg" {
-            name = "QuickstartTerraformTest-rg"
+            name     = "QuickstartTerraformTest-rg"
             location = "eastus"
     }
     ```
@@ -162,21 +164,21 @@ Once you create your configuration file, this section explains how to create an 
     terraform init
     ```
 
-1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
+1. Create an execution plan from your Terraform configuration file by calling [terraform plan](https://www.terraform.io/docs/commands/plan.html). 
 
     ```powershell
-    terraform plan
+    terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
     **Notes:**
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
-    - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persist-an-execution-plan-for-later-deployment).
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan that you reviewed is exactly what is applied.
+    - For persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
-1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
+1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html) specifying the name of the file from the previous step.
 
     ```powershell
-    terraform apply
+    terraform apply QuickstartTerraformTest.tfplan
     ```
 
 1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
@@ -189,38 +191,6 @@ Once you create your configuration file, this section explains how to create an 
 
     If successful, the command displays various properties of the newly created resource group.
 
-## Persist an execution plan for later deployment
-
-In the previous section, you saw how to run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. You then saw that using [terraform apply](https://www.terraform.io/docs/commands/apply.html) applies that plan. This pattern works well when the steps are interactive and sequential.
-
-For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
-
-If you use this feature, it's recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
-
-The following steps illustrate the basic pattern for using this feature:
-
-1. Run [terraform init](https://www.terraform.io/docs/commands/init.html).
-
-    ```powershell
-    terraform init
-    ```
-
-1. Run `terraform plan` with the `-out` parameter.
-
-    ```powershell
-    terraform plan -out QuickstartTerraformTest.tfplan
-    ```
-
-1. Run `terraform apply`, specifying the name of the file from the previous step.
-
-    ```powershell
-    terraform apply QuickstartTerraformTest.tfplan
-    ```
-
-**Notes**:
-- To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
-- If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
-
 ## Clean up resources
 
 When no longer needed, delete the resources created in this article.
@@ -228,7 +198,7 @@ When no longer needed, delete the resources created in this article.
 1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
 
     ```powershell
-    terraform destroy
+    terraform destroy -auto-approve
     ```
 
 1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm the command by entering `yes` and pressing the **Enter** key.
