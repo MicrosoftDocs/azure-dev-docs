@@ -145,9 +145,10 @@ At this point, you should be logged into an Azure subscription. Now, let's write
       version = "~>2.0"
       features {}
     }
+
     resource "azurerm_resource_group" "rg" {
-            name     = "QuickstartTerraformTest-rg"
-            location = "eastus"
+      name     = "QuickstartTerraformTest-rg"
+      location = "eastus"
     }
     ```
 
