@@ -29,7 +29,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). This demo was tested using PowerShell 7.0.2 on Windows 10.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). This demo was tested using Azure CLI version 2.9.1.
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
@@ -64,10 +64,10 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 
 1. Start PowerShell.
 
-1. Create a new service principal using [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal). Replace `<subscription_id>` with your Azure subscription ID.
+1. Create a new service principal using [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal). Replace `<azure_subscription_id>` with the ID of the Azure subscription you want to use.
 
     ```powershell
-    $sp = New-AzADServicePrincipal -Scope /subscriptions/<subscription_id>
+    $sp = New-AzADServicePrincipal -Scope /subscriptions/<azure_subscription_id>
     ```
 
 1. Display the names of the service principal.
@@ -103,15 +103,15 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
 
         ```powershell
-        $spName = "<servicePrincipalName>"
-        $spPassword = ConvertTo-SecureString "<servicePrincipalPassword>" -AsPlainText -Force
+        $spName = "<service_principle_name>"
+        $spPassword = ConvertTo-SecureString "<service_principle_password>" -AsPlainText -Force
         $spCredential = New-Object System.Management.Automation.PSCredential($spName , $spPassword)
         ```
 
-1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azureSubscriptionTenantId>` placeholder with the Azure subscription tenant ID.
+1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azure_subscription_tenant_id>` placeholder with the Azure subscription tenant ID.
 
     ```powershell
-    Connect-AzAccount -Credential $spCredential -Tenant "<azureSubscriptionTenantId>" -ServicePrincipal
+    Connect-AzAccount -Credential $spCredential -Tenant "<azure_subscription_tenant_id>" -ServicePrincipal
     ```
 
 ## Create a Terraform configuration file
@@ -161,9 +161,9 @@ At this point, you should be logged into an Azure subscription. Now, let's write
 In order for Terraform to use the intended Azure subscription, set environment variables. You can either do this at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
 ```powershell
-$env:ARM_CLIENT_ID=<servicePrincipleAppid>
-$env:ARM_SUBSCRIPTION_ID=<azureSubscriptionId>
-$env:ARM_TENANT_ID=<azureSubscriptionTenantId>
+$env:ARM_CLIENT_ID=<service_principle_app_id>
+$env:ARM_SUBSCRIPTION_ID=<azure_subscription_id>
+$env:ARM_TENANT_ID=<azure_subscription_tenant_id>
 ```
 
 ## Create and apply a Terraform execution plan
