@@ -67,22 +67,3 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-
-<!-- IMG List -->
-
-[AZ02]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ02.png
-[AZ03]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ03.png
-[AZ05]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ05.png
-[AZ06]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ06.png
-[AZ07]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ07.png
-[AZ08]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/AZ08.png
-
-[SI01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/SI01.png
-[SI03]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/SI03.png
-
-[RE01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/RE01.png
-[RE02]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/RE02.png
-
-[JV01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/JV01.png
-[JV02]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/JV02.png
-[JV03]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/JV03.png
