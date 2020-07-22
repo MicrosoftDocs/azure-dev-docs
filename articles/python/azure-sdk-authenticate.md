@@ -64,7 +64,7 @@ In both cases, the identity involved must be assigned permissions for the approp
 ### Using DefaultAzureCredential with SDK management libraries
 
 ```python
-# WARNING: this code presently fails!
+# WARNING: this code presently fails with current release libraries!
 
 from azure.identity import DefaultAzureCredential
 
@@ -81,7 +81,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-At present, `DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and preview versions of the Azure SDK management libraries (whose names begin with `azure-mgmt`), as show in this code example. That is, with current release libraries, the call to `subscription_client.subscriptions.list()` fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because the current SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
+At present, `DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and preview versions of the Azure SDK management libraries (that is, the latest preview version of libraries whose names begin with `azure-mgmt`), as shown in this code example. That is, with current release libraries, the call to `subscription_client.subscriptions.list()` fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because the current SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
 
 You can work around the error by using preview management libraries, as described in the blog post, [Introducing new previews for Azure management libraries](https://devblogs.microsoft.com/azure-sdk/introducing-new-previews-for-azure-management-libraries/).
 
