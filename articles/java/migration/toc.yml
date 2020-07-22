@@ -20,7 +20,7 @@
       items:
         - name: WebLogic to Azure Virtual Machines
           href: migrate-weblogic-to-virtual-machines.md
-        - name: WebLogic to Azure with Azure Active Directory via LDAP
+        - name: End-user Authorization and Authentication for Migrating Java Apps on WebLogic Server to Azure
           href: migrate-weblogic-with-aad-ldap.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md

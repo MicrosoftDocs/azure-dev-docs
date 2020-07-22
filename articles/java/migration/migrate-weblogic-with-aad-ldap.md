@@ -1,5 +1,5 @@
 ---
-title: End-user Authorization and Authentication for Java Apps on WebLogic Server
+title: End-user Authorization and Authentication with Azure Active Directory for Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
 author: edburns
 ms.author: edburns
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ---
 
-# End-user Authorization and Authentication for Java Apps on WebLogic Server
+# End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
 
 This guide will help you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Azure Active Directory.
 
@@ -33,16 +33,16 @@ This guide doesn't help you reconfigure an existing Azure AD deployment, but it 
   * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
-## Migration Context
+## Migration context
 
 Here are some things to consider about migrating on-premise WLS installations and Azure AD.
 
 * If you already have an Azure AD tenant without Domain Services exposed via LDAP, this guide will show how to expose the LDAP capability and integrate it with WLS.
 * If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
-* If you are optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
+* If you`re optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
 
-## Azure Active Directory Configuration
+## Azure Active Directory configuration
 
 This section walks you through all the steps to stand up an Azure AD DS instance integrated with WLS.  Azure Active Directory doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. Instead, support is enabled through the Azure AD Domain Services (Azure AD DS) instance within your Azure AD tenant.
 
@@ -81,11 +81,14 @@ Repeat the steps from "Select **New user**" through "Log and out close" for each
 
 This section walks you through a separate tutorial to extract values for use in configuring WLS.
 
-Please open the tutorial [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) in a separate browser window so you can look at the below variations as you run through the tutorial.  
+First, open the tutorial [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) in a separate browser window so you can look at the below variations as you run through the tutorial.  
 
-* When you reach the section, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers), take note of where you save the certificate file ending in *.cer*.  We'll use the certificate as input to the WLS configuration.
-* When you reach the section, [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet), specify **Any** as the source.  We'll tighten the security rule with a specific IP address later in this guide.
-* Before you execute the steps in [Test queries to the managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#test-queries-to-the-managed-domain), do the following steps to enable the testing to succeed.
+When you reach the section, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers), take note of where you save the certificate file ending in *.cer*.  We'll use the certificate as input to the WLS configuration.
+
+When you reach the section, [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet), specify **Any** as the source.  We'll tighten the security rule with a specific IP address later in this guide.
+
+Before you execute the steps in [Test queries to the managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#test-queries-to-the-managed-domain), do the following steps to enable the testing to succeed.
+
    1. In the portal, visit the overview page for the Azure AD Domain Services instance.
    1. In the Settings area, select **Properties**.
    1. In the right of the page, scroll down until you see **Admin group**.  Under this heading should be a link for **AAD DC Administrators**.  Select that link.
@@ -101,36 +104,37 @@ Please open the tutorial [Configure secure LDAP for an Azure Active Directory Do
    > * The tutorial advises use of the Windows program *LDP.exe*.  It's also possible to use [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) for the same purpose.
    > * When logging in to LDAP with *LDP.exe*, the username is just the part before the @.  For example, if the user is `alice@contoso.onmicrosoft.com`, the username for the *LDP.exe* bind action is `alice`.  Also, leave *LDP.exe* running and logged in for use in subsequent steps.
    >
-* In the section [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access), note down the value for **Secure LDAP external IP address**.  You'll use it later.
-* Do not execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
+In the section [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access), note down the value for **Secure LDAP external IP address**.  You'll use it later.
+
+Do not execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
 
 With the above variations in mind, complete [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).  We can now collect the values necessary to provide to the WLS Configuration.
 
 ## WLS Configuration
 
-This section helps you collect the parameter values from the Azure AD DS deployed earlier.  
+This section helps you collect the parameter values from the Azure AD DS deployed earlier.
 
-When a user deploys any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), they may choose to have the deployment automatically connect to an LDAP server.  Alternatively, configuring the LDAP connection may also be done later by invoking the Active Directory integration subtemplate.  This approach is described in [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).  Either way, you must have the necessary parameter values to pass to the ARM template.
+When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).  Either way, you must have the necessary parameter values to pass to the ARM template.
 
-| Description | Parameter Name   | Details | 
-|-------------|------------------|---------|
-| Server Host | `aadsServerHost` | This value is the public DNS name you saved when completing [Create and configure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
-| Secure LDAP external IP address | `aadsPublicIP` | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
-| Principal   | `wlsLDAPPrincipal` | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users"**.</li></ol> |
-| User Base DN and Group Base DN | `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
-| Password for Principal | `wlsLDAPPrincipalPassword` | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
-| Provider Name | `wlsLDAPProviderName` | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
-| Trust Keystore for SSL Configuration | `wlsLDAPSSLCertificate` | This value is the base 64 encoded *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).  This value can be obtained with the following UNIX or PowerShell commands. <br /> bash: <br /> `base64 your-certificate.cer -w 0 >temp.txt` <br /> PowerShell: <br /> `$Content = Get-Content -Path .\your-certificate.cer -Encoding Byte`<br /> `$Base64 = [System.Convert]::ToBase64String($Content)` <br /> `$Base64 | Out-File .\temp.txt`
+| Parameter name | Description   | Details | 
+|----------------|---------------|---------|
+| `aadsServerHost` | Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
+| `aadsPublicIP` | Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
+| `wlsLDAPPrincipal` | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users"**.</li></ol> |
+| `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
+| `wlsLDAPPrincipalPassword` | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
+| `wlsLDAPProviderName` | Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
+| `wlsLDAPSSLCertificate` | Trust Keystore for SSL Configuration | This value is the base 64 encoded *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).  This value can be obtained with the following UNIX or PowerShell commands. <br /> bash: <br /> `base64 your-certificate.cer -w 0 >temp.txt` <br /> PowerShell: <br /> `$Content = Get-Content -Path .\your-certificate.cer -Encoding Byte`<br /> `$Base64 = [System.Convert]::ToBase64String($Content)` <br /> `$Base64 | Out-File .\temp.txt`
 
 ### Integrating Azure AD DS LDAP with WLS
 
 With the above configuration values in hand, and the Azure AD DS LDAP deployed, it's now possible to launch the configuration.  There are two approaches to complete this process.
 
-#### During WLS Deployment
+#### During WLS deployment
 
 Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) and select the admin or either of the cluster offers.  While deploying the offer, one of the tabs in the deployment process will be **Azure Active Directory**.  Toggle the **Connect to Azure Active Directory** to **Yes**.  Fill out the values based using the information collected in the preceding section.  For the certificate, you must upload the `.cer` file directly.
 
-#### After WLS Deployment
+#### After WLS deployment
 
 If you didn't toggle the **Connect to Azure Active Directory** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).
 
@@ -140,9 +144,9 @@ After deploying WLS and configuring LDAP using one of the above two methods, fol
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
-1. If the integration was successful, you will find the AAD provider for example `AzureActiveDirectoryProvider`.
+1. If the integration was successful, you'll find the AAD provider for example `AzureActiveDirectoryProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
-1. If the integration was successful, you will find users from the AAD provider.
+1. If the integration was successful, you'll find users from the AAD provider.
 
 ### Lock down and secure LDAP access over the internet
 

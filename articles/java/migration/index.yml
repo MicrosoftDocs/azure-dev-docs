@@ -46,7 +46,7 @@ landingContent:
             url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
           - text: WebLogic to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
-          - text: WebLogic to Azure with Azure Active Directory via LDAP
+          - text: End-user Authorization and Authentication for Migrating Java Apps on WebLogic Server to Azure
             url: migrate-weblogic-with-aad-ldap.md
   - title: Migrate WildFly to Azure
     linkLists:
