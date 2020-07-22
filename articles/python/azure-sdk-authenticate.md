@@ -64,7 +64,7 @@ In both cases, the identity involved must be assigned permissions for the approp
 ### Using DefaultAzureCredential with SDK management libraries
 
 ```python
-# WARNING: this code presently fails with non-preview libraries!
+# WARNING: this code presently fails with current release libraries!
 
 from azure.identity import DefaultAzureCredential
 
