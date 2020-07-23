@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - test: Build JavaScript applications with Node.js
+          - text: Build JavaScript applications with Node.js
             url: /learn/paths/build-javascript-applications-nodejs/
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
