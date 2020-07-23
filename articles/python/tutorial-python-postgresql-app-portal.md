@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure Portal'
-description: Create a Python web app with a PostgreSQL database and deploy it to Azure through the Azure Portal. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
+description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/23/2020
