@@ -26,16 +26,16 @@ landingContent:
         links:
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
-      - linkListType: learn
-        links:
-          - text: Learn to build applications with Node.js
-            url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: quickstart
         links:
           - text: Quickly deploy a Node.js sample in Azure App Service
             url: https://aka.ms/try-azure-node
           - text: Browse all available Azure SDK for JavaScript samples
             url: /samples/browse/?languages=javascript,nodejs
+      - linkListType: learn
+        links:
+          - text: Learn to build applications with Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: reference
         links:
           - text: Azure libraries API reference for JavaScript
