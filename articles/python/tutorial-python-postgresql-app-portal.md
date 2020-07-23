@@ -135,7 +135,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
 ## Configure environment variables to connect the database
 
-In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](how-to-configure-python.md#access-environment-variables).)
+In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](/azure/app-service/containers/how-to-configure-python.md#access-environment-variables).)
 
 1. Switch back to the browser tab or window for the web app you created in a previous section.
 
@@ -146,6 +146,7 @@ In this section, you create settings for the web app that it needs to connect to
 1. Use the **New application setting** button to create settings for each of the following values:
 
     | Setting name | Value |
+    | --- | --- |
     | DJANGO_ENV | `production` |
     | DBHOST | The URL of the database server from the previous section, in the form `<server-name>.postgres.database.azure.com`. You can copy the whole URL from the database server's Overview page. |
     | DBNAME | `pollsdb` |
