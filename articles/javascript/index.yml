@@ -37,7 +37,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure libraries API reference for JavaScript
-          url: /javascript/api/overview/azure/
+            url: /javascript/api/overview/azure/
   - title: Host applications on Azure
     linkLists:
       - linkListType: overview
