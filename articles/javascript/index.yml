@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 # On-page H1/lede
-title: Azure SDK for JavaScript documentation
+title: Azure for JavaScript Developers
 summary: |
   Learn about the Azure SDK for JavaScript and Node.js, how to get started using it, and what it offers for developers. Get started with useful
   Azure features like application hosting, DevOps tasks, persistent storage and databases, and working with Internet of Things devices.
@@ -10,13 +10,23 @@ summary: |
 metadata:
   title: Azure for JavaScript and Node.js developers
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
-  author: sptramer
-  ms.author: sttramer
-  ms.date: 09/15/2019
+  author: diberry
+  ms.author: diberry
+  ms.date: 07/23/2020
   ms.topic: landing-page
-
+  ms.collection: collection
+  ms.technology: azure
+  ms.service: multiple
+  ms.devlang: javascript
+  
 landingContent:
-  - title: Get started with the Azure SDK for JavaScript
+  - title: Get started with JavaScript on Azure
+    linkLists:
+      - linkListType: overview
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your local dev environment
+            url: configure-local-development-environment.md
     linkLists:
       - linkListType: quickstart
         links:
@@ -24,6 +34,11 @@ landingContent:
             url: https://aka.ms/try-azure-node
           - text: Browse all available Azure SDK for JavaScript samples
             url: /samples/browse/?languages=javascript,nodejs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure libraries API reference for JavaScript
+            url: /javascript/api/overview/azure/
   - title: Host applications on Azure
     linkLists:
       - linkListType: overview
@@ -82,9 +97,3 @@ landingContent:
             url: /azure/iot-hub/quickstart-control-device-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Process data from devices with Azure Event Hub
             url: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Azure SDK for JavaScript reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure SDK for JavaScript API reference
-            url: /javascript/api/overview/azure/
