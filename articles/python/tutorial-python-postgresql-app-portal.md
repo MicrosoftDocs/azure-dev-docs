@@ -31,17 +31,13 @@ In a browser, navigate to [https://github.com/Azure-Samples/djangoapp](https://g
 
 You create a fork of this repository so you can make changes and redeploy the code in a later step.
 
-**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided in the sample for your convenience.
-
-The sample is also modified to run in a production environment like Azure App Service:
+**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
-These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
-
-## Provision a web app in Azure
+## Provision the web app in Azure
 
 1. Open the [Azure portal](https://portal.azure.com)
 
@@ -66,7 +62,7 @@ These changes are specific to configuring Django to run in any production enviro
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the web app. Keep this browser window or tab open for later steps.
 
-## Provision a PostgreSQL database server in Azure
+## Provision the PostgreSQL database server in Azure
 
 1. Open a new browser window or tab with the [Azure portal](https://portal.azure.com). You use a new tab for provisioning the database because you'll need to transfer some information from the database page to the web app page still open from the previous section.
 
@@ -93,7 +89,7 @@ These changes are specific to configuring Django to run in any production enviro
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the database server.
 
-## Create a pollsdb database on the PostgreSQL server
+## Create the pollsdb database on the PostgreSQL server
 
 In this section, you connect to the database server in the Azure Cloud Shell and use a PostgreSQL command to create a "pollsdb" database on the server. This database is expected by the sample app code.
 
@@ -153,8 +149,8 @@ In this section, you create settings for the web app that it needs to connect to
 
 1. Select **Save** and then **Continue** to apply the settings.
 
-> [!IMPORTANT]
-> Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
+    > [!IMPORTANT]
+    > Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
 
 ## Deploy app code to the web app from a repository
 
@@ -175,6 +171,9 @@ With the database and connection settings in place, you can now configure the we
     | Branch | master |
 
 1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds.
+
+> [!NOTE]
+> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python.md).
 
 ## Run Django database migrations
 
@@ -221,9 +220,6 @@ You're now ready to run a quick test of the app to demonstrate that it is workin
 1. Browse again to `http:\//\<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active PostgreSQL database.
-
-> [!NOTE]
-> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python.md).
 
 ## Update the app and redeploy
 
