@@ -90,6 +90,10 @@
         href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Speech recognition
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Logging and metrics
+      items:
+      - name: Logging with the Azure SDK
+        href: javascript-sdk-azure-logging.md
   - name: Tutorials
     items:
       - name: Deploy Azure Functions with VS Code
