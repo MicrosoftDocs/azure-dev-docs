@@ -107,7 +107,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
     You can copy the command above and paste into the Cloud Shell by using a right-click and then selecting **Paste**.
 
-1. The psql command should fail with the message "psql: error: could not connect to server: FATAL:  no pg_hba.conf entry for host <ip-address>". This error indicates that you need to add a firewall rule for the IP address used by the Cloud Shell:
+1. The psql command should fail with the message "psql: error: could not connect to server: FATAL:  no pg_hba.conf entry for host <ip-address>". This error indicates that you need to add a firewall rule for the IP address used by the Cloud Shell: <a name="add-firewall-rule"></a>
 
     ![Portal connection security page for firewall rules](media/tutorial-python-postgresql-app-portal/server-firewall-rules.png)
 
@@ -194,7 +194,7 @@ With the code deployed and the database in place, the app is almost ready to use
     python manage.py migrate
     ```
 
-    If the `migrate` command fails
+    The `migrate` command may fail with the error, "could not connect to server: FATAL:  no pg_hba.conf entry for host <ip-address>". In this case, you need to add another firewall rule to the PostgreSQL server for the SSH session's IP address shown in the error. Repeat the steps to [add a firewall rule](#add-firewall-rule) that you used earlier with the Cloud Shell.
 
 1. Run the following command to create an administrator login for the app:
 
