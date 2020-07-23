@@ -31,9 +31,7 @@ In a browser, navigate to [https://github.com/Azure-Samples/djangoapp](https://g
 
 You create a fork of this repository so you can make changes and redeploy the code in a later step.
 
-### (Optional) About the sample
-
-The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided in the sample for your convenience.
+**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided in the sample for your convenience.
 
 The sample is also modified to run in a production environment like Azure App Service:
 
