@@ -24,10 +24,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Build JavaScript applications with Node.js
-            url: /learn/paths/build-javascript-applications-nodejs/
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
+      - linkListType: learn
+        links:
+          - text: Learn to build applications with Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: quickstart
         links:
           - text: Quickly deploy a Node.js sample in Azure App Service
