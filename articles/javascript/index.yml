@@ -23,22 +23,19 @@ landingContent:
   - title: Get started with JavaScript on Azure
     linkLists:
       - linkListType: overview
-      - linkListType: how-to-guide
         links:
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Quickly deploy a Node.js sample in Azure App Service
             url: https://aka.ms/try-azure-node
           - text: Browse all available Azure SDK for JavaScript samples
             url: /samples/browse/?languages=javascript,nodejs
-    linkLists:
       - linkListType: reference
         links:
           - text: Azure libraries API reference for JavaScript
-            url: /javascript/api/overview/azure/
+          url: /javascript/api/overview/azure/
   - title: Host applications on Azure
     linkLists:
       - linkListType: overview
