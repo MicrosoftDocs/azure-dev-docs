@@ -49,17 +49,17 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
         - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-static-website-node-01?tabs=bash
-          text: Create and deploy a static website
+          text: Develop a static website
         - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-azure-app-service-node-01?tabs=bash
-          text: Deploy a Node.js app to Azure App Service
+          text: Deploy to Azure App Service
         - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01?tabs=bash
           text: Deploy an Azure Functions application
         - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01?tabs=bash
-          text: Deploy a Node.js app using Docker containers
+          text: Deploy with Docker containers
         - url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          text: Migrate a MongoDB web app to Azure Cosmos DB
+          text: Migrate a MongoDB app to Azure Cosmos DB
         - url: https://docs.microsoft.com/azure/developer/javascript/
-          text: See more in the JavaScript developer center
+          text: See more ...
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       links:
