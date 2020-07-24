@@ -28,13 +28,13 @@ landingContent:
             url: configure-local-development-environment.md
       - linkListType: quickstart
         links:
-          - text: Quickly deploy a Node.js sample in Azure App Service
+          - text: Quickly deploy to Azure App Service
             url: https://aka.ms/try-azure-node
           - text: Browse samples
             url: /samples/browse/?languages=javascript,nodejs
       - linkListType: learn
         links:
-          - text: Learn to build applications with Node.js
+          - text: Build Node.js applications
             url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: reference
         links:
@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Set up CI/CD for Node.js applications in Azure Pipelines
+          - text: Set up CI/CD in Azure Pipelines
             url: /azure/devops-project/azure-devops-project-nodejs?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
             
   - title: Monitor
@@ -84,9 +84,9 @@ landingContent:
             url: /azure/azure-monitor/overview?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
       - linkListType: quickstart
         links:
-          - text: Set up CI/CD for Node.js applications in Azure Pipelines
+          - text: CI/CD in Azure Pipelines
             url: /azure/devops-project/azure-devops-project-nodejs?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
-          - text: Monitor deployed applications with Azure Monitor
+          - text: Monitor deployed applications
             url: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Messaging services
     linkLists:
@@ -102,13 +102,13 @@ landingContent:
         links:
           - text: Migrate MongoDB applications to Azure CosmosDB
             url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Work with blobs in Azure Storage
+          - text: Work with blobs
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Internet of Things (IoT) devices
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Manage devices with Azure IoT Hub
+          - text: Manage devices
             url: /azure/iot-hub/quickstart-control-device-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Process data from devices with Azure Event Hub
+          - text: Process data
             url: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
