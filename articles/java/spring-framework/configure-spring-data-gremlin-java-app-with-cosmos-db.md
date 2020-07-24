@@ -22,7 +22,7 @@ This article demonstrates how to use `azure-spring-data-gremlin` to store / retr
 
 The following prerequisites are required in order to follow the steps in this article:
 
-* An Azure subscription. If you don't know what is `Azure subscription`, please read [this document](https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings).
+* An Azure subscription. If you don't know what is `Azure subscription`, please read [subscriptions document].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
@@ -64,7 +64,7 @@ Review the specification and click `Create` to create your database.
    * Specify a unique `Database id` for your database.
    * You can choose to specify your `Storage capacity`, or you can accept the default.
    * Specify a unique `Graph id` for your graph.
-   * Specify a `Partition key`. For more information see [Using a partitioned graph in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-partitioning).
+   * Specify a `Partition key`. For more information see [graph partition].
 Click `OK`.
    
    When you have specified these options, click `OK` to create your graph.
@@ -90,7 +90,7 @@ Click `OK`.
 
 ## Update code according to the sample project
 
-Modify the project like the sample project: [azure-spring-data-sample-gremlin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin).
+Modify the project like the sample project: [azure-spring-data-sample-gremlin].
 
 1. Add dependency of `azure-spring-data-gremlin`
 
@@ -180,6 +180,9 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
+[subscriptions document]: https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings
+[graph partition]: https://docs.microsoft.com/en-us/azure/cosmos-db/graph-partitioning
+[azure-spring-data-sample-gremlin]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin.
 
 <!-- IMG List -->
 
