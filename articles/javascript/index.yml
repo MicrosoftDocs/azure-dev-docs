@@ -39,7 +39,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: API reference docs
-            url: /javascript/api/overview/azure/
+            url: /javascript/api/overview/azure/?view=azure-node-latest
           - text: Latest SDKs
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
   - title: Deploy with Visual Studio Code
