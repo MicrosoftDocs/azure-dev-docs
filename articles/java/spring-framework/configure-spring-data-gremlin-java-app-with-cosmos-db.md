@@ -87,9 +87,12 @@ Click `OK`.
 
 1. Unzip the file then import to your IDE.
 
-## Update code according to this sample project
 
-1. Add dependency of `azure-spring-data-gremlin`, just like the repo does. Choose the correct version.
+## Update code according to the sample project
+
+Modify the project like the sample project: [azure-spring-data-sample-gremlin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin).
+
+1. Add dependency of `azure-spring-data-gremlin`
 
 1. Delete all contents in `src/test/`
 
