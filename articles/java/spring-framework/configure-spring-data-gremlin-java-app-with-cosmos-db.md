@@ -29,7 +29,9 @@ The following prerequisites are required in order to follow the steps in this ar
 
 > [!IMPORTANT]
 >
-> Spring Boot version 2.0 or greater is required to complete the steps in this article.
+> To complete the steps in this article, make sure the spring-boot's version is 2.0.0.RELEASE.
+>
+> If you use newer version of spring-boot, please check the [latest document in github](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin).
 >
 
 ## Create an Azure Cosmos DB using the Azure portal
