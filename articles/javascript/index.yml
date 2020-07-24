@@ -62,7 +62,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure App Service
+          - text: Azure App Service
             url: /azure/app-service/overview
       - linkListType: architecture
         links:
@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Monitor?
+          - text: Azure Monitor
             url: /azure/azure-monitor/overview?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
       - linkListType: quickstart
         links:
@@ -89,7 +89,7 @@ landingContent:
             url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Pass messages with Azure Storage queues
             url: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Storage and databases on Azure
+  - title: Storage and databases
     linkLists:
       - linkListType: quickstart
         links:
