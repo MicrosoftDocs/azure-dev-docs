@@ -52,11 +52,11 @@ landingContent:
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Containerized applications
             url: tutorial-vscode-docker-node-01.md
-  - title: Deploy with the Azure CLI
+  - title: Deploy with Azure CLI
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Deno applications to App Service with the Azure CLI
+          - text: Deno apps
             url: tutorial-visual-studio-code-azure-app-service-deno-01.md
   - title: Host
     linkLists:
@@ -100,7 +100,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Migrate MongoDB applications to Azure CosmosDB
+          - text: Migrate from MongoDB to Azure CosmosDB
             url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Work with blobs
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
