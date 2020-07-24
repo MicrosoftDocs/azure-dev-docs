@@ -66,7 +66,7 @@ landingContent:
             url: /azure/app-service/overview
       - linkListType: architecture
         links:
-          - text: Find the hosting option right for you
+          - text: Find the right hosting option
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
 
   - title: DevOps
