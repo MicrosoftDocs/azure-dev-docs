@@ -9,7 +9,7 @@ metadata:
   ms.date: 04/08/2020
 
 landingContent:
-  - title: Deploy web apps
+  - title: Deploy Java apps
     linkLists:
       - linkListType: quickstart
         links:
