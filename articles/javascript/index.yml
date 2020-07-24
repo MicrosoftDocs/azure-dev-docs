@@ -38,8 +38,10 @@ landingContent:
             url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: reference
         links:
-          - text: API reference
+          - text: API reference docs
             url: /javascript/api/overview/azure/
+          - text: Latest SDKs
+            url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
   - title: Deploy with Visual Studio Code
     linkLists:
       - linkListType: quickstart
