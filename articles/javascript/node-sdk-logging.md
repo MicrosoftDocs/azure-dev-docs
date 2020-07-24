@@ -9,7 +9,7 @@ author: dsindona
 
 # Logging with the Azure SDK for JavaScript
 
-The Azure SDK for JavaScript [core library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) includes a [logger](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/logger/README.md) NPM module that allows you to easily enable logging for your application. 
+The Azure SDK for JavaScript core library includes a logger library that allows you to easily enable logging for your application. 
 
 [NPM package](https://www.npmjs.com/package/@azure/logger) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger)
 
