@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 # On-page H1/lede
-title: Azure for JavaScript Developers
+title: Azure for JavaScript developers
 summary: |
   Learn about the Azure SDK for JavaScript and Node.js, how to get started using it, and what it offers for developers. Get started with useful
   Azure features like application hosting, DevOps tasks, persistent storage and databases, and working with Internet of Things devices.
@@ -100,7 +100,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Migrate from MongoDB to Azure CosmosDB
+          - text: Migrate from MongoDB to Azure Cosmos DB
             url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Work with blobs
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
