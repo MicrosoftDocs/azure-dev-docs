@@ -20,7 +20,7 @@ metadata:
   ms.devlang: javascript
   
 landingContent:
-  - title: Get started with JavaScript on Azure
+  - title: Get started on Azure
     linkLists:
       - linkListType: overview
         links:
@@ -30,7 +30,7 @@ landingContent:
         links:
           - text: Quickly deploy a Node.js sample in Azure App Service
             url: https://aka.ms/try-azure-node
-          - text: Browse all available Azure SDK for JavaScript samples
+          - text: Browse samples
             url: /samples/browse/?languages=javascript,nodejs
       - linkListType: learn
         links:
@@ -38,9 +38,9 @@ landingContent:
             url: /learn/paths/build-javascript-applications-nodejs/
       - linkListType: reference
         links:
-          - text: Azure libraries API reference for JavaScript
+          - text: API reference
             url: /javascript/api/overview/azure/
-  - title: Host applications on Azure
+  - title: Host applications
     linkLists:
       - linkListType: overview
         links:
@@ -50,19 +50,25 @@ landingContent:
         links:
           - text: Find the hosting option right for you
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
+  - title: Deploy applications from Visual Studio Code
+    linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy static web applications from Visual Studio Code
+          - text: Static web applications
             url: tutorial-vscode-static-website-node-01.md
-          - text: Deploy serverless applications with Azure Functions from Visual Studio Code
+          - text: Serverless applications
             url: tutorial-vscode-serverless-node-01.md
-          - text: Deploy full-stack Node.js applications from Visual Studio Code
+          - text: Full-stack applications
             url: tutorial-vscode-azure-app-service-node-01.md
+          - text: Containerized applications
+            url: tutorial-vscode-docker-node-01.md
+  - title: Deploy applications with the Azure CLI
+    linkLists:
+      - linkListType: quickstart
+        links:
           - text: Deploy Deno applications to App Service with the Azure CLI
             url: tutorial-visual-studio-code-azure-app-service-deno-01.md
-          - text: Deploy containerized applications from Visual Studio Code
-            url: tutorial-vscode-docker-node-01.md
-  - title: Build, deploy, and monitor applications with Azure
+  - title: Build, deploy, and monitor applications
     linkLists:
       - linkListType: overview
         links:
@@ -82,15 +88,15 @@ landingContent:
             url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Pass messages with Azure Storage queues
             url: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Storage and database solutions on Azure
+  - title: Storage and databases on Azure
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Migrate MongoDB applications to Azure CosmosDB
+            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Work with blobs in Azure Storage
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Migrate MongoDB applications to use Azure CosmosDB
-            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Work with Internet of Things devices
+  - title: Internet of Things (IoT) devices
     linkLists:
       - linkListType: quickstart
         links:
