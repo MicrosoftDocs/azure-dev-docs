@@ -33,11 +33,11 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click `+Create a resource`.
 
-   ![create-a-resource](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-01.png)
+   ![create-a-resource][create-a-resource-01]
 
 1. Click `Databases`, and then click `Azure Cosmos DB`.
 
-   ![create-azure-cosmos-db](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-02.png)
+   ![create-azure-cosmos-db][create-a-resource-02]
 
 1. On the `Azure Cosmos DB` page, enter the following information:
 
@@ -49,7 +49,7 @@ The following prerequisites are required in order to follow the steps in this ar
    
 When you have specified these options, click `Review + create`.
 
-   ![create-azure-cosmos-db-account](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-03.png)
+   ![create-azure-cosmos-db-account][create-a-resource-03]
 
 Review the specification and click `Create` to create your database.
 
@@ -57,7 +57,7 @@ Review the specification and click `Create` to create your database.
 
 1. In CosmosDb page, Click `Data Explorer`, and then click `New Graph`.
 
-   ![new-graph](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-01.png)
+   ![new-graph][create-a-graph-01]
 
 1. When the `Add Graph` is displayed, enter the following information:
 
@@ -69,11 +69,11 @@ Click `OK`.
    
    When you have specified these options, click `OK` to create your graph.
 
-   ![add-graph](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-02.png)
+   ![add-graph][create-a-graph-02]
 
 1. After your graph has been created, you can use the `Data Explorer` to view it.
 
-   ![graph-detail](media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-03.png)
+   ![graph-detail][create-a-graph-03]
    
    
 
@@ -83,7 +83,7 @@ Click `OK`.
 
 1. Fill project metadata then click `GENERATE`:
 
-   ![spring-initializr](media/configure-spring-data-gremlin-java-app-with-cosmos-db/spring-initializr-01.png)
+   ![spring-initializr][spring-initializr-01]
 
 1. Unzip the file then import to your IDE.
 
@@ -109,7 +109,7 @@ Click `OK`.
 
 1. About how to get password:
 
-   ![get-password](media/configure-spring-data-gremlin-java-app-with-cosmos-db/get-password-01.png)
+   ![get-password][get-password-01]
 
 ## Build and run the project
 
@@ -122,7 +122,7 @@ Click `OK`.
 
 1. If your app start successfully, you can check the graph in Azure portal:
 
-   ![execute-result](media/configure-spring-data-gremlin-java-app-with-cosmos-db/execute-result-01.png)
+   ![execute-result][execute-result-01]
 
 
 ## Next steps
@@ -178,3 +178,18 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 
+<!-- IMG List -->
+
+[create-a-resource-01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-01.png
+[create-a-resource-02]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-02.png
+[create-a-resource-03]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-resource-03.png
+
+[create-a-graph-01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-01.png
+[create-a-graph-02]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-02.png
+[create-a-graph-03]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/create-a-graph-03.png
+
+[spring-initializr-01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/spring-initializr-01.png
+
+[get-password-01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/get-password-01.png
+
+[execute-result-01]: media/configure-spring-data-gremlin-java-app-with-cosmos-db/execute-result-01.png
