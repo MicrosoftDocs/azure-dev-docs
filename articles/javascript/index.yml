@@ -40,16 +40,6 @@ landingContent:
         links:
           - text: API reference
             url: /javascript/api/overview/azure/
-  - title: Host applications
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About Azure App Service
-            url: /azure/app-service/overview
-      - linkListType: architecture
-        links:
-          - text: Find the hosting option right for you
-            url: /azure/architecture/guide/technology-choices/compute-decision-tree
   - title: Deploy applications from Visual Studio Code
     linkLists:
       - linkListType: quickstart
@@ -68,6 +58,17 @@ landingContent:
         links:
           - text: Deploy Deno applications to App Service with the Azure CLI
             url: tutorial-visual-studio-code-azure-app-service-deno-01.md
+  - title: Host applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure App Service
+            url: /azure/app-service/overview
+      - linkListType: architecture
+        links:
+          - text: Find the hosting option right for you
+            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+
   - title: Build, deploy, and monitor applications
     linkLists:
       - linkListType: overview
