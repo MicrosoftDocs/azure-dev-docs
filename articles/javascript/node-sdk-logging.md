@@ -9,7 +9,13 @@ author: dsindona
 
 # Logging with the Azure SDK for JavaScript
 
-The [Azure SDK](https://azure.microsoft.com/downloads/) for JavaScript core library includes a [logger package](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/logger/README.md) that allows you to easily enable logging for your application. You can enable logging across your entire application using a single environment variable, or you can dynamically configure logging for one part of your application. This article explains key concepts about the logger package and how to enable logging with the following methods:
+The Azure SDK for JavaScript [core library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) includes a [logger](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/logger/README.md) NPM module that allows you to easily enable logging for your application. 
+
+[NPM module](https://www.npmjs.com/package/@azure/logger) | [Azure SDK for JavaScript (GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger)
+
+## Enable logging
+
+You can enable logging across your entire application using a single environment variable, or you can dynamically configure logging for one part of your application. This article explains key concepts about the logger package and how to enable logging with the following methods:
 
 - Set the `AZURE_LOG_LEVEL` environment variable.
 - Call `setLogLevel` imported from the logger library.
