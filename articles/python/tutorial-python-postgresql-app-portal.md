@@ -83,7 +83,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
     | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. |
-    | Admin username<br/>Password<br/>Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. |
+    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. |
 
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
 
@@ -137,7 +137,7 @@ In this section, you create settings for the web app that it needs to connect to
 
     | Setting name | Value |
     | --- | --- |
-    | DJANGO_ENV | `production` |
+    | DJANGO_ENV | `production` (This value tells the app to use a production configuration.) |
     | DBHOST | The URL of the database server from the previous section, in the form `<server-name>.postgres.database.azure.com`. You can copy the whole URL from the database server's Overview page. |
     | DBNAME | `pollsdb` |
     | DBUSER | The full administrator username as used in the previous section. The full username is again `<user-name>@<server-name>`. |
@@ -166,10 +166,9 @@ With the database and connection settings in place, you can now configure the we
     | Repository | djangoapp |
     | Branch | master |
 
-1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds.
+1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds and start the app.
 
-> [!NOTE]
-> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python.md).
+    App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python.md).
 
 ## Run Django database migrations
 
@@ -177,26 +176,27 @@ With the code deployed and the database in place, the app is almost ready to use
 
 1. In the browser window or tab for the web app, select **SSH** (under **Development Tools** on the left side). to open an SSH console on the web app server. It may take a minute to connect for the first time as the web app container needs to start.
 
-1. In the console, change into the web app's folder and install packages:
+1. In the console, change into the web app's folder:
 
     ```bash
-    # Change into the app code folder
     cd site/wwwroot
+    ```
 
-    # Install packages
+1. Install Python packages:
+
+    ```bash
     pip install -r requirements.txt
     ```
 
-1. Run database migrations with the following command:
+1. Run database migrations:
 
     ```bash
     python manage.py migrate
     ```
 
-1. Run the following command to create an administrator login for the app:
+1. Create an administrator login for the app:
 
     ```bash
-    # Create the super user (follow prompts)
     python manage.py createsuperuser
    ```
 
