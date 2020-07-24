@@ -93,7 +93,13 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 In this section, you connect to the database server in the Azure Cloud Shell and use a PostgreSQL command to create a "pollsdb" database on the server. This database is expected by the sample app code.
 
-1. From the overview page for the PostgreSQL server, open the Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon at the top of the window:
+1. From the overview page for the PostgreSQL server, select select **Connection security** (under **Settings** on the left side).
+
+    ![Portal connection security page for firewall rules](media/tutorial-python-postgresql-app-portal/server-firewall-rules.png)
+
+1. Select the button labeled **Add 0.0.0.0 - 255.255.255.255**, then select **Continue** in the pop up message that appears, followed by **Save** at the top of the page. These actions add a rule that allows you to connect to the database server from the Cloud Shell as well as SSH (as you do in a later section to run Django data model migrations).
+
+1. Open the Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon at the top of the window:
 
     ![Cloud Shell button on the Azure portal toolbar](media/tutorial-python-postgresql-app-portal/portal-launch-icon.png)
 
@@ -107,19 +113,9 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
     You can copy the command above and paste into the Cloud Shell by using a right-click and then selecting **Paste**.
 
-1. The psql command should fail with the message "psql: error: could not connect to server: FATAL:  no pg_hba.conf entry for host <ip-address>". This error indicates that you need to add a firewall rule for the IP address used by the Cloud Shell: <a name="add-firewall-rule"></a>
+    Enter your administrator password when prompted.
 
-    ![Portal connection security page for firewall rules](media/tutorial-python-postgresql-app-portal/server-firewall-rules.png)
-
-    1. From the Overview page for the server, select **Connection security** (under **Settings** on the left side).
-
-    1. Under **Firewall rules**, enter "CloudShell" for a rule name, then copy the IP address from the error message into both **Start IP** and **End IP** fields.
-
-    1. Select **Save** (at the top of the page) to save the firewall rule, and wait a few moments for the change to take effect.
-
-1. Run the psql command again in the Cloud Shell and enter your administrator password when prompted.
-
-1. When the shell connects successfully, you should see the prompt `postgres=>`. This prompt indicates that you're connected to the default database named "postgres".
+1. When the shell connects successfully, you should see the prompt `postgres=>`. This prompt indicates that you're connected to the default administrative database named "postgres". (The "postgres" database isn't intended for app usage.)
 
 1. At the prompt, run the command `CREATE DATABASE pollsdb;`. Be sure to include the ending semicolon, which completes the command.
 
@@ -181,7 +177,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
 1. In the browser window or tab for the web app, select **SSH** (under **Development Tools** on the left side). to open an SSH console on the web app server. It may take a minute to connect for the first time as the web app container needs to start.
 
-1. In the console, run the following commands:
+1. In the console, change into the web app's folder and install packages:
 
     ```bash
     # Change into the app code folder
@@ -189,12 +185,13 @@ With the code deployed and the database in place, the app is almost ready to use
 
     # Install packages
     pip install -r requirements.txt
-
-    # Run database migrations
-    python manage.py migrate
     ```
 
-    The `migrate` command may fail with the error, "could not connect to server: FATAL:  no pg_hba.conf entry for host <ip-address>". In this case, you need to add another firewall rule to the PostgreSQL server for the SSH session's IP address shown in the error. Repeat the steps to [add a firewall rule](#add-firewall-rule) that you used earlier with the Cloud Shell.
+1. Run database migrations with the following command:
+
+    ```bash
+    python manage.py migrate
+    ```
 
 1. Run the following command to create an administrator login for the app:
 
@@ -227,7 +224,7 @@ As described earlier in this tutorial, Azure redeploys your app code whenever yo
 
 If you change the Django app's data models, however, you must migrate those changes to the database:
 
-1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations). 
+1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations).
 
 1. Change into the app folder with `cd site/wwwroot`.
 
