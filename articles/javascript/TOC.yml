@@ -93,7 +93,7 @@
     - name: Logging and metrics
       items:
       - name: Logging with the Azure SDK
-        href: javascript-sdk-azure-logging.md
+        href: node-sdk-logging.md
   - name: Tutorials
     items:
       - name: Deploy Azure Functions with VS Code
