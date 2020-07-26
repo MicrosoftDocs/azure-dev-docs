@@ -31,23 +31,31 @@ In this tutorial, you'll learn how to:
 * An existing Java application that uses Log4J or Logback
 --->
 
-## Deploy a hosted Elasticsearch cluster on Microsoft Azure
+## Get signed up with Elasticsearch
 
-From the Azure Marketplace, search for Elasticsearch Service. You will see a link to a trial, where you will enter an email to get started.
+From the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro), search for **Elasticsearch Service**. You will see a link to a free trial, where you will enter an email to get started.
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
+### Create a deployment in just minutes on Microsoft Azure
 
-Next, Create your first deployment
+Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and click **Create Deployment** to begin. The following process should take less than 10 minutes, including the time it takes to spin up the deployment, though could take a few minutes longer depending the type of deployment, and customizations configured.
 
-### Get your Logz.io access token
+1. Enter a name for the deployment, such as **azessdemo**
 
-To get your token, log in to your Logz.io account, select the cog icon in the right-hand corner, then select **Settings > General**. Copy the access token displayed in your account settings so you can use it later.
+2. Select **Azure** cloud platform.  
 
-### Install and configure the Logz.io library for Log4J or Logback
+3. Select a region closest to you.
 
-The Logz.io Java library is available on Maven Central, so you can add it as a dependency to your app configuration. Check the version number on Maven Central and use the latest version in the following configuration settings.
+4. Notice the **Elastic Stack version**. The latest should be available, which is the recommended version. Keep in mind that updating versions is trouble free and coordinated by the Elasticsearch services.
 
-If you're using Maven, add the following dependency to your `pom.xml` file:
+5. Choose the type of deployment.
+
+###Choosing the right deployment type
+
+### Launch Kibana
+
+### Add Sample Data
+
+### Explore Kibana
 
 **Log4J:**
 
