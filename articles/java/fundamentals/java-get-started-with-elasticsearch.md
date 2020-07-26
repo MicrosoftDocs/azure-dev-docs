@@ -35,7 +35,7 @@ In this tutorial, you'll learn how to:
 
 From the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro), search for **Elasticsearch Service**. You will see a link to a free trial, where you will enter an email to get started.
 
-### Create a deployment in just minutes on Microsoft Azure
+## Create a deployment in just minutes on Microsoft Azure
 
 Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and click **Create Deployment** to begin. The following process should take less than 10 minutes, including the time it takes to spin up the deployment, though could take a few minutes longer depending the type of deployment, and customizations configured.
 
@@ -45,7 +45,10 @@ Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and 
 
 3. Select a region closest to you.
 
-4. Notice the **Elastic Stack version**. The latest should be available, which is the recommended version. Keep in mind that updating versions is trouble free and coordinated by the Elasticsearch services.
+4. Optionally choose an **Elastic Stack version**. 
+
+> [!TIP]
+> The latest version available is always displayed, though can be altered. Keep in mind that updating versions at a later time is trouble free and coordinated by the Elasticsearch services.
 
 5. Choose the type of deployment.
 
@@ -59,10 +62,10 @@ For nearly all general use cases, the **I/O Template** is recommended, however, 
 
 More information about what deployment templates are, can be found here: [What are deployment templates?](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates.html).
 
-### Launch Kibana
+## Launch Kibana
 
-### Add Sample Data
+## Add Sample Data
 
-### Explore Kibana
+## Explore Kibana
 
-### Add Azure Monitoring
+## Add Azure Monitoring
