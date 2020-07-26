@@ -49,7 +49,7 @@ Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and 
 
 5. Choose the type of deployment.
 
-###Choosing the right deployment type
+### Choosing the right deployment type
 
 ### Launch Kibana
 
