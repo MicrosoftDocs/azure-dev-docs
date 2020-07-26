@@ -33,9 +33,9 @@ In this tutorial, you'll learn how to:
 
 ## Deploy a hosted Elasticsearch cluster on Microsoft Azure
 
-From the Azure Marketplace, search for Elasticsearch Service. You will see a link to a trial, where you will enter an email to get started. 
+From the Azure Marketplace, search for Elasticsearch Service. You will see a link to a trial, where you will enter an email to get started.
 
-    ![Diagnostics settings panel](media/java-get-started-with-logzio/diagnostics-settings.png)
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 
 Next, Create your first deployment
 
