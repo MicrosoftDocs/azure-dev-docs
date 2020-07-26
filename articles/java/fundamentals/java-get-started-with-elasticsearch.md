@@ -51,6 +51,14 @@ Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and 
 
 ### Choosing the right deployment type
 
+Deployment templates are what Elasticsearch provides you, to get up and running on the Elastic Cloud quickly and painlessly. Every deployment template includes a set of components called **instances**. These instances include Elasticsearch data, ingest, and master nodes, as well as Kibana for all deployments. There are additional included, but not enabled by default, instances such as Machine learning (ML) and an Application Performance Monitoring (APM) Server, to name but a few.
+
+At Elastic, we understand there is never a one-size-fits all deployment type. This is why these templates, while more than adequate to get you started and even carry you into ingesting live production data, they are fully customizable, supporting literally any use case you can throw at it, providing greater flexibility, ensuring you have whatever resources you need where and when you need them.
+
+For nearly all general use cases, the **I/O Template** is recommended, however, for log aggregation, for example, it maybe advantageous to have a **hot-warm** architecture, where the numerous logs that no longer need to be frequently queried, **time-based index creation**, are moved off to a lower cost tier, a **warm data node**. Read more about [Hot-Warm Architecture Templates](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates-hot-warm.html).
+
+More information about what deployment templates are, can be found here: [What are deployment templates?](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates.html).
+
 ### Launch Kibana
 
 ### Add Sample Data
