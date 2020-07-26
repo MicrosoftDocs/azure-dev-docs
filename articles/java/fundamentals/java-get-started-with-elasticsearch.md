@@ -64,3 +64,5 @@ More information about what deployment templates are, can be found here: [What a
 ### Add Sample Data
 
 ### Explore Kibana
+
+### Add Azure Monitoring
