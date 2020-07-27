@@ -24,11 +24,11 @@ Before you implement these loggers, you must declare the relevant framework as a
 
 The following sections provide configuration examples for common logging frameworks.
 
-### Use log4j
+### Use Log4j
 
-The following examples show configurations for the log4j logging framework. For more information, see [the log4j documentation](https://logging.apache.org/log4j/1.2/).
+The following examples show configurations for the Log4j logging framework. For more information, see [the Log4j documentation](https://logging.apache.org/log4j/1.2/).
 
-**Enable log4j by adding a Maven dependency**
+**Enable Log4j by adding a Maven dependency**
 
 Add the following to your project's *pom.xml* file:
 
@@ -41,7 +41,7 @@ Add the following to your project's *pom.xml* file:
 </dependency>
 ```
 
-**Enable log4j using a  properties file**
+**Enable Log4j using a  properties file**
 
 Create a *log4j.properties* file in the *./src/main/resource* directory of your project and add the following content:
 
@@ -53,7 +53,7 @@ log4j.appender.A1.layout.ConversionPattern=%m%n
 log4j.logger.com.azure.core=ERROR
 ```
 
-**Enable log4j using an XML file**
+**Enable Log4j using an XML file**
 
 Create a *log4j.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
@@ -80,11 +80,11 @@ Create a *log4j.xml* file in the *./src/main/resource* directory of your project
 </log4j:configuration>
 ```
 
-### Use log4j 2
+### Use Log4j 2
 
-The following examples show configurations for the log4j 2 logging framework. For more information, see [the log4j 2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+The following examples show configurations for the Log4j 2 logging framework. For more information, see [the Log4j 2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-**Enable log4j 2 by adding a Maven dependency**
+**Enable Log4j 2 by adding a Maven dependency**
 
 Add the following to your project's *pom.xml* file:
 
@@ -97,7 +97,7 @@ Add the following to your project's *pom.xml* file:
 </dependency>
 ```
 
-**Enable log4j 2 using a  properties file**
+**Enable Log4j 2 using a  properties file**
 
 Create a *log4j2.properties* file in the *./src/main/resource* directory of your project and add the following content:
 
@@ -114,7 +114,7 @@ rootLogger.appenderRefs = stdout
 rootLogger.appenderRef.stdout.ref = STDOUT
 ```
 
-**Enable log4j 2 using an XML file**
+**Enable Log4j 2 using an XML file**
 
 Create a *log4j2.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
