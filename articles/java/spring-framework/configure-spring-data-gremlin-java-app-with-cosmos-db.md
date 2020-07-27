@@ -11,11 +11,13 @@ ms.workload: data-services
 ms.custom: devx-track-java
 ---
 
-# How to use azure-spring-data-gremlin
+# How to use a Spring Data Gremlin Starter with the Azure Cosmos SQL API
 
 ## Overview
 
-This article demonstrates how to use `azure-spring-data-gremlin` to store / retrieve data in `Azure Cosmos DB`.
+The Spring Data Gremlin Starter provides Spring Data support for the Gremlin query language from Apache, which developers can use with any Gremlin-compatible data store.
+
+This article demonstrates creating an Azure Cosmos DB by using the Azure portal for use with Gremlin API, then using the **[Spring Initializr]** to create a custom java application, and then add the Spring Data Gremlin Starter functionality to your custom application to store data in and retrieve data from your Azure Cosmos DB by using Gremlin.
 
 
 ## Prerequisites
