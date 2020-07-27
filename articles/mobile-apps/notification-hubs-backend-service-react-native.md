@@ -1,15 +1,15 @@
 ---
-title: Send push notifications to Xamarin.Forms apps using Azure Notification Hubs via a backend service | Microsoft Docs
-description: Learn how to push notifications to Xamarin.Forms apps that use Azure Notification Hubs via a backend service. 
-author: mikeparker104
+title: Send push notifications to React Native apps using Azure Notification Hubs via a backend service | Microsoft Docs
+description: Learn how to push notifications to React Native apps that use Azure Notification Hubs via a backend service. 
+author: alexeystrakh
 
 ms.service: notification-hubs
 ms.topic: tutorial
-ms.date: 06/02/2020
-ms.author: miparker
+ms.date: 06/11/2020
+ms.author: alstrakh
 ---
 
-# Tutorial: Send push notifications to Xamarin.Forms apps using Azure Notification Hubs via a backend service  
+# Tutorial: Send push notifications to React Native apps using Azure Notification Hubs via a backend service  
 
 [![Download Sample](media/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
 
@@ -19,7 +19,7 @@ ms.author: miparker
 > * [Flutter](notification-hubs-backend-service-flutter.md)
 > * [React Native](notification-hubs-backend-service-react-native.md)
 
-In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) application targeting **Android** and **iOS**.  
+In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [React Native](https://reactnative.dev/) application targeting **Android** and **iOS**.  
 
 [!INCLUDE [Notification Hubs Backend Service Introduction](includes/notification-hubs-backend-service-introduction.md)]
 
@@ -29,7 +29,7 @@ This tutorial takes you through the following steps:
 >
 > * [Set up Push Notification Services and Azure Notification Hubs.](#set-up-push-notification-services-and-azure-notification-hub)
 > * [Create an ASP.NET Core Web API backend application.](#create-an-aspnet-core-web-api-backend-application)
-> * [Create a cross-platform Xamarin.Forms application.](#create-a-cross-platform-xamarinforms-application)
+> * [Create a cross-platform React Native application.](#create-a-cross-platform-react-native-application)
 > * [Configure the native Android project for push notifications.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure the native iOS project for push notifications.](#configure-the-native-ios-project-for-push-notifications)
 > * [Test the solution.](#test-the-solution)
@@ -61,9 +61,9 @@ You can follow the steps in this first-principles example with no prior experien
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
-* [Xamarin](https://dotnet.microsoft.com/apps/xamarin) and [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms).
+* [React Native](https://reactnative.dev/docs/getting-started).
 
-The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
+The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Visual Studio Code](https://code.visualstudio.com/download) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
 
 ## Set up Push Notification Services and Azure Notification Hub
 
@@ -81,25 +81,25 @@ In this section, you set up **[Firebase Cloud Messaging (FCM)](https://firebase.
 
 ## Create an ASP.NET Core Web API backend application
 
-In this section, you create the [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) and the sending of notifications to the Xamarin.Forms mobile app.
+In this section, you create the [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) and the sending of notifications to the React Native mobile app.
 
 [!INCLUDE [Create an ASP.NET Core Web API backend application](includes/notification-hubs-backend-service-web-api.md)]
 
-## Create a cross-platform Xamarin.Forms application
+## Create a cross-platform React Native application
 
-In this section, you build a [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) mobile application implementing push notifications in a cross-platform manner.
+In this section, you build a [React Native](https://reactnative.dev/) mobile application implementing push notifications in a cross-platform manner.
 
 [!INCLUDE [Sample application generic overview](includes/notification-hubs-backend-service-sample-app-overview.md)]
 
-[!INCLUDE [Create Xamarin.Forms application](includes/notification-hubs-backend-service-sample-app-xamarin-forms.md)]
+[!INCLUDE [Create React Native application](includes/notification-hubs-backend-service-sample-app-reactnative.md)]
 
 ## Configure the native Android project for push notifications
 
-[!INCLUDE [Configure the native Android project](includes/notification-hubs-backend-service-configure-xamarin-android.md)]
+[!INCLUDE [Configure the native Android project](includes/notification-hubs-backend-service-configure-reactnative-android.md)]
 
 ## Configure the native iOS project for push notifications
 
-[!INCLUDE [Configure the native iOS project](includes/notification-hubs-backend-service-configure-xamarin-ios.md)]
+[!INCLUDE [Configure the native iOS project](includes/notification-hubs-backend-service-configure-reactnative-ios.md)]
 
 ## Test the solution
 
@@ -109,7 +109,7 @@ You can now test sending notifications via the backend service.
 
 ## Next steps
 
-You should now have a basic Xamarin.Forms app connected to a notification hub via a backend service and can send and receive notifications.
+You should now have a basic React Native app connected to a notification hub via a backend service and can send and receive notifications.
 
 [!INCLUDE [Next steps](includes/notification-hubs-backend-service-next-steps.md)]
 
@@ -121,7 +121,8 @@ You should now have a basic Xamarin.Forms app connected to a notification hub vi
 
 * [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
 * [Installing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
-* [Installing Xamarin on Windows](https://docs.microsoft.com/xamarin/get-started/installation/windows)
+* [Installing Visual Studio Code](https://code.visualstudio.com/download)
+* [Setting up the React Native development environment](https://reactnative.dev/docs/environment-setup)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
 * [Register with application backend](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
