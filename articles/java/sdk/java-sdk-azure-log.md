@@ -24,7 +24,7 @@ Before you implement these loggers, you must declare the relevant framework as a
 
 The following sections provide configuration examples for common logging frameworks.
 
-### Use Log4j
+## Use Log4j
 
 The following examples show configurations for the Log4j logging framework. For more information, see [the Log4j documentation](https://logging.apache.org/log4j/1.2/).
 
@@ -80,7 +80,7 @@ Create a *log4j.xml* file in the *./src/main/resource* directory of your project
 </log4j:configuration>
 ```
 
-### Use Log4j 2
+## Use Log4j 2
 
 The following examples show configurations for the Log4j 2 logging framework. For more information, see [the Log4j 2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
@@ -138,11 +138,11 @@ Create a *log4j2.xml* file in the *./src/main/resource* directory of your projec
 </Configuration>
 ```
 
-### Use logback
+## Use Logback
 
-The following examples show basic configurations for the logback logging framework. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
+The following examples show basic configurations for the Logback logging framework. For more information, see [the Logback documentation](https://logback.qos.ch/manual/configuration.html).
 
-**Enable logback by adding a Maven dependency**
+**Enable Logback by adding a Maven dependency**
 
 Add the following to your project's *pom.xml* file:
 
@@ -155,7 +155,7 @@ Add the following to your project's *pom.xml* file:
 </dependency>
 ```
 
-**Enable logback using an XML file**
+**Enable Logback using an XML file**
 
 Create a *logback.xml* file  in the *./src/main/resources* directory of your project and add the following content:
 
@@ -175,17 +175,17 @@ Create a *logback.xml* file  in the *./src/main/resources* directory of your pro
 </configuration>
 ```
 
-### Use logback in a Spring Boot application
+## Use Logback in a Spring Boot application
 
-The following examples show some configurations for using logback with Spring. You'll typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the logback documentation](https://logback.qos.ch/manual/configuration.html).
+The following examples show some configurations for using Logback with Spring. You'll typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the Logback documentation](https://logback.qos.ch/manual/configuration.html).
 
-You can configure your application to read logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following content:
+You can configure your application to read Logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following content:
 
 ```properties
 logging.config=classpath:logback.xml
 ```
 
-To create a logback configuration for logging to the console, add the following to your *logback.xml* file:
+To create a Logback configuration for logging to the console, add the following to your *logback.xml* file:
 
 ```xml 
 <?xml version="1.0" encoding="UTF-8"?>
