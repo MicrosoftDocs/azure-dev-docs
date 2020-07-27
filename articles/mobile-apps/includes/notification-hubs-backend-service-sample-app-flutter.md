@@ -1,8 +1,8 @@
 ---
  author: mikeparker104
  ms.author: miparker
- ms.date: 07/07/2020
- ms.service: notification-hubs
+ ms.date: 07/27/2020
+ ms.service: mobile-services
  ms.topic: include
 ---
 

@@ -1,8 +1,8 @@
 ---
  author: alexeystrakh
  ms.author: alstrakh
- ms.date: 06/11/2020
- ms.service: notification-hubs
+ ms.date: 07/27/2020
+ ms.service: mobile-services
  ms.topic: include
 ---
 

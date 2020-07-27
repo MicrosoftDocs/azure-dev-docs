@@ -3,9 +3,9 @@ title: Send push notifications to Flutter apps using Azure Notification Hubs via
 description: Learn how to push notifications to Flutter apps that use Azure Notification Hubs via a backend service. 
 author: mikeparker104
 
-ms.service: notification-hubs
+ms.service: mobile-services
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.author: miparker
 ---
 
