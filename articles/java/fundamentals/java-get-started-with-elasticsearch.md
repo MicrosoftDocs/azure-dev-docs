@@ -50,17 +50,19 @@ Once the [Elastic Cloud(https://cloud.elastic.co) account is active, log in and 
 > [!TIP]
 > The latest version available is always displayed, though can be altered. Keep in mind that updating versions at a later time is trouble free and coordinated by the Elasticsearch services.
 
-5. Choose the type of deployment.
+5. Choose the **I/O Template** as the type of deployment to utilize.
 
 ### Choosing the right deployment type
 
-Deployment templates are what Elasticsearch provides you, to get up and running on the Elastic Cloud quickly and painlessly. Every deployment template includes a set of components called **instances**. These instances include Elasticsearch data, ingest, and master nodes, as well as Kibana for all deployments. There are additional included, but not enabled by default, instances such as Machine learning (ML) and an Application Performance Monitoring (APM) Server, to name but a few.
+Deployment templates are what Elasticsearch provides you, to get up and running on the Elastic Cloud quickly and painlessly. There is no need to figure out how many nodes you need at the start, such as if you want to create two availability zones, nor how much memory, etc. Every deployment template includes a set of components called **instances** which are appropriately sized. These instances include Elasticsearch data, ingest, and master nodes, as well as Kibana for every deployments. There are additional instances one can add, at the time of deployment or later, such as Machine learning (ML) and Application Performance Monitoring (APM).
 
-At Elastic, we understand there is never a one-size-fits all deployment type. This is why these templates, while more than adequate to get you started and even carry you into ingesting live production data, they are fully customizable, supporting literally any use case you can throw at it, providing greater flexibility, ensuring you have whatever resources you need where and when you need them.
+At Elastic, we understand there is never a one-size-fits all deployment type, yet we also understand how important it is to be able to customize things. We have a history of the needs of many users, therefore developed templates with appropriate sizing for you, so you can get up and running today. Don't misunderstand, these template will certainly get you started, but will easily carry you into a live production data environment. Deployments on the Elastic Cloud can support any use case you can throw at it, providing stability, consistent performance, and greater flexibility, ensuring you always have whatever resources you need, where and when you need them.
 
-For nearly all general use cases, the **I/O Template** is recommended, however, for log aggregation, for example, it maybe advantageous to have a **hot-warm** architecture, where the numerous logs that no longer need to be frequently queried, **time-based index creation**, are moved off to a lower cost tier, a **warm data node**. Read more about [Hot-Warm Architecture Templates](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates-hot-warm.html).
+For nearly all general use cases, the **I/O Template** is recommended. There are other templates, however, which may offer some advantages when working with log aggregations for example. In that case, a **hot-warm** template may be more suitable, where the numerous logs that are no longer need to be frequently queried can take advantage of Elasticsearch's **time-based index creation**, and are moved off to a lower costing tier, the **warm data node**. Read more about [Hot-Warm Architecture Templates](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates-hot-warm.html).
 
-More information about what deployment templates are, can be found here: [What are deployment templates?](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates.html).
+More information about deployment templates can be found here: [What are deployment templates?](https://www.elastic.co/guide/en/cloud/current/ec-getting-started-templates.html).
+
+
 
 ## Launch Kibana
 
