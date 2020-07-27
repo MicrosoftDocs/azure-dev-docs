@@ -15,16 +15,16 @@
 
 1. After you create your project, select **Add Firebase to your Android app**.
 
-    ![Add Firebase to your Android app](./media/notification-hubs-common-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
+    ![Add Firebase to your Android app](media/notification-hubs-add-firebase-to-android-app.png)
 
 1. On the **Add Firebase to your Android app** page, take the following steps.
     1. For the **Android package name**, enter a name for your package. For example: `com.<organization_identifier>.<package_name>`.
 
-        ![Specify the package name](./media/notification-hubs-common-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
+        ![Specify the package name](media/specify-package-name-fcm-settings.png)
     1. Select **Register app**.  
     1. Select **Download google-services.json**. Then save the file into a local folder for use later on and select **Next**.  
 
-        ![Download google-services.json](./media/notification-hubs-common-enable-firebase-cloud-messaging/download-google-service-button.png)
+        ![Download google-services.json](media/download-google-service-button.png)
     1. Select **Next**.
     1. Select **Continue to console**
 
@@ -33,11 +33,11 @@
 
 1. In the Firebase console, select the cog for your project. Then select **Project Settings**.
 
-    ![Select Project Settings](./media/notification-hubs-common-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
+    ![Select Project Settings](media/notification-hubs-firebase-console-project-settings.png)
 
     > [!NOTE]
     > If you haven't downloaded the **google-services.json** file, you can do download it on this page.
 
 1. Switch to the **Cloud Messaging** tab at the top. Copy and save the **Server key** for later use. You use this value to configure your notification hub.
 
-    ![Copy server key](./media/notification-hubs-common-enable-firebase-cloud-messaging/server-key.png)
+    ![Copy server key](media/server-key.png)
