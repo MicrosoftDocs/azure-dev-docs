@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: devx-track-java
 ---
 
-# How to use a Spring Data Gremlin Starter with the Azure Cosmos SQL API
+# How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API
 
 ## Overview
 
@@ -24,7 +24,7 @@ This article demonstrates creating an Azure Cosmos DB by using the Azure portal 
 
 The following prerequisites are required in order to follow the steps in this article:
 
-* An Azure subscription. If you don't know what is `Azure subscription`, please read [subscriptions document].
+* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
@@ -182,7 +182,6 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-[subscriptions document]: https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings
 [graph partition]: https://docs.microsoft.com/azure/cosmos-db/graph-partitioning
 [azure-spring-data-sample-gremlin]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin.
 
