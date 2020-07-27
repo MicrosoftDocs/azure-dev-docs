@@ -62,7 +62,7 @@ You can follow the steps in this first-principles example with no prior experien
 * [Apple Developer Portal](https://developer.apple.com).
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1).
 * [Google Firebase Console](https://console.firebase.google.com/u/0/).
-* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
+* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started.md).
 * [Flutter](https://flutter.dev) and [Dart](https://dart.dev) for cross-platform development.
 * [Kotlin](https://kotlinlang.org) and [Swift](https://developer.apple.com/swift) for Android and iOS native development.
 
@@ -122,12 +122,12 @@ You should now have a basic Flutter app connected to a notification hub via a ba
 
 ## Related links
 
-* [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
+* [Azure Notification Hubs overview](/azure/notification-hubs/notification-hubs-push-notification-overview.md)
 * [Installing Flutter on macOS](https://flutter.dev/docs/get-started/install/macos)
 * [Installing Flutter on Windows](https://flutter.dev/docs/get-started/install/windows)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
-* [Register with application backend](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
-* [Registration management](notification-hubs-push-notification-registration-management.md)
-* [Working with tags](notification-hubs-tags-segment-push-message.md)
-* [Working with custom templates](notification-hubs-templates-cross-platform-push-messages.md)
+* [Register with application backend](/azure/notification-hubs/notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+* [Registration management](/azure/notification-hubs/notification-hubs-push-notification-registration-management.md)
+* [Working with tags](/azure/notification-hubs/notification-hubs-tags-segment-push-message.md)
+* [Working with custom templates](/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)
