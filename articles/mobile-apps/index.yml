@@ -93,7 +93,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Send push notifications to Xamarin.Forms apps using ASP.NET Core and Azure Notification Hubs
-            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms
+            url: notification-hubs-backend-service-xamarin-forms.md
           - text: Send push notifications to Android devices
             url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started          
           - text: Push rich content to devices
