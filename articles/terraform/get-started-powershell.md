@@ -117,7 +117,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
 
 ## Create a Terraform configuration file
 
-In this section, you'll create a simple Terraform configuration file. This configuration file creates an Azure resource group in your Azure subscription.
+In this section, you'll code a Terraform configuration file that creates an Azure resource group.
 
 1. Create a directory to hold the Terraform files for this demo.
 
@@ -170,7 +170,7 @@ $env:ARM_TENANT_ID=<azure_subscription_tenant_id>
 
 ## Create and apply a Terraform execution plan
 
-Once you create your configuration file, this section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
+This section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
