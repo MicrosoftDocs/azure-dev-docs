@@ -89,7 +89,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Machine Learning services
+          - text: About Azure Machine Learning
             url: /azure/machine-learning/service
           - text: About Azure Cognitive Services
             url: /azure/cognitive-services
