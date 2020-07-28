@@ -7,23 +7,22 @@ ms.date: 07/23/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Use the Azure Portal to deploy a Django web app with PostgreSQL to App Service
+# Tutorial: Deploy a Django web app with PostgreSQL using the Azure Portal
 
-Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/app-service-linux-intro) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database.
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/app-service-linux-intro) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time.
 
 The web app code in this case comes from a GitHub repository, and you configure the web app for continuous deployment from GitHub. Once configured, you can do further development on your local computer and commit changes to the repository. The web app on Azure then deploys those changes automatically.
 
 In this tutorial, you use the Azure Portal to complete the following tasks:
 
 > [!div class="checklist"]
-> - Provision a web app in Azure.
-> - Provision a PostgreSQL server in Azure.
-> - Create a database on the PostgreSQL server.
-> - Configure the web app to connect to the database.
-> - Configure the web app to deploy code directly from a GitHub repository.
+> - Provision a web app in Azure that deploys from a GitHub repo
+> - Provision a PostgreSQL server and database in Azure and connect it to the web app.
 > - Update your code and commit changes to automatically redeploy from GitHub.
 > - View diagnostic logs
 > - Manage the web app in the Azure portal
+
+You can also use the [Azure CLI-based version of this tutorial](/azure/app-service/containers/tutorial-python-postgresql-app?tabs=bash%2Cclone).
 
 ## Fork the sample repository
 
@@ -36,6 +35,8 @@ You create a fork of this repository so you can make changes and redeploy the co
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Provision the web app in Azure
 
@@ -56,11 +57,13 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Runtime stack | Select **Python 3.8** from the drop-down list. |
     | Region | Select a location near you. |
     | Linux Plan | The portal will populate this field with an App Service Plan name based on your resource group. If you want to change the name, select **Create new**. |
-    | Sku and size | For best performance, use the default plan, although it incurs charges in your subscription. To avoid charges, select **Change size**, then select **Dev/Test**, select **B1** (free for 30 days), then select **Apply**. |
+    | Sku and size | For best performance, use the default plan, although it incurs charges in your subscription. To avoid charges, select **Change size**, then select **Dev/Test**, select **B1** (free for 30 days), then select **Apply**. You can scale the plan later for better performance. |
 
 1. Select **Review + Create**, then select **Create**. Azure takes a few minutes to provision the web app.
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the web app. Keep this browser window or tab open for later steps.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Provision the PostgreSQL database server in Azure
 
@@ -78,7 +81,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
     | Resource group | Select the "DjangoPostgres-Tutorial-rg" group you created in the previous section. |
-    | Server name | A name for the database server that's unique across all Azure (the app's URL is `https://\<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an server identifier. |
+    | Server name | A name for the database server that's unique across all Azure (the app's URL is `https://\<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
     | Data source | **None** |
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
@@ -88,6 +91,8 @@ You create a fork of this repository so you can make changes and redeploy the co
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the database server.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Create the pollsdb database on the PostgreSQL server
 
@@ -123,6 +128,8 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
 1. Exit psql by running the command `exit`.
 
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+
 ## Configure environment variables to connect the database
 
 In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](/azure/app-service/containers/how-to-configure-python.md#access-environment-variables).)
@@ -137,7 +144,7 @@ In this section, you create settings for the web app that it needs to connect to
 
     | Setting name | Value |
     | --- | --- |
-    | DJANGO_ENV | `production` (This value tells the app to use a production configuration.) |
+    | DJANGO_ENV | `production` (This value tells the app to use a production configuration as described earlier in the [sample overview](#fork-the-sample-repository).) |
     | DBHOST | The URL of the database server from the previous section, in the form `<server-name>.postgres.database.azure.com`. You can copy the whole URL from the database server's Overview page. |
     | DBNAME | `pollsdb` |
     | DBUSER | The full administrator username as used in the previous section. The full username is again `<user-name>@<server-name>`. |
@@ -147,6 +154,8 @@ In this section, you create settings for the web app that it needs to connect to
 
     > [!IMPORTANT]
     > Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Deploy app code to the web app from a repository
 
@@ -169,6 +178,8 @@ With the database and connection settings in place, you can now configure the we
 1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds and start the app.
 
     App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python.md).
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Run Django database migrations
 
@@ -202,6 +213,8 @@ With the code deployed and the database in place, the app is almost ready to use
 
     The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+
 ### Create a poll question in the app
 
 You're now ready to run a quick test of the app to demonstrate that it is working with the PostgreSQL database.
@@ -218,6 +231,8 @@ You're now ready to run a quick test of the app to demonstrate that it is workin
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active PostgreSQL database.
 
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+
 ## Update the app and redeploy
 
 As described earlier in this tutorial, Azure redeploys your app code whenever you commit changes to the GitHub repository.
@@ -230,6 +245,8 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Run the migrations again with `python manage.py migrate`.
 
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+
 ## View diagnostic logs
 
 You can access the console logs generated from inside the container that hosts the app on Azure.
@@ -237,6 +254,8 @@ You can access the console logs generated from inside the container that hosts t
 On the web app's page in the Azure portal, select **Log stream** (under **Monitoring** on the left side). The logs appear as console output.
 
 You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Clean up resources
 
@@ -247,6 +266,8 @@ You can leave the app and database running as long as you want for further devel
 1. On the resource group page, select **Delete resource group**.
 
 1. Enter the name of the resource group when prompted and select **Delete**.
+
+[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
 ## Next steps
 
