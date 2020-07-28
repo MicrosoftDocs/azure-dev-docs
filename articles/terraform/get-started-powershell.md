@@ -235,7 +235,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
 
-    ```bash
+    ```powershell
     cd .. && rm -r QuickstartTerraformTest
     ```
 
