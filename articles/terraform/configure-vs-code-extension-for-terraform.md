@@ -20,7 +20,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Terraform**: [Install and configure Terraform](getting-started-cloud-shell.md).
+- **Terraform**: [Install and configure Terraform](get-started-cloud-shell.md).
 - **Visual Studio Code**: Install the version of [Visual Studio Code](https://code.visualstudio.com/download) that is appropriate for your environment.
 
 ## Prepare your dev environment
@@ -132,7 +132,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 1. When the confirmation appears, select **OK**.
 
-    ![Do you want to open Cloud Shell?](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloud-shell.png)
+    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloud-shell.png)
 
 1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
@@ -268,7 +268,7 @@ Before you can begin using the Terraform commands from within Visual Studio Code
 
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
 
-    ![DO you want to open CloudShell?](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
+    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
@@ -287,7 +287,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
 
-    ![DO you want to open CloudShell?](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
+    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.

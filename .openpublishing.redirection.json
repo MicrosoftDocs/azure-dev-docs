@@ -451,6 +451,10 @@
     {
       "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
       "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
+    },
+    {
+      "source_path": "articles/terraform/getting-started-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
     }
   ]
 }

@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell.md)
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -373,7 +373,7 @@ In Cloud Shell, do the following steps:
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password of your choosing, as well as the location for your resources.)
+1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password and the location for your resources.)
 
     ```bash
     terraform plan
