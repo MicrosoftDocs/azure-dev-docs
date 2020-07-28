@@ -22,7 +22,7 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Visual Studio Code**: [Download Visual Studio Code](https://code.visualstudio.com/download) for your platform.
-- **Terraform**: [Install Terraform](getting-started-cloud-shell.md) to run the module created by Yeoman.
+- **Terraform**: [Install Terraform](get-started-cloud-shell.md) to run the module created by Yeoman.
 - **Docker**: [Install Docker](https://www.docker.com/get-started) to run the module created by the Yeoman generator.
 - **Go programming language**: [Install Go](https://golang.org/) as Yeoman-generated test cases are code using the Go language.
 
@@ -136,7 +136,7 @@ The following files were created by the Yeoman module generator:
     - Test cases are written in Go.
     - All codes in test are end-to-end tests.
     - End-to-end tests attempt to provision all of the items defined under `fixture`. The results in the `template_output.go` file are compared with the pre-defined expected values.
-    - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies. 
+    - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies.
 
 For more information about the Yeoman generator for Azure https://github.com/Azure/generator-az-terra-module, see the [Terratest documentation](https://terratest.gruntwork.io/docs/).
 
