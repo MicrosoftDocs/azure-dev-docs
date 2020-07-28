@@ -6,7 +6,7 @@
  ms.topic: include
 ---
 
-### Configure your notification hub with APNS information
+### Configure your Notification Hub with APNS information
 
 Under **Notification Services**, select **Apple** then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](#creating-a-certificate-for-notification-hubs) section.  
 

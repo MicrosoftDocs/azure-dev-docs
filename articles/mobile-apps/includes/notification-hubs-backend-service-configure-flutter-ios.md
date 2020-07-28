@@ -6,7 +6,7 @@
  ms.topic: include
 ---
 
-### Configure the Runner target and Info.plist
+### Configure the runner target and Info.plist
 
 1. In **Visual Studio Code**, **Control** + **Click** on the **ios** folder, then choose **Open in Xcode**.
 

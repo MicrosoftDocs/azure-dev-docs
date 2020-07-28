@@ -6,7 +6,7 @@
  ms.topic: include
 ---
 
-### Create a notification hub 
+### Create a Notification Hub 
 
 In this section, you create a notification hub and configure authentication with **APNS**. You can use a p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
 

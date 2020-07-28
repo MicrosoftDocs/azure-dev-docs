@@ -110,12 +110,6 @@ You can now test sending notifications via the backend service.
 
 [!INCLUDE [Testing the solution](includes/notification-hubs-backend-service-testing.md)]
 
-## Next steps
-
-You should now have a basic Flutter app connected to a notification hub via a backend service and can send and receive notifications.
-
-[!INCLUDE [Next steps](includes/notification-hubs-backend-service-next-steps.md)]
-
 ## Troubleshooting
 
 [!INCLUDE [Troubleshooting](includes/notification-hubs-backend-service-troubleshooting.md)]
@@ -131,3 +125,9 @@ You should now have a basic Flutter app connected to a notification hub via a ba
 * [Registration management](/azure/notification-hubs/notification-hubs-push-notification-registration-management.md)
 * [Working with tags](/azure/notification-hubs/notification-hubs-tags-segment-push-message.md)
 * [Working with custom templates](/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)
+
+## Next steps
+
+You should now have a basic Flutter app connected to a notification hub via a backend service and can send and receive notifications.
+
+[!INCLUDE [Next steps](includes/notification-hubs-backend-service-next-steps.md)]

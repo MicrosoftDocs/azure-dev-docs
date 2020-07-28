@@ -74,7 +74,7 @@ In your "android/app/src/main/AndroidManifest.xml", verify the package name, per
   </manifest>
   ```
 
-### Configure Google Services
+### Configure Google services
 
 In "android/app/build.gradle" register Google Services:
 

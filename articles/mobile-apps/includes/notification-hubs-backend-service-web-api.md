@@ -216,7 +216,7 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
     > [!NOTE]
     > Calling **UseAuthentication** registers the middleware which uses the previously registered authentication schemes (from **ConfigureServices**). This must be called before any middleware that depends on users being authenticated.
 
-### Add Dependencies and Configure Services
+### Add dependencies and configure services
 
 ASP.NET Core supports the [dependency injection (DI)](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
 
@@ -522,7 +522,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     }
     ```
 
-### Create the Notifications API
+### Create the notifications API
 
 1. **Control** + **Click** on the **Controllers** folder, then choose **New File...** from the **Add** menu.
 
@@ -662,7 +662,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     }
     ```
 
-### Create the API App
+### Create the API app
 
 You now create an [API App](https://azure.microsoft.com/services/app-service/api/) in [Azure App Service](https://docs.microsoft.com/azure/app-service/) for hosting the backend service.  
 

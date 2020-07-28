@@ -87,7 +87,7 @@
 
 1. Save the changes, then click on the **Sync Now** button (from the toolbar prompt) or **Sync Project with Gradle Files**.
 
-### Handle Push Notifications for Android
+### Handle push notifications for Android
 
 1. In **Android Studio**, **Control** + **Click** on the **com.<your_organization>.pushdemo** package folder (**app** > **src** > **main** > **kotlin**), choose **Package** from the **New** menu. Enter **services** as the name, then press **Return**.
 

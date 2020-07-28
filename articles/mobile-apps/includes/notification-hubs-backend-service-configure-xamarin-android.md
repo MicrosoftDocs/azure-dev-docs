@@ -21,7 +21,7 @@
 
 1. Click **OK**
 
-### Add the Xamarin Google Play Services Base and Xamarin.Firebase.Messaging packages
+### Add the Xamarin Google Play Services base and Xamarin.Firebase.Messaging packages
 
 1. In **PushDemo.Android**, **Control** + **Click** on the **Packages** folder, then choose **Manage NuGet Packages...**.
 
