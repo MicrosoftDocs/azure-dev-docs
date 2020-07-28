@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 06/14/2020
+ms.date: 07/26/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -237,21 +237,31 @@ Notes:
 
 When no longer needed, delete the resources created in this article.
 
-1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan to destroy the resources indicated in the Terraform configuration file.
 
     ```bash
-    terraform destroy
+    terraform plan -destroy -out QuickstartTerraformTest.destroy.tfplan
     ```
 
-1. Terraform shows you what will happen if you reverse the execution plan and requires you to confirm. Confirm by entering `yes` and pressing the **Enter** key.
+    **Notes:**
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `-destroy` parameter generates a plan to destroy the resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
-1. Once you confirm the execution of the plan, the output is similar to the following example, verify that the resource group was deleted by using [az group show](/cli/azure/group?#az-group-show).
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
+
+    ```bash
+    terraform apply QuickstartTerraformTest.destroy.tfplan
+    ```
+
+1. Verify that the resource group was deleted by using [az group show](/cli/azure/group?#az-group-show).
 
     ```azurecli
     az group show -n "QuickstartTerraformTest-rg"
     ```
 
-    Notes:
+    **Notes**:
     - If successful, `az group show` displays the fact that the resource group doesn't exist.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
