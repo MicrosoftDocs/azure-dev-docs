@@ -170,7 +170,7 @@ $env:ARM_TENANT_ID=<azure_subscription_tenant_id>
 
 ## Create and apply a Terraform execution plan
 
-This section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
+In this section, you create an *execution plan* and apply it to your cloud infrastructure.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
@@ -185,7 +185,7 @@ This section explains how to create an *execution plan* and apply that plan to y
     ```
 
     **Notes:**
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
@@ -214,7 +214,7 @@ When no longer needed, delete the resources created in this article.
     ```
 
     **Notes:**
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The `-destroy` parameter generates a plan to destroy the resources.
     - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
