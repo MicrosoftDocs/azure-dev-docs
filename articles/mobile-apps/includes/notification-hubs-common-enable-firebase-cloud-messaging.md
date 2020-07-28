@@ -20,7 +20,7 @@
 1. On the **Add Firebase to your Android app** page, take the following steps.
     1. For the **Android package name**, enter a name for your package. For example: `com.<organization_identifier>.<package_name>`.
 
-        ![Specify the package name](../media/specify-package-name-fcm-settings.png)
+        ![Specify the package name](../media/specify-package-name-firebase-cloud-messaging-settings.png)
     1. Select **Register app**.  
     1. Select **Download google-services.json**. Then save the file into a local folder for use later on and select **Next**.  
 
