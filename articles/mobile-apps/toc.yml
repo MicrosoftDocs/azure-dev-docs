@@ -49,7 +49,7 @@
     - name: Use Azure Notification Hubs to send a push notification to a Xamarin.Forms app
       href: notification-hubs-backend-service-xamarin-forms.md
     - name: Use Azure Notification Hubs to send a push notification to a React Native app
-      href: notification-hubs-backend-service-sample-app-react-native.md
+      href: notification-hubs-backend-service-react-native.md
     - name: Use Azure Notification Hubs to send a push notification to a Flutter app
       href: notification-hubs-backend-service-flutter.md
   - name: Machine learning
