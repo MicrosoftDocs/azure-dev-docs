@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using PowerShell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 07/16/2020
+ms.date: 07/27/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -177,7 +177,7 @@ Once you create your configuration file, this section explains how to create an 
     terraform init
     ```
 
-1. Create an execution plan from your Terraform configuration file by calling [terraform plan](https://www.terraform.io/docs/commands/plan.html). 
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan from your Terraform configuration file.
 
     ```powershell
     terraform plan -out QuickstartTerraformTest.tfplan
@@ -188,7 +188,7 @@ Once you create your configuration file, this section explains how to create an 
     - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
-1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html) specifying the name of the file from the previous step.
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```powershell
     terraform apply QuickstartTerraformTest.tfplan
@@ -206,10 +206,22 @@ Once you create your configuration file, this section explains how to create an 
 
 When no longer needed, delete the resources created in this article.
 
-1. Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) that will reverse the current execution plan.
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan to destroy the resources indicated in the Terraform configuration file.
 
     ```powershell
-    terraform destroy -auto-approve
+    terraform plan -destroy -out QuickstartTerraformTest.destroy.tfplan
+    ```
+
+    **Notes:**
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `-destroy` parameter generates a plan to destroy the resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
+
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
+
+    ```powershell
+    terraform apply QuickstartTerraformTest.destroy.tfplan
     ```
 
 1. Verify that the resource group was deleted by using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
