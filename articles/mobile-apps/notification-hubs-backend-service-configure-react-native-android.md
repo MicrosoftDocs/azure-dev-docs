@@ -17,7 +17,7 @@ ms.author: alstrakh
 >
 > * [Xamarin.Forms](notification-hubs-backend-service-xamarin-forms.md)
 > * [Flutter](notification-hubs-backend-service-flutter.md)
-> * [React Native](notification-hubs-backend-service-react-native.md)
+> * [React Native](notification-hubs-backend-service-sample-app-react-native
 
 In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [React Native](https://reactnative.dev/) application targeting **Android** and **iOS**.  
 
