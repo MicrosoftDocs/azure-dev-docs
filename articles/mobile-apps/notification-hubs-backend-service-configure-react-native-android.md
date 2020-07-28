@@ -91,15 +91,15 @@ In this section, you build a [React Native](https://reactnative.dev/) mobile app
 
 [!INCLUDE [Sample application generic overview](includes/notification-hubs-backend-service-sample-app-overview.md)]
 
-[!INCLUDE [Create React Native application](includes/notification-hubs-backend-service-sample-app-reactnative.md)]
+[!INCLUDE [Create React Native application](includes/notification-hubs-backend-service-sample-app-react-native.md)]
 
 ## Configure the native Android project for push notifications
 
-[!INCLUDE [Configure the native Android project](includes/notification-hubs-backend-service-configure-reactnative-android.md)]
+[!INCLUDE [Configure the native Android project](includes/notification-hubs-backend-service-configure-react-native-android.md)]
 
 ## Configure the native iOS project for push notifications
 
-[!INCLUDE [Configure the native iOS project](includes/notification-hubs-backend-service-configure-reactnative-ios.md)]
+[!INCLUDE [Configure the native iOS project](includes/notification-hubs-backend-service-configure-react-native-ios.md)]
 
 ## Test the solution
 
