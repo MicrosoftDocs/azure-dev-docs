@@ -48,15 +48,15 @@ The following prerequisites are required in order to follow the steps in this ar
    * Choose `Gremlin (Graph)` for the API.
    * Specify the `Location` for your database.
    
-When you have specified these options, click `Review + create`.
+1. When you have specified these options, click `Review + create`.
 
    ![create-azure-cosmos-db-account][create-a-resource-03]
 
-Review the specification and click `Create` to create your database.
+1. Review the specification and click `Create` to create your database.
 
 ### Add a graph to your Azure Cosmos Database
 
-1. In CosmosDb page, Click `Data Explorer`, and then click `New Graph`.
+1. On the Cosmos DB page, click `Data Explorer`, and then click `New Graph`.
 
    ![new-graph][create-a-graph-01]
 
@@ -107,7 +107,7 @@ Modify the project like the sample project: [azure-spring-data-sample-gremlin].
    | `port`             | Specifies the TCP/IP port, which should be **443** for HTTPS.                                                                                                                                                           |
    | `username`         | Specifies the unique **Database id** and **Graph id** that you used when you added your graph earlier in this tutorial; this must be entered using the following syntax: "/dbs/**{Database id}**/colls/**{Graph id}**". |
    | `password`         | Specifies either the primary or secondary **Access key** that you copied earlier in this tutorial.                                                                                                                      |
-   | `sslEnabled`       | Specifies whether enable ssl.                                                                                                                                                                                           |
+   | `sslEnabled`       | Specifies whether to enable SSL.                                                                                                                                                                                           |
    | `telemetryAllowed` | Specify **true** if you want to enable telemetry; otherwise, **false**.
    | `maxContentLength` | Specifies max content length.                                                                                                                                                                                           |
 
