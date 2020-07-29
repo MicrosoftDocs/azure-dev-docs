@@ -8,6 +8,7 @@ tags: java
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: dagrieve
+ms.custom: devx-track-java
 ---
 
 # Reasons to move to Java 11
@@ -318,7 +319,7 @@ Corporation, \"JEP 318: Epsilon: A No-Op Garbage Collector,\" September 24, 2018
 <a id="ref12">\[12\]</a> Oracle Corporation, \"JDK-8146115: Improve docker
 container detection and resource configuration usage,\" September 16, 2019.
 (Online). Available:
-https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=JDK-8146115.
+https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8146115.
 (Accessed November 13, 2019).
 
 <a id="ref13">\[13\]</a> Oracle Corporation, \"JEP 238:
@@ -343,7 +344,7 @@ Corporation, \"JEP 312: Thread-Local Handshakes,\" August 21, 2019.
 
 <a id="ref18">\[18\]</a> Oracle Corporation, \"JDK-8198756: Lazy allocation of
 compiler threads,\" Oct 29, 2018. (Online). Available:
-https://bugs.java.com/bugdatabase/view\_bug.do?bug\_id=8198756.
+https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8198756.
 (Accessed November 13, 2019).
 
 <a id="ref19">\[19\]</a> Oracle Corporation, \"JEP 193: Variable

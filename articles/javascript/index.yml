@@ -1,0 +1,116 @@
+### YamlMime:Landing
+
+# On-page H1/lede
+title: Azure for JavaScript developers
+summary: |
+  Learn about the Azure SDK for JavaScript and Node.js, how to get started using it, and what it offers for developers. Get started with useful
+  Azure features like application hosting, DevOps tasks, persistent storage and databases, and working with Internet of Things devices.
+
+# Search & metrics meta
+metadata:
+  title: Azure for JavaScript and Node.js developers
+  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
+  author: diberry
+  ms.author: diberry
+  ms.date: 07/23/2020
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.technology: azure
+  ms.service: multiple
+  ms.devlang: javascript
+  
+landingContent:
+  - title: Get started on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Set up your local dev environment
+            url: configure-local-development-environment.md
+      - linkListType: quickstart
+        links:
+          - text: Quickly deploy to Azure App Service
+            url: https://aka.ms/try-azure-node
+          - text: Browse samples
+            url: /samples/browse/?languages=javascript,nodejs
+      - linkListType: learn
+        links:
+          - text: Build Node.js applications
+            url: /learn/paths/build-javascript-applications-nodejs/
+      - linkListType: reference
+        links:
+          - text: API reference docs
+            url: /javascript/api/overview/azure/?view=azure-node-latest
+          - text: Latest SDKs
+            url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
+  - title: Deploy with Visual Studio Code
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Static web applications
+            url: tutorial-vscode-static-website-node-01.md
+          - text: Serverless applications
+            url: tutorial-vscode-serverless-node-01.md
+          - text: Full-stack applications
+            url: tutorial-vscode-azure-app-service-node-01.md
+          - text: Containerized applications
+            url: tutorial-vscode-docker-node-01.md
+  - title: Deploy with Azure CLI
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deno apps
+            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
+  - title: Host
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure App Service
+            url: /azure/app-service/overview
+      - linkListType: architecture
+        links:
+          - text: Find the right hosting option
+            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+
+  - title: DevOps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up CI/CD in Azure Pipelines
+            url: /azure/devops-project/azure-devops-project-nodejs?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
+            
+  - title: Monitor
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Monitor
+            url: /azure/azure-monitor/overview?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
+      - linkListType: quickstart
+        links:
+          - text: CI/CD in Azure Pipelines
+            url: /azure/devops-project/azure-devops-project-nodejs?toc=%2Fazure%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fjavascript%2Fbreadcrumb%2Ftoc.json
+          - text: Monitor deployed applications
+            url: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Messaging services
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Pass messages with Azure Service Bus queues
+            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Pass messages with Azure Storage queues
+            url: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Storage and databases
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Migrate from MongoDB to Azure Cosmos DB
+            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Work with blobs
+            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Internet of Things (IoT) devices
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage devices
+            url: /azure/iot-hub/quickstart-control-device-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Process data
+            url: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json

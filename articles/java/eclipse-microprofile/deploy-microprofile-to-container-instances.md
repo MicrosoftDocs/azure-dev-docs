@@ -10,6 +10,7 @@ ms.service: container-instances
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
+ms.custom: devx-track-java
 ---
 
 # Deploy a MicroProfile application to the cloud with Docker and Azure

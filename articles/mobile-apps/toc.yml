@@ -1,7 +1,6 @@
 - name: Azure for mobile developers documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: Choose a mobile development framework
     href: choose-mobile-framework.md
@@ -44,7 +43,15 @@
       - name: Real-time failure reporting
         href: diagnostics.md
   - name: Push notifications
-    href: push-notifications.md
+    items:
+    - name: Engage your users by sending push notifications
+      href: push-notifications.md
+    - name: Use Azure Notification Hubs to send a push notification to a Xamarin.Forms app
+      href: notification-hubs-backend-service-xamarin-forms.md
+    - name: Use Azure Notification Hubs to send a push notification to a React Native app
+      href: notification-hubs-backend-service-react-native.md
+    - name: Use Azure Notification Hubs to send a push notification to a Flutter app
+      href: notification-hubs-backend-service-flutter.md
   - name: Machine learning
     items:
     - name: Azure Cognitive Services 

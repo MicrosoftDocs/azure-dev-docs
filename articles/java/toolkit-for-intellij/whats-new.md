@@ -7,6 +7,7 @@ ms.date: 11/13/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # What's New in the Azure Toolkit for IntelliJ

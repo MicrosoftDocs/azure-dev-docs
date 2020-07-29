@@ -9,21 +9,21 @@
 | @autorest/compare | npm [0.3.1](https://www.npmjs.com/package/@autorest/compare/v/0.3.1) |  |  |
 | @autorest/core | npm [3.0.6282](https://www.npmjs.com/package/@autorest/core/v/3.0.6282) |  |  |
 | @autorest/modelerfour | npm [4.1.60](https://www.npmjs.com/package/@autorest/modelerfour/v/4.1.60) |  |  |
-| @autorest/powershell | npm [2.1.388](https://www.npmjs.com/package/@autorest/powershell/v/2.1.388) |  |  |
-| @autorest/python | npm [5.1.0-preview.2](https://www.npmjs.com/package/@autorest/python/v/5.1.0-preview.2) |  |  |
+| @autorest/powershell | npm [2.1.398](https://www.npmjs.com/package/@autorest/powershell/v/2.1.398) |  |  |
+| @autorest/python | npm [5.1.0-preview.4](https://www.npmjs.com/package/@autorest/python/v/5.1.0-preview.4) |  |  |
 | @autorest/remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  |  |
-| @autorest/test | npm [0.1.67](https://www.npmjs.com/package/@autorest/test/v/0.1.67) |  |  |
+| @autorest/test | npm [0.1.69](https://www.npmjs.com/package/@autorest/test/v/0.1.69) |  |  |
 | @autorest/test-server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
 | @azure/abort-controller | npm [1.0.1](https://www.npmjs.com/package/@azure/abort-controller/v/1.0.1) |  |  |
-| @azure/ai-form-recognizer | npm [1.0.0-preview.3](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/1.0.0-preview.3) |  | github [1.0.0-preview.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/@azure/ai-form-recognizer/) |
+| @azure/ai-form-recognizer | npm [1.0.0-preview.4](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/1.0.0-preview.4) |  | github [1.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_1.0.0-preview.4/sdk/formrecognizer/@azure/ai-form-recognizer/) |
 | @azure/ai-text-analytics | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/1.0.0) | [docs](https://docs.microsoft.com/js/api/overview/azure/ai-text-analytics-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_1.0.0/sdk/textanalytics/@azure/ai-text-analytics/) |
 | @azure/amqp-common | npm [1.0.0-preview.15](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.15) |  |  |
-| @azure/app-configuration | npm [1.0.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.0.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/app-configuration-readme/) | github [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.0.1/sdk/appconfiguration/@azure/app-configuration/) |
+| @azure/app-configuration | npm [1.1.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.1.0) | [docs](https://docs.microsoft.com/js/api/overview/azure/app-configuration-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.1.0/sdk/appconfiguration/@azure/app-configuration/) |
 | @azure/applicationinsights-query | npm [1.1.0](https://www.npmjs.com/package/@azure/applicationinsights-query/v/1.1.0) |  |  |
 | @azure/arm-advisor | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-advisor/v/1.2.0) |  |  |
 | @azure/arm-analysisservices | npm [2.3.0](https://www.npmjs.com/package/@azure/arm-analysisservices/v/2.3.0) |  |  |
 | @azure/arm-apimanagement | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-apimanagement/v/6.0.0) |  |  |
-| @azure/arm-appconfiguration | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/1.1.0) |  |  |
+| @azure/arm-appconfiguration | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/1.2.0) |  |  |
 | @azure/arm-appinsights | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-appinsights/v/2.1.0) |  |  |
 | @azure/arm-appservice | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-appservice/v/6.0.0) |  |  |
 | @azure/arm-appservice-profile-2019-03-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2019-03-01-hybrid/v/1.0.0) |  |  |
@@ -57,7 +57,8 @@
 | @azure/arm-deviceprovisioningservices | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/2.1.0) |  |  |
 | @azure/arm-devspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-devspaces/v/1.1.0) |  |  |
 | @azure/arm-devtestlabs | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/3.2.0) |  |  |
-| @azure/arm-dns | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-dns/v/3.2.0) |  |  |
+| @azure/arm-digitaltwins | npm [0.1.0](https://www.npmjs.com/package/@azure/arm-digitaltwins/v/0.1.0) |  |  |
+| @azure/arm-dns | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-dns/v/4.0.0) |  |  |
 | @azure/arm-dns-profile-2019-03-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-dns-profile-2019-03-01-hybrid/v/1.0.0) |  |  |
 | @azure/arm-domainservices | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-domainservices/v/3.1.0) |  |  |
 | @azure/arm-edgegateway | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-edgegateway/v/2.0.1) |  |  |
@@ -67,7 +68,7 @@
 | @azure/arm-frontdoor | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-frontdoor/v/4.0.0) |  |  |
 | @azure/arm-hanaonazure | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-hanaonazure/v/3.0.0) |  |  |
 | @azure/arm-hdinsight | npm [0.17.1](https://www.npmjs.com/package/@azure/arm-hdinsight/v/0.17.1) |  |  |
-| @azure/arm-iotcentral | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/3.0.0) |  |  |
+| @azure/arm-iotcentral | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/3.1.0) |  |  |
 | @azure/arm-iothub | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-iothub/v/3.0.0) |  |  |
 | @azure/arm-iotspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-iotspaces/v/1.1.0) |  |  |
 | @azure/arm-keyvault | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-keyvault/v/1.2.1) |  |  |
@@ -95,8 +96,8 @@
 | @azure/arm-monitor-profile-2019-03-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-monitor-profile-2019-03-01-hybrid/v/1.0.0) |  |  |
 | @azure/arm-msi | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-msi/v/1.1.0) |  |  |
 | @azure/arm-mysql | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-mysql/v/3.3.0) |  |  |
-| @azure/arm-netapp | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/9.0.0) |  |  |
-| @azure/arm-network | npm [21.1.0](https://www.npmjs.com/package/@azure/arm-network/v/21.1.0) |  |  |
+| @azure/arm-netapp | npm [10.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/10.0.0) |  |  |
+| @azure/arm-network | npm [22.0.0](https://www.npmjs.com/package/@azure/arm-network/v/22.0.0) |  |  |
 | @azure/arm-network-profile-2019-03-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid/v/1.0.0) |  |  |
 | @azure/arm-notificationhubs | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-notificationhubs/v/1.2.0) |  |  |
 | @azure/arm-operationalinsights | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/2.0.0) |  |  |
@@ -110,7 +111,7 @@
 | @azure/arm-powerbiembedded | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-powerbiembedded/v/1.2.0) |  |  |
 | @azure/arm-privatedns | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-privatedns/v/1.0.0) |  |  |
 | @azure/arm-recoveryservices | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-recoveryservices/v/4.0.0) |  |  |
-| @azure/arm-recoveryservicesbackup | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-recoveryservicesbackup/v/6.0.0) |  |  |
+| @azure/arm-recoveryservicesbackup | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-recoveryservicesbackup/v/6.1.0) |  |  |
 | @azure/arm-recoveryservices-siterecovery | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-recoveryservices-siterecovery/v/3.2.0) |  |  |
 | @azure/arm-rediscache | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-rediscache/v/4.0.0) |  |  |
 | @azure/arm-relay | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-relay/v/2.1.0) |  |  |
@@ -147,7 +148,7 @@
 | @azure/arm-webservices | npm [0.1.1](https://www.npmjs.com/package/@azure/arm-webservices/v/0.1.1) |  |  |
 | @azure/arm-workspaces | npm [0.1.1](https://www.npmjs.com/package/@azure/arm-workspaces/v/0.1.1) |  |  |
 | @azure/autorest.codemodel-v3 | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| @azure/avocado | npm [0.7.0](https://www.npmjs.com/package/@azure/avocado/v/0.7.0) |  |  |
+| @azure/avocado | npm [0.7.1](https://www.npmjs.com/package/@azure/avocado/v/0.7.1) |  |  |
 | @azure/batch | npm [7.0.0](https://www.npmjs.com/package/@azure/batch/v/7.0.0) |  |  |
 | @azure/cognitiveservices-anomalydetector | npm [2.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector/v/2.0.0) |  |  |
 | @azure/cognitiveservices-autosuggest | npm [2.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.0) |  |  |
@@ -155,8 +156,8 @@
 | @azure/cognitiveservices-contentmoderator | npm [5.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.0) |  |  |
 | @azure/cognitiveservices-customimagesearch | npm [2.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.0) |  |  |
 | @azure/cognitiveservices-customsearch | npm [3.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.0) |  |  |
-| @azure/cognitiveservices-customvision-prediction | npm [5.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction/v/5.0.0) |  |  |
-| @azure/cognitiveservices-customvision-training | npm [5.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training/v/5.0.0) |  |  |
+| @azure/cognitiveservices-customvision-prediction | npm [5.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction/v/5.1.0) |  |  |
+| @azure/cognitiveservices-customvision-training | npm [5.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training/v/5.1.0) |  |  |
 | @azure/cognitiveservices-entitysearch | npm [3.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch/v/3.0.0) |  |  |
 | @azure/cognitiveservices-face | npm [4.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-face/v/4.0.0) |  |  |
 | @azure/cognitiveservices-formrecognizer | npm [2.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-formrecognizer/v/2.0.0) |  |  |
@@ -174,20 +175,20 @@
 | @azure/cognitiveservices-videosearch | npm [3.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-videosearch/v/3.0.0) |  |  |
 | @azure/cognitiveservices-visualsearch | npm [3.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch/v/3.0.0) |  |  |
 | @azure/cognitiveservices-websearch | npm [3.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-websearch/v/3.0.0) |  |  |
-| @azure/core-amqp | npm [1.1.3](https://www.npmjs.com/package/@azure/core-amqp/v/1.1.3) |  |  |
+| @azure/core-amqp | npm [1.1.4](https://www.npmjs.com/package/@azure/core-amqp/v/1.1.4) |  |  |
 | @azure/core-arm | npm [1.0.0-preview.7](https://www.npmjs.com/package/@azure/core-arm/v/1.0.0-preview.7) |  |  |
 | @azure/core-asynciterator-polyfill | npm [1.0.0](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.0) |  |  |
-| @azure/core-auth | npm [1.1.2](https://www.npmjs.com/package/@azure/core-auth/v/1.1.2) |  |  |
-| @azure/core-http | npm [1.1.3](https://www.npmjs.com/package/@azure/core-http/v/1.1.3) | [docs](https://docs.microsoft.com/js/api/overview/azure/core-http-readme/) | github [1.1.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.1.3/sdk/core/@azure/core-http/) |
+| @azure/core-auth | npm [1.1.3](https://www.npmjs.com/package/@azure/core-auth/v/1.1.3) |  |  |
+| @azure/core-http | npm [1.1.4](https://www.npmjs.com/package/@azure/core-http/v/1.1.4) | [docs](https://docs.microsoft.com/js/api/overview/azure/core-http-readme/) | github [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.1.4/sdk/core/@azure/core-http/) |
 | @azure/core-lro | npm [1.0.2](https://www.npmjs.com/package/@azure/core-lro/v/1.0.2) |  |  |
 | @azure/core-paging | npm [1.1.1](https://www.npmjs.com/package/@azure/core-paging/v/1.1.1) |  |  |
 | @azure/core-tracing | npm [1.0.0-preview.8](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.0-preview.8) |  |  |
-| @azure/cosmos | npm [3.7.2](https://www.npmjs.com/package/@azure/cosmos/v/3.7.2) | [docs](https://docs.microsoft.com/js/api/overview/azure/cosmos-readme/) | github [3.7.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.7.2/sdk/cosmosdb/@azure/cosmos/) |
+| @azure/cosmos | npm [3.7.4](https://www.npmjs.com/package/@azure/cosmos/v/3.7.4) | [docs](https://docs.microsoft.com/js/api/overview/azure/cosmos-readme/) | github [3.7.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.7.4/sdk/cosmosdb/@azure/cosmos/) |
 | @azure/cosmos-language-service | npm [0.0.4](https://www.npmjs.com/package/@azure/cosmos-language-service/v/0.0.4) |  |  |
 | @azure/cosmos-sign | npm [1.0.2](https://www.npmjs.com/package/@azure/cosmos-sign/v/1.0.2) |  |  |
 | @azure/eslint-plugin-azure-sdk | npm [2.0.1](https://www.npmjs.com/package/@azure/eslint-plugin-azure-sdk/v/2.0.1) |  |  |
 | @azure/eventgrid | npm [2.0.0](https://www.npmjs.com/package/@azure/eventgrid/v/2.0.0) |  |  |
-| @azure/event-hubs | npm [5.2.1](https://www.npmjs.com/package/@azure/event-hubs/v/5.2.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/event-hubs-readme/) | github [5.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.2.1/sdk/eventhub/@azure/event-hubs/) |
+| @azure/event-hubs | npm [5.2.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.2.2) | [docs](https://docs.microsoft.com/js/api/overview/azure/event-hubs-readme/) | github [5.2.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.2.2/sdk/eventhub/@azure/event-hubs/) |
 | @azure/eventhubs-checkpointstore-blob | npm [1.0.0](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.0) | [docs](https://docs.microsoft.com/js/api/overview/azure/eventhubs-checkpointstore-blob-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.0/sdk/eventhub/@azure/eventhubs-checkpointstore-blob/) |
 | @azure/event-processor-host | npm [2.1.1](https://www.npmjs.com/package/@azure/event-processor-host/v/2.1.1) |  |  |
 | @azure/graph | npm [5.0.1](https://www.npmjs.com/package/@azure/graph/v/5.0.1) |  |  |
@@ -198,7 +199,7 @@
 | @azure/loganalytics | npm [0.2.0](https://www.npmjs.com/package/@azure/loganalytics/v/0.2.0) |  |  |
 | @azure/logger | npm [1.0.0](https://www.npmjs.com/package/@azure/logger/v/1.0.0) |  |  |
 | @azure/logger-js | npm [1.3.2](https://www.npmjs.com/package/@azure/logger-js/v/1.3.2) |  |  |
-| @azure/monitor-opentelemetry-exporter | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-preview.2) |  |  |
+| @azure/monitor-opentelemetry-exporter | npm [1.0.0-preview.4](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-preview.4) |  |  |
 | @azure/ms-rest-azure-env | npm [2.0.0](https://www.npmjs.com/package/@azure/ms-rest-azure-env/v/2.0.0) |  |  |
 | @azure/ms-rest-azure-js | npm [2.0.1](https://www.npmjs.com/package/@azure/ms-rest-azure-js/v/2.0.1) |  |  |
 | @azure/ms-rest-browserauth | npm [1.0.0](https://www.npmjs.com/package/@azure/ms-rest-browserauth/v/1.0.0) |  |  |
@@ -210,54 +211,61 @@
 | @azure/publish-pipeline-result | npm [0.0.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.0.2) |  |  |
 | @azure/rest-api-specs-scripts | npm [0.10.5](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.10.5) |  |  |
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
-| @azure/search-documents | npm [1.0.0-preview.4](https://www.npmjs.com/package/@azure/search-documents/v/1.0.0-preview.4) | [docs](https://docs.microsoft.com/js/api/overview/azure/search-documents-readme/) | github [1.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_1.0.0-preview.4/sdk/search/@azure/search-documents/) |
-| @azure/service-bus | npm [1.1.7](https://www.npmjs.com/package/@azure/service-bus/v/1.1.7) | [docs](https://docs.microsoft.com/js/api/overview/azure/service-bus-readme/) | github [1.1.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_1.1.7/sdk/servicebus/@azure/service-bus/) |
+| @azure/search-documents | npm [11.0.0](https://www.npmjs.com/package/@azure/search-documents/v/11.0.0) | [docs](https://docs.microsoft.com/js/api/overview/azure/search-documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.0.0/sdk/search/@azure/search-documents/) |
+| @azure/service-bus | npm [1.1.8](https://www.npmjs.com/package/@azure/service-bus/v/1.1.8) |  | github [1.1.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_1.1.8/sdk/servicebus/@azure/service-bus/) |
 | @azure/servicefabric | npm [5.0.0](https://www.npmjs.com/package/@azure/servicefabric/v/5.0.0) |  |  |
-| @azure/storage-blob | npm [12.1.2](https://www.npmjs.com/package/@azure/storage-blob/v/12.1.2) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-blob-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.1.2/sdk/storage/@azure/storage-blob/) |
+| @azure/storage-blob | npm [12.2.0-preview.1](https://www.npmjs.com/package/@azure/storage-blob/v/12.2.0-preview.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-blob-readme/) | github [12.2.0-preview.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.2.0-preview.1/sdk/storage/@azure/storage-blob/) |
+| @azure/storage-blob-changefeed | npm [12.0.0-preview.1](https://www.npmjs.com/package/@azure/storage-blob-changefeed/v/12.0.0-preview.1) |  |  |
 | @azure/storage-datalake | npm [0.2.0](https://www.npmjs.com/package/@azure/storage-datalake/v/0.2.0) |  |  |
 | @azure/storage-file | npm [10.3.0](https://www.npmjs.com/package/@azure/storage-file/v/10.3.0) |  |  |
-| @azure/storage-file-datalake | npm [12.0.1](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-file-datalake-readme/) | github [12.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.0.1/sdk/storage/@azure/storage-file-datalake/) |
-| @azure/storage-file-share | npm [12.1.2](https://www.npmjs.com/package/@azure/storage-file-share/v/12.1.2) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-file-share-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.1.2/sdk/storage/@azure/storage-file-share/) |
-| @azure/storage-queue | npm [12.0.5](https://www.npmjs.com/package/@azure/storage-queue/v/12.0.5) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-queue-readme/) | github [12.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.0.5/sdk/storage/@azure/storage-queue/) |
+| @azure/storage-file-datalake | npm [12.1.0-preview.1](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.1.0-preview.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-file-datalake-readme/) | github [12.1.0-preview.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.1.0-preview.1/sdk/storage/@azure/storage-file-datalake/) |
+| @azure/storage-file-share | npm [12.2.0-preview.1](https://www.npmjs.com/package/@azure/storage-file-share/v/12.2.0-preview.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-file-share-readme/) | github [12.2.0-preview.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.2.0-preview.1/sdk/storage/@azure/storage-file-share/) |
+| @azure/storage-queue | npm [12.1.0-preview.1](https://www.npmjs.com/package/@azure/storage-queue/v/12.1.0-preview.1) | [docs](https://docs.microsoft.com/js/api/overview/azure/storage-queue-readme/) | github [12.1.0-preview.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.1.0-preview.1/sdk/storage/@azure/storage-queue/) |
 | @azure/swagger-validation-common | npm [0.0.5](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.0.5) |  |  |
 | @azure/synapse | npm [1.0.0-preview.1](https://www.npmjs.com/package/@azure/synapse/v/1.0.0-preview.1) |  |  |
 | @azure/template | npm [0.2.0-preview.4](https://www.npmjs.com/package/@azure/template/v/0.2.0-preview.4) |  |  |
-| @azure-tools/async-io | npm [3.0.240](https://www.npmjs.com/package/@azure-tools/async-io/v/3.0.240) |  |  |
-| @azure-tools/autorest-extension-base | npm [3.1.253](https://www.npmjs.com/package/@azure-tools/autorest-extension-base/v/3.1.253) |  |  |
-| @azure-tools/codegen | npm [2.5.277](https://www.npmjs.com/package/@azure-tools/codegen/v/2.5.277) |  |  |
-| @azure-tools/codegen-csharp | npm [3.0.249](https://www.npmjs.com/package/@azure-tools/codegen-csharp/v/3.0.249) |  |  |
-| @azure-tools/codemodel | npm [4.13.327](https://www.npmjs.com/package/@azure-tools/codemodel/v/4.13.327) |  |  |
-| @azure-tools/codemodel-v3 | npm [3.1.251](https://www.npmjs.com/package/@azure-tools/codemodel-v3/v/3.1.251) |  |  |
-| @azure-tools/datastore | npm [4.1.251](https://www.npmjs.com/package/@azure-tools/datastore/v/4.1.251) |  |  |
-| @azure-tools/deduplication | npm [3.0.251](https://www.npmjs.com/package/@azure-tools/deduplication/v/3.0.251) |  |  |
-| @azure-tools/eventing | npm [3.0.239](https://www.npmjs.com/package/@azure-tools/eventing/v/3.0.239) |  |  |
-| @azure-tools/extension | npm [3.0.251](https://www.npmjs.com/package/@azure-tools/extension/v/3.0.251) |  |  |
-| @azure-tools/linq | npm [3.1.249](https://www.npmjs.com/package/@azure-tools/linq/v/3.1.249) |  |  |
-| @azure-tools/oai2-to-oai3 | npm [4.0.252](https://www.npmjs.com/package/@azure-tools/oai2-to-oai3/v/4.0.252) |  |  |
-| @azure-tools/object-comparison | npm [3.0.239](https://www.npmjs.com/package/@azure-tools/object-comparison/v/3.0.239) |  |  |
-| @azure-tools/openapi | npm [3.0.248](https://www.npmjs.com/package/@azure-tools/openapi/v/3.0.248) |  |  |
-| @azure-tools/tasks | npm [3.0.240](https://www.npmjs.com/package/@azure-tools/tasks/v/3.0.240) |  |  |
-| @azure-tools/uri | npm [3.0.241](https://www.npmjs.com/package/@azure-tools/uri/v/3.0.241) |  |  |
-| azure-iot-amqp-base | npm [2.4.3](https://www.npmjs.com/package/azure-iot-amqp-base/v/2.4.3) |  |  |
-| azure-iot-common | npm [1.12.3](https://www.npmjs.com/package/azure-iot-common/v/1.12.3) |  |  |
-| azure-iot-device | npm [1.16.0](https://www.npmjs.com/package/azure-iot-device/v/1.16.0) |  |  |
-| azure-iot-device-amqp | npm [1.12.3](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.12.3) |  |  |
-| azure-iot-device-http | npm [1.12.3](https://www.npmjs.com/package/azure-iot-device-http/v/1.12.3) |  |  |
-| azure-iot-device-mqtt | npm [1.14.1](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.14.1) |  |  |
+| @azure-tools/adl | npm [0.1.190](https://www.npmjs.com/package/@azure-tools/adl/v/0.1.190) |  |  |
+| @azure-tools/adl.core | npm [0.1.455](https://www.npmjs.com/package/@azure-tools/adl.core/v/0.1.455) |  |  |
+| @azure-tools/adl.rules.azure | npm [0.1.170](https://www.npmjs.com/package/@azure-tools/adl.rules.azure/v/0.1.170) |  |  |
+| @azure-tools/adl.types.arm | npm [0.1.170](https://www.npmjs.com/package/@azure-tools/adl.types.arm/v/0.1.170) |  |  |
+| @azure-tools/adl.types.core | npm [0.1.176](https://www.npmjs.com/package/@azure-tools/adl.types.core/v/0.1.176) |  |  |
+| @azure-tools/async-io | npm [3.0.247](https://www.npmjs.com/package/@azure-tools/async-io/v/3.0.247) |  |  |
+| @azure-tools/autorest-extension-base | npm [3.1.261](https://www.npmjs.com/package/@azure-tools/autorest-extension-base/v/3.1.261) |  |  |
+| @azure-tools/codegen | npm [2.5.284](https://www.npmjs.com/package/@azure-tools/codegen/v/2.5.284) |  |  |
+| @azure-tools/codegen-csharp | npm [3.0.257](https://www.npmjs.com/package/@azure-tools/codegen-csharp/v/3.0.257) |  |  |
+| @azure-tools/codemodel | npm [4.13.339](https://www.npmjs.com/package/@azure-tools/codemodel/v/4.13.339) |  |  |
+| @azure-tools/codemodel-v3 | npm [3.1.259](https://www.npmjs.com/package/@azure-tools/codemodel-v3/v/3.1.259) |  |  |
+| @azure-tools/datastore | npm [4.1.259](https://www.npmjs.com/package/@azure-tools/datastore/v/4.1.259) |  |  |
+| @azure-tools/deduplication | npm [3.0.259](https://www.npmjs.com/package/@azure-tools/deduplication/v/3.0.259) |  |  |
+| @azure-tools/eventing | npm [3.0.246](https://www.npmjs.com/package/@azure-tools/eventing/v/3.0.246) |  |  |
+| @azure-tools/extension | npm [3.0.258](https://www.npmjs.com/package/@azure-tools/extension/v/3.0.258) |  |  |
+| @azure-tools/linq | npm [3.1.256](https://www.npmjs.com/package/@azure-tools/linq/v/3.1.256) |  |  |
+| @azure-tools/oai2-to-oai3 | npm [4.0.262](https://www.npmjs.com/package/@azure-tools/oai2-to-oai3/v/4.0.262) |  |  |
+| @azure-tools/object-comparison | npm [3.0.246](https://www.npmjs.com/package/@azure-tools/object-comparison/v/3.0.246) |  |  |
+| @azure-tools/openapi | npm [3.0.255](https://www.npmjs.com/package/@azure-tools/openapi/v/3.0.255) |  |  |
+| @azure-tools/sourcemap | npm [0.1.200](https://www.npmjs.com/package/@azure-tools/sourcemap/v/0.1.200) |  |  |
+| @azure-tools/tasks | npm [3.0.247](https://www.npmjs.com/package/@azure-tools/tasks/v/3.0.247) |  |  |
+| @azure-tools/uri | npm [3.0.249](https://www.npmjs.com/package/@azure-tools/uri/v/3.0.249) |  |  |
+| azure-iot-amqp-base | npm [2.4.4](https://www.npmjs.com/package/azure-iot-amqp-base/v/2.4.4) |  |  |
+| azure-iot-common | npm [1.12.4](https://www.npmjs.com/package/azure-iot-common/v/1.12.4) |  |  |
+| azure-iot-device | npm [1.17.0](https://www.npmjs.com/package/azure-iot-device/v/1.17.0) |  |  |
+| azure-iot-device-amqp | npm [1.13.0](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.13.0) |  |  |
+| azure-iot-device-http | npm [1.13.0](https://www.npmjs.com/package/azure-iot-device-http/v/1.13.0) |  |  |
+| azure-iot-device-mqtt | npm [1.15.0](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.15.0) |  |  |
 | azure-iot-digitaltwins-device | npm [1.0.0-preview.2](https://www.npmjs.com/package/azure-iot-digitaltwins-device/v/1.0.0-preview.2) |  |  |
 | azure-iot-digitaltwins-model-repository | npm [1.0.0-preview.1](https://www.npmjs.com/package/azure-iot-digitaltwins-model-repository/v/1.0.0-preview.1) |  |  |
-| azure-iot-digitaltwins-service | npm [1.0.0-preview.1](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-preview.1) |  |  |
-| azure-iot-http-base | npm [1.11.3](https://www.npmjs.com/package/azure-iot-http-base/v/1.11.3) |  |  |
-| azure-iothub | npm [1.12.3](https://www.npmjs.com/package/azure-iothub/v/1.12.3) |  |  |
-| azure-iot-mqtt-base | npm [1.12.2](https://www.npmjs.com/package/azure-iot-mqtt-base/v/1.12.2) |  |  |
-| azure-iot-provisioning-device | npm [1.8.3](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.8.3) |  |  |
-| azure-iot-provisioning-device-amqp | npm [1.8.3](https://www.npmjs.com/package/azure-iot-provisioning-device-amqp/v/1.8.3) |  |  |
-| azure-iot-provisioning-device-http | npm [1.8.3](https://www.npmjs.com/package/azure-iot-provisioning-device-http/v/1.8.3) |  |  |
-| azure-iot-provisioning-device-mqtt | npm [1.7.3](https://www.npmjs.com/package/azure-iot-provisioning-device-mqtt/v/1.7.3) |  |  |
-| azure-iot-provisioning-service | npm [1.8.3](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.8.3) |  |  |
-| azure-iot-security-symmetric-key | npm [1.7.3](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.7.3) |  |  |
-| azure-iot-security-tpm | npm [1.8.3](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.8.3) |  |  |
-| azure-iot-security-x509 | npm [1.7.3](https://www.npmjs.com/package/azure-iot-security-x509/v/1.7.3) |  |  |
+| azure-iot-digitaltwins-service | npm [1.0.0-pnp-refresh.2](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.2) |  |  |
+| azure-iot-http-base | npm [1.11.4](https://www.npmjs.com/package/azure-iot-http-base/v/1.11.4) |  |  |
+| azure-iothub | npm [1.12.4](https://www.npmjs.com/package/azure-iothub/v/1.12.4) |  |  |
+| azure-iot-mqtt-base | npm [1.12.4](https://www.npmjs.com/package/azure-iot-mqtt-base/v/1.12.4) |  |  |
+| azure-iot-provisioning-device | npm [1.8.4](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.8.4) |  |  |
+| azure-iot-provisioning-device-amqp | npm [1.8.4](https://www.npmjs.com/package/azure-iot-provisioning-device-amqp/v/1.8.4) |  |  |
+| azure-iot-provisioning-device-http | npm [1.8.4](https://www.npmjs.com/package/azure-iot-provisioning-device-http/v/1.8.4) |  |  |
+| azure-iot-provisioning-device-mqtt | npm [1.7.4](https://www.npmjs.com/package/azure-iot-provisioning-device-mqtt/v/1.7.4) |  |  |
+| azure-iot-provisioning-service | npm [1.8.4](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.8.4) |  |  |
+| azure-iot-security-symmetric-key | npm [1.7.4](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.7.4) |  |  |
+| azure-iot-security-tpm | npm [1.8.4](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.8.4) |  |  |
+| azure-iot-security-x509 | npm [1.7.4](https://www.npmjs.com/package/azure-iot-security-x509/v/1.7.4) |  |  |
 | azure-streamanalytics-cicd | npm [1.0.9-preview](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/1.0.9-preview) |  |  |
 | git-rest-api-sdk | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  |  |
 | node-red-contrib-azureiothubnode | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |

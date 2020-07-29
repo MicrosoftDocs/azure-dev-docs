@@ -48,7 +48,7 @@ After your first deployment, you can make changes to your code, such as adding a
             output += "%04d" % (carry + (total / scale))
             carry = total % scale
 
-        return output;
+        return output
 
     def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('DigitsOfPi HTTP trigger function processed a request.')

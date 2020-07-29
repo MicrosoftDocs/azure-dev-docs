@@ -4,7 +4,7 @@ title: Use Docker images with a JDK for Azure Java development
 description: Learn how to use Docker images with a Java Development Kit (JDK) for Azure using the command line interface. 
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.custom: seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Use Docker with a Java Development Kit (JDK) for Azure

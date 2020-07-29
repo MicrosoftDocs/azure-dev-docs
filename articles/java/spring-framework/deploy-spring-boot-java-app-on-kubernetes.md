@@ -8,7 +8,7 @@ ms.date: 11/12/2019
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Deploy Spring Boot Application to the Azure Kubernetes Service

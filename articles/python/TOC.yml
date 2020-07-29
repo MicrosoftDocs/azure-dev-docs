@@ -50,7 +50,9 @@
     href: quickstarts-other-services.md
 - name: Scenario-specific tutorials
   items:
-    - name: Deploy a web app with VS Code
+    - name: Deploy a web app and database (portal)
+      href: tutorial-python-postgresql-app-portal.md
+    - name: Deploy a web app (VS Code)
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-deploy-app-service-on-linux-01.md
@@ -66,7 +68,7 @@
           href: tutorial-deploy-app-service-on-linux-06.md
         - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
-    - name: Deploy containers with VS Code
+    - name: Deploy containers (VS Code)
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-deploy-containers-01.md
@@ -78,7 +80,7 @@
           href: tutorial-deploy-containers-04.md
         - name: 5 Clean up resources
           href: tutorial-deploy-containers-05.md
-    - name: Deploy serverless Azure Functions with VS Code
+    - name: Deploy serverless functions (VS Code)
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-vs-code-serverless-python-01.md

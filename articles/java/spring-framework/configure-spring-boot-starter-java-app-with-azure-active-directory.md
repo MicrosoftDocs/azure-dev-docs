@@ -8,6 +8,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
+ms.custom: devx-track-java
 ---
 
 # Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory
@@ -119,9 +120,7 @@ The following prerequisites are required in order to complete the steps in this 
     ![Configure app manifest][create-app-registration-11]
 
     > [!NOTE]
-    > 
-    > For more information about the `oauth2AllowImplicitFlow` parameter and other application settings, see [Azure Active Directory application manifest][AAD app manifest]. 
-    >
+    > For more information about the `oauth2AllowImplicitFlow` parameter and other application settings, see [Azure Active Directory application manifest][AAD app manifest].
 
 ### Add a user account to your directory, and add that account to a group
 
@@ -134,11 +133,9 @@ The following prerequisites are required in order to complete the steps in this 
    ![Enter user account information][create-user-02]
 
    > [!NOTE]
-   > 
    > You need to specify your directory URL from earlier in this tutorial when you enter the user name; for example:
    >
    > `wingtipuser@wingtiptoysdirectory.onmicrosoft.com`
-   > 
 
 1. Click **Groups**, then **Create a new group** that you will use for authorization in your application.
 
@@ -146,7 +143,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Select the user for group][create-user-03]
 
-1. Go back to the **Users** panel, select your test user, and click **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial. 
+1. Go back to the **Users** panel, select your test user, and click **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial.
 
    ![Show the password][create-user-04]
 
@@ -188,6 +185,7 @@ The following prerequisites are required in order to complete the steps in this 
    # Specifies the list of Active Directory groups to use for authorization:
    azure.activedirectory.active-directory-groups=Users
    ```
+
    Where:
 
    | Parameter | Description |
@@ -198,9 +196,7 @@ The following prerequisites are required in order to complete the steps in this 
    | `azure.activedirectory.active-directory-groups` | Contains a list of Active Directory groups to use for authorization. |
 
    > [!NOTE]
-   > 
-   > For a full list of values that are available in your *application.properties* file, see  the [Azure Active Directory Spring Boot Sample][AAD Spring Boot Sample] on GitHub.
-   >
+   > For a full list of values that are available in your *application.properties* file, see the [Azure Active Directory Spring Boot Sample][AAD Spring Boot Sample] on GitHub.
 
 1. Save and close the *application.properties* file.
 
@@ -231,10 +227,10 @@ The following prerequisites are required in order to complete the steps in this 
       }
    }
    ```
+
    > [!NOTE]
-   > 
    > The group name that you specify for the `@PreAuthorize("hasRole('')")` method must contain one of the groups that you specified in the `azure.activedirectory.active-directory-groups` field of your *application.properties* file.
-   > 
+   >
    > You can also specify different authorization settings for different request mappings; for example:
    >
    > ``` java
@@ -257,7 +253,6 @@ The following prerequisites are required in order to complete the steps in this 
    >    }
    > }
    > ```
-   >    
 
 1. Create a folder named *security* in the Java source folder for your application; for example: *src/main/java/com/wingtiptoys/security/security*.
 
@@ -314,20 +309,16 @@ The following prerequisites are required in order to complete the steps in this 
    ![Logging into your application][application-login]
 
    > [!NOTE]
-   > 
    > You may be prompted to change your password if this is the first login for a new user account.
-   > 
+   >
    > ![Changing your password][update-password]
-   > 
 
 1. After you have logged in successfully, you should see the sample "Hello World" text from the controller.
 
    ![Successful login][hello-world]
 
    > [!NOTE]
-   > 
    > User accounts which are not authorized will receive an **HTTP 403 Unauthorized** message.
-   >
 
 ## Summary
 
@@ -355,7 +346,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-[AAD Spring Boot Sample]: https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-active-directory-spring-boot-backend-sample
+[AAD Spring Boot Sample]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-backend
 
 <!-- IMG List -->
 

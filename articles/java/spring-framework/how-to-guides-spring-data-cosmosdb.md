@@ -5,6 +5,7 @@ author: kushagraThapar
 ms.author: kuthapar
 ms.topic: conceptual
 ms.date: 1/9/2019
+ms.custom: devx-track-java
 ---
 
 # Spring Data Azure Cosmos DB developer's guide

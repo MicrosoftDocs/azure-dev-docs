@@ -6,7 +6,7 @@ author: rloutlaw
 ms.date: 07/31/2017
 ms.topic: article
 ms.service: multiple
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Java source samples for Azure Active Directory

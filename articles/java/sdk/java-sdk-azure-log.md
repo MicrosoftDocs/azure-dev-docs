@@ -7,6 +7,7 @@ ms.author: brendm
 ms.date: 03/25/2020
 ms.topic: article
 ms.service: multiple
+ms.custom: devx-track-java
 ---
 
 # Configure logging with the Azure SDK for Java
@@ -20,17 +21,30 @@ The Azure SDK for Java client libraries use the [Simple Logging Facade for Java]
 
 ## Declare a logging framework
 
-Before you implement these loggers, you must declare the relevant framework as a dependency in your project. For more information, see the  [SLF4J user manual](http://www.slf4j.org/manual.html#projectDep).
+Before you implement these loggers, you must declare the relevant framework as a dependency in your project. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html#projectDep).
 
-## Configure Log4j or Log4j 2
+The following sections provide configuration examples for common logging frameworks.
 
-You can configure Log4j and Log4j 2 logging in a properties file or an XML file. For detailed information on Log4j and Log4j 2 logging, refer to the [Apache Log4j 2 manual](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+## Use Log4j
 
-### Use a properties file
+The following examples show configurations for the Log4j logging framework. For more information, see [the Log4j documentation](https://logging.apache.org/log4j/1.2/).
 
-In the *./src/main/resource* directory of your project, create a new file named *log4j.properties* or *log4j2.properties* (the latter for Logj4 2). Use these examples to get started.
+**Enable Log4j by adding a Maven dependency**
 
-Log4j example:
+Add the following to your project's *pom.xml* file:
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>[1.0,)</version> <!-- Version number 1.0 and above -->
+</dependency>
+```
+
+**Enable Log4j using a  properties file**
+
+Create a *log4j.properties* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```properties
 log4j.rootLogger=INFO, A1
@@ -40,47 +54,70 @@ log4j.appender.A1.layout.ConversionPattern=%m%n
 log4j.logger.com.azure.core=ERROR
 ```
 
-Log4j2 example:
+**Enable Log4j using an XML file**
 
-```properties
-appender.console.type = Console
-appender.console.name = LogToConsole
-appender.console.layout.type = PatternLayout
-appender.console.layout.pattern = %msg%n
-logger.app.name=com.azure.core
-logger.app.level=ERROR
-```
-
-### Use an XML file
-
-Alternatively, you can use an XML file to configure Log4j and Log4j2. In the *./src/main/resource* directory of your project, create a new file named *log4j.xml* or *log4j2.xml* (the latter for Logj4 2). Use these examples to get started.
-
-Log4j example:
+Create a *log4j.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```xml
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
 
-  <appender name="console" class="org.apache.log4j.ConsoleAppender">
-    <param name="Target" value="System.out"/>
-    <layout class="org.apache.log4j.PatternLayout">
-    <param name="ConversionPattern" value="%m%n" />
-    </layout>
-  </appender>
-  <logger name="com.azure.core" additivity="true">
-	<level value="ERROR" />
-	<appender-ref ref="console" />
-  </logger>
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>
+    </appender>
+    <logger name="com.azure.core">
+        <level value="ERROR" />
+        <appender-ref ref="console" />
+    </logger>
 
-  <root>
-    <priority value ="info"></priority>
-    <appender-ref ref="console"></appender>
-  </root>
+    <root>
+        <level value="info" />
+        <appender-ref ref="console" />
+    </root>
 
 </log4j:configuration>
 ```
 
-Log4j2 example:
+## Use Log4j 2
+
+The following examples show configurations for the Log4j 2 logging framework. For more information, see [the Log4j 2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+
+**Enable Log4j 2 by adding a Maven dependency**
+
+Add the following to your project's *pom.xml* file:
+
+```
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>[2.0,)</version> <!-- Version number 2.0 and above -->
+</dependency>
+```
+
+**Enable Log4j 2 using a  properties file**
+
+Create a *log4j2.properties* file in the *./src/main/resource* directory of your project and add the following content:
+
+```properties
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = %msg%n
+logger.app.name=com.azure.core
+logger.app.level=ERROR
+
+rootLogger.level = info
+rootLogger.appenderRefs = stdout
+rootLogger.appenderRef.stdout.ref = STDOUT
+```
+
+**Enable Log4j 2 using an XML file**
+
+Create a *log4j2.xml* file in the *./src/main/resource* directory of your project and add the following content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,14 +139,28 @@ Log4j2 example:
 </Configuration>
 ```
 
-## Configure Logback
+## Use Logback
 
-[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks, and a native implementation of SLF4J. To configure Logback, create a new XML file named *logback.xml* in the *./src/main/resources* directory of your project. You can find more information on configuration options at the [Logback Project website](https://logback.qos.ch/manual/configuration.html).
+The following examples show basic configurations for the Logback logging framework. For more information, see [the Logback documentation](https://logback.qos.ch/manual/configuration.html).
 
-Here's an example Logback configuration:
+**Enable Logback by adding a Maven dependency**
+
+Add the following to your project's *pom.xml* file:
+
+```
+<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>[0.2.5,)</version> <!-- Version number 0.2.5 and above -->
+</dependency>
+```
+
+**Enable Logback using an XML file**
+
+Create a *logback.xml* file  in the *./src/main/resources* directory of your project and add the following content:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
@@ -125,9 +176,19 @@ Here's an example Logback configuration:
 </configuration>
 ```
 
-Here's a simple Logback configuration for logging to the console:
+## Use Logback in a Spring Boot application
 
-```xml
+The following examples show some configurations for using Logback with Spring. You'll typically add logging configurations to a *logback.xml* file in the *./src/main/resources* directory of your project. Spring looks at this file for various configurations including logging. For more information, see [the Logback documentation](https://logback.qos.ch/manual/configuration.html).
+
+You can configure your application to read Logback configurations from any file. To link your *logback.xml* file to your Spring application, create an *application.properties* file in the *./src/main/resources* directory of your project and add the following content:
+
+```properties
+logging.config=classpath:logback.xml
+```
+
+To create a Logback configuration for logging to the console, add the following to your *logback.xml* file:
+
+```xml 
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <appender name="Console"
@@ -145,7 +206,7 @@ Here's a simple Logback configuration for logging to the console:
 </configuration>
 ```
 
-Here's a configuration for logging to a file that is rolled over after each hour and archived in GZIP file format:
+To configure logging to a file that is rolled over after each hour and archived in gzip format, add the following to your *logback.xml* file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -171,17 +232,9 @@ Here's a configuration for logging to a file that is rolled over after each hour
 </configuration>
 ```
 
-### Configure Logback for a Spring Boot application
-
-Spring looks for your project configurations, including logging, in the *application.properties* file, which is in the *./src/main/resources* directory. In the *application.properties* file, add the following line to link your *logback.xml* to your Spring Boot application:
-
-```properties
-logging.config=classpath:logback.xml
-```
-
 ## Configure fallback logging for temporary debugging
 
-In scenarios where it’s not possible to redeploy your application with an SLF4J logger, you can use the fallback logger that is built into the Azure client libraries for Java, in Azure Core 1.3.0 or later. To enable this logger, you must first confirm there is no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. After you set the environment variable, you’ll need to restart your application to start generating logs.
+In scenarios where it’s not possible to redeploy your application with an SLF4J logger, you can use the fallback logger built into the Azure client libraries for Java, in Azure Core 1.3.0 or later. To enable this logger, you must first confirm there is no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. After you set the environment variable, you’ll need to restart your application to start generating logs.
 
 The following table shows the allowed values for this environment variable.
 

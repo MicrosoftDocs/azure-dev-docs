@@ -6,6 +6,7 @@ ms.date: 02/01/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Managing Redis Caches using the Azure Explorer for Eclipse

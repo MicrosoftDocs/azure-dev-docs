@@ -6,6 +6,7 @@ ms.reviewer: joshuapa
 ms.date: 4/24/2019
 ms.service: cosmos-db
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # How to use Spring and Cosmos DB with App Service on Linux
@@ -322,7 +323,6 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Azure for Java Developers]: /azure/developer/java/
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java 
 [Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
-[Spring Boot Document DB Starter for Azure]:https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: https://azure.microsoft.com/services/devops/java/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

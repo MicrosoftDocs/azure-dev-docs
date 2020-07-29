@@ -6,6 +6,7 @@ manager: kyliel
 ms.author: seal
 ms.date: 08/21/2019
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter for Azure Service Bus JMS

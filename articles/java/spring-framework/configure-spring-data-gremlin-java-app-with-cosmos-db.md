@@ -8,6 +8,7 @@ ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: data-services
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API

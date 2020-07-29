@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate Java applications to Azure
@@ -73,7 +74,7 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
@@ -90,12 +91,12 @@ Use the following grid to identify potential destinations for your application t
 
 Use the following grid to understand the responsibility each destination places on your team following migration.
 
-Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities. 
+Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities.
 
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|                                                                       | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
+|Destination&nbsp;→<br><br>Task&nbsp;↓                            | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
 |---|---|---|---|---|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |

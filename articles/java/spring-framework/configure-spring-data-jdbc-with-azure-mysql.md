@@ -7,15 +7,20 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Use Spring Data JDBC with Azure Database for MySQL
 
 This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
 
-[JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
+[JDBC](https://jcp.org/en/jsr/detail?id=221) is the standard Java API to connect to traditional relational databases.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
+
+## Sample application
+
+In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-mysql).
 
 [!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
@@ -24,7 +29,7 @@ This topic demonstrates creating a sample application that uses [Spring Data JDB
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for MySQL
