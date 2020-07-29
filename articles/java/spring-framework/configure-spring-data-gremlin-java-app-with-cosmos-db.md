@@ -34,11 +34,13 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click `+Create a resource`.
 
-   ![create-a-resource][create-a-resource-01]
+   >[!div class="mx-imgBorder"]
+   >![create-a-resource][create-a-resource-01]
 
 1. Click `Databases`, and then click `Azure Cosmos DB`.
 
-   ![create-azure-cosmos-db][create-a-resource-02]
+   >[!div class="mx-imgBorder"]
+   >![create-azure-cosmos-db][create-a-resource-02]
 
 1. On the `Azure Cosmos DB` page, enter the following information:
 
@@ -50,7 +52,8 @@ The following prerequisites are required in order to follow the steps in this ar
    
 1. When you have specified these options, click `Review + create`.
 
-   ![create-azure-cosmos-db-account][create-a-resource-03]
+   >[!div class="mx-imgBorder"]
+   >![create-azure-cosmos-db-account][create-a-resource-03]
 
 1. Review the specification and click `Create` to create your database.
 
@@ -58,7 +61,8 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. On the Cosmos DB page, click `Data Explorer`, and then click `New Graph`.
 
-   ![new-graph][create-a-graph-01]
+   >[!div class="mx-imgBorder"]
+   >![new-graph][create-a-graph-01]
 
 1. When the `Add Graph` is displayed, enter the following information:
 
@@ -70,11 +74,13 @@ Click `OK`.
    
    When you have specified these options, click `OK` to create your graph.
 
-   ![add-graph][create-a-graph-02]
+   >[!div class="mx-imgBorder"]
+   >![add-graph][create-a-graph-02]
 
 1. After your graph has been created, you can use the `Data Explorer` to view it.
 
-   ![graph-detail][create-a-graph-03]
+   >[!div class="mx-imgBorder"]
+   >![graph-detail][create-a-graph-03]
    
    
 
@@ -84,7 +90,8 @@ Click `OK`.
 
 1. Fill project metadata then click `GENERATE`:
 
-   ![spring-initializr][spring-initializr-01]
+   >[!div class="mx-imgBorder"]
+   >![spring-initializr][spring-initializr-01]
 
 1. Unzip the file then import to your IDE.
 
@@ -113,7 +120,8 @@ Modify the project like the sample project: [azure-spring-data-sample-gremlin].
 
 1. About how to get password:
 
-   ![get-password][get-password-01]
+   >[!div class="mx-imgBorder"]
+   >![get-password][get-password-01]
 
 ## Build and run the project
 
@@ -126,7 +134,8 @@ Modify the project like the sample project: [azure-spring-data-sample-gremlin].
 
 1. If your app start successfully, you can check the graph in Azure portal:
 
-   ![execute-result][execute-result-01]
+   >[!div class="mx-imgBorder"]
+   >![execute-result][execute-result-01]
 
 
 ## Next steps
