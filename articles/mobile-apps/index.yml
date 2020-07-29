@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection # Optional; Remove if no collection is used.    
   author: codemillmatt #Required; your GitHub user alias, with correct capitalization.
   ms.author: masoucou #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/25/2020
+  ms.date: 07/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -93,7 +93,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Send push notifications to Xamarin.Forms apps using ASP.NET Core and Azure Notification Hubs
-            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms
+            url: notification-hubs-backend-service-xamarin-forms.md
           - text: Send push notifications to Android devices
             url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started          
           - text: Push rich content to devices

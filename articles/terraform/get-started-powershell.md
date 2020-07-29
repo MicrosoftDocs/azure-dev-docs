@@ -83,7 +83,8 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
     ```
 
 **Notes**:
-- At this point, you know the service principal names and password. These values are needed to log into the subscription using your service principal.
+
+- The service principal names and password values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
 ## Log in to Azure using a service principal
@@ -116,7 +117,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
 
 ## Create a Terraform configuration file
 
-At this point, you should be logged into an Azure subscription. Now, let's write a test Terraform configuration file. When you run Terraform against this file in the next section, it creates an Azure resource group in your Azure subscription.
+In this section, you'll code a Terraform configuration file that creates an Azure resource group.
 
 1. Create a directory to hold the Terraform files for this demo.
 
@@ -154,12 +155,12 @@ At this point, you should be logged into an Azure subscription. Now, let's write
 
     **Notes**:
     - The provider block specifies that the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
-    - Within the azurerm provider block, version and features attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
+    - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about setting these attributes, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
 
 ## Set environment variables
 
-In order for Terraform to use the intended Azure subscription, set environment variables. You can either do this at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
+In order for Terraform to use the intended Azure subscription, set environment variables. You can set the environment variables at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
 ```powershell
 $env:ARM_CLIENT_ID=<service_principle_app_id>
@@ -169,7 +170,7 @@ $env:ARM_TENANT_ID=<azure_subscription_tenant_id>
 
 ## Create and apply a Terraform execution plan
 
-Once you create your configuration file, this section explains how to create an *execution plan* and apply that plan to your cloud infrastructure. In this demo, the cloud infrastructure is the Azure subscription you logged into with your service principal.
+In this section, you create an *execution plan* and apply it to your cloud infrastructure.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
@@ -184,8 +185,8 @@ Once you create your configuration file, this section explains how to create an 
     ```
 
     **Notes:**
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
@@ -213,9 +214,9 @@ When no longer needed, delete the resources created in this article.
     ```
 
     **Notes:**
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The `-destroy` parameter generates a plan to destroy the resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
@@ -235,7 +236,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Change directories to the parent directory and remove the demo directory. The `-r` parameter removes the directory contents before removing the directory. The directory contents include the configuration file you created earlier and the Terraform state files.
 
-    ```bash
+    ```powershell
     cd .. && rm -r QuickstartTerraformTest
     ```
 
