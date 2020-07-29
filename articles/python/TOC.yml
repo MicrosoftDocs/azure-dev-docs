@@ -50,7 +50,7 @@
     href: quickstarts-other-services.md
 - name: Scenario-specific tutorials
   items:
-    - name: Deploy a web app and database (Portal)
+    - name: Deploy a web app and database (portal)
       href: tutorial-python-postgresql-app-portal.md
     - name: Deploy a web app (VS Code)
       items:
