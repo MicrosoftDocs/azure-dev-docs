@@ -4,7 +4,6 @@ _site/
 .optemp/
 _themes*/
 _repo.*/
-.idea
 .vs/
 .vscode/
 .openpublishing.buildcore.ps1.vscode/
