@@ -13,7 +13,8 @@ Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your 
 
 The following Microsoft Learn resources will show you how to use Azure with Javascript:
 
-* Module: [Build a Web App with Refreshable Machine Learning Models](https://docs.microsoft.com/learn/modules/create-web-app-with-refreshable-models/?ocid=eml_pg191828_gdc_comm_az&mkt_tok=eyJpIjoiTmpreFl6QXpNRFUyTURGbCIsInQiOiJVSkNHSlVkclZxU1dXcTFqa01PQVNSUWRBYWd4UFpPUDRxTE1CVnJPWlhlcGJjUUYzYXF0ZTIwZkh5R0hyQU8yK1JXblJVNzREeGpMYVdvUDlhT093am9zVm5QRlN0Y2pyVlBHMTFDVVFFdUU3XC8zeG50bzhXMnY2MTJ0NlwvWFlJUEJxT2wxMzZJQUJ2bmxqa3gzb2dDUT09In0%3D) with Vue.js and progressive web apps
+* Path: [Build JavaScript applications with Node.js](https://docs.microsoft.com/learn/paths/build-javascript-applications-nodejs/)
+* Module: [Build a Web App with Refreshable Machine Learning Models](https://docs.microsoft.com/learn/modules/create-web-app-with-refreshable-models) with Vue.js and progressive web apps
 * Module: [Publish an Angular, React, Svelte, or Vue JavaScript app and API with Azure Static Web Apps](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/)
 * Module: [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](https://docs.microsoft.com/en-us/learn/modules/build-node-cosmos-app-vscode/)
 * Module: [Introduction to customizing and extending SharePoint](https://docs.microsoft.com/en-us/learn/modules/intro-sharepoint-framework/)
