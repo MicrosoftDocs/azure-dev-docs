@@ -321,6 +321,10 @@
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
+      "source_path": "articles/java/toolkit-for-eclipse/displaying-javadoc-content-for-azure-libraries.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
       "source_path": "articles/python/sdk.md",
       "redirect_url": "/azure/developer/python/sdk-library-api-reference"
     },
