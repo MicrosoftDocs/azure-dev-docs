@@ -7,11 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started - Cloud Shell
-      href: get-started-cloud-shell.md
-    - name: Get started - PowerShell
-      href: get-started-powershell.md
-- name: Tutorials
+    - name: Getting started - Cloud Shell 
+      href: getting-started-cloud-shell.md
+- name: How-to guides
   items:
     - name: Setup and configuration
       items:
@@ -67,6 +65,20 @@
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
+- name: Tutorials
+  items:
+    - name: Testing Terraform projects
+      items:
+        - name: Terraform testing overview
+          href: best-practices-testing-overview.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
+        - name: Unit testing
+          href: best-practices-unit-testing.md
+        - name: Compliance testing
+          href: best-practices-compliance-testing.md
+        - name: End-to-end testing
+          href: best-practices-end-to-end-testing.md
 - name: Samples
   items:
     - name: Configuration templates

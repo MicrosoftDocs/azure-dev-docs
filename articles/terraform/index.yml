@@ -30,10 +30,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Cloud Shell and Azure CLI
-            url: get-started-cloud-shell.md
-          - text: Windows and PowerShell
-            url: get-started-powershell.md
+          - text: Getting started - Cloud Shell
+            url: getting-started-cloud-shell.md
       - linkListType: tutorial
         links:
           - text: Install the Terraform Visual Studio Code extension
@@ -42,7 +40,25 @@ landingContent:
             url: create-base-template-using-yeoman.md
           - text: Test Terraform modules using Terratest
             url: test-modules-using-terratest.md
-            
+
+  # Card
+  - title: Testing Terraform projects
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Terraform testing overview
+            url: best-practices-testing-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Integration testing
+            url: best-practices-integration-testing.md
+          - text: Unit testing
+            url: best-practices-unit-testing.md
+          - text: Compliance testing
+            url: best-practices-compliance-testing.md
+          - text: End-to-end testing
+            url: best-practices-end-to-end-testing.md
+
   # Card
   - title: Manage AKS
     linkLists:
