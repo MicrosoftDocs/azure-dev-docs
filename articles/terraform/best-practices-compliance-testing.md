@@ -2,7 +2,7 @@
 title: Tutorial - Compliance testing with Terraform and Azure
 description: Learn how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 07/31/2020
 ---
 
 # Tutorial: Compliance testing with Terraform and Azure
@@ -182,15 +182,11 @@ In this section, you will download and test the example.
     
 1. Run `terraform apply` again to apply the new execution plan.
 
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. This time, the test succeeds as the full spec has been implemented.
 
-
-
-
-
-
-
-
-1. The test succeeds as the full spec has been implemented.
+    ```bash
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    ```
 
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
 

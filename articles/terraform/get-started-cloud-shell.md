@@ -170,7 +170,7 @@ Once you create your configuration files, this section explains how to create an
     terraform init
     ```
 
-1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan and preview its results.
 
     ```bash
     terraform plan
