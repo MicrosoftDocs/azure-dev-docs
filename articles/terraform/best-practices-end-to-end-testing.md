@@ -2,31 +2,30 @@
 title: Tutorial - Setup end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 07/31/2020
 ---
 
 # Tutorial: Setup end-to-end Terratest testing on Terraform projects
 
-In this tutorial, you'll learn more about end-to-end testing with [Terratest](https://github.com/gruntwork-io/terratest) on a Terraform project. You will also learn how to use Azure DevOps to automatically trigger end-to-end tests when you commit new configuration code to your repository.
-
-**Test cases are written in Go** - Many developers who use Terraform are Go developers. If you're a Go developer, you don't have to learn another programming language to use Terratest.
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 In this article, you learn how to do the following tasks:
+
 > [!div class="checklist"]
-> * What are end-to-end tests and why it is considered as best practices to have them on a Terraform project.
-> * What is [Terratest](https://github.com/gruntwork-io/terratest) and how to use it to write end-to-end test using Golang.
-> * Use Azure Pipeline to automatically trigger end-to-end tests.
+> * Understand the basics of end-to-end testing with [Terratest](https://github.com/gruntwork-io/terratest)
+> * Learn how to write end-to-end test using Golang
+> * Learn how to use Azure DevOps to automatically trigger end-to-end tests when code is committed to your repo
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/). We are using [Go modules](https://blog.golang.org/using-go-modules) so we recommend using Go 1.13, at least.
-- **Terraform:** [install and run](configure-vs-code-extension-for-terraform.md) your first Terraform command from your machine.
+- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
 - **Fork testing samples:** to get started quickly, we recommend that you fork [this repository](https://github.com/Azure/terraform) into your own GitHub organization.
+- **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/). The sample in this article uses [Go modules](https://blog.golang.org/using-go-modules). Go 1.13 (or later) is recommended for this article.
 
-## What are end-to-end tests
+## What is end-to-end testing
 
 End-to-end tests allow to validate that a program actually works in real conditions. For Terraform projects, end-to-end testing allows to validate that what has been deployed to Azure actually works as expected. Meaning that we want to test the whole scenario, end to end.
 
