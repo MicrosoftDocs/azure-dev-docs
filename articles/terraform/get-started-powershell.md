@@ -7,7 +7,7 @@ ms.date: 07/27/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
-# Quickstart: Get started with Terraform using PowerShell
+# Quickstart: Get started with Terraform using Windows and PowerShell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
