@@ -33,7 +33,7 @@ Most software teams do an analysis to check that the standards are properly enfo
 
 Compliance testing ensures the conformity of the deliverables of each phase of the development lifecycle.
 
-Compliance checks should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself is not adequately documented.
+Compliance checks should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
 
 ## Understanding compliance checks
 
@@ -43,15 +43,17 @@ Let's take a look at a specific example.
 
 A common problem is environments that break when multiple developers apply incompatible changes. Let's say one person works on a change and applies resources such as creating a VM in a test environment. Another person then applies a different version of the code that provisions different version of that VM. What is needed here is oversight to ensure conformity to stated rules.
 
-One way to address this issue would be to define a policy of tagging the resources - such as with `role` and `creator` tags. This is where [Terraform-compliance](https://terraform-compliance.com) helps. Terraform-compliance focuses on *negative testing*. Negative testing is the process of ensuring that a system can gracefully handle unexpected input or unwanted behavior. *Fuzzing* is an example of negative testing. With fuzzing, a system that receives input is tested to ensure that it can safely handle unexpected input.
+One way to address this issue would be to define a policy of tagging the resources - such as with `role` and `creator` tags. Once you define the policies, a tool like [Terraform-compliance](https://terraform-compliance.com) is used to ensure the policies are followed.
+
+Terraform-compliance focuses on *negative testing*. Negative testing is the process of ensuring that a system can gracefully handle unexpected input or unwanted behavior. *Fuzzing* is an example of negative testing. With fuzzing, a system that receives input is tested to ensure that it can safely handle unexpected input.
 
 Fortunately, Terraform is an abstraction layer for any API that creates, updates, or destroys cloud-infrastructure entities. Terraform also ensures the local configuration and the remote API responses are in synch. Since Terraform is mostly used against Cloud APIs, we still need a way to ensure the code deployed against the infrastructure follows specific policies. Terraform-compliance - a free and open-source tool - provides this functionality for Terraform configurations.
 
-Using the VM example, a compliance policy might be the following: *"If you're creating an Azure resource, it must contain a tag"*.
+Using the VM example, a compliance policy might be as follows: *"If you're creating an Azure resource, it must contain a tag"*.
 
 The Terraform-compliance tool provides a test framework where you create policies like the example. You then run those policies against your Terraform execution plan.
 
-Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers and testers as well as anyone with a vested interest in - or who will be impacted by - the system being developed. The goal of BDD is to encourage teams to build concrete examples that express a common understanding of how the system should behave.
+Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers, testers, and anyone with a vested interest in - or who will be impacted by - the system being developed. The goal of BDD is to encourage teams to build concrete examples that express a common understanding of how the system should behave.
 
 ## Looking at an example
 
@@ -113,7 +115,7 @@ Scenario Outline: Ensure that specific tags are defined
 
 ## Running the sample
 
-In this section, you will download and test the example.
+In this section, you'll download and test the example.
 
 1. [Download the compliance test sample](https://github.com/Azure/terraform/tree/master/samples/compliance-testing).
 
