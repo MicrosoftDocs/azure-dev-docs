@@ -52,16 +52,16 @@ Our test should validate the following scenarios:
 
 If you [downloaded the sample](#prerequisites), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
-If you're unfamiliar with create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure).
+If you're unfamiliar with create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
 
 > [!CAUTION]
 > The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
 ## End-to-end test
 
-The end-to-end test is written in Go language and uses the Terratest framework. It is defined in the [src/test/end2end_test.go](https://github.com/Azure/terraform/samples/end-to-end-testing/src/test/end2end_test.go) file.
+The end-to-end test is written in Go language and uses the Terratest framework. If you [downloaded the sample](#prerequisites), it's defined in the `src/test/end2end_test.go` file.
 
-This is the common structure of a Golang test using Terratest:
+The following source code shows the standard structure of a Golang test using Terratest:
 
 ```Go
 package test
@@ -106,39 +106,45 @@ func TestEndToEndDeploymentScenario(t *testing.T) {
 }
 ```
 
-As you can see in the snippet above, the test is composed by three stages:
+As you can see in the previous code snippet, the test is composed by three stages:
 
-1. `setup`: this stage is responsible for running Terraform to deploy the configuration.
-2. `validate`: this stage is responsible for doing the validation checks / assertions.
-3. `teardown`: this stage is responsible for cleaning up the infrastructure.
+- **setup**: Runs Terraform to deploy the configuration
+- **validate**`: Does the validation checks and assertions
+- **teardown**: Cleans up the infrastructure after the test has run
 
-Some relevant functions provided by Terratest framework are:
+The following list shows some of the key functions provided by the Terratest framework:
 
-- `terraform.InitAndApply` allows to run the `terraform init` and `terraform apply` commands from Go code.
-- `terraform.Output` allows to retrieve the value of a deployment output variable.
-- `terraform.Destroy` allows to run the `terraform destroy` command from Go code.
-- `test_structure.LoadTerraformOptions` allows to load Terraform options (config, variables etc.) from the state.
-- `test_structure.SaveTerraformOptions` allows to save Terraform options (config, variables etc.) to the state.
+- **terraform.InitAndApply**: Enables running `terraform init` and `terraform apply` from Go code
+- **terraform.Output**: Retrieves the value of the deployment output variable.
+- **terraform.Destroy**: Runs the `terraform destroy` command from Go code.
+- **test_structure.LoadTerraformOptions**: Loads Terraform options - such as configuration and variables - from the state
+- **test_structure.SaveTerraformOptions**: Saves Terraform options - such as configuration and variables - to the state
 
 ## Run the end-to-end test
 
-> [!NOTE]
-> To run this end-to-end sample test, we assume that you have an SSH private/public key pair name `id_rsa` and `id_rsa.pub` into your home directory. You might want to change the value of this variable into the Terraform configuration and the `TEST_SSH_KEY_PATH` environment variable in the snippet below.
+In this section, you run the test against the sample configuration and deployment. 
 
-Running the test requires that Terraform is installed and configured on your machine and that you are connected to your Azure subscription with the Azure CLI command `az login`.
+1. Open a bash/terminal window.
 
-Once ready, since the end-to-end test is just a Go test, it can be run like the following:
+1. Log in to your Azure account. For information about logging into your Azure subscription, see [Azure authentication section](get-started-cloud-shell.md#authenticate-to-azure).
 
-```console
-# Set the path of the SSH private key to use to connect the virtual machine
-export TEST_SSH_KEY_PATH="/home/bob/.ssh/id_rsa"
-cd test
+1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `USER` with the name of your home directory.
+
+```bash
+export TEST_SSH_KEY_PATH="/home/USER/.ssh/id_rsa"
+```
+
+1. Change directories to the `test` directory.
+
+1. Run the test.
+
+```go
 go test -v ./ -timeout 10m
 ```
 
-Once the test is ended, it displays the results:
+The test will display results similar to the following output:
 
-```console
+```output
 --- PASS: TestEndToEndDeploymentScenario (390.99s)
 PASS
 ok      test    391.052s
@@ -147,7 +153,4 @@ ok      test    391.052s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and run compliance tests in Terraform projects](best-practices-compliance-testing.md)
-
-> [!div class="nextstepaction"]
-> [Create and run integration tests in Terraform projects](best-practices-integration-testing.md)
+> [Terraform testing overview](best-practices-testing-overview.md)
