@@ -27,43 +27,30 @@ In this article, you learn how to do the following tasks:
 
 ## What is end-to-end testing
 
-End-to-end tests allow to validate that a program actually works in real conditions. For Terraform projects, end-to-end testing allows to validate that what has been deployed to Azure actually works as expected. Meaning that we want to test the whole scenario, end to end.
+End-to-end tests validate that a system works as a collective whole. This is as opposed to testing specific modules. For Terraform projects, end-to-end testing allows for the validation of what has been deployed. This type of testing differs from many other types that test pre-deployment scenarios. End-to-end tests are critical for testing complex systems that include multiple modules and act on multiple resources. In such scenarios, end-to-end testing is the only way to determine if the various modules are interacting correctly.
 
-End-to-end tests are really useful and important When you are deploying complex system that involve different compute resources, databases, etc. to validate that they have been correctly deployed and configured and are able to interact together.
+This article focuses on using [Terratest](https://github.com/gruntwork-io/terratest) to facilitate end-to-end testing. Terratest provides all the plumbing that is required to do the following task:
 
-For example, the goal is not only to validate that Terraform deployed the resource correctly: if you decide to use Terraform, it is because you already trust it to deploy the resource you asked for. Let's consider you write the following Terraform configuration:
-
-```hcl
-resource "azure_resource_group" "rg" {
-  location = "westeurope"
-  name     = "rg-terratest"
-}
-```
-
-Here, it does not make sense to run a end-to-end test to make sure that Terraform has actually deployed a resource group named `rg-terratest` in the Azure region `westeurope`. It's possible that the deployment of this resource group will fail, because its name is already in use or a lot of other good reasons. But in that case, the Terraform deployment itself will fail with an error, so you get notified about that.
-
-## How Terratest helps to write end-to-end
-
-It's possible to write end-to-end test without [Terratest](https://github.com/gruntwork-io/terratest). For example by running `terraform init` and `terraform apply` by yourself, running a Bash or Powershell script responsible for doing the validation checks and then calling `terraform destroy`. We chose to document Terratest here because it is commonly used in the industry, is written in Go and relies on the Go test Framework. It provides all the plumbing that is required to:
-
-1. Deploy a Terraform configuration
-2. Give you the hand back to write any Go test to validate what has been actually deployed
-3. Tear down the deployed infrastructure
-4. Orchestrate the tests into stages
+- Deploy a Terraform configuration
+- Enables you to write a test using the Go language to validate what has been deployed
+- Orchestrate the tests into stages
+- Tear down the deployed infrastructure
 
 ## Tutorial scenario
 
-For this tutorial we are using a sample available in the [Azure/terraform](https://github.com/Azure/terraform/samples/end-to-end-testing/README.md) repository.
+For this tutorial, we are using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/samples/end-to-end-testing/README.md).
 
-This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. `vm-linux-1` has a public IP address. Only port 22 is opened to allow SSH connection. `vm-linux-2` has no public IP address. The scenario we want to validate with the end-to-end test is to make sure that:
+This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. One VM - named `vm-linux-1` - has a public IP address. Only port 22 is opened to allow SSH connections. The second VM - `vm-linux-2` - has no defined public IP address. 
 
-- infrastructure is deployed correctly
-- it's possible to open an SSH session to `vm-linux-1` using port 22
-- it's possible to ping `vm-linux-2` from `vm-linux-1` SSH session
+Our test should validate the following scenarios:
 
-![End-to-End Scenario](media/best-practices-end-to-end-testing/scenario.png)
+- The infrastructure is deployed correctly
+- Using port 22, it's possible to open an SSH session to `vm-linux-1`
+- Using the SSH session on `vm-linux-1`, it's possible to ping `vm-linux-2`
 
-> NOTE: this is a simple scenario to illustrate how to write a basic end-to-end test. We don't recommend having production virtual machines that exposes SSH port over a public IP address.
+![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
+
+> NOTE: This sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
 ## Terraform configuration
 

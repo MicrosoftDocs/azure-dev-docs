@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure integration tests for Terraform projects in Azure
+title: Tutorial - Integration testing with Terraform and Azure
 description: Learn about integration tests and how to use Azure DevOps to configure continuous integration for Terraform projects.
 ms.topic: tutorial
 ms.date: 07/31/2020
@@ -30,7 +30,7 @@ In this article, you learn how to do the following tasks:
 - **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
 - **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
-## Validate local Terraform configuration
+## Validate alocal Terraform configuration
 
 The [terraform validate](https://www.terraform.io/docs/commands/validate.html) command is run from the command line in the directory containing your Terraform files. This commands main goal is validating syntax.
 
