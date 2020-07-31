@@ -30,8 +30,10 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Getting started - Cloud Shell
+          - text: Getting started - Azure Cloud Shell
             url: getting-started-cloud-shell.md
+          - text: Getting started - Windows and PowerShell
+            url: getting-started-powershell.md
       - linkListType: how-to-guide
         links:
           - text: Install the Terraform Visual Studio Code extension
