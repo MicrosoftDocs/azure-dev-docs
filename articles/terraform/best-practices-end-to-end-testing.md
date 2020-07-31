@@ -27,9 +27,9 @@ In this article, you learn how to do the following tasks:
 
 ## What is end-to-end testing
 
-End-to-end tests validate that a system works as a collective whole. This type of testing is as opposed to testing specific modules. For Terraform projects, end-to-end testing allows for the validation of what has been deployed. This type of testing differs from many other types that test pre-deployment scenarios. End-to-end tests are critical for testing complex systems that include multiple modules and act on multiple resources. In such scenarios, end-to-end testing is the only way to determine if the various modules are interacting correctly.
+End-to-end tests validate a system works as a collective whole. This type of testing is as opposed to testing specific modules. For Terraform projects, end-to-end testing allows for the validation of what has been deployed. This type of testing differs from many other types that test pre-deployment scenarios. End-to-end tests are critical for testing complex systems that include multiple modules and act on multiple resources. In such scenarios, end-to-end testing is the only way to determine if the various modules are interacting correctly.
 
-This article focuses on using [Terratest](https://github.com/gruntwork-io/terratest) to facilitate end-to-end testing. Terratest provides all the plumbing that is required to do the following task:
+This article focuses on using [Terratest](https://github.com/gruntwork-io/terratest) to implement end-to-end testing. Terratest provides all the plumbing that is required to do the following task:
 
 - Deploy a Terraform configuration
 - Enables you to write a test using the Go language to validate what has been deployed
@@ -38,7 +38,7 @@ This article focuses on using [Terratest](https://github.com/gruntwork-io/terrat
 
 ## Tutorial scenario
 
-For this tutorial, we are using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/samples/end-to-end-testing/README.md).
+For this tutorial, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/samples/end-to-end-testing/README.md).
 
 This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. One VM - named `vm-linux-1` - has a public IP address. Only port 22 is opened to allow SSH connections. The second VM - `vm-linux-2` - has no defined public IP address.
 
