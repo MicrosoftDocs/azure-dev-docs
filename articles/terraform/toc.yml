@@ -7,10 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Getting started - Cloud Shell 
-      href: getting-started-cloud-shell.md
-    - name: Getting started - PowerShell
-      href: getting-started-powershell.md
+    - name: Get started - Cloud Shell 
+      href: get-started-cloud-shell.md
+    - name: Get started - PowerShell
+      href: get-started-powershell.md
 - name: How-to guides
   items:
     - name: Setup and configuration
