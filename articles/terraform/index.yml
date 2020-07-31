@@ -86,7 +86,7 @@ landingContent:
   # Card
   - title: Manage networks
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
           - text: 1. Create hub and spoke topology
             url: hub-spoke-introduction.md

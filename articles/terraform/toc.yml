@@ -13,10 +13,6 @@
       href: get-started-powershell.md
 - name: How-to guides
   items:
-    - name: Setup and configuration
-      items:
-        - name: Store Terraform state in Azure Storage
-          href: store-state-in-azure-storage.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
@@ -31,22 +27,6 @@
       items:
         - name: Deploy an Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
-    - name: Networks
-      items:
-      - name: Hub and spoke topology 
-        items:
-          - name: 1. Create hub and spoke topology
-            href: hub-spoke-introduction.md
-          - name: 2. Create on-premises virtual network
-            href: hub-spoke-on-prem.md
-          - name: 3. Create hub virtual network
-            href: hub-spoke-hub-network.md
-          - name: 4. Create hub virtual network appliance
-            href: hub-spoke-hub-nva.md
-          - name: 5. Create spoke network
-            href: hub-spoke-spoke-network.md
-          - name: 6. Validate network topology connectivity 
-            href: hub-spoke-validation.md
     - name: Tools
       items:
         - name: Install the Terraform Visual Studio Code extension
@@ -67,15 +47,35 @@
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Tutorials
   items:
+    - name: Setup and configuration
+      items:
+        - name: Store Terraform state in Azure Storage
+          href: store-state-in-azure-storage.md
+    - name: Networks
+      items:
+      - name: Hub and spoke topology 
+        items:
+          - name: 1. Create hub and spoke topology
+            href: hub-spoke-introduction.md
+          - name: 2. Create on-premises virtual network
+            href: hub-spoke-on-prem.md
+          - name: 3. Create hub virtual network
+            href: hub-spoke-hub-network.md
+          - name: 4. Create hub virtual network appliance
+            href: hub-spoke-hub-nva.md
+          - name: 5. Create spoke network
+            href: hub-spoke-spoke-network.md
+          - name: 6. Validate network topology connectivity 
+            href: hub-spoke-validation.md
     - name: Testing Terraform projects
       items:
-        - name: Terraform testing overview
+        - name: 1. Terraform testing overview
           href: best-practices-testing-overview.md
-        - name: Integration testing
+        - name: 2. Integration testing
           href: best-practices-integration-testing.md
-        - name: Compliance testing
+        - name: 3. Compliance testing
           href: best-practices-compliance-testing.md
-        - name: End-to-end testing
+        - name: 4. End-to-end testing
           href: best-practices-end-to-end-testing.md
 - name: Samples
   items:

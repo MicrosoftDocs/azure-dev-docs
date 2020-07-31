@@ -161,7 +161,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 ### Visualize the plan
 
-Earlier in this tutorial, you installed GraphViz. Terraform can use GraphViz to generate a visual representation of either a configuration or execution plan. The Azure Terraform Visual Studio Code extension implements this feature via the *visualize* command.
+Earlier in this article, you installed GraphViz. Terraform can use GraphViz to generate a visual representation of either a configuration or execution plan. The Azure Terraform Visual Studio Code extension implements this feature via the *visualize* command.
 
 - From the menu bar, select **View > Command Palette > Azure Terraform: Visualize**.
 
