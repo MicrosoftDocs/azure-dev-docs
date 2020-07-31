@@ -120,9 +120,9 @@ In this section, you will download and test the example.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory. This step downloads the Azure modules required to create an Azure resource group.
 
-  ```terraform
-  terraform init
-  ```
+    ```terraform
+    terraform init
+    ```
     
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
