@@ -180,8 +180,6 @@ In this section, you will download and test the example.
     terraform plan -out tf.out
     ```
     
-1. Run `terraform apply` again to apply the new execution plan.
-
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. This time, the test succeeds as the full spec has been implemented.
 
     ```bash
