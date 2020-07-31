@@ -31,13 +31,13 @@ Compliance testing is a nonfunctional testing technique to determine if a system
 
 Most software teams do an analysis to check that the standards are properly enforced and implemented. Often working simultaneously to improve the standards that, in turn, lead to increased quality.
 
-Compliance testing ensures the conformity of the deliverables of each phase of the development lifecycle.
+Compliance testing ensures that the output of each development lifecycle phase conforms to agreed-upon requirements.
 
 Compliance checks should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
 
 ## Understanding compliance checks
 
-Doing compliance checks is straight forward. A set of standards and procedures is developed and documented for each phase of the development lifecycle. Deliverables of each phase are compared against the documented standards. The results of the test are any "gaps" in not conforming to the predetermined standards. Compliance testing is done through the inspection process and the outcome of the review process should be documented.
+Doing compliance checks is straight forward. A set of standards and procedures is developed and documented for each phase of the development lifecycle. The output of each phase is compared against the documented requirements. The results of the test are any "gaps" in not conforming to the predetermined standards. Compliance testing is done through the inspection process and the outcome of the review process should be documented.
 
 Let's take a look at a specific example.
 
