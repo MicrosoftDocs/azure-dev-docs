@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 04/26/2020
+  ms.date: 07/31/2020
 
 landingContent:
   # Card
@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: Getting started - Cloud Shell
             url: getting-started-cloud-shell.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
@@ -52,8 +52,6 @@ landingContent:
         links:
           - text: Integration testing
             url: best-practices-integration-testing.md
-          - text: Unit testing
-            url: best-practices-unit-testing.md
           - text: Compliance testing
             url: best-practices-compliance-testing.md
           - text: End-to-end testing
@@ -62,7 +60,7 @@ landingContent:
   # Card
   - title: Manage AKS
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Create a Kubernetes cluster with AKS
             url: create-k8s-cluster-with-tf-and-aks.md
@@ -76,7 +74,7 @@ landingContent:
         links:
           - text: Create a Linux VM
             url: create-linux-virtual-machine-with-infrastructure.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Create a VM cluster with Terraform modules
             url: create-vm-cluster-module.md
@@ -90,7 +88,7 @@ landingContent:
   # Card
   - title: Manage networks
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: 1. Create hub and spoke topology
             url: hub-spoke-introduction.md
@@ -108,7 +106,7 @@ landingContent:
   # Card
   - title: Manage databases
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
