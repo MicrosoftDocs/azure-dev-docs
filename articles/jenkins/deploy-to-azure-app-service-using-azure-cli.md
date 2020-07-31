@@ -3,7 +3,8 @@ title: Tutorial - Deploy to Azure App Service with Jenkins and the Azure CLI
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
 keywords: jenkins, azure, devops, app service, cli
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 04/25/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy to Azure App Service with Jenkins and the Azure CLI
