@@ -2,7 +2,7 @@
 title: Tutorial - Configure unit tests for Terraform projects
 description: Learn about unit testing Terraform projects and how to automate these tests using Azure DevOps
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ---
 
 # Tutorial: Configure unit tests for Terraform projects
@@ -208,8 +208,6 @@ Your unit test on your Terraform code is now completed!
 This process can be injected and executed from an Azure pipeline to ensure full automation of your deployment and testing.  Refer to [Terraform integration testing](articles\terraform\best-practices-integration-testing.md) to get started and review the prerequisites. To learn more about adding unit tests to Azure Pipelines, see [Build and test Go projects](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/go?view=azure-devops&tabs=go-current).
 
 You will use a similar folder structure as described earlier, but instead run your Terraform commands from the pipeline with your code in source control.
-
-You will add in the `terraform init` and `terraform plan` commands as tasks into your pipeline, the YAML configuration is listed below.  You will need to create a test plan or task for the Go unit test itself.
 
 ## Next steps
 

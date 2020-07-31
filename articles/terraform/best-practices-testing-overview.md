@@ -2,7 +2,7 @@
 title: Tutorial - Terraform testing overview
 description: Learn about the different testing options that you can configure to validate Terraform projects.
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ---
 
 # Tutorial: Terraform testing overview
