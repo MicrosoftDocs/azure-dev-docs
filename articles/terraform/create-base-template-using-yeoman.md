@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Create a Terraform base template in Azure using Yeoman
+title: Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 05/25/2020
 ---
 
-# Tutorial: Create a Terraform base template in Azure using Yeoman
+# Create a Terraform base template in Azure using Yeoman
 
 In this tutorial, you'll learn how to use the combination of [Terraform](/azure/terraform/) and [Yeoman](https://yeoman.io/). Terraform is a tool for creating infrastructure on Azure. Yeoman makes it easy to create Terraform modules.
 

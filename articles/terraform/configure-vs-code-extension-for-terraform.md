@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Configure the Azure Terraform Visual Studio Code extension
+title: Configure the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/26/2019
 ---
 
-# Tutorial: Configure the Azure Terraform Visual Studio Code extension
+# Configure the Azure Terraform Visual Studio Code extension
 
 The Azure Terraform Visual Studio Code extension enables you to work with Terraform from the editor. With this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization.
 

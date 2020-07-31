@@ -53,8 +53,6 @@
           href: configure-vs-code-extension-for-terraform.md
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
-        - name: Test Terraform modules using Terratest
-          href: test-modules-using-terratest.md
     - name: Virtual machines
       items:
         - name: Virtual machine with infrastructure
