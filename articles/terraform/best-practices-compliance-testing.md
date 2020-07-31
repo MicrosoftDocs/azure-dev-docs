@@ -120,25 +120,25 @@ In this section, you will download and test the example.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory. This step downloads the Azure modules required to create an Azure resource group.
 
-    ```terraform
+    ```bash
     terraform init
     ```
     
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```terraform
+    ```bash
     terraform validate
     ```
     
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
-    ```terraform
+    ```bash
     terraform plan -out tf.out
     ```
     
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-    ```terraform
+    ```bash
     terraform apply -target=random_uuid.uuid
     ```
     
@@ -148,20 +148,17 @@ In this section, you will download and test the example.
     docker pull eerkunt/terraform-compliance
     ```
     
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
-Now we are ready to run the tests suite.
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. While the first rule requiring existence of tags succeeds, the code doesn't comply with the full specification in that the `Role` and `Creator` tags are missing.
 
-    ```bash 
+    ```bash
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
     ```
     
-1. The test will fail. While the first rule requiring existence of tags succeeds, the code doesn't comply with the full specification in that the `Role` and `Creator` tags are missing.
-
-![tf-compliance-run-tagging-fail](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
+    ![Example of a failed test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
 
 1. Modify `main.tf` as follows to fix the error.
 
-    ```hcl 
+    ```terraform
       tags = {
         Environment = "dev"
         Application = "Azure Compliance"
@@ -173,13 +170,13 @@ Now we are ready to run the tests suite.
     
 1. Run `terraform validate` again to verify the syntax.
 
-    ```terraform
+    ```bash
     terraform validate
     ```
     
 1. Run `terraform plan` again to create a new execution plan.
 
-    ```terraform
+    ```bash
     terraform plan -out tf.out
     ```
     
@@ -193,9 +190,9 @@ Now we are ready to run the tests suite.
 
 
 
-Now, we should be green when running the tests suite again. We see our first rule of requiring existence of tags suceed and now we also provide the full spec of tags too:
+1. The test succeeds as the full spec has been implemented.
 
-![tf-compliance-run-tagging-succeed](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
+    ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
 
 ## Next steps
 
