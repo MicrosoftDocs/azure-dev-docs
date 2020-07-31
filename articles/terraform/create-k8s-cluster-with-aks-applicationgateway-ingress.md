@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Create an Application Gateway ingress controller in Azure Kubernetes Service
+title: Create an Application Gateway ingress controller in Azure Kubernetes Service
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller.
 keywords: azure devops terraform application gateway ingress aks kubernetes
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 03/09/2020
 ---
 
-# Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service
+# Create an Application Gateway ingress controller in Azure Kubernetes Service
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, these tasks - including provisioning, upgrading and scaling resources - can be accomplished on-demand.
 
 An ingress controller provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes ingress resources are used to configure the ingress rules for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure. 
 
-In this tutorial, you learn how to do the following tasks:
+In this article, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller.
