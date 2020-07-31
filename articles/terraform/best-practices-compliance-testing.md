@@ -120,68 +120,75 @@ In this section, you will download and test the example.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory. This step downloads the Azure modules required to create an Azure resource group.
 
-```terraform
-terraform init
-```
-
+  ```terraform
+  terraform init
+  ```
+    
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-```terraform
-terraform validate
-```
-
+    ```terraform
+    terraform validate
+    ```
+    
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
-```terraform
-terraform plan -out tf.out
-```
-
+    ```terraform
+    terraform plan -out tf.out
+    ```
+    
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-```terraform
-terraform apply -target=random_uuid.uuid
-```
-
+    ```terraform
+    terraform apply -target=random_uuid.uuid
+    ```
+    
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
-```bash
-docker pull eerkunt/terraform-compliance
-```
-
+    ```bash
+    docker pull eerkunt/terraform-compliance
+    ```
+    
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 Now we are ready to run the tests suite.
 
-```bash 
-docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
-```
-
+    ```bash 
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    ```
+    
 1. The test will fail. While the first rule requiring existence of tags succeeds, the code doesn't comply with the full specification in that the `Role` and `Creator` tags are missing.
 
 ![tf-compliance-run-tagging-fail](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
 
 1. Modify `main.tf` as follows to fix the error.
 
-```hcl 
-  tags = {
-    Environment = "dev"
-    Application = "Azure Compliance"
-    Creator     = "Azure Compliance"
-    Role        = "Azure Compliance"
-  } 
-
-```
-
+    ```hcl 
+      tags = {
+        Environment = "dev"
+        Application = "Azure Compliance"
+        Creator     = "Azure Compliance"
+        Role        = "Azure Compliance"
+      } 
+    
+    ```
+    
 1. Run `terraform validate` again to verify the syntax.
 
-```terraform
-terraform validate
-```
-
+    ```terraform
+    terraform validate
+    ```
+    
 1. Run `terraform plan` again to create a new execution plan.
 
-```terraform
-terraform plan -out tf.out
-```
+    ```terraform
+    terraform plan -out tf.out
+    ```
+    
+1. Run `terraform apply` again to apply the new execution plan.
+
+
+
+
+
 
 
 
