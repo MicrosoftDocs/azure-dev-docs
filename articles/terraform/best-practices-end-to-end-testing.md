@@ -50,7 +50,8 @@ Our test should validate the following scenarios:
 
 ![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
 
-> NOTE: This sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
+> [!CAUTION]
+> The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
 ## Terraform configuration
 
