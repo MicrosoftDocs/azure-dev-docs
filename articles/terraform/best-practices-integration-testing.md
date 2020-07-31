@@ -220,4 +220,4 @@ Once you've done that step, access the details in Azure DevOps to ensure that ev
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and run unit tests in Terraform projects](best-practices-unit-testing.md)
+> [Create and run compliance tests in Terraform projects](best-practices-compliance-testing.md)

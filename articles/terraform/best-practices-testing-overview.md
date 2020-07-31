@@ -36,9 +36,6 @@ Unit testing can be especially beneficial when your Terraform modules start to b
 
 As with integration tests, many times unit tests are included in the continuous integration process.
 
-> [!div class="nextstepaction"]
-> [Learn more about unit testing](best-practices-unit-testing.md)
-
 ## Compliance testing
 
 Compliance testing is used to ensure the configuration follows the policies you've defined for the project. For example, you might define geopolitical naming conventions for your Azure resources. Or you might want virtual machines to be created from a defined subset of images. Compliance testing would be used to enforce these rules.
