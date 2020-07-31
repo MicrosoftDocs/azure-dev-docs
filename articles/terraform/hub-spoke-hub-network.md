@@ -7,9 +7,9 @@ ms.date: 10/26/2019
 
 # Tutorial: Create a hub virtual network in Azure by using Terraform
 
-The hub virtual network acts as the central point of connectivity to the on-premises network. The virtual network hosts shared services consumed by workloads hosted in the spoke virtual networks. For demo purposes, no shared services are implemented in this tutorial.
+The hub virtual network acts as the central point of connectivity to the on-premises network. The virtual network hosts shared services consumed by workloads hosted in the spoke virtual networks. For demo purposes, no shared services are implemented in this article.
 
-This tutorial covers the following tasks:
+This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Use the HashiCorp Configuration Language (HCL) to implement the hub virtual network in a hub-and-spoke topology.

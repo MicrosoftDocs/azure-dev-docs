@@ -3,7 +3,8 @@ title: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 keywords: jenkins, azure, devops, azure sping cloud, azure cli
 ms.topic: tutorial
-ms.date: 01/07/2020
+ms.date: 01/07/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
