@@ -41,29 +41,31 @@ Doing compliance checks is straight forward. A set of standards and procedures i
 
 Let's take a look at a specific example.
 
-A common problem is when environments are broken due to multiple developers applying incompatible or contradictory changes. For example, let's say one person works on a change and applies resources such as creating a VM in a test environment. Then, another person applies a different version of the code that provisions different version of that VM. What is needed here is some sort of oversight or control in ensuring consistency and conformity to stated rules.
+A common problem is environments that break when multiple developers apply incompatible changes. Let's say one person works on a change and applies resources such as creating a VM in a test environment. Another person then applies a different version of the code that provisions different version of that VM. What is needed here is oversight to ensure conformity to stated rules.
 
-One way to address this issue would be to define a policy of tagging the resources - such as with `role` and `creator` tags. This is where [Terraform-compliance](https://terraform-compliance.com) helps. Terraform-compliance focuses on *negative testing*. Negative testing is the process of ensuring that a system can gracefully handle unexpected input or unwanted behavior. *Fuzzing* is a type of negative testing where a system that receives input is tested to ensure that it can safely handle inappropriate or unexpected input. 
+One way to address this issue would be to define a policy of tagging the resources - such as with `role` and `creator` tags. This is where [Terraform-compliance](https://terraform-compliance.com) helps. Terraform-compliance focuses on *negative testing*. Negative testing is the process of ensuring that a system can gracefully handle unexpected input or unwanted behavior. *Fuzzing* is an example of negative testing. With fuzzing, a system that receives input is tested to ensure that it can safely handle unexpected input.
 
-Fortunately, Terraform is an abstraction layer for any API that creates, updates, or destroys cloud-infrastructure entities. Terraform also provides the capability to ensure everything is up-to-date between the local configuration and the remote API responses. Since Terraform is mostly used against Cloud APIs, we still need a way to ensure the code deployed against the infrastructure follows specific policies. Terraform-compliance - a free and open-source tool - provides this functionality for Terraform configurations.
+Fortunately, Terraform is an abstraction layer for any API that creates, updates, or destroys cloud-infrastructure entities. Terraform also ensures the local configuration and the remote API responses are in synch. Since Terraform is mostly used against Cloud APIs, we still need a way to ensure the code deployed against the infrastructure follows specific policies. Terraform-compliance - a free and open-source tool - provides this functionality for Terraform configurations.
 
-Using the VM example mentioned before, a sample compliance policy might take the form, "If you creating an Azure resource, it must contain a tag". The Terraform-compliance tool provides a test framework where you create policies like this and then run them against your Terraform execution plan.
+Using the VM example, a compliance policy might be the following: *"If you're creating an Azure resource, it must contain a tag"*.
 
-Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers and testers as well as anyone with a vested interest in - or who will be impacted by - the system being developed. The main goal of BDD is to encourage teams (or virtual teams) to build concrete examples that articulate a common understanding of how the system should behave.
+The Terraform-compliance tool provides a test framework where you create policies like the example. You then run those policies against your Terraform execution plan.
+
+Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers and testers as well as anyone with a vested interest in - or who will be impacted by - the system being developed. The goal of BDD is to encourage teams to build concrete examples that express a common understanding of how the system should behave.
 
 ## Looking at an example
 
 Previously in this article, you read about a compliance-testing example of creating a VM for a test environment. This section shows how to translate that example into a BDD Feature and Scenario. The rule is first expressed using *Cucumber*, which is a tool used to support BDD.
 
 ```Cucumber
-if you are working with Azure, you should not create a resource, without having any tags
+when creating Azure resources, every new resource should have a tag
 ```
 
 The previous rule is translated as follows:
 
 ```Cucumber
-Given I have resources that supports tags defined
-Then it must contain tags
+If the resource supports tags
+Then it must contain a tag
 And its value must not be null
 ```
 
@@ -88,8 +90,8 @@ The first policy could be written as a [BDD feature scenario](https://gherkin.io
 ```Cucumber
 Feature: Test tagging compliance  # /target/src/features/tagging.feature
     Scenario: Ensure all resources have tags
-        Given I have resource that supports tags defined
-        Then it must contain tags
+        If the resource supports tags
+        Then it must contain a tag
         And its value must not be null
 ```
 
@@ -97,9 +99,8 @@ The following code shows a test for a specific tag:
 
 ```Cucumber
 Scenario Outline: Ensure that specific tags are defined
-    Given I have resource that supports tags defined
-    When it has tags
-    Then it must contain <tags>
+    If the resource supports tags
+    Then it must contain a tag <tags>
     And its value must match the "<value>" regex
 
     Examples:
@@ -148,7 +149,7 @@ In this section, you will download and test the example.
     docker pull eerkunt/terraform-compliance
     ```
     
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. While the first rule requiring existence of tags succeeds, the code doesn't comply with the full specification in that the `Role` and `Creator` tags are missing.
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. The first rule requiring existence of tags succeeds. However, the second rule fails in that the `Role` and `Creator` tags are missing.
 
     ```bash
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
