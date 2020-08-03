@@ -592,7 +592,7 @@
 | security-provider-preview | maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/security-provider-preview/1.0.1/jar/) |  |  |
 | service-bus-jms-connection-factory | maven [0.0.1](https://search.maven.org/artifact/com.microsoft.azure/service-bus-jms-connection-factory/0.0.1/jar/) |  |  |
 | services-preview | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/services-preview/1.0.0/jar/) |  |  |
-| spark-cdm-connector | maven [0.15](https://search.maven.org/artifact/com.microsoft.azure/spark-cdm-connector/0.15/jar/) |  |  |
+| spark-cdm-connector | maven [0.16](https://search.maven.org/artifact/com.microsoft.azure/spark-cdm-connector/0.16/jar/) |  |  |
 | spark-kusto-connector | maven [2.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/spark-kusto-connector/2.0.0/jar/) |  |  |
 | spark-streaming-eventhubs_2.10 | maven [1.6.3](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.10/1.6.3/jar/) |  |  |
 | spark-streaming-eventhubs_2.11 | maven [2.1.5](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11/2.1.5/jar/) |  |  |

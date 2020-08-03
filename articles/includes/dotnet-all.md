@@ -110,9 +110,9 @@
 | Microsoft.Azure.DataLake.Store | NuGet [1.2.3-alpha](https://www.nuget.org/packages/Microsoft.Azure.DataLake.Store/1.2.3-alpha) |  |  |
 | Microsoft.Azure.DataLake.USQL.SDK | NuGet [1.4.200715](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.200715) |  |  |
 | Microsoft.Azure.DCAP | NuGet [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.6.0) |  |  |
-| Microsoft.Azure.DocumentDB | NuGet [2.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.3) |  |  |
-| Microsoft.Azure.DocumentDB.ChangeFeedProcessor | NuGet [2.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.0) |  |  |
-| Microsoft.Azure.DocumentDB.Core | NuGet [2.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.3) |  |  |
+| Microsoft.Azure.DocumentDB | NuGet [2.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.4) |  |  |
+| Microsoft.Azure.DocumentDB.ChangeFeedProcessor | NuGet [2.3.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.1) |  |  |
+| Microsoft.Azure.DocumentDB.Core | NuGet [2.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.4) |  |  |
 | Microsoft.Azure.EventGrid | NuGet [3.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/3.2.0) |  |  |
 | Microsoft.Azure.EventHubs | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/4.2.0) |  |  |
 | Microsoft.Azure.EventHubs.Processor | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/4.2.0) |  |  |
@@ -162,11 +162,11 @@
 | Microsoft.Azure.Management.Consumption.Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.Consumption.Fluent/1.9.1-beta) |  |  |
 | Microsoft.Azure.Management.ContainerInstance | NuGet [3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerInstance/3.0.0) |  |  |
 | Microsoft.Azure.Management.ContainerInstance.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerInstance.Fluent/1.34.0) |  |  |
-| Microsoft.Azure.Management.ContainerRegistry | NuGet [5.0.0-preview.4](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerRegistry/5.0.0-preview.4) |  |  |
+| Microsoft.Azure.Management.ContainerRegistry | NuGet [5.0.0-preview.5](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerRegistry/5.0.0-preview.5) |  |  |
 | Microsoft.Azure.Management.ContainerRegistry.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerRegistry.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.ContainerService | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerService/1.0.0) |  |  |
 | Microsoft.Azure.Management.ContainerService.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ContainerService.Fluent/1.34.0) |  |  |
-| Microsoft.Azure.Management.CosmosDB | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/1.2.0) |  |  |
+| Microsoft.Azure.Management.CosmosDB | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/1.2.0)<br>NuGet [1.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/1.3.0-preview) |  |  |
 | Microsoft.Azure.Management.CosmosDB.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.CustomerInsights | NuGet [0.9.1-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.CustomerInsights/0.9.1-preview) |  |  |
 | Microsoft.Azure.Management.CustomerInsights.Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.CustomerInsights.Fluent/1.9.1-beta) |  |  |
