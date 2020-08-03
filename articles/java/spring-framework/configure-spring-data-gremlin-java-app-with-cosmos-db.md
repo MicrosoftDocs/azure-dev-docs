@@ -1,9 +1,9 @@
 ---
 title: How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API
-description: Learn how to configure an application created with the Spring Boot Initializer with the Azure Cosmos DB SQL API.
+description: Learn how to configure an application created with the Spring Boot Initializr with the Azure Cosmos DB SQL API.
 services: cosmos-db
 documentationcenter: java
-ms.date: 01/10/2020
+ms.date: 08/03/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -28,9 +28,9 @@ The following prerequisites are required in order to follow the steps in this ar
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 
-## Create Resource
+## Create an Azure Cosmos DB account
 
-### Create Azure Cosmos DB
+### Create a Cosmos DB account using the Azure portal
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and click `+Create a resource`.
 
@@ -56,6 +56,12 @@ The following prerequisites are required in order to follow the steps in this ar
    >![create-azure-cosmos-db-account][create-a-resource-03]
 
 1. Review the specification and click `Create` to create your database.
+
+1. When your database has been created, Click **Go to resource**. It is also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
+
+1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+
+   ![Access keys][AZ05]
 
 ### Add a graph to your Azure Cosmos Database
 
@@ -84,44 +90,66 @@ Click `OK`.
    
    
 
-## Create simple Spring Boot application with the Spring Initializr
+## Create a simple Spring Boot application with the Spring Initializr
 
 1. Browse to <https://start.spring.io/>.
 
-1. Fill project metadata then click `GENERATE`:
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, specify your **Spring Boot** version with version 2.3.1, and then click **GENERATE**.
+
+> [!NOTE]
+>
+> The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wintiptoysdata.
+
 
    >[!div class="mx-imgBorder"]
    >![spring-initializr][spring-initializr-01]
 
-1. Unzip the file then import to your IDE.
+1. When prompted, download the project to a path on your local computer.
+
+1. After you have extracted the files on your local system, import it to your IDE.
 
 
-## Update code according to the sample project
+## Configure your Spring Boot app to use the Spring Data Gremlin Starter
 
-Modify the project like the sample project: [azure-spring-data-sample-gremlin].
+We will be replicating the configurations of the existing [Azure Spring Data Gremlin sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin). Browse to the sample and follow the steps in this section to configure your Spring Boot app.
 
-1. Add dependency of `azure-spring-data-gremlin`
+1. Locate the *pom.xml* file in the directory of your app; for example:
 
-1. Delete all contents in `src/test/`
+   `C:\SpringBoot\wingtiptoysdata\pom.xml`
 
-1. Add all java files in `src/main/java`, just like this sample does.
+   -or-
 
-1. Update config in `src/main/resorces/application.properties`, where:
+   `/users/example/home/wingtiptoysdata/pom.xml`
+
+1. Open the *pom.xml* file, and add the Spring Data Gremlin Starter to list of `<dependencies>`:
+
+   ```xml
+   <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-spring-data-gremlin</artifactId>
+      <version>2.3.1-beta.1</version> <!-- {x-version-update;com.azure:azure-spring-data-gremlin;current} -->
+    </dependency>
+   ```
+
+   ![Editing the pom.xml file][PM02]
+
+1. Save and close the *pom.xml* file.
+
+1. Navigate to the `src/test/` folder, and delete all contents.
+
+1. Navigate to the `src/main/java` folder in the sample app, and copy and overwrite this same directory to your local Spring Boot app.
+
+1. On the `src/main/resources/application.properties` file, update the configurations to include:
 
    | Field              | Description                                                                                                                                                                                                             |
    |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `endpoint`         | Specifies the Gremlin URI for your database, which is derived from the unique **ID** that you specified when you created your Azure Cosmos DB earlier in this tutorial.                                                 |
+   | `endpoint`         | Specifies the Gremlin URI for your database, which is derived from the unique **ID** that you specified when you created your Azure Cosmos DB earlier in this quickstart.                                                 |
    | `port`             | Specifies the TCP/IP port, which should be **443** for HTTPS.                                                                                                                                                           |
-   | `username`         | Specifies the unique **Database id** and **Graph id** that you used when you added your graph earlier in this tutorial; this must be entered using the following syntax: "/dbs/**{Database id}**/colls/**{Graph id}**". |
-   | `password`         | Specifies either the primary or secondary **Access key** that you copied earlier in this tutorial.                                                                                                                      |
+   | `username`         | Specifies the unique **Database id** and **Graph id** that you used when you added your graph earlier in this quickstart; this must be entered using the following syntax: "/dbs/**{Database id}**/colls/**{Graph id}**". |
+   | `password`         | Specifies either the primary or secondary **Access key** that you copied earlier in this quickstart.                                                                                                                      |
    | `sslEnabled`       | Specifies whether to enable SSL.                                                                                                                                                                                           |
    | `telemetryAllowed` | Specify **true** if you want to enable telemetry; otherwise, **false**.
    | `maxContentLength` | Specifies max content length.                                                                                                                                                                                           |
-
-1. About how to get password:
-
-   >[!div class="mx-imgBorder"]
-   >![get-password][get-password-01]
 
 ## Build and run the project
 
@@ -132,7 +160,7 @@ Modify the project like the sample project: [azure-spring-data-sample-gremlin].
    mvn spring-boot:run
    ```
 
-1. If your app start successfully, you can check the graph in Azure portal:
+1. If your app starts successfully, you can check the graph in Azure portal:
 
    >[!div class="mx-imgBorder"]
    >![execute-result][execute-result-01]
@@ -140,7 +168,7 @@ Modify the project like the sample project: [azure-spring-data-sample-gremlin].
 
 ## Next steps
 
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
+To learn more about Spring on Azure, continue to the Spring on Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Spring on Azure](/azure/developer/java/spring-framework)
