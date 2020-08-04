@@ -87,7 +87,7 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-The first policy could be written as a [BDD feature scenario](https://gherkin.io/docs/gherkin/reference/) as follows:
+The first policy could be written as a [BDD feature scenario](https://cucumber.io/docs/gherkin/reference/) as follows:
 
 ```Cucumber
 Feature: Test tagging compliance  # /target/src/features/tagging.feature

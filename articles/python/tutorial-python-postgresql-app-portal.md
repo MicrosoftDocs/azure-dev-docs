@@ -274,4 +274,4 @@ You can leave the app and database running as long as you want for further devel
 Learn how App Service runs a Python app:
 
 > [!div class="nextstepaction"]
-> [Configure a Python app](/azure/app-service/containers/how-to-configure-python.md)
+> [Configure a Python app](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python)
