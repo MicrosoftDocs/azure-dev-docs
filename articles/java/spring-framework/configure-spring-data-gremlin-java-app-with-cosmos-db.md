@@ -191,7 +191,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 [graph partition]: https://docs.microsoft.com/azure/cosmos-db/graph-partitioning
-[azure-spring-data-sample-gremlin]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin.
+[azure-spring-data-sample-gremlin]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin
 
 <!-- IMG List -->
 
