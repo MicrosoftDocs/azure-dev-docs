@@ -7,11 +7,11 @@ ms.date: 10/26/2019
 
 # Tutorial: Create a hub virtual network appliance in Azure using Terraform
 
-A **VPN device** is a device that provides external connectivity to an on-premises network. The VPN device may be a hardware device or a software solution. One example of a software solution is Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about VPN appliances, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+A *VPN device* is a device that provides external connectivity to an on-premises network. The VPN device may be a hardware device or a software solution. One example of a software solution is Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about VPN appliances, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-Azure supports a broad variety of network virtual appliances from which to select. For this tutorial, an Ubuntu image is used. To learn more about the broad variety of device solutions supported in Azure, see the [Network Appliances home page](https://azure.microsoft.com/solutions/network-appliances/).
+Azure supports a broad variety of network virtual appliances from which to select. For this article, an Ubuntu image is used. To learn more about the broad variety of device solutions supported in Azure, see the [Network Appliances home page](https://azure.microsoft.com/solutions/network-appliances/).
 
-This tutorial covers the following tasks:
+This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology

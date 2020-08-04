@@ -31,7 +31,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
 
-Notes:
+**Notes**:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## Authenticate to Azure
@@ -51,7 +51,7 @@ Calling `az login` without any parameters displays a URL and a code. Browse to t
 az login
 ```
 
-Notes:
+**Notes**:
 
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
 - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#set-the-current-azure-subscription).
@@ -70,7 +70,7 @@ Enter the following command, replacing `<subscription_id>` with the ID of the su
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
 ```
 
-Notes:
+**Notes**:
 
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `name`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
@@ -103,7 +103,7 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
     az account set --subscription="<subscription_id>"
     ```
 
-    Notes:
+    **Notes**:
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
@@ -150,7 +150,7 @@ In this section, you learn how to create a Terraform configuration file that cre
     }
     ```
 
-    Notes:
+    **Notes**:
 
     - The `provider` block specifies that the [Azure provider (`azurerm`)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
@@ -170,13 +170,13 @@ Once you create your configuration files, this section explains how to create an
     terraform init
     ```
 
-1. Terraform allows you to preview the actions to be completed with [terraform plan](https://www.terraform.io/docs/commands/plan.html).
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan and preview its results.
 
     ```bash
     terraform plan
     ```
 
-    Notes:
+    **Notes**:
 
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
     - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
@@ -196,7 +196,7 @@ Once you create your configuration files, this section explains how to create an
     az group show -n "QuickstartTerraformTest-rg"
     ```
 
-    Notes:
+    **Notes**:
 
     - If successful, `az group show` displays various properties of the newly created resource group.
 
@@ -228,11 +228,11 @@ The following steps illustrate the basic pattern for using this feature:
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
-Notes:
-
-- To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
-- If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
-
+    **Notes**:
+    
+    - To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
+    - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
+    
 ## Clean up resources
 
 When no longer needed, delete the resources created in this article.
@@ -243,7 +243,7 @@ When no longer needed, delete the resources created in this article.
     terraform plan -destroy -out QuickstartTerraformTest.destroy.tfplan
     ```
 
-    **Notes:**
+    **Notes**:
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The `-destroy` parameter generates a plan to destroy the resources.
     - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
