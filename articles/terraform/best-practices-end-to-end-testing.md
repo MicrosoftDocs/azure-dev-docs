@@ -38,7 +38,7 @@ This article focuses on using [Terratest](https://github.com/gruntwork-io/terrat
 
 ## Tutorial scenario
 
-For this tutorial, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/samples/end-to-end-testing/README.md).
+For this tutorial, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/blob/master/samples/end-to-end-testing/README.md).
 
 This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. One VM - named `vm-linux-1` - has a public IP address. Only port 22 is opened to allow SSH connections. The second VM - `vm-linux-2` - has no defined public IP address.
 

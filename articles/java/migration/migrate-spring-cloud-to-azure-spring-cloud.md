@@ -89,7 +89,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
 
-* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-static/spring-cloud-security/current/reference/html/#_quickstart).
+* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-security/2.1.x/multi/multi__quickstart.html#_quickstart).
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
