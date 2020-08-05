@@ -48,6 +48,8 @@ landingContent:
             url: migrate-weblogic-to-virtual-machines.md
           - text: WebLogic to Azure with AAD via LDAP
             url: migrate-weblogic-with-aad-ldap.md
+          - text: WebLogic to Azure with App Gateway
+            url: migrate-weblogic-with-app-gateway.md
   - title: Migrate WildFly to Azure
     linkLists:
       - linkListType: how-to-guide
