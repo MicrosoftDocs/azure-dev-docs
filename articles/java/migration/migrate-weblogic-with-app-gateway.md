@@ -77,11 +77,11 @@ This section shows how to create a self-signed SSL certificate in a format suita
    ```
 
    You'll have to answer several questions when prompted by the OpenSSL tool.  These values will be included in the certificate.  This tutorial uses a self-signed certificate, therefore the values are irrelevant.  The following literal values are fine.
-     * For **Country Name**, enter a two letter code.
-     * For **State or Province Name**, enter WA.
-     * For **Organization Name**, enter Contoso.  For Organizational Unit Name enter billing.
-     * For **Common Name**, enter Contoso.
-     * For **Email Address**, enter billing@contoso.com.
+     1. For **Country Name**, enter a two letter code.
+     1. For **State or Province Name**, enter WA.
+     1. For **Organization Name**, enter Contoso.  For Organizational Unit Name enter billing.
+     1. For **Common Name**, enter Contoso.
+     1. For **Email Address**, enter billing@contoso.com.
 
 1. Export the certificate as a *.pfx* file
 
@@ -103,6 +103,8 @@ Now that you have created a Key Vault and have a valid SSL certificate with a no
 
 This section shows how to store the certificate and its password in the Key Vault created in the preceding sections.
 
+Store the certificate.
+
 1. From the Azure portal, put the cursor in the search bar at the top of the page and type the name of the Key Vault you created earlier in the tutorial.
 1. Your Key Vault should appear under the **Resources** heading.  Select it.
 1. In the **Settings** section, select **Secrets**.
@@ -111,7 +113,10 @@ This section shows how to store the certificate and its password in the Key Vaul
 1. Under **Name**, enter `myCertSecretData`.
 1. Under **Value**, enter the content of the *mycert.txt* file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
 1. Leave the remaining values at their defaults and select **Create**.
-1. you'll be returned to the **Secrets** page.  Select **Generate/Import**.
+
+Store the password for the certificate.
+
+1. You'll be returned to the **Secrets** page.  Select **Generate/Import**.
 1. Under **Upload options**, leave the default value.
 1. Under **Name**, enter `myCertSecretPassword`.
 1. Under **Value**, enter the password for the certificate.
@@ -120,10 +125,10 @@ This section shows how to store the certificate and its password in the Key Vaul
 
 ## Deploy WebLogic Server with Application Gateway to Azure
 
-Some of the WLS offers available from Azure allow integration with Azure Application Gateway.  For example, the Oracle WebLogic Server Cluster offer supports this feature.  This section will show you how to use the Key Vault, SSL certificate, and password created in the preceding sections to provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the nodes of the WLS cluster.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+This section will show you how to use the Key Vault, SSL certificate, and password created in the preceding sections.  You'll provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the cluster nodes.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
-1. Provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs).
-1. When you reach the **Azure Application Gateway** blade, select **Yes**.
+1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach hte **Azure Application Gateway** blade.
+1. At the **Azure Application Gateway** blade, select **Yes**.
 1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
 1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination**, enter the name of the Key Vault.
 1. Under **The name of the secret in the specified KeyVault whose value is the SSL Certificate Data**, enter `myCertSecretData`.
