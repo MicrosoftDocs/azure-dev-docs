@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
+title: Tutorial Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 description: This tutorial walks you through deploying WebLogic Server to Azure with Azure Application Gateway as a load balancer
 author: edburns
 ms.author: edburns
