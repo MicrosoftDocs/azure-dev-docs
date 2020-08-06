@@ -3,7 +3,7 @@ title: "Step 4: Debug the Azure Functions Python code locally with VS Code"
 description: Tutorial step 4, running the VS Code debugger locally to check your Python code.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 4: Debug the Azure Functions Python code locally

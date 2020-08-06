@@ -3,7 +3,7 @@ title: "Step 3: Create the App Service from Visual Studio Code"
 description: Tutorial step 3, creating the App Service from the VS Code extension.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 3: Create the App Service from Visual Studio Code
