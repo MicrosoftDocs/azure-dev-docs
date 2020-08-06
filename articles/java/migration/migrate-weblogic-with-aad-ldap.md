@@ -136,7 +136,7 @@ You will see **"tlsV1": "Disabled"** in the following output of `domainSecurityS
       "syncKerberosPasswords": "Enabled",
       "syncNtlmPasswords": "Enabled",
       "syncOnPremPasswords": "Enabled",
-      **"tlsV1": "Disabled"**
+      "tlsV1": "Disabled"
 }
 ```
 
