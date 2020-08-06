@@ -9,6 +9,8 @@ ms.date: 08/05/2020
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
+This tutorial walks you through the process of creating a Key Vault, storing an SSL certificate in the Key Vault, and deploying WebLogic Server with Azure Application Gateway using that certificate for SSL termination.
+
 Load balancing is an essential part of migrating your Oracle WebLogic Server cluster to Azure.  The easiest solution is to use the built-in support for [Azure Application Gateway](/azure/application-gateway/overview).  App Gateway is included as part of the WebLogic Cluster support on Azure.  For an overview of WebLogic Cluster support on Azure, see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 In this tutorial, you learn how to:
