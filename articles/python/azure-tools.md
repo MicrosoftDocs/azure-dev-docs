@@ -2,7 +2,8 @@
 title: Azure tools for Python developers
 description: IDE integrations and command-line interfaces for Python developers working on Azure.
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 08/06/2020
+ms.custom: devx-track-python
 ---
 
 # Azure tools for Python developers

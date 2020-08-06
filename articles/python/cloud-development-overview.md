@@ -3,6 +3,7 @@ title: Cloud Development with Azure - What is Azure?
 description: An overview of developing cloud applications on Microsoft Azure, starting with how data centers, services, and resources relate.
 ms.date: 05/12/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Cloud development on Azure
