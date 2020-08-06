@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
    While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
-  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/).
+  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 ## Migration context
@@ -103,7 +103,7 @@ Now that you have created a Key Vault and have a valid SSL certificate with a no
 
 This section shows how to store the certificate and its password in the Key Vault created in the preceding sections.
 
-Store the certificate.
+To store the certificate, follow these steps:
 
 1. From the Azure portal, put the cursor in the search bar at the top of the page and type the name of the Key Vault you created earlier in the tutorial.
 1. Your Key Vault should appear under the **Resources** heading.  Select it.
@@ -114,7 +114,7 @@ Store the certificate.
 1. Under **Value**, enter the content of the *mycert.txt* file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
 1. Leave the remaining values at their defaults and select **Create**.
 
-Store the password for the certificate.
+To store the password for the certificate, follow these steps:
 
 1. You'll be returned to the **Secrets** page.  Select **Generate/Import**.
 1. Under **Upload options**, leave the default value.
@@ -127,6 +127,8 @@ Store the password for the certificate.
 
 This section will show you how to use the Key Vault, SSL certificate, and password created in the preceding sections.  You'll provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the cluster nodes.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
+To create the WLS cluster and Application Gateway, follow these steps:
+
 1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach the **Azure Application Gateway** blade.
 1. At the **Azure Application Gateway** blade, select **Yes**.
 1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
@@ -137,13 +139,13 @@ This section will show you how to use the Key Vault, SSL certificate, and passwo
 1. Select **Create**.  This will do a validation the certificate can be obtained from the Key Vault, and that its password matches the value you stored in for the password in the Key Vault.  If this validation step fails, review the properties of the Key Vault, ensure the certificate was entered correctly, and ensure the password was entered correctly.
 1. Once you see **Validation passed**, select **Create**.
 
-This will cause the WLS cluster and its front-end Application Gateway to be created.  This process may take about 15 minutes.  When the deployment completes, select **Go to resource group**. From the list of resources in the resource group, select **myAppGateway**.
+This will start the process of creating the WLS cluster and its front-end Application Gateway, which may take about 15 minutes.  When the deployment completes, select **Go to resource group**. From the list of resources in the resource group, select **myAppGateway**.
 
 ## Validate successful deployment of WLS and App Gateway
 
 This section shows a technique to quickly validate the successful deployment of the WLS cluster and Application Gateway.
 
-If you had selected **Go to resource group** and then **myAppGateway** at the end of the preceding section, you'll be looking at overview page for the Application Gateway.  If not, you can find this page by typing `myAppGateway` in the text box at the top of the Azure portal, and then selecting the correct one that appears.  Be sure to select the one within the resource group you created for the WLS cluster.
+If you had selected **Go to resource group** and then **myAppGateway** at the end of the preceding section, you'll be looking at overview page for the Application Gateway.  If not, you can find this page by typing `myAppGateway` in the text box at the top of the Azure portal, and then selecting the correct one that appears.  Be sure to select the one within the resource group you created for the WLS cluster.  Then, complete the following steps.
 
 1. In the left pane of the overview page for **myAppGateway**, scroll down to the **Monitoring** section and select **Backend health**.
 1. After the **loading** message disappears, you should see a table in the middle of the screen showing the nodes of your cluster configured as nodes in the backend pool.

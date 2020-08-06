@@ -30,7 +30,7 @@ This guide doesn't help you reconfigure an existing Azure AD deployment, but it 
 ## Prerequisites
 
 * An active Azure subscription.
-  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/).
+  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 ## Migration context
