@@ -9,7 +9,7 @@ metadata:
   description: Get started developing with Python and Azure.
   author: kraigb
   ms.author: kraigb
-  ms.date: 05/30/2020
+  ms.date: 08/06/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -17,131 +17,69 @@ metadata:
   ms.devlang: python
 
 landingContent:
-  - title: Get started with Python on Azure
+  - title: Use Azure libraries
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
-          - text: Cloud development with Azure
+          - text: Cloud development overview
             url: cloud-development-overview.md
-      - linkListType: how-to-guide
-        links:
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
-      - linkListType: overview
-        links:
-          - text: Get to know the Azure libraries for Python
+          - text: Get to know the Azure libraries
             url: azure-sdk-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Provision Azure Storage with Python
-            url: azure-sdk-example-storage.md
-          - text: Use Azure Storage from Python code
-            url: azure-sdk-example-storage-use.md
-      - linkListType: reference
-        links:
-          - text: Azure libraries API reference for Python
-            url: sdk-library-api-reference.md
-  - title: Get started with developer tools
+          - text: Learn usage patterns
+            url: azure-sdk-library-usage-patterns.md
+  - title: Deploy web apps
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: Python in Visual Studio Code
-            url: https://code.visualstudio.com/docs/languages/python  
-      - linkListType: tutorial
-        links:
-          - text: Create a serverless Python app in Azure Functions with Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
-          - text: Create and deploy a web app to Azure with Visual Studio Code
-            url: tutorial-deploy-app-service-on-linux-01.md
-          - text: Create and deploy containers to Azure with Visual Studio Code
-            url: tutorial-deploy-containers-01.md
-      - linkListType: download
-        links:
-          - text: Azure extensions for Visual Studio Code
-            url: https://code.visualstudio.com/docs/azure/extensions
-          - text: Install the Azure CLI
-            url: /cli/azure/install-azure-cli?view=azure-cli-latest
-          - text: Run Linux applications natively on Windows 10 with a range of distributions
-            url: /windows/wsl/install-win10
-  - title: Host applications in Azure
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a serverless function for HTTP requests with Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
-          - text: Create a serverless function for HTTP requests with the Azure CLI
-            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
-          - text: Create a Python app in Azure App Service on Linux
+          - text: Flask using Visual Studio Code
+            url: tutorial-deploy-app-service-on-linux-01.md     
+          - text: Flask using the Azure CLI
             url: /azure/app-service/containers/quickstart-python
-          - text: Deploy containerized apps in Azure Kubernetes Service
-            url: /azure/aks/kubernetes-walkthrough
-          - text: Deploy a container instance in Azure using the Azure CLI
-            url: /azure/container-instances/container-instances-quickstart
-          - text: Build and deploy a Python app with Azure Pipelines
-            url: /azure/devops/pipelines/languages/python-webapp
-          - text: Add sign-in with Microsoft to a Python web application
-            url: /azure/active-directory/develop/quickstart-v2-python-webapp
-      - linkListType: overview
+          - text: Django + PostgreSQL using the Azure Portal
+            url: tutorial-python-postgesql-app-portal.md
+          - text: Django + PostgreSQL using the Azure CLI
+            url: /azure/app-service/containers/tutorial-python-postgresql-app
+  - title: Deploy machine learning models
+    linkLists:      
+      - linkListType: how-to-guide
         links:
-          - text: Introduction to Azure App Service on Linux
-            url: /azure/app-service/containers/app-service-linux-intro
-  - title: Services for Data Science, AI, and Machine Learning
+          - text: Create an ML experiment
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-setup
+          - text: Train an ML model
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
+          - text: Train image classification
+            url: /azure/machine-learning/tutorial-train-models-with-aml
+          - text: Use Azure Cognitive Services
+            url: quickstarts-cognitive-service.md
+          - text: More
+            url: quickstarts-machine-learning.md
+  - title: Deploy serverless functions
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: About Azure Machine Learning
-            url: /azure/machine-learning/service
-          - text: About Azure Cognitive Services
-            url: /azure/cognitive-services
-      - linkListType: quickstart
-        links:
-          - text: Use Azure Machine Learning tools in a Jupyter notebook
-            url: /azure/notebooks/use-machine-learning-services-jupyter-notebooks
-          - text: Use a managed Azure HDInsights cluster for data processing
-            url: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
-          - text: Create an Azure virtual machine for data science tasks
-            url: /azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
-          - text: Use Jupyter notebooks in Azure Notebooks
-            url: https://notebooks.azure.com/
-  - title: Storage and database solutions on Azure
+          - text: Using Visual Studio Code
+            url: tutorial-vs-code-serverless-python-01.md
+          - text: Using the Azure CLI
+            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+          - text: Connect to stroage using VS Code
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+          - text: Connect to storage using the Azure CLI
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+  - title: Deploy containers
     linkLists:
-      - linkListType: overview
-        links:
-          - text: About storage solutions on Azure
-            url: /azure/storage/common/storage-introduction
-          - text: Scalable NoSQL with Azure Cosmos DB
-            url: /azure/cosmos-db/introduction
-      - linkListType: quickstart
-        links:     
-          - text: Manage blobs in Azure Storage from Python
-            url: /azure/storage/blobs/storage-quickstart-blobs-python
-          - text: Create a PostgreSQL instance on Azure and connect to it using Python
-            url: /azure/postgresql/quickstart-create-server-database-portal
-          - text: Create a MySQL instance on Azure and connect to it using Python.
-            url: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-          - text: Use SQL queries on an Azure Cosmos DB account from Python
-            url: /azure/cosmos-db/create-sql-api-python
-          - text: Set up a managed SQL server in Azure
-            url: /azure/sql-database/sql-database-connect-query-python
-  - title: Messaging on Azure
+      - linkListType: how-to-guide
+        links: 
+          - text: Using Visual Studio Code
+            url: tutorial-deploy-containers-01.md
+  - title: Deploy data and storage
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Storing messages with Azure queues
-            url: /azure/storage/queues/storage-queues-introduction
-          - text: Inter-application messaging with Azure Service Bus          
-            url: /azure/service-bus-messaging
-          - text: Streaming big data with Event Hubs
-            url: /azure/event-hubs/event-hubs-about
-          - text: Building event-based applications with Event Grid
-            url: /azure/event-grid/overview
-      - linkListType: quickstart
-        links:     
-          - text: Use Azure Queue Storage
-            url: /azure/storage/queues/storage-python-how-to-use-queue-storage
-          - text: Use Azure Service Bus queues
-            url: /azure/service-bus-messaging/service-bus-python-how-to-use-queues
-          - text: Ingest data in real-time through Azure Event Hubs
-            url: /azure/event-hubs/event-hubs-python
-          - text: Route custom events with Event Grid
-            url: /azure/event-grid/custom-event-quickstart
+      - linkListType: how-to-guide
+        links: 
+          - text: SQL databases
+            url: quickstarts-data-solutions.md#sql-databases
+          - text: Tables, blobs, files, NoSQL
+            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
+          - text: Big data and analytics
+            url: quickstarts-data-solutions.md#big-data-and-analytics

@@ -1,5 +1,6 @@
 - name: Azure for Python developers
   href: index.yml
+
 - name: Cloud development with Azure
   items:
     - name: What is Azure?
@@ -8,16 +9,31 @@
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
-- name: Get started on Azure with Python  
+    - name: Tools for Python developers
+      href: azure-tools.md
+
+- name: Use the Azure libraries
   items:
-    - name: Overview of Azure libraries
+    - name: Overview
       href: azure-sdk-overview.md
     - name: Set up your dev environment
       href: configure-local-development-environment.md
     - name: Library usage patterns    
       href: azure-sdk-library-usage-patterns.md   
-    - name: Library package index
+    - name: Authentication
+      items:
+      - name: Authenticate apps with Azure
+        href: azure-sdk-authenticate.md
+      - name: Manage service principals
+        href: how-to-manage-service-principals.md
+      - name: Assign role permissions to security principals
+        href: how-to-assign-role-permissions.md
+    - name: Install packages
+      href: azure-sdk-install.md
+    - name: Package index
       href: azure-sdk-library-package-index.md      
+    - name: Library API reference
+      href: sdk-library-api-reference.md      
     - name: Examples      
       items:
       - name: "Provision a resource group"
@@ -32,28 +48,19 @@
         href: azure-sdk-example-database.md
       - name: "Provision a virtual machine"
         href: azure-sdk-example-virtual-machines.md
-- name: Explore specific Azure services
-  items: 
-  - name: App hosting
-    href: quickstarts-app-hosting.md
-  - name: Data solutions
-    href: quickstarts-data-solutions.md
-  - name: Identity and security
-    href: quickstarts-identity-security.md
-  - name: Machine learning
-    href: quickstarts-machine-learning.md
-  - name: AI (Cognitive Services)
-    href: quickstarts-cognitive-services.md
-  - name: Messaging & IoT
-    href: quickstarts-messaging-iot.md 
-  - name: Other services
-    href: quickstarts-other-services.md
-- name: Scenario-specific tutorials
+    - name: Configure logging
+      href: azure-sdk-logging.md
+    - name: Configure proxies
+      href: azure-sdk-configure-proxy.md
+    - name: Use a sovereign domain
+      href: azure-sdk-sovereign-domain.md
+
+- name: Deploy web apps and databases
   items:
-    - name: Deploy a web app and database (portal)
-      href: tutorial-python-postgresql-app-portal.md
-    - name: Deploy a web app (VS Code)
-      items:
+  - name: Simple Flask app
+    items:
+      - name: Using Visual Studio Code
+        items:
         - name: 1 Introduction and prerequisites
           href: tutorial-deploy-app-service-on-linux-01.md
         - name: 2 Prepare your app
@@ -68,7 +75,59 @@
           href: tutorial-deploy-app-service-on-linux-06.md
         - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
-    - name: Deploy containers (VS Code)
+      - name: Using the Azure CLI
+        href: /azure/app-service/containers/quickstart-python
+  - name: Django app + PostgreSQL
+    items:
+      - name: Using the Azure portal
+        href: tutorial-python-postgresql-app-portal.md
+      - name: Using the Azure CLI
+        href: /azure/app-service/containers/tutorial-python-postgresql-app
+  - name: Set up CI/CD
+    href: /azure/devops/pipelines/languages/python-webapp
+  - name: Configure the Linux host
+    href: /azure/app-service/containers/how-to-configure-python
+  - name: Add sign-in
+    href: /azure/active-directory/develop/quickstart-v2-python-webapp
+  - name: Store and retrieve secrets
+    href: /azure/key-vault/quick-create-python
+  - name: Set up Azure monitor
+    href: /azure/azure-monitor/app/opencensus-python
+
+- name: Deploy serverless functions
+  items:
+    - name: Create a function
+      items:
+        - name: Using Visual Studio Code
+          items:
+            - name: 1 Introduction and prerequisites
+              href: tutorial-vs-code-serverless-python-01.md
+            - name: 2 Create the Python function
+              href: tutorial-vs-code-serverless-python-02.md
+            - name: 3 Examine code files
+              href: tutorial-vs-code-serverless-python-03.md
+            - name: 4 Debug locally
+              href: tutorial-vs-code-serverless-python-04.md
+            - name: 5 Deploy to Azure
+              href: tutorial-vs-code-serverless-python-05.md
+            - name: 6 Add a second function
+              href: tutorial-vs-code-serverless-python-06.md
+            - name: 7 Add a storage binding
+              href: tutorial-vs-code-serverless-python-07.md
+            - name: 8 Clean up resources
+              href: tutorial-vs-code-serverless-python-08.md
+        - name: Using the Azure CLI
+          href: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+    - name: Connect to Azure Storage
+      items:
+        - name: Using Visual Studio Code
+          href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+        - name: Using the Azure CLI
+          href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+
+- name: Deploy containers
+  items:
+    - name: Using Visual Studio Code
       items:
         - name: 1 Introduction and prerequisites
           href: tutorial-deploy-containers-01.md
@@ -80,40 +139,31 @@
           href: tutorial-deploy-containers-04.md
         - name: 5 Clean up resources
           href: tutorial-deploy-containers-05.md
-    - name: Deploy serverless functions (VS Code)
-      items:
-        - name: 1 Introduction and prerequisites
-          href: tutorial-vs-code-serverless-python-01.md
-        - name: 2 Create the Python function
-          href: tutorial-vs-code-serverless-python-02.md
-        - name: 3 Examine code files
-          href: tutorial-vs-code-serverless-python-03.md
-        - name: 4 Debug locally
-          href: tutorial-vs-code-serverless-python-04.md
-        - name: 5 Deploy to Azure
-          href: tutorial-vs-code-serverless-python-05.md
-        - name: 6 Add a second function
-          href: tutorial-vs-code-serverless-python-06.md
-        - name: 7 Add a storage binding
-          href: tutorial-vs-code-serverless-python-07.md
-        - name: 8 Clean up resources
-          href: tutorial-vs-code-serverless-python-08.md
-- name: How-to guides
+    - name: Deploy a Kubernetes cluster
+      href: /azure/aks/kubernetes-walkthrough
+
+- name: Deploy data and storage
+  href: quickstarts-data-solutions.md
+
+- name: Deploy machine learning models
+  href: quickstarts-machine-learning.md
+
+- name: Explore services supporting Python
   items: 
-  - name: Install library packages
-    href: azure-sdk-install.md
-  - name: Authenticate apps with Azure
-    href: azure-sdk-authenticate.md
-  - name: Manage service principals
-    href: how-to-manage-service-principals.md
-  - name: Assign role permissions to security principals
-    href: how-to-assign-role-permissions.md
-  - name: Configure logging
-    href: azure-sdk-logging.md
-  - name: Configure proxies
-    href: azure-sdk-configure-proxy.md
-  - name: Use sovereign domains
-    href: azure-sdk-sovereign-domain.md
+  - name: App hosting
+    href: quickstarts-app-hosting.md
+  - name: Data solutions
+    href: quickstarts-data-solutions.md    
+  - name: Identity and security
+    href: quickstarts-identity-security.md  
+  - name: Machine learning
+    href: quickstarts-machine-learning.md
+  - name: AI (Cognitive Services)
+    href: quickstarts-cognitive-services.md
+  - name: Messaging & IoT
+    href: quickstarts-messaging-iot.md 
+  - name: Additional services
+    href: quickstarts-other-services.md
 - name: Samples
   items: 
   - name: Web apps & serverless
