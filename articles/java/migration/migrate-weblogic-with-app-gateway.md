@@ -127,7 +127,7 @@ Store the password for the certificate.
 
 This section will show you how to use the Key Vault, SSL certificate, and password created in the preceding sections.  You'll provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the cluster nodes.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
-1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach hte **Azure Application Gateway** blade.
+1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach the **Azure Application Gateway** blade.
 1. At the **Azure Application Gateway** blade, select **Yes**.
 1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
 1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination**, enter the name of the Key Vault.
