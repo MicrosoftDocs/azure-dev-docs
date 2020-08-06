@@ -3,6 +3,7 @@ title: Azure Monitor
 description: Inspect and configure metrics reporting from Azure Monitor.
 ms.topic: conceptual
 ms.date: 6/15/2017
+ms.custom: devx-track-python
 ---
 
 # Azure Monitor

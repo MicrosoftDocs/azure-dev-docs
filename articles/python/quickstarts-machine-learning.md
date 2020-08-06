@@ -3,6 +3,7 @@ title: Getting started materials for machine learning for Python apps on Azure
 description: Index of getting started materials in the Azure documentation for machine learning for Python apps.
 ms.date: 05/28/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Machine learning for Python apps on Azure

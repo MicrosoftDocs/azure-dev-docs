@@ -3,6 +3,7 @@ title: Getting started with hosting Python apps on Azure
 description: Index of getting started material in the Azure documentation for hosting Python app code.
 ms.date: 05/28/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Hosting Python apps on Azure

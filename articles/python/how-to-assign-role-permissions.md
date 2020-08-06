@@ -2,8 +2,8 @@
 title: Assign role permissions to an app identity or service principal
 description: How to grant permissions to a service principal or app identity using the Azure CLI
 ms.date: 05/12/2020
-ms.topic: conceptual 
-ms.custom: devx-track-azurecli
+ms.topic: conceptual
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # How to assign role permissions to an app identity or service principal

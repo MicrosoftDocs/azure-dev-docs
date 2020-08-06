@@ -3,6 +3,7 @@ title: Provision a virtual machine using the Azure SDK libraries for Python
 description: How to provision an Azure virtual machine using Python and the Azure SDK management libraries.
 ms.date: 05/29/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Example: Use the Azure libraries to provision a virtual machine

@@ -3,6 +3,7 @@ title: Getting started with data solutions for Python apps on Azure
 description: Index of getting started material in the Azure documentation for data solutions for Python apps.
 ms.date: 05/28/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Data solutions for Python apps on Azure

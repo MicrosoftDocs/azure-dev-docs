@@ -3,6 +3,7 @@ title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
 ms.date: 05/27/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Provisioning, accessing, and managing resources on Azure
