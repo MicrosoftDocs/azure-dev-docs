@@ -1,175 +1,164 @@
 ---
-title: #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: #Required; article description that is displayed in search results. Include the word "tutorial".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+title: Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
+description: This tutorial walks you through deploying WebLogic Server to Azure with Azure Application Gateway as a load balancer
+author: edburns
+ms.author: edburns
 ms.topic: tutorial #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 08/05/2020
 ---
 
-<!---Recommended: Remove all the comments in this template before you
-sign-off or merge to master.--->
+# Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
-<!---Tutorials are scenario-based procedures for the top customer tasks
-identified in milestone one of the
-[Content + Learning content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing
-an approved top 10 customer task.
---->
-
-# Tutorial: <do something with X> 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental “why would I want to do this?” question.
---->
+Load balancing is an essential part of migrating your Oracle WebLogic Server cluster to Azure.  The easiest solution is to use the built-in support for [Azure Application Gateway](/azure/application-gateway/overview) that is included as part of the WebLogic Cluster support on Azure.  For an overview of WebLogic Cluster support on Azure see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+> * Create an Azure Key Vault
+> * Create an SSL certificate
+> * Store the SSL certificate in the Key Vault
+> * Deploy WebLogic Server with Azure Application Gateway to Azure
+> * Validate successful deployment of WLS and App Gateway
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there’s something a customer needs to take care of before they start (for
-example, creating a VM) it’s OK to link to that content before they
-begin.--->
+* [OpenSSL](https://www.openssl.org/) on a computer running a UNIX-like command line environment.
 
-## Sign in to <service/product/tool name>
+   While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
+* An active Azure subscription.
+  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/).
+* The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
+## Migration context
 
-## Procedure 1
+Here are some things to consider about migrating on-premise WLS installations and Azure Application Gateway.
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+* If you have an existing load balancing solution, ensure that its capabilities are met or exceeded by Azure Application Gateway.  For a summary of the capabilities of Azure Application Gatway compared to other Azure load balancing solutions, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview)
+* If your existing load balancing solution provides security protection from common exploits and vulnerabilities, such as those covered by the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project), the Application Gateway has you covered with its built in Web Application Firewall (WAF).  For more information on WAF support in Application Gateway, see [Application Gateway Features](/azure/application-gateway/features#web-application-firewall)
+* If your existing load balancing solution requires end-to-end SSL encryption, keeping the connection encrypted all the way to the WLS cluster node, you will need to perform additional configuration after following the steps in this guide.  Please see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption) and the Oracle documentation on [Configuring SSL in Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/asadm/configuring-ssl1.html#GUID-623906C0-B1FD-423F-AE51-061B5800E927).
+* If you`re optimizing for the cloud, this guide shows you how to start from scratch with Azure Azure App Gateway and WLS.
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+## Create an Azure Key Vault
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
+This section shows how to use the Azure Portal to create an Azure Key Vault.
 
-## Procedure 2
+1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
+1. In the Search box, enter **Key Vault**.
+1. From the results list, choose **Key Vault**.
+1. On the Key Vault section, choose **Create**.
+1. On the **Create key vault** section provide the following information:
+    * **Subscription**: Choose a subscription.
+    * Under **Resource group**, choose **Create new** and enter a resource group name.  Take note of the key vault name.  *You'll need it later when deploying WLS.*
+    * **Key Vault Name**: A unique name is required.  Take note of the key vault name.  *You'll need it later when deploying WLS.*
+    > [!NOTE]
+    > You may use the same name for both **Resource group** and **Key vault name**.
+    * In the **Location** pull-down menu, choose a location.
+    * Leave the other options to their defaults.
+1. Select **Next: Access Policy**.
+1. Under **Enable Access to**, select **Azure Resource Manager for template deployment**.
+1. Select **Review + Create**.
+1. Select **Create**.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Key vault creation is fairly lightweight, typically completing in less than two minutes.  When deployment completes, select **Go to resource** and continue to the next section.
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+## Create an SSL certificate
 
-## Procedure 3
+This section shows how to create a self-signed SSL certificate in a format suitable for use by Application Gateway.  The certificate must have a non-empty password.  If you already have a valid, non-empty password SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing valid, non-empty password SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
+1. Create an `RSA PRIVATE KEY`
 
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+   ```bash
+   openssl genrsa 2048 > private.pem
+   ```
+1. Create a corresponding public key.
 
-Here is an example of a code block for Java:
+   ```bash
+   openssl req -x509 -new -key private.pem -out public.pem
+   ```
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
+   You'll have to answer several questions when prompted by the OpenSSL tool.  These values will be included in the certificate.  Because this is a self-signed certificate for a tutorial, the values are irrelevant, so the following literal values are fine.
+     * For **Country Name** enter a two letter code.
+     * For **State or Province Name** enter WA.
+     * For **Origization Name** enter Contoso.  For Organizational Unit Name enter billing.
+     * For **Common Name** enter Contoso.
+     * For **Email Address** enter billing@contoso.com.
 
-or a code block for Azure CLI:
+1. Export the certificate as a *.pfx* file
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
+   ```bash
+   openssl pkcs12 -export -in public.pem -inkey private.pem -out mycert.pfx
+   ```
 
-or a code block for Azure PowerShell:
+   Enter the password twice.  Take note of the password.  *You'll need it later when deploying WLS.*
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+1. Base 64 encode the *mycert.pfx* file
 
+   ```bash
+   base64 mycert.pfx > mycert.txt
+   ```
+
+Now that you have created a Key Vault and have a valid SSL certificate with a non-empty password, you can store the certificate in the Key Vault.
+
+## Store the SSL certificate in the Key Vault
+
+This section shows how to store the certificate and its password in the Key Vault created in the preceding sections.
+
+1. From the Azure portal, put the cursor in the search bar at the top of the page and type the name of the Key Vault you created earlier in the tutorial.
+1. Your Key Vault should appear under the **Resources** heading.  Select it.
+1. In the **Settings** section, select **Secrets**.
+1. Select **Generate/Import**.
+1. Under **Upload options** leave the default value.
+1. Under **Name** enter `myCertSecretData`.
+1. Under **Value** enter the content of the *mycert.txt* file.  The length of the value, and the presence of newlines, are not a problem for the text field.
+1. Leave the remaining values at their defaults and select **Create**.
+1. You will be returned to the **Secrets** page.  Select **Generate/Import**.
+1. Under **Upload options** leave the default value.
+1. Under **Name** enter `myCertSecretPassword`.
+1. Under **Value** enter the password for the certificate.
+1. Leave the remaining values at their defaults and select **Create**.
+1. You will be returned to the **Secrets** page.
+
+## Deploy WebLogic Server with Application Gateway to Azure
+
+Some of the WLS offers available from Azure allow integration with Azure Application Gateway.  For example, the Oracle WebLogic Server Cluster offer supports this feature.  This section will show you how to use the Key Vault, SSL certificate, and password created in the preceding sections to provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the nodes of the WLS cluster.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+
+1. Provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs).
+1. When you reach the **Azure Application Gateway** blade, select **Yes**.
+1. Under **Resource group name in current subscription containing the KeyVault** enter the name of the resource group containing the Key Vault you created earlier.
+1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination** enter the name of the Key Vault.
+1. Under **The name of the secret in the specified KeyVault whose value is the SSL Certificate Data** enter `myCertSecretData`.
+1. Under **The name of the secret in the specified KeyVault whose value is the password for the SSL Certificate** enter `myCertSecretData`.
+1. Select **Review + Create**.
+1. Select **Create**.  This will perform a validation the certificate can be obtained from the Key Vault, and that its password matches the value you stored in for the password in the Key Vault.  If this validation step fails, review the properties of the Key Vault, ensure the certificate was entered correctly, and ensure the password was entered correctly.
+1. Once you see **Validation passed**, select **Create**.
+
+This will cause the WLS cluster and its front end Application Gateway to be created.  This process may take about 15 minutes.  When the deployment completes, select **Go to resource group**. From the list of resources in the resource group, select **myAppGateway**.
+
+## Validate successful deployment of WLS and App Gateway
+
+This section shows a technique to quickly validate the successful deployment of the WLS cluster and Application Gateway.
+
+If you had selected **Go to resource group** and then **myAppGateway** at the end of the preceding section, you will be looking at overview page for the Application Gateway.  If not, you can find this page by typing `myAppGateway` in the text box at the top of the Azure portal, and then selecting the correct one that appears.  Be sure to select the one within the resource group you created for the WLS cluster.
+
+1. In the left pane of the overview page for **myAppGateway**, scroll down to the **Monitoring** section and select **Backend health**.
+1. After the **loading** message disappears, you should see a table in the middle of the screen showing the nodes of your cluster configured as nodes in the backend pool.
+1. Verify that the status shows **Healthy** for each node.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you're not going to continue to use the WLS cluster, delete the Key Vault and the WLS Cluster with the following steps:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+1. Visit the overview page for **myAppGateway** as shown in the preceding section.
+1. At the top of the page, under the text **Resource group**, select the resource group.
+1. Select **Delete resource group**.
+1. The input focus will be set to the field labeled **TYPE THE RESOURCE GROUP NAME**.  Type the resource group name as requested.
+1. This will cause the **Delete** button to become enabled.  Select the **Delete** button.  This operation will take some time, but you can proceed to the next step while the deletion is processing.
+1. Locate the Key Vault by following the first step of the section [Store the SSL certificate in the Key Vault]().
+1. Select **Delete**.
+1. Select **Delete** in the pane that appears.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Continue to explore options to run WLS on Azure.
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+> [What is Oracle WebLogic on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
