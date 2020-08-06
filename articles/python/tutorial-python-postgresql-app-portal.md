@@ -4,7 +4,6 @@ description: Provision a web app and PostgreSQL database on Azure and deploy app
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/23/2020
-ms.custom: tracking-python
 ---
 
 # Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal
