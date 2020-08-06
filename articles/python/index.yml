@@ -38,23 +38,9 @@ landingContent:
           - text: Flask using the Azure CLI
             url: /azure/app-service/containers/quickstart-python
           - text: Django + PostgreSQL using the Azure Portal
-            url: tutorial-python-postgesql-app-portal.md
+            url: tutorial-python-postgresql-app-portal.md
           - text: Django + PostgreSQL using the Azure CLI
             url: /azure/app-service/containers/tutorial-python-postgresql-app
-  - title: Deploy machine learning models
-    linkLists:      
-      - linkListType: how-to-guide
-        links:
-          - text: Create an ML experiment
-            url: /azure/machine-learning/tutorial-1st-experiment-sdk-setup
-          - text: Train an ML model
-            url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
-          - text: Train image classification
-            url: /azure/machine-learning/tutorial-train-models-with-aml
-          - text: Use Azure Cognitive Services
-            url: quickstarts-cognitive-service.md
-          - text: More
-            url: quickstarts-machine-learning.md
   - title: Deploy serverless functions
     linkLists:
       - linkListType: how-to-guide
@@ -83,3 +69,17 @@ landingContent:
             url: quickstarts-data-solutions.md#tables-blobs-files-nosql
           - text: Big data and analytics
             url: quickstarts-data-solutions.md#big-data-and-analytics
+  - title: Deploy machine learning models
+    linkLists:      
+      - linkListType: how-to-guide
+        links:
+          - text: Create an ML experiment
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-setup
+          - text: Train an ML model
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
+          - text: Train image classification
+            url: /azure/machine-learning/tutorial-train-models-with-aml
+          - text: Use Azure Cognitive Services
+            url: quickstarts-cognitive-services.md
+          - text: More
+            url: quickstarts-machine-learning.md
