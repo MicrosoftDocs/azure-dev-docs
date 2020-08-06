@@ -1,11 +1,11 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access a pre-provisioned blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 06/15/2020
+ms.date: 08/05/2020
 ms.topic: conceptual
 ---
 
-# Example: Access Azure Storage using the Azure libraries for Pyhon
+# Example: Access Azure Storage using the Azure libraries for Python
 
 This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you have provisioned the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
