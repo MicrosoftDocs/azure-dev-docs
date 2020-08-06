@@ -36,4 +36,3 @@ Like the Azure CLI, Azure PowerShell provides PowerShell commands to create and 
 Visual Studio on Windows provides open-source support for the Python language through the Python Development and Data Science workloads (Visual Studio 2017 and later) and the free Python Tools for Visual Studio extension (Visual Studio 2015 and earlier). Visual Studio is most commonly used by developers working with both Python and C++, as it offers best-in-class cross-language development and debugging support.
 
 [Install Python support in Visual Studio](https://docs.microsoft.com/visualstudio/python/installation)
-
