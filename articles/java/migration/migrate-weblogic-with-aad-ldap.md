@@ -140,7 +140,7 @@ You will see **"tlsV1": "Disabled"** in the following output of `domainSecurityS
 }
 ```
 
-For more information, refer to [Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/secure-your-domain).
+For more information, refer to [Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
 
 ## WLS Configuration
 
