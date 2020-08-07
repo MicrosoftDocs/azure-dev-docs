@@ -41,7 +41,7 @@ landingContent:
             url: tutorial-python-postgresql-app-portal.md
           - text: Django + PostgreSQL using the command line
             url: /azure/app-service/containers/tutorial-python-postgresql-app
-          - text: Containers Using Visual Studio Code
+          - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
   - title: Deploy serverless functions
     linkLists:
@@ -51,7 +51,7 @@ landingContent:
             url: tutorial-vs-code-serverless-python-01.md
           - text: Using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
-          - text: Connect to stroage using VS Code
+          - text: Connect to storage using Visual Studio Code
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
           - text: Connect to storage using the command line
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
