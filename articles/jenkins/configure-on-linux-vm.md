@@ -83,20 +83,12 @@ In this quickstart, you'll complete these tasks:
     **Notes**:
     - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
 
-1. SSH into the virtual machine. You'll need to confirm the connection request.
+1. Using the IP address retrieved in the previous step, SSH into the virtual machine. You'll need to confirm the connection request.
 
     ```azurecli
-    ssh jenkins_admin@<ip_address>
+    ssh azureuser@<ip_address>
     ```
 
-
-
-
-
-
-1. [Configure Jenkins](pipeline-with-github-and-docker.md?#configure-jenkins).
-
-1. [Add service principal to Jenkins credential store](scale-deployments-using-vm-agents.md#configure-the-azure-vm-agents-plugin).
 
 ## Connect to Jenkins
 
