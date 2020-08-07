@@ -3,7 +3,7 @@ title: Quickstart - Create a Jenkins server on Azure
 description: Learn how to install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine, solution template
 ms.topic: quickstart
-ms.date: 03/03/2020
+ms.date: 08/07/2020
 ---
 
 # Quickstart: Create a Jenkins server on an Azure Linux VM
@@ -18,64 +18,31 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
-1. In your browser, open the [Azure Marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **GET IT NOW**.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
 
-    ![Select GIT IT NOW to start the installation process for the Jenkins Marketplace image.](./media/install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
+1. Create a resource group. You might need to replace location with the appropriate values for your environment.
 
-1. After reviewing the pricing details and terms information, select **Continue**.
+    ```azurecli
+    az group create --name QuickstartJenkins-rg --location eastus
+    ```
 
-    ![Jenkins Marketplace image pricing and terms information.](./media/install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
+1. Create a virtual machine, replacing the placeholders with the appropriate values.
 
-1. Select **Create** to configure the Jenkins server in the Azure portal. 
+    ```azurecli
+    az vm create --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm --image UbuntuLTS --admin-username "jenkins_admin" --generate-ssh-keys --custom-data cloud-init-jenkins.txt
+    ```
 
-    ![Install the Jenkins Marketplace image.](./media/install-from-azure-marketplace-image/jenkins-install-create.png)
+1. Open port 8080 on the new virtual machine.
 
-1. In the **Basics** tab, specify the following values:
+    ```azurecli
+    az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
+    ```
 
-   - **Name** - Enter `Jenkins`.
-   - **User name** - Enter the user name to use when signing in to the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-   - **Authentication type** - Select **SSH public key**.
-   - **SSH public key** - Copy and paste an RSA public key in single-line format (starting with `ssh-rsa`) or multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and macOS, or PuTTYGen on Windows. For more information about SSH keys and Azure, see the article, [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
-   - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
-   - **Resource group** - Select **Create new**, and enter a name for the resource group that serves as a logical container for the collection of resources that make up your Jenkins installation.
-   - **Location** - Select **East US**.
+1. [Configure Jenkins](pipeline-with-github-and-docker?#configure-jenkins).
 
-     ![Enter authentication and resource group information for Jenkins in the Basic tab.](./media/install-from-azure-marketplace-image/jenkins-configure-basic.png)
-
-1. Select **OK** to proceed to the **Additional Settings** tab. 
-
-1. In the **Additional Settings** tab, specify the following values:
-
-   - **Size** - Select the appropriate sizing option for your Jenkins virtual machine.
-   - **VM disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the Jenkins virtual machine.
-   - **Virtual network** - (Optional) Select **Virtual network** to modify the default settings.
-   - **Subnets** - Select **Subnets**, verify the information, and select **OK**.
-   - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of -IP. You can select the option to change that default.
-   - **Domain name label** - Specify the value for the fully qualified URL to the Jenkins virtual machine.
-   - **Jenkins release type** - Select the desired release type from the options: `LTS`, `Weekly build`, or `Azure Verified`. The `LTS` and `Weekly build` options are explained in the article, [Jenkins LTS Release Line](https://jenkins.io/download/lts/). The `Azure Verified` option refers to a [Jenkins LTS version](https://jenkins.io/download/lts/) that has been verified to run on Azure. 
-   - **JDK Type** - JDK to be installed. Default is Zulu tested, certified builds of OpenJDK.
-
-     ![Enter virtual machine settings for Jenkins in the Settings tab.](./media/install-from-azure-marketplace-image/jenkins-configure-settings.png)
-
-1. Select **OK** to proceed to the **Integration Settings** tab.
-
-1. In the **Integration Settings** tab, specify the following values:
-
-    - **Service Principal** - The service principal is added into Jenkins as a credential for authentication with Azure. `Auto` means that the principal will be created by MSI (Managed Service Identity). `Manual` means that the principal should be created by you. 
-        - **Application ID** and **Secret** - If you select the `Manual` option for the **Service Principal** option, you'll need to specify the `Application ID` and `Secret` for your service principal. When [creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli), note that the default role is **Contributor**, which is sufficient for working with Azure resources.
-    - **Enable Cloud Agents** - Specify the default cloud template for agents where `ACI` refers to Azure Container Instance, and `VM` refers to virtual machines. You can also specify `No` if you don't wish to enable a cloud agent.
-
-1. Select **OK** to proceed to the **Summary** tab.
-
-1. When the **Summary** tab displays, the information entered is validated. Once you see the **Validation passed** message (at the top of the tab), select **OK**. 
-
-     ![The Summary tab displays and validates your selected options.](./media/install-from-azure-marketplace-image/jenkins-configure-summary.png)
-
-1. When the **Create** tab displays, select **Create** to create the Jenkins virtual machine. When your server is ready, a notification displays in the Azure portal.
-
-     ![Jenkins is ready notification.](./media/install-from-azure-marketplace-image/jenkins-install-notification.png)
+1. [Add service principal to Jenkins credential store](scale-deployments-using-vm-agents#configure-the-azure-vm-agents-plugin).
 
 ## Connect to Jenkins
 
