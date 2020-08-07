@@ -1,22 +1,33 @@
 ---
-title: Quickstart - Create a Jenkins server on Azure
-description: Learn how to install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
+title: Quickstart - Get started with Jenkins
+description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine, solution template
 ms.topic: quickstart
 ms.date: 08/07/2020
 ---
 
-# Quickstart: Create a Jenkins server on an Azure Linux VM
+# Quickstart: Get started with Jenkins
 
-This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure. When you're finished, you have a Jenkins server running in Azure building a sample Java app from [GitHub](https://github.com).
+This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
+
+In this quickstart, you'll complete these tasks:
+
+> [!div class="checklist"]
+
+> * Create a setup file that downloads and installs Jenkins
+> * Create a resource group
+> * Create a virtual machine with the setup file
+> * Open port 8080 so that you can SSH into the virtual machine
+> * Connect to the virtual machine via SSH
+> * Run the setup file to download and install Jenkins
+> * Configure a sample Jenkins job based on a sample Java app in GitHub
+> * Build the Jenkins job
 
 ## Prerequisites
 
 * Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 ## Create a virtual machine
-
-Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
