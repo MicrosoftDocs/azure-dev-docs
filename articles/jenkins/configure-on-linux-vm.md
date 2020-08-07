@@ -14,7 +14,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 
 * Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
-## Create the Jenkins VM from the solution template
+## Create a virtual machine
 
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
@@ -28,6 +28,28 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
     az group create --name QuickstartJenkins-rg --location eastus
     ```
 
+1. Create a file named `cloud-init-jenkins.txt`.
+
+    ```bash
+    code cloud-init-jenkins.txt
+    ```
+
+1. Paste the following code into the new file:
+
+    ```json
+    #cloud-config
+    package_upgrade: true
+    runcmd:
+      - apt install openjdk-8-jdk -y
+      - wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+      - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+      - apt-get update && apt-get install jenkins -y
+      - service jenkins restart
+        
+    ```
+
+1. Save the file (**&lt;S>**)and exit the editor (**&lt;Q>**).
+
 1. Create a virtual machine, replacing the placeholders with the appropriate values.
 
     ```azurecli
@@ -39,6 +61,25 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
     ```azurecli
     az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
     ```
+
+## Configure Jenkins
+
+1. Get the public IP address for the sample virtual machine.
+
+    ```azurecli
+    az vm show --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm -d --query [publicIps] --output tsv
+    ```
+
+1. SSH into the virtual machine. You'll need to confirm the connection request.
+
+    ```azurecli
+    ssh jenkins_admin@<ip_address>
+    ```
+
+
+
+
+
 
 1. [Configure Jenkins](pipeline-with-github-and-docker.md?#configure-jenkins).
 
