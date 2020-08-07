@@ -116,19 +116,19 @@ By default, Azure Active Directory Domain Services (Azure AD DS) enables the use
 
 This section walks you through how to disable TLS v1 cipher.
 
-First, query the resource ID of the Azure Domain Service instance that enbales LDAP. The following command is an example to query ID of Azure Domain Service instance with name `aaddscontoso.com` in resource group `aadds-rg`.
+First, get the resource ID of the Azure Domain Service instance that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
 
-```azurecli-interactive
+```azurecli
 AADDS_ID=$(az resource show --resource-group aadds-rg --resource-type "Microsoft.AAD/DomainServices" --name aaddscontoso.com --query "id" --output tsv)
 ```
 
 Run the following command to disable TLS v1:
 
-```azurecli-interactive
+```azurecli
 az resource update --ids $AADDS_ID --set properties.domainSecuritySettings.tlsV1=Disabled
 ```
 
-You will see **"tlsV1": "Disabled"** in the following output of `domainSecuritySettings`:
+The output will display `"tlsV1": "Disabled"` for `domainSecuritySettings`, as shown in the following example:
 
 ```text
 "domainSecuritySettings": {
@@ -140,7 +140,7 @@ You will see **"tlsV1": "Disabled"** in the following output of `domainSecurityS
 }
 ```
 
-For more information, refer to [Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
+For more information, see [Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
 
 ## WLS Configuration
 
