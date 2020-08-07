@@ -134,7 +134,6 @@
         "javascript/**/*.md": "azure-nodejs"
       },
       "ms.custom": {
-        "python/**/*.md": "devx-track-python",
         "ansible/**/*.md": "devx-track-ansible",
         "terraform/**/*.md": "devx-track-terraform",
         "javascript/**/*.md": "devx-track-javascript"

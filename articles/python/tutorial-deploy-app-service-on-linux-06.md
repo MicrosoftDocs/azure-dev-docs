@@ -3,7 +3,7 @@ title: "Step 6: Stream logs from Azure App Service into VS Code"
 description: Tutorial step 6, streaming app logs into Visual Studio Code
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 6: Stream logs from Azure App Service into Visual Studio Code

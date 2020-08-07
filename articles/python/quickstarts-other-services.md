@@ -3,6 +3,7 @@ title: Getting started materials for miscellaneous Azure services for Python app
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
 ms.date: 05/28/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Other services for Python apps on Azure

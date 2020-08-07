@@ -3,6 +3,7 @@ title: Create a Logic App Workflow
 description: Create a Logic App workflow
 ms.topic: conceptual
 ms.date: 6/15/2017
+ms.custom: devx-track-python
 ---
 
 # Create a Logic App Workflow

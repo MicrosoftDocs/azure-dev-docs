@@ -15,6 +15,7 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: python
+  ms.custom: devx-track-python
 
 landingContent:
   - title: Get started with Python on Azure
