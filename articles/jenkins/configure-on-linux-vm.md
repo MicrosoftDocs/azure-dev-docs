@@ -174,7 +174,7 @@ In this quickstart, you'll complete these tasks:
 
     ![Select the workspace link](./media/configure-on-linux-vm/job-workspace.png)
 
-1. Navigate to `complete/build/libs` to see that the `gs-spring-boot-0.1.0.jar` file was successfully built.
+1. Navigate to `complete/build/libs` to see that the `.jar` file was successfully built.
 
     ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
 
