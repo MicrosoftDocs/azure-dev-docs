@@ -133,29 +133,55 @@ In this quickstart, you'll complete these tasks:
 
 ## Create your first job
 
-1. Select **Create new jobs** from the Jenkins console, then name it **mySampleApp** and select **Freestyle project**, then select **OK**.
+1. On the Jenkins home page, select **Create a jobs**.
 
-    ![Create a new job](./media/install-solution-template-steps/jenkins-new-job.png) 
+    ![Jenkins console home page](./media/configure-on-linux-vm/jenkins-home-page.png)
 
-1. Select the **Source Code Management** tab, enable **Git**, and enter the following URL in **Repository URL**  field: `https://github.com/spring-guides/gs-spring-boot.git`
+1. Enter a job name of `mySampleApp`, select **Freestyle project**, and select **OK**.
 
-    ![Define the Git repo](./media/install-solution-template-steps/jenkins-job-git-configuration.png) 
+    ![New job creation](./media/configure-on-linux-vm/new-job.png)
 
-1. Select the **Build** tab, then select **Add build step**, **Invoke Gradle script**. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
+1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`
 
-    ![Use the Gradle wrapper to build](./media/install-solution-template-steps/jenkins-job-gradle-config.png) 
+    ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
 
-1. Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
+1. Select the **Build** tab, then select **Add build step**
 
-    ![Set advanced settings in the Gradle wrapper build step](./media/install-solution-template-steps/jenkins-job-gradle-advances.png) 
+    ![Add a new build step](./media/configure-on-linux-vm/add-build-step.png)
 
-## Build the code
+1. From the drop-down menu, select **Invoke Gradle script**.
 
-1. Select **Build Now** to compile the code and package the sample app. When your build completes, select the **Workspace** link for the project.
+    ![Select the Gradle script option](./media/configure-on-linux-vm/invoke-gradle-script-option.png)
 
-    ![Browse to the workspace to get the JAR file from the build](./media/install-solution-template-steps/jenkins-access-workspace.png) 
+1. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
 
-1. Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
+    ![Gradle script options](./media/configure-on-linux-vm/gradle-script-options.png)
+
+1. Select **Advanced** and enter `complete` in the **Root Build script** field.
+
+    ![Advanced Gradle script options](./media/configure-on-linux-vm/root-build-script.png)
+
+1. Scroll to the bottom of the page, and select **Save**.
+
+## Build the sample Java app
+
+1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
+
+    ![Project home page](./media/configure-on-linux-vm/project-home-page.png)
+
+1. A graphic below the **Build History** heading indicates that the job is being built.
+
+    ![Job-build in progress](./media/configure-on-linux-vm/job-currently-building.png)
+
+1. When the build completes, select the **Workspace** link.
+
+    ![Select the workspace link](./media/configure-on-linux-vm/job-workspace.png)
+
+1. Navigate to `complete/build/libs` to see that the `gs-spring-boot-0.1.0.jar` file is successful built. 
+
+    ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
+
+**Your Jenkins server is now ready to build your own projects in Azure.**
 
 ## Troubleshooting the Jenkins solution template
 
