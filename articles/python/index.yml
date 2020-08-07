@@ -55,16 +55,6 @@ landingContent:
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
           - text: Connect to storage using the command line
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
-  - title: Deploy data and storage
-    linkLists:
-      - linkListType: how-to-guide
-        links: 
-          - text: SQL databases
-            url: quickstarts-data-solutions.md#sql-databases
-          - text: Tables, blobs, files, NoSQL
-            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
-          - text: Big data and analytics
-            url: quickstarts-data-solutions.md#big-data-and-analytics
   - title: Deploy machine learning models
     linkLists:      
       - linkListType: how-to-guide
@@ -79,6 +69,16 @@ landingContent:
             url: quickstarts-cognitive-services.md
           - text: More...
             url: quickstarts-machine-learning.md
+  - title: Deploy data and storage
+    linkLists:
+      - linkListType: how-to-guide
+        links: 
+          - text: SQL databases
+            url: quickstarts-data-solutions.md#sql-databases
+          - text: Tables, blobs, files, NoSQL
+            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
+          - text: Big data and analytics
+            url: quickstarts-data-solutions.md#big-data-and-analytics
   - title: Tools
     linkLists:  
       - linkListType: get-started
