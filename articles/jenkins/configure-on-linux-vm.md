@@ -25,6 +25,10 @@ In this quickstart, you'll complete these tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
+## Troubleshooting
+
+If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
+
 ## Create a virtual machine
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -179,10 +183,6 @@ In this quickstart, you'll complete these tasks:
     ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
 
 1. Your Jenkins server is now ready to build your own projects in Azure!
-
-## Troubleshooting the Jenkins solution template
-
-If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
 
 ## Next Steps
 
