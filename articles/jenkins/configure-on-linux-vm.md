@@ -181,7 +181,7 @@ In this quickstart, you'll complete these tasks:
 
     ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
 
-**Your Jenkins server is now ready to build your own projects in Azure.**
+1. Your Jenkins server is now ready to build your own projects in Azure!
 
 ## Troubleshooting the Jenkins solution template
 
