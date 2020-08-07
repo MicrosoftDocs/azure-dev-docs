@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-javascript
+---
 Congratulations, you've successfully completed this walkthrough! You're ready to check out the other Azure extensions.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)

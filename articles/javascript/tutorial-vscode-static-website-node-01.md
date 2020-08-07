@@ -3,6 +3,7 @@ title: Deploy a static Node.js website to Azure from Visual Studio Code
 description: Tutorial part 1, introduction and prerequisites.
 ms.topic: conceptual
 ms.date: 09/23/2019
+ms.custom: devx-track-javascript
 ---
 
 # Deploy a static website to Azure from Visual Studio Code
