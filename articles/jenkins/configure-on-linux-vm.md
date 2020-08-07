@@ -41,7 +41,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
       - service jenkins restart
     ```
 
-1. Save the file (**&lt;Ctrl>S**)and exit the editor (**&lt;Ctrl>Q**).
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
 
@@ -63,11 +63,14 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 ## Configure Jenkins
 
-1. Get the public IP address for the sample virtual machine.
+1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az-vm-show).
 
     ```azurecli
     az vm show --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm -d --query [publicIps] --output tsv
     ```
+
+    **Notes**:
+    - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
 
 1. SSH into the virtual machine. You'll need to confirm the connection request.
 
