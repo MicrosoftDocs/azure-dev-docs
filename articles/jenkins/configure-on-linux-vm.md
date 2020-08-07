@@ -116,8 +116,6 @@ In this quickstart, you'll complete these tasks:
 
 1. In the filter box at the top of the page, enter `github`. Select the GitHub plugin and select **Install**.
 
-    ![Install the GitHub plug-ins](./media/configure-on-linux-vm/select-plugins.png)
-
 1. Enter the information for the first admin user and select **Save and Continue**.
 
     ![Enter information for first admin user](./media/configure-on-linux-vm/create-first-user.png)
