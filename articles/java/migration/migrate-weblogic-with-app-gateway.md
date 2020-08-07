@@ -9,7 +9,9 @@ ms.date: 08/05/2020
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
-This tutorial walks you through the process of creating a Key Vault, storing an SSL certificate in the Key Vault, and deploying WebLogic Server with Azure Application Gateway using that certificate for SSL termination.
+This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.  It covers the specific steps for creating a Key Vault, storing an SSL certificate in the Key Vault, and using that certificate for SSL termination.  While all of these elements are well documented in their own right, this tutorial shows the specific way all of these elements come together to create a simple, yet powerful load-balancing solution for WLS on Azure.
+
+:::image type="content" source="media/migrate-weblogic/weblogic-appgateway-keyvault.png" alt-text="Diagram showing the relationship between WLS, App Gateway, and Key Vault.":::
 
 Load balancing is an essential part of migrating your Oracle WebLogic Server cluster to Azure.  The easiest solution is to use the built-in support for [Azure Application Gateway](/azure/application-gateway/overview).  App Gateway is included as part of the WebLogic Cluster support on Azure.  For an overview of WebLogic Cluster support on Azure, see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
@@ -33,12 +35,12 @@ In this tutorial, you learn how to:
 
 ## Migration context
 
-Here are some things to consider about migrating on-premise WLS installations and Azure Application Gateway.
+Here are some things to consider about migrating on-premise WLS installations and Azure Application Gateway.  While the steps of this tutorial are the easiest way to stand up a load-balancer in front of your WebLogic Server Cluster on Azure, there are many other ways to do it.  This list shows some other things to consider.
 
-* If you have an existing load-balancing solution, ensure that its capabilities are met or exceeded by Azure Application Gateway.  For a summary of the capabilities of Azure Application Gateway compared to other Azure load-balancing solutions, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview)
-* If your existing load-balancing solution provides security protection from common exploits and vulnerabilities, the Application Gateway has you covered. Application Gateway's built-in Web Application Firewall (WAF) implements the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).  For more information on WAF support in Application Gateway, see [Application Gateway Features](/azure/application-gateway/features#web-application-firewall)
+* If you have an existing load-balancing solution, ensure that its capabilities are met or exceeded by Azure Application Gateway.  For a summary of the capabilities of Azure Application Gateway compared to other Azure load-balancing solutions, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+* If your existing load-balancing solution provides security protection from common exploits and vulnerabilities, the Application Gateway has you covered. Application Gateway's built-in Web Application Firewall (WAF) implements the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).  For more information on WAF support in Application Gateway, see [Application Gateway Features](/azure/application-gateway/features#web-application-firewall).
 * If your existing load-balancing solution requires end-to-end SSL encryption, you'll need to do additional configuration after following the steps in this guide.  See [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption) and the Oracle documentation on [Configuring SSL in Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/asadm/configuring-ssl1.html#GUID-623906C0-B1FD-423F-AE51-061B5800E927).
-* If you`re optimizing for the cloud, this guide shows you how to start from scratch with Azure App Gateway and WLS.
+* If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure App Gateway and WLS.
 
 ## Create an Azure Key Vault
 
@@ -112,7 +114,7 @@ To store the certificate, follow these steps:
 1. In the **Settings** section, select **Secrets**.
 1. Select **Generate/Import**.
 1. Under **Upload options**, leave the default value.
-1. Under **Name**, enter `myCertSecretData`.
+1. Under **Name**, enter `myCertSecretData`, or whatever name you like.
 1. Under **Value**, enter the content of the *mycert.txt* file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
 1. Leave the remaining values at their defaults and select **Create**.
 
@@ -120,7 +122,7 @@ To store the password for the certificate, follow these steps:
 
 1. You'll be returned to the **Secrets** page.  Select **Generate/Import**.
 1. Under **Upload options**, leave the default value.
-1. Under **Name**, enter `myCertSecretPassword`.
+1. Under **Name**, enter `myCertSecretPassword`, or whatever name you like.
 1. Under **Value**, enter the password for the certificate.
 1. Leave the remaining values at their defaults and select **Create**.
 1. you'll be returned to the **Secrets** page.
@@ -131,12 +133,15 @@ This section will show you how to use the Key Vault, SSL certificate, and passwo
 
 To create the WLS cluster and Application Gateway, follow these steps:
 
-1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach the **Azure Application Gateway** blade.
+1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach the **Azure Application Gateway** blade, shown here.
+
+   :::image type="content" source="media/migrate-weblogic/weblogic-appgateway-blade.png" alt-text="Diagram showing the relationship between WLS, App Gateway, and Key Vault.":::
+
 1. At the **Azure Application Gateway** blade, select **Yes**.
 1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
 1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination**, enter the name of the Key Vault.
-1. Under **The name of the secret in the specified KeyVault whose value is the SSL Certificate Data**, enter `myCertSecretData`.
-1. Under **The name of the secret in the specified KeyVault whose value is the password for the SSL Certificate**, enter `myCertSecretData`.
+1. Under **The name of the secret in the specified KeyVault whose value is the SSL Certificate Data**, enter `myCertSecretData`,  or whatever name you entered previously.
+1. Under **The name of the secret in the specified KeyVault whose value is the password for the SSL Certificate**, enter `myCertSecretData`,  or whatever name you entered previously.
 1. Select **Review + Create**.
 1. Select **Create**.  This will do a validation the certificate can be obtained from the Key Vault, and that its password matches the value you stored in for the password in the Key Vault.  If this validation step fails, review the properties of the Key Vault, ensure the certificate was entered correctly, and ensure the password was entered correctly.
 1. Once you see **Validation passed**, select **Create**.

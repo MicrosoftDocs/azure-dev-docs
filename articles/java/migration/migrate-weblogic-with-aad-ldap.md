@@ -40,7 +40,7 @@ Here are some things to consider about migrating on-premise WLS installations an
 * If you already have an Azure AD tenant without Domain Services exposed via LDAP, this guide will show how to expose the LDAP capability and integrate it with WLS.
 * If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
-* If you`re optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
+* If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
 
 ## Azure Active Directory configuration
 
