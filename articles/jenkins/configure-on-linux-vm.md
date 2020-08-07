@@ -105,7 +105,7 @@ In this quickstart, you'll complete these tasks:
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
     ```
 
-1. Using the IP address, open the following in a browser: `http://<ip_address>:8080`
+1. Using the IP address, open the following URL in a browser: `http://<ip_address>:8080`
 
 1. Enter the password you retrieved earlier and select **Continue**.
 
@@ -121,7 +121,7 @@ In this quickstart, you'll complete these tasks:
 
 1. Enter the information for the first admin user and select **Save and Continue**.
 
-    ![Enter information for first admin user](./media/configure-on-linux-vm/first-admin-user.png)
+    ![Enter information for first admin user](./media/configure-on-linux-vm/create-first-user.png)
 
 1. On the **Instance Configuration** page, select **Save and Finish**.
 
@@ -133,7 +133,7 @@ In this quickstart, you'll complete these tasks:
 
 ## Create your first job
 
-1. On the Jenkins home page, select **Create a jobs**.
+1. On the Jenkins home page, select **Create a job**.
 
     ![Jenkins console home page](./media/configure-on-linux-vm/jenkins-home-page.png)
 
@@ -177,7 +177,7 @@ In this quickstart, you'll complete these tasks:
 
     ![Select the workspace link](./media/configure-on-linux-vm/job-workspace.png)
 
-1. Navigate to `complete/build/libs` to see that the `gs-spring-boot-0.1.0.jar` file is successful built. 
+1. Navigate to `complete/build/libs` to see that the `gs-spring-boot-0.1.0.jar` file was successfully built.
 
     ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
 
