@@ -40,9 +40,9 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
     az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
     ```
 
-1. [Configure Jenkins](pipeline-with-github-and-docker?#configure-jenkins).
+1. [Configure Jenkins](pipeline-with-github-and-docker.md?#configure-jenkins).
 
-1. [Add service principal to Jenkins credential store](scale-deployments-using-vm-agents#configure-the-azure-vm-agents-plugin).
+1. [Add service principal to Jenkins credential store](scale-deployments-using-vm-agents.md#configure-the-azure-vm-agents-plugin).
 
 ## Connect to Jenkins
 
