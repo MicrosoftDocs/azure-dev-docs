@@ -19,7 +19,7 @@ In this quickstart, you'll complete these tasks:
 > * Open port 8080 so that you can SSH into the virtual machine
 > * Connect to the virtual machine via SSH
 > * Configure a sample Jenkins job based on a sample Java app in GitHub
-> * Build the Jenkins job
+> * Build the sample Jenkins job
 
 ## Prerequisites
 
