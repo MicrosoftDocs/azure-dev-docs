@@ -111,6 +111,10 @@ Configure App settings and Connection Strings using the actions:
 - [Azure SQL database](https://github.com/Azure/sql-action)  
 - [Azure MySQL action](https://github.com/Azure/mysql-action)  
 
+## Azure Policy Integrations
+
+- [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan) 
+
 ## Trigger a run in Azure Pipelines
 
 - [Azure Pipelines](https://github.com/Azure/pipelines)  
