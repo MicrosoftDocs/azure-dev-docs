@@ -2,8 +2,8 @@
 
 title: Azure for Python Developers
 summary: |
-  Azure offers extensive services for Python developers including app hosting, storage, open-source databases like mySQL and PostgreSQL, and data science, machine learning, and AI. The Azure libraries (SDK) for Python helps developers be highly productive when using these services.
-
+  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more.
+  
 metadata:
   title: Azure for Python developers
   description: Get started developing with Python and Azure.
@@ -25,9 +25,9 @@ landingContent:
             url: cloud-development-overview.md
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
-          - text: Get to know the Azure libraries
+          - text: Get to know the Azure libraries (SDK)
             url: azure-sdk-overview.md
-          - text: Learn usage patterns
+          - text: Learn library usage patterns
             url: azure-sdk-library-usage-patterns.md
   - title: Deploy web apps
     linkLists:
@@ -35,30 +35,26 @@ landingContent:
         links:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
-          - text: Flask using the Azure CLI
+          - text: Flask using the command line
             url: /azure/app-service/containers/quickstart-python
           - text: Django + PostgreSQL using the Azure Portal
             url: tutorial-python-postgresql-app-portal.md
-          - text: Django + PostgreSQL using the Azure CLI
+          - text: Django + PostgreSQL using the command line
             url: /azure/app-service/containers/tutorial-python-postgresql-app
+          - text: Containers Using Visual Studio Code
+            url: tutorial-deploy-containers-01.md
   - title: Deploy serverless functions
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Using Visual Studio Code
             url: tutorial-vs-code-serverless-python-01.md
-          - text: Using the Azure CLI
+          - text: Using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
           - text: Connect to stroage using VS Code
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
-          - text: Connect to storage using the Azure CLI
+          - text: Connect to storage using the command line
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
-  - title: Deploy containers
-    linkLists:
-      - linkListType: how-to-guide
-        links: 
-          - text: Using Visual Studio Code
-            url: tutorial-deploy-containers-01.md
   - title: Deploy data and storage
     linkLists:
       - linkListType: how-to-guide
@@ -79,7 +75,18 @@ landingContent:
             url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
           - text: Train image classification
             url: /azure/machine-learning/tutorial-train-models-with-aml
-          - text: Use Azure Cognitive Services
+          - text: Use prebuilt AI services (face, speech, text, image, etc.)
             url: quickstarts-cognitive-services.md
-          - text: More
+          - text: More...
             url: quickstarts-machine-learning.md
+  - title: Tools
+    linkLists:      
+      - links: 
+          - text: Visual Studio Code (IDE)
+            url: https://code.visualstudio.com/docs/languages/python
+          - text: Azure Command-Line Interace (CLI)
+            url: /cli/azure/install-azure-cli
+          - text: Windows Subsystem for Linux (WSL)
+            url: /windows/wsl/install-win10
+          - text: Visual Studio (for Python/C++ development)
+            url: /visualstudio/python/installation
