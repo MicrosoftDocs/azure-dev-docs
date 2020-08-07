@@ -1,5 +1,5 @@
 ---
-title: Create the Azure App Service from Visual Studio Code
+title: Create the Deno Azure App Service from Visual Studio Code
 description: Tutorial part 2, create the Deno app and run it locally
 ms.topic: conceptual
 ms.date: 06/01/2020

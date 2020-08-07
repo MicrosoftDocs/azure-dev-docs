@@ -6,7 +6,7 @@ ms.date: 06/01/2020
 ms.custom: devx-track-javascript
 ---
 
-# Deploy to Azure App Service using Visual Studio Code
+# Deploy Deno to Azure App Service using Visual Studio Code
 
 In this tutorial, you deploy a Deno application to Azure App Service (on Linux or Windows) using the Azure CLI.
 

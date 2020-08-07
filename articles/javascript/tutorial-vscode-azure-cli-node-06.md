@@ -6,7 +6,7 @@ ms.date: 09/24/2019
 ms.custom: devx-track-javascript
 ---
 
-# Make changes and redeploy
+# Part 6 Make changes and redeploy
 
 [Previous step: Stream logs](tutorial-vscode-azure-cli-node-05.md)
 

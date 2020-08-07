@@ -6,7 +6,7 @@ ms.date: 03/04/2020
 ms.custom: devx-track-javascript
 ---
 
-# Clean up resources
+# Part 5 Clean up resources
 
 [Previous step: Stream logs](tutorial-vscode-azure-app-service-node-04.md)
 

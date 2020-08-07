@@ -1,5 +1,5 @@
 ---
-title: Deploy Node.js apps to Azure App Service from Visual Studio Code
+title: Deploy apps to Azure App Service from Visual Studio Code
 description: Tutorial part 3, deploy the website
 ms.topic: conceptual
 ms.date: 03/04/2020
