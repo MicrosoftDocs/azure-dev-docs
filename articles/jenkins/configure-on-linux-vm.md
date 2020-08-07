@@ -22,12 +22,6 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
 
-1. Create a resource group. You might need to replace location with the appropriate values for your environment.
-
-    ```azurecli
-    az group create --name QuickstartJenkins-rg --location eastus
-    ```
-
 1. Create a file named `cloud-init-jenkins.txt`.
 
     ```bash
@@ -45,10 +39,15 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
       - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
       - apt-get update && apt-get install jenkins -y
       - service jenkins restart
-        
     ```
 
-1. Save the file (**&lt;Ctrl>&lt;S>**)and exit the editor (**&lt;Ctrl>&lt;Q>**).
+1. Create a resource group. You might need to replace location with the appropriate values for your environment.
+
+    ```azurecli
+    az group create --name QuickstartJenkins-rg --location eastus
+    ```
+
+1. Save the file (**&lt;Ctrl>S**)and exit the editor (**&lt;Ctrl>Q**).
 
 1. Create a virtual machine, replacing the placeholders with the appropriate values.
 
