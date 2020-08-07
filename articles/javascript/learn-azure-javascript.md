@@ -2,22 +2,30 @@
 title: Learn to develop with Azure and JavaScript 
 description: Use the Microsoft Learn platform to expand your understanding of Azure with Javascript
 ms.topic: reference
-ms.date: 07/29/2020 
+ms.date: 08/07/2020 
+ms.custom: devx-track-javascript
 ---
 
 # Learn to develop with Azure and JavaScript 
 
 Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your understanding of Azure with Javascript
 
-## Microsoft Learn 
+## Learn JavaScript on Azure
 
-The following Microsoft Learn resources will show you how to use Azure with Javascript:
+To learn JavaScript on Azure, we recommend the following learning path:
 
-* Path: [Build JavaScript applications with Node.js](https://docs.microsoft.com/learn/paths/build-javascript-applications-nodejs/)
-* Module: [Build a Web App with Refreshable Machine Learning Models](https://docs.microsoft.com/learn/modules/create-web-app-with-refreshable-models) with Vue.js and progressive web apps
-* Module: [Publish an Angular, React, Svelte, or Vue JavaScript app and API with Azure Static Web Apps](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/)
-* Module: [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode/)
-* Module: [Introduction to customizing and extending SharePoint](https://docs.microsoft.com/learn/modules/intro-sharepoint-framework/)
+* [Build JavaScript applications with Node.js](https://docs.microsoft.com/learn/paths/build-javascript-applications-nodejs/)
+
+## Learn specific JavaScript modules on Azure
+
+The following Microsoft Learn modules teach you how to use Azure with Javascript:
+
+* [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)
+* [Create and publish a static web app with Gatsby and Azure Static Web Apps](https://docs.microsoft.com/learn/modules/create-deploy-static-webapp-gatsby-app-service/)
+* [Build a web API with Node.js and Express](https://docs.microsoft.com/learn/modules/build-web-api-nodejs-express/) 
+
+Search for [more Learn resources](https://docs.microsoft.com/search/?category=Learn&terms=JavaScript)
+
 
 ## Microsoft Learning Partner
 
@@ -31,4 +39,8 @@ Take one of these offerings from a [partner](https://docs.microsoft.com/learn/ce
 
 ## Exams
 
-* [Exam 98-382](https://docs.microsoft.com/learn/certifications/exams/98-382): Introduction to Programming Using JavaScript] 
+* [Exam 98-382](https://docs.microsoft.com/learn/certifications/exams/98-382): Introduction to Programming Using JavaScript
+
+## Next steps
+
+* Use [Microsoft Learn](https://docs.microsoft.com/learn/) to learn and improve your JavaScript skills on Azure 
