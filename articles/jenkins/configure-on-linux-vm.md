@@ -41,21 +41,21 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
       - service jenkins restart
     ```
 
-1. Create a resource group. You might need to replace location with the appropriate values for your environment.
+1. Save the file (**&lt;Ctrl>S**)and exit the editor (**&lt;Ctrl>Q**).
+
+1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace location with the appropriate values for your environment.
 
     ```azurecli
     az group create --name QuickstartJenkins-rg --location eastus
     ```
 
-1. Save the file (**&lt;Ctrl>S**)and exit the editor (**&lt;Ctrl>Q**).
-
-1. Create a virtual machine, replacing the placeholders with the appropriate values.
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
 
     ```azurecli
-    az vm create --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm --image UbuntuLTS --admin-username "jenkins_admin" --generate-ssh-keys --custom-data cloud-init-jenkins.txt
+    az vm create --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm --image UbuntuLTS --admin-username "azureuser" --generate-ssh-keys --custom-data cloud-init-jenkins.txt
     ```
 
-1. Open port 8080 on the new virtual machine.
+1. Open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
 
     ```azurecli
     az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
