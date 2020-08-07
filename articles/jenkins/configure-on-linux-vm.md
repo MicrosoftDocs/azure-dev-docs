@@ -48,7 +48,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
         
     ```
 
-1. Save the file (**&lt;S>**)and exit the editor (**&lt;Q>**).
+1. Save the file (**&lt;Ctrl>&lt;S>**)and exit the editor (**&lt;Ctrl>&lt;Q>**).
 
 1. Create a virtual machine, replacing the placeholders with the appropriate values.
 
