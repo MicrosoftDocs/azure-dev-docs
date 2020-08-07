@@ -43,8 +43,8 @@ The following steps walk you through building a Spring Boot web application and 
    ```
    -- or --
    ```
-   md /users/$User/SpringBoot
-   cd /users/$USer/SpringBoot
+   md /users/$USER/SpringBoot
+   cd /users/$USER/SpringBoot
    ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory.
@@ -106,7 +106,7 @@ The following steps walk you through building a Spring Boot web application and 
    az acr login
    ```
 
-1. Open the *pom.xml* file in the current SpingBoot directory with a text editor. If you don't have one, for example [VS Code](https://code.visualstudio.com/docs).
+1. Open the *pom.xml* file with a text editor; for example [VS Code](https://code.visualstudio.com/docs).
 
    ```
    code pom.xml
