@@ -17,7 +17,7 @@ metadata:
   ms.devlang: python
 
 landingContent:
-  - title: Use Azure libraries
+  - title: Use Azure libraries (SDK)
     linkLists:
       - linkListType: get-started
         links:
@@ -25,7 +25,7 @@ landingContent:
             url: cloud-development-overview.md
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
-          - text: Get to know the Azure libraries (SDK)
+          - text: Get to know the Azure libraries
             url: azure-sdk-overview.md
           - text: Learn library usage patterns
             url: azure-sdk-library-usage-patterns.md
@@ -80,8 +80,9 @@ landingContent:
           - text: More...
             url: quickstarts-machine-learning.md
   - title: Tools
-    linkLists:      
-      - links: 
+    linkLists:  
+      - linkListType: get-started
+        links: 
           - text: Visual Studio Code (IDE)
             url: https://code.visualstudio.com/docs/languages/python
           - text: Azure Command-Line Interace (CLI)
