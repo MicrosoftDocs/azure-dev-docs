@@ -25,7 +25,7 @@ In this quickstart, you'll complete these tasks:
 
 ## Prerequisites
 
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 ## Create a virtual machine
 
