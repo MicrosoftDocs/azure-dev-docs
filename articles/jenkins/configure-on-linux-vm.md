@@ -43,7 +43,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 1. Save the file (**&lt;Ctrl>S**)and exit the editor (**&lt;Ctrl>Q**).
 
-1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace location with the appropriate values for your environment.
+1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
 
     ```azurecli
     az group create --name QuickstartJenkins-rg --location eastus
