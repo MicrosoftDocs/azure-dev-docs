@@ -1,141 +1,188 @@
 ---
-title: Quickstart - Create a Jenkins server on Azure
-description: Learn how to install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
+title: Quickstart - Get started with Jenkins
+description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine, solution template
 ms.topic: quickstart
-ms.date: 03/03/2020
+ms.date: 08/07/2020
 ---
 
-# Quickstart: Create a Jenkins server on an Azure Linux VM
+# Quickstart: Get started with Jenkins
 
-This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure. When you're finished, you have a Jenkins server running in Azure building a sample Java app from [GitHub](https://github.com).
+This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
+
+In this quickstart, you'll complete these tasks:
+
+> [!div class="checklist"]
+> * Create a setup file that downloads and installs Jenkins
+> * Create a resource group
+> * Create a virtual machine with the setup file
+> * Open port 8080 so that you can SSH into the virtual machine
+> * Connect to the virtual machine via SSH
+> * Configure a sample Jenkins job based on a sample Java app in GitHub
+> * Build the sample Jenkins job
 
 ## Prerequisites
 
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Create the Jenkins VM from the solution template
+## Troubleshooting
 
-Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
+If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
 
-1. In your browser, open the [Azure Marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+## Create a virtual machine
 
-1. Select **GET IT NOW**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    ![Select GIT IT NOW to start the installation process for the Jenkins Marketplace image.](./media/install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
 
-1. After reviewing the pricing details and terms information, select **Continue**.
-
-    ![Jenkins Marketplace image pricing and terms information.](./media/install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
-
-1. Select **Create** to configure the Jenkins server in the Azure portal. 
-
-    ![Install the Jenkins Marketplace image.](./media/install-from-azure-marketplace-image/jenkins-install-create.png)
-
-1. In the **Basics** tab, specify the following values:
-
-   - **Name** - Enter `Jenkins`.
-   - **User name** - Enter the user name to use when signing in to the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-   - **Authentication type** - Select **SSH public key**.
-   - **SSH public key** - Copy and paste an RSA public key in single-line format (starting with `ssh-rsa`) or multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and macOS, or PuTTYGen on Windows. For more information about SSH keys and Azure, see the article, [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
-   - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
-   - **Resource group** - Select **Create new**, and enter a name for the resource group that serves as a logical container for the collection of resources that make up your Jenkins installation.
-   - **Location** - Select **East US**.
-
-     ![Enter authentication and resource group information for Jenkins in the Basic tab.](./media/install-from-azure-marketplace-image/jenkins-configure-basic.png)
-
-1. Select **OK** to proceed to the **Additional Settings** tab. 
-
-1. In the **Additional Settings** tab, specify the following values:
-
-   - **Size** - Select the appropriate sizing option for your Jenkins virtual machine.
-   - **VM disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the Jenkins virtual machine.
-   - **Virtual network** - (Optional) Select **Virtual network** to modify the default settings.
-   - **Subnets** - Select **Subnets**, verify the information, and select **OK**.
-   - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of -IP. You can select the option to change that default.
-   - **Domain name label** - Specify the value for the fully qualified URL to the Jenkins virtual machine.
-   - **Jenkins release type** - Select the desired release type from the options: `LTS`, `Weekly build`, or `Azure Verified`. The `LTS` and `Weekly build` options are explained in the article, [Jenkins LTS Release Line](https://jenkins.io/download/lts/). The `Azure Verified` option refers to a [Jenkins LTS version](https://jenkins.io/download/lts/) that has been verified to run on Azure. 
-   - **JDK Type** - JDK to be installed. Default is Zulu tested, certified builds of OpenJDK.
-
-     ![Enter virtual machine settings for Jenkins in the Settings tab.](./media/install-from-azure-marketplace-image/jenkins-configure-settings.png)
-
-1. Select **OK** to proceed to the **Integration Settings** tab.
-
-1. In the **Integration Settings** tab, specify the following values:
-
-    - **Service Principal** - The service principal is added into Jenkins as a credential for authentication with Azure. `Auto` means that the principal will be created by MSI (Managed Service Identity). `Manual` means that the principal should be created by you. 
-        - **Application ID** and **Secret** - If you select the `Manual` option for the **Service Principal** option, you'll need to specify the `Application ID` and `Secret` for your service principal. When [creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli), note that the default role is **Contributor**, which is sufficient for working with Azure resources.
-    - **Enable Cloud Agents** - Specify the default cloud template for agents where `ACI` refers to Azure Container Instance, and `VM` refers to virtual machines. You can also specify `No` if you don't wish to enable a cloud agent.
-
-1. Select **OK** to proceed to the **Summary** tab.
-
-1. When the **Summary** tab displays, the information entered is validated. Once you see the **Validation passed** message (at the top of the tab), select **OK**. 
-
-     ![The Summary tab displays and validates your selected options.](./media/install-from-azure-marketplace-image/jenkins-configure-summary.png)
-
-1. When the **Create** tab displays, select **Create** to create the Jenkins virtual machine. When your server is ready, a notification displays in the Azure portal.
-
-     ![Jenkins is ready notification.](./media/install-from-azure-marketplace-image/jenkins-install-notification.png)
-
-## Connect to Jenkins
-
-1. Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
-
-    ![Unlock jenkins](./media/install-solution-template-steps/jenkins-ssh-instructions.png)
-
-1. Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the name of the virtual machine admin user chosen earlier when setting up the virtual machine from the solution template.
+1. Create a file named `cloud-init-jenkins.txt`.
 
     ```bash
-    ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
+    code cloud-init-jenkins.txt
     ```
-    
-1. After you have started the tunnel, navigate to `http://localhost:8080/` on your local machine. 
 
-1. Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
+1. Paste the following code into the new file:
+
+    ```json
+    #cloud-config
+    package_upgrade: true
+    runcmd:
+      - apt install openjdk-8-jdk -y
+      - wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+      - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+      - apt-get update && apt-get install jenkins -y
+      - service jenkins restart
+    ```
+
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
+
+1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
+
+    ```azurecli
+    az group create --name QuickstartJenkins-rg --location eastus
+    ```
+
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
+
+    ```azurecli
+    az vm create --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm --image UbuntuLTS --admin-username "azureuser" --generate-ssh-keys --custom-data cloud-init-jenkins.txt
+    ```
+
+1. Open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
+
+    ```azurecli
+    az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
+    ```
+
+## Configure Jenkins
+
+1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az-vm-show).
+
+    ```azurecli
+    az vm show --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm -d --query [publicIps] --output tsv
+    ```
+
+    **Notes**:
+
+    - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
+
+1. Using the IP address retrieved in the previous step, SSH into the virtual machine. You'll need to confirm the connection request.
+
+    ```azurecli
+    ssh azureuser@<ip_address>
+    ```
+
+    **Notes**:
+
+    - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@QuickstartJenkins-vm`.
+
+1. Verify that Jenkins is running by getting the status of the Jenkins service.
+
+    ```bash
+    service jenkins status
+    ```
+
+1. Get the autogenerated Jenkins password.
 
     ```bash
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
     ```
-    
-1. Unlock the Jenkins dashboard for the first time using this initial password.
 
-    ![Unlock jenkins](./media/install-solution-template-steps/jenkins-unlock.png)
+1. Using the IP address, open the following URL in a browser: `http://<ip_address>:8080`
 
-1. Select **Install suggested plugins** on the next page and then create a Jenkins admin user used to access the Jenkins dashboard.
+1. Enter the password you retrieved earlier and select **Continue**.
 
-    ![Jenkins is ready!](./media/install-solution-template-steps/jenkins-welcome.png)
+    ![Initial page to unlock Jenkins](./media/configure-on-linux-vm/unlock-jenkins.png)
 
-The Jenkins server is now ready to build code.
+1. Select **Select plugins to install**.
+
+    ![Select the option to install selected plug-ins](./media/configure-on-linux-vm/select-plugins.png)
+
+1. In the filter box at the top of the page, enter `github`. Select the GitHub plugin and select **Install**.
+
+1. Enter the information for the first admin user and select **Save and Continue**.
+
+    ![Enter information for first admin user](./media/configure-on-linux-vm/create-first-user.png)
+
+1. On the **Instance Configuration** page, select **Save and Finish**.
+
+    ![Confirmation page for instance configuration](./media/configure-on-linux-vm/instance-configuration.png)
+
+1. Select **Start using Jenkins**.
+
+    ![Jenkins is ready!](./media/configure-on-linux-vm/start-using-jenkins.png)
 
 ## Create your first job
 
-1. Select **Create new jobs** from the Jenkins console, then name it **mySampleApp** and select **Freestyle project**, then select **OK**.
+1. On the Jenkins home page, select **Create a job**.
 
-    ![Create a new job](./media/install-solution-template-steps/jenkins-new-job.png) 
+    ![Jenkins console home page](./media/configure-on-linux-vm/jenkins-home-page.png)
 
-1. Select the **Source Code Management** tab, enable **Git**, and enter the following URL in **Repository URL**  field: `https://github.com/spring-guides/gs-spring-boot.git`
+1. Enter a job name of `mySampleApp`, select **Freestyle project**, and select **OK**.
 
-    ![Define the Git repo](./media/install-solution-template-steps/jenkins-job-git-configuration.png) 
+    ![New job creation](./media/configure-on-linux-vm/new-job.png)
 
-1. Select the **Build** tab, then select **Add build step**, **Invoke Gradle script**. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
+1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`
 
-    ![Use the Gradle wrapper to build](./media/install-solution-template-steps/jenkins-job-gradle-config.png) 
+    ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
 
-1. Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
+1. Select the **Build** tab, then select **Add build step**
 
-    ![Set advanced settings in the Gradle wrapper build step](./media/install-solution-template-steps/jenkins-job-gradle-advances.png) 
+    ![Add a new build step](./media/configure-on-linux-vm/add-build-step.png)
 
-## Build the code
+1. From the drop-down menu, select **Invoke Gradle script**.
 
-1. Select **Build Now** to compile the code and package the sample app. When your build completes, select the **Workspace** link for the project.
+    ![Select the Gradle script option](./media/configure-on-linux-vm/invoke-gradle-script-option.png)
 
-    ![Browse to the workspace to get the JAR file from the build](./media/install-solution-template-steps/jenkins-access-workspace.png) 
+1. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
 
-1. Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
+    ![Gradle script options](./media/configure-on-linux-vm/gradle-script-options.png)
 
-## Troubleshooting the Jenkins solution template
+1. Select **Advanced** and enter `complete` in the **Root Build script** field.
 
-If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
+    ![Advanced Gradle script options](./media/configure-on-linux-vm/root-build-script.png)
+
+1. Scroll to the bottom of the page, and select **Save**.
+
+## Build the sample Java app
+
+1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
+
+    ![Project home page](./media/configure-on-linux-vm/project-home-page.png)
+
+1. A graphic below the **Build History** heading indicates that the job is being built.
+
+    ![Job-build in progress](./media/configure-on-linux-vm/job-currently-building.png)
+
+1. When the build completes, select the **Workspace** link.
+
+    ![Select the workspace link](./media/configure-on-linux-vm/job-workspace.png)
+
+1. Navigate to `complete/build/libs` to see that the `.jar` file was successfully built.
+
+    ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
+
+1. Your Jenkins server is now ready to build your own projects in Azure!
 
 ## Next Steps
 
