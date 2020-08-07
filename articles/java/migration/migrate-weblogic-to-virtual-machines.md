@@ -154,6 +154,9 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 * Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
 
+* If you deployed WebLogic Server with Azure Application Gateway by following the steps in [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](migrate-weblogic-with-app-gateway.md), you may want to do additional configuration on the Application Gateway.  For more information, see [Application Gateway configuration overview
+](/azure/application-gateway/configuration-overview).
+
 * Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
 * Leverage Azure Managed Identities to managed secrets and assign role based access to Azure resources. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
