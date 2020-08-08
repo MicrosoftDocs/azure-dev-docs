@@ -214,7 +214,9 @@ In this section, you create an *execution plan* and apply it to your cloud infra
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
-    If successful, the command displays various properties of the newly created resource group.
+    **Notes**:
+
+    - If successful, the command displays various properties of the newly created resource group.
 
 ## Clean up resources
 
