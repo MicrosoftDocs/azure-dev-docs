@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows and PowerShell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 08/08/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -12,6 +12,19 @@ ms.date: 07/27/2020
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using PowerShell.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Install the latest version of PowerShell
+> * Install the new PowerShell Az Module
+> * Install the Azure CLI
+> * Install Terraform
+> * Create an Azure service principal for authentication purposes
+> * Log into Azure using the service principal 
+> * Set environment variables so that Terraform correctly authenticates to your Azure subscription
+> * Write a Terraform script to create an Azure resource group
+> * Create and apply a Terraform execution plan
+> * Use the `terraform plan -destroy` flag to reverse an execution plan
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
@@ -201,7 +214,9 @@ In this section, you create an *execution plan* and apply it to your cloud infra
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
-    If successful, the command displays various properties of the newly created resource group.
+    **Notes**:
+
+    - If successful, the command displays various properties of the newly created resource group.
 
 ## Clean up resources
 
