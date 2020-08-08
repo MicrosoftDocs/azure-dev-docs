@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 07/26/2020
+ms.date: 08/08/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -12,6 +12,16 @@ ms.date: 07/26/2020
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html).
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Authenticate to Azure using `az login`
+> * Create an Azure service principal using the Azure CLI
+> * Authenticate to Azure using a service principal
+> * Set the current Azure subscription - for use if you have multiple subscriptions
+> * Write a Terraform script to create an Azure resource group
+> * Create and apply a Terraform execution plan
+> * Use the `terraform plan -destroy` flag to reverse an execution plan
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
