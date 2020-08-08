@@ -182,7 +182,7 @@ In this section, you create an *execution plan* and apply it to your cloud infra
 
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan from your Terraform configuration file.
 
-    ```powershell
+    ```bash
     terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
@@ -193,7 +193,7 @@ In this section, you create an *execution plan* and apply it to your cloud infra
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-    ```powershell
+    ```bash
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
