@@ -3,7 +3,7 @@ title: Quickstart - Get started with Terraform using Windows and PowerShell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 08/08/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 
@@ -12,6 +12,19 @@ ms.date: 07/27/2020
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using PowerShell.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Install the latest version of PowerShell
+> * Install the new PowerShell Az Module
+> * Install the Azure CLI
+> * Install Terraform
+> * Create an Azure service principal for authentication purposes
+> * Log into Azure using the service principal 
+> * Set environment variables so that Terraform correctly authenticates to your Azure subscription
+> * Write a Terraform script to create an Azure resource group
+> * Create and apply a Terraform execution plan
+> * Use the `terraform plan -destroy` flag to reverse an execution plan
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
@@ -115,6 +128,16 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     Connect-AzAccount -Credential $spCredential -Tenant "<azure_subscription_tenant_id>" -ServicePrincipal
     ```
 
+## Set environment variables
+
+In order for Terraform to use the intended Azure subscription, set environment variables. You can set the environment variables at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
+
+```powershell
+$env:ARM_CLIENT_ID=<service_principle_app_id>
+$env:ARM_SUBSCRIPTION_ID=<azure_subscription_id>
+$env:ARM_TENANT_ID=<azure_subscription_tenant_id>
+```
+
 ## Create a Terraform configuration file
 
 In this section, you'll code a Terraform configuration file that creates an Azure resource group.
@@ -158,16 +181,6 @@ In this section, you'll code a Terraform configuration file that creates an Azur
     - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about setting these attributes, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for azure_resource_group are name and location.
 
-## Set environment variables
-
-In order for Terraform to use the intended Azure subscription, set environment variables. You can set the environment variables at the Windows system level or in within a specific PowerShell session. If you want to set the environment variables for a specific session, use the following code. Replace the placeholders with the appropriate values for your environment.
-
-```powershell
-$env:ARM_CLIENT_ID=<service_principle_app_id>
-$env:ARM_SUBSCRIPTION_ID=<azure_subscription_id>
-$env:ARM_TENANT_ID=<azure_subscription_tenant_id>
-```
-
 ## Create and apply a Terraform execution plan
 
 In this section, you create an *execution plan* and apply it to your cloud infrastructure.
@@ -201,7 +214,9 @@ In this section, you create an *execution plan* and apply it to your cloud infra
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
     ```
 
-    If successful, the command displays various properties of the newly created resource group.
+    **Notes**:
+
+    - If successful, the command displays various properties of the newly created resource group.
 
 ## Clean up resources
 
