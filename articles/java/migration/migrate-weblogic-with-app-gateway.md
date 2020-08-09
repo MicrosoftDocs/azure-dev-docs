@@ -41,6 +41,7 @@ Here are some things to consider about migrating on-premise WLS installations an
 * If your existing load-balancing solution provides security protection from common exploits and vulnerabilities, the Application Gateway has you covered. Application Gateway's built-in Web Application Firewall (WAF) implements the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).  For more information on WAF support in Application Gateway, see [Application Gateway Features](/azure/application-gateway/features#web-application-firewall).
 * If your existing load-balancing solution requires end-to-end SSL encryption, you'll need to do additional configuration after following the steps in this guide.  See [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption) and the Oracle documentation on [Configuring SSL in Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/asadm/configuring-ssl1.html#GUID-623906C0-B1FD-423F-AE51-061B5800E927).
 * If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure App Gateway and WLS.
+* For a comprehensive survey of migrating WebLogic Server to Azure Virtual Machines, see [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md).
 
 ## Create an Azure Key Vault
 

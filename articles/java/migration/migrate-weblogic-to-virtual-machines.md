@@ -132,6 +132,8 @@ You must account for the migration of any SSL KeyStores used by your application
 
 After you've connected the databases, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
 
+[!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization.md)]
+
 ### Account for logging
 
 The existing logging configuration should be carried over when the domain is migrated. For more information, see [Configure java.util.logging logger levels](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/taskhelp/logging/ConfigureJavaLoggingLevels.html) and [Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wllog/index.html)

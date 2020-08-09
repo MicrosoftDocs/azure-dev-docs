@@ -41,6 +41,7 @@ Here are some things to consider about migrating on-premise WLS installations an
 * If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
 * If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
+* For a comprehensive survey of migrating WebLogic Server to Azure Virtual Machines, see [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md).
 
 ## Azure Active Directory configuration
 
