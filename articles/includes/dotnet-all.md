@@ -5,7 +5,7 @@
 | ASP.NET Extension - DataProtection Blobs | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Blobs/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Blobs-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/) |
 | ASP.NET Extension - DataProtection Keys | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Extensions.AspNetCore.DataProtection.Keys/1.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Extensions.AspNetCore.DataProtection.Keys-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/) |
 | Cognitive Search  | NuGet [11.0.0](https://www.nuget.org/packages/Azure.Search.Documents/11.0.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Search.Documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/) |
-| Core | NuGet [1.3.0](https://www.nuget.org/packages/Azure.Core/1.3.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Core-readme/) | github [1.3.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.3.0/sdk/core/Azure.Core/) |
+| Core | NuGet [1.4.0](https://www.nuget.org/packages/Azure.Core/1.4.0) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Core-readme/) | github [1.4.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.4.0/sdk/core/Azure.Core/) |
 | Cosmos | NuGet [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](https://docs.microsoft.com/dotnet/api/azure.cosmos?view=azure-dotnet-preview) | github [4.0.0-preview3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Cosmos_4.0.0-preview3/sdk/https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3/Azure.Cosmos/) |
 | Event Hubs | NuGet [5.1.0](https://www.nuget.org/packages/Azure.Messaging.EventHubs/5.1.0)<br>NuGet [5.2.0-preview.1](https://www.nuget.org/packages/Azure.Messaging.EventHubs/5.2.0-preview.1) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Messaging.EventHubs-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.1.0/sdk/eventhub/Azure.Messaging.EventHubs/)<br>github [5.2.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.2.0-preview.1/sdk/eventhub/Azure.Messaging.EventHubs/) |
 | Event Hubs - Azure Blob Storage Checkpoint Store | NuGet [5.1.0](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/5.1.0)<br>NuGet [5.2.0-preview.1](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/5.2.0-preview.1) | [docs](https://docs.microsoft.com/dotnet/api/overview/azure/Messaging.EventHubs.Processor-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.1.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/)<br>github [5.2.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.2.0-preview.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/) |
@@ -37,7 +37,7 @@
 | Azure.AspNetCore.DataProtection.Keys | NuGet [1.0.0-preview.1](https://www.nuget.org/packages/Azure.AspNetCore.DataProtection.Keys/1.0.0-preview.1) |  |  |
 | Azure.Base | NuGet [1.0.0-preview.3](https://www.nuget.org/packages/Azure.Base/1.0.0-preview.3) |  |  |
 | Azure.Batch.FileStaging | NuGet [8.0.1](https://www.nuget.org/packages/Azure.Batch.FileStaging/8.0.1) |  |  |
-| Azure.Core.Experimental | NuGet [0.1.0-preview.2](https://www.nuget.org/packages/Azure.Core.Experimental/0.1.0-preview.2) |  |  |
+| Azure.Core.Experimental | NuGet [0.1.0-preview.3](https://www.nuget.org/packages/Azure.Core.Experimental/0.1.0-preview.3) |  |  |
 | Azure.Core.Extensions | NuGet [1.0.0-preview.6](https://www.nuget.org/packages/Azure.Core.Extensions/1.0.0-preview.6) |  |  |
 | Azure.DCAP.Windows | NuGet [1.2.0](https://www.nuget.org/packages/Azure.DCAP.Windows/1.2.0) |  |  |
 | Azure.DigitalTwins.Core | NuGet [1.0.0-preview.3](https://www.nuget.org/packages/Azure.DigitalTwins.Core/1.0.0-preview.3) |  |  |
@@ -101,8 +101,9 @@
 | Microsoft.Azure.Common.Dependencies | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Common.Dependencies/1.0.0) |  |  |
 | Microsoft.Azure.ConfigurationManager | NuGet [4.0.0](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/4.0.0) |  |  |
 | Microsoft.Azure.ContainerRegistry | NuGet [1.0.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.ContainerRegistry/1.0.0-preview.1) |  |  |
-| Microsoft.Azure.Cosmos | NuGet [3.11.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.11.0) |  |  |
-| Microsoft.Azure.Cosmos.Direct | NuGet [3.11.4](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.11.4) |  |  |
+| Microsoft.Azure.Core.NewtonsoftJson | NuGet [1.0.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson/1.0.0-preview.1) |  |  |
+| Microsoft.Azure.Cosmos | NuGet [3.12.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.12.0) |  |  |
+| Microsoft.Azure.Cosmos.Direct | NuGet [3.13.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.13.0) |  |  |
 | Microsoft.Azure.Cosmos.Encryption | NuGet [1.0.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption/1.0.0-preview4) |  |  |
 | Microsoft.Azure.Cosmos.Table | NuGet [2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table/2.0.0-preview) |  |  |
 | Microsoft.Azure.CosmosDB.BulkExecutor | NuGet [2.4.1-preview](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/2.4.1-preview) |  |  |
@@ -110,9 +111,9 @@
 | Microsoft.Azure.DataLake.Store | NuGet [1.2.3-alpha](https://www.nuget.org/packages/Microsoft.Azure.DataLake.Store/1.2.3-alpha) |  |  |
 | Microsoft.Azure.DataLake.USQL.SDK | NuGet [1.4.200715](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.200715) |  |  |
 | Microsoft.Azure.DCAP | NuGet [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.6.0) |  |  |
-| Microsoft.Azure.DocumentDB | NuGet [2.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.4) |  |  |
+| Microsoft.Azure.DocumentDB | NuGet [2.11.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.11.5) |  |  |
 | Microsoft.Azure.DocumentDB.ChangeFeedProcessor | NuGet [2.3.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.1) |  |  |
-| Microsoft.Azure.DocumentDB.Core | NuGet [2.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.4) |  |  |
+| Microsoft.Azure.DocumentDB.Core | NuGet [2.11.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/2.11.5) |  |  |
 | Microsoft.Azure.EventGrid | NuGet [3.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/3.2.0) |  |  |
 | Microsoft.Azure.EventHubs | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/4.2.0) |  |  |
 | Microsoft.Azure.EventHubs.Processor | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/4.2.0) |  |  |
@@ -194,7 +195,7 @@
 | Microsoft.Azure.Management.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.34.0) |  |  |
 | Microsoft.Azure.Management.FrontDoor | NuGet [3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.FrontDoor/3.0.0) |  |  |
 | Microsoft.Azure.Management.Graph.RBAC.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Graph.RBAC.Fluent/1.34.0) |  |  |
-| Microsoft.Azure.Management.GuestConfiguration | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.GuestConfiguration/1.3.0) |  |  |
+| Microsoft.Azure.Management.GuestConfiguration | NuGet [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.Management.GuestConfiguration/1.4.0) |  |  |
 | Microsoft.Azure.Management.HDInsight | NuGet [5.5.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.5.0) |  |  |
 | Microsoft.Azure.Management.HDInsight.Job | NuGet [2.0.7](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight.Job/2.0.7) |  |  |
 | Microsoft.Azure.Management.HealthcareApis | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HealthcareApis/1.1.0) |  |  |
@@ -214,7 +215,7 @@
 | Microsoft.Azure.Management.MachineLearning | NuGet [1.0.1](https://www.nuget.org/packages/Microsoft.Azure.Management.MachineLearning/1.0.1) |  |  |
 | Microsoft.Azure.Management.MachineLearning.Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.MachineLearning.Fluent/1.9.1-beta) |  |  |
 | Microsoft.Azure.Management.MachineLearningCompute | NuGet [0.4.0](https://www.nuget.org/packages/Microsoft.Azure.Management.MachineLearningCompute/0.4.0) |  |  |
-| Microsoft.Azure.Management.Maintenance | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Maintenance/1.0.0) |  |  |
+| Microsoft.Azure.Management.Maintenance | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Maintenance/1.2.0) |  |  |
 | Microsoft.Azure.Management.ManagedNetwork | NuGet [1.0.1-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedNetwork/1.0.1-preview) |  |  |
 | Microsoft.Azure.Management.ManagedServiceIdentity | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServiceIdentity/1.0.0) |  |  |
 | Microsoft.Azure.Management.ManagedServices | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/1.1.0) |  |  |
@@ -261,7 +262,7 @@
 | Microsoft.Azure.Management.Profiles.hybrid_2019_03_01.Subscription | NuGet [0.9.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Profiles.hybrid_2019_03_01.Subscription/0.9.0-preview) |  |  |
 | Microsoft.Azure.Management.Profiles.hybrid_2019_03_01.Websites | NuGet [0.9.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Profiles.hybrid_2019_03_01.Websites/0.9.0-preview) |  |  |
 | Microsoft.Azure.Management.RecoveryServices | NuGet [4.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.RecoveryServices/4.3.0-preview) |  |  |
-| Microsoft.Azure.Management.RecoveryServices.Backup | NuGet [4.0.3-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.RecoveryServices.Backup/4.0.3-preview) |  |  |
+| Microsoft.Azure.Management.RecoveryServices.Backup | NuGet [4.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.RecoveryServices.Backup/4.1.0-preview) |  |  |
 | Microsoft.Azure.Management.RecoveryServices.SiteRecovery | NuGet [2.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.RecoveryServices.SiteRecovery/2.1.0-preview) |  |  |
 | Microsoft.Azure.Management.RecoveryServicesVaultUpgrade | NuGet [1.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.RecoveryServicesVaultUpgrade/1.0.0-preview) |  |  |
 | Microsoft.Azure.Management.Redis | NuGet [6.0.0-preview.2](https://www.nuget.org/packages/Microsoft.Azure.Management.Redis/6.0.0-preview.2) |  |  |
@@ -283,7 +284,7 @@
 | Microsoft.Azure.Management.ServerManagement | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServerManagement/1.1.0) |  |  |
 | Microsoft.Azure.Management.ServiceBus | NuGet [2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus/2.1.0) |  |  |
 | Microsoft.Azure.Management.ServiceBus.Fluent | NuGet [1.34.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus.Fluent/1.34.0) |  |  |
-| Microsoft.Azure.Management.ServiceFabric | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceFabric/1.2.0) |  |  |
+| Microsoft.Azure.Management.ServiceFabric | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceFabric/1.3.0) |  |  |
 | Microsoft.Azure.Management.ServiceFabric.Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceFabric.Fluent/1.9.1-beta) |  |  |
 | Microsoft.Azure.Management.SignalR | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.SignalR/1.1.0) |  |  |
 | Microsoft.Azure.Management.SiteRecovery | NuGet [2.0.2-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.SiteRecovery/2.0.2-preview) |  |  |
@@ -311,7 +312,7 @@
 | Microsoft.Azure.Search.Common | NuGet [10.1.0](https://www.nuget.org/packages/Microsoft.Azure.Search.Common/10.1.0) |  |  |
 | Microsoft.Azure.Search.Data | NuGet [10.1.0](https://www.nuget.org/packages/Microsoft.Azure.Search.Data/10.1.0) |  |  |
 | Microsoft.Azure.Search.Service | NuGet [10.1.0](https://www.nuget.org/packages/Microsoft.Azure.Search.Service/10.1.0) |  |  |
-| Microsoft.Azure.ServiceBus | NuGet [4.1.3](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/4.1.3) |  |  |
+| Microsoft.Azure.ServiceBus | NuGet [4.1.4](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/4.1.4) |  |  |
 | Microsoft.Azure.ServiceBus.MessageIdPlugin | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.MessageIdPlugin/2.0.0) |  |  |
 | Microsoft.Azure.Services.AppAuthentication | NuGet [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/1.5.0) |  |  |
 | Microsoft.Azure.SignalR | NuGet [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.SignalR/1.5.0) |  |  |
@@ -343,7 +344,7 @@
 | Microsoft.Azure.WebJobs.Extensions.CosmosDB | NuGet [3.0.7](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/3.0.7) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.DocumentDB | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.3.0) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.DurableTask | NuGet [2.2.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.2.2) |  |  |
-| Microsoft.Azure.WebJobs.Extensions.DurableTask.Analyzers | NuGet [0.2.3](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask.Analyzers/0.2.3) |  |  |
+| Microsoft.Azure.WebJobs.Extensions.DurableTask.Analyzers | NuGet [0.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask.Analyzers/0.3.0) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.EdgeHub | NuGet [1.0.7](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EdgeHub/1.0.7) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.EventGrid | NuGet [2.1.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/2.1.0) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.EventHubs | NuGet [4.1.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/4.1.1) |  |  |
@@ -361,10 +362,10 @@
 | Microsoft.Azure.WebJobs.Extensions.WebHooks | NuGet [1.0.0-beta4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebHooks/1.0.0-beta4) |  |  |
 | Microsoft.Azure.WebJobs.Host.Storage | NuGet [3.0.14](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage/3.0.14) |  |  |
 | Microsoft.Azure.WebJobs.Host.TestCommon | NuGet [3.0.14](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.TestCommon/3.0.14) |  |  |
-| Microsoft.Azure.WebJobs.ItemTemplates | NuGet [3.1.1528](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ItemTemplates/3.1.1528) |  |  |
+| Microsoft.Azure.WebJobs.ItemTemplates | NuGet [3.1.1582](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ItemTemplates/3.1.1582) |  |  |
 | Microsoft.Azure.WebJobs.Logging | NuGet [3.0.14](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging/3.0.14) |  |  |
 | Microsoft.Azure.WebJobs.Logging.ApplicationInsights | NuGet [3.0.14](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/3.0.14) |  |  |
-| Microsoft.Azure.WebJobs.ProjectTemplates | NuGet [3.1.1528](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ProjectTemplates/3.1.1528) |  |  |
+| Microsoft.Azure.WebJobs.ProjectTemplates | NuGet [3.1.1582](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ProjectTemplates/3.1.1582) |  |  |
 | Microsoft.Azure.WebJobs.Script | NuGet [1.0.0-beta3](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Script/1.0.0-beta3) |  |  |
 | Microsoft.Azure.WebJobs.Script.Extensibility | NuGet [1.0.0-beta3](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Script.Extensibility/1.0.0-beta3) |  |  |
 | Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator | NuGet [1.1.8](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator/1.1.8) |  |  |

@@ -116,7 +116,7 @@
 | azure-core-serializer-json-jackson | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-core-serializer-json-jackson/1.0.0-beta.2/jar/) |  |  |
 | azure-core-test | maven [1.3.1](https://search.maven.org/artifact/com.azure/azure-core-test/1.3.1/jar/) |  |  |
 | azure-core-tracing-opencensus | maven [1.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-core-tracing-opencensus/1.0.0-preview.4/jar/) |  |  |
-| azure-cosmos | maven [3.7.4](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos/3.7.4/jar/) |  |  |
+| azure-cosmos | maven [3.7.5](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos/3.7.5/jar/) |  |  |
 | azure-cosmos-cassandra-extensions | maven [0.12.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-extensions/0.12.0/jar/) |  |  |
 | azure-cosmos-cassandra-extensions.parent | maven [0.11.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-extensions.parent/0.11.0/jar/) |  |  |
 | azure-cosmos-cassandra-spark-helper | maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar/) |  |  |
@@ -162,8 +162,8 @@
 | azure-eventhubs-extensions | maven [3.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-extensions/3.2.0/jar/) |  |  |
 | azure-eventhubs-reactive_2.12 | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-reactive_2.12/0.5.0/jar/) |  |  |
 | azure-event-hubs-reactive_2.12 | maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-event-hubs-reactive_2.12/0.1.0/jar/) |  |  |
-| azure-eventhubs-spark_2.11 | maven [2.3.16](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.11/2.3.16/jar/) |  |  |
-| azure-eventhubs-spark_2.12 | maven [2.3.16](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.12/2.3.16/jar/) |  |  |
+| azure-eventhubs-spark_2.11 | maven [2.3.17](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.11/2.3.17/jar/) |  |  |
+| azure-eventhubs-spark_2.12 | maven [2.3.17](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.12/2.3.17/jar/) |  |  |
 | azure-faceapi | maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-faceapi/0.0.1-beta/jar/) |  |  |
 | azure-functions-archetype | maven [1.29](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.29/jar/) |  |  |
 | azure-functions-java-core | maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
@@ -238,7 +238,7 @@
 | azure-mgmt-billing | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-billing/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-billing.v2019_10_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.subscription.v2019_10_01_preview/azure-mgmt-billing/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-cdn | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cdn/1.36.0/jar/) |  |  |
-| azure-mgmt-cdn | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cdn.v2020_04_15/azure-mgmt-cdn/1.0.0-beta/jar/) |  |  |
+| azure-mgmt-cdn | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cdn.v2020_04_15/azure-mgmt-cdn/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-cognitiveservices | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-cognitiveservices.v2017_04_18 | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices.v2017_04_18/azure-mgmt-cognitiveservices/1.0.0/jar/)<br>maven [1.0.0-beta-4](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices.v2017_04_18/azure-mgmt-cognitiveservices/1.0.0-beta-4/jar/) |  |  |
 | azure-mgmt-cognitiveservices.v2017_04_18 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices-2017-04-18/azure-mgmt-cognitiveservices/1.0.0-beta-1/jar/) |  |  |
@@ -501,7 +501,7 @@
 | azure-sdk-template-bom | maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-sdk-template-bom/1.0.0-beta.5/jar/) |  |  |
 | azure-search | maven [11.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-search/11.0.0-beta.1/jar/) |  |  |
 | azure-servicebus | maven [3.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus/3.4.0/jar/) |  |  |
-| azure-servicebus-jms | maven [0.0.2](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/0.0.2/jar/) |  |  |
+| azure-servicebus-jms | maven [0.0.4](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/0.0.4/jar/) |  |  |
 | azure-servicebus-jms-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms-spring-boot-starter/2.3.2/jar/) |  |  |
 | azure-servicebus-spring-boot-autoconfigure | maven [0.1.5](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-spring-boot-autoconfigure/0.1.5/jar/) |  |  |
 | azure-servicebus-spring-boot-starter | maven [2.2.5](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-spring-boot-starter/2.2.5/jar/) |  |  |
@@ -593,7 +593,7 @@
 | service-bus-jms-connection-factory | maven [0.0.1](https://search.maven.org/artifact/com.microsoft.azure/service-bus-jms-connection-factory/0.0.1/jar/) |  |  |
 | services-preview | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/services-preview/1.0.0/jar/) |  |  |
 | spark-cdm-connector | maven [0.16](https://search.maven.org/artifact/com.microsoft.azure/spark-cdm-connector/0.16/jar/) |  |  |
-| spark-kusto-connector | maven [2.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/spark-kusto-connector/2.0.0/jar/) |  |  |
+| spark-kusto-connector | maven [2.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/spark-kusto-connector/2.0.1/jar/) |  |  |
 | spark-streaming-eventhubs_2.10 | maven [1.6.3](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.10/1.6.3/jar/) |  |  |
 | spark-streaming-eventhubs_2.11 | maven [2.1.5](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11/2.1.5/jar/) |  |  |
 | spark-streaming-eventhubs_connector_2.10 | maven [1.6.3](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_connector_2.10/1.6.3/jar/) |  |  |
