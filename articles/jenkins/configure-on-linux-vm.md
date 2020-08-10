@@ -184,7 +184,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
 1. Your Jenkins server is now ready to build your own projects in Azure!
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Jenkins on Azure](/azure/developer/jenkins)

@@ -272,7 +272,7 @@ Before setting up the job in Jenkins, you need a web app on Linux. You also need
 
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Jenkins on Azure](/azure/developer/jenkins)

@@ -268,9 +268,5 @@ az group delete -y --no-wait -n <resource group name>
 
 ## Next steps
 
-In this article, you learned how to use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
-
-To learn more about Azure Jenkins provider, see the Jenkins on Azure site.
-
 > [!div class="nextstepaction"]
 > [Jenkins on Azure](/azure/jenkins/)
