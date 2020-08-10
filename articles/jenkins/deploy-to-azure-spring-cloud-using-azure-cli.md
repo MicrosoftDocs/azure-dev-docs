@@ -151,7 +151,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
     - **Subscription ID**: Azure subscription ID
     - **Client ID**: Service principal appid
     - **Client Secret**: Service principal password
-    - **Tenant ID**: Microsoft account tentant ID
+    - **Tenant ID**: Microsoft account tenant ID
     - **Azure Environment**: Select the appropriate value for your environment. For example, use **Azure** for Azure Global
     - **ID**: Set as `azure_service_principal`. We use this ID in a later step in this article
     - **Description**: This is optional, but recommended.

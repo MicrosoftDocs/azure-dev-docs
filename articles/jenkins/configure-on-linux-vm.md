@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Get started with Jenkins
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
-keywords: jenkins, azure, devops, portal, linux, virtual machine, solution template
+keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
 ms.date: 08/07/2020
 ---
