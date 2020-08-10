@@ -6,7 +6,7 @@ summary: |
   
 metadata:
   title: Azure for Python developers
-  description: Get started developing with Python and Azure.
+  description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Machine Learning, Azure Storage, and the Azure SDK for Python.
   author: kraigb
   ms.author: kraigb
   ms.date: 08/06/2020
@@ -17,18 +17,18 @@ metadata:
   ms.devlang: python
 
 landingContent:
-  - title: Use Azure libraries (SDK)
+  - title: Deploy serverless functions
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
-          - text: Cloud development overview
-            url: cloud-development-overview.md
-          - text: Set up your local dev environment
-            url: configure-local-development-environment.md
-          - text: Get to know the Azure libraries
-            url: azure-sdk-overview.md
-          - text: Learn library usage patterns
-            url: azure-sdk-library-usage-patterns.md
+          - text: Using Visual Studio Code
+            url: tutorial-vs-code-serverless-python-01.md
+          - text: Using the command line
+            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+          - text: Connect to storage using Visual Studio Code
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+          - text: Connect to storage using the command line
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
   - title: Deploy web apps
     linkLists:
       - linkListType: how-to-guide
@@ -43,18 +43,8 @@ landingContent:
             url: /azure/app-service/containers/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
-  - title: Deploy serverless functions
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Using Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
-          - text: Using the command line
-            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
-          - text: Connect to storage using Visual Studio Code
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
-          - text: Connect to storage using the command line
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+          - text: Build a CI/CD pipeline
+            url: /azure/devops/pipelines/ecosystems/python-webapp
   - title: Deploy machine learning models
     linkLists:      
       - linkListType: how-to-guide
@@ -79,13 +69,25 @@ landingContent:
             url: quickstarts-data-solutions.md#tables-blobs-files-nosql
           - text: Big data and analytics
             url: quickstarts-data-solutions.md#big-data-and-analytics
-  - title: Tools
+  - title: Use Azure libraries (SDK)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Cloud development overview
+            url: cloud-development-overview.md
+          - text: Set up your local dev environment
+            url: configure-local-development-environment.md
+          - text: Get to know the Azure libraries
+            url: azure-sdk-overview.md
+          - text: Learn library usage patterns
+            url: azure-sdk-library-usage-patterns.md
+  - title: Explore developer tools
     linkLists:  
       - linkListType: get-started
         links: 
           - text: Visual Studio Code (IDE)
             url: https://code.visualstudio.com/docs/languages/python
-          - text: Azure Command-Line Interace (CLI)
+          - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10
