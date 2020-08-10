@@ -9,8 +9,6 @@
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
-    - name: Tools for Python developers
-      href: azure-tools.md
 
 - name: Deploy serverless functions
   items:
@@ -34,13 +32,13 @@
               href: tutorial-vs-code-serverless-python-07.md
             - name: 8 Clean up resources
               href: tutorial-vs-code-serverless-python-08.md
-        - name: Using the Azure CLI
+        - name: Using the Azure CLI >>
           href: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
     - name: Connect to Azure Storage
       items:
-        - name: Using Visual Studio Code
+        - name: Using Visual Studio Code >>
           href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
-        - name: Using the Azure CLI
+        - name: Using the Azure CLI >>
           href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
 
 - name: Deploy web apps and databases
@@ -69,17 +67,17 @@
     items:
       - name: Using the Azure portal
         href: tutorial-python-postgresql-app-portal.md
-      - name: Using the Azure CLI
+      - name: Using the Azure CLI >>
         href: /azure/app-service/containers/tutorial-python-postgresql-app
-  - name: Set up CI/CD
+  - name: Set up CI/CD >>
     href: /azure/devops/pipelines/languages/python-webapp
-  - name: Configure the Linux host
+  - name: Configure the Linux host >>
     href: /azure/app-service/containers/how-to-configure-python
-  - name: Add sign-in
+  - name: Add sign-in >>
     href: /azure/active-directory/develop/quickstart-v2-python-webapp
-  - name: Store and retrieve secrets
+  - name: Store and retrieve secrets >>
     href: /azure/key-vault/quick-create-python
-  - name: Set up Azure monitor
+  - name: Set up Azure monitor >>
     href: /azure/azure-monitor/app/opencensus-python
 
 - name: Deploy containers
@@ -96,7 +94,7 @@
           href: tutorial-deploy-containers-04.md
         - name: 5 Clean up resources
           href: tutorial-deploy-containers-05.md
-    - name: Deploy a Kubernetes cluster
+    - name: Deploy a Kubernetes cluster >>
       href: /azure/aks/kubernetes-walkthrough
 
 - name: Deploy machine learning models
@@ -105,7 +103,7 @@
 - name: Deploy data and storage
   href: quickstarts-data-solutions.md
 
-- name: Use the Azure libraries
+- name: Use the Azure libraries (SDK)
   items:
     - name: Overview
       href: azure-sdk-overview.md
@@ -148,6 +146,9 @@
     - name: Use a sovereign domain
       href: azure-sdk-sovereign-domain.md
 
+- name: Tools for Python developers
+  href: azure-tools.md
+
 - name: Explore services supporting Python
   items: 
   - name: App hosting
@@ -167,33 +168,33 @@
 
 - name: Samples
   items: 
-  - name: Web apps & serverless
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps
-  - name: Databases
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database
+  - name: Web apps & serverless >>
+    href: /samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps
+  - name: Databases >>
+    href: /samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database
   - name: Storage
     items:
-      - name: Azure Storage
-        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-storage
-      - name: Redis Cache
-        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-redis-cache
-  - name: Identity &  Security
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
-  - name: IoT
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
-  - name: Data science
+      - name: Azure Storage >>
+        href: /samples/browse/?languages=python&products=azure-storage
+      - name: Redis Cache >>
+        href: /samples/browse/?languages=python&products=azure-redis-cache
+  - name: Identity &  Security >>
+    href: /samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
+  - name: IoT >>
+    href: /samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
+  - name: Data science >>
     items:
-      - name: Machine Learning Service    
-        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-machine-learning-service
-      - name: Databricks
-        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-databricks
-      - name: HDInsight
-        href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-hdinsight
-  - name: AI with Cognitive Services
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cognitive-services
-  - name: Search
-    href: https://docs.microsoft.com/samples/browse/?languages=python&products=azure-search
-  - name: All Samples
-    href: https://docs.microsoft.com/samples/browse/?languages=python
+      - name: Machine Learning Service     >>
+        href: /samples/browse/?languages=python&products=azure-machine-learning-service
+      - name: Databricks >>
+        href: /samples/browse/?languages=python&products=azure-databricks
+      - name: HDInsight >>
+        href: /samples/browse/?languages=python&products=azure-hdinsight
+  - name: AI with Cognitive Services >>
+    href: /samples/browse/?languages=python&products=azure-cognitive-services
+  - name: Search >>
+    href: /samples/browse/?languages=python&products=azure-search
+  - name: All Samples >>
+    href: /samples/browse/?languages=python
 - name: Library API reference
   href: sdk-library-api-reference.md
