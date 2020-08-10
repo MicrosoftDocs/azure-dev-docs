@@ -24,7 +24,7 @@
 | Resource Management - KeyVault | pypi [2.2.0](https://pypi.org/project/azure-mgmt-keyvault/2.2.0)<br>pypi [7.0.0b2](https://pypi.org/project/azure-mgmt-keyvault/7.0.0b2) |  | github [2.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_2.2.0/sdk/keyvault/azure-mgmt-keyvault/)<br>github [7.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_7.0.0b2/sdk/keyvault/azure-mgmt-keyvault/) |
 | Resource Management - Monitor | pypi [0.11.0](https://pypi.org/project/azure-mgmt-monitor/0.11.0)<br>pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-monitor/1.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-monitor-readme/) | github [0.11.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_0.11.0/sdk/monitor/azure-mgmt-monitor/)<br>github [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_1.0.0b1/sdk/monitor/azure-mgmt-monitor/) |
 | Resource Management - Network | pypi [11.0.0](https://pypi.org/project/azure-mgmt-network/11.0.0)<br>pypi [16.0.0b1](https://pypi.org/project/azure-mgmt-network/16.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-network-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_11.0.0/sdk/network/azure-mgmt-network/)<br>github [16.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_16.0.0b1/sdk/network/azure-mgmt-network/) |
-| Resource Management - Resources | pypi [10.1.0](https://pypi.org/project/azure-mgmt-resource/10.1.0)<br>pypi [15.0.0b1](https://pypi.org/project/azure-mgmt-resource/15.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-resource-readme/) | github [10.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_10.1.0/sdk/resources/azure-mgmt-resource/)<br>github [15.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_15.0.0b1/sdk/resources/azure-mgmt-resource/) |
+| Resource Management - Resources | pypi [10.2.0](https://pypi.org/project/azure-mgmt-resource/10.2.0)<br>pypi [15.0.0b1](https://pypi.org/project/azure-mgmt-resource/15.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-resource-readme/) | github [10.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_10.2.0/sdk/resources/azure-mgmt-resource/)<br>github [15.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_15.0.0b1/sdk/resources/azure-mgmt-resource/) |
 | Resource Management - Storage | pypi [11.1.0](https://pypi.org/project/azure-mgmt-storage/11.1.0)<br>pypi [16.0.0b2](https://pypi.org/project/azure-mgmt-storage/16.0.0b2) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-storage-readme/) | github [11.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_11.1.0/sdk/storage/azure-mgmt-storage/)<br>github [16.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_16.0.0b2/sdk/storage/azure-mgmt-storage/) |
 | azure | pypi [5.0.0](https://pypi.org/project/azure/5.0.0) |  |  |
 | azure-ai-nspkg | pypi [1.0.0](https://pypi.org/project/azure-ai-nspkg/1.0.0) |  |  |
@@ -89,7 +89,7 @@
 | azure-mgmt-containerregistry | pypi [2.8.0](https://pypi.org/project/azure-mgmt-containerregistry/2.8.0) |  |  |
 | azure-mgmt-containerservice | pypi [9.2.0](https://pypi.org/project/azure-mgmt-containerservice/9.2.0) |  |  |
 | azure-mgmt-core | pypi [1.2.0](https://pypi.org/project/azure-mgmt-core/1.2.0) |  |  |
-| azure-mgmt-cosmosdb | pypi [0.15.0](https://pypi.org/project/azure-mgmt-cosmosdb/0.15.0) |  |  |
+| azure-mgmt-cosmosdb | pypi [0.16.0](https://pypi.org/project/azure-mgmt-cosmosdb/0.16.0) |  |  |
 | azure-mgmt-costmanagement | pypi [0.2.0](https://pypi.org/project/azure-mgmt-costmanagement/0.2.0) |  |  |
 | azure-mgmt-customproviders | pypi [0.1.0](https://pypi.org/project/azure-mgmt-customproviders/0.1.0) |  |  |
 | azure-mgmt-databox | pypi [0.2.0](https://pypi.org/project/azure-mgmt-databox/0.2.0) |  |  |
@@ -158,7 +158,7 @@
 | azure-mgmt-serialconsole | pypi [0.1.0](https://pypi.org/project/azure-mgmt-serialconsole/0.1.0) |  |  |
 | azure-mgmt-servermanager | pypi [2.0.0](https://pypi.org/project/azure-mgmt-servermanager/2.0.0) |  |  |
 | azure-mgmt-servicebus | pypi [0.6.0](https://pypi.org/project/azure-mgmt-servicebus/0.6.0) |  |  |
-| azure-mgmt-servicefabric | pypi [0.4.0](https://pypi.org/project/azure-mgmt-servicefabric/0.4.0) |  |  |
+| azure-mgmt-servicefabric | pypi [0.5.0](https://pypi.org/project/azure-mgmt-servicefabric/0.5.0) |  |  |
 | azure-mgmt-signalr | pypi [0.4.0](https://pypi.org/project/azure-mgmt-signalr/0.4.0) |  |  |
 | azure-mgmt-sql | pypi [0.20.0](https://pypi.org/project/azure-mgmt-sql/0.20.0) |  |  |
 | azure-mgmt-sqlvirtualmachine | pypi [0.5.0](https://pypi.org/project/azure-mgmt-sqlvirtualmachine/0.5.0) |  |  |
@@ -189,9 +189,9 @@
 | azure-synapse-artifacts | pypi [0.2.0](https://pypi.org/project/azure-synapse-artifacts/0.2.0) |  |  |
 | azure-synapse-nspkg | pypi [1.0.0](https://pypi.org/project/azure-synapse-nspkg/1.0.0) |  |  |
 | azure-synapse-spark | pypi [0.2.0](https://pypi.org/project/azure-synapse-spark/0.2.0) |  |  |
-| azure-template | pypi [0.0.11](https://pypi.org/project/azure-template/0.0.11) |  |  |
+| azure-template | pypi [0.0.14](https://pypi.org/project/azure-template/0.0.14) |  |  |
 | doc-warden | pypi [0.7.1](https://pypi.org/project/doc-warden/0.7.1) |  |  |
 | msrest | pypi [0.6.18](https://pypi.org/project/msrest/0.6.18) |  |  |
 | msrestazure | pypi [0.6.4](https://pypi.org/project/msrestazure/0.6.4) |  |  |
 | tox-monorepo | pypi [0.1.2](https://pypi.org/project/tox-monorepo/0.1.2) |  |  |
-| uamqp | pypi [1.2.9](https://pypi.org/project/uamqp/1.2.9) |  |  |
+| uamqp | pypi [1.2.10](https://pypi.org/project/uamqp/1.2.10) |  |  |
