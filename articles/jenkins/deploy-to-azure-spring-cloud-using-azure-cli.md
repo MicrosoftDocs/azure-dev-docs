@@ -1,7 +1,7 @@
 ---
-title: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
+title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
-keywords: jenkins, azure, devops, azure sping cloud, azure cli
+keywords: jenkins, azure, devops, azure spring cloud, azure cli
 ms.topic: tutorial
 ms.date: 08/10/2020 
 ms.custom: devx-track-azurecli,devx-track-jenkins
@@ -31,7 +31,7 @@ In this tutorial, you'll complete these tasks:
 
 ## Provision a service instance and launch a Java Spring application
 
-We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
+We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](spring-cloud/spring-cloud-quickstart-launch-app-cli.md) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/spring-cloud/spring-cloud-quickstart-launch-app-cli.md) to get additional background information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
     * [Git](https://git-scm.com/)
