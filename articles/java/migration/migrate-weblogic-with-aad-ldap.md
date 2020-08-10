@@ -3,8 +3,8 @@ title: End-user Authorization and Authentication with Azure Active Directory for
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
 author: edburns
 ms.author: edburns
-ms.topic: conceptual
-ms.date: 07/09/2020
+ms.topic: tutorial
+ms.date: 08/10/2020
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
@@ -145,9 +145,9 @@ After deploying WLS and configuring LDAP using one of the above two methods, fol
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
-1. If the integration was successful, you'll find the AAD provider for example `AzureActiveDirectoryProvider`.
+1. If the integration was successful, you'll find the Azure AD provider for example `AzureActiveDirectoryProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
-1. If the integration was successful, you'll find users from the AAD provider.
+1. If the integration was successful, you'll find users from the Azure AD provider.
 
 ### Lock down and secure LDAP access over the internet
 
