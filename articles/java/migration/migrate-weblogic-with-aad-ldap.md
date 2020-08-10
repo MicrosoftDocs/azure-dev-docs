@@ -159,5 +159,7 @@ Now it's time to follow the steps on the [Clean up resources](/azure/active-dire
 
 ## Next steps
 
+Explore other aspects of migrating WebLogic Server apps to Azure.
+
 > [!div class="nextstepaction"]
-> [Migrate WebLogic applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
+> [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
