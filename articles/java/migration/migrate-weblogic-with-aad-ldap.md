@@ -3,8 +3,8 @@ title: End-user Authorization and Authentication with Azure Active Directory for
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
 author: edburns
 ms.author: edburns
-ms.topic: conceptual
-ms.date: 07/09/2020
+ms.topic: tutorial
+ms.date: 08/10/2020
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
@@ -30,7 +30,7 @@ This guide doesn't help you reconfigure an existing Azure AD deployment, but it 
 ## Prerequisites
 
 * An active Azure subscription.
-  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/).
+  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 ## Migration context
@@ -40,7 +40,8 @@ Here are some things to consider about migrating on-premise WLS installations an
 * If you already have an Azure AD tenant without Domain Services exposed via LDAP, this guide will show how to expose the LDAP capability and integrate it with WLS.
 * If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD.  For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
-* If you`re optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
+* If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure AD DS LDAP and WLS.
+* For a comprehensive survey of migrating WebLogic Server to Azure Virtual Machines, see [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md).
 
 ## Azure Active Directory configuration
 
@@ -144,9 +145,9 @@ After deploying WLS and configuring LDAP using one of the above two methods, fol
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
-1. If the integration was successful, you'll find the AAD provider for example `AzureActiveDirectoryProvider`.
+1. If the integration was successful, you'll find the Azure AD provider for example `AzureActiveDirectoryProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
-1. If the integration was successful, you'll find users from the AAD provider.
+1. If the integration was successful, you'll find users from the Azure AD provider.
 
 ### Lock down and secure LDAP access over the internet
 
@@ -158,5 +159,7 @@ Now it's time to follow the steps on the [Clean up resources](/azure/active-dire
 
 ## Next steps
 
+Explore other aspects of migrating WebLogic Server apps to Azure.
+
 > [!div class="nextstepaction"]
-> [Migrate WebLogic applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
+> [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
