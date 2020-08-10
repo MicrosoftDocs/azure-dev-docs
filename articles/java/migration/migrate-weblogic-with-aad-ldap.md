@@ -111,6 +111,38 @@ Do not execute the steps in [Clean-up resources](/azure/active-directory-domain-
 
 With the above variations in mind, complete [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).  We can now collect the values necessary to provide to the WLS Configuration.
 
+### Disable weak TLS v1
+
+By default, Azure Active Directory Domain Services (Azure AD DS) enables the use of TLS v1, which is considered weak and not supported in WebLogic Server 14 and later. 
+
+This section walks you through how to disable TLS v1 cipher.
+
+First, get the resource ID of the Azure Domain Service instance that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
+
+```azurecli
+AADDS_ID=$(az resource show --resource-group aadds-rg --resource-type "Microsoft.AAD/DomainServices" --name aaddscontoso.com --query "id" --output tsv)
+```
+
+Run the following command to disable TLS v1:
+
+```azurecli
+az resource update --ids $AADDS_ID --set properties.domainSecuritySettings.tlsV1=Disabled
+```
+
+The output will display `"tlsV1": "Disabled"` for `domainSecuritySettings`, as shown in the following example:
+
+```text
+"domainSecuritySettings": {
+      "ntlmV1": "Enabled",
+      "syncKerberosPasswords": "Enabled",
+      "syncNtlmPasswords": "Enabled",
+      "syncOnPremPasswords": "Enabled",
+      "tlsV1": "Disabled"
+}
+```
+
+For more information, see [Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
+
 ## WLS Configuration
 
 This section helps you collect the parameter values from the Azure AD DS deployed earlier.
