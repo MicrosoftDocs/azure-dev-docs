@@ -29,7 +29,7 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
 
 * A GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). The following are required on the Jenkins node/agent (for example. build server):
+* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). The following are required on the Jenkins node/agent (for example. build server):
 
     * [Git](https://git-scm.com/)
     * [JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
@@ -37,7 +37,7 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
     * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 or higher
 
     >[!TIP]
-    > Tools like Git, JDK, Az CLI, and Azure plug-ius are included by default in the Azure Marketplace [Microsoft Jenkins](https://aka.ms/jenkins-on-azure) solution template.
+    > Tools like Git, JDK, Az CLI, and Azure plug-ius are included by default in the Azure Marketplace [Microsoft Jenkins](https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin) solution template.
     
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
  
@@ -177,7 +177,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
         sudo apt-get install maven 
     ```
 
-3. Install the Azure CLI. For more information, see [Installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI is installed by default if you use [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
+3. Install the Azure CLI. For more information, see [Installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI is installed by default if you use [Jenkins Master on Azure](https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin).
 
 4. Switch to the `jenkins` user:
 
