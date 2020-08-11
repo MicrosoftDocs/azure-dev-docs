@@ -36,11 +36,11 @@ landingContent:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
           - text: Flask using the command line
-            url: /azure/app-service/containers/quickstart-python
+            url: /azure/app-service/quickstart-python
           - text: Django + PostgreSQL using the Azure Portal
             url: tutorial-python-postgresql-app-portal.md
           - text: Django + PostgreSQL using the command line
-            url: /azure/app-service/containers/tutorial-python-postgresql-app
+            url: /azure/app-service/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
           - text: Build a CI/CD pipeline

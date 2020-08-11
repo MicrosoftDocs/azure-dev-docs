@@ -62,17 +62,17 @@
         - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
       - name: Using the Azure CLI
-        href: /azure/app-service/containers/quickstart-python
+        href: /azure/app-service/quickstart-python
   - name: Django app + PostgreSQL
     items:
       - name: Using the Azure portal
         href: tutorial-python-postgresql-app-portal.md
       - name: Using the Azure CLI >>
-        href: /azure/app-service/containers/tutorial-python-postgresql-app
+        href: /azure/app-service/tutorial-python-postgresql-app
   - name: Set up CI/CD >>
     href: /azure/devops/pipelines/languages/python-webapp
   - name: Configure the Linux host >>
-    href: /azure/app-service/containers/how-to-configure-python
+    href: /azure/app-service/configure-language-python
   - name: Add sign-in >>
     href: /azure/active-directory/develop/quickstart-v2-python-webapp
   - name: Store and retrieve secrets >>
