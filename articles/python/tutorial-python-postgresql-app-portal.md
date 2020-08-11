@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal
 
-Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/containers/app-service-linux-intro) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time.
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time.
 
 The web app code in this case comes from a GitHub repository, and you configure the web app for continuous deployment from GitHub. Once configured, you can do further development on your local computer and commit changes to the repository. The web app on Azure then deploys those changes automatically.
 
@@ -22,7 +22,7 @@ In this tutorial, you use the Azure portal to complete the following tasks:
 > - View diagnostic logs
 > - Manage the web app in the Azure portal
 
-You can also use the [Azure CLI-based version of this tutorial](/azure/app-service/containers/tutorial-python-postgresql-app?tabs=bash%2Cclone).
+You can also use the [Azure CLI-based version of this tutorial](/azure/app-service/tutorial-python-postgresql-app).
 
 ## Fork the sample repository
 
@@ -132,7 +132,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
 ## Connect the database
 
-In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](/azure/app-service/containers/how-to-configure-python#access-environment-variables).)
+In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](/azure/app-service/configure-language-python#access-environment-variables).)
 
 1. Switch back to the browser tab or window for the web app you created in a previous section.
 
@@ -177,7 +177,7 @@ With the database and connection settings in place, you can now configure the we
 
 1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds and start the app.
 
-    App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/containers/how-to-configure-python).
+    App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/configure-language-python).
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
@@ -274,4 +274,4 @@ You can leave the app and database running as long as you want for further devel
 Learn how App Service runs a Python app:
 
 > [!div class="nextstepaction"]
-> [Configure a Python app](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python)
+> [Configure a Python app](/azure/app-service/configure-language-python)

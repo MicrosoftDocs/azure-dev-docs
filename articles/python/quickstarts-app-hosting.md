@@ -17,8 +17,8 @@ The following articles help you get started with various app hosting options on 
   - [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python)
   
 - **Web app hosting and monitoring**:
-  - [Create a Python app in Azure App Service on Linux](/azure/app-service/containers/quickstart-python)
-  - [Configure a Linux Python app for Azure App Service](/azure/app-service/containers/how-to-configure-python)
+  - [Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)
+  - [Configure a Linux Python app for Azure App Service](/azure/app-service/configure-language-python)
   - [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python)
 
 - **Container hosting**:
