@@ -152,7 +152,7 @@ In a later section, you create a Jenkins pipeline job that builds your app from 
 To create this service principal, run the Azure CLI command [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac).
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
+az ad sp create-for-rbac
 ```
 
 **Notes**:
