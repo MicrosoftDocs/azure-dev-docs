@@ -190,4 +190,6 @@ tools:
 
 additionalContent:
   sections:
-    - title: Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+    - title: ""
+  footer: Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+  
