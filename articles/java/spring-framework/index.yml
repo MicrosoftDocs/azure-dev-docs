@@ -5,7 +5,7 @@ summary: Spring is an open-source application framework developed by Pivotal tha
 
 metadata:
   title: Spring on Azure integration documentation
-  description: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
+  description: Spring is an open-source application framework developed by Pivotal that provides a simplified, modular approach for creating Java applications.
   ms.date: 03/13/2020
   ms.topic: landing-page
 
