@@ -3,7 +3,7 @@ title: Tutorial - Deploy to Azure App Service with Jenkins and the Azure CLI
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
 keywords: jenkins, azure, devops, app service, cli
 ms.topic: tutorial
-ms.date: 04/25/2020 
+ms.date: 08/08/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -21,7 +21,7 @@ To deploy a Java web app to Azure, you can use Azure CLI in a [Jenkins Pipeline]
 
 ## Create and configure Jenkins instance
 
-If you do not already have a Jenkins master, install with the [Jenkins solution template](configure-on-linux-vm.md). By default, the template installs the required [Azure Credentials](https://plugins.jenkins.io/azure-credentials) plug-in. 
+If you do not already have a Jenkins master, [install Jenkins on a Linux VM](configure-on-linux-vm.md).
 
 The Azure Credential plug-in allows you to store Microsoft Azure service principal credentials in Jenkins. In version 1.2, we added the support so that Jenkins Pipeline can get the Azure credentials. 
 
