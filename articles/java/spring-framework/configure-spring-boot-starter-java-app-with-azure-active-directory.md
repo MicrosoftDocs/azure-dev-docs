@@ -183,7 +183,7 @@ The following prerequisites are required in order to complete the steps in this 
    spring.security.oauth2.client.registration.azure.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
 
    # Specifies the list of Active Directory groups to use for authorization:
-   azure.activedirectory.active-directory-groups=Users
+   azure.activedirectory.user-group.allowed-groups=Users
    ```
 
    Where:
@@ -193,7 +193,7 @@ The following prerequisites are required in order to complete the steps in this 
    | `azure.activedirectory.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
    | `spring.security.oauth2.client.registration.azure.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
    | `spring.security.oauth2.client.registration.azure.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
-   | `azure.activedirectory.active-directory-groups` | Contains a list of Active Directory groups to use for authorization. |
+   | `azure.activedirectory.user-group.allowed-groups` | Contains a list of Active Directory groups to use for authorization. |
 
    > [!NOTE]
    > For a full list of values that are available in your *application.properties* file, see the [Azure Active Directory Spring Boot Sample][AAD Spring Boot Sample] on GitHub.
@@ -229,7 +229,7 @@ The following prerequisites are required in order to complete the steps in this 
    ```
 
    > [!NOTE]
-   > The group name that you specify for the `@PreAuthorize("hasRole('')")` method must contain one of the groups that you specified in the `azure.activedirectory.active-directory-groups` field of your *application.properties* file.
+   > The group name that you specify for the `@PreAuthorize("hasRole('')")` method must contain one of the groups that you specified in the `azure.activedirectory.user-group.allowed-groups` field of your *application.properties* file.
    >
    > You can also specify different authorization settings for different request mappings; for example:
    >
