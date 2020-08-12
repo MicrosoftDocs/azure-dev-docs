@@ -24,9 +24,6 @@ In this tutorial, you will:
 
 ## Install Azure VM Agents plugin
 
-> [!TIP]
-> If you deployed Jenkins on Azure using the [solution template](configure-on-linux-vm.md), the Azure VM Agent plugin is already installed.
-
 1. From the Jenkins dashboard, select **Manage Jenkins**, then select **Manage Plugins**.
 
 1. Select the **Available** tab, then search for **Azure VM Agents**. Select the checkbox next to the entry for the plugin and select **Install without restart** from the bottom of the dashboard.
