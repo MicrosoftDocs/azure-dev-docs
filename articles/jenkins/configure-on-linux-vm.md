@@ -76,6 +76,12 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     --custom-data cloud-init-jenkins.txt
     ```
 
+1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az-vm-list).
+
+    ```azurecli
+    az vm list -d -o table --query "[?name=='QuickstartJenkins-vm']"
+    ```
+
 1. Open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
 
     ```azurecli

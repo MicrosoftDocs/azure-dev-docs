@@ -45,7 +45,7 @@ The following steps walk you through creating an SSH key pair.
 
     **Notes**:
 
-    - If successful, the `ssh-keygen` command displays the fact that two files were created in the `.ssh` directory of your home directory.
+    - The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
     - The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
 
 ## Create a virtual machine
@@ -67,8 +67,11 @@ The following steps walk you through creating an SSH key pair.
     --ssh-key-values ~/.ssh/ansible_rsa.pub
     ```
 
+1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az-vm-list).
 
-
+    ```azurecli
+    az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
+    ```
 
 ## Install Ansible on an Azure Linux virtual machine
 
