@@ -459,10 +459,6 @@
     {
       "source_path": "articles/terraform/getting-started-cloud-shell.md",
       "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
-    },
-    {
-      "source_path": "articles/ansible/solution-template-deploy.md",
-      "redirect_url": "/azure/developer/ansible/install-on-linux-vm.md"
     }
   ]
 }
