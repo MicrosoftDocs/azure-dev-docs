@@ -14,7 +14,12 @@ This quickstart shows how to install [Ansible](https://docs.ansible.com/) using 
 In this quickstart, you'll complete these tasks:
 
 > [!div class="checklist"]
-> * Create a setup file that downloads and installs Jenkins
+> * Create an SSH key pair
+> * Create a resource group
+> * Create a CentOS virtual machine 
+> * Install Ansible on the virtual machine
+> * Connect to the virtual machine via SSH
+> * Configure Ansible on the virtual machine
 
 ## Prerequisites
 
