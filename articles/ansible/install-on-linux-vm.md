@@ -28,9 +28,9 @@ When connecting to Linux VMs, you can use password authentication or key-based a
 
 With key-based authentication, there are two keys:
 
-- Public key: The public key is stored on the host - such as on your VM (as in this article)
-- Private key: The private key enables you to securely connect to your host. The private key is effectively your password and should be protected as such.
-
+    - **Public key**: The public key is stored on the host - such as on your VM (as in this article)
+    - **Private key**: The private key enables you to securely connect to your host. The private key is effectively your password and should be protected as such.
+        
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
