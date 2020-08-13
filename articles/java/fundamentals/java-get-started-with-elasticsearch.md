@@ -154,13 +154,13 @@ Clicking a java agent service will allow you to analyze a number of metrics, suc
 
 ![JVM Service Performance Dashboard](media/java-get-started-with-elasticsearch/jvm-perf-dashboard.png)
 
-### Ingesting logs
+### Installing Filebeat to ingesting logs
 
 Throughout your environment, we can assume there are tons of threads in logs, spread across many different applications, servers, and locations with different format types and even possibly languages that a person in your position must analyze. It is not practical, nor scalable, to try and analyze them by logging onto each system and to parse through those 10s of thousands of lines of text. Rather, there is a much more efficient method to analyze such large amounts of log file data, provided at no additional cost. One in particular is [Filebeat](https://www.elastic.co/beats/filebeat), Elastic’s lightweight data shippers for logs.
 
 ![Logs Analysis ](media/java-get-started-with-elasticsearch/log-analysis.png)
 
-Filebeat is one of the many open platform [Beats](https://www.elastic.co/beats) Elastic offers out-of-the-box. Beats are designed by Elastic to understand your applications, sending relevant the data directly into Elasticsearch, or to [Logstash](https://www.elastic.co/logstash) for further processing. With Logstash, you can apply many data manipulation techniques, such as applying transformations, to data before beingit is indexed in Elasticsearch. There is also a large amount of [community Beats](https://www.elastic.co/guide/en/beats/libbeat/7.8/community-beats.html) which means that most likely, anything you may need has already been developed, or offers a great starting point to build off of.
+Filebeat is one of the many open platform [Beats](https://www.elastic.co/beats) Elastic offers out-of-the-box, ready to help ingesting logs and are [container](https://www.elastic.co/docker-kubernetes-container-monitoring) and cloud-ready. Beats are designed by Elastic to understand your applications, sending relevant the data directly into Elasticsearch, or to [Logstash](https://www.elastic.co/logstash) for further processing. With Logstash, you can apply many data manipulation techniques, such as applying transformations, to data before beingit is indexed in Elasticsearch. There is also a large amount of [community Beats](https://www.elastic.co/guide/en/beats/libbeat/7.8/community-beats.html) which means that most likely, anything you may need has already been developed, or offers a great starting point to build off of.
 
 Configuring Filebeat, as with the APM Java Agent, begins within Kibana where clear instructions are depicted. The setup depends on your system, but essentially consists of downloading, configuring the **filebeat.yml** file, which essentially consists of setting what to collect, and where they need to go, and then running the setup commands. The process generally takes under five minutes.
 
@@ -169,7 +169,7 @@ Additionally, you may want to enable modules relevant to your environment, such 
 > [!NOTE]
 > Filebeat guarantees at-least-once delivery and from then on keeps track of the last lines sent by utilizing [harvesters](https://www.elastic.co/guide/en/beats/filebeat/7.8/how-filebeat-works.html#harvester). There is a *registry* which rebuilds the state should Filebeat get restarted. If that registry gets corrupted or deleted, then all the logs will need to be re-sent to Elasticsearch.
 
-We will install Filebeat along with adding a system log monitoring module. Once Filebeat is installed, any of the modules that ship with it can be enabled by running a few simple commands. For more detailed instructions, please visit the [Getting Started with Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-getting-started.html) reference guide.
+We will install Filebeat along with adding a system log monitoring module. Once Filebeat is installed, any of the modules that ship with it can be enabled by running a few simple commands. For more detailed instructions, please visit the [Getting Started with Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-getting-started.html) reference guide. 
 
 Click **Add log data** from the Kibana homemain page.
 
@@ -198,7 +198,26 @@ filebeat.inputs:
 ```
 Notice that `enabled` must be set to `true`.
 
+> [!IMPORTANT]
+> Please take precautions when modifying [YAML](https://yaml.org) files, as things like indentations, or spaces, are interpreted as a type of configuration. Please refer to our [YAML documentation](https://www.elastic.co/guide/en/beats/filebeat/7.8/yaml-tips.html) for more details.
+
 Finish by following the steps depicted in Kibana.
+
+#### Enabling additional modules
+
+Why stop at simply ingesting system and file logs? Why not include logs from [Apache](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-module-apache.html), [Azure](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-module-azure.html), [Kafka](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-module-kafka.html), [Nginx](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-module-nginx.html) or [Redis](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-module-redis.html)? The process is more or less the same where you enable the module and then create a configuration modification.
+
+Check out all the [out-of the-box modules](https://www.elastic.co/guide/en/beats/filebeat/7.8/filebeat-modules.html). Most come with visualizations and pre-built dashboards.
+
+### Installing Metricbeat to collect system metrics
+
+Metricbeta tailgates Filebeat in our Elasticsearch journey since they are companions and support the benefit of using Kibana as a holistic point of view into the environment. They are partners, companions...What good are a bunch of logs without other metrics supporting your search results?  
+
+The [Metricbeat System module](https://www.elastic.co/guide/en/beats/metricbeat/7.8/metricbeat-module-system.html) is what we will be installing, as it will be a great starting point. Metrics such as cpu, memory, load, network and processes are able to be monitored and incorporated into a search result alongside log data, driving towards a more refined and relevant search result, perhaps when looking for why an application is not behaving appropriately.
+
+As with the Filebeat system and log module, the Metricbeat system module comes with a predefined dashboard, which means all you have to do is configure the module and voilà, you have a beautiful set of visualizations. What is more is that Kibana will bring the two sets of data together, building on the true benefit of having a unified visibility across your entire ecosystem known as [Elastic Observability](https://www.elastic.co/observability).  
+
+From the Kibana Home page, easily naviaged by clicking the Elastic :::image type="icon" source="media/java-get-started-with-elasticsearch/es-icon.png":::icon
 
 ## Viewing the ingested data in Kibana
 
@@ -206,7 +225,10 @@ Finish by following the steps depicted in Kibana.
 
 A developer will be very interested in data log analysis, during the development process as well as during run-time. On the left navigation menu, click **Logs** under Observability. This is one area where logs are centralized and visualized, and can even be streamed in real time by clicking on **Stream live** in the upper right side of the screen. Query terms can be searched and/or highlighted, and the Timepicker can be customized.
 
-Please start by searching for a particular event, such as errors, by entering **mozilla** in the query bar. Notice the log histogram on the right side, an indication of when log entries were ingested. This can be helpful to see from a high level, when a large number of events took place.
+> [!NOTE]
+> Filebeat provides a very standard index pattern that may not be appropriate for all data ingest types. In Logs, you can change the index pattern for example, if the data does not have a standard timestamp which is used for sorting by clicking [Settings](https://www.elastic.co/guide/en/logs/guide/7.8/configure-logs-source.html).
+
+Please start by searching for a particular event, such as errors, by entering **mozilla** in the query bar, or just typing any term as  Notice the log histogram on the right side, an indication of when log entries were ingested. This can be helpful to see from a high level, when a large number of events took place.
 
 View more details by clicking the **Log line details**.
 
@@ -214,12 +236,14 @@ View more details by clicking the **Log line details**.
 
 ### Discover
 
-Discover is the perfect app Kibana has to offer users who wish to begin creating relevant visualizations which represent the message data alone in its raw format cannot. Before using Discover an [index pattern](https://www.elastic.co/guide/en/kibana/7.8/index-patterns.html) must be created. Fortunately for us, Filebeat provides a basic indexing pattern we can build off of, so we are not having to start from scratch.
+Discover is the perfect Kibana app offering users who wish to begin creating relevant visualizations which represent the message data alone in its raw format cannot. Before using Discover an [index pattern](https://www.elastic.co/guide/en/kibana/7.8/index-patterns.html) must be created. Fortunately for us, Filebeat provides a basic indexing pattern we can build off of, so we are not having to start from scratch.
 
 > [!TIP]
 > To get started with Discover and other visualizations, you can take advantage of the [sample data set](https://www.elastic.co/guide/en/kibana/7.8/getting-started.html#get-data-in) that comes with extensive index patterns, visualizations and dashboards.
 
-Within Discover you can see an ingest of data
+![Adding sample data](media/java-get-started-with-elasticsearch/add-sample-data.png)
+
+Within Discover you can see an ingest of data. Take advantage of the [time filter](https://www.elastic.co/guide/en/kibana/7.8/set-time-filter.html) to expand or narrow the time range.
 
 
 ### System logs
