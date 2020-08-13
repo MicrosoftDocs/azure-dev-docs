@@ -15,4 +15,5 @@ The following articles help you get started with various machine learning option
 - [Auto-train an ML model](/azure/machine-learning/tutorial-auto-train-models)
 - [Access datasets with Python using the Azure Machine Learning Python client library](/azure/machine-learning/team-data-science-process/python-data-access)
 - [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
+- [Deploy a data pipeline with Azure DevOps](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops)
 - [Create and run machine learning pipelines with Azure Machine Learning SDK](/azure/machine-learning/how-to-create-your-first-pipeline)
