@@ -131,7 +131,7 @@ The following procedure creates a Spring boot application.
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>spring-cloud-azure-eventhubs-stream-binder</artifactId>
-      <version>1.1.0.RC2</version>
+      <version>1.2.7</version>
    </dependency>
    ```
 
@@ -337,13 +337,11 @@ In this section, you create the necessary Java classes for sending events to you
 
       @StreamListener(Sink.INPUT)
       public void handleMessage(String message, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
-         LOGGER.info("New message received: '{}'", message);
-         checkpointer.success().handle((r, ex) -> {
-            if (ex == null) {
-               LOGGER.info("Message '{}' successfully checkpointed", message);
-            }
-            return null;
-         });
+         System.out.println(String.format("New message received: '%s'", message));
+         			checkpointer.success()
+         					.doOnSuccess(s -> System.out.println(String.format("Message '%s' successfully checkpointed", message)))
+         					.doOnError(System.out::println)
+         					.subscribe();
       }
    }
    ```
