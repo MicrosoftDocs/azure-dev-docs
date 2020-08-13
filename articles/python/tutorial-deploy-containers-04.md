@@ -3,7 +3,7 @@ title: "Step 4: Stream logs from Azure App Service for a container into Visual S
 description: Tutorial part 4, viewing logs from Azure App Service to monitor its behavior.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 4: Stream logs from Azure App Service for a container

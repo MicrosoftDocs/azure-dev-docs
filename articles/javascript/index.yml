@@ -34,8 +34,8 @@ landingContent:
             url: /samples/browse/?languages=javascript,nodejs
       - linkListType: learn
         links:
-          - text: Build Node.js applications
-            url: /learn/paths/build-javascript-applications-nodejs/
+          - text: Microsoft Learn modules and courses
+            url: learn-azure-javascript.md
       - linkListType: reference
         links:
           - text: API reference docs

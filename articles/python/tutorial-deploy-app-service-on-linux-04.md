@@ -3,7 +3,7 @@ title: "Step 4: Configure a custom startup file for Python apps on Azure App Ser
 description: Tutorial step 4, instructing App Service how to start the web app including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 4: Configure a custom startup file for Python apps on Azure App Service
@@ -12,7 +12,7 @@ ms.custom: seo-python-october2019
 
 This article shows you have to configure a custom startup file for a Python app on an Azure App Service.
 
-Depending on how you've structured your app, you may need to create a custom startup command file for your app as described on [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python) in the Azure docs.
+Depending on how you've structured your app, you may need to create a custom startup command file for your app as described on [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python) in the Azure docs.
 
 The specific use cases of a custom startup command are as follows:
 

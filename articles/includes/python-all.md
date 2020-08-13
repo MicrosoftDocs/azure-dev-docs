@@ -1,13 +1,36 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
+| App Configuration | pypi [1.0.0](https://pypi.org/project/azure-appconfiguration/1.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/appconfiguration-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.0.0/sdk/appconfiguration/azure-appconfiguration/) |
+| Cognitive Search | pypi [11.0.0](https://pypi.org/project/azure-search-documents/11.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.0.0/sdk/search/azure-search-documents/) |
+| Core | pypi [1.7.0](https://pypi.org/project/azure-core/1.7.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/core-readme/) | github [1.7.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.7.0/sdk/core/azure-core/) |
+| Cosmos | pypi [4.0.0](https://pypi.org/project/azure-cosmos/4.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme/) | github [4.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.0.0/sdk/cosmos/azure-cosmos/) |
+| Event Hubs | pypi [5.1.0](https://pypi.org/project/azure-eventhub/5.1.0)<br>pypi [5.2.0b1](https://pypi.org/project/azure-eventhub/5.2.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.1.0/sdk/eventhub/azure-eventhub/)<br>github [5.2.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.2.0b1/sdk/eventhub/azure-eventhub/) |
+| Event Hubs - Azure Blob Storage Checkpoint Store | pypi [1.1.0](https://pypi.org/project/azure-eventhub-checkpointstoreblob/1.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-checkpointstoreblob-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob_1.1.0/sdk/eventhub/azure-eventhub-checkpointstoreblob/) |
+| Event Hubs - Azure Blob Storage Checkpoint Store AIO | pypi [1.1.0](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/1.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-checkpointstoreblob-aio-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob-aio_1.1.0/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/) |
+| Form Recognizer | pypi [1.0.0b4](https://pypi.org/project/azure-ai-formrecognizer/1.0.0b4) | [docs](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme/) | github [1.0.0b4](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_1.0.0b4/sdk/formrecognizer/azure-ai-formrecognizer/) |
+| Identity | pypi [1.3.1](https://pypi.org/project/azure-identity/1.3.1)<br>pypi [1.4.0b7](https://pypi.org/project/azure-identity/1.4.0b7) | [docs](https://docs.microsoft.com/python/api/overview/azure/identity-readme/) | github [1.3.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.3.1/sdk/identity/azure-identity/)<br>github [1.4.0b7](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.4.0b7/sdk/identity/azure-identity/) |
+| Key Vault - Certificates | pypi [4.1.0](https://pypi.org/project/azure-keyvault-certificates/4.1.0)<br>pypi [4.2.0b1](https://pypi.org/project/azure-keyvault-certificates/4.2.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-certificates-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.1.0/sdk/keyvault/azure-keyvault-certificates/)<br>github [4.2.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.2.0b1/sdk/keyvault/azure-keyvault-certificates/) |
+| Key Vault - Keys | pypi [4.1.0](https://pypi.org/project/azure-keyvault-keys/4.1.0)<br>pypi [4.2.0b1](https://pypi.org/project/azure-keyvault-keys/4.2.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-keys-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.1.0/sdk/keyvault/azure-keyvault-keys/)<br>github [4.2.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.2.0b1/sdk/keyvault/azure-keyvault-keys/) |
+| Key Vault - Secrets | pypi [4.1.0](https://pypi.org/project/azure-keyvault-secrets/4.1.0)<br>pypi [4.2.0b1](https://pypi.org/project/azure-keyvault-secrets/4.2.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-secrets-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.1.0/sdk/keyvault/azure-keyvault-secrets/)<br>github [4.2.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.2.0b1/sdk/keyvault/azure-keyvault-secrets/) |
+| Service Bus | pypi [0.50.3](https://pypi.org/project/azure-servicebus/0.50.3)<br>pypi [7.0.0b4](https://pypi.org/project/azure-servicebus/7.0.0b4) | [docs](https://docs.microsoft.com/python/api/overview/azure/servicebus-readme/) | github [0.50.3](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_0.50.3/sdk/servicebus/azure-servicebus/)<br>github [7.0.0b4](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.0.0b4/sdk/servicebus/azure-servicebus/) |
+| Storage - Blobs | pypi [12.3.2](https://pypi.org/project/azure-storage-blob/12.3.2)<br>pypi [12.4.0b1](https://pypi.org/project/azure-storage-blob/12.4.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme/) | github [12.3.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.3.2/sdk/storage/azure-storage-blob/)<br>github [12.4.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.4.0b1/sdk/storage/azure-storage-blob/) |
+| Storage - File Data Lake | pypi [12.0.2](https://pypi.org/project/azure-storage-file-datalake/12.0.2)<br>pypi [12.1.0b1](https://pypi.org/project/azure-storage-file-datalake/12.1.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-file-datalake-readme/) | github [12.0.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.0.2/sdk/storage/azure-storage-file-datalake/)<br>github [12.1.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.1.0b1/sdk/storage/azure-storage-file-datalake/) |
+| Storage - File Shares | pypi [12.1.2](https://pypi.org/project/azure-storage-file-share/12.1.2)<br>pypi [12.2.0b1](https://pypi.org/project/azure-storage-file-share/12.2.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-file-share-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.1.2/sdk/storage/azure-storage-file-share/)<br>github [12.2.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.2.0b1/sdk/storage/azure-storage-file-share/) |
+| Storage - Queues | pypi [12.1.2](https://pypi.org/project/azure-storage-queue/12.1.2) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-queue-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.1.2/sdk/storage/azure-storage-queue/) |
+| Text Analytics | pypi [5.0.0](https://pypi.org/project/azure-ai-textanalytics/5.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/ai-textanalytics-readme/) | github [5.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/) |
+| Resource Management - App Configuration | pypi [0.5.0](https://pypi.org/project/azure-mgmt-appconfiguration/0.5.0)<br>pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-appconfiguration/1.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-appconfiguration-readme/) | github [0.5.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_0.5.0/sdk/appconfiguration/azure-mgmt-appconfiguration/)<br>github [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_1.0.0b1/sdk/appconfiguration/azure-mgmt-appconfiguration/) |
+| Resource Management - Compute | pypi [13.0.0](https://pypi.org/project/azure-mgmt-compute/13.0.0)<br>pypi [17.0.0b1](https://pypi.org/project/azure-mgmt-compute/17.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-compute-readme/) | github [13.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_13.0.0/sdk/compute/azure-mgmt-compute/)<br>github [17.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_17.0.0b1/sdk/compute/azure-mgmt-compute/) |
+| Resource Management - EventHub | pypi [4.0.0](https://pypi.org/project/azure-mgmt-eventhub/4.0.0)<br>pypi [8.0.0b1](https://pypi.org/project/azure-mgmt-eventhub/8.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-eventhub-readme/) | github [4.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_4.0.0/sdk/eventhub/azure-mgmt-eventhub/)<br>github [8.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_8.0.0b1/sdk/eventhub/azure-mgmt-eventhub/) |
+| Resource Management - KeyVault | pypi [2.2.0](https://pypi.org/project/azure-mgmt-keyvault/2.2.0)<br>pypi [7.0.0b2](https://pypi.org/project/azure-mgmt-keyvault/7.0.0b2) |  | github [2.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_2.2.0/sdk/keyvault/azure-mgmt-keyvault/)<br>github [7.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_7.0.0b2/sdk/keyvault/azure-mgmt-keyvault/) |
+| Resource Management - Monitor | pypi [0.11.0](https://pypi.org/project/azure-mgmt-monitor/0.11.0)<br>pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-monitor/1.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-monitor-readme/) | github [0.11.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_0.11.0/sdk/monitor/azure-mgmt-monitor/)<br>github [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_1.0.0b1/sdk/monitor/azure-mgmt-monitor/) |
+| Resource Management - Network | pypi [11.0.0](https://pypi.org/project/azure-mgmt-network/11.0.0)<br>pypi [16.0.0b1](https://pypi.org/project/azure-mgmt-network/16.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-network-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_11.0.0/sdk/network/azure-mgmt-network/)<br>github [16.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_16.0.0b1/sdk/network/azure-mgmt-network/) |
+| Resource Management - Resources | pypi [10.2.0](https://pypi.org/project/azure-mgmt-resource/10.2.0)<br>pypi [15.0.0b1](https://pypi.org/project/azure-mgmt-resource/15.0.0b1) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-resource-readme/) | github [10.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_10.2.0/sdk/resources/azure-mgmt-resource/)<br>github [15.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_15.0.0b1/sdk/resources/azure-mgmt-resource/) |
+| Resource Management - Storage | pypi [11.1.0](https://pypi.org/project/azure-mgmt-storage/11.1.0)<br>pypi [16.0.0b2](https://pypi.org/project/azure-mgmt-storage/16.0.0b2) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-storage-readme/) | github [11.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_11.1.0/sdk/storage/azure-mgmt-storage/)<br>github [16.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_16.0.0b2/sdk/storage/azure-mgmt-storage/) |
 | azure | pypi [5.0.0](https://pypi.org/project/azure/5.0.0) |  |  |
-| azure-ai-formrecognizer | pypi [1.0.0b4](https://pypi.org/project/azure-ai-formrecognizer/1.0.0b4) |  | github [1.0.0b4](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_1.0.0b4/sdk/formrecognizer/azure-ai-formrecognizer/) |
 | azure-ai-nspkg | pypi [1.0.0](https://pypi.org/project/azure-ai-nspkg/1.0.0) |  |  |
-| azure-ai-textanalytics | pypi [1.0.0](https://pypi.org/project/azure-ai-textanalytics/1.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/ai-textanalytics-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_1.0.0/sdk/textanalytics/azure-ai-textanalytics/) |
-| azure-appconfiguration | pypi [1.0.0](https://pypi.org/project/azure-appconfiguration/1.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/appconfiguration-readme/) | github [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.0.0/sdk/appconfiguration/azure-appconfiguration/) |
 | azure-applicationinsights | pypi [0.1.0](https://pypi.org/project/azure-applicationinsights/0.1.0) |  |  |
 | azure-batch | pypi [9.0.0](https://pypi.org/project/azure-batch/9.0.0) |  |  |
-| azure-cognitiveservices-anomalydetector | pypi [0.2.0](https://pypi.org/project/azure-cognitiveservices-anomalydetector/0.2.0) |  |  |
+| azure-cognitiveservices-anomalydetector | pypi [0.3.0](https://pypi.org/project/azure-cognitiveservices-anomalydetector/0.3.0) |  |  |
 | azure-cognitiveservices-formrecognizer | pypi [0.1.0](https://pypi.org/project/azure-cognitiveservices-formrecognizer/0.1.0) |  |  |
 | azure-cognitiveservices-inkrecognizer | pypi [1.0.0b1](https://pypi.org/project/azure-cognitiveservices-inkrecognizer/1.0.0b1) |  |  |
 | azure-cognitiveservices-knowledge-nspkg | pypi [3.0.0](https://pypi.org/project/azure-cognitiveservices-knowledge-nspkg/3.0.0) |  |  |
@@ -34,28 +57,18 @@
 | azure-cognitiveservices-vision-face | pypi [0.4.1](https://pypi.org/project/azure-cognitiveservices-vision-face/0.4.1) |  |  |
 | azure-cognitiveservices-vision-nspkg | pypi [3.0.1](https://pypi.org/project/azure-cognitiveservices-vision-nspkg/3.0.1) |  |  |
 | azure-common | pypi [1.1.25](https://pypi.org/project/azure-common/1.1.25) |  |  |
-| azure-core | pypi [1.7.0](https://pypi.org/project/azure-core/1.7.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/core-readme/) | github [1.7.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.7.0/sdk/core/azure-core/) |
 | azure-core-tracing-opencensus | pypi [1.0.0b6](https://pypi.org/project/azure-core-tracing-opencensus/1.0.0b6) |  |  |
 | azure-core-tracing-opentelemetry | pypi [1.0.0b6](https://pypi.org/project/azure-core-tracing-opentelemetry/1.0.0b6) |  |  |
-| azure-cosmos | pypi [4.0.0](https://pypi.org/project/azure-cosmos/4.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme/) | github [4.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.0.0/sdk/cosmos/azure-cosmos/) |
-| azure-devtools | pypi [1.1.1](https://pypi.org/project/azure-devtools/1.1.1) |  |  |
+| azure-devtools | pypi [1.2.0](https://pypi.org/project/azure-devtools/1.2.0) |  |  |
 | azure-eventgrid | pypi [1.3.0](https://pypi.org/project/azure-eventgrid/1.3.0) |  |  |
-| azure-eventhub | pypi [5.1.0](https://pypi.org/project/azure-eventhub/5.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-readme/) | github [5.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.1.0/sdk/eventhub/azure-eventhub/) |
-| azure-eventhub-checkpointstoreblob | pypi [1.1.0](https://pypi.org/project/azure-eventhub-checkpointstoreblob/1.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-checkpointstoreblob-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob_1.1.0/sdk/eventhub/azure-eventhub-checkpointstoreblob/) |
-| azure-eventhub-checkpointstoreblob-aio | pypi [1.1.0](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/1.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/eventhub-checkpointstoreblob-aio-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub-checkpointstoreblob-aio_1.1.0/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/) |
 | azure-graphrbac | pypi [0.61.1](https://pypi.org/project/azure-graphrbac/0.61.1) |  |  |
-| azure-identity | pypi [1.3.1](https://pypi.org/project/azure-identity/1.3.1) | [docs](https://docs.microsoft.com/python/api/overview/azure/identity-readme/) | github [1.3.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.3.1/sdk/identity/azure-identity/) |
 | azure-keyvault | pypi [4.1.0](https://pypi.org/project/azure-keyvault/4.1.0) |  |  |
-| azure-keyvault-certificates | pypi [4.1.0](https://pypi.org/project/azure-keyvault-certificates/4.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-certificates-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-certificates_4.1.0/sdk/keyvault/azure-keyvault-certificates/) |
-| azure-keyvault-keys | pypi [4.1.0](https://pypi.org/project/azure-keyvault-keys/4.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-keys-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.1.0/sdk/keyvault/azure-keyvault-keys/) |
 | azure-keyvault-nspkg | pypi [1.0.0](https://pypi.org/project/azure-keyvault-nspkg/1.0.0) |  |  |
-| azure-keyvault-secrets | pypi [4.1.0](https://pypi.org/project/azure-keyvault-secrets/4.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/keyvault-secrets-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.1.0/sdk/keyvault/azure-keyvault-secrets/) |
 | azure-loganalytics | pypi [0.1.0](https://pypi.org/project/azure-loganalytics/0.1.0) |  |  |
 | azure-mgmt | pypi [5.0.0](https://pypi.org/project/azure-mgmt/5.0.0) |  |  |
 | azure-mgmt-advisor | pypi [4.0.0](https://pypi.org/project/azure-mgmt-advisor/4.0.0) |  |  |
 | azure-mgmt-alertsmanagement | pypi [0.1.0](https://pypi.org/project/azure-mgmt-alertsmanagement/0.1.0) |  |  |
 | azure-mgmt-apimanagement | pypi [0.2.0](https://pypi.org/project/azure-mgmt-apimanagement/0.2.0) |  |  |
-| azure-mgmt-appconfiguration | pypi [0.5.0](https://pypi.org/project/azure-mgmt-appconfiguration/0.5.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-appconfiguration-readme/) | github [0.5.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_0.5.0/sdk/appconfiguration/azure-mgmt-appconfiguration/) |
 | azure-mgmt-applicationinsights | pypi [0.3.0](https://pypi.org/project/azure-mgmt-applicationinsights/0.3.0) |  |  |
 | azure-mgmt-appplatform | pypi [0.1.0](https://pypi.org/project/azure-mgmt-appplatform/0.1.0) |  |  |
 | azure-mgmt-attestation | pypi [0.1.0](https://pypi.org/project/azure-mgmt-attestation/0.1.0) |  |  |
@@ -67,17 +80,16 @@
 | azure-mgmt-batchai | pypi [2.0.0](https://pypi.org/project/azure-mgmt-batchai/2.0.0) |  |  |
 | azure-mgmt-billing | pypi [0.2.0](https://pypi.org/project/azure-mgmt-billing/0.2.0) |  |  |
 | azure-mgmt-botservice | pypi [0.2.0](https://pypi.org/project/azure-mgmt-botservice/0.2.0) |  |  |
-| azure-mgmt-cdn | pypi [4.0.0](https://pypi.org/project/azure-mgmt-cdn/4.0.0) |  |  |
+| azure-mgmt-cdn | pypi [5.0.0](https://pypi.org/project/azure-mgmt-cdn/5.0.0) |  |  |
 | azure-mgmt-cognitiveservices | pypi [6.2.0](https://pypi.org/project/azure-mgmt-cognitiveservices/6.2.0) |  |  |
 | azure-mgmt-commerce | pypi [1.0.1](https://pypi.org/project/azure-mgmt-commerce/1.0.1) |  |  |
 | azure-mgmt-common | pypi [0.20.0](https://pypi.org/project/azure-mgmt-common/0.20.0) |  |  |
-| azure-mgmt-compute | pypi [13.0.0](https://pypi.org/project/azure-mgmt-compute/13.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-compute-readme/) | github [13.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_13.0.0/sdk/compute/azure-mgmt-compute/) |
 | azure-mgmt-consumption | pypi [3.0.0](https://pypi.org/project/azure-mgmt-consumption/3.0.0) |  |  |
 | azure-mgmt-containerinstance | pypi [2.0.0](https://pypi.org/project/azure-mgmt-containerinstance/2.0.0) |  |  |
 | azure-mgmt-containerregistry | pypi [2.8.0](https://pypi.org/project/azure-mgmt-containerregistry/2.8.0) |  |  |
 | azure-mgmt-containerservice | pypi [9.2.0](https://pypi.org/project/azure-mgmt-containerservice/9.2.0) |  |  |
 | azure-mgmt-core | pypi [1.2.0](https://pypi.org/project/azure-mgmt-core/1.2.0) |  |  |
-| azure-mgmt-cosmosdb | pypi [0.15.0](https://pypi.org/project/azure-mgmt-cosmosdb/0.15.0) |  |  |
+| azure-mgmt-cosmosdb | pypi [0.16.0](https://pypi.org/project/azure-mgmt-cosmosdb/0.16.0) |  |  |
 | azure-mgmt-costmanagement | pypi [0.2.0](https://pypi.org/project/azure-mgmt-costmanagement/0.2.0) |  |  |
 | azure-mgmt-customproviders | pypi [0.1.0](https://pypi.org/project/azure-mgmt-customproviders/0.1.0) |  |  |
 | azure-mgmt-databox | pypi [0.2.0](https://pypi.org/project/azure-mgmt-databox/0.2.0) |  |  |
@@ -97,10 +109,9 @@
 | azure-mgmt-documentdb | pypi [0.1.3](https://pypi.org/project/azure-mgmt-documentdb/0.1.3) |  |  |
 | azure-mgmt-edgegateway | pypi [0.1.0](https://pypi.org/project/azure-mgmt-edgegateway/0.1.0) |  |  |
 | azure-mgmt-eventgrid | pypi [2.2.0](https://pypi.org/project/azure-mgmt-eventgrid/2.2.0) |  |  |
-| azure-mgmt-eventhub | pypi [4.0.0](https://pypi.org/project/azure-mgmt-eventhub/4.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-eventhub-readme/) | github [4.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_4.0.0/sdk/eventhub/azure-mgmt-eventhub/) |
 | azure-mgmt-frontdoor | pypi [0.3.0](https://pypi.org/project/azure-mgmt-frontdoor/0.3.0) |  |  |
 | azure-mgmt-hanaonazure | pypi [0.14.0](https://pypi.org/project/azure-mgmt-hanaonazure/0.14.0) |  |  |
-| azure-mgmt-hdinsight | pypi [1.5.1](https://pypi.org/project/azure-mgmt-hdinsight/1.5.1) |  |  |
+| azure-mgmt-hdinsight | pypi [1.6.0](https://pypi.org/project/azure-mgmt-hdinsight/1.6.0) |  |  |
 | azure-mgmt-healthcareapis | pypi [0.1.0](https://pypi.org/project/azure-mgmt-healthcareapis/0.1.0) |  |  |
 | azure-mgmt-hybridcompute | pypi [0.1.1](https://pypi.org/project/azure-mgmt-hybridcompute/0.1.1) |  |  |
 | azure-mgmt-hybridkubernetes | pypi [0.1.0](https://pypi.org/project/azure-mgmt-hybridkubernetes/0.1.0) |  |  |
@@ -108,7 +119,6 @@
 | azure-mgmt-iotcentral | pypi [3.1.0](https://pypi.org/project/azure-mgmt-iotcentral/3.1.0) |  |  |
 | azure-mgmt-iothub | pypi [0.12.0](https://pypi.org/project/azure-mgmt-iothub/0.12.0) |  |  |
 | azure-mgmt-iothubprovisioningservices | pypi [0.2.0](https://pypi.org/project/azure-mgmt-iothubprovisioningservices/0.2.0) |  |  |
-| azure-mgmt-keyvault | pypi [2.2.0](https://pypi.org/project/azure-mgmt-keyvault/2.2.0) |  | github [2.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_2.2.0/sdk/keyvault/azure-mgmt-keyvault/) |
 | azure-mgmt-kubernetesconfiguration | pypi [0.2.0](https://pypi.org/project/azure-mgmt-kubernetesconfiguration/0.2.0) |  |  |
 | azure-mgmt-kusto | pypi [0.9.0](https://pypi.org/project/azure-mgmt-kusto/0.9.0) |  |  |
 | azure-mgmt-labservices | pypi [0.1.1](https://pypi.org/project/azure-mgmt-labservices/0.1.1) |  |  |
@@ -124,10 +134,8 @@
 | azure-mgmt-marketplaceordering | pypi [0.2.1](https://pypi.org/project/azure-mgmt-marketplaceordering/0.2.1) |  |  |
 | azure-mgmt-media | pypi [2.2.0](https://pypi.org/project/azure-mgmt-media/2.2.0) |  |  |
 | azure-mgmt-mixedreality | pypi [0.2.0](https://pypi.org/project/azure-mgmt-mixedreality/0.2.0) |  |  |
-| azure-mgmt-monitor | pypi [0.11.0](https://pypi.org/project/azure-mgmt-monitor/0.11.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-monitor-readme/) | github [0.11.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_0.11.0/sdk/monitor/azure-mgmt-monitor/) |
 | azure-mgmt-msi | pypi [1.0.0](https://pypi.org/project/azure-mgmt-msi/1.0.0) |  |  |
 | azure-mgmt-netapp | pypi [0.11.0](https://pypi.org/project/azure-mgmt-netapp/0.11.0) |  |  |
-| azure-mgmt-network | pypi [11.0.0](https://pypi.org/project/azure-mgmt-network/11.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-network-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_11.0.0/sdk/network/azure-mgmt-network/) |
 | azure-mgmt-notificationhubs | pypi [2.1.0](https://pypi.org/project/azure-mgmt-notificationhubs/2.1.0) |  |  |
 | azure-mgmt-nspkg | pypi [3.0.2](https://pypi.org/project/azure-mgmt-nspkg/3.0.2) |  |  |
 | azure-mgmt-operationsmanagement | pypi [0.1.0](https://pypi.org/project/azure-mgmt-operationsmanagement/0.1.0) |  |  |
@@ -143,7 +151,6 @@
 | azure-mgmt-redis | pypi [6.0.0](https://pypi.org/project/azure-mgmt-redis/6.0.0) |  |  |
 | azure-mgmt-relay | pypi [0.2.0](https://pypi.org/project/azure-mgmt-relay/0.2.0) |  |  |
 | azure-mgmt-reservations | pypi [0.7.0](https://pypi.org/project/azure-mgmt-reservations/0.7.0) |  |  |
-| azure-mgmt-resource | pypi [10.1.0](https://pypi.org/project/azure-mgmt-resource/10.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-resource-readme/) | github [10.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_10.1.0/sdk/resources/azure-mgmt-resource/) |
 | azure-mgmt-resourcegraph | pypi [2.0.0](https://pypi.org/project/azure-mgmt-resourcegraph/2.0.0) |  |  |
 | azure-mgmt-scheduler | pypi [2.0.0](https://pypi.org/project/azure-mgmt-scheduler/2.0.0) |  |  |
 | azure-mgmt-search | pypi [2.1.0](https://pypi.org/project/azure-mgmt-search/2.1.0) |  |  |
@@ -151,11 +158,10 @@
 | azure-mgmt-serialconsole | pypi [0.1.0](https://pypi.org/project/azure-mgmt-serialconsole/0.1.0) |  |  |
 | azure-mgmt-servermanager | pypi [2.0.0](https://pypi.org/project/azure-mgmt-servermanager/2.0.0) |  |  |
 | azure-mgmt-servicebus | pypi [0.6.0](https://pypi.org/project/azure-mgmt-servicebus/0.6.0) |  |  |
-| azure-mgmt-servicefabric | pypi [0.4.0](https://pypi.org/project/azure-mgmt-servicefabric/0.4.0) |  |  |
+| azure-mgmt-servicefabric | pypi [0.5.0](https://pypi.org/project/azure-mgmt-servicefabric/0.5.0) |  |  |
 | azure-mgmt-signalr | pypi [0.4.0](https://pypi.org/project/azure-mgmt-signalr/0.4.0) |  |  |
-| azure-mgmt-sql | pypi [0.19.0](https://pypi.org/project/azure-mgmt-sql/0.19.0) |  |  |
+| azure-mgmt-sql | pypi [0.20.0](https://pypi.org/project/azure-mgmt-sql/0.20.0) |  |  |
 | azure-mgmt-sqlvirtualmachine | pypi [0.5.0](https://pypi.org/project/azure-mgmt-sqlvirtualmachine/0.5.0) |  |  |
-| azure-mgmt-storage | pypi [11.1.0](https://pypi.org/project/azure-mgmt-storage/11.1.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/mgmt-storage-readme/) | github [11.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_11.1.0/sdk/storage/azure-mgmt-storage/) |
 | azure-mgmt-storagecache | pypi [0.3.0](https://pypi.org/project/azure-mgmt-storagecache/0.3.0) |  |  |
 | azure-mgmt-storageimportexport | pypi [0.1.0](https://pypi.org/project/azure-mgmt-storageimportexport/0.1.0) |  |  |
 | azure-mgmt-storagesync | pypi [0.2.0](https://pypi.org/project/azure-mgmt-storagesync/0.2.0) |  |  |
@@ -170,29 +176,22 @@
 | azure-monitor | pypi [0.3.1](https://pypi.org/project/azure-monitor/0.3.1) |  |  |
 | azure-nspkg | pypi [3.0.2](https://pypi.org/project/azure-nspkg/3.0.2) |  |  |
 | azure-search | pypi [1.0.0b1](https://pypi.org/project/azure-search/1.0.0b1) |  |  |
-| azure-search-documents | pypi [11.0.0](https://pypi.org/project/azure-search-documents/11.0.0) | [docs](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.0.0/sdk/search/azure-search-documents/) |
 | azure-search-nspkg | pypi [1.0.0](https://pypi.org/project/azure-search-nspkg/1.0.0) |  |  |
-| azure-servicebus | pypi [0.50.3](https://pypi.org/project/azure-servicebus/0.50.3) | [docs](https://docs.microsoft.com/python/api/overview/azure/servicebus-readme/) | github [0.50.3](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_0.50.3/sdk/servicebus/azure-servicebus/) |
 | azure-servicefabric | pypi [7.1.0.45](https://pypi.org/project/azure-servicefabric/7.1.0.45) |  |  |
 | azure-servicemanagement-legacy | pypi [0.20.7](https://pypi.org/project/azure-servicemanagement-legacy/0.20.7) |  |  |
 | azure-storage | pypi [0.37.0](https://pypi.org/project/azure-storage/0.37.0) |  |  |
-| azure-storage-blob | pypi [12.3.2](https://pypi.org/project/azure-storage-blob/12.3.2) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme/) | github [12.3.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.3.2/sdk/storage/azure-storage-blob/) |
 | azure-storage-blob-changefeed | pypi [12.0.0b1](https://pypi.org/project/azure-storage-blob-changefeed/12.0.0b1) |  |  |
 | azure-storage-common | pypi [2.1.0](https://pypi.org/project/azure-storage-common/2.1.0) |  |  |
 | azure-storage-file | pypi [2.1.0](https://pypi.org/project/azure-storage-file/2.1.0) |  |  |
-| azure-storage-file-datalake | pypi [12.0.2](https://pypi.org/project/azure-storage-file-datalake/12.0.2) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-file-datalake-readme/) | github [12.0.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.0.2/sdk/storage/azure-storage-file-datalake/) |
-| azure-storage-file-share | pypi [12.1.2](https://pypi.org/project/azure-storage-file-share/12.1.2) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-file-share-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.1.2/sdk/storage/azure-storage-file-share/) |
 | azure-storage-nspkg | pypi [3.1.0](https://pypi.org/project/azure-storage-nspkg/3.1.0) |  |  |
-| azure-storage-queue | pypi [12.1.2](https://pypi.org/project/azure-storage-queue/12.1.2) | [docs](https://docs.microsoft.com/python/api/overview/azure/storage-queue-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.1.2/sdk/storage/azure-storage-queue/) |
 | azure-synapse | pypi [0.1.0](https://pypi.org/project/azure-synapse/0.1.0) |  |  |
 | azure-synapse-accesscontrol | pypi [0.2.0](https://pypi.org/project/azure-synapse-accesscontrol/0.2.0) |  |  |
 | azure-synapse-artifacts | pypi [0.2.0](https://pypi.org/project/azure-synapse-artifacts/0.2.0) |  |  |
 | azure-synapse-nspkg | pypi [1.0.0](https://pypi.org/project/azure-synapse-nspkg/1.0.0) |  |  |
 | azure-synapse-spark | pypi [0.2.0](https://pypi.org/project/azure-synapse-spark/0.2.0) |  |  |
-| azure-template | pypi [0.0.11](https://pypi.org/project/azure-template/0.0.11) |  |  |
+| azure-template | pypi [0.0.14](https://pypi.org/project/azure-template/0.0.14) |  |  |
 | doc-warden | pypi [0.7.1](https://pypi.org/project/doc-warden/0.7.1) |  |  |
-| msrest | pypi [0.6.17](https://pypi.org/project/msrest/0.6.17) |  |  |
+| msrest | pypi [0.6.18](https://pypi.org/project/msrest/0.6.18) |  |  |
 | msrestazure | pypi [0.6.4](https://pypi.org/project/msrestazure/0.6.4) |  |  |
 | tox-monorepo | pypi [0.1.2](https://pypi.org/project/tox-monorepo/0.1.2) |  |  |
-| uamqp | pypi [1.2.9](https://pypi.org/project/uamqp/1.2.9) |  |  |
-
+| uamqp | pypi [1.2.10](https://pypi.org/project/uamqp/1.2.10) |  |  |

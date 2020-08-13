@@ -178,6 +178,8 @@
             href: tutorial-vscode-static-website-node-05.md
           - name: Clean up resources
             href: tutorial-vscode-static-website-node-06.md
+  - name: Learn
+    href: learn-azure-javascript.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code

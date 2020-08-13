@@ -3,7 +3,7 @@ title: "Step 3: Redeploy a container to Azure App Service after making changes i
 description: Tutorial step 3, the simple steps to rebuild and redeploy a container image.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 2: Redeploy a container to Azure App Service after making changes

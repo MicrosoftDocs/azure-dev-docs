@@ -87,7 +87,7 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible-
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
     ```python
-    wget https://raw.githubusercontent.com/ansible-collections/community.general/master/scripts/inventory/azure_rm.py
+    wget https://raw.githubusercontent.com/ansible-collections/community.general/main/scripts/inventory/azure_rm.py
     ```
 
 1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):

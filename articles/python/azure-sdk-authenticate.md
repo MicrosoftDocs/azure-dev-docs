@@ -3,6 +3,7 @@ title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
 ms.date: 05/12/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # How to authenticate Python apps with Azure services

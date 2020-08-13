@@ -2,7 +2,8 @@
 title: Manage local service principals for Azure development
 description: How to manage service principals created for local development by using the Azure portal or the Azure CLI.
 ms.date: 05/12/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # How to manage service principals

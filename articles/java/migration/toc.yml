@@ -20,8 +20,10 @@
       items:
         - name: WebLogic to Azure Virtual Machines
           href: migrate-weblogic-to-virtual-machines.md
-        - name: WebLogic to Azure with AAD via LDAP
+        - name: WebLogic with AAD via LDAP
           href: migrate-weblogic-with-aad-ldap.md
+        - name: WebLogic with App Gateway
+          href: migrate-weblogic-with-app-gateway.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
     - name: WebLogic to WildFly on AKS
