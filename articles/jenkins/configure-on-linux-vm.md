@@ -3,7 +3,7 @@ title: Quickstart - Get started with Jenkins
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 08/07/2020
+ms.date: 08/13/2020
 ---
 
 # Quickstart: Get started with Jenkins
@@ -59,19 +59,30 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
 
     ```azurecli
-    az group create --name QuickstartJenkins-rg --location eastus
+    az group create \
+    --name QuickstartJenkins-rg \
+    --location eastus
     ```
 
 1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
 
     ```azurecli
-    az vm create --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm --image UbuntuLTS --admin-username "azureuser" --generate-ssh-keys --custom-data cloud-init-jenkins.txt
+    az vm create \
+    --resource-group QuickstartJenkins-rg \
+    --name QuickstartJenkins-vm \
+    --image UbuntuLTS \
+    --admin-username "azureuser" \
+    --generate-ssh-keys \
+    --custom-data cloud-init-jenkins.txt
     ```
 
 1. Open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
 
     ```azurecli
-    az vm open-port --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm  --port 8080 --priority 1010
+    az vm open-port \
+    --resource-group QuickstartJenkins-rg \
+    --name QuickstartJenkins-vm  \
+    --port 8080 --priority 1010
     ```
 
 ## Configure Jenkins
@@ -79,7 +90,11 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az-vm-show).
 
     ```azurecli
-    az vm show --resource-group QuickstartJenkins-rg --name QuickstartJenkins-vm -d --query [publicIps] --output tsv
+    az vm show \
+    --resource-group QuickstartJenkins-rg \
+    --name QuickstartJenkins-vm -d \
+    --query [publicIps] \
+    --output tsv
     ```
 
     **Notes**:

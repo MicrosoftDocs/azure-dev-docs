@@ -1,24 +1,72 @@
 ---
-title: Quickstart - Install Ansible on Linux virtual machines in Azure 
+title: Quickstart - Configure Ansible using Azure CLI
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
-keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli
 ms.topic: quickstart
-ms.service: ansible
-author: tomarchermsft
-manager: gwallace
-ms.author: tarcher
 ms.date: 08/13/2020
+ms.custom: devx-track-ansible, devx-track-cli
 ---
 
-# Quickstart: Install Ansible on Linux virtual machines in Azure
+# Quickstart: Configure Ansible using Azure CLI
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows how to configure Ansible for some of the most common Linux distros. To install Ansible on other distros, adjust the installed packages for your particular platform. 
+This quickstart shows how to install [Ansible](https://docs.ansible.com/) using the Azure CLI.
+
+In this quickstart, you'll complete these tasks:
+
+> [!div class="checklist"]
+> * Create a setup file that downloads and installs Jenkins
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
 - **Access to Linux or a Linux virtual machine** -  If you don't have a Linux machine, create a [Linux virtual machine](/azure/virtual-network/quick-create-cli).
+
+## Create an SSH key
+
+When connecting to Linux VMs, you can use password authentication or key-based authentication. Key-based authentication is more secure than using passwords. Therefore, this article uses key-based authentication.
+
+With key-based authentication, there are two keys:
+
+- Public key: The public key is stored on the host - such as on your VM (as in this article)
+- Private key: The private key enables you to securely connect to your host. The private key is effectively your password and should be protected as such.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
+
+1. Create an SSH key using [ssh-keygen](https://www.ssh.com/ssh/keygen/).
+
+    ```bash
+    ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N ""
+    ```
+
+    **Notes**:
+
+    - If successful, the `ssh-keygen` command displays the fact that two files were created in the `.ssh` directory of your home directory.
+    - The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
+
+## Create a virtual machine
+
+1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
+
+    ```azurecli
+    az group create --name QuickstartAnsible-rg --location eastus
+    ```
+
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
+
+    ```azurecli
+    az vm create \
+    --resource-group QuickstartAnsible-rg \
+    --name QuickstartAnsible-vm \
+    --image OpenLogic:CentOS:7.7:latest \
+    --admin-username azureuser \
+    --ssh-key-values ~/.ssh/ansible_rsa.pub
+    ```
+
+
+
 
 ## Install Ansible on an Azure Linux virtual machine
 
