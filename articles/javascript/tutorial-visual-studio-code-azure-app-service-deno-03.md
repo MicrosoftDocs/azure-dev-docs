@@ -3,6 +3,7 @@ title: Deploy Deno apps to Azure App Service from Visual Studio Code
 description: Tutorial part 3, deploy the website
 ms.topic: conceptual
 ms.date: 06/01/2020
+ms.custom: devx-track-javascript
 ---
 
 # Deploy Deno apps to Azure

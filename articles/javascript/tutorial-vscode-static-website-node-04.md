@@ -4,6 +4,7 @@ description: Tutorial part 4, deploy the files to Azure Storage
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan
+ms.custom: devx-track-javascript
 ---
 
 # Deploy the website to Azure Storage

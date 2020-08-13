@@ -135,8 +135,7 @@
       },
       "ms.custom": {
         "ansible/**/*.md": "devx-track-ansible",
-        "terraform/**/*.md": "devx-track-terraform",
-        "javascript/**/*.md": "devx-track-javascript"
+        "terraform/**/*.md": "devx-track-terraform"
       }
     },
     "template": [],
