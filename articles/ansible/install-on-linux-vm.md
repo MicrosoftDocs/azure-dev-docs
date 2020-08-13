@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
-ms.date: 04/30/2019
+ms.date: 08/13/2020
 ---
 
 # Quickstart: Install Ansible on Linux virtual machines in Azure
