@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-javascript
+---
 Congratulations, you've successfully completed this walkthrough! You're ready to check out the other Azure extensions.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
@@ -15,5 +18,5 @@ To learn more about working with Azure using Node.js, visit the resources below:
 * [Azure Cosmos DB bindings for Azure Functions 2.x](https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2?tabs=javascript)
 * [Azure Functions JavaScript Developer Guide ](https://docs.microsoft.com/azure/azure-functions/functions-reference-node)
 * [Blog Post: Creating CRUD application with Azure Functions & MongoDB - Dev.to](https://dev.to/azure/ezra-s-potluck-day-4-of-25daysofserverless-challenge-4pd6)
-* [Video: Migrating Your API to Serverless using Azure Functions - Youtube](https://youtu.be/89WXgaY-NqY)
-* [Official Youtube Channel – Azure Functions](https://www.youtube.com/channel/UCtUYj6As_XFkOooUFnsJbYg)
+* [Video: Migrating Your API to Serverless using Azure Functions - YouTube](https://youtu.be/89WXgaY-NqY)
+* [Official YouTube Channel – Azure Functions](https://www.youtube.com/channel/UCtUYj6As_XFkOooUFnsJbYg)
