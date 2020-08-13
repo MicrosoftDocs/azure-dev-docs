@@ -7,7 +7,7 @@ ms.author: buhollan
 ms.custom: devx-track-javascript
 ---
 
-# Part 5 Make changes and redeploy
+# Part 5: Make changes and redeploy
 
 [Previous step: Deploy to Azure Storage](tutorial-vscode-static-website-node-04.md)
 

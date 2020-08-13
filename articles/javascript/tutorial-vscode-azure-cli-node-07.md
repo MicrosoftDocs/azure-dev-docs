@@ -6,7 +6,7 @@ ms.date: 09/24/2019
 ms.custom: devx-track-javascript
 ---
 
-# Part 7 Clean up resources
+# Part 7: Clean up resources
 
 [Previous step: Make changes and redeploy](tutorial-vscode-docker-node-06.md)
 
