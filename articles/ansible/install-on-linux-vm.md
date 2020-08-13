@@ -163,7 +163,7 @@ In this section, you export the service principal values to configure your Ansib
     export AZURE_TENANT=<security-principal-tenant>
     ```
 
-You now have a virtual machine with Ansible install and configured!
+You now have a virtual machine with Ansible installed and configured!
 
 ## Next steps
 
