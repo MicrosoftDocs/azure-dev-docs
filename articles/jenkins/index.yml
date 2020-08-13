@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Jenkins server
+          - text: Configure Jenkins using Azure CLI
             url: configure-on-linux-vm.md
       - linkListType: download
         links:
