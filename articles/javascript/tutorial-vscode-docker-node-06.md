@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ---
 
-# Make changes and redeploy
+# Make changes and redeploy a container using Visual Studio Code
 
 [Previous step: Deploy the app image](tutorial-vscode-docker-node-05.md)
 

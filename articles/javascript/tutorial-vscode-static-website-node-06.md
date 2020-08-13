@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# Clean up resources
+# Clean up resources after deploying a static website with Visual Studio Code
 
 [Previous step: Make changes and redeploy](tutorial-vscode-static-website-node-05.md)
 

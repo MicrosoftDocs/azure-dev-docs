@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ---
 
-# Clean up resources
+# Clean up resources after deploying a container with Visual Studio Code
 
 [Previous step: Stream logs](tutorial-vscode-docker-node-07.md)
 

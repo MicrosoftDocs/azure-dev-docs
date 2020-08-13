@@ -6,7 +6,7 @@ ms.date: 09/24/2019
 ms.author: buhollan
 ---
 
-# Make changes and redeploy
+# Make changes and redeploy to a static website using Visual Studio Code
 
 [Previous step: Deploy to Azure Storage](tutorial-vscode-static-website-node-04.md)
 

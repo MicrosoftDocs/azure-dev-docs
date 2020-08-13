@@ -1,5 +1,5 @@
 ---
-title: Create the Azure App Service from Visual Studio Code
+title: Create and run a local Node.js app
 description: Tutorial part 2, create the Node.js app and run it locally
 ms.topic: conceptual
 ms.date: 03/04/2020

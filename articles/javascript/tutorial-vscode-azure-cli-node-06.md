@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# Make changes and redeploy
+# Make changes and redeploy using the Azure CLI
 
 [Previous step: Stream logs](tutorial-vscode-azure-cli-node-05.md)
 

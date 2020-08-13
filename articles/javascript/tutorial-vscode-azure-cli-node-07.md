@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# Clean up resources
+# Clean up resources after deploying to Azure App Service with the Azure CLI
 
 [Previous step: Make changes and redeploy](tutorial-vscode-docker-node-06.md)
 

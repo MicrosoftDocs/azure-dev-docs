@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ---
 
-# Clean up resources
+# Clean up resources after deploying to Azure App Service with Visual Studio Code
 
 [Previous step: Stream logs](tutorial-vscode-azure-app-service-node-04.md)
 
