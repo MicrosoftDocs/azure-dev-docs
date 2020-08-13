@@ -60,7 +60,7 @@ You can follow the steps in this first-principles example with no prior experien
 * [Apple Developer Portal](https://developer.apple.com)
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
-* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started.md).
+* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started).
 * [React Native](https://reactnative.dev/docs/getting-started).
 
 The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Visual Studio Code](https://code.visualstudio.com/download) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
@@ -113,16 +113,16 @@ You can now test sending notifications via the backend service.
 
 ## Related links
 
-* [Azure Notification Hubs overview](/azure/notification-hubs/notification-hubs-push-notification-overview.md)
+* [Azure Notification Hubs overview](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview)
 * [Installing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
 * [Installing Visual Studio Code](https://code.visualstudio.com/download)
 * [Setting up the React Native development environment](https://reactnative.dev/docs/environment-setup)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
-* [Register with application backend](/azure/notification-hubs/notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
-* [Registration management](/azure/notification-hubs/notification-hubs-push-notification-registration-management.md)
-* [Working with tags](/azure/notification-hubs/notification-hubs-tags-segment-push-message.md)
-* [Working with custom templates](/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)
+* [Register with application backend](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification)
+* [Registration management](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management)
+* [Working with tags](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-tags-segment-push-message)
+* [Working with custom templates](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages)
 
 ## Next steps
 

@@ -3,6 +3,7 @@ title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
 ms.date: 06/04/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Configure logging in the Azure libraries for Python

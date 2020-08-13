@@ -3,6 +3,7 @@ title: List images
 description: Print all of the available images to use for creating virtual machines.
 ms.topic: conceptual
 ms.date: 6/15/2017
+ms.custom: devx-track-python
 ---
 
 # List images

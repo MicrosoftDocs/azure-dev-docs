@@ -3,6 +3,7 @@ title: The Azure development flow
 description: An overview of the cloud development cycle on Azure, which involves provisioning, coding, testing, deployment, and management.
 ms.date: 06/04/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # The Azure development flow: provision, code, test, deploy, and manage

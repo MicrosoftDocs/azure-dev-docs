@@ -1,17 +1,27 @@
 ---
-title: Quickstart - Get started with Terraform using Azure Cloud Shell
+title: Quickstart - Configure Terraform using Azure Cloud Shell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 07/26/2020
+ms.date: 08/08/2020
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
-# Quickstart: Get started with Terraform using Azure Cloud Shell
+# Quickstart: Configure Terraform using Azure Cloud Shell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html).
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Authenticate to Azure using `az login`
+> * Create an Azure service principal using the Azure CLI
+> * Authenticate to Azure using a service principal
+> * Set the current Azure subscription - for use if you have multiple subscriptions
+> * Write a Terraform script to create an Azure resource group
+> * Create and apply a Terraform execution plan
+> * Use the `terraform plan -destroy` flag to reverse an execution plan
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
@@ -162,7 +172,7 @@ In this section, you learn how to create a Terraform configuration file that cre
 
 ## Create and apply a Terraform execution plan
 
-Once you create your configuration files, this section explains how to create an *execution plan* and apply it to your cloud infrastructure.
+In this section, you create an *execution plan* and apply it to your cloud infrastructure.
 
 1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
 
@@ -170,27 +180,24 @@ Once you create your configuration files, this section explains how to create an
     terraform init
     ```
 
-1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan and preview its results.
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan from your Terraform configuration file.
 
     ```bash
-    terraform plan
+    terraform plan -out QuickstartTerraformTest.tfplan
     ```
 
-    **Notes**:
+    **Notes:**
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
+    - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
-    - The `terraform plan` command enables you to verify whether the execution plan matches your expectations before making any changes to actual resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. For more information on using the `-out` parameter, see the section [Persisting execution plans for later deployment](#persist-an-execution-plan-for-later-deployment).
-
-1. Apply the execution plan with [terraform apply](https://www.terraform.io/docs/commands/apply.html).
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```bash
-    terraform apply
+    terraform apply QuickstartTerraformTest.tfplan
     ```
 
-1. Terraform shows you what will happen if you apply the execution plan and requires you to confirm running it. Confirm the command by entering `yes` and pressing the **Enter** key.
-
-1. Once you confirm the execution of the plan, test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
+1. Once the execution plan is applied, you can test that the resource group was successfully created using [az group show](/cli/azure/group?#az-group-show).
 
     ```azurecli
     az group show -n "QuickstartTerraformTest-rg"
@@ -200,39 +207,6 @@ Once you create your configuration files, this section explains how to create an
 
     - If successful, `az group show` displays various properties of the newly created resource group.
 
-## Persist an execution plan for later deployment
-
-In the previous section, you saw how to run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. You then saw that using [terraform apply](https://www.terraform.io/docs/commands/apply.html) applies that plan. This pattern works well when the steps are interactive and sequential.
-
-For more complex scenarios, you can persist the execution plan to a file. Later - or even from a different machine - you can apply that execution plan.
-
-If you use this feature, it's recommended that you read the article [Running Terraform in automation](https://learn.hashicorp.com/terraform/development/running-terraform-in-automation).
-
-The following steps illustrate the basic pattern for using this feature:
-
-1. Run [terraform init](https://www.terraform.io/docs/commands/init.html).
-
-    ```bash
-    terraform init
-    ```
-
-1. Run `terraform plan` with the `-out` parameter.
-
-    ```bash
-    terraform plan -out QuickstartTerraformTest.tfplan
-    ```
-
-1. Run `terraform apply`, specifying the name of the file from the previous step.
-
-    ```bash
-    terraform apply QuickstartTerraformTest.tfplan
-    ```
-
-    **Notes**:
-    
-    - To enable use with automation, running `terraform apply <filename>` doesn't require confirmation.
-    - If you decide to use this feature, read the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
-    
 ## Clean up resources
 
 When no longer needed, delete the resources created in this article.
@@ -244,9 +218,9 @@ When no longer needed, delete the resources created in this article.
     ```
 
     **Notes**:
-    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This allow you to verify whether the execution plan matches your expectations before making any changes to actual resources.
+    - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The `-destroy` parameter generates a plan to destroy the resources.
-    - The optional `-out` parameter allows you to specify an output file for the plan. The `-out` parameter should always be used as it ensures that the plan you reviewed is exactly what is applied.
+    - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.

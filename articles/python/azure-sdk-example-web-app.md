@@ -3,6 +3,7 @@ title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
 ms.date: 05/29/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Example: Use the Azure libraries to provision and deploy a web app
@@ -133,7 +134,7 @@ print(f"Provisioned web app {web_app_result.name} at {web_app_result.default_hos
 # Step 4: deploy code from a GitHub repository. For Python code, App Service on Linux runs
 # the code inside a container that makes certain assumptions about the structure of the code.
 # For more information, see How to configure Python apps,
-# https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python.
+# https://docs.microsoft.com/azure/app-service/configure-language-python.
 #
 # The create_or_update_source_control method doesn't provision a web app. It only sets the
 # source control configuration for the app. In this case we're simply pointing to

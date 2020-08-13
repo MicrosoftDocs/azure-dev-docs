@@ -3,7 +3,7 @@ title: "Step 3: Examine the Python code files for Azure Functions in VS Code"
 description: Tutorial step 3, understanding the template Python code provided by Azure Functions.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 3: Examine the Python code files in Visual Studio Code
