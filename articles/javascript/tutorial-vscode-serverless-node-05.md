@@ -3,6 +3,7 @@ title: Clean up resource after deploying the Azure Functions application to azur
 description: Tutorial part 5, clean up resources.
 ms.topic: conceptual
 ms.date: 09/23/2019
+ms.custom: devx-track-javascript
 ---
 
 # Clean up resources after deploying an Azure Functions app with Visual Studio Code

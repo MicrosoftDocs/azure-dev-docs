@@ -46,7 +46,7 @@ The following steps show how to create a Java function using the Azure CLI:
 
 The following steps explain how to prepare the Jenkins server:
 
-1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of the Jenkins server installed, the article, [Create a Jenkins server on Azure](./configure-on-linux-vm.md) guides you through the process.
+1. Deploy a [Jenkins server](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure. If you don't already have an instance of the Jenkins server installed, the article, [Create a Jenkins server on Azure](./configure-on-linux-vm.md) guides you through the process.
 
 1. Sign in to the Jenkins instance with SSH.
 

@@ -4,9 +4,10 @@ description: Tutorial part 5, make changes and redeploy
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan
+ms.custom: devx-track-javascript
 ---
 
-# Make changes and redeploy to a static website using Visual Studio Code
+# Part 5: Make changes and redeploy
 
 [Previous step: Deploy to Azure Storage](tutorial-vscode-static-website-node-04.md)
 

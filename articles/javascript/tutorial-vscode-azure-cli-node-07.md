@@ -3,9 +3,10 @@ title: Clean up resources after deploying a Node.js app to Azure using the Azure
 description: Tutorial part 7, clean up resources
 ms.topic: conceptual
 ms.date: 09/24/2019
+ms.custom: devx-track-javascript
 ---
 
-# Clean up resources after deploying to Azure App Service with the Azure CLI
+# Part 7: Clean up resources
 
 [Previous step: Make changes and redeploy](tutorial-vscode-docker-node-06.md)
 

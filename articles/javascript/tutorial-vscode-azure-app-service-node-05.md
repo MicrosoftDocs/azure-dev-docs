@@ -3,9 +3,10 @@ title: Clean up resources after deploying to Azure App Service into Visual Studi
 description: Tutorial part 5, clean up resources
 ms.topic: conceptual
 ms.date: 03/04/2020
+ms.custom: devx-track-javascript
 ---
 
-# Clean up resources after deploying to Azure App Service with Visual Studio Code
+# Part 5: Clean up resources
 
 [Previous step: Stream logs](tutorial-vscode-azure-app-service-node-04.md)
 
