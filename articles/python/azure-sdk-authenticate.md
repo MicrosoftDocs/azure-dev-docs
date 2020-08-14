@@ -43,7 +43,7 @@ secret_client = SecretClient(vault_url=vault_url, credential=credential)
 
 # Attempt to retrieve a secret value. The operation fails if the principal
 # cannot be authenticated or is not authorized for the operation in question.
-retrieved_secret = client.get_secret("secret-name-01")
+retrieved_secret = secret_client.get_secret("secret-name-01")
 ```
 
 The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) class from the [`azure-identity`](/python/api/azure-identity/azure.identity?view=azure-python) library provides the simplest and recommended means of authentication.
