@@ -1,6 +1,6 @@
 ---
 title: What's New in the Azure Toolkit for Eclipse
-description: Learn about the latest features in the Azure Toolkit for Eclipse.
+description: Learn about the latest updates to the Azure Toolkit for Eclipse. This article includes enhancements made to the toolkit and links for additional information.
 documentationcenter: java
 ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
 ms.date: 11/13/2018
