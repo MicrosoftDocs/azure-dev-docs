@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create an Azure Service Bus topic
 keywords: ansible, azure, devops, bash, playbook, service bus, topics, subscriptions
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure topics in Azure Service Bus using Ansible

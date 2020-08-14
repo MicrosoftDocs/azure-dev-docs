@@ -3,6 +3,7 @@ title: Deploy an Azure Cosmos DB to Azure Container Instances
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: how-to
 ms.date: 04/26/2020
+ms.custom: devx-track-terraform
 ---
 
 # Deploy an Azure Cosmos DB to Azure Container Instances

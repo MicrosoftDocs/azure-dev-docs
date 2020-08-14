@@ -4,6 +4,7 @@ description: Learn how to deploy to Azure Functions using the Jenkins Azure Func
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Deploy to Azure Functions using Jenkins

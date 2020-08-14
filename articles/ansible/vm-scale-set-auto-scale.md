@@ -4,6 +4,7 @@ description: Learn how to use Ansible to scale virtual machine scale sets with a
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Autoscale virtual machine scale sets in Azure using Ansible

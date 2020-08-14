@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and configure virtual machine sc
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure virtual machine scale sets in Azure using Ansible

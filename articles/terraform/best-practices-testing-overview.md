@@ -3,6 +3,7 @@ title: Tutorial - Terraform testing overview
 description: Learn about the different testing options that you can configure to validate Terraform projects.
 ms.topic: overview
 ms.date: 07/31/2020
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Terraform testing overview

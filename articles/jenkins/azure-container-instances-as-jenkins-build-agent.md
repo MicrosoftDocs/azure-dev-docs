@@ -4,6 +4,7 @@ description: Learn how to configure a Jenkins server to run build jobs on-demand
 keywords: jenkins, azure, devops, container instances, build agent
 ms.topic: article
 ms.date: 08/31/2018
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Use Azure Container Instances as a Jenkins build agent

@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and configure an Azure Applicati
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 ms.topic: tutorial
 ms.date: 06/19/2020
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Manage web traffic with Azure Application Gateway using Ansible
