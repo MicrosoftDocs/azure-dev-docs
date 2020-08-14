@@ -84,4 +84,4 @@ The best option in any case is to use a separate database that's deployed and in
 > [!div class="nextstepaction"]
 > [I have my app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-prepare-app)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)
