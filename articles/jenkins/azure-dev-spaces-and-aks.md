@@ -4,6 +4,7 @@ description: Learn how to use the Azure Dev Spaces plug-in in a continuous integ
 keywords: jenkins, azure, devops, azure dev spaces, aks, azure kubernetes service
 ms.topic: tutorial
 ms.date: 10/23/2019
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service

@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and manage an Azure Kubernetes S
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 06/17/2020
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure Kubernetes Service (AKS) clusters in Azure using Ansible

@@ -4,6 +4,7 @@ description: Host the Jenkins build and deploy automation server in Azure and us
 keywords: jenkins, azure, devops, overview
 ms.topic: overview
 ms.date: 08/08/2020
+ms.custom: devx-track-jenkins
 ---
 
 # Azure and Jenkins

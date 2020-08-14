@@ -3,6 +3,7 @@ title: Tutorial - Compliance testing with Terraform and Azure
 description: Learn how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
 ms.topic: tutorial
 ms.date: 07/31/2020
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Compliance testing with Terraform and Azure

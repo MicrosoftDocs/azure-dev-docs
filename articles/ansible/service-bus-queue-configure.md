@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create an Azure Service Bus queue
 keywords: ansible, azure, devops, bash, playbook, service bus, queue
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure queues in Azure Service Bus using Ansible

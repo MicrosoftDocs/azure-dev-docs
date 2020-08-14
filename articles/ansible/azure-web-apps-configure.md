@@ -4,6 +4,7 @@ description: Learn how to create an app in Azure App Service with Java 8 and the
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure apps in Azure App Service using Ansible

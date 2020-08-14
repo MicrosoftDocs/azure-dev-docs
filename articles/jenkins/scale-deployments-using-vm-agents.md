@@ -4,6 +4,7 @@ description: Learn how to add additional capacity to your Jenkins pipelines usin
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
 ms.date: 07/31/2018
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Scale Jenkins deployments with Azure VM agents

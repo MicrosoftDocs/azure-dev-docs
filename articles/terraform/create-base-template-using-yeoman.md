@@ -3,6 +3,7 @@ title: Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 ms.topic: how-to
 ms.date: 05/25/2020
+ms.custom: devx-track-terraform
 ---
 
 # Create a Terraform base template in Azure using Yeoman

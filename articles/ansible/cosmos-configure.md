@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and configure an Azure Cosmos DB
 keywords: ansible, azure, devops, bash, playbook, cosmo db, database
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure Cosmos DB accounts using Ansible

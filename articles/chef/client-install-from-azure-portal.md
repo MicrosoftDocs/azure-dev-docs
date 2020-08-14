@@ -4,6 +4,7 @@ description: Learn how to deploy and configure your Chef client from the Azure p
 keywords: azure, chef, devops, client, install, portal
 ms.date: 02/22/2020
 ms.topic: article
+ms.custom: devx-track-chef
 ---
 
 # Install the Chef client from the Azure portal

@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and configure an Azure Database 
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure databases in Azure Database for MySQL using Ansible
