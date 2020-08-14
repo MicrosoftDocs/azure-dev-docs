@@ -4,6 +4,7 @@ description: Introduction to using Ansible to automates cloud provisioning, conf
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 ms.topic: overview
 ms.date: 08/13/2020
+ms.custom: devx-track-ansible
 ---
 
 # Using Ansible with Azure

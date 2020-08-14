@@ -4,6 +4,7 @@ description: Learn how to configure a lab in Azure DevTest Labs using Ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure labs in Azure DevTest Labs using Ansible

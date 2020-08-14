@@ -3,6 +3,7 @@ title: Tutorial - Setup end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: tutorial
 ms.date: 07/31/2020
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Setup end-to-end Terratest testing on Terraform projects

@@ -4,6 +4,7 @@ description: In this quickstart, you learn how to install and configure Terrafor
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
 ms.date: 08/08/2020
+ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
 

@@ -4,6 +4,7 @@ description: Learn how to use Terraform and HCL to create a Linux virtual machin
 keywords: azure devops terraform vm virtual machine cluster
 ms.topic: how-to
 ms.date: 03/09/2020
+ms.custom: devx-track-terraform
 ---
 
 # Create an Azure VM cluster with Terraform and HCL

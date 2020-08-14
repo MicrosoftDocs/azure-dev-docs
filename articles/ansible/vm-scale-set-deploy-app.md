@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure Azure virtual machine scale s
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 01/13/2020
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible

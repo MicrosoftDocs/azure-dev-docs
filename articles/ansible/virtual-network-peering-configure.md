@@ -4,6 +4,7 @@ description: Learn how to use Ansible to connect virtual networks with virtual n
 keywords: ansible, azure, devops, bash, playbook, networking, peering
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure virtual network peering using Ansible

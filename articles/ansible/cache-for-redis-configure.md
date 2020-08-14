@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create, scale, reboot, and add a firewa
 keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure caches in Azure Cache for Redis using Ansible

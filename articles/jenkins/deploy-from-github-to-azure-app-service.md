@@ -4,6 +4,7 @@ description: Learn how to configure Jenkins for continuous integration (CI) from
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 08/10/2020
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service using Jenkins

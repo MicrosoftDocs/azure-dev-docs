@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure kubenet networking in Azure K
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible

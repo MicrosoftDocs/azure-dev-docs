@@ -4,6 +4,7 @@ description: Learn how to create, manage, and delete Azure route tables using An
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure route tables using Ansible
