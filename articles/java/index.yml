@@ -187,3 +187,9 @@ tools:
     - title: Jenkins on Azure
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: /azure/jenkins
+
+additionalContent:
+  sections:
+    - title: ""
+  footer: Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+  
