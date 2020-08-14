@@ -3,6 +3,7 @@ title: Configure the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
 ms.topic: how-to
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Configure the Azure Terraform Visual Studio Code extension

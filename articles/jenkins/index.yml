@@ -12,6 +12,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 02/24/2020
+  ms.custom: devx-track-jenkins
 
 landingContent:
   # Card
@@ -35,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Jenkins server
+          - text: Configure Jenkins using Azure CLI
             url: configure-on-linux-vm.md
       - linkListType: download
         links:

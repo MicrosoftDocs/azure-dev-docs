@@ -4,6 +4,7 @@ description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenk
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Deploy to Azure Kubernetes Service (AKS) using the blue/green deployment pattern
@@ -184,7 +185,7 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 
 In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
 
-1. Deploy a [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
+1. Deploy a [Jenkins Master on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins).
 
 1. Connect to the server via SSH, and install the build tools on the server where you run your build.
    

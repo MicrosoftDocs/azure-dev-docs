@@ -7,6 +7,7 @@ ms.service: chef
 author: tomarchermsft
 ms.author: tarcher
 ms.date: 02/22/2020
+ms.custom: devx-track-chef
 ---
 
 # Quickstart - Configure a Windows virtual machine in Azure using Chef
@@ -200,7 +201,9 @@ Install the Knife Azure extension, which includes the Azure Plugin.
 
 Run the following command:
 
-`chef gem install knife-azure ––pre`
+```bash
+chef gem install knife-azure ––pre
+```
 
 > [!NOTE]
 > The `–-pre` argument ensures you are receiving the latest RC version of the Knife Azure Plugin which provides access to the latest set of APIs.
@@ -213,7 +216,9 @@ It's likely that a number of dependencies will also be installed at the same tim
 
 To ensure everything is configured correctly, run the following command:
 
-`knife azurerm server list`
+```bash
+knife azurerm server list
+```
 
 If everything is configured correctly, you will see a list of available Azure images scroll through.
 
@@ -225,7 +230,9 @@ A cookbook is used by Chef to define a set of commands that you wish to run on y
 
 Under your `C:\Chef directory`, run the following command:
 
-`chef generate cookbook webserver`
+```bash
+chef generate cookbook webserver
+```
 
 This command generates a set of files under the directory C:\Chef\cookbooks\webserver. Next, define the set of commands for the Chef client to run on the managed virtual machine.
 
@@ -235,17 +242,17 @@ Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the follo
 
 ```powershell
 powershell_script 'Install IIS' do
-    action :run
-    code 'add-windowsfeature Web-Server'
+        action :run
+        code 'add-windowsfeature Web-Server'
 end
 
 service 'w3svc' do
-    action [ :enable, :start ]
+        action [ :enable, :start ]
 end
 
 template 'c:\inetpub\wwwroot\Default.htm' do
-    source 'Default.htm.erb'
-    rights :read, 'Everyone'
+        source 'Default.htm.erb'
+        rights :read, 'Everyone'
 end
 ```
 
@@ -257,7 +264,9 @@ In this step, you'll generate a template file to use as the `default.html` page.
 
 Run the following command to generate the template:
 
-`chef generate template webserver Default.htm`
+```bash
+chef generate template webserver Default.htm
+```
 
 Navigate to the `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` file. Edit the file by adding some simple *Hello World* HTML code, and then save the file.
 
@@ -265,7 +274,9 @@ Navigate to the `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` 
 
 In this step, you make a copy of the cookbook that you have created on the local machine and upload it to the Chef Hosted Server. Once uploaded, the cookbook appears under the **Policy** tab.
 
-`knife cookbook upload webserver`
+```bash
+knife cookbook upload webserver
+```
 
 ![Results of installing cookbook to the Chef Server](./media/windows-vm-configure/cookbook-installation-under-policy-tab.png)
 

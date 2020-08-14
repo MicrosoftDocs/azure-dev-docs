@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create VM or virtual machine scale set 
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, shared image gallery
 ms.topic: tutorial
 ms.date: 10/14/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Create a VM or virtual machine scale set from the Azure Shared Image Gallery using Ansible

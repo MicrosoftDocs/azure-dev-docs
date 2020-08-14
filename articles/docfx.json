@@ -132,11 +132,6 @@
       "ms.prod": {
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
-      },
-      "ms.custom": {
-        "ansible/**/*.md": "devx-track-ansible",
-        "terraform/**/*.md": "devx-track-terraform",
-        "javascript/**/*.md": "devx-track-javascript"
       }
     },
     "template": [],

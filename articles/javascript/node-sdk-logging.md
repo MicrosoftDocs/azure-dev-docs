@@ -3,8 +3,7 @@ title: Logging with the Azure SDK for JavaScript
 description: Learn how to enable logging with the Azure SDK for JavaScript client libraries
 ms.topic: article
 ms.date: 07/23/2020
-ms.author: dsindona
-author: dsindona
+ms.custom: devx-track-javascript
 ---
 
 # Logging with the Azure SDK for JavaScript

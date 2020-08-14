@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure, resize, and delete an Azure 
 keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure a cluster in Azure HDInsight using Ansible

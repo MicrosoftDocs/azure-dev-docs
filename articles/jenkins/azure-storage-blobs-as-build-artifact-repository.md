@@ -4,6 +4,7 @@ description: Learn how to use the Azure blob service as a repository for build a
 keywords: jenkins, azure, devops, storage, cicd, build artifacts
 ms.topic: article
 ms.date: 08/13/2019
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Use Azure Storage for build artifacts

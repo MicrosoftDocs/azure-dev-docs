@@ -4,6 +4,7 @@ description: Learn how to use Terraform modules to create a Windows virtual mach
 keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: how-to
 ms.date: 03/09/2020
+ms.custom: devx-track-terraform
 ---
 
 # Create an Azure VM cluster with Terraform using the Module Registry

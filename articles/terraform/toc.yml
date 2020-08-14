@@ -7,9 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started - Azure Cloud Shell 
+    - name: Configure Terraform using Azure Cloud Shell 
       href: get-started-cloud-shell.md
-    - name: Get started - Windows and PowerShell
+    - name: Configure Terraform using Azure PowerShell
       href: get-started-powershell.md
 - name: How-to guides
   items:

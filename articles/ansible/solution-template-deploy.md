@@ -4,6 +4,7 @@ description: In this quickstart, learn how to deploy the Ansible solution templa
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Quickstart: Deploy the Ansible solution template for Azure to CentOS

@@ -4,6 +4,7 @@ description: Introduction to using Chef to configure and test your Azure infrast
 keywords:  azure, chef, devops, virtual machines, overview, automate
 ms.date: 02/22/2020
 ms.topic: article
+ms.custom: devx-track-chef
 ---
 
 # Using Chef with Azure

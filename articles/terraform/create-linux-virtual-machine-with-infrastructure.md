@@ -4,6 +4,7 @@ description: Learn how to use Terraform to create and manage a complete Linux vi
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
 ms.date: 06/14/2020
+ms.custom: devx-track-terraform
 ---
 
 # Create a Linux VM with infrastructure in Azure using Terraform
