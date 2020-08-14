@@ -42,4 +42,4 @@ Use this procedure to deploy your Python app to an Azure App Service.
 > [!div class="nextstepaction"]
 > [I deployed my app - continue to step 6 >>>](tutorial-deploy-app-service-on-linux-06.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=05-deploy-app)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)
