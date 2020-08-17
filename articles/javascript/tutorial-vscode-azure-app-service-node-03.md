@@ -10,7 +10,7 @@ ms.custom: devx-track-javascript
 
 [Previous step: Create the app](tutorial-vscode-azure-app-service-node-02.md)
 
-In this step, you deploy your Node.js app to Azure using git deploy through the VS Code and the Azure App Service extension. To accomplish this goal, you first initialize a local git repository, then create a web app on Azure, then configure VS Code to use git deploy.
+In this step, you deploy your Node.js app to Azure using Git deploy through the VS Code and the Azure App Service extension. To accomplish this goal, you first initialize a local Git repository, then create a web app on Azure, then configure VS Code to use Git deploy.
 
 1. In the terminal, make sure you're in the *expressApp1* folder, then start Visual Studio Code with the following command:
 
@@ -18,7 +18,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
     code .
     ```
 
-1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **+** to initialize a local git repository:
+1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **+** to initialize a local Git repository:
 
     ![Initialize git repository](media/deploy-azure/git-init.png)
 
@@ -45,7 +45,7 @@ In this step, you deploy your Node.js app to Azure using git deploy through the 
 
     ![Notification on completion of web app creation](media/deploy-azure/creation-complete.png)
 
-1. With the web app in place, you next instruct VS Code to deploy your code from the local git repo. Select the Azure icon to open the **Azure App Service** explorer, expand your subscription node, right-click the name of the web app you just created, and select **Configure Deployment Source**.
+1. With the web app in place, you next instruct VS Code to deploy your code from the local Git repo. Select the Azure icon to open the **Azure App Service** explorer, expand your subscription node, right-click the name of the web app you just created, and select **Configure Deployment Source**.
 
     ![COnfigure deployment source command on a web app](media/deploy-azure/configure-deployment-source.png)
 
