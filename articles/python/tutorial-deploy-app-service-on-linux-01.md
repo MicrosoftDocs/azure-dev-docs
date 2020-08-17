@@ -42,4 +42,4 @@ Install the following software:
 > [!div class="nextstepaction"]
 > [I signed into Azure - continue to step 2 >>>](tutorial-deploy-app-service-on-linux-02.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=01-verify-prerequisites)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

@@ -50,4 +50,4 @@ If you have an environment variable definitions file, you can use that file to c
 > [!div class="nextstepaction"]
 > [I created the App Service - continue to step 4 >>>](tutorial-deploy-app-service-on-linux-04.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-create-app-service)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

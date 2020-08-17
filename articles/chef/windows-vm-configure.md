@@ -22,7 +22,7 @@ In this article, you set up your Chef environment to provision Azure virtual mac
 
 Before you begin with this article, [review the basic concepts of Chef](https://www.chef.io/chef).
 
-The following diagram shows the high-level Chef architecture.
+The following diagram shows the high-level Chef architecture:
 
 ![Chef architecture](media/windows-vm-configure/chef-architecure.png)
 
@@ -48,7 +48,7 @@ Download and install the latest [Azure CLI](https://docs.microsoft.com/cli/azure
 ## Configure Azure Service Principal
 
 We'll be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions, run the following commands within PowerShell:
- 
+
 ```powershell
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -97,10 +97,11 @@ Copy all files under `chef-starter\chef-repo\.chef` to your `c:\chef` directory.
 
 Copy the `organization-validator.pem` file to `c:\chef`, if it's saved in `c:\Downloads`.
 
-Your directory should now look something like the following example.
+Your directory should now look something like the following example:
 
 ```powershell
-    Directory: C:\Users\username\chef
+
+Directory: C:\Users\username\chef
 
 Mode           LastWriteTime    Length Name
 ----           -------------    ------ ----
@@ -176,7 +177,7 @@ On the desktop, you'll see a CW PowerShell. This tool is used to interact with C
 
 `chef --version` should return something like:
 
-```
+```powershell
 Chef Workstation: 0.4.2
   chef-run: 0.3.0
   chef-client: 15.0.300
@@ -198,7 +199,7 @@ This tutorial assumes that you're using the Azure Resource Manager to interact w
 
 Install the Knife Azure extension, which includes the Azure Plugin.
 
-Run the following command.
+Run the following command:
 
 ```bash
 chef gem install knife-azure ––pre
@@ -213,7 +214,7 @@ It's likely that a number of dependencies will also be installed at the same tim
 
 ![Output from installing knife-azure](./media/windows-vm-configure/install-knife-azure.png)
 
-To ensure everything is configured correctly, run the following command.
+To ensure everything is configured correctly, run the following command:
 
 ```bash
 knife azurerm server list
@@ -227,7 +228,7 @@ Congratulations. Your workstation is set up!
 
 A cookbook is used by Chef to define a set of commands that you wish to run on your managed client. Creating a cookbook is straightforward, just use the `chef generate cookbook` command to generate the cookbook template. This cookbook is for a web server that automatically deploys IIS.
 
-Under your `C:\Chef directory`, run the following command.
+Under your `C:\Chef directory`, run the following command:
 
 ```bash
 chef generate cookbook webserver
@@ -237,7 +238,7 @@ This command generates a set of files under the directory C:\Chef\cookbooks\webs
 
 The commands are stored in the file default.rb. In this file, define a set of commands that installs IIS, starts IIS, and copies a template file to the `wwwroot` folder.
 
-Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.
+Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines:
 
 ```powershell
 powershell_script 'Install IIS' do
