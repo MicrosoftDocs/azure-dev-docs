@@ -48,7 +48,13 @@ Each developer should have his or her own service principal that's secured withi
 
 ### Manage your service principals
 
-Over time, you often need to delete, rename, or otherwise manage these service principals. You can perform these actions through the Azure portal or by using the Azure CLI.
+Over time, you often need to delete, rename, or otherwise manage these service principals. You can perform these actions with the Azure CLI or the Azure portal.
+
+#### Manage service principals using the Azure CLI
+
+To create, view, update, and delete service principals, use the [az ad sp](/cli/azure/ad/sp?view=azure-cli-latest) command.
+
+Also see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 #### Manage service principals using the Azure portal
 
@@ -63,12 +69,6 @@ Over time, you often need to delete, rename, or otherwise manage these service p
     ![App registrations in the Azure Active Directory](media/how-to-manage-service-principals/azure-ad-app-registrations.png)
 
 1. Select any of the service principals to navigate to its properties page where you can examine ID values, rename or delete the service principal, and obtain various endpoint URLs.
-
-#### Manage service principals using the Azure CLI
-
-Using the Azure CLI, you can perform many of the same operations on service principals that you can through the Azure Portal:
-
-- Create, view, update, and delete service principals: [az ad sp](/cli/azure/ad/sp?view=azure-cli-latest) command. Also see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## Assign roles and permissions to an identity
 
@@ -127,13 +127,11 @@ secret_client = SecretClient(vault_url=vault_url, credential=credential)
 retrieved_secret = secret_client.get_secret("secret-name-01")
 ```
 
-Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) ony creates a client-side object in memory, but performs no other checks. 
+Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks. 
 
 Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python) object also involves no communication with the resource in question. The `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. 
 
 It's only when the code calls the [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-) method that the client object generates the appropriate REST API call to Azure. Azure's endpoint for `get_secret` then authenticates the caller's identity and checks authorization.
-
-[!INCLUDE [chrome-note](includes/chrome-note.md)]
 
 ## Authenticate with DefaultAzureCredential
 
@@ -360,7 +358,7 @@ from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
 subscription_client = SubscriptionClient(credentials, base_url=AZURE_CHINA_CLOUD.endpoints.resource_manager)
 ```
 
-Sovreign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+Sovereign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
 ### Authenticate with token credentials and an ADAL context
 
@@ -392,7 +390,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-If you need the adal library, run `pip install adal`.
+If you need the ADAL library, run `pip install adal`.
 
 With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud.
 
@@ -405,7 +403,7 @@ LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
 RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
 ```
 
-Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovreign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
 ### CLI-based authentication (development purposes only)
 

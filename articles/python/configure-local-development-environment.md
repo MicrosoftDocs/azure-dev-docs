@@ -73,7 +73,7 @@ The Azure CLI normally maintains your sign-in across sessions, but it's a good p
 
 ## Configure authentication
 
-As described in [How to Authenticate apps](azure-sdk-authenticate.md#identity-when-running-locally), each developer needs a service principal to use as the application identity when testing app code locally.
+As described in [How to Authenticate apps](azure-sdk-authenticate.md#identity-when-running-the-app-locally), each developer needs a service principal to use as the application identity when testing app code locally.
 
 The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure libraries when needed.
 
