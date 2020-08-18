@@ -117,6 +117,8 @@
         href: azure-sdk-authenticate.md
       - name: Assign role permissions to security principals
         href: how-to-assign-role-permissions.md
+      - name: Manage service principals
+        href: how-to-manage-service-principals.md
     - name: Install packages
       href: azure-sdk-install.md
     - name: Package index

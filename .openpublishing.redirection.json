@@ -409,10 +409,6 @@
       "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
-      "source_path": "articles/python/how-to-manage-service-principals.md",
-      "redirect_url": "/azure/developer/python/azure-sdk-authenticate#manage-your-service-principals"
-    },
-    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },

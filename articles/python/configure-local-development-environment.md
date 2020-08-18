@@ -127,7 +127,7 @@ Each developer in your organization should perform these steps individually.
 
     Furthermore, a development service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
 
-1. To modify or delete service principals later on, see [Manage your service principals](azure-sdk-authenticate.md#manage-your-service-principals).
+1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
 #### What the create-for-rbac command does
 

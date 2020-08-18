@@ -41,34 +41,10 @@ During development, you often want to run and debug your app code on a developer
 
 For details on creating the local service principal and making it available to the Azure libraries, see [Configure your local development environment](configure-local-development-environment.md). Once you've completed this one-time configuration, you can run the same app code locally and in the cloud without any environment-specific modifications.
 
-Each developer should have his or her own service principal that's secured within their user account on their workstation and never stored in a source control repository. If any one service principal is ever stolen or compromised, you can easily delete it to revoke all of its permissions, and then recreate the service principal for that developer. For more information, see the next section, [Manage your service principals](#manage-your-service-principals).
+Each developer should have his or her own service principal that's secured within their user account on their workstation and never stored in a source control repository. If any one service principal is ever stolen or compromised, you can easily delete it to revoke all of its permissions, and then recreate the service principal for that developer. For more information, see [How to manage service principals](how-to-manage-service-principals.md).
 
 > [!NOTE]
 > Although it's possible to run an app using your own Azure user credential, doing so doesn't help you establish the specific resource permissions that your app needs when deployed to the cloud. It's much better to set up a service principal for development and assign it the necessary roles and permissions, which you can then replicate using with the deployed app's managed identity or service principal.
-
-### Manage your service principals
-
-Over time, you often need to delete, rename, or otherwise manage these service principals. You can perform these actions with the Azure CLI or the Azure portal.
-
-#### Manage service principals using the Azure CLI
-
-To create, view, update, and delete service principals, use the [az ad sp](/cli/azure/ad/sp?view=azure-cli-latest) command.
-
-Also see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
-
-#### Manage service principals using the Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to the **Azure Active Directory** page, using either the icon on the portal home page or searching for "Azure Active Directory" in the portal search bar.
-
-    ![Searching for Azure Active Directory on the Azure portal](media/how-to-manage-service-principals/azure-ad-portal-search.png)
-
-1. Select **Manage** > **App registrations** in the left-hand navigation menu. Your local development service principals appear in the list:
-
-    ![App registrations in the Azure Active Directory](media/how-to-manage-service-principals/azure-ad-app-registrations.png)
-
-1. Select any of the service principals to navigate to its properties page where you can examine ID values, rename or delete the service principal, and obtain various endpoint URLs.
 
 ## Assign roles and permissions to an identity
 
@@ -219,7 +195,7 @@ Although `DefaultAzureCredential` is the recommended authentication method for m
 
 - Some methods, such as CLI-based authentication, work only with local scripts and cannot be used with production code.
 
-Service principals for applications deployed to the cloud are managed in your subscriptions Active Directory. For more information, see [Manage your service principals](#manage-your-service-principals).
+Service principals for applications deployed to the cloud are managed in your subscriptions Active Directory. For more information, see [How to manage service principals](how-to-manage-service-principals.md).
 
 In all cases, the appropriate service principal or user must have appropriate permissions for the resources and operation in question.
 
