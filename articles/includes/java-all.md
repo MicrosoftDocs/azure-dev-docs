@@ -1,29 +1,29 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| App Configuration | maven [1.1.3](https://search.maven.org/artifact/com.azure/azure-data-appconfiguration/1.1.3/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme/) | github [1.1.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.1.3/sdk/appconfiguration/azure-data-appconfiguration/) |
-| Cognitive Search | maven [11.0.0](https://search.maven.org/artifact/com.azure/azure-search-documents/11.0.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.0.0/sdk/search/azure-search-documents/) |
-| Core | maven [1.6.0](https://search.maven.org/artifact/com.azure/azure-core/1.6.0/jar/)<br>maven [1.7.0-beta.2](https://search.maven.org/artifact/com.azure/azure-core/1.7.0-beta.2/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-readme/) | github [1.6.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.6.0/sdk/core/azure-core/)<br>github [1.7.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.7.0-beta.2/sdk/core/azure-core/) |
-| Core - AMQP | maven [1.3.0](https://search.maven.org/artifact/com.azure/azure-core-amqp/1.3.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-amqp-readme/) | github [1.3.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_1.3.0/sdk/core/azure-core-amqp/) |
-| Core - HTTP Netty | maven [1.5.3](https://search.maven.org/artifact/com.azure/azure-core-http-netty/1.5.3/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme/) | github [1.5.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.5.3/sdk/core/azure-core-http-netty/) |
-| Core - HTTP OkHttp | maven [1.2.4](https://search.maven.org/artifact/com.azure/azure-core-http-okhttp/1.2.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-http-okhttp-readme/) | github [1.2.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.2.4/sdk/core/azure-core-http-okhttp/) |
-| Cosmos | maven [4.3.0](https://search.maven.org/artifact/com.azure/azure-cosmos/4.3.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/cosmos-readme/) | github [4.3.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.3.0/sdk/cosmos/azure-cosmos/) |
+| App Configuration | maven [1.1.4](https://search.maven.org/artifact/com.azure/azure-data-appconfiguration/1.1.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme/) | github [1.1.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.1.4/sdk/appconfiguration/azure-data-appconfiguration/) |
+| Cognitive Search | maven [11.0.0](https://search.maven.org/artifact/com.azure/azure-search-documents/11.0.0/jar/)<br>maven [11.1.0-beta.1](https://search.maven.org/artifact/com.azure/azure-search-documents/11.1.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme/) | github [11.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.0.0/sdk/search/azure-search-documents/)<br>github [11.1.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.0-beta.1/sdk/search/azure-search-documents/) |
+| Core | maven [1.7.0](https://search.maven.org/artifact/com.azure/azure-core/1.7.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-readme/) | github [1.7.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.7.0/sdk/core/azure-core/) |
+| Core - AMQP | maven [1.4.0](https://search.maven.org/artifact/com.azure/azure-core-amqp/1.4.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-amqp-readme/) | github [1.4.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_1.4.0/sdk/core/azure-core-amqp/) |
+| Core - HTTP Netty | maven [1.5.4](https://search.maven.org/artifact/com.azure/azure-core-http-netty/1.5.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme/) | github [1.5.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.5.4/sdk/core/azure-core-http-netty/) |
+| Core - HTTP OkHttp | maven [1.2.5](https://search.maven.org/artifact/com.azure/azure-core-http-okhttp/1.2.5/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-http-okhttp-readme/) | github [1.2.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.2.5/sdk/core/azure-core-http-okhttp/) |
+| Cosmos | maven [4.3.1](https://search.maven.org/artifact/com.azure/azure-cosmos/4.3.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/cosmos-readme/) | github [4.3.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.3.1/sdk/cosmos/azure-cosmos/) |
 | Event Hubs | maven [5.1.2](https://search.maven.org/artifact/com.azure/azure-messaging-eventhubs/5.1.2/jar/)<br>maven [5.2.0-beta.1](https://search.maven.org/artifact/com.azure/azure-messaging-eventhubs/5.2.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme/) | github [5.1.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.1.2/sdk/eventhubs/azure-messaging-eventhubs/)<br>github [5.2.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.2.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/) |
 | Event Hubs - Azure Blob Storage Checkpoint Store | maven [1.1.2](https://search.maven.org/artifact/com.azure/azure-messaging-eventhubs-checkpointstore-blob/1.1.2/jar/)<br>maven [1.2.0-beta.1](https://search.maven.org/artifact/com.azure/azure-messaging-eventhubs-checkpointstore-blob/1.2.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme/) | github [1.1.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.1.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/)<br>github [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.2.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/) |
-| Form Recognizer | maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/1.0.0-beta.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme/) | github [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_1.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) |
-| Identity | maven [1.0.9](https://search.maven.org/artifact/com.azure/azure-identity/1.0.9/jar/)<br>maven [1.1.0-beta.7](https://search.maven.org/artifact/com.azure/azure-identity/1.1.0-beta.7/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/identity-readme/) | github [1.0.9](https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.0.9/sdk/identity/azure-identity/)<br>github [1.1.0-beta.7](https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.1.0-beta.7/sdk/identity/azure-identity/) |
-| Key Vault - Certificates | maven [4.0.5](https://search.maven.org/artifact/com.azure/azure-security-keyvault-certificates/4.0.5/jar/)<br>maven [4.1.0-beta.4](https://search.maven.org/artifact/com.azure/azure-security-keyvault-certificates/4.1.0-beta.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-certificates-readme/) | github [4.0.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.0.5/sdk/keyvault/azure-security-keyvault-certificates/)<br>github [4.1.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.1.0-beta.4/sdk/keyvault/azure-security-keyvault-certificates/) |
-| Key Vault - Keys | maven [4.1.5](https://search.maven.org/artifact/com.azure/azure-security-keyvault-keys/4.1.5/jar/)<br>maven [4.2.0-beta.5](https://search.maven.org/artifact/com.azure/azure-security-keyvault-keys/4.2.0-beta.5/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme/) | github [4.1.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.1.5/sdk/keyvault/azure-security-keyvault-keys/)<br>github [4.2.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.2.0-beta.5/sdk/keyvault/azure-security-keyvault-keys/) |
-| Key Vault - Secrets | maven [4.1.5](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.1.5/jar/)<br>maven [4.2.0-beta.4](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.2.0-beta.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme/) | github [4.1.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.1.5/sdk/keyvault/azure-security-keyvault-secrets/)<br>github [4.2.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.2.0-beta.4/sdk/keyvault/azure-security-keyvault-secrets/) |
-| Service Bus | maven [7.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-messaging-servicebus/7.0.0-beta.4/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/messaging-servicebus-readme/) | github [7.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.0.0-beta.4/sdk/servicebus/azure-messaging-servicebus/) |
-| Storage - Blobs | maven [12.7.0](https://search.maven.org/artifact/com.azure/azure-storage-blob/12.7.0/jar/)<br>maven [12.8.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-blob/12.8.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme/) | github [12.7.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.7.0/sdk/storage/azure-storage-blob/)<br>github [12.8.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.8.0-beta.1/sdk/storage/azure-storage-blob/) |
-| Storage - Blobs Batch | maven [12.5.2](https://search.maven.org/artifact/com.azure/azure-storage-blob-batch/12.5.2/jar/)<br>maven [12.6.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-blob-batch/12.6.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-batch-readme/) | github [12.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.5.2/sdk/storage/azure-storage-blob-batch/)<br>github [12.6.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.6.0-beta.1/sdk/storage/azure-storage-blob-batch/) |
-| Storage - Blobs Cryptography | maven [12.7.0](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography/12.7.0/jar/)<br>maven [12.8.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography/12.8.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-cryptography-readme/) | github [12.7.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.7.0/sdk/storage/azure-storage-blob-cryptography/)<br>github [12.8.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.8.0-beta.1/sdk/storage/azure-storage-blob-cryptography/) |
-| Storage - Common | maven [12.7.0](https://search.maven.org/artifact/com.azure/azure-storage-common/12.7.0/jar/)<br>maven [12.8.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-common/12.8.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-common-readme/) | github [12.7.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.7.0/sdk/storage/azure-storage-common/)<br>github [12.8.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.8.0-beta.1/sdk/storage/azure-storage-common/) |
-| Storage - File Data Lake | maven [12.1.2](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.1.2/jar/)<br>maven [12.2.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.2.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme/) | github [12.1.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.1.2/sdk/storage/azure-storage-file-datalake/)<br>github [12.2.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.2.0-beta.1/sdk/storage/azure-storage-file-datalake/) |
-| Storage - File Shares | maven [12.5.0](https://search.maven.org/artifact/com.azure/azure-storage-file-share/12.5.0/jar/)<br>maven [12.6.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-file-share/12.6.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-file-share-readme/) | github [12.5.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.5.0/sdk/storage/azure-storage-file-share/)<br>github [12.6.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.6.0-beta.1/sdk/storage/azure-storage-file-share/) |
-| Storage - Queues | maven [12.5.2](https://search.maven.org/artifact/com.azure/azure-storage-queue/12.5.2/jar/)<br>maven [12.6.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-queue/12.6.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-queue-readme/) | github [12.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.5.2/sdk/storage/azure-storage-queue/)<br>github [12.6.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.6.0-beta.1/sdk/storage/azure-storage-queue/) |
+| Form Recognizer | maven [3.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/3.0.0-beta.1/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme/) | github [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.0.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/) |
+| Identity | maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-identity/1.1.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/identity-readme/) | github [1.1.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.1.0/sdk/identity/azure-identity/) |
+| Key Vault - Certificates | maven [4.1.0](https://search.maven.org/artifact/com.azure/azure-security-keyvault-certificates/4.1.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-certificates-readme/) | github [4.1.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.1.0/sdk/keyvault/azure-security-keyvault-certificates/) |
+| Key Vault - Keys | maven [4.2.0](https://search.maven.org/artifact/com.azure/azure-security-keyvault-keys/4.2.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme/) | github [4.2.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.2.0/sdk/keyvault/azure-security-keyvault-keys/) |
+| Key Vault - Secrets | maven [4.2.0](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.2.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme/) | github [4.2.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.2.0/sdk/keyvault/azure-security-keyvault-secrets/) |
+| Service Bus | maven [7.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-messaging-servicebus/7.0.0-beta.5/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/messaging-servicebus-readme/) | github [7.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.0.0-beta.5/sdk/servicebus/azure-messaging-servicebus/) |
+| Storage - Blobs | maven [12.8.0](https://search.maven.org/artifact/com.azure/azure-storage-blob/12.8.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme/) | github [12.8.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.8.0/sdk/storage/azure-storage-blob/) |
+| Storage - Blobs Batch | maven [12.6.0](https://search.maven.org/artifact/com.azure/azure-storage-blob-batch/12.6.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-batch-readme/) | github [12.6.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.6.0/sdk/storage/azure-storage-blob-batch/) |
+| Storage - Blobs Cryptography | maven [12.8.0](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography/12.8.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-cryptography-readme/) | github [12.8.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.8.0/sdk/storage/azure-storage-blob-cryptography/) |
+| Storage - Common | maven [12.8.0](https://search.maven.org/artifact/com.azure/azure-storage-common/12.8.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-common-readme/) | github [12.8.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.8.0/sdk/storage/azure-storage-common/) |
+| Storage - File Data Lake | maven [12.2.0](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.2.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme/) | github [12.2.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.2.0/sdk/storage/azure-storage-file-datalake/) |
+| Storage - File Shares | maven [12.6.0](https://search.maven.org/artifact/com.azure/azure-storage-file-share/12.6.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-file-share-readme/) | github [12.6.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.6.0/sdk/storage/azure-storage-file-share/) |
+| Storage - Queues | maven [12.6.0](https://search.maven.org/artifact/com.azure/azure-storage-queue/12.6.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/storage-queue-readme/) | github [12.6.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.6.0/sdk/storage/azure-storage-queue/) |
 | Text Analytics | maven [5.0.0](https://search.maven.org/artifact/com.azure/azure-ai-textanalytics/5.0.0/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme/) | github [5.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/) |
-| Tracing | maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-core-tracing-opentelemetry/1.0.0-beta.5/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-tracing-opentelemetry-readme/) | github [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.5/sdk/core/azure-core-tracing-opentelemetry/) |
+| Tracing | maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-core-tracing-opentelemetry/1.0.0-beta.6/jar/) | [docs](https://docs.microsoft.com/java/api/overview/azure/core-tracing-opentelemetry-readme/) | github [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.6/sdk/core/azure-core-tracing-opentelemetry/) |
 | Resource Management - App Service | maven [2.0.0-beta.3](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-appservice/2.0.0-beta.3/jar/) |  | github [2.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.0.0-beta.3/sdk/https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.0.0-beta.1/sdk/appservice/mgmt/azure-resourcemanager-appservice/) |
 | Resource Management - Authorization | maven [2.0.0-beta.3](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-authorization/2.0.0-beta.3/jar/) |  | github [2.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.0.0-beta.3/sdk/https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.0.0-beta.1/sdk/authorization/mgmt/azure-resourcemanager-authorization/) |
 | Resource Management - Compute | maven [2.0.0-beta.3](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-compute/2.0.0-beta.3/jar/) |  | github [2.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-compute_2.0.0-beta.3/sdk/https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.0.0-beta.1/sdk/compute/mgmt/azure-resourcemanager-compute/) |
@@ -60,11 +60,11 @@
 | autorest-build-tools | maven [2.0.0-java7-beta1](https://search.maven.org/artifact/com.microsoft.azure.v2/autorest-build-tools/2.0.0-java7-beta1/jar/) |  |  |
 | autorest-clientruntime-for-java | maven [1.7.6](https://search.maven.org/artifact/com.microsoft.azure/autorest-clientruntime-for-java/1.7.6/jar/) |  |  |
 | autorest-clientruntime-for-java | maven [2.1.1](https://search.maven.org/artifact/com.microsoft.azure.v2/autorest-clientruntime-for-java/2.1.1/jar/) |  |  |
-| azure | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure/1.36.0/jar/) |  |  |
+| azure | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure/1.36.1/jar/) |  |  |
 | azure | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2018_03_01_hybrid/azure/1.0.0-beta-1/jar/) |  |  |
 | azure | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2019_03_01_hybrid/azure/1.0.0-beta-1/jar/) |  |  |
-| azure-active-directory-b2c-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-active-directory-b2c-spring-boot-starter/2.3.2/jar/) |  |  |
-| azure-active-directory-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter/2.3.2/jar/) |  |  |
+| azure-active-directory-b2c-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-active-directory-b2c-spring-boot-starter/2.3.3/jar/) |  |  |
+| azure-active-directory-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-ad-integration-spring-boot-autoconfigure | maven [0.1.5](https://search.maven.org/artifact/com.microsoft.azure/azure-ad-integration-spring-boot-autoconfigure/0.1.5/jar/) |  |  |
 | azure-ad-integration-spring-boot-starter | maven [0.1.8](https://search.maven.org/artifact/com.microsoft.azure/azure-ad-integration-spring-boot-starter/0.1.8/jar/) |  |  |
 | azure-android-client-authentication | maven [1.0.0-beta1](https://search.maven.org/artifact/com.microsoft.azure/azure-android-client-authentication/1.0.0-beta1/jar/) |  |  |
@@ -107,14 +107,14 @@
 | azure-cognitiveservices-websearch | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-websearch/1.0.2/jar/) |  |  |
 | azure-computervision | maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-computervision/0.0.1-beta/jar/) |  |  |
 | azure-core | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-core/0.9.8/jar/) |  |  |
-| azure-core-experimental | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-core-experimental/1.0.0-beta.1/jar/) |  |  |
+| azure-core-experimental | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-core-experimental/1.0.0-beta.2/jar/) |  |  |
 | azure-core-management | maven [1.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-core-management/1.0.0-preview.4/jar/) |  |  |
 | azure-core-parent | maven [1.0.0-preview.2](https://search.maven.org/artifact/com.azure/azure-core-parent/1.0.0-preview.2/jar/) |  |  |
 | azure-core-serializer-avro-apache | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-core-serializer-avro-apache/1.0.0-beta.1/jar/) |  |  |
 | azure-core-serializer-avro-jackson | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-core-serializer-avro-jackson/1.0.0-beta.1/jar/) |  |  |
-| azure-core-serializer-json-gson | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-core-serializer-json-gson/1.0.0-beta.2/jar/) |  |  |
-| azure-core-serializer-json-jackson | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-core-serializer-json-jackson/1.0.0-beta.2/jar/) |  |  |
-| azure-core-test | maven [1.3.1](https://search.maven.org/artifact/com.azure/azure-core-test/1.3.1/jar/) |  |  |
+| azure-core-serializer-json-gson | maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-core-serializer-json-gson/1.0.0-beta.3/jar/) |  |  |
+| azure-core-serializer-json-jackson | maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-core-serializer-json-jackson/1.0.0-beta.3/jar/) |  |  |
+| azure-core-test | maven [1.4.0](https://search.maven.org/artifact/com.azure/azure-core-test/1.4.0/jar/) |  |  |
 | azure-core-tracing-opencensus | maven [1.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-core-tracing-opencensus/1.0.0-preview.4/jar/) |  |  |
 | azure-cosmos | maven [3.7.5](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos/3.7.5/jar/) |  |  |
 | azure-cosmos-cassandra-extensions | maven [0.12.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-extensions/0.12.0/jar/) |  |  |
@@ -136,14 +136,15 @@
 | azure-cosmosdb-spark_2.2.0_2.10 | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.2.0_2.10/1.0.0/jar/) |  |  |
 | azure-cosmosdb-spark_2.2.0_2.11 | maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.2.0_2.11/1.1.1/jar/) |  |  |
 | azure-cosmosdb-spark_2.3.0_2.11 | maven [1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar/) |  |  |
-| azure-cosmosdb-spark_2.4.0_2.11 | maven [3.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/3.1.0/jar/) |  |  |
-| azure-cosmosdb-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spring-boot-starter/2.3.2/jar/) |  |  |
+| azure-cosmosdb-spark_2.4.0_2.11 | maven [3.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/3.2.0/jar/) |  |  |
+| azure-cosmosdb-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-cosmos-direct | maven [3.0.0-a1](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-direct/3.0.0-a1/jar/) |  |  |
 | azure-cosmos-examples | maven [3.3.1](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-examples/3.3.1/jar/) |  |  |
 | azure-cosmos-gateway | maven [3.0.0-a1](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-gateway/3.0.0-a1/jar/) |  |  |
 | azure-cosmos-parent | maven [4.0.0-preview.2](https://search.maven.org/artifact/com.azure/azure-cosmos-parent/4.0.0-preview.2/jar/) |  |  |
 | azure-cosmos-parent | maven [3.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-parent/3.5.0/jar/) |  |  |
 | azure-cosmos-serialization | maven [2.9.6](https://search.maven.org/artifact/com.azure.data/azure-cosmos-serialization/2.9.6/jar/) |  |  |
+| azure-data-gremlin-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-data-gremlin-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-data-lake-store-sdk | maven [2.3.8](https://search.maven.org/artifact/com.microsoft.azure/azure-data-lake-store-sdk/2.3.8/jar/) |  |  |
 | azure-data-schemaregistry | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-data-schemaregistry/1.0.0-beta.2/jar/) |  |  |
 | azure-data-schemaregistry-avro | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-data-schemaregistry-avro/1.0.0-beta.2/jar/) |  |  |
@@ -165,13 +166,13 @@
 | azure-eventhubs-spark_2.11 | maven [2.3.17](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.11/2.3.17/jar/) |  |  |
 | azure-eventhubs-spark_2.12 | maven [2.3.17](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.12/2.3.17/jar/) |  |  |
 | azure-faceapi | maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-faceapi/0.0.1-beta/jar/) |  |  |
-| azure-functions-archetype | maven [1.29](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.29/jar/) |  |  |
+| azure-functions-archetype | maven [1.30](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.30/jar/) |  |  |
 | azure-functions-java-core | maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
 | azure-functions-java-library | maven [1.3.1](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/1.3.1/jar/) |  |  |
 | azure-functions-java-library-cosmosdbcassandra | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-cosmosdbcassandra/1.0.0/jar/) |  |  |
 | azure-functions-java-library-signalr | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
 | azure-functions-kotlin-archetype | maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
-| azure-functions-maven-plugin | maven [1.6.0](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.6.0/jar/) |  |  |
+| azure-functions-maven-plugin | maven [1.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.7.0/jar/) |  |  |
 | azure-internet-analyzer-java | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft.azure/azure-internet-analyzer-java/1.0.0-beta.1/jar/) |  |  |
 | azure-iot-edge-archetype | maven [1.3.0](https://search.maven.org/artifact/com.microsoft.azure/azure-iot-edge-archetype/1.3.0/jar/) |  |  |
 | azure-keyvault | maven [1.2.4](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault/1.2.4/jar/) |  |  |
@@ -185,7 +186,7 @@
 | azure-keyvault-parent | maven [1.2.1](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault-parent/1.2.1/jar/) |  |  |
 | azure-keyvault-secrets | maven [4.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-keyvault-secrets/4.0.0-preview.4/jar/) |  |  |
 | azure-keyvault-secrets-spring-boot | maven [0.1.5](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault-secrets-spring-boot/0.1.5/jar/) |  |  |
-| azure-keyvault-secrets-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault-secrets-spring-boot-starter/2.3.2/jar/) |  |  |
+| azure-keyvault-secrets-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault-secrets-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-keyvault-webkey | maven [1.2.4](https://search.maven.org/artifact/com.microsoft.azure/azure-keyvault-webkey/1.2.4/jar/) |  |  |
 | azure-loganalytics | maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-loganalytics/1.0.0-Preview-1/jar/) |  |  |
 | azure-management | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management/0.8.0/jar/) |  |  |
@@ -198,7 +199,7 @@
 | azure-management-websites | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management-websites/0.8.0/jar/) |  |  |
 | azure-maven-plugin | maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.1.0/jar/) |  |  |
 | azure-maven-plugin-common | maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
-| azure-maven-plugin-lib | maven [1.2.16](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.2.16/jar/) |  |  |
+| azure-maven-plugin-lib | maven [1.2.17](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.2.17/jar/) |  |  |
 | azure-maven-plugins-pom | maven [1.0.3](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins-pom/1.0.3/jar/) |  |  |
 | azure-media | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-media/0.9.8/jar/) |  |  |
 | azure-mediaservices-spring-boot-autoconfigure | maven [0.1.5](https://search.maven.org/artifact/com.microsoft.azure/azure-mediaservices-spring-boot-autoconfigure/0.1.5/jar/) |  |  |
@@ -215,7 +216,7 @@
 | azure-mgmt-appconfiguration.v2019_10_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appconfiguration.v2019_10_01/azure-mgmt-appconfiguration/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-appconfiguration.v2019_11_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appconfiguration.v2019_11_01_preview/azure-mgmt-appconfiguration/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-appplatform.v2019_05_01_preview | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2019_05_01_preview/azure-mgmt-appplatform/1.0.0-beta-2/jar/) |  |  |
-| azure-mgmt-appservice | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-appservice/1.36.0/jar/) |  |  |
+| azure-mgmt-appservice | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-appservice/1.36.1/jar/) |  |  |
 | azure-mgmt-appservice.v2016_03_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.appservice.v2016_03_01/azure-mgmt-appservice/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-appservice.v2016_08_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.appservice.v2016_08_01/azure-mgmt-appservice/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-appservice.v2016_09_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.appservice.v2016_09_01/azure-mgmt-appservice/1.0.0-beta-2/jar/) |  |  |
@@ -229,30 +230,30 @@
 | azure-mgmt-avs | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.avs.v2019_08_09_preview/azure-mgmt-avs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-avs | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.avs.v2020_03_20/azure-mgmt-avs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-azurestack.v2017_06_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.azurestack.v2017_06_01/azure-mgmt-azurestack/1.0.0-beta-1/jar/) |  |  |
-| azure-mgmt-batch | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batch/1.36.0/jar/) |  |  |
-| azure-mgmt-batchai | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batchai/1.36.0/jar/) |  |  |
+| azure-mgmt-batch | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batch/1.36.1/jar/) |  |  |
+| azure-mgmt-batchai | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batchai/1.36.1/jar/) |  |  |
 | azure-mgmt-batchai.v2017_09_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.batchai.v2017_09_01_preview/azure-mgmt-batchai/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-batchai.v2018_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.batchai.v2018_03_01/azure-mgmt-batchai/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-batchai.v2018_05_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.batchai.v2018_05_01/azure-mgmt-batchai/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-batchai.v2018_05_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.batchai-2018-05-01/azure-mgmt-batchai/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-billing | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-billing/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-billing.v2019_10_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.subscription.v2019_10_01_preview/azure-mgmt-billing/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-cdn | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cdn/1.36.0/jar/) |  |  |
+| azure-mgmt-cdn | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cdn/1.36.1/jar/) |  |  |
 | azure-mgmt-cdn | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cdn.v2020_04_15/azure-mgmt-cdn/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-cognitiveservices | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-cognitiveservices.v2017_04_18 | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices.v2017_04_18/azure-mgmt-cognitiveservices/1.0.0/jar/)<br>maven [1.0.0-beta-4](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices.v2017_04_18/azure-mgmt-cognitiveservices/1.0.0-beta-4/jar/) |  |  |
 | azure-mgmt-cognitiveservices.v2017_04_18 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices-2017-04-18/azure-mgmt-cognitiveservices/1.0.0-beta-1/jar/) |  |  |
-| azure-mgmt-compute | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-compute/1.36.0/jar/) |  |  |
+| azure-mgmt-compute | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-compute/1.36.1/jar/) |  |  |
 | azure-mgmt-compute.v2017_03_30 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.compute.v2017_03_30/azure-mgmt-compute/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-compute.v2017_12_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.compute.v2017_12_01/azure-mgmt-compute/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-compute.v2018_09_30 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.compute.v2018_09_30/azure-mgmt-compute/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-compute.v2019_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.compute.v2019_03_01/azure-mgmt-compute/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-compute.v2019_11_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.compute.v2019_11_01/azure-mgmt-compute/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-consumption | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-consumption/1.10.0-beta/jar/) |  |  |
-| azure-mgmt-containerinstance | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerinstance/1.36.0/jar/) |  |  |
+| azure-mgmt-containerinstance | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerinstance/1.36.1/jar/) |  |  |
 | azure-mgmt-containerinstance | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerinstance.v2019_12_01/azure-mgmt-containerinstance/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerinstance.v2018_10_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerinstance.v2018_10_01/azure-mgmt-containerinstance/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-containerregistry | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerregistry/1.36.0/jar/) |  |  |
+| azure-mgmt-containerregistry | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerregistry/1.36.1/jar/) |  |  |
 | azure-mgmt-containerregistry.v2016_06_27_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2016_06_27_preview/azure-mgmt-containerregistry/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerregistry.v2017_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2017_03_01/azure-mgmt-containerregistry/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerregistry.v2017_06_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2017_06_01_preview/azure-mgmt-containerregistry/1.0.0-beta/jar/) |  |  |
@@ -261,7 +262,7 @@
 | azure-mgmt-containerregistry.v2018_09_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2018_09_01/azure-mgmt-containerregistry/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-containerregistry.v2019_04_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2019_04_01/azure-mgmt-containerregistry/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-containerregistry.v2019_06_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerregistry.v2019_06_01_preview/azure-mgmt-containerregistry/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-containerservice | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerservice/1.36.0/jar/) |  |  |
+| azure-mgmt-containerservice | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerservice/1.36.1/jar/) |  |  |
 | azure-mgmt-containerservice | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2020_06_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerservice.v2018_09_30_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2018_09_30_preview/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerservice.v2019_02_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2019_02_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
@@ -269,8 +270,8 @@
 | azure-mgmt-containerservice.v2019_06_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2019_06_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerservice.v2019_08_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2019_08_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-containerservice.v2020_02_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.containerservice.v2020_02_01/azure-mgmt-containerservice/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-cosmosdb | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cosmosdb/1.36.0/jar/) |  |  |
-| azure-mgmt-cosmosdb | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2020_04_01/azure-mgmt-cosmosdb/1.0.0-beta/jar/) |  |  |
+| azure-mgmt-cosmosdb | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cosmosdb/1.36.1/jar/) |  |  |
+| azure-mgmt-cosmosdb | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2020_04_01/azure-mgmt-cosmosdb/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-cosmosdb | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2020_06_01_preview/azure-mgmt-cosmosdb/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-cosmosdb.v2015_04_08 | maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2015_04_08/azure-mgmt-cosmosdb/1.0.0-beta-3/jar/) |  |  |
 | azure-mgmt-cosmosdb.v2019_08_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2019_08_01/azure-mgmt-cosmosdb/1.0.0-beta/jar/) |  |  |
@@ -295,7 +296,7 @@
 | azure-mgmt-devtestlab | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-devtestlab/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-devtestlabs.v2018_09_15 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.devtestlabs.v2018_09_15/azure-mgmt-devtestlabs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-digitaltwins | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-dns | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-dns/1.36.0/jar/) |  |  |
+| azure-mgmt-dns | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-dns/1.36.1/jar/) |  |  |
 | azure-mgmt-dns.v2016_04_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.dns.v2016_04_01/azure-mgmt-dns/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-documentdb | maven [1.1.2](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-documentdb/1.1.2/jar/) |  |  |
 | azure-mgmt-documentdb.v2015_04_08 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2015_04_08/azure-mgmt-documentdb/1.0.0-beta/jar/) |  |  |
@@ -309,15 +310,16 @@
 | azure-mgmt-eventgrid.v2020_01_01_preview | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_01_01_preview/azure-mgmt-eventgrid/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-eventgrid.v2020_04_01_preview | maven [1.0.0-beta-4](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_04_01_preview/azure-mgmt-eventgrid/1.0.0-beta-4/jar/) |  |  |
 | azure-mgmt-eventgrid.v2020_06_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_06_01/azure-mgmt-eventgrid/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-eventhub | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-eventhub/1.36.0/jar/) |  |  |
+| azure-mgmt-eventhub | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-eventhub/1.36.1/jar/) |  |  |
 | azure-mgmt-eventhub.v2017_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.eventhub.v2017_04_01/azure-mgmt-eventhub/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-eventhubs.v2015_08_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.eventhubs.v2015_08_01/azure-mgmt-eventhubs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-eventhubs.v2017_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.eventhubs.v2017_04_01/azure-mgmt-eventhubs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-eventhubs.v2018_01_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.eventhubs.v2018_01_01_preview/azure-mgmt-eventhubs/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-features.v2015_12_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.features.v2015_12_01/azure-mgmt-features/1.0.0-beta-1/jar/) |  |  |
-| azure-mgmt-graph-rbac | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-graph-rbac/1.36.0/jar/) |  |  |
+| azure-mgmt-graph-rbac | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-graph-rbac/1.36.1/jar/) |  |  |
 | azure-mgmt-hanaonazure.v2017_11_03_preview | maven [1.0.0-beta-5](https://search.maven.org/artifact/com.microsoft.azure.hanaonazure.v2017_11_03_preview/azure-mgmt-hanaonazure/1.0.0-beta-5/jar/) |  |  |
-| azure-mgmt-hdinsight.v2018_06_01_preview | maven [1.3.4](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.3.4/jar/) |  |  |
+| azure-mgmt-hdinsight.v2018_06_01_preview | maven [1.3.5](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.3.5/jar/) |  |  |
+| azure-mgmt-hybridcompute | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.hybridcompute.v2019_12_12/azure-mgmt-hybridcompute/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-insights | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-insights/1.10.0-beta/jar/) |  |  |
 | azure-mgmt-insights.v2015_05_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.applicationinsights.v2015_05_01/azure-mgmt-insights/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-iotcentral.v2018_09_01 | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.iotcentral.v2018_09_01/azure-mgmt-iotcentral/1.0.2/jar/) |  |  |
@@ -325,7 +327,7 @@
 | azure-mgmt-iothub.v2018_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.iothub.v2018_04_01/azure-mgmt-iothub/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-iothub.v2018_12_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.iothub.v2018_12_01_preview/azure-mgmt-iothub/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-iothub.v2019_03_22_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.iothub.v2019_03_22_preview/azure-mgmt-iothub/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-keyvault | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-keyvault/1.36.0/jar/) |  |  |
+| azure-mgmt-keyvault | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-keyvault/1.36.1/jar/) |  |  |
 | azure-mgmt-keyvault.v2016_10_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.keyvault.v2016_10_01/azure-mgmt-keyvault/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-kubernetesconfiguration.v2019_11_01_preview | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.kubernetesconfiguration.v2019_11_01_preview/azure-mgmt-kubernetesconfiguration/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-kusto | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.kusto.v2020_06_14/azure-mgmt-kusto/1.0.0-beta/jar/) |  |  |
@@ -336,7 +338,7 @@
 | azure-mgmt-kusto.v2019_11_09 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.kusto.v2019_11_09/azure-mgmt-kusto/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-kusto.v2020_02_15 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.kusto.v2020_02_15/azure-mgmt-kusto/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-labservices.v2018_10_15 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.labservices.v2018_10_15/azure-mgmt-labservices/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-locks | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-locks/1.36.0/jar/) |  |  |
+| azure-mgmt-locks | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-locks/1.36.1/jar/) |  |  |
 | azure-mgmt-locks.v2016_09_01 | maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure.locks.v2016_09_01/azure-mgmt-locks/1.0.0-beta-3/jar/) |  |  |
 | azure-mgmt-loganalytics | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.loganalytics.v2020_03_01_preview/azure-mgmt-loganalytics/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-loganalytics.v2015_03_20 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.loganalytics.v2015_03_20/azure-mgmt-loganalytics/1.0.0-beta/jar/) |  |  |
@@ -357,7 +359,7 @@
 | azure-mgmt-media.v2019_05_01_preview | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2019_05_01_preview/azure-mgmt-media/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-mixedreality.v2019_02_28_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mixedreality.v2019_02_28_preview/azure-mgmt-mixedreality/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-mixedreality.v2020_05_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mixedreality.v2020_05_01/azure-mgmt-mixedreality/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-monitor | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-monitor/1.36.0/jar/) |  |  |
+| azure-mgmt-monitor | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-monitor/1.36.1/jar/) |  |  |
 | azure-mgmt-monitor.v2015_04_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2015_04_01/azure-mgmt-monitor/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-monitor.v2015_07_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2015_07_01/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-monitor.v2016_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2016_03_01/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
@@ -368,7 +370,7 @@
 | azure-mgmt-monitor.v2018_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2018_03_01/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-monitor.v2018_04_16 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2018_04_16/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-monitor.v2018_09_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2018_09_01/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-msi | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-msi/1.36.0/jar/) |  |  |
+| azure-mgmt-msi | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-msi/1.36.1/jar/) |  |  |
 | azure-mgmt-mysql.v2017_12_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.dbformysql-2017-12-01/azure-mgmt-mysql/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-mysql.v2017_12_01 | maven [1.0.0-beta-4](https://search.maven.org/artifact/com.microsoft.azure.mysql.v2017_12_01/azure-mgmt-mysql/1.0.0-beta-4/jar/) |  |  |
 | azure-mgmt-mysql.v2017_12_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mysql.v2017_12_01_preview/azure-mgmt-mysql/1.0.0-beta/jar/) |  |  |
@@ -380,7 +382,7 @@
 | azure-mgmt-netapp.v2019_08_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2019_08_01/azure-mgmt-netapp/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-netapp.v2019_10_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2019_10_01/azure-mgmt-netapp/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-netapp.v2019_11_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2019_11_01/azure-mgmt-netapp/1.0.0-beta-2/jar/) |  |  |
-| azure-mgmt-network | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-network/1.36.0/jar/) |  |  |
+| azure-mgmt-network | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-network/1.36.1/jar/) |  |  |
 | azure-mgmt-network | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.network.v2020_05_01/azure-mgmt-network/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-network.v2017_10_01 | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.network.v2017_10_01/azure-mgmt-network/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-network.v2018_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.network.v2018_04_01/azure-mgmt-network/1.0.0-beta/jar/) |  |  |
@@ -424,7 +426,7 @@
 | azure-mgmt-recoveryservices.v2017_07_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.recoveryservices.backup.v2017_07_01/azure-mgmt-recoveryservices/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-recoveryservices.v2018_01_10 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.recoveryservices.siterecovery.v2018_01_10/azure-mgmt-recoveryservices/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-recoveryservices.v2020_02_02 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.recoveryservices.backup.v2020_02_02/azure-mgmt-recoveryservices/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-redis | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-redis/1.36.0/jar/) |  |  |
+| azure-mgmt-redis | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-redis/1.36.1/jar/) |  |  |
 | azure-mgmt-redis.v2018_03_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.cache-2018-03-01/azure-mgmt-redis/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-redis.v2018_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.redis.v2018_03_01/azure-mgmt-redis/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-relay | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-relay/1.10.0-beta/jar/) |  |  |
@@ -432,7 +434,8 @@
 | azure-mgmt-resourcegraph.v2019_04_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-resourcehealth.v2015_01_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resourcehealth.v2015_01_01/azure-mgmt-resourcehealth/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-resourcehealth.v2017_07_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resourcehealth.v2017_07_01/azure-mgmt-resourcehealth/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-resources | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-resources/1.36.0/jar/) |  |  |
+| azure-mgmt-resources | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-resources/1.36.1/jar/) |  |  |
+| azure-mgmt-resources | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resources.v2020_06_01/azure-mgmt-resources/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-resources.v2016_09_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resources.v2016_09_01/azure-mgmt-resources/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-resources.v2018_02_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.resources.v2018_02_01/azure-mgmt-resources/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-resources.v2018_05_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.resources.v2018_05_01/azure-mgmt-resources/1.0.0-beta-1/jar/) |  |  |
@@ -442,9 +445,9 @@
 | azure-mgmt-resources.v2019_11_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resources.v2019_11_01/azure-mgmt-resources/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-samples | maven [0.8.3](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-samples/0.8.3/jar/) |  |  |
 | azure-mgmt-scheduler | maven [1.10.0-beta](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-scheduler/1.10.0-beta/jar/) |  |  |
-| azure-mgmt-search | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-search/1.36.0/jar/) |  |  |
+| azure-mgmt-search | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-search/1.36.1/jar/) |  |  |
 | azure-mgmt-search.v2015_02_28 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.search.v2015_02_28/azure-mgmt-search/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-servicebus | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-servicebus/1.36.0/jar/) |  |  |
+| azure-mgmt-servicebus | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-servicebus/1.36.1/jar/) |  |  |
 | azure-mgmt-servicebus.v2015_08_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.servicebus.v2015_08_01/azure-mgmt-servicebus/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-servicebus.v2017_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.servicebus.v2017_04_01/azure-mgmt-servicebus/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-servicebus.v2018_01_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.servicebus.v2018_01_01_preview/azure-mgmt-servicebus/1.0.0-beta/jar/) |  |  |
@@ -453,14 +456,14 @@
 | azure-mgmt-signalr.v2018_03_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.signalrservice-2018-03-01-preview/azure-mgmt-signalr/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-signalr.v2018_10_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.signalr.v2018_10_01/azure-mgmt-signalr/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-signalr.v2020_05_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.signalr.v2020_05_01/azure-mgmt-signalr/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-sql | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-sql/1.36.0/jar/) |  |  |
+| azure-mgmt-sql | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-sql/1.36.1/jar/) |  |  |
 | azure-mgmt-sql.v2014_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.sql.v2014_04_01/azure-mgmt-sql/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-sql.v2015_05_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.sql.v2015_05_01_preview/azure-mgmt-sql/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-sql.v2017_03_01_preview | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.sql.v2017_03_01_preview/azure-mgmt-sql/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-sql.v2017_10_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.sql.v2017_10_01_preview/azure-mgmt-sql/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-sql.v2018_06_01_preview | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.sql.v2018_06_01_preview/azure-mgmt-sql/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-sqlvirtualmachine.v2017_03_01_preview | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.sqlvirtualmachine.v2017_03_01_preview/azure-mgmt-sqlvirtualmachine/1.0.0-beta-1/jar/) |  |  |
-| azure-mgmt-storage | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-storage/1.36.0/jar/) |  |  |
+| azure-mgmt-storage | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-storage/1.36.1/jar/) |  |  |
 | azure-mgmt-storage.v2016_01_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.storage.v2016_01_01/azure-mgmt-storage/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-storage.v2017_10_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.storage.v2017_10_01/azure-mgmt-storage/1.0.0-beta-1/jar/) |  |  |
 | azure-mgmt-storage.v2017_10_01 | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.storage-2017-10-01/azure-mgmt-storage/1.0.0-beta-1/jar/) |  |  |
@@ -478,13 +481,13 @@
 | azure-mgmt-support.v2020_04_01 | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.support.v2020_04_01/azure-mgmt-support/1.0.0/jar/) |  |  |
 | azure-mgmt-synapse.v2019_06_01_preview | maven [1.0.0-beta-2](https://search.maven.org/artifact/com.microsoft.azure.synapse.v2019_06_01_preview/azure-mgmt-synapse/1.0.0-beta-2/jar/) |  |  |
 | azure-mgmt-timeseriesinsights.v2017_11_15 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.timeseriesinsights.v2017_11_15/azure-mgmt-timeseriesinsights/1.0.0-beta/jar/) |  |  |
-| azure-mgmt-trafficmanager | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-trafficmanager/1.36.0/jar/) |  |  |
+| azure-mgmt-trafficmanager | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-trafficmanager/1.36.1/jar/) |  |  |
 | azure-mgmt-traffic-manager | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-traffic-manager/0.9.8/jar/) |  |  |
 | azure-mgmt-utility | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-utility/0.9.8/jar/) |  |  |
 | azure-mgmt-vmwarecloudsimple.v2019_04_01 | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.vmwarecloudsimple.v2019_04_01/azure-mgmt-vmwarecloudsimple/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-website | maven [1.0.0-beta1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-website/1.0.0-beta1/jar/) |  |  |
 | azure-mgmt-websites | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-websites/0.9.8/jar/) |  |  |
-| azure-parent | maven [1.36.0](https://search.maven.org/artifact/com.microsoft.azure/azure-parent/1.36.0/jar/) |  |  |
+| azure-parent | maven [1.36.1](https://search.maven.org/artifact/com.microsoft.azure/azure-parent/1.36.1/jar/) |  |  |
 | azure-profile-parent | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2018_03_01_hybrid/azure-profile-parent/1.0.0-beta-1/jar/) |  |  |
 | azure-profile-parent | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2019_03_01_hybrid/azure-profile-parent/1.0.0-beta-1/jar/) |  |  |
 | azure-relay | maven [0.0.3](https://search.maven.org/artifact/com.microsoft.azure/azure-relay/0.0.3/jar/) |  |  |
@@ -502,30 +505,30 @@
 | azure-search | maven [11.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-search/11.0.0-beta.1/jar/) |  |  |
 | azure-servicebus | maven [3.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus/3.4.0/jar/) |  |  |
 | azure-servicebus-jms | maven [0.0.4](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/0.0.4/jar/) |  |  |
-| azure-servicebus-jms-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms-spring-boot-starter/2.3.2/jar/) |  |  |
+| azure-servicebus-jms-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-servicebus-spring-boot-autoconfigure | maven [0.1.5](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-spring-boot-autoconfigure/0.1.5/jar/) |  |  |
 | azure-servicebus-spring-boot-starter | maven [2.2.5](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-spring-boot-starter/2.2.5/jar/) |  |  |
 | azure-serviceruntime | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-serviceruntime/0.9.8/jar/) |  |  |
 | azure-sfmesh-maven-plugin | maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-sfmesh-maven-plugin/0.1.0/jar/) |  |  |
 | azure-spark-archetype | maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spark-archetype/0.1.0/jar/) |  |  |
-| azure-spring-boot | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot/2.3.2/jar/) |  |  |
+| azure-spring-boot | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot/2.3.3/jar/) |  |  |
 | azure-spring-boot-bom | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-bom/2.3.2/jar/) |  |  |
 | azure-spring-boot-dependencies | maven [0.1.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-dependencies/0.1.2/jar/) |  |  |
-| azure-spring-boot-metrics-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-metrics-starter/2.3.2/jar/) |  |  |
+| azure-spring-boot-metrics-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-metrics-starter/2.3.3/jar/) |  |  |
 | azure-spring-boot-parent | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-parent/2.3.2/jar/) |  |  |
-| azure-spring-boot-starter | maven [2.3.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-starter/2.3.2/jar/) |  |  |
+| azure-spring-boot-starter | maven [2.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-starter/2.3.3/jar/) |  |  |
 | azure-spring-boot-starter-bom | maven [0.1.7](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-starter-bom/0.1.7/jar/) |  |  |
 | azure-spring-boot-starter-parent | maven [0.1.7](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-boot-starter-parent/0.1.7/jar/) |  |  |
-| azure-spring-cloud-maven-plugin | maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-cloud-maven-plugin/1.1.0/jar/) |  |  |
+| azure-spring-cloud-maven-plugin | maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-cloud-maven-plugin/1.2.0/jar/) |  |  |
 | azure-spring-common | maven [0.1.7](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-common/0.1.7/jar/) |  |  |
 | azure-sqldb-spark | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/azure-sqldb-spark/1.0.2/jar/) |  |  |
 | azure-storage | maven [8.6.5](https://search.maven.org/artifact/com.microsoft.azure/azure-storage/8.6.5/jar/) |  |  |
 | azure-storage-android | maven [2.0.0](https://search.maven.org/artifact/com.microsoft.azure.android/azure-storage-android/2.0.0/jar/) |  |  |
 | azure-storage-blob | maven [11.0.1](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-blob/11.0.1/jar/) |  |  |
-| azure-storage-blob-changefeed | maven [12.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-blob-changefeed/12.0.0-beta.1/jar/) |  |  |
-| azure-storage-blob-nio | maven [12.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-blob-nio/12.0.0-beta.1/jar/) |  |  |
+| azure-storage-blob-changefeed | maven [12.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-storage-blob-changefeed/12.0.0-beta.2/jar/) |  |  |
+| azure-storage-blob-nio | maven [12.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-storage-blob-nio/12.0.0-beta.2/jar/) |  |  |
 | azure-storage-file | maven [12.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-storage-file/12.0.0-preview.4/jar/) |  |  |
-| azure-storage-internal-avro | maven [12.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-internal-avro/12.0.0-beta.1/jar/) |  |  |
+| azure-storage-internal-avro | maven [12.0.0](https://search.maven.org/artifact/com.azure/azure-storage-internal-avro/12.0.0/jar/)<br>maven [12.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-storage-internal-avro/12.0.0-beta.1/jar/) |  |  |
 | azure-storage-java | maven [10](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-java/10/jar/) |  |  |
 | azure-storage-queue | maven [10.0.1-Preview](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-queue/10.0.1-Preview/jar/) |  |  |
 | azure-storage-queue-cryptography | maven [12.0.0-preview.4](https://search.maven.org/artifact/com.azure/azure-storage-queue-cryptography/12.0.0-preview.4/jar/) |  |  |
@@ -540,7 +543,7 @@
 | azure-svc-mgmt-sql | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-svc-mgmt-sql/0.9.8/jar/) |  |  |
 | azure-svc-mgmt-storage | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-svc-mgmt-storage/0.9.8/jar/) |  |  |
 | azure-svc-mgmt-websites | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-svc-mgmt-websites/0.9.8/jar/) |  |  |
-| azure-tools-common | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-tools-common/0.5.0/jar/) |  |  |
+| azure-tools-common | maven [0.6.0](https://search.maven.org/artifact/com.microsoft.azure/azure-tools-common/0.6.0/jar/) |  |  |
 | azure-tracing-util | maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-tracing-util/0.9.8/jar/) |  |  |
 | azure-webapp-maven-plugin | maven [1.9.1](https://search.maven.org/artifact/com.microsoft.azure/azure-webapp-maven-plugin/1.9.1/jar/) |  |  |
 | bundler-maven-plugin | maven [0.0.5](https://search.maven.org/artifact/com.microsoft.azure/bundler-maven-plugin/0.0.5/jar/) |  |  |
@@ -560,7 +563,7 @@
 | iot-deps-serializer | maven [0.3.3](https://search.maven.org/artifact/com.microsoft.azure/iot-deps-serializer/0.3.3/jar/) |  |  |
 | iot-deps-serializer | maven [0.7.6](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.deps/iot-deps-serializer/0.7.6/jar/) |  |  |
 | iot-device-client | maven [1.1.24](https://search.maven.org/artifact/com.microsoft.azure/iot-device-client/1.1.24/jar/) |  |  |
-| iot-device-client | maven [1.24.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.24.0/jar/) |  |  |
+| iot-device-client | maven [1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.25.0/jar/) |  |  |
 | iot-device-client-preview | maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client-preview/1.1.0/jar/) |  |  |
 | iothub-java-client | maven [1.0.0-preview.7](https://search.maven.org/artifact/com.microsoft.azure.iothub-java-client/iothub-java-client/1.0.0-preview.7/jar/) |  |  |
 | iothub-java-device-client | maven [1.0.16](https://search.maven.org/artifact/com.microsoft.azure.iothub-java-client/iothub-java-device-client/1.0.16/jar/) |  |  |
@@ -571,7 +574,7 @@
 | iothub-react_2.12 | maven [0.9.0](https://search.maven.org/artifact/com.microsoft.azure.iot/iothub-react_2.12/0.9.0/jar/) |  |  |
 | iothub-react_2.12.0-RC1 | maven [0.7.0](https://search.maven.org/artifact/com.microsoft.azure.iot/iothub-react_2.12.0-RC1/0.7.0/jar/) |  |  |
 | iot-service-client | maven [1.2.18](https://search.maven.org/artifact/com.microsoft.azure/iot-service-client/1.2.18/jar/) |  |  |
-| iot-service-client | maven [1.24.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.24.0/jar/) |  |  |
+| iot-service-client | maven [1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.25.0/jar/) |  |  |
 | iot-service-client-preview | maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client-preview/1.1.0/jar/) |  |  |
 | kusto-data | maven [2.1.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/2.1.1/jar/) |  |  |
 | kusto-ingest | maven [2.1.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/2.1.1/jar/) |  |  |
@@ -581,6 +584,7 @@
 | msal4j | maven [1.6.1](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.6.1/jar/) |  |  |
 | msal4j-persistence-extension | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j-persistence-extension/1.0.0/jar/) |  |  |
 | native-preview | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/native-preview/1.0.0/jar/) |  |  |
+| project | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft.azure.sessionmanager/project/1.0.0-beta.1/jar/) |  |  |
 | proton-j-azure-iot | maven [0.12.2](https://search.maven.org/artifact/com.microsoft.azure.iot/proton-j-azure-iot/0.12.2/jar/) |  |  |
 | proton-j-azure-iot-dev | maven [0.12.3](https://search.maven.org/artifact/com.microsoft.azure.iot/proton-j-azure-iot-dev/0.12.3/jar/) |  |  |
 | provisioning-device-client | maven [1.8.3](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-device-client/1.8.3/jar/) |  |  |
@@ -592,6 +596,9 @@
 | security-provider-preview | maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/security-provider-preview/1.0.1/jar/) |  |  |
 | service-bus-jms-connection-factory | maven [0.0.1](https://search.maven.org/artifact/com.microsoft.azure/service-bus-jms-connection-factory/0.0.1/jar/) |  |  |
 | services-preview | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/services-preview/1.0.0/jar/) |  |  |
+| sessionmanager | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft.azure.sessionmanager/sessionmanager/1.0.0-beta.1/jar/) |  |  |
+| sessionmanager-datastore-azurecacheforredis | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft.azure.sessionmanager/sessionmanager-datastore-azurecacheforredis/1.0.0-beta.1/jar/) |  |  |
+| sessionmanager-tomcat | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft.azure.sessionmanager/sessionmanager-tomcat/1.0.0-beta.1/jar/) |  |  |
 | spark-cdm-connector | maven [0.16](https://search.maven.org/artifact/com.microsoft.azure/spark-cdm-connector/0.16/jar/) |  |  |
 | spark-kusto-connector | maven [2.0.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/spark-kusto-connector/2.0.1/jar/) |  |  |
 | spark-streaming-eventhubs_2.10 | maven [1.6.3](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.10/1.6.3/jar/) |  |  |
