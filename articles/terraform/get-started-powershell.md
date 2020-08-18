@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform using Azure PowerShell
 description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 08/08/2020
+ms.date: 08/18/2020
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
@@ -112,7 +112,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     1. Call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
         ```powershell
-        $psCredential = Get-Credential
+        $spCredential = Get-Credential
         ```
 
     1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
