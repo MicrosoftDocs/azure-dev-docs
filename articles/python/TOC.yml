@@ -115,8 +115,6 @@
       items:
       - name: Authenticate apps with Azure
         href: azure-sdk-authenticate.md
-      - name: Manage service principals
-        href: how-to-manage-service-principals.md
       - name: Assign role permissions to security principals
         href: how-to-assign-role-permissions.md
     - name: Install packages

@@ -73,7 +73,7 @@ The Azure CLI normally maintains your sign-in across sessions, but it's a good p
 
 ## Configure authentication
 
-As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
+As described in [How to Authenticate apps](azure-sdk-authenticate.md#identity-when-running-locally), each developer needs a service principal to use as the application identity when testing app code locally.
 
 The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure libraries when needed.
 
@@ -127,7 +127,7 @@ Each developer in your organization should perform these steps individually.
 
     Furthermore, a development service principal is ideally authorized only for non-production resources, or is created within an Azure subscription that's used only for development purposes. The production application would then use a separate subscription and separate production resources that are authorized only for the deployed cloud application.
 
-1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
+1. To modify or delete service principals later on, see [Manage your service principals](azure-sdk-authenticate.md#manage-your-service-principals).
 
 #### What the create-for-rbac command does
 
