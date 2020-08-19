@@ -3,7 +3,7 @@ title: Tutorial - Scale Jenkins deployments with Azure VM agents
 description: Learn how to add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
-ms.date: 07/31/2018
+ms.date: 08/19/2020
 ms.custom: devx-track-jenkins
 ---
 
@@ -22,6 +22,10 @@ In this tutorial, you will:
 > * Run the job on an Azure VM agent
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
+
+## Prerequisites
+
+- **Jenkins installation**: If you don't have access to a Jenkins installation, [configure Jenkins using Azure CLI](configure-on-linux-vm.md)
 
 ## Install Azure VM Agents plugin
 
@@ -77,8 +81,6 @@ In this tutorial, you will:
     The completed service principal should use the `id` field for **Subscription ID**, the `appId` value for **Client ID**, `password` for **Client Secret**, and `tenant` for **Tenant ID**. Select **Add** to add the service principal and then configure the plugin to use the newly created credential.
 
     ![Configure Azure Service Principal](./media/scale-deployments-using-vm-agents/new-service-principal.png)
-
-    
 
 1. In the **Resource Group Name** section, leave **Create new** selected and enter `myJenkinsAgentGroup`.
 1. Select **Verify configuration** to connect to Azure to test the profile settings.
