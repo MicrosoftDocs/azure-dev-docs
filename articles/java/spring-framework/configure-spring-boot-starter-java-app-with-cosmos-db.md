@@ -85,7 +85,6 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-        <version>3.0.0-beta.1</version>
     </dependency>
     ```
 
