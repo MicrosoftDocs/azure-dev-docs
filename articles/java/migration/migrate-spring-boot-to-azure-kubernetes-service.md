@@ -84,12 +84,12 @@ Identify all identity providers and all Spring Boot applications that require au
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
-#### Resources configured through VMware Cloud Foundry (VCF)
+#### Resources configured through VMware Tanzu Application Service (TAS) (formerly Pivotal Cloud Foundry)
 
-For applications managed with VMware Cloud Foundry, external resources, including the resources described earlier, are often configured via VCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) view the `VCAP_SERVICES` variable for the application.
+For applications managed with TAS, external resources, including the resources described earlier, are often configured via TAS service bindings. To examine the configuration for such resources, use the [TAS (Cloud Foundry) CLI](https://docs.cloudfoundry.org/cf-cli/) to view the `VCAP_SERVICES` variable for the application.
 
 ```bash
-# Log into VCF, if needed (enter credentials when prompted)
+# Log into TAS, if needed (enter credentials when prompted)
 cf login -a <API endpoint>
 
 # Set the organization and space containing the application, if not already selected during login.
@@ -100,7 +100,7 @@ cf target space <Space Name>
 cf env <Application Name>
 ```
 
-Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see [VCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
+Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see the [TAS (Cloud Foundry) documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
 ### In-place testing
 
