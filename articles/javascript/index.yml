@@ -19,39 +19,39 @@ metadata:
   ms.devlang: javascript
 
 landingContent:
-  - title: Host a web application
+  - title: Hosting
     linkLists:
       - linkListType: tutorial
         links:
-          - text: (Preview) Static web applications with React
+          - text: Easy static React apps
             url: /azure/static-web-apps/getting-started?tabs=react
-          - text: Static web applications from Storage
+          - text: Host from Storage
             url: tutorial-vscode-static-website-node-01.md
-          - text: Node.js web applications with App service
+          - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
-          - text: Deno web applications with App Service
+          - text: Deno with App Service
             url: tutorial-vscode-azure-app-service-node-01.md
-          - text: Containerized Node.js application
+          - text: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
-          - text: JAMstack web applications
+          - text: JAMstack
             url: node-howto-create-static-site-jamstack.md
-  - title: Develop a serverless function
+  - title: Serverless functions
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Develop locally, deploy to Azure
+          - text: Develop and deploy
             url: tutorial-vscode-serverless-node-01.md
       - linkListType: how-to-guide
         links:
           - text: Write serverless code
             url: node-howto-write-serverless-code.md
-  - title: Storing data
+  - title: Data
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Migrate existing MongoDB to CosmosDB
+          - text: Migrate MongoDB to CosmosDB
             url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
           - text: Redis Cache
             url: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/developer/javascript/toc.json&bc=/
@@ -63,9 +63,9 @@ landingContent:
         links:
           - text: Single Sign-on (SSO) with Microsoft
             url: https://docs.microsoft.com/azure/active-directory/develop/
-          - text: Service Bus message queues
+          - text: Message queues
             url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package
-          - text: Monitor your Node.js application
+          - text: Logging from your Node.js application
             url: /azure/azure-monitor/learn/nodejs-quick-start
   - title: Use Azure client libraries (SDK)
     linkLists:
