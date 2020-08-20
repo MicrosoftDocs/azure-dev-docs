@@ -28,7 +28,7 @@ landingContent:
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
-            url: tutorial-vscode-azure-app-service-node-01.md
+            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
           - text: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
@@ -90,7 +90,7 @@ landingContent:
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
           - text: Windows Terminal
-            url: https://www.microsoft.comp/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
+            url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10
 
