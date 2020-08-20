@@ -23,10 +23,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Easy static React apps
-            url: /azure/static-web-apps/getting-started?tabs=react
-          - text: Host from Storage
-            url: tutorial-vscode-static-website-node-01.md
+          - text: Front-end apps
+            url: /azure/static-web-apps/getting-started.d
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
@@ -35,7 +33,7 @@ landingContent:
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
-          - text: JAMstack
+          - text: Full-stack (serverless APIs& front-end)
             url: node-howto-create-static-site-jamstack.md
   - title: Serverless functions
     linkLists:
@@ -51,12 +49,18 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Migrate MongoDB to CosmosDB
-            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+          - text: MongoDB
+            url: /azure/cosmos-db/create-mongodb-nodejs.md?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+          - text: MySql
+            url: /azure/mysql/connect-nodejs.md
+          - text: PostGres
+            url: /azure/postgresql/connect-nodejs.md
           - text: Redis Cache
-            url: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/developer/javascript/toc.json&bc=/
+            url: /azure/azure-cache-for-redis/cache-nodejs-get-started.md?toc=/azure/developer/javascript/toc.json&bc=/
+          - text: SQL
+            url: /azure/azure-sql/database/connect-query-nodejs.md
           - text: Store files
-            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs.md?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Security, Messaging, and Logs
     linkLists:
       - linkListType: quickstart
@@ -64,9 +68,9 @@ landingContent:
           - text: Single Sign-on (SSO) with Microsoft
             url: https://docs.microsoft.com/azure/active-directory/develop/
           - text: Message queues
-            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package
+            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md
           - text: Logging from your Node.js application
-            url: /azure/azure-monitor/learn/nodejs-quick-start
+            url: /azure/azure-monitor/learn/nodejs-quick-start.md
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
@@ -82,13 +86,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Visual Studio Code (IDE)
-            url: https://code.visualstudio.com/docs/languages/python
+            url: https://code.visualstudio.com/docs/languages/javascript
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
           - text: Windows Terminal
             url: https://www.microsoft.comp/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10
-          - text: Visual Studio
-            url: /visualstudio/ide/quickstart-nodejs?toc=%2Fvisualstudio%2Fjavascript%2Ftoc.json&view=vs-2019
 
