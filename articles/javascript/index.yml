@@ -24,7 +24,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Front-end apps
-            url: /azure/static-web-apps/getting-started.d
+            url: /azure/static-web-apps/getting-started.md
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
