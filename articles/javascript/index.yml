@@ -17,7 +17,7 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: javascript
-
+  ms.custom: 2020AugRedesign
 landingContent:
   - title: Hosting
     linkLists:
