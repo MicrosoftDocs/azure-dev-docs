@@ -61,6 +61,16 @@ landingContent:
             url: /azure/azure-sql/database/connect-query-nodejs.md
           - text: Store files
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs.md?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Cognitive Services
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Speech to text
+            url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
+          - text: Translate text
+            url: /azure/cognitive-services/translator/quickstart-translate.md?pivots=programming-language-javascript
+          - text: Detect objects in an image
+            url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library.md?pivots=programming-language-javascript
   - title: Security, Messaging, and Logs
     linkLists:
       - linkListType: quickstart
