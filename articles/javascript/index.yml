@@ -33,7 +33,7 @@ landingContent:
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
-          - text: Full-stack (serverless APIs& front-end)
+          - text: Full-stack (serverless APIs & front-end)
             url: node-howto-create-static-site-jamstack.md
   - title: Serverless functions
     linkLists:
