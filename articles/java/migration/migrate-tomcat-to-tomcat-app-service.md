@@ -48,7 +48,7 @@ To obtain the current version used by Azure App Service, download [Tomcat 9](htt
 <!-- App-Service-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into the App Service file system. For more information, see [Serve content from Azure Storage in App Service on Linux](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into the App Service file system. For more information, see [Serve content from Azure Storage in App Service on Linux](/azure/app-service/configure-connect-to-azure-storage).
 
 ### Identify session persistence mechanism
 
@@ -207,7 +207,7 @@ Now that you have your application migrated to Azure App Service you should veri
 
 ### Recommendations
 
-* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
 
 * If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 

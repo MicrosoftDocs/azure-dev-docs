@@ -263,7 +263,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service/tutorial-custom-container
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
