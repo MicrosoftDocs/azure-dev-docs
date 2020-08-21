@@ -119,7 +119,7 @@ The following steps walk you through building a Spring Boot web application and 
    <properties>
       <!-- Note: If your ACR name contains upper case characters, be sure to convert them to lower case characters. -->
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>2.4.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.5.2</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
@@ -315,7 +315,7 @@ For more information about iteratively running and debugging containers directly
 [Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service/tutorial-custom-container
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/

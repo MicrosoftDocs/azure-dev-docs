@@ -148,7 +148,7 @@ uses for authenticating and accessing Azure resources.
 
 ## Create service principal
 
-In a later section, you create a Jenkins pipeline job that builds your app from GitHub and deploys your app to Azure App Service. To have Jenkins access Azure without entering your credentials, you need a [service principal](/active-directory/develop/app-objects-and-service-principals)). If you already have a service principal you can use for this article, you can skip this section.
+In a later section, you create a Jenkins pipeline job that builds your app from GitHub and deploys your app to Azure App Service. To have Jenkins access Azure without entering your credentials, you need a [service principal](/azure/active-directory/develop/app-objects-and-service-principals)). If you already have a service principal you can use for this article, you can skip this section.
 
 To create this service principal, run the Azure CLI command [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac).
 

@@ -111,7 +111,7 @@ The following prerequisites are required in order to complete the steps in this 
 
     ![Edit Reply URLs][create-app-registration-09]
 
-1. Enter <http:<span></span>//localhost:8080/login/oauth2/code/azure> as a new **Redirect URI**, and then click **Configure**.
+1. Enter 'http://localhost:8080/login/oauth2/code/azure' as a new **Redirect URI**, and then click **Configure**.
 
     ![Add new Reply URL][create-app-registration-10]
 
