@@ -57,7 +57,7 @@ landingContent:
             url: /azure/postgresql/connect-nodejs.md
           - text: Redis Cache
             url: /azure/azure-cache-for-redis/cache-nodejs-get-started.md?toc=/azure/developer/javascript/toc.json&bc=/
-          - text: SQL
+          - text: SQL Server
             url: /azure/azure-sql/database/connect-query-nodejs.md
           - text: Store files
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs.md?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
@@ -75,7 +75,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Single Sign-on (SSO)
+          - text: Authentication
             url: /azure/active-directory/develop/quickstart-v2-javascript.md
           - text: Message queues
             url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md
