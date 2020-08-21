@@ -3,7 +3,7 @@ title: Quickstart - Configure Jenkins using Azure CLI
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.custom: devx-track-jenkins
 ---
 
@@ -17,7 +17,7 @@ In this quickstart, you'll complete these tasks:
 > * Create a setup file that downloads and installs Jenkins
 > * Create a resource group
 > * Create a virtual machine with the setup file
-> * Open port 8080 so that you can SSH into the virtual machine
+> * Open port 8080 in order to access Jenkins on the virtual machine
 > * Connect to the virtual machine via SSH
 > * Configure a sample Jenkins job based on a sample Java app in GitHub
 > * Build the sample Jenkins job
@@ -83,7 +83,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     az vm list -d -o table --query "[?name=='QuickstartJenkins-vm']"
     ```
 
-1. Open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
+1. By default, Jenkins runs on port 8080. Therefore, open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
 
     ```azurecli
     az vm open-port \
