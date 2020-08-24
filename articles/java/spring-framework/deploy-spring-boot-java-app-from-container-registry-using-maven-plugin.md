@@ -147,7 +147,7 @@ Without any authentication parameters, password-based authentication is used wit
 
 1. Retrieve the password for your container registry:
    ```azurecli
-   az acr credential show --name wingtiptoysregistry --query passwords[0]
+   az acr credential show --name wingtiptoysregistry --resource-group wingtiptoysresources "passwords[0].value"
    ```
    Azure will respond with your password; for example:
    ```json
