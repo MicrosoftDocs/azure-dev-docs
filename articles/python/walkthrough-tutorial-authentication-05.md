@@ -38,10 +38,10 @@ The app code depends on four environment variables:
 
 | Variable | Value |
 | --- | --- |
-| THIRD_PARTY_API_ENDPOINT | The URL of the third-party API, such as `https://msdocs-api-example.azurewebsites.net/api/RandomNumber` described earlier. |
+| THIRD_PARTY_API_ENDPOINT | The URL of the third-party API, such as `https://msdocs-api-example.azurewebsites.net/api/RandomNumber` described in [Part 3](walkthrough-tutorial-authentication-03.md). |
 | KEY_VAULT_URL | The URL of the Azure Key Vault in which you've stored the access key for the third-party API. |
 | THIRD_PARTY_API_SECRET_NAME | The name of the secret in Key Vault that contains the access key for the third-party API. |
-| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that's been configured in Azure, such as `https://msdocsmainappexample.queue.core.windows.net/code-requests`. Because the queue name is in included at the end of the URL, you don't see that name anywhere in the code. |
+| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that's been configured in Azure, such as `https://msdocsmainappexample.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is in included at the end of the URL, you don't see the name anywhere in the code. |
 
 When running the locally, you create these variables within whatever command shell you're using. If you deploy the app to a virtual machine, you would create similar server-side variables.
 

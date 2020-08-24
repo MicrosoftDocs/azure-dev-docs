@@ -82,7 +82,19 @@ One piece of the implementation that becomes easier is authenticating with Queue
 
 ## Next steps
 
-- Review [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md)
-- Explore the sample: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication)
+Through this example, you've learned how apps authenticate with other Azure services, and how apps can use Azure Key Vault to store any other necessary secrets for third-party APIs.
+
+The same pattern demonstrated here with Azure Key Vault and Azure Storage applies with all other Azure services. The crucial step is that you set the correct role permissions for the app within that service's page on the Azure portal, or through the Azure CLI. (See [How to assign role permissions](how-to-assign-role-permissions.md)). Be sure to check the service documentation to learn whether you need to configure any other access policies.
+
+Always remember that you need to assign the same roles and access policies to any service principal you're using for local development.
+
+In short, having completed this walkthrough, you can apply your knowledge to any number of other Azure services and any number of other external services.
+
+One subject that we haven't touched upon here is authentication of *users*. To explore this area for web apps, begin with [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/tutorial-auth-aad?pivots=platform-linux).
+
+## See also
+
+- [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md)
+- Walkthrough sample: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication)
 - [Azure Active Directory documentation](/azure/active-directory)
 - [Azure Key Vault documentation](/azure/key-vault)

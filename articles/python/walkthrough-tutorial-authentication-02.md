@@ -33,7 +33,15 @@ This integration means that you need never handle any Azure-related credentials 
 
 Managed identity specifically works with apps that are deployed to Azure. For local development, you create a separate service principal to serve as the app identity when running locally. You make this service principal available to the Azure libraries using environment variables as described on [Configure your local development environment - configure authentication](configure-local-development-environment.md#configure-authentication). You also assign role permissions to this service principal alongside the managed identity used in the cloud.
 
-Once you do these steps for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](azure-sdk-authenticate.md). In your code, you create a `DefaultAzureCredential` object that automatically uses your managed identity when running on Azure and your separate service principal when running locally. You use this credential when you create the appropriate client object for whatever resource you want to access (Key Vault, Queue Storage, etc.). Authentication then takes place when you call an operation method through the client object, which generates a REST API call to the resource. If the app identity is valid, then Azure also checks whether that identity is also authorized for the specific operation.
+Once you do these steps for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](azure-sdk-authenticate.md), but the short version is as follows:
+
+1. In your code, create a `DefaultAzureCredential` object that automatically uses your managed identity when running on Azure and your separate service principal when running locally.
+
+1. Use this credential when you create the appropriate client object for whatever resource you want to access (Key Vault, Queue Storage, etc.).
+
+1. Authentication then takes place when you call an operation method through the client object, which generates a REST API call to the resource.
+
+1. If the app identity is valid, then Azure also checks whether that identity is also authorized for the specific operation.
 
 The remainder of this tutorial demonstrates all the details of the process in the context of the example scenario and the accompanying sample code.
 
