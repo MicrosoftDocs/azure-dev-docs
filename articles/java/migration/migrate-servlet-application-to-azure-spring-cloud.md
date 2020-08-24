@@ -115,7 +115,7 @@ The following table shows a summary of necessary migrations and code changes to 
 
     Although this is formerly a tomcat application, do not add `war` as target packaging.
 
-1. Replace Tomcat data sources with Spring datasources. [Configure Spring Datasources](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-a-datasource) for all the databases used by the application. If any code executes direct SQL queries, modify it to [use JdbcTemplate](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template). See the [Spring Framework documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc) and [Spring Data documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for additional data access features, such as transaction management and CRUD tooling.
+1. Replace Tomcat data sources with Spring data sources. [Configure Spring DataSources](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-a-datasource) for all the databases used by the application. If any code executes direct SQL queries, modify it to [use JdbcTemplate](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template). See the [Spring Framework documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc) and [Spring Data documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for additional data access features, such as transaction management and CRUD tooling.
 
 1. While it is possible to have servlet implementations inside an [embedded servlet container](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container), we do not recommend doing so. Instead, replace [servlet implementations](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) with Spring [Rest controllers](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller). If your application uses a non-Spring MVC framework, replace it with Spring MVC. See [Spring MVC annotated controller reference](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web.html#mvc-controller) for more information.
 
@@ -127,6 +127,8 @@ The following table shows a summary of necessary migrations and code changes to 
 
 Test the application by running `mvn spring-boot:run`. Verify that the resulting application runs with full functionality before proceeding.
 
-### Migrate to Azure Spring Cloud
+[!INCLUDE [migrate-steps-spring-boot-azure-spring-cloud](includes/migrate-steps-spring-boot-azure-spring-cloud.md)]
 
-Follow the [Spring Boot to Spring Cloud Migration Guide](migrate-spring-boot-to-azure-spring-cloud.md#migration) to migrate the resulting Spring Boot application to Azure Spring Cloud.
+## Post-migration
+
+[!INCLUDE [post-migration-spring-boot-azure-spring-cloud](includes/post-migration-spring-boot-azure-spring-cloud.md)]
