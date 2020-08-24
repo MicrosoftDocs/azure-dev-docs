@@ -42,7 +42,7 @@ To understand Azure's authentication process more deeply, consider the following
 
 - Before returning its response, the API writes a message to an Azure Storage Queue for later processing. (The specific processing of these messages is not relevant to the main scenario.)
 
-![Diagram of the application scenario](media/azure-sdk-authentication-walkthrough/scenario-diagram.png)
+![Diagram of the application scenario](media/walkthrough-tutorial-authentication/scenario-diagram.png)
 
 > [!NOTE]
 > Although a public API endpoint is usually protected by its own access key, for the purposes of this article we assume the endpoint is open and unauthenticated. This assumption avoids any confusion between the app's authentication needs with those of an *external* caller of this endpoint. This scenario doesn't demonstrate such an external caller.

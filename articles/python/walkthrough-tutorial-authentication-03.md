@@ -44,7 +44,7 @@ To deploy the code, the sample's provisioning script performs the following step
 
 1. Assign the access key, `d0c5atM1cr0s0ft`, to the function. (See [Securing Azure Functions](/azure/azure-functions/security-concepts) for a background on function keys.)
 
-    In the provisioning script, this step is accomplished through a REST API call to the [Functions Key Management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) because the Azure CLI doesn't presently support this particular features. To call that REST API, the provisioning script must first use another REST API call to retrieve the Function app's master key.
+    In the provisioning script, this step is accomplished through a REST API call to the [Functions Key Management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) because the Azure CLI doesn't presently support this particular feature. To call that REST API, the provisioning script must first use another REST API call to retrieve the Function app's master key.
 
     You can also assign access keys through the [Azure portal](https://portal.azure.com). On the page for the Functions app, select **Functions**, then select the specific function to secure (which is named `RandomNumber` in this example). On the function's page, select **Function Keys** to open the page where you can create and manage these keys.
 

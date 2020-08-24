@@ -20,9 +20,9 @@ The sample's provisioning script performs the following steps:
 1. Create the App Service host and deploy the code with the Azure CLI command, [`az webapp up`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-up).
 1. Provision an Azure Storage account for the main app (using [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)).
 1. Create a Queue in the storage account named "code-requests" (using [`az storage queue create`](/cli/azure/storage/queue?view=azure-cli-latest#az-storage-queue-create)).
-1. To ensure that the app is allowed to write to the queue, use [`az role assignment create`](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign the "Storage Queue Data Contributor" role to the app. For more details about roles, see [How to assign role permissions](how-to-assign-role-permissions.md).
+1. To ensure that the app is allowed to write to the queue, use [`az role assignment create`](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign the "Storage Queue Data Contributor" role to the app. For more information about roles, see [How to assign role permissions](how-to-assign-role-permissions.md).
 
-The main app code is as follows; explanation of important details are given in the next parts of this series.
+The main app code is as follows; explanations of important details are given in the next parts of this series.
 
 ```python
 from flask import Flask, request, jsonify
