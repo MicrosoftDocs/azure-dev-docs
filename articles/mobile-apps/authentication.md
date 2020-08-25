@@ -47,7 +47,7 @@ Use the following services to enable user authentication in your mobile apps.
 
 - Seamless, highly secure access by connecting users to the applications they need.
 - Comprehensive identity protection and enhanced security for identities and access based on user, location, device, data, and application context.
-- Thousands of pre-integrated apps for both commercial and custom applications, such as Office 365, Salesforce.com, and Box.
+- Thousands of pre-integrated apps for both commercial and custom applications, such as Microsoft 365, Salesforce.com, and Box.
 - Ability to manage access at scale.
 
 ### Azure Active Directory references
