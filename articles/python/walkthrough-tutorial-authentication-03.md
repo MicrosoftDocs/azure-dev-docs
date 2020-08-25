@@ -3,6 +3,7 @@ title: "Walkthrough, Part 3: Authenticate Python apps with Azure services"
 description: An examination of the example third-party API implementation using Azure Functions and how the endpoint is secured with an access key.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Part 3: Example third-party API implementation

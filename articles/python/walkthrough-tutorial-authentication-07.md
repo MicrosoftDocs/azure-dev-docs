@@ -3,6 +3,7 @@ title: "Walkthrough, Part 7: Authenticate Python apps with Azure services"
 description: An examination of the code for the main app API endpoint, which uses the third-party API endpoint and writes a message to Azure Queue Storage.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Part 7: Main application API endpoint

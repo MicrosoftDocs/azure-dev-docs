@@ -3,6 +3,7 @@ title: "Walkthrough: Authenticate Python apps with Azure services"
 description: A detailed walkthrough of how to authenticate a Python app with Azure Active Directory, Azure Key Vault, and Azure Queue Storage by using the Azure Python SDK azure-identity library.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Walkthrough: Integrated authentication for Python apps with Azure services

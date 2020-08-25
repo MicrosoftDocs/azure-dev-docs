@@ -3,6 +3,7 @@ title: "Walkthrough, Part 2: Authenticate Python apps with Azure services"
 description: A discussion of the different authentication needs and challenges in the example scenario, and how those challenges are met with Azure integrated authentication.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Part 2: Authentication needs in the scenario

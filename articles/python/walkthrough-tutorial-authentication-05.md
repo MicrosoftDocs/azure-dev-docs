@@ -3,6 +3,7 @@ title: "Walkthrough, Part 5: Authenticate Python apps with Azure services"
 description: A discussion of the main app's dependencies (mainly Azure SDK libraries), the necessary import statements, and the environment variables it expects to have set.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Part 5: Main app dependencies, import statements, and environment variables

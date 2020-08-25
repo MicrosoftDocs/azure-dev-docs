@@ -3,6 +3,7 @@ title: "Walkthrough, Part 4: Authenticate Python apps with Azure services"
 description: An overview of the main app's implementation, including all its code.
 ms.date: 08/24/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # Part 4: Example main application implementation
