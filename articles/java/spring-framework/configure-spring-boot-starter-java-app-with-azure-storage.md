@@ -101,7 +101,7 @@ The following procedure configures the Spring boot application to use Azure stor
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>spring-starter-azure-storage</artifactId>
-      <version>1.2.5</version>
+      <version>1.2.7</version>
    </dependency>
    ```
 
