@@ -40,7 +40,7 @@ Use the following services to enable user authentication in your mobile apps.
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is Microsoft's cloud-based identity and access management service, which helps your employees to sign in and gain access to:
 
-- External resources, such as Microsoft Office 365, the Azure portal, and thousands of other software as a service (SaaS) applications.
+- External resources, such as Microsoft 365, the Azure portal, and thousands of other software as a service (SaaS) applications.
 - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
 
 ### Azure Active Directory features
