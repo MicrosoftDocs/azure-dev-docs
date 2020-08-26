@@ -93,13 +93,15 @@ Spring Boot and Spring Cloud require Maven or Gradle for building and/or depende
 
 The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Cloud. If any element in the Legacy column is used in the application, it should be replaced with the corresponding element in the Minimum or, ideally, Recommended column.
 
-|Legacy    |Minimum    |Recommended|
-|---|---|---|
-|[JDBC via DataSource](https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html)|[Spring Data Datasource](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-sql) with [JDBC Template](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template)|Consider Spring Data and JPA, if appropriate.|
-|Servlets |Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and annotate with `@WebServlet`|Rewrite as [Spring-MVC Controllers (with `@RestController`](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller))
-|Filters | Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and [annotate with `@WebFilter`](https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebFilter.html) |Same as Minimum|
-|Java Server Pages (JSPs) |[JSP Views for Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp)|Host the view layer separately|
-|Java Message Service (JMS)|Instantiate connection factory as a [Spring Bean](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection)|Use [Spring JMS](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jms-using)
+|Legacy | Where to check |Minimum migration |Recommended migration|
+|---|---|---|---|
+|[JDBC via DataSource](https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html)|`server.xml`|[Spring Data Datasource](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-sql) with [JDBC Template](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template)|Consider Spring Data and JPA, if appropriate.|
+|Servlets |`web.xml`|Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and annotate with `@WebServlet`|Rewrite as [Spring-MVC Controllers (with `@RestController`](https://spring.io/guides/gs/rest-service/#_create_a_resource_controller))
+|Filters |`web.xml`| Enable [Servlet Context Initialization](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/spring-boot-features.html#boot-features-embedded-container-context-initializer) and [annotate with `@WebFilter`](https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebFilter.html) |Same as Minimum|
+|Java Server Pages (JSPs)|`web.xml` and WAR file contents|[JSP Views for Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-view-jsp)|Host the view layer separately|
+|Java Message Service (JMS)|`server.xml`|Instantiate connection factory as a [Spring Bean](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-spring-beans-and-dependency-injection)|Use [Spring JMS](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jms-using)
+|Static content (images, JavaScript files, etc) inside the WAR file|static content directory (typically `/static`, `/public`, or `/resources`)|Move content to `/src/main/resources`|See [static content recommendations in Pre-migration](#read-only-static-content).
+|Static content (images, JavaScript files, etc) outside the WAR file|A path on the local file system|Move content to `/src/main/resources`. Search source code for hard-coded paths and replace with [ClassPathResource](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ClassPathResource.html) |See [static content recommendations in Pre-migration](#read-only-static-content).
 
 1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
 
@@ -125,6 +127,8 @@ The following table shows a summary of necessary migrations and code changes to 
 1. Replace Tomcat Realms with [Spring Security](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-filters-review). Consider using Azure Active Directory for authorization management via the [Spring Boot Starter for Active Directory](/azure/developer/java/spring-framework/spring-boot-starters-for-azure#azure-active-directory).
 
 1. Recreate Servlet filters configured in `web.xml` with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
+
+1. If the application contains or references static content, such as images or JavaScript files, these files should be moved to `src/main/resources` in the project source code. After moving the files, update the source code to remove any local file system references. Use Spring's `ClassPathResource` class to access such files.
 
 Test the application by running `mvn spring-boot:run`. Verify that the resulting application runs with full functionality before proceeding.
 
