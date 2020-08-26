@@ -84,7 +84,7 @@ Use the following grid to identify potential destinations for your application t
 | Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
 | Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
-| VNet Integration/Hybrid Connectivity                              |Preview |Preview |        |&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|Preview |&#x2714;|&#x2714;|
 | Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
