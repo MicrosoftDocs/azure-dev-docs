@@ -39,8 +39,6 @@ To obtain the current version used by Azure App Service, download [Tomcat 9](htt
 
 [!INCLUDE [inventory-secrets](includes/inventory-secrets.md)]
 
-### Inventory certificates
-
 [!INCLUDE [inventory-certificates](includes/inventory-certificates.md)]
 
 [!INCLUDE [determine-whether-and-how-the-file-system-is-used](includes/determine-whether-and-how-the-file-system-is-used.md)]
@@ -57,6 +55,10 @@ To identify the session persistence manager in use, inspect the *context.xml* fi
 Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
 If session persistence is required, you'll need to use an alternate `PersistentManager` implementation that will write to an external data store, such as VMware Tanzu Session Manager with Redis Cache. For more information, see [Use Redis as a session cache with Tomcat](/azure/app-service/containers/configure-language-java#use-redis-as-a-session-cache-with-tomcat).
+
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 ### Special cases
 
@@ -77,10 +79,6 @@ Inventory any scheduled jobs, inside or outside the application server.
 [Tomcat clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, you can configure and manage scaling and load balancing through Azure App Service without Tomcat-specific functionality. You can persist session state to an alternate location to make it available across replicas. For more information, see [Identify session persistence mechanism](#identify-session-persistence-mechanism).
 
 To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
-
-#### Identify all outside processes/daemons running on the production server(s)
-
-You'll need to migrate elsewhere or eliminate any processes running outside of Application Server, such as monitoring daemons.
 
 #### Determine whether non-HTTP connectors are used
 
