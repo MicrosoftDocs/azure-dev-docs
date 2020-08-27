@@ -12,19 +12,21 @@ Now that you've completed your migration, verify that your application works as 
 
 * Consider adding a Spring Cloud Config server to centrally manage and version-control configuration for all your Spring Cloud microservices. First, create a Git repository to house the configuration and configure the Azure Spring Cloud instance to use it. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server). Then, migrate your configuration using the following steps:
 
-  1. Create a directory in the configuration Git repository with the same name as the application you defined on the Azure Spring Cloud instance.
+  1. Inside the application's `src/main/resources` directory, create a `bootstrap.yml` file with the following contents:
 
-  1. Inside this directory, create a *bootstrap.yml* file with the following contents:
+  ```yml
+    spring:
+      application:
+        name: <your-application-name>
+    ```
 
-     ```yml
-     spring:
-       application:
-         name: <Your the application name used in the previous step>
-     ```
+  1. In the configuration Git repository, create an `<your-application-name>.yml` file, where `your-application-name` is the same as in the preceding step. Move the settings from `application.yml` file in `src/main/resources` to the new file you just created. If the settings were previously in a *.properties* file, they will need to be converted to YAML. You can find online tools or IntelliJ plugins to perform such conversions.
 
-  1. Create an *application.yml* file inside the directory above, and then move the application settings there. If the settings were previously in a *.properties* file, they will need to be converted to YAML.
+  1. Create an application.yml file in the directory above. You can use this file to define settings and resources that will be shared among all applications on the Azure Spring Cloud instance. Such settings typically include data sources, logging settings, Spring Boot Actuator configuration, and others.
 
   1. Commit and push these changes to the Git repository.
+
+  1. Remove the `application.properties` or `application.yml` file from the application.
 
 * Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
