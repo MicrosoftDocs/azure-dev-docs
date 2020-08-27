@@ -14,11 +14,11 @@ Now that you've completed your migration, verify that your application works as 
 
   1. Inside the application's `src/main/resources` directory, create a `bootstrap.yml` file with the following contents:
 
-  ```yml
-    spring:
-      application:
-        name: <your-application-name>
-    ```
+        ```yml
+          spring:
+            application:
+              name: <your-application-name>
+        ```
 
   1. In the configuration Git repository, create an `<your-application-name>.yml` file, where `your-application-name` is the same as in the preceding step. Move the settings from `application.yml` file in `src/main/resources` to the new file you just created. If the settings were previously in a *.properties* file, they will need to be converted to YAML. You can find online tools or IntelliJ plugins to perform such conversions.
 
