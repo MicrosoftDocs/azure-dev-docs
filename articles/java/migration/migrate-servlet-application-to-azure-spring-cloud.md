@@ -77,7 +77,7 @@ Inspect the *web.xml* file in the application for any `<filter>` elements. For a
 
 ### Remove connection to web server, if present
 
-If Tomcat is connected to a static web server, typically to Apache via `mod_jk`, disable that connection so that Tomcat runs as a standalone server, creating web redirects from the standard server as needed. Consider migrating static web content to [Azure Storage](/azure/storage/blobs/storage-blob-static-website) with [CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
+If Tomcat is connected to a static web server, typically to Apache via `mod_jk`, disable that connection so that Tomcat runs as a standalone server, creating web redirects from the standard server as needed. Consider migrating static web content to Azure Storage with Azure Content Delivery Network (CDN). For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) and [Quickstart: Integrate an Azure Storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 ### Update to Tomcat 9
 
