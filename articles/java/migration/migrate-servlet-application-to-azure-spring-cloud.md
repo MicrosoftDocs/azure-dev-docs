@@ -71,7 +71,7 @@ On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. I
 
 #### Determine whether servlet filters are used
 
-Inspect the `web.xml` in the application for any `<filter>` elements. See the [Tomcat filter documentation](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html) for a list of available filters.
+Inspect the *web.xml* file in the application for any `<filter>` elements. For a list of available filters, see the [Tomcat filter documentation](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html).
 
 ## Migration
 
