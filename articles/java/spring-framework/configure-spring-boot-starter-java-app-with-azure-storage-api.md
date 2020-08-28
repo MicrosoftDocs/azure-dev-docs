@@ -26,6 +26,11 @@ The following prerequisites are required in order to follow the steps in this ar
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 
+    > [!WARNING]
+    >
+    > For Spring Boot 2.3.0 or higher, please follow this article: [How to use the Spring Boot Starter for Azure Storage](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage)
+    >
+
 ## Create a custom application using the Spring Initializr
 
 1. Browse to <https://start.spring.io/>.
