@@ -128,7 +128,7 @@ The following table shows a summary of necessary migrations and code changes to 
 
 1. Recreate Servlet filters configured in *web.xml* with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
 
-1. If the application contains or references static content, such as images or JavaScript files, these files should be moved to `src/main/resources` in the project source code. After moving the files, update the source code to remove any local file system references. Use Spring's `ClassPathResource` class to access such files.
+1. If the application contains or references static content, such as images or JavaScript files, these files should be moved to *src/main/resources* in the project source code. After moving the files, update the source code to remove any local file system references. Use Spring's `ClassPathResource` class to access such files.
 
 Test the application by running `mvn spring-boot:run`. Verify that the resulting application runs with full functionality before proceeding.
 
