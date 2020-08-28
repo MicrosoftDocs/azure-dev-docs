@@ -105,7 +105,7 @@ The following table shows a summary of necessary migrations and code changes to 
 
 1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
 
-1. Add the Spring Boot parent POM your POM file as [shown here](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-pom).
+1. Add the Spring Boot parent POM to your POM file. For more information, see [Creating the POM](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-pom) in the Spring Boot documentation.
 
 1. Add the Spring Boot Tomcat starter as a dependency to your POM file:
 
