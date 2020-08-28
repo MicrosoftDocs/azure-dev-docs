@@ -103,7 +103,7 @@ The following table shows a summary of necessary migrations and code changes to 
 |Static content (images, JavaScript files, etc) inside the WAR file|static content directory (typically `/static`, `/public`, or `/resources`)|Move content to `/src/main/resources`|See [static content recommendations in Pre-migration](#read-only-static-content).
 |Static content (images, JavaScript files, etc) outside the WAR file|A path on the local file system|Move content to `/src/main/resources`. Search source code for hard-coded paths and replace with [ClassPathResource](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ClassPathResource.html) |See [static content recommendations in Pre-migration](#read-only-static-content).
 
-1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the `tomcat/lib` directory), and verify that the application runs with full functionality before proceeding.
+1. If your application relies on libraries injected via JNDI resources (such as JDBC drivers), add these libraries as dependencies into your POM file. Remove the libraries from the Tomcat server (typically from the *tomcat/lib* directory), and verify that the application runs with full functionality before proceeding.
 
 1. Add the Spring Boot parent POM to your POM file. For more information, see [Creating the POM](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-pom) in the Spring Boot documentation.
 
