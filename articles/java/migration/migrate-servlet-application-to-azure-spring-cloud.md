@@ -81,7 +81,7 @@ If Tomcat is connected to a static web server, typically to Apache via `mod_jk`,
 
 ### Update to Tomcat 9
 
-If your current application is running on version of Tomcat prior to 9, migrate to Tomcat 9 and verify the application is fully functional. Consult the [Tomcat 9 Migration Guide](http://tomcat.apache.org/migration-9.html) for more information.
+If your current application is running on a version of Tomcat prior to 9, migrate to Tomcat 9 and verify that the application is fully functional. For more information, see the [Tomcat 9 Migration Guide](http://tomcat.apache.org/migration-9.html).
 
 ### Switch to Maven or Gradle
 
