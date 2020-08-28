@@ -51,7 +51,7 @@ Certain production scenarios may require additional changes or impose additional
 
 #### Determine if the application uses filters
 
-Inspect the application's `web.xml` for any [configured filters](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#Expires_Filter/Basic_configuration_sample).
+Inspect the application's *web.xml* file for any [configured filters](https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#Expires_Filter/Basic_configuration_sample).
 
 [!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud](includes/determine-whether-your-application-relies-on-scheduled-jobs-azure-spring-cloud.md)]
 
