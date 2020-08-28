@@ -85,7 +85,7 @@ If your current application is running on a version of Tomcat prior to 9, migrat
 
 ### Switch to Maven or Gradle
 
-Spring Boot and Spring Cloud require Maven or Gradle for building and/or dependency management. If your application uses another build and/or dependency management system, switch to [the current version of Maven](https://maven.apache.org/download.cgi) before proceeding. While Gradle is also supported, we will use Maven throughout the steps of this guide. Should you decide to use Gradle, adapt the instructions accordingly.
+Spring Boot and Spring Cloud require Maven or Gradle for build and dependency management. If your application uses another build or dependency management system, switch to the current version of [Maven](https://maven.apache.org/download.cgi) before proceeding. While Gradle is also supported, we will use Maven throughout the steps of this guide. Should you decide to use Gradle, adapt the instructions accordingly.
 
 [Create a POM file](https://maven.apache.org/pom.html) for your application, and make sure the application builds and runs with full functionality before proceeding.
 
