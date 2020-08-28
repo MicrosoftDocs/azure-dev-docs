@@ -168,4 +168,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [14]: migrate-spring-boot-to-azure-kubernetes-service.md
 [15]: migrate-spring-cloud-to-azure-spring-cloud.md
 [16]: migrate-spring-boot-to-azure-spring-cloud.md
-[17]: migrate-servlet-application-to-azure-spring-cloud.md
+[17]: migrate-tomcat-to-azure-spring-cloud.md
