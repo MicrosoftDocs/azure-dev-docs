@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 6/16/2020
 ---
 
-# Migrate Tomcat Application to Azure Spring Cloud
+# Migrate a Tomcat application to Azure Spring Cloud
 
 This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Spring Cloud.
 
