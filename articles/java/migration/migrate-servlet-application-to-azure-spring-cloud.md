@@ -116,7 +116,7 @@ The following table shows a summary of necessary migrations and code changes to 
     </dependency>
     ```
 
-    Although this is formerly a tomcat application, do not add `war` as target packaging.
+    Although this is formerly a Tomcat application, do not add `war` as target packaging.
 
 1. Replace Tomcat data sources with Spring data sources. [Configure Spring DataSources](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-a-datasource) for all the databases used by the application. If any code executes direct SQL queries, modify it to [use JdbcTemplate](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-using-jdbc-template). See the [Spring Framework documentation](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc) and [Spring Data documentation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#reference) for additional data access features, such as transaction management and CRUD tooling.
 
