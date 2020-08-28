@@ -67,7 +67,7 @@ On Azure Spring Cloud, the SSL session will terminate prior to reaching your app
 
 #### Determine whether Tomcat realms are used
 
-On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. Inspect your `server.xml` file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
+On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. Inspect your *server.xml* file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
 
 #### Determine whether servlet filters are used
 
