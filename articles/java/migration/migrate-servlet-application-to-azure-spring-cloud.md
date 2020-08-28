@@ -43,7 +43,7 @@ Check all properties and configuration files on the production server(s) for any
 
 ### Determine if Tomcat is connected to a web server
 
-Tomcat can be connected to a static web server, such as Apache, via a tomcat connector, such as `mod_jk`. Inspect the `workers.properties` file in the `conf` directory to determine if such a connection exists.
+Tomcat can be connected to a static web server, such as Apache, via a tomcat connector, such as `mod_jk`. Inspect the `workers.properties` file in the `conf` directory to determine whether such a connection exists.
 
 ### Special cases
 
