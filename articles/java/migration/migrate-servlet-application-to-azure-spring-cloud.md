@@ -57,7 +57,7 @@ Inspect the application's `web.xml` for any [configured filters](https://tomcat.
 
 #### Determine whether non-HTTP connectors are used
 
-Azure Spring Cloud supports only a HTTP connections on a single, non-customizable HTTP ports. If your application requires additional ports or additional protocols, do not use Azure Spring Cloud.
+Azure Spring Cloud supports only HTTP connections on a single, non-customizable HTTP port. If your application requires additional ports or additional protocols, do not use Azure Spring Cloud.
 
 To identify HTTP connectors used by your application, look for `<Connector>` elements inside the *server.xml* file in your Tomcat configuration.
 
