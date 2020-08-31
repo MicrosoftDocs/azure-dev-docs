@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Example: Use the Azure libraries to provision a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision an Azure MySQL database. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.) It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK).
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).)
 
 You can use similar code to provision a PostgreSQL or MariaDB database.
 
@@ -55,9 +55,6 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.rdbms.mysql import MySQLManagementClient
 
 from azure.mgmt.rdbms.mysql.models import ServerForCreate, ServerPropertiesForDefaultCreate, ServerVersion
-
-# Retrieve subscription ID from environment variable
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 # Constants we need in multiple places: the resource group name and the region
 # in which we provision resources. You can change these values however you want.

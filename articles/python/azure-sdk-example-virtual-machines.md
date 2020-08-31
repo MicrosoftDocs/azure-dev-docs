@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Example: Use the Azure libraries to provision a virtual machine
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at the later in this article.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at the later in this article. If you prefer to use the Azure portal, see [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) and [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal).)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
