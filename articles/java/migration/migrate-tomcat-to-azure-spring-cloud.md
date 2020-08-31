@@ -1,5 +1,5 @@
 ---
-title: Migrate servlet applications to Azure Spring Cloud
+title: Migrate Tomcat applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Cloud
 author: yevster
 ms.author: yebronsh
@@ -11,7 +11,7 @@ ms.date: 6/16/2020
 
 This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Spring Cloud.
 
-## Pre-Migration
+## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
