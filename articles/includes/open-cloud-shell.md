@@ -16,6 +16,6 @@ ms.author: tarcher
 
 1. Open Cloud Shell.
 
-    ![Accessing Cloud Shell](./media/open-cloud-shell/portal-cloud-shell.png)
+    ![Accessing Cloud Shell](media/open-cloud-shell/portal-cloud-shell.png)
 
-1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
+2. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
