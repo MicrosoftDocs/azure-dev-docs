@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Example: Provision Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article.)
+In this article, you learn how to use the Azure management libraries in a Python script to provision a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).)
 
 After provisioning the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
 
