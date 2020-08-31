@@ -1,12 +1,12 @@
 ---
 title: Clean up resource after deploying the Azure Functions application to azure
-description: Tutorial part 5, clean up resources.
+description: "To clean up the resources, right-click the Function App in the Azure: Functions explorer and select Delete Function App."
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 08/31/2020
 ms.custom: devx-track-javascript
 ---
 
-# Clean up resources after deploying an Azure Functions app with Visual Studio Code
+# Tutorial for Azure Functions: Clean up resources
 
 [Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-04.md)
 
@@ -16,7 +16,14 @@ You can also visit the [Azure portal](https://portal.azure.com), select **Resour
 
 ## Next steps
 
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
+* [Azure Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference)
+* [Azure Functions JavaScript developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-node)
+* [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts)
+* [Storage](https://docs.microsoft.com/azure/azure-functions/storage-considerations) and [Performance](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) considerations
+
+[!INCLUDE [Next steps for using VSCode extensions](includes/tutorial-next-steps-vscode-extensions.md)]
+
+[!INCLUDE [Next steps for using JavaScript on Azure](includes/tutorial-next-steps-js-azure.md)]
 
 > [!div class="nextstepaction"]
 > [I'm done](node-howto-write-serverless-code.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=clean-up-resources)
