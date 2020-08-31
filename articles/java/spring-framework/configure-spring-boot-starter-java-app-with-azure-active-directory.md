@@ -38,14 +38,9 @@ The following prerequisites are required in order to complete the steps in this 
 1. Browse to <https://start.spring.io/>.
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
-
-   ![Specify Group and Artifact names][create-spring-app-01]
-
-1. Scroll down and add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
-
+1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
 1. At the bottom of the page and click the **Generate** button.
-
-   ![Select Security, Web and Azure Active Directory starters][create-spring-app-02]
+   ![Specify Group and Artifact names, select dependencies][create-spring-app-01]
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -59,9 +54,10 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Create new Azure Active Directory instance][create-directory-01]
 
-1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `wingtiptoysdirectory.onmicrosoft.com`.) 
+1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial.
+ (For example: `azuresampledirectory.onmicrosoft.com`.) 
 
-    Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: wingtiptoysdirectory.onmicrosoft.com.).
+    Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: azuresampledirectory.onmicrosoft.com.).
 
     When you have finished, click **Create**. It will take a few minutes to create the new resource.
 
@@ -73,7 +69,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
 
-   ![Copy your Tenant ID][create-directory-05]
+   ![Copy your Tenant ID][create-directory-04]
 
 ### Add an application registration for your Spring Boot app
 
@@ -106,6 +102,9 @@ The following prerequisites are required in order to complete the steps in this 
 1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
 
    ![Grant access permissions][create-app-registration-08]
+   
+1. Click **Grant admin consent for Azure Sample** and click **Yes**.
+   ![Grant access permissions][create-app-registration-05]
 
 1. From the main page for your app registration, click **Authentication**, and click **Add a platform**.  Then click **Web applications**.
 
@@ -135,7 +134,7 @@ The following prerequisites are required in order to complete the steps in this 
    > [!NOTE]
    > You need to specify your directory URL from earlier in this tutorial when you enter the user name; for example:
    >
-   > `wingtipuser@wingtiptoysdirectory.onmicrosoft.com`
+   > `test-user@azuresampledirectory.onmicrosoft.com`
 
 1. Click **Groups**, then **Create a new group** that you will use for authorization in your application.
 
@@ -351,14 +350,11 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 <!-- IMG List -->
 
 [create-spring-app-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-01.png
-[create-spring-app-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-02.png
-[create-spring-app-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-03.png
 
 [create-directory-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-01.png
 [create-directory-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-02.png
 [create-directory-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-03.png
 [create-directory-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-04.png
-[create-directory-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-05.png
 
 [create-app-registration-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-01.png
 [create-app-registration-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-02.png
@@ -367,8 +363,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.png
 [create-app-registration-04-5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04-5.png
 [create-app-registration-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-05.png
-[create-app-registration-06]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-06.png
-[create-app-registration-07]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-07.png
 [create-app-registration-08]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.png
 [create-app-registration-09]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png
 [create-app-registration-10]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png
