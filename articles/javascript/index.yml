@@ -24,7 +24,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Front-end apps
-            url: /azure/static-web-apps/getting-started.md
+            url: /azure/static-web-apps/getting-started
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
@@ -50,37 +50,37 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: MongoDB
-            url: /azure/cosmos-db/create-mongodb-nodejs.md?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
           - text: MySql
-            url: /azure/mysql/connect-nodejs.md
+            url: /azure/mysql/connect-nodejs
           - text: PostgreSQL
-            url: /azure/postgresql/connect-nodejs.md
+            url: /azure/postgresql/connect-nodejs
           - text: Redis Cache
-            url: /azure/azure-cache-for-redis/cache-nodejs-get-started.md?toc=/azure/developer/javascript/toc.json&bc=/
+            url: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/developer/javascript/toc.json&bc=/
           - text: SQL Server
-            url: /azure/azure-sql/database/connect-query-nodejs.md
+            url: /azure/azure-sql/database/connect-query-nodejs
           - text: Store files
-            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs.md?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Cognitive Services
     linkLists:
       - linkListType: quickstart
         links:
           - text: Speech to text
-            url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
+            url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
           - text: Translate text
-            url: /azure/cognitive-services/translator/quickstart-translate.md?pivots=programming-language-javascript
+            url: /azure/cognitive-services/translator/quickstart-translate?pivots=programming-language-javascript
           - text: Detect objects in an image
-            url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library.md?pivots=programming-language-javascript
+            url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
   - title: Security, Messaging, and Logs
     linkLists:
       - linkListType: quickstart
         links:
           - text: Authentication
-            url: /azure/active-directory/develop/quickstart-v2-javascript.md
+            url: /azure/active-directory/develop/quickstart-v2-javascript
           - text: Message queues
-            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md
+            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package
           - text: Logging and analytics
-            url: /azure/azure-monitor/learn/nodejs-quick-start.md
+            url: /azure/azure-monitor/learn/nodejs-quick-start
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
