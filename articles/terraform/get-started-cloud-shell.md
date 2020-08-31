@@ -149,10 +149,19 @@ In this section, you learn how to create a Terraform configuration file that cre
 1. Paste the following HCL into the new file.
 
     ```hcl
+    variable "client_secret" {
+    }
+
     provider "azurerm" {
       # The "feature" block is required for AzureRM provider 2.x.
       # If you are using version 1.x, the "features" block is not allowed.
       version = "~>2.0"
+
+      subscription_id = "00000000-0000-0000-0000-000000000000"
+      client_id       = "00000000-0000-0000-0000-000000000000"
+      client_secret   = var.client_secret
+      tenant_id       = "00000000-0000-0000-0000-000000000000"
+
       features {}
     }
     resource "azurerm_resource_group" "rg" {
@@ -166,6 +175,7 @@ In this section, you learn how to create a Terraform configuration file that cre
     - The `provider` block specifies that the [Azure provider (`azurerm`)](https://www.terraform.io/docs/providers/azurerm/index.html) is used.
     - Within the `azurerm` provider block, `version` and `features` attributes are set. As the comment states, their usage is version-specific. For more information about how to set these attributes for your environment, see [v2.0 of the AzureRM Provider](https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html).
     - The only [resource declaration](https://www.terraform.io/docs/configuration/resources.html) is for a resource type of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html). The two required arguments for `azure_resource_group` are `name` and `location`.
+    - There are other ways to run execution plan with service principle, see [Terraform Azure provider documentation](https://www.terraform.io/docs/providers/azurerm/guides/service_principal_client_secret.html#configuring-the-service-principal-in-terraform) for more detail.
 
 1. Save the file (**&lt;Ctrl>S**).
 
@@ -191,6 +201,7 @@ In this section, you create an *execution plan* and apply it to your cloud infra
     - The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.
     - The optional `-out` parameter allows you to specify an output file for the plan. Using the `-out` parameter ensures that the plan you reviewed is exactly what is applied.
     - To read more about persisting execution plans and security, see the [security warning section](https://www.terraform.io/docs/commands/plan.html#security-warning).
+    - Enter password of service principle at `var.client_secret Enter a value: `.
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
