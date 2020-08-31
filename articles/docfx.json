@@ -26,8 +26,12 @@
           "**/*.png",
           "**/*.jpg",
           "**/*.gif",
-          "**/*.svg"
-        ],
+          "**/*.svg",
+          "includes/**/*.svg",
+          "includes/**/*.png",
+          "includes/**/*.jpg",
+          "includes/**/*.jpeg",
+          "includes/**/*.gif"        ],
         "exclude": [
           "**/obj/**",
           "**/includes/**",
