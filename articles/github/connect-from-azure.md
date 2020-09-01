@@ -1,15 +1,61 @@
 --- 
-title: Connect to GitHub from Azure and other services
+title: Connect GitHub and Azure
 description: Resources to connect to GitHub from Azure and other services  
 author: N-Usha 
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 05/05/2020
+ms.date: 08/31/2020
 ---
 
+# Use GitHub Actions to connect to Azure
 
-# Connect to GitHub from other Azure services
+You can use [Azure login](https://github.com/Azure/login), [Azure PowerShell](https://github.com/Azure/PowerShell), or [Azure CLI](https://github.com/Azure/CLI) to connect GitHub actions to Azure.
+
+* Azure login authenticates your Azure subscription using a service principal.
+* Azure CLI sets up the GitHub action runner environment for Azure CLI.
+* Azure PowerShell sets up the GitHub action runner environment with the Azure PowerShell module.
+
+## Azure login
+
+To use Azure login, you first need to add your Azure Service Principal as a secret to your GitHub repository.
+
+### Create a service principal and add it as a GitHub secret
+
+1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure Portal. 
+
+    ```azurecli
+       az ad sp create-for-rbac -n "MyAppName"
+    ```
+
+2. Copy the JSON object for your service principal.
+
+  ```json
+    # The command should output a JSON object similar to this:
+
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+  ```
+3. Open your GitHub repository. 
+4. In your GitHub repository, go to **Settings**.
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
+5. Select **Secrets**.
+6. Select **New secret**.
+7. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
+
+    :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub":::
+8. Select **Add secret**.
+
+### Azure PowerShell
+
+### Azure CLI
+
+## Connect to GitHub from other Azure services
 
 The following articles provide details on connecting to GitHub from Azure and other services.  
 
