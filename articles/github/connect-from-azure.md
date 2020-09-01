@@ -16,19 +16,33 @@ You can use [Azure login](https://github.com/Azure/login), [Azure PowerShell](ht
 * Azure CLI sets up the GitHub action runner environment for Azure CLI.
 * Azure PowerShell sets up the GitHub action runner environment with the Azure PowerShell module.
 
-## Azure login
+## Log in with Azure login
 
-To use Azure login, you first need to add your Azure Service Principal as a secret to your GitHub repository. In this example, we will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
+To use [Azure login](https://github.com/marketplace/actions/azure-login), you first need to connect your Azure service principal as a secret with your GitHub repository. In this example, we will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
 ### Create a service principal and add it as a GitHub secret
 
-1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure Portal.
+1. Register a [new Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) to use with your service principal.
 
     ```azurecli
-       az ad sp create-for-rbac -n "MyAppName"
+
+        appName="myApp"
+
+        az ad app create \
+        --display-name $appName \
+        --homepage "http://localhost/$appName" \
+        --identifier-uris http://localhost/$appName
     ```
 
-2. Copy the JSON object for your service principal.
+1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure Portal for your app.
+
+    ```azurecli
+        az ad sp create-for-rbac --name "myApp" --role contributor \
+                                    --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                                    --sdk-auth
+    ```
+
+1. Copy the JSON object for your service principal.
 
     ```json
         # The command should output a JSON object similar to this:
@@ -42,19 +56,45 @@ To use Azure login, you first need to add your Azure Service Principal as a secr
     }
     ```
 
-3. Open your GitHub repository and go to **Settings**.
+1. Open your GitHub repository and go to **Settings**.
 
     :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
 
-4. Select **Secrets** and then **New Secret**.
+1. Select **Secrets** and then **New Secret**.
 
     :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
 
-5. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
+1. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
 
     :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub":::
 
-6. Save by selecting **Add secret**.
+1. Save by selecting **Add secret**.
+
+### Log in with the Azure login action
+
+Use the service principal secret with the [Azure Login action](https://github.com/Azure/login) to authenticate with Azure. In this example, you authenticate with `secrets.AZURE_CREDENTIALS` and then run an Azure CLI action.
+
+```yaml
+# File: .github/workflows/workflow.yml
+
+on: [push]
+
+name: AzureLoginSample
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Log in with Azure
+        uses: azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+      - name: Run Azure CLI script
+        run: |
+              az webapp list --query "[?state=='Running']"
+```
 
 ### Azure PowerShell
 
