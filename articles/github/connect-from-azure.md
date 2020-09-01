@@ -18,11 +18,11 @@ You can use [Azure login](https://github.com/Azure/login), [Azure PowerShell](ht
 
 ## Azure login
 
-To use Azure login, you first need to add your Azure Service Principal as a secret to your GitHub repository.
+To use Azure login, you first need to add your Azure Service Principal as a secret to your GitHub repository. In this example, we will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
 ### Create a service principal and add it as a GitHub secret
 
-1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure Portal. 
+1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure Portal.
 
     ```azurecli
        az ad sp create-for-rbac -n "MyAppName"
@@ -30,26 +30,31 @@ To use Azure login, you first need to add your Azure Service Principal as a secr
 
 2. Copy the JSON object for your service principal.
 
-  ```json
-    # The command should output a JSON object similar to this:
+    ```json
+        # The command should output a JSON object similar to this:
 
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-  ```
-3. Open your GitHub repository. 
-4. In your GitHub repository, go to **Settings**.
+    {
+        "clientId": "<GUID>",
+        "clientSecret": "<GUID>",
+        "subscriptionId": "<GUID>",
+        "tenantId": "<GUID>",
+        (...)
+    }
+    ```
+
+3. Open your GitHub repository and go to **Settings**.
+
     :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
-5. Select **Secrets**.
-6. Select **New secret**.
-7. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
+
+4. Select **Secrets** and then **New Secret**.
+
+    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
+
+5. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
 
     :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub":::
-8. Select **Add secret**.
+
+6. Save by selecting **Add secret**.
 
 ### Azure PowerShell
 
