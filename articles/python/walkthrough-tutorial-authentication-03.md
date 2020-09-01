@@ -12,9 +12,7 @@ ms.custom: devx-track-python
 
 In our example scenario, the main app's public endpoint uses a third-party API that's secured by an access key. This section shows an implementation of the third-party API using Azure Functions, but the API could be implemented in other ways and deployed to a different cloud server or web host. The only important aspect is that the endpoint protected by a specific access key that must be included in any client requests. Any app that invokes this API, then, must securely manage that key.
 
-For demonstration purposes, this API is deployed to the endpoint, [https://msdocs-api-example.azurewebsites.net/api/RandomNumber](https://msdocs-api-example.azurewebsites.net/api/RandomNumber). If you attempt to invoke this API either in a browser or via curl, you get an error because the endpoint is secured.
-
-To call this API, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, try this URL: [https://msdocs-api-example.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft](https://msdocs-api-example.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft).
+For demonstration purposes, this API is deployed to the endpoint, `https://msdocs-api-example.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, try this URL in  a browser or curl: [https://msdocs-api-example.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft](https://msdocs-api-example.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft).
 
 If the access key is valid, the endpoint returns a JSON response that contains a single property, "value", the value of which is a number between 1 and 999, such as `{"value": 959}`.
 
@@ -35,7 +33,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(dict))
 ```
 
-In the sample repository, this code is found under *third_party_api/RandomNumber/__init__.py*. The folder, *RandomNumber*, provides the name of the function and **__init__.py** contains the code. Another file in that folder, *function.json*, describes when the function is triggered. Other files in the *third_party_api* parent folder provide details for the Azure Function "app" that hosts the function itself.
+In the sample repository, this code is found under *third_party_api/RandomNumber/\_\_init\_\_.py*. The folder, *RandomNumber*, provides the name of the function and *\_\_init\_\_.py* contains the code. Another file in that folder, *function.json*, describes when the function is triggered. Other files in the *third_party_api* parent folder provide details for the Azure Function "app" that hosts the function itself.
 
 To deploy the code, the sample's provisioning script performs the following steps:
 
