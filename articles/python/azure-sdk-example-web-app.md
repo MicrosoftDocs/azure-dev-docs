@@ -66,9 +66,6 @@ from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.web import WebSiteManagementClient
 
-# Retrieve subscription ID from environment variable
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-
 # Constants we need in multiple places: the resource group name and the region
 # in which we provision resources. You can change these values however you want.
 RESOURCE_GROUP_NAME = 'PythonAzureExample-WebApp-rg'

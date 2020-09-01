@@ -3,7 +3,7 @@ title: Quickstart - Configure Ansible using Azure Cloud Shell
 description: In this quickstart, learn how to carry out various Ansible tasks with Bash in Azure Cloud Shell
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-ansible
 ---
 
