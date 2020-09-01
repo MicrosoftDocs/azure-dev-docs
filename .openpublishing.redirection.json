@@ -358,7 +358,7 @@
     },
     {
       "source_path": "articles/python/python-sdk-azure-get-started.yml",
-      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group"
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
       "source_path": "articles/python/python-sdk-azure-multi-cloud.md",
