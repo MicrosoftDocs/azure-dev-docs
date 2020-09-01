@@ -10,6 +10,10 @@ ms.custom: devx-track-python
 
 [Previous part: Example main app implementation](walkthrough-tutorial-authentication-04.md)
 
+This part examines the Python libraries brought into the main app and the environment variables required by the code. When deployed to Azure, you use application settings in Azure App Service to provide environment variables.
+
+## Dependencies and import statements
+
 The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme?view=azure-python)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme?view=azure-python)). These libraries are included in the app's *requirements.txt* file:
 
 ```txt
