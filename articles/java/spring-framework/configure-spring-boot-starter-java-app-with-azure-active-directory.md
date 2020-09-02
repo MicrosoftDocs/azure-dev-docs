@@ -40,6 +40,7 @@ The following prerequisites are required in order to complete the steps in this 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
 1. At the bottom of the page and click the **Generate** button.
+   
    >[!div class="mx-imgBorder"]
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
 
@@ -52,6 +53,7 @@ The following prerequisites are required in order to complete the steps in this 
 1. Log into <https://portal.azure.com>.
 
 1. Click **+Create a resource**, then **Identity**, and then **Azure Active Directory**.
+   
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance][create-directory-01]
 
@@ -61,75 +63,91 @@ The following prerequisites are required in order to complete the steps in this 
     Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: azuresampledirectory.onmicrosoft.com.).
 
     When you have finished, click **Create**. It will take a few minutes to create the new resource.
+   
    >[!div class="mx-imgBorder"]
    >![Specify Azure Active Directory names][create-directory-02]
 
 1. When complete, click to access the new directory.
+   
    >[!div class="mx-imgBorder"]
    >![Select your Azure account name][create-directory-03]
 
 1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
+   
    >[!div class="mx-imgBorder"]
    >![Copy your Tenant ID][create-directory-04]
 
 ### Add an application registration for your Spring Boot app
 
 1. From the portal menu, click **App registrations**, and then click **Register an application**.
+   
    >[!div class="mx-imgBorder"]
    >![Add a new app registration][create-app-registration-01]
 
 1. Specify your application, and then click **Register**.
+   
    >[!div class="mx-imgBorder"]
    >![Create new app registration][create-app-registration-02]
 
 1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
+   
    >[!div class="mx-imgBorder"]
    >![Copy app registration keys][create-app-registration-03]
 
 1. Click **Certificates & secrets** in the left navigation pane.  Then click **New client secret**.
+   
    >[!div class="mx-imgBorder"]
    >![Create app registration keys][create-app-registration-03-5]
 
 1. Add a **Description** and select duration in the **Expires** list.  Click **Add**. The value for the key will be automatically filled in.
+   
    >[!div class="mx-imgBorder"]
    >![Specify app registration key parameters][create-app-registration-04]
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
+   
    >[!div class="mx-imgBorder"]
    >![Copy app registration key value][create-app-registration-04-5]
 
 1. Click **API permissions** in the left navigation pane. 
 
 1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
+   
    >[!div class="mx-imgBorder"]
    >![Add access permissions][create-app-registration-08]
    
 1. Click **Grant admin consent for Azure Sample** and click **Yes**.
+   
    >[!div class="mx-imgBorder"]
    >![Grant access permissions][create-app-registration-05]
 
 1. From the main page for your app registration, click **Authentication**, and click **Add a platform**.  Then click **Web applications**.
+   
    >[!div class="mx-imgBorder"]
    >![Edit Reply URLs][create-app-registration-09]
 
 1. Enter 'http://localhost:8080/login/oauth2/code/azure' as a new **Redirect URI**, and then click **Configure**.
+   
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
 1. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowImplicitFlow` parameter to `true`, and then click **Save**.
+   
    >[!div class="mx-imgBorder"]
    >![Configure app manifest][create-app-registration-11]
 
-    > [!NOTE]
-    > For more information about the `oauth2AllowImplicitFlow` parameter and other application settings, see [Azure Active Directory application manifest][AAD app manifest].
+   > [!NOTE]
+   > For more information about the `oauth2AllowImplicitFlow` parameter and other application settings, see [Azure Active Directory application manifest][AAD app manifest].
 
 ### Add a user account to your directory, and add that account to a group
 
 1. From the **Overview** page of your Active Directory, click **Users**, and then click **New user**.
+   
    >[!div class="mx-imgBorder"]
    >![Add a new user account][create-user-01]
 
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then click **Create**.
+   
    >[!div class="mx-imgBorder"]
    >![Enter user account information][create-user-02]
 
@@ -141,10 +159,12 @@ The following prerequisites are required in order to complete the steps in this 
 1. From the **Overview** page of your Active Directory, click **Groups**, then **New group** that you will use for authorization in your application.
 
 1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
+   
    >[!div class="mx-imgBorder"]
    >![Select the user for group][create-user-03]
 
 1. Go back to the **Users** panel, select your test user, and click **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial.
+   
    >[!div class="mx-imgBorder"]
    >![Show the password][create-user-04]
 
@@ -302,18 +322,23 @@ The following prerequisites are required in order to complete the steps in this 
    mvn clean package
    mvn spring-boot:run
    ```
+   
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
 1. After your application is built and started by Maven, open http:<span></span>//localhost:8080 in a web browser; you should be prompted for a user name and password.
+   
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
 
    > [!NOTE]
    > You may be prompted to change your password if this is the first login for a new user account.
+
    >[!div class="mx-imgBorder"]
    >![Changing your password][update-password]
+
 1. After you have logged in successfully, you should see the sample "Hello World" text from the controller.
+
    >[!div class="mx-imgBorder"]
    >![Successful login][hello-world]
 
