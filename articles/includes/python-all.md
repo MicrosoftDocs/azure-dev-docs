@@ -195,5 +195,5 @@
 | doc-warden | pypi [0.7.1](https://pypi.org/project/doc-warden/0.7.1) |  | GitHub [0.7.1](https://github.com/Azure/azure-sdk-tools/tree/doc-warden_0.7.1/packages/python-packages/doc-warden/) |
 | msrest | pypi [0.6.18](https://pypi.org/project/msrest/0.6.18) |  | GitHub [0.6.18](https://github.com/Azure/msrest-for-python/tree/v0.6.18/msrest) |
 | msrestazure | pypi [0.6.4](https://pypi.org/project/msrestazure/0.6.4) |  | GitHub [0.6.4](https://github.com/Azure/msrestazure-for-python/tree/v0.6.4/msrestazure) |
-| tox-monorepo | pypi [0.1.2](https://pypi.org/project/tox-monorepo/0.1.2) |  | GitHub [0.1.2](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/tox-monorepo/tox-monorepo/) |
+| tox-monorepo | pypi [0.1.2](https://pypi.org/project/tox-monorepo/0.1.2) |  | GitHub [0.1.2](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/tox-monorepo) |
 | uamqp | pypi [1.2.10](https://pypi.org/project/uamqp/1.2.10) |  | GitHub [1.2.10](https://github.com/Azure/azure-uamqp-python/tree/v1.2.10/uamqp/) |
