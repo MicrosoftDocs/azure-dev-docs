@@ -4595,7 +4595,7 @@ Version 2.0.15
 
 * Fixed issue where extra, erroneous information was displayed for `vmss get-instance-view` when using `--instance-id *`
 * Added support for `--lb-sku` to `vmss create`:
-* Removed human names from the admin name blacklist for `[vm|vmss] create`
+* Removed human names from the admin name block list for `[vm|vmss] create`
 * Fixed issue where `[vm|vmss] create` would throw an error if unable to extract plan information from an image
 * Fixed a crash when creating a vmms scaleset with an internal LB
 * Fixed issue where `--no-wait` argument did not work wth `vm availability-set create`
