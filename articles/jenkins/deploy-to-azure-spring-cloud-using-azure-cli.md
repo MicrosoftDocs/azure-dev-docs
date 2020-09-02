@@ -22,9 +22,9 @@ In this tutorial, you'll complete these tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-**Jenkins**: [Install Jenkins on a Linux VM](configure-on-linux-vm.md)
+- **Jenkins**: [Install Jenkins on a Linux VM](configure-on-linux-vm.md)
 
-**GitHub account**: If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
+- **GitHub account**: If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
 ## Provision a service instance and launch a Java Spring application
 
