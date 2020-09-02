@@ -84,7 +84,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
    >[!div class="mx-imgBorder"]
-   >![Create app registration keys][create-app-registration-03]
+   >![Copy app registration keys][create-app-registration-03]
 
 1. Click **Certificates & secrets** in the left navigation pane.  Then click **New client secret**.
    >[!div class="mx-imgBorder"]
@@ -96,13 +96,13 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
    >[!div class="mx-imgBorder"]
-   >![Specify app registration key parameters][create-app-registration-04-5]
+   >![Copy app registration key value][create-app-registration-04-5]
 
 1. Click **API permissions** in the left navigation pane. 
 
 1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
    >[!div class="mx-imgBorder"]
-   >![Grant access permissions][create-app-registration-08]
+   >![Add access permissions][create-app-registration-08]
    
 1. Click **Grant admin consent for Azure Sample** and click **Yes**.
    >[!div class="mx-imgBorder"]
