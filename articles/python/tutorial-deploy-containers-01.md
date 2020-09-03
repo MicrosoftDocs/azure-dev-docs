@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy Docker containers to Azure App Service with Visual Studio Code"
-description: Tutorial step 1, introduction and prerequisites.
+description: Tutorial step 1, working with containers, introduction and prerequisites.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-python, seo-python-october2019
