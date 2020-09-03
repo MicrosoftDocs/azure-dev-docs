@@ -248,7 +248,6 @@ The following procedure creates a Spring boot application.
    |       `spring.cloud.stream.bindings.input.group `        | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    |    `spring.cloud.stream.bindings.output.destination`     |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
-
 3. Save and close the *application.properties* file.
 
 ## Add sample code to implement basic event hub functionality
@@ -267,21 +266,19 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 
-```java
-package com.wingtiptoys.eventhub;
+   ```java
+   package com.wingtiptoys.eventhub;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class EventhubApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(EventhubApplication.class, args);
-	}
-
-}
-```
+   @SpringBootApplication
+   public class EventhubApplication {
+      public static void main(String[] args) {
+         SpringApplication.run(EventhubApplication.class, args);
+      }
+   }
+   ```
 
 1. Save and close the main application Java file.
 
@@ -289,63 +286,66 @@ public class EventhubApplication {
 
 1. Create a new Java file named *EventhubSource.java* in the package directory of your app, then open the file in a text editor and add the following lines:
 
-```java
-package com.wingtiptoys.eventhub;
+   ```java
+   package com.wingtiptoys.eventhub;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.messaging.support.GenericMessage;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.cloud.stream.annotation.EnableBinding;
+   import org.springframework.cloud.stream.messaging.Source;
+   import org.springframework.messaging.support.GenericMessage;
+   import org.springframework.web.bind.annotation.PostMapping;
+   import org.springframework.web.bind.annotation.RequestBody;
+   import org.springframework.web.bind.annotation.RestController;
 
-@EnableBinding(Source.class)
-@RestController
-public class EventhubSource {
+   @EnableBinding(Source.class)
+   @RestController
+   public class EventhubSource {
 
-    @Autowired
-    private Source source;
+      @Autowired
+      private Source source;
 
-    @PostMapping("/messages")
-    public String postMessage(@RequestBody String message) {
-        this.source.output().send(new GenericMessage<>(message));
-        return message;
-    }
-}
-```
+      @PostMapping("/messages")
+      public String postMessage(@RequestBody String message) {
+         this.source.output().send(new GenericMessage<>(message));
+         return message;
+      }
+   }
+   ```
 1. Save and close the *EventhubSource.java* file.
 
 ### Create a new class for the sink connector
 
 1. Create a new Java file named *EventhubSink.java* in the package directory of your app, then open the file in a text editor and add the following lines:
 
-```java
-import com.microsoft.azure.spring.integration.core.AzureHeaders;
-import com.microsoft.azure.spring.integration.core.api.reactor.Checkpointer;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.cloud.stream.messaging.Sink;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+   ```java
+   package com.wingtiptoys.eventhub;
 
-@EnableBinding(Sink.class)
-public class EventhubSink {
+   import com.microsoft.azure.spring.integration.core.AzureHeaders;
+   import com.microsoft.azure.spring.integration.core.api.Checkpointer;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.cloud.stream.annotation.EnableBinding;
+   import org.springframework.cloud.stream.annotation.StreamListener;
+   import org.springframework.cloud.stream.messaging.Sink;
+   import org.springframework.messaging.handler.annotation.Header;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventhubSink.class);
+   @EnableBinding(Sink.class)
+   public class EventhubSink {
 
-    @StreamListener(Sink.INPUT)
-    public void handleMessage(String message, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
-        LOGGER.info("New message received: '{}'", message);
-        checkpointer.success()
-            .doOnSuccess(s -> LOGGER.info("Message '{}' successfully checkpointed", message))
-            .doOnError(LOGGER.info)
-            .subscribe();
-    }
+      private static final Logger LOGGER = LoggerFactory.getLogger(EventhubSink.class);
 
-}
-```
+      @StreamListener(Sink.INPUT)
+      public void handleMessage(String message, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
+         LOGGER.info("New message received: '{}'", message);
+         checkpointer.success().handle((r, ex) -> {
+            if (ex == null) {
+               LOGGER.info("Message '{}' successfully checkpointed", message);
+            }
+            return null;
+         });
+      }
+   }
+   ```
 
 1. Save and close the *EventhubSink.java* file.
 
