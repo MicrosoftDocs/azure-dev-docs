@@ -66,4 +66,4 @@ The `func` command works through the *func.cmd* file that's installed in the Nod
 > [!div class="nextstepaction"]
 > [I signed into Azure - continue to step 2 >>>](tutorial-vs-code-serverless-python-02.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=01-verify-prerequisites)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

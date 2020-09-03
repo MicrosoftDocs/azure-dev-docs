@@ -43,4 +43,4 @@ In this article, you create a Python function for Azure Functions with Visual St
 > [!div class="nextstepaction"]
 > [I created the function - continue to step 3 >>>](tutorial-vs-code-serverless-python-03.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=02-create-function)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.
