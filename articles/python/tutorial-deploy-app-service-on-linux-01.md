@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy Python apps to Azure App Service on Linux from Visual Studio Code"
-description: Tutorial step 1, introduction, prerequisites, and signing into Azure.
+description: Tutorial step 1, working with web apps, introduction, prerequisites
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-python, seo-python-october2019

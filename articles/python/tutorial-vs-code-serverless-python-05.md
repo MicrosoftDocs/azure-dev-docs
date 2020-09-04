@@ -70,4 +70,4 @@ To apply any changes you make through the portal or through the **Azure Explorer
 > [!div class="nextstepaction"]
 > [I deployed the functions - continue to step 6 >>>](tutorial-vs-code-serverless-python-06.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=05-deploy)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

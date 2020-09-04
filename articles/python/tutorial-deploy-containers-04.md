@@ -36,4 +36,4 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 > [!div class="nextstepaction"]
 > [I see the logs - continue to step 5 >>>](tutorial-deploy-containers-05.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=04-stream-logs)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

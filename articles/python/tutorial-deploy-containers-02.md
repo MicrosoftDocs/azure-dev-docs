@@ -43,4 +43,4 @@ With a container image in a registry, you can use the Docker extension in VS Cod
 > [!div class="nextstepaction"]
 > [I deployed the image - continue to step 3 >>>](tutorial-deploy-containers-03.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=02-deploy-container)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.
