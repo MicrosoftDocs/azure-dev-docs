@@ -134,13 +134,13 @@ The following procedure creates and initializes the Key Vault.
 
    ```azurecli
    az keyvault create \
+       --resource-group contosorg \
+       --name contosokv \
        --enabled-for-deployment true \
        --enabled-for-disk-encryption true \
        --enabled-for-template-deployment true \
        --location eastus
-       --name contosokv \
        --query properties.vaultUri \
-       --resource-group contosorg \
        --sku standard 
    ```
 
@@ -184,8 +184,8 @@ The following procedure creates and initializes the Key Vault.
 1. Store a secret in your new Key Vault.  A common use case is to store a JDBC connection string.  For example:
 
    ```azurecli
-   az keyvault secret set --vault-name "contosokv" \
-       --name "connectionString" \
+   az keyvault secret set --name "connectionString" \
+       --vault-name "contosokv" \
        --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
    ```
 
@@ -575,7 +575,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 1. Decide on a name for the service instance.  To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud.  As with all other Azure resources, the service instance must stay within a resource group.  Use the resource group you already created to hold the service instance.  Create the service instance with this command. 
 
    ```bash
-   az spring-cloud create --name "contososvc" --resource-group "contosorg"
+   az spring-cloud create --resource-group "contosorg" --name "contososvc" 
    ```
 
    This command takes several minutes to complete.
@@ -583,8 +583,8 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 1. Create a Spring Cloud App within the service.
 
    ```bash
-   az spring-cloud app create --assign-identity --is-public true --name "contosoascsapp"
-     --resource-group "contosorg" --runtime-version Java_11 --service "contososvc"
+   az spring-cloud app create --resource-group "contosorg" --name "contosoascsapp" --assign-identity --is-public true
+     --runtime-version Java_11 --service "contososvc"
    ```
 
    This table explains the options shown above.
@@ -603,15 +603,15 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 1. Get the Managed identity for the Azure resource.  Use it to configure the existing Key Vault to allow access from this App.
 
    ```bash
-   SERVICE_IDENTITY=$(az spring-cloud app show --name "contosoascsapp" --resource-group "contosorg" --service "contososvc" | jq -r '.identity.principalId')
+   SERVICE_IDENTITY=$(az spring-cloud app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
    az keyvault set-policy --name "contosokv" --object-id <the value of the environment variable SERVICE_IDENTITY> --secret-permissions set get list
    ```
 
 1. Because the existing Spring Boot app already has an *application.properties* file with the necessary configuration, we can deploy this app directly to Spring Cloud using the following command.  Run the command in the directory containing the POM.
 
    ```bash
-   az spring-cloud app deploy --jar-path target/keyvault-0.0.1-SNAPSHOT.jar \
-     --name "contosoascsapp" --resource-group "contosorg" --service "contososvc"
+   az spring-cloud app deploy --resource-group "contosorg" --name "contosoascsapp" --jar-path target/keyvault-0.0.1-SNAPSHOT.jar \
+     --service "contososvc"
    ```
 
    This command creates a *Deployment* within the app, within the service.  For more details on the concepts of service instances, apps, and Deployments see [Understand app and deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-concept-understand-app-and-deployment).
