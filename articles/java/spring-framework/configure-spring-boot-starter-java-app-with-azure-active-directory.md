@@ -131,7 +131,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
-1. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowImplicitFlow` parameter to `true`, and then click **Save**.
+1. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow` parameter to `true`, and then click **Save**.
    
    >[!div class="mx-imgBorder"]
    >![Configure app manifest][create-app-registration-11]
