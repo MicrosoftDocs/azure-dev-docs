@@ -57,7 +57,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Review the specification and click `Create` to create your database.
 
-1. When your database has been created, Click **Go to resource**. It is also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
+1. When your database has been created, click **Go to resource**. It's also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
