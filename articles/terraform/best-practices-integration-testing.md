@@ -31,7 +31,7 @@ In this article, you learn how to do the following tasks:
 - **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
 - **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
-## Validate alocal Terraform configuration
+## Validate a local Terraform configuration
 
 The [terraform validate](https://www.terraform.io/docs/commands/validate.html) command is run from the command line in the directory containing your Terraform files. This commands main goal is validating syntax.
 

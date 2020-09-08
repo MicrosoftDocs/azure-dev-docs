@@ -73,6 +73,10 @@
       "redirect_url": "/azure/developer/java/spring-framework"
     },
     {
+      "source_path": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
+      "redirect_url": "/azure/developer/java/spring-framework"
+    },
+    {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
       "redirect_url": "/azure/developer/java/tookit-for-intellij"
     },
@@ -358,7 +362,7 @@
     },
     {
       "source_path": "articles/python/python-sdk-azure-get-started.yml",
-      "redirect_url": "/azure/developer/python/azure-sdk-example-resource-group"
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
       "source_path": "articles/python/python-sdk-azure-multi-cloud.md",

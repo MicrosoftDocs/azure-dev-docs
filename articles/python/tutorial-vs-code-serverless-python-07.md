@@ -94,4 +94,4 @@ In this section, you add a storage binding to the HttpExample function created e
 > [!div class="nextstepaction"]
 > [I added a storage binding - continue to step 8 >>>](tutorial-vs-code-serverless-python-08.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

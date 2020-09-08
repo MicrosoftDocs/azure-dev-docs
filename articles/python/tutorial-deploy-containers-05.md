@@ -34,4 +34,4 @@ Some popular extensions are:
 > [!div class="nextstepaction"]
 > [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=07-clean-up-resources)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.
