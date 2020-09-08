@@ -61,8 +61,6 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
-   ![Access keys][AZ05]
-
 ### Add a graph to your Azure Cosmos Database
 
 1. On the Cosmos DB page, click `Data Explorer`, and then click `New Graph`.
@@ -130,8 +128,6 @@ We will be replicating the configurations of the existing [Azure Spring Data Gre
       <version>2.3.1-beta.1</version> <!-- {x-version-update;com.azure:azure-spring-data-gremlin;current} -->
     </dependency>
    ```
-
-   ![Editing the pom.xml file][PM02]
 
 1. Save and close the *pom.xml* file.
 
