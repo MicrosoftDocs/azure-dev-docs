@@ -96,7 +96,7 @@ Click `OK`.
 
 > [!NOTE]
 >
-> The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wintiptoysdata.
+> The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: `com.example.wintiptoysdata`.
 
 
    >[!div class="mx-imgBorder"]
@@ -104,20 +104,20 @@ Click `OK`.
 
 1. When prompted, download the project to a path on your local computer.
 
-1. After you have extracted the files on your local system, import it to your IDE.
+1. After you've extracted the files on your local system, import it to your IDE.
 
 
 ## Configure your Spring Boot app to use the Spring Data Gremlin Starter
 
-We will be replicating the configurations of the existing [Azure Spring Data Gremlin sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin). Browse to the sample and follow the steps in this section to configure your Spring Boot app.
+We'll be replicating the configurations of the existing [Azure Spring Data Gremlin sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-data-sample-gremlin). Browse to the sample and follow the steps in this section to configure your Spring Boot app.
 
 1. Locate the *pom.xml* file in the directory of your app; for example:
 
-   `C:\SpringBoot\wingtiptoysdata\pom.xml`
+   *C:\SpringBoot\wingtiptoysdata\pom.xml*
 
    -or-
 
-   `/users/example/home/wingtiptoysdata/pom.xml`
+   */users/example/home/wingtiptoysdata/pom.xml*
 
 1. Open the *pom.xml* file, and add the Spring Data Gremlin Starter to list of `<dependencies>`:
 
@@ -131,11 +131,11 @@ We will be replicating the configurations of the existing [Azure Spring Data Gre
 
 1. Save and close the *pom.xml* file.
 
-1. Navigate to the `src/test/` folder, and delete all contents.
+1. Navigate to the *src/test/* folder, and delete all contents.
 
-1. Navigate to the `src/main/java` folder in the sample app, and copy and overwrite this same directory to your local Spring Boot app.
+1. Navigate to the *src/main/java* folder in the sample app, and copy and overwrite this same directory to your local Spring Boot app.
 
-1. On the `src/main/resources/application.properties` file, update the configurations to include:
+1. On the *src/main/resources/application.properties* file, update the configurations to include:
 
    | Field              | Description                                                                                                                                                                                                             |
    |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
