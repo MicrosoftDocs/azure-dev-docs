@@ -32,12 +32,12 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ### Create a Cosmos DB account using the Azure portal
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and click `+Create a resource`.
+1. Browse to the Azure portal at <https://portal.azure.com/> and select `+Create a resource`.
 
    >[!div class="mx-imgBorder"]
    >![create-a-resource][create-a-resource-01]
 
-1. Click `Databases`, and then click `Azure Cosmos DB`.
+1. Select `Databases`, and then select `Azure Cosmos DB`.
 
    >[!div class="mx-imgBorder"]
    >![create-azure-cosmos-db][create-a-resource-02]
@@ -50,20 +50,20 @@ The following prerequisites are required in order to follow the steps in this ar
    * Choose `Gremlin (Graph)` for the API.
    * Specify the `Location` for your database.
    
-1. When you have specified these options, click `Review + create`.
+1. When you have specified these options, select `Review + create`.
 
    >[!div class="mx-imgBorder"]
    >![create-azure-cosmos-db-account][create-a-resource-03]
 
-1. Review the specification and click `Create` to create your database.
+1. Review the specification and select `Create` to create your database.
 
-1. When your database has been created, click **Go to resource**. It's also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
+1. When your database has been created, select **Go to resource**. It's also listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can select your database on any of those locations to open the properties page for your cache.
 
-1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
 ### Add a graph to your Azure Cosmos Database
 
-1. On the Cosmos DB page, click `Data Explorer`, and then click `New Graph`.
+1. On the Cosmos DB page, select `Data Explorer`, and then select `New Graph`.
 
    >[!div class="mx-imgBorder"]
    >![new-graph][create-a-graph-01]
@@ -73,10 +73,9 @@ The following prerequisites are required in order to follow the steps in this ar
    * Specify a unique `Database id` for your database.
    * You can choose to specify your `Storage capacity`, or you can accept the default.
    * Specify a unique `Graph id` for your graph.
-   * Specify a `Partition key`. For more information see [graph partition].
-Click `OK`.
+   * Specify a `Partition key`. For more information see [graph partition]. Select `OK`.
    
-   When you have specified these options, click `OK` to create your graph.
+   When you have specified these options, select `OK` to create your graph.
 
    >[!div class="mx-imgBorder"]
    >![add-graph][create-a-graph-02]
@@ -92,7 +91,7 @@ Click `OK`.
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, specify your **Spring Boot** version with version 2.3.1, and then click **GENERATE**.
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, specify your **Spring Boot** version with version 2.3.1, and then select **GENERATE**.
 
 > [!NOTE]
 >
@@ -141,7 +140,7 @@ We'll be replicating the configurations of the existing [Azure Spring Data Greml
    |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `endpoint`         | Specifies the Gremlin URI for your database, which is derived from the unique **ID** that you specified when you created your Azure Cosmos DB earlier in this quickstart.                                                 |
    | `port`             | Specifies the TCP/IP port, which should be **443** for HTTPS.                                                                                                                                                           |
-   | `username`         | Specifies the unique **Database id** and **Graph id** that you used when you added your graph earlier in this quickstart; this must be entered using the following syntax: "/dbs/**{Database id}**/colls/**{Graph id}**". |
+   | `username`         | Specifies the unique **Database ID** and **Graph ID** that you used when you added your graph earlier in this quickstart; this must be entered using the following syntax: "/dbs/**{Database ID}**/colls/**{Graph ID}**". |
    | `password`         | Specifies either the primary or secondary **Access key** that you copied earlier in this quickstart.                                                                                                                      |
    | `sslEnabled`       | Specifies whether to enable SSL.                                                                                                                                                                                           |
    | `telemetryAllowed` | Specify **true** if you want to enable telemetry; otherwise, **false**.
