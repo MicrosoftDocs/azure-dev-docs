@@ -131,7 +131,7 @@ The following procedure creates a Spring boot application.
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>spring-cloud-azure-eventhubs-stream-binder</artifactId>
-      <version>1.1.0.RC2</version>
+      <version>1.2.7</version>
    </dependency>
    ```
 
@@ -248,7 +248,6 @@ The following procedure creates a Spring boot application.
    |       `spring.cloud.stream.bindings.input.group `        | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    |    `spring.cloud.stream.bindings.output.destination`     |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
-
 3. Save and close the *application.properties* file.
 
 ## Add sample code to implement basic event hub functionality
@@ -337,13 +336,13 @@ In this section, you create the necessary Java classes for sending events to you
 
       @StreamListener(Sink.INPUT)
       public void handleMessage(String message, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
-         LOGGER.info("New message received: '{}'", message);
-         checkpointer.success().handle((r, ex) -> {
-            if (ex == null) {
-               LOGGER.info("Message '{}' successfully checkpointed", message);
-            }
-            return null;
-         });
+        LOGGER.info("New message received: '{}'", message);
+        checkpointer.success()
+                .doOnSuccess(s -> LOGGER.info("Message '{}' successfully checkpointed", message))
+                .doOnError((msg) -> {
+                    LOGGER.error(String.valueOf(msg));
+                })
+                .subscribe();
       }
    }
    ```

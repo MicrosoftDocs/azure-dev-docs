@@ -20,7 +20,8 @@ app = Flask(__name__)
 number_url = os.environ["THIRD_PARTY_API_ENDPOINT"]
 ```
 
-Next, we obtain the [`DefaultAzureCredential`](/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) object, which is the recommended credential to use when authenticating with Azure services. See [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential).
+Next, we obtain the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python
+) object, which is the recommended credential to use when authenticating with Azure services. See [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential).
 
 ```python
 credential = DefaultAzureCredential()

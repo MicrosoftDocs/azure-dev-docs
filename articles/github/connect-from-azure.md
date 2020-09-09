@@ -25,7 +25,7 @@ To use [Azure login](https://github.com/marketplace/actions/azure-login), you fi
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
-1. If you do not have an existing application, register a [new Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) to use with your service principal.
+1. If you do not have an existing application, register a [new Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
 
     ```azurecli-interactive
         appName="myApp"
@@ -166,3 +166,6 @@ The following articles provide details on connecting to GitHub from Azure and ot
 ### Azure Databricks
 
 - [Use GitHub as version control for notebooks](https://docs.microsoft.com/azure/databricks/notebooks/github-version-control) 
+
+> [!div class="nextstepaction"]
+> [Deploy apps from GitHub to Azure](deploy-to-azure.md)
