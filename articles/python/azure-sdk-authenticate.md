@@ -223,7 +223,7 @@ In this method, you create a JSON file that contains the necessary credentials f
     Replace the four placeholders with your Azure subscription ID, tenant ID, the client ID, and the client secret.
 
     > [!TIP]
-    > As explained in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development), you can use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command with the `--sdk-auth` parameter to generate this JSON format directly.
+    > As explained in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development), you can use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command with the `--sdk-auth` parameter to generate this JSON format directly.
 
 1. Save the file with a name like *credentials.json* in a secure location that your code can access. To keep your credentials secure, be sure to omit this file from source control and don't share it with other developers. That is, the tenant ID, client ID, and client secret of a service principal should always remain isolated on your development workstation.
 
