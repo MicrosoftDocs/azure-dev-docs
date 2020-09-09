@@ -166,3 +166,6 @@ The following articles provide details on connecting to GitHub from Azure and ot
 ### Azure Databricks
 
 - [Use GitHub as version control for notebooks](https://docs.microsoft.com/azure/databricks/notebooks/github-version-control) 
+
+> [!div class="nextstepaction"]
+> [Deploy apps from GitHub to Azure](deploy-to-azure.md)
