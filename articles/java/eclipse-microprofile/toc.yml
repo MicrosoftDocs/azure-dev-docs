@@ -6,7 +6,7 @@
   - name: Tutorials
     expanded: true
     items:
-      - name: Deploy to Azure Web Apps with Maven
+      - name: Deploy to Azure App Service with Maven
         expanded: false
         items:
         - name: Deploy Quarkus
@@ -14,9 +14,9 @@
         - name: Deploy Helidon
           href: deploy-microprofile-helidon-java-app-with-maven-plugin.md
         - name: Deploy Payara Micro
-          href: deploy-microprofile-payaramicro-java-app-with-maven-plugin.md
+          href: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
         - name: Deploy Kumuluz EE
-          href: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
+          href: deploy-microprofile-kumuluz-ee-java-app-with-maven-plugin.md
       - name: Config Source for Azure Key Vault
         href: configure-microprofile-with-keyvault.md
       - name: CI/CD for MicroProfile applications using Azure Pipelines

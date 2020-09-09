@@ -18,8 +18,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you'll need to have the following installed and configured:
-
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * Apache [Maven](https://maven.apache.org/), version 3.
@@ -38,7 +36,7 @@ Follow the instructions to complete the sign-in process.
 
 ## Create sample app from MicroProfile Starter
 
-In this section, you will create a Quarkus application and test it locally.
+In this section, you'll create a Quarkus application and test it locally.
 
 ### Create Java SE 8 base Project
 
@@ -47,7 +45,7 @@ In this section, you will create a Quarkus application and test it locally.
 
 2. Input or Select the field like follows.  
 
-   |  Input Field  |  Input/Select Value  |
+   |  Field  |  Value  |
    | ---- | ---- |
    |  groupId  |  com.microsoft.azure.samples.quarkus  |
    |  artifactId  |  quarkus-hello-azure  |
@@ -108,7 +106,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.5.2.Final:create \
 
 ## Configure Maven Plugin for Azure App Service
 
-In this section, you will configure the Quarkus project `pom.xml` so that Maven can deploy the app to Azure App Service on Linux.
+In this section, you'll configure the Quarkus project `pom.xml` so that Maven can deploy the app to Azure App Service on Linux.
 
 1. Open `pom.xml` in a code editor.
 
@@ -259,7 +257,7 @@ Once you have configured all of the settings in the preceding sections of this a
 
    ![Front Page for Quarkus](./media/Quarkus/Quarkus-front-page-11.png)
 
-   When your web application has been deployed, you will be able to manage it through the [Azure portal].
+   When your web application has been deployed, you'll be able to manage it through the [Azure portal].
 
    * Your web application will be listed in **microprofile** resource group:
 
