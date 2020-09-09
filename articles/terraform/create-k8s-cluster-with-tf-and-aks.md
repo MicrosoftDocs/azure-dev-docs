@@ -1,16 +1,17 @@
 ---
-title: Tutorial - Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform
+title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 03/09/2020
+ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
+# Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
-In this tutorial, you learn how to do the following tasks:
+In this article, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -23,9 +24,9 @@ In this tutorial, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell.md)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
 
-- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the `appId`, `displayName`, `password`, and `tenant`.
 
 ## Create the directory structure
 
@@ -142,7 +143,7 @@ Create the Terraform configuration file that declares the resources for the Kube
         default_node_pool {
             name            = "agentpool"
             node_count      = var.agent_count
-            vm_size         = "Standard_DS1_v2"
+            vm_size         = "Standard_D2_v2"
         }
 
         service_principal {
@@ -155,6 +156,11 @@ Create the Terraform configuration file that declares the resources for the Kube
             enabled                    = true
             log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
             }
+        }
+        
+        network_profile {
+        load_balancer_sku = "Standard"
+        network_plugin = "kubenet"
         }
 
         tags = {
@@ -329,7 +335,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform plan" results](./media/create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the tutorial.
+1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the process.
 
     ```bash
     terraform apply out.plan

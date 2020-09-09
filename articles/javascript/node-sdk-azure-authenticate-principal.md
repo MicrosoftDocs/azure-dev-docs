@@ -3,6 +3,7 @@ title: Create an Azure service principal with Node.js
 description: Learn how to use service principal authentication on Azure with Node.js and JavaScript 
 ms.topic: article
 ms.date: 06/17/2017
+ms.custom: devx-track-javascript
 ---
 
 # Create an Azure service principal with Node.js 
@@ -43,7 +44,7 @@ Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli
 4. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in). 
 You'll then be able to access your account via the CLI.
 
-5. Get your subscription and tenant id:
+5. Get your subscription and tenant ID:
 
 	```shell
 	$ az account list

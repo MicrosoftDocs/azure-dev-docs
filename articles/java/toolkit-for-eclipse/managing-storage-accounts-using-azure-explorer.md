@@ -6,6 +6,7 @@ ms.date: 02/01/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Manage storage accounts by using the Azure Explorer for Eclipse
@@ -107,8 +108,8 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 [Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets
 [Naming and referencing containers, blobs, and metadata]: https://go.microsoft.com/fwlink/?LinkId=255555
 
-[Sizes for Windows storage accounts in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Sizes for Linux storage accounts in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
+[Sizes for Windows storage accounts in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[Sizes for Linux storage accounts in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [Windows storage-account pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Linux storage-account pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 

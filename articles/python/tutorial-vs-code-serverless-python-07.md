@@ -3,7 +3,7 @@ title: "Step 7: Add a storage binding for Azure Functions in Python with VS Code
 description: Tutorial step 7, adding a binding in Python to write messages to Azure storage.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 7: Add a storage binding for Azure Functions in Python
@@ -94,4 +94,4 @@ In this section, you add a storage binding to the HttpExample function created e
 > [!div class="nextstepaction"]
 > [I added a storage binding - continue to step 8 >>>](tutorial-vs-code-serverless-python-08.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

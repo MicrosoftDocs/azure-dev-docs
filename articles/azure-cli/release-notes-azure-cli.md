@@ -1421,7 +1421,7 @@ Version 2.0.68
 
 * Updated ADLS version (0.0.45)
 
-### Feedback
+### Feedback command
 
 * When reporting a failed extension command, `az feedback` now attempts to open the browser to the project/repo url of the
   extension from the index
@@ -1807,7 +1807,7 @@ Version 2.0.63
 ### CDN
 * Added support for `Microsoft_Standard` and `Standard_ChinaCdn`
 
-### Feedback
+### Feedback command
 * Changed `feedback` to show metadata on recently run commands
 * Changed `feedback` to prompt user to assist in issue creation process by opening a brower and using an issue template
 * Changed `feedback` to print out issue body when run with '--verbose'
@@ -3891,7 +3891,7 @@ Version 2.0.27
 * Added support for `--pip-proxy` parameter to `az extension [add|update]` commands
 * Added support for `--pip-extra-index-urls` argument to `az extension [add|update]` commands
 
-### Feedback
+### Feedback command
 
 * Added extension information to telemetry data
 
@@ -4595,7 +4595,7 @@ Version 2.0.15
 
 * Fixed issue where extra, erroneous information was displayed for `vmss get-instance-view` when using `--instance-id *`
 * Added support for `--lb-sku` to `vmss create`:
-* Removed human names from the admin name blacklist for `[vm|vmss] create`
+* Removed human names from the admin name block list for `[vm|vmss] create`
 * Fixed issue where `[vm|vmss] create` would throw an error if unable to extract plan information from an image
 * Fixed a crash when creating a vmms scaleset with an internal LB
 * Fixed issue where `--no-wait` argument did not work wth `vm availability-set create`

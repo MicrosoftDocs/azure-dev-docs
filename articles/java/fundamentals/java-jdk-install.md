@@ -4,6 +4,7 @@ title: Install the Azul Zulu JDK for Azure and Azure Stack
 description: How to install the Azul Zulu Java Development Kits (JDKs) for Azure development with Windows, Linux, and Mac
 ms.date: 04/19/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 ---
 
 # Install the JDK for Azure and Azure Stack
@@ -78,9 +79,9 @@ OpenJDK 64-Bit Server VM (Zulu 8.44.0.11-linux64)-Microsoft-Azure-restricted (bu
 
 You can get a virtual machine image for the following platforms:
 
-* [Azul Zulu: Java 8 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)
+* [Azul Zulu: Java 8 on Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-2004?tab=Overview)
 * [Azul Zulu: Java 8 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-windows-2019)
-* [Azul Zulu: Java 11 on Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-1804)
+* [Azul Zulu: Java 11 on Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-ubuntu-2004?tab=Overview)
 * [Azul Zulu: Java 11 on Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu11-windows-2019)
 
 ## Download and install the Azul Zulu for Azure - Enterprise Edition JDKs from a Yum repository

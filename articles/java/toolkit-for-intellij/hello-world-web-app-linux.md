@@ -8,9 +8,10 @@ ms.date: 12/20/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
-# Deploy a Hello World web app to a Linux container in the cloud using the Azure Toolkit for IntelliJ
+# Deploy Java app to Azure Web Apps for Containers using Azure Toolkit for IntelliJ
 
 [Docker] containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding features for to deploy containers to Microsoft Azure.
 

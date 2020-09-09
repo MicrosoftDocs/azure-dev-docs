@@ -4,6 +4,7 @@ description: Learn how to use the Azure Dev Spaces plug-in in a continuous integ
 keywords: jenkins, azure, devops, azure dev spaces, aks, azure kubernetes service
 ms.topic: tutorial
 ms.date: 10/23/2019
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service
@@ -32,7 +33,7 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.43 or higher.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 

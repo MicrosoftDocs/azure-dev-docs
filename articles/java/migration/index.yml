@@ -1,15 +1,17 @@
 ### YamlMime:Landing
 
-title: Java to Azure migration documentation
+title: Java to Azure migration strategy documentation
 summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Recommended strategies for migrating Java applications to Azure
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, Jboss, and WebLogic applications to Azure with ease. 
+  keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
   ms.date: 04/03/2020
   ms.topic: landing-page
+  ms.custom: seo-azure-migrate
 
 landingContent:
   - title: Migrate Java applications to Azure
@@ -36,6 +38,8 @@ landingContent:
             url: migrate-tomcat-to-tomcat-app-service.md
           - text: Tomcat to containers on AKS
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
+          - text: Tomcat to Azure Spring Cloud
+            url: migrate-tomcat-to-azure-spring-cloud.md
   - title: Migrate WebLogic to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -44,6 +48,10 @@ landingContent:
             url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
           - text: WebLogic to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
+          - text: WebLogic with AAD via LDAP
+            url: migrate-weblogic-with-aad-ldap.md
+          - text: WebLogic with App Gateway
+            url: migrate-weblogic-with-app-gateway.md
   - title: Migrate WildFly to Azure
     linkLists:
       - linkListType: how-to-guide

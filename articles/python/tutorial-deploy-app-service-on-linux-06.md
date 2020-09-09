@@ -3,7 +3,7 @@ title: "Step 6: Stream logs from Azure App Service into VS Code"
 description: Tutorial step 6, streaming app logs into Visual Studio Code
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 6: Stream logs from Azure App Service into Visual Studio Code
@@ -25,4 +25,4 @@ Use this procedure to stream logs from an Azure App Service to Visual Studio Cod
 > [!div class="nextstepaction"]
 > [I see the logs - continue to step 7 >>>](tutorial-deploy-app-service-on-linux-07.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=06-stream-logs)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

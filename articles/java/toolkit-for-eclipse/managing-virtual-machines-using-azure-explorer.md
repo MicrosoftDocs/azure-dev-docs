@@ -6,6 +6,7 @@ ms.date: 11/13/2018
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Manage virtual machines by using the Azure Explorer for Eclipse
@@ -143,8 +144,8 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 
 <!-- URL List -->
 
-[Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
+[Sizes for Windows virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[Sizes for Linux virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
 [Windows virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Linux virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 

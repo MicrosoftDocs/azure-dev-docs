@@ -3,7 +3,7 @@ title: Java JDKs and medium- and long-term support for Azure development
 description: This article provides downloads and a statement of Azure support for developing and running Java applications.
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.custom: seo-java-september2019
+ms.custom: seo-java-september2019, devx-track-java
 ---
 
 # Java long-term support and medium-term support on Azure and Azure Stack

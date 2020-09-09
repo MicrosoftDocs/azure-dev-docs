@@ -7,6 +7,7 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Use Spring Data JPA with Azure Database for MySQL
@@ -17,6 +18,10 @@ This topic demonstrates creating a sample application that uses [Spring Data JPA
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
+## Sample application
+
+In this article, we will code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
+
 [!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
 ### Generate the application by using Spring Initializr
@@ -24,7 +29,7 @@ This topic demonstrates creating a sample application that uses [Spring Data JPA
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.0.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for MySQL

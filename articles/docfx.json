@@ -26,11 +26,9 @@
           "**/*.png",
           "**/*.jpg",
           "**/*.gif",
-          "**/*.svg"
-        ],
+          "**/*.svg"],
         "exclude": [
           "**/obj/**",
-          "**/includes/**",
           "_themes/**",
           "_themes.pdf/**",
           "**/docfx.json",
@@ -86,7 +84,7 @@
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
-        "javascript/**/*.md": "btholt"
+        "javascript/**/*.md": "diberry"
       },
       "manager": {
         "**/*.md": "barbkess",
@@ -103,7 +101,7 @@
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
-        "javascript/**/*.md": "brholt"
+        "javascript/**/*.md": "diberry"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -132,9 +130,6 @@
       "ms.prod": {
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
-      },
-      "ms.custom": {
-        "python/**/*.md": "tracking-python"
       }
     },
     "template": [],

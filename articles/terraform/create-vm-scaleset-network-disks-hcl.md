@@ -1,15 +1,16 @@
 ---
-title: Tutorial - Create an Azure virtual machine scale set using Terraform
+title: Create an Azure virtual machine scale set using Terraform
 description: Learn how to use Terraform to configure and version an Azure virtual machine scale set.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/07/2019
+ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Create an Azure virtual machine scale set using Terraform
+# Create an Azure virtual machine scale set using Terraform
 
 [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure identical VMs. The number of VM instances can adjust based on demand or a schedule. For more information, see [Automatically scale a virtual machine scale set in the Azure portal](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal).
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a Terraform deployment
@@ -27,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](getting-started-cloud-shell.md)
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -373,7 +374,7 @@ In Cloud Shell, do the following steps:
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password of your choosing, as well as the location for your resources.)
+1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password and the location for your resources.)
 
     ```bash
     terraform plan
@@ -507,7 +508,7 @@ Once the deployment has completed, the content of the resource group resembles t
 
 ## Environment cleanup
 
-To delete the Terraform resources that were created in this tutorial, enter the following command into Cloud Shell:
+To delete the Terraform resources that were created in this article, enter the following command into Cloud Shell:
 
 ```bash
 terraform destroy

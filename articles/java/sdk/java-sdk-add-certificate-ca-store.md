@@ -7,6 +7,7 @@ ms.service: multiple
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2018
+ms.custom: devx-track-java
 ---
 
 # Adding a root certificate to the Java CA certificates store
@@ -39,7 +40,7 @@ The Baltimore certificate might already be installed in your cacerts store, so y
 
 ## To add a root certificate to the cacerts store
 
-1. Download the Baltimore CyberTrust root certificate from <https://cacert.omniroot.com/bc2025.crt>, and save to a local file with extension *.cer* in your *jdk\jre\lib\security* folder. For this example, assume that you downloaded the Baltimore CyberTrust root certificate file as *bc2025.cer*.
+1. Download the Baltimore CyberTrust root certificate from <https://cacert.omniroot.com/bc2025.crt>, and save to a local file with extension *.crt* in your *jdk\jre\lib\security* folder. For this example, assume that you downloaded the Baltimore CyberTrust root certificate file as *bc2025.crt*.
 
    > [!NOTE]
    > The Baltimore CyberTrust root certificate has a serial number of `02:00:00:b9`, and a SHA1 thumbprint of `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
@@ -47,7 +48,7 @@ The Baltimore certificate might already be installed in your cacerts store, so y
 2. Import the certificate to the cacerts store by using the following command:
 
    ```shell
-   keytool -keystore cacerts -importcert -alias bc2025ca -file bc2025.cer
+   keytool -keystore cacerts -importcert -alias bc2025ca -file bc2025.crt
    ```
 
    Where:

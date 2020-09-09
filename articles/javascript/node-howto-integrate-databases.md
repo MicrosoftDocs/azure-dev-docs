@@ -3,6 +3,7 @@ title: Use Azure databases with Node.js apps
 description: Azure offers a number of different databases for use with web and other Node.js apps.
 ms.topic: article
 ms.date: 08/20/2019
+ms.custom: devx-track-javascript
 ---
 
 # How to integrate Azure databases in Node.js apps

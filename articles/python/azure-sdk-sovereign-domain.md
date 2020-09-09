@@ -1,9 +1,9 @@
 ---
 title: Connect to all regions using Azure libraries for Python Multi-cloud 
 description: How to use the azure_cloud module of msrestazure to connect to Azure in different sovereign regions
-ms.date: 06/09/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python
 ---
 
 # Multi-cloud: Connect to all regions with the Azure libraries for Python
@@ -12,9 +12,18 @@ You can use the Azure libraries for Python to connect to all regions where Azure
 
 By default, the Azure libraries are configured to connect to global Azure.
 
-## Using pre-declared cloud definition
+## Using pre-defined sovereign cloud constants
 
-Use the `azure_cloud` module of `msrestazure` (0.4.11+):
+Pre-defined sovereign cloud constants are provided by the `azure_cloud` module of `msrestazure` (0.4.11+):
+
+- `AZURE_PUBLIC_CLOUD`
+- `AZURE_CHINA_CLOUD`
+- `AZURE_US_GOV_CLOUD`
+- `AZURE_GERMAN_CLOUD`
+
+To apply a constant across all your code, define an environment variable named `AZURE_CLOUD` using one of the values in the previous list. (`AZURE_PUBLIC_CLOUD` is the default value.)
+
+To apply a constant within specific operations, import the desired constant from `msrest.azure_cloud` and use it when creating credentials and client objects:
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -28,16 +37,9 @@ client = ResourceManagementClient(credentials,
     subscription_id, base_url=AZURE_CHINA_CLOUD.endpoints.resource_manager)
 ```
   
-Available cloud definitions are as follows:
-
-- `AZURE_PUBLIC_CLOUD`
-- `AZURE_CHINA_CLOUD`
-- `AZURE_US_GOV_CLOUD`
-- `AZURE_GERMAN_CLOUD`
-
 ## Using your own cloud definition
 
-In this code, you use `get_cloud_from_metadata_endpoint` with the Azure Resource Manager endpoint for the private cloud (such as one built on Azure Stack):
+The following code uses `get_cloud_from_metadata_endpoint` with the Azure Resource Manager endpoint for a private cloud (such as one built on Azure Stack):
 
 ```python
 from msrestazure.azure_cloud import get_cloud_from_metadata_endpoint
@@ -54,7 +56,7 @@ client = ResourceManagementClient(credentials, subscription_id,
 
 ## Using ADAL
 
-To connect to another region, a few things have to be considered:
+When connecting to another region, consider the following questions:
 
 - What is the endpoint where to ask for a token (authentication)?
 - What is the endpoint where I will use this token (usage)?

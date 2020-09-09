@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 01/22/2019
+ms.custom: devx-track-java
 ---
 
 # Migrate Spring Boot applications to Azure App Service
@@ -156,7 +157,7 @@ Now that you have your application migrated to Azure App Service you should veri
 
 ### Recommendations
 
-* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
 
 * If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 

@@ -3,7 +3,7 @@ title: "Step 7: Clean up resources after deploying to Azure App Service on Linux
 description: Tutorial step 7, cleaning up Azure resources
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 7: Clean up resources after deploying to Azure App Service on Linux from Visual Studio Code
@@ -36,4 +36,4 @@ Some popular extensions are:
 > [!div class="nextstepaction"]
 > [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python) 
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=07-clean-up-resources)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

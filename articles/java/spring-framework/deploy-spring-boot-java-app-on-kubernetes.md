@@ -8,7 +8,7 @@ ms.date: 11/12/2019
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Deploy Spring Boot Application to the Azure Kubernetes Service
@@ -43,8 +43,8 @@ The following steps walk you through building a Spring Boot web application and 
    ```
    -- or --
    ```
-   md /users/robert/SpringBoot
-   cd /users/robert/SpringBoot
+   md /users/$USER/SpringBoot
+   cd /users/$USER/SpringBoot
    ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory.
@@ -106,7 +106,12 @@ The following steps walk you through building a Spring Boot web application and 
    az acr login
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+1. Open the *pom.xml* file with a text editor; for example [VS Code](https://code.visualstudio.com/docs).
+
+   ```
+   code pom.xml
+   ```
+
 
 1. Update the `<properties>` collection in the *pom.xml* file with the registry name for your Azure Container Registry and the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
@@ -114,7 +119,7 @@ The following steps walk you through building a Spring Boot web application and 
    <properties>
       <!-- Note: If your ACR name contains upper case characters, be sure to convert them to lower case characters. -->
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>2.3.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.5.2</jib-maven-plugin.version>
       <java.version>1.8</java.version>
    </properties>
    ```
@@ -202,7 +207,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 1. Once the app is deployed to the cluster, query the external IP address and open it in your web browser:
 
    ```
-   kubectl get services -o jsonpath={.items[*].status.loadBalancer.ingress[0].ip} --namespace=default
+   kubectl get services -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}'
    ```
 
    ![Browse Sample App on Azure][SB02]
@@ -310,7 +315,7 @@ For more information about iteratively running and debugging containers directly
 [Azure for Java Developers]: /azure/developer/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service/tutorial-custom-container
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/

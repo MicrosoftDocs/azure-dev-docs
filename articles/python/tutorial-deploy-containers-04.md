@@ -3,7 +3,7 @@ title: "Step 4: Stream logs from Azure App Service for a container into Visual S
 description: Tutorial part 4, viewing logs from Azure App Service to monitor its behavior.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 4: Stream logs from Azure App Service for a container
@@ -36,4 +36,4 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 > [!div class="nextstepaction"]
 > [I see the logs - continue to step 5 >>>](tutorial-deploy-containers-05.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=04-stream-logs)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

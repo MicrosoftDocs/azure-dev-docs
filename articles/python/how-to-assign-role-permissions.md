@@ -3,6 +3,7 @@ title: Assign role permissions to an app identity or service principal
 description: How to grant permissions to a service principal or app identity using the Azure CLI
 ms.date: 05/12/2020
 ms.topic: conceptual
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # How to assign role permissions to an app identity or service principal
@@ -11,7 +12,7 @@ Azure's role-based access control (RBAC) system manages specific permissions for
 
 In practice, always assign only the roles that a security principal really needs at the most specific scope. Avoid assigning broader roles at broader scopes even if it initially seems more convenient to do so. By limiting roles and scopes you limit what resources are at risk if the security principal is ever compromised (that is, if the credentials for that principal are exposed in a data breach or other security incident).
 
-Because you use different security principals in development and production, you repeat the role assignments in each environment. That is, during development you typically assign roles to the local service principal created on your workstation (see [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication)). In production, you assign roles to the application identity or service principal before deployment to ensure that the application has access on startup.
+Because you use different security principals in development and production, you repeat the role assignments in each environment. That is, during development you typically assign roles to the local service principal created on your workstation (see [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication)). In production, you assign roles to the application's managed identity or service principal before deployment to ensure that the application has access on startup. For more information, see [Authentication - App identity when running on Azure](azure-sdk-authenticate.md#identity-when-running-the-app-on-azure).
 
 For more information about RBAC in general, see the [What is Azure role-based access control?](/azure/role-based-access-control/overview).
 
@@ -58,7 +59,7 @@ For full details and a UI walkthrough, see [Add or remove Azure role assignments
 
 ## <a name="azure-cli"></a>Identify scope and assign a role through the Azure CLI
 
-Role assignment with the Azure CLI uses the [`az role assignment`](/cli/azure/role/assignment?view=azure-cli-latest) command. You use `az role assignment create` to add an assignment and `az role assignment delete` to remove an assignment. 
+Role assignment with the Azure CLI uses the [`az role assignment`](/cli/azure/role/assignment?view=azure-cli-latest) command. You use `az role assignment create` to add an assignment and `az role assignment delete` to remove an assignment.
 
 Although the full process is described in [Add or remove Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-cli), the following summary provides specific examples that are relevant to other articles on this Developer Center.
 

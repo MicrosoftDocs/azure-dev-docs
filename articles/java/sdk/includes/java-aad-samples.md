@@ -1,4 +1,4 @@
-|  |  |
+| Sample  | Description |
 |---------|---------|
 | [Integrating Azure AD into a Java web application][1] | Set up OAuth2 authentication in a Java web app.
 | [Calling the Azure AD Graph API in a web application][2] | Read directory data and execute queries from the Azure AD Graph API |

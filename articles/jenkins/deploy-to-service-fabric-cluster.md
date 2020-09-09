@@ -4,6 +4,7 @@ description: Learn how to configure continuous build and integration for your Se
 keywords: jenkins, azure, devops, cicd, linux, service fabric, cluster
 ms.topic: tutorial
 ms.date: 07/31/2018
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Deploy to a Service Fabric cluster

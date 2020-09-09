@@ -1,6 +1,10 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
+  - name: Get started on Azure with JavaScript
+    items:
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md
   - name: Quickstarts
     expanded: true
     items:
@@ -86,6 +90,10 @@
         href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Speech recognition
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Logging and metrics
+      items:
+      - name: Logging with the Azure SDK
+        href: node-sdk-logging.md
   - name: Tutorials
     items:
       - name: Deploy Azure Functions with VS Code
@@ -170,6 +178,8 @@
             href: tutorial-vscode-static-website-node-05.md
           - name: Clean up resources
             href: tutorial-vscode-static-website-node-06.md
+  - name: Learn
+    href: learn-azure-javascript.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
@@ -216,5 +226,7 @@
       href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-search
     - name: All Samples
       href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs
-  - name: Reference
-    href: /javascript/api/?view=azure-node-latest
+  - name: Library API reference
+    href: /javascript/api/overview/azure/?view=azure-node-latest
+  - name: Latest SDKs
+    href: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript

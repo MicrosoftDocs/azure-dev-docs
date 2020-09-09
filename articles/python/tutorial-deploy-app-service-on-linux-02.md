@@ -3,7 +3,7 @@ title: "Step 2: Prepare an app for deployment to Azure App Service on Linux from
 description: Tutorial step 2, set up your application
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 2: Prepare your app for deployment to Azure App Service
@@ -84,4 +84,4 @@ The best option in any case is to use a separate database that's deployed and in
 > [!div class="nextstepaction"]
 > [I have my app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=02-prepare-app)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

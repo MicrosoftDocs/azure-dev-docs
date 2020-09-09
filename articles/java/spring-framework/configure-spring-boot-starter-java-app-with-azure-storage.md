@@ -7,6 +7,7 @@ ms.date: 12/19/2018
 ms.service: storage
 ms.topic: article
 ms.workload: storage
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter for Azure Storage
@@ -99,8 +100,8 @@ The following procedure configures the Spring boot application to use Azure stor
    ```xml
    <dependency>
       <groupId>com.microsoft.azure</groupId>
-      <artifactId>spring-azure-starter-storage</artifactId>
-      <version>1.2.5</version>
+      <artifactId>spring-starter-azure-storage</artifactId>
+      <version>1.2.7</version>
    </dependency>
    ```
 

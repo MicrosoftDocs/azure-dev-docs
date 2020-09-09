@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate Java applications to Azure
@@ -73,7 +74,7 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-|   |App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
 | Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
@@ -83,19 +84,19 @@ Use the following grid to identify potential destinations for your application t
 | Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
 | Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
-| VNet Integration/Hybrid Connectivity                              |Preview |Preview |        |&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|Preview |&#x2714;|&#x2714;|
 | Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
 
 Use the following grid to understand the responsibility each destination places on your team following migration.
 
-Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities. 
+Your team is responsible on a continual basis for the tasks indicated with "&#x1F449;". We recommend implementing a robust, highly automated process for fulfilling all such responsibilities.
 
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|                                                                       | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
+|Destination&nbsp;→<br><br>Task&nbsp;↓                            | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
 |---|---|---|---|---|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
@@ -137,7 +138,7 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first conver
 |---|---|---|---|---|---|---|
 | Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | [guidance][16] | [guidance][14]      | guidance<br>planned |
 | Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15] | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A            | [guidance][3]       | guidance<br>planned |
+| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | [guidance][17] | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
@@ -167,3 +168,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [14]: migrate-spring-boot-to-azure-kubernetes-service.md
 [15]: migrate-spring-cloud-to-azure-spring-cloud.md
 [16]: migrate-spring-boot-to-azure-spring-cloud.md
+[17]: migrate-tomcat-to-azure-spring-cloud.md

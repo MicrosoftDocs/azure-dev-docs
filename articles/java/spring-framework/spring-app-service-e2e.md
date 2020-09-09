@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 11/12/2019
 ms.service: app-service
 ms.topic: article
+ms.custom: devx-track-java
 ---
 
 # Deploy a Spring app to App Service with MySQL
@@ -49,7 +50,6 @@ cd spring-framework-petclinic
 ```
 ---
 
-
 ## Build and run the HSQLDB sample locally
 
 First, we'll test the sample locally using using HSQLDB as the database.
@@ -72,7 +72,7 @@ export TOMCAT_HOME=<Tomcat install directory>
 
 ```ps
 $env:TOMCAT_HOME="<Tomcat install directory>"
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -130,7 +130,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 
 ```ps
 & $env:TOMCAT_HOME/bin/catalina.bat run
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -163,7 +163,7 @@ $env:RESOURCEGROUP_NAME="<resource group>"
 $env:WEBAPP_NAME="<web app>"
 $env:WEBAPP_PLAN_NAME="$env:WEBAPP_NAME-appservice-plan"
 $env:REGION="<region>"
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -249,7 +249,7 @@ $env:MYSQL_SERVER_ADMIN_LOGIN_NAME="<admin>"
 $env:MYSQL_SERVER_ADMIN_PASSWORD="<password>"
 $env:MYSQL_DATABASE_NAME="<database>"
 $env:DOLLAR="$"
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -305,7 +305,7 @@ az mysql server configuration set --name wait_timeout `
 az mysql server configuration set --name time_zone `
     --resource-group $env:RESOURCEGROUP_NAME `
     --server $env:MYSQL_SERVER_NAME --value=-8:00
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -343,7 +343,7 @@ mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME}@${MYSQL_SERVER_NAME} \
 ```ps
 mysql -u $env:MYSQL_SERVER_ADMIN_LOGIN_NAME@$env:MYSQL_SERVER_NAME `
  -h $env:MYSQL_SERVER_FULL_NAME -P 3306 -p
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -437,7 +437,6 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 
 Next, build the app, then test it locally by deploying and running it with Tomcat.
 
-
 # [bash](#tab/bash)
 
 ```bash
@@ -452,7 +451,7 @@ ${TOMCAT_HOME}/bin/catalina.sh run
 mvn package
 mvn cargo:deploy
 & $env:TOMCAT_HOME/bin/catalina.bat run
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -489,7 +488,7 @@ az webapp log tail --name ${WEBAPP_NAME} \
 ```ps
 az webapp log tail --name $env:WEBAPP_NAME `
     --resource-group $env:RESOURCEGROUP_NAME
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -521,7 +520,7 @@ az appservice plan update --number-of-workers 2 \
 az appservice plan update --number-of-workers 2 `
     --name $env:WEBAPP_PLAN_NAME `
     --resource-group $env:RESOURCEGROUP_NAME
-````
+```
 
 # [Cmd](#tab/cmd)
 
@@ -549,7 +548,7 @@ az group delete --name ${RESOURCEGROUP_NAME}
 
 ```ps
 az group delete --name $env:RESOURCEGROUP_NAME
-````
+```
 
 # [Cmd](#tab/cmd)
 

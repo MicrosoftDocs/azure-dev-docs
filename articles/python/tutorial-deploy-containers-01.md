@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Deploy Docker containers to Azure App Service with Visual Studio Code"
-description: Tutorial step 1, introduction and prerequisites.
+description: Tutorial step 1, working with containers, introduction and prerequisites.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # Tutorial: Deploy Docker containers to Azure App Service with Visual Studio Code
 
-This article walks you through the process of using Visual Studio Code to deploy a container image from a container registry to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code.
+This article walks you through the process of using Visual Studio Code to deploy a container image from a container registry to [Azure App Service](/azure/app-service/), all within Visual Studio Code.
 
 If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** link at the end of each article to submit feedback.
 
@@ -29,4 +29,4 @@ For a related demonstration video, see <a href="https://www.youtube.com/watch?v=
 > [!div class="nextstepaction"]
 > [I signed into Azure - continue to step 2 >>>](tutorial-deploy-containers-02.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=01-verify-prerequisites)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

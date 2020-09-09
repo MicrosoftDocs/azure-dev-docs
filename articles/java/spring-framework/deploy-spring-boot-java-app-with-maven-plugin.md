@@ -6,7 +6,7 @@ documentationcenter: java
 ms.date: 12/19/2018
 ms.service: app-service
 ms.topic: article
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019  
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 #Customer intent: As a Java and Spring developer, I want to deploy apps to Azure as JAR files so that I don't have to deal with app server configuration and management.
 ---
 

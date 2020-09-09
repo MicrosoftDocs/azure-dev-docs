@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Jenkins server
+  - name: Configure Jenkins using Azure CLI
     href: configure-on-linux-vm.md
 - name: Tutorials
   items:

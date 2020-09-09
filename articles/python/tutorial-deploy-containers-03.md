@@ -3,7 +3,7 @@ title: "Step 3: Redeploy a container to Azure App Service after making changes i
 description: Tutorial step 3, the simple steps to rebuild and redeploy a container image.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 2: Redeploy a container to Azure App Service after making changes
@@ -27,4 +27,4 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 > [!div class="nextstepaction"]
 > [I made changes and redeployed - continue to step 4 >>>](tutorial-deploy-containers-04.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=03-make-changes-redeploy)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

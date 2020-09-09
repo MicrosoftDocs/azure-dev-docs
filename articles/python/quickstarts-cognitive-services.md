@@ -3,6 +3,7 @@ title: Getting starting with AI cognitive services for Python apps on Azure
 description: Index of getting started material in the Azure documentation for AI cognitive services for Python apps.
 ms.date: 05/28/2020
 ms.topic: conceptual
+ms.custom: devx-track-python
 ---
 
 # AI service for Python apps on Azure

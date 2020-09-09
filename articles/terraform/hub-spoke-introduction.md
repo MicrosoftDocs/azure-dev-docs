@@ -3,6 +3,7 @@ title: Tutorial - Create a hub and spoke hybrid network topology in Azure using 
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create a hub and spoke hybrid network topology in Azure using Terraform
@@ -28,7 +29,7 @@ for all resources
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install and configure Terraform**: To provision VMs and other infrastructure in Azure, [install and configure Terraform](getting-started-cloud-shell.md)
+- **Install and configure Terraform**: To provision VMs and other infrastructure in Azure, [install and configure Terraform](get-started-cloud-shell.md)
 
 ## Hub and spoke topology architecture
 

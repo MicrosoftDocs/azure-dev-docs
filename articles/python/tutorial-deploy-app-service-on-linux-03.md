@@ -3,7 +3,7 @@ title: "Step 3: Create the App Service from Visual Studio Code"
 description: Tutorial step 3, creating the App Service from the VS Code extension.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 3: Create the App Service from Visual Studio Code
@@ -50,4 +50,4 @@ If you have an environment variable definitions file, you can use that file to c
 > [!div class="nextstepaction"]
 > [I created the App Service - continue to step 4 >>>](tutorial-deploy-app-service-on-linux-04.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=03-create-app-service)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

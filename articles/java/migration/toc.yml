@@ -15,8 +15,17 @@
       href: migrate-tomcat-to-tomcat-app-service.md
     - name: Tomcat to containers on AKS
       href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
-    - name: WebLogic to Azure Virtual Machines
-      href: migrate-weblogic-to-virtual-machines.md
+    - name: Tomcat to Azure Spring Cloud
+      href: migrate-tomcat-to-azure-spring-cloud.md
+    - name: WebLogic to Azure
+      expanded: true
+      items:
+        - name: WebLogic to Azure Virtual Machines
+          href: migrate-weblogic-to-virtual-machines.md
+        - name: WebLogic with AAD via LDAP
+          href: migrate-weblogic-with-aad-ldap.md
+        - name: WebLogic with App Gateway
+          href: migrate-weblogic-with-app-gateway.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
     - name: WebLogic to WildFly on AKS

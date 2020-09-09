@@ -6,6 +6,7 @@ ms.assetid: 92736911-3df6-46e7-b751-25bb36bf89b9
 ms.topic: article
 ms.date: 3/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Create and manage Azure virtual networks from your Java apps

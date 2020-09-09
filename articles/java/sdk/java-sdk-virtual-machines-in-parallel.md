@@ -6,6 +6,7 @@ ms.assetid: e5a36699-2d96-4571-84f9-a6af13f3c067
 ms.topic: article
 ms.date: 03/30/2017
 ms.reviewer: asirveda
+ms.custom: devx-track-java
 ---
 
 # Create virtual machines across multiple regions from your Java applications
@@ -13,7 +14,7 @@ ms.reviewer: asirveda
 [This sample](https://github.com/Azure-Samples/compute-java-create-virtual-machines-across-regions-in-parallel) creates virtual machines in parallel across different Azure regions using the [Azure management libraries for Java](https://github.com/Azure/azure-sdk-for-java).
 
 > [!IMPORTANT]
-> The sample creates a total of 48 VMs running Ubuntu 16.04 LTS of [size STANDARD_DS3_V2](/azure/virtual-machines/virtual-machines-windows-sizes) across four regions. The sample code deletes these virtual machines before exiting. Make sure to [check your service limits and quota](/azure/azure-subscription-service-limits) before running this sample with the default number of VMs.
+> The sample creates a total of 48 VMs running Ubuntu 16.04 LTS of [size STANDARD_DS3_V2](https://docs.microsoft.com/azure/virtual-machines/sizes) across four regions. The sample code deletes these virtual machines before exiting. Make sure to [check your service limits and quota](/azure/azure-subscription-service-limits) before running this sample with the default number of VMs.
 
 ## Run the sample
 

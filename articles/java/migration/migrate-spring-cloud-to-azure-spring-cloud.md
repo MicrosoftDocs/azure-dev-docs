@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 2/12/2020
+ms.custom: devx-track-java
 ---
 
 # Migrate Spring Cloud applications to Azure Spring Cloud
@@ -88,16 +89,16 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
 
-* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-static/spring-cloud-security/current/reference/html/#_quickstart).
+* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-security/2.1.x/multi/multi__quickstart.html#_quickstart).
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
-#### Resources configured through Pivotal Cloud Foundry (PCF)
+#### Resources configured through VMware Tanzu Application Service (TAS) (formerly Pivotal Cloud Foundry)
 
-For applications managed with Pivotal Cloud Foundry, external resources, including the resources described earlier, are often configured via PCF service bindings. To examine the configuration for such resources, use the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/) to view the `VCAP_SERVICES` variable for the application.
+For applications managed with TAS, external resources, including the resources described earlier, are often configured via TAS service bindings. To examine the configuration for such resources, use the [TAS (Cloud Foundry) CLI](https://docs.cloudfoundry.org/cf-cli/) to view the `VCAP_SERVICES` variable for the application.
 
 ```bash
-# Log into PCF, if needed (enter credentials when prompted)
+# Log into TAS, if needed (enter credentials when prompted)
 cf login -a <API endpoint>
 
 # Set the organization and space containing the application, if not already selected during login.
@@ -108,7 +109,7 @@ cf target space <space name>
 cf env <Application Name>
 ```
 
-Examine the `VCAP_SERVICES` for configuration settings of external services bound to the application. For more information, see the [PCF documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
+Examine the `VCAP_SERVICES` variable for configuration settings of external services bound to the application. For more information, see the [TAS (Cloud Foundry) documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES).
 
 #### All other external resources
 

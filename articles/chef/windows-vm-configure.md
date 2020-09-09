@@ -7,6 +7,7 @@ ms.service: chef
 author: tomarchermsft
 ms.author: tarcher
 ms.date: 02/22/2020
+ms.custom: devx-track-chef
 ---
 
 # Quickstart - Configure a Windows virtual machine in Azure using Chef
@@ -21,7 +22,7 @@ In this article, you set up your Chef environment to provision Azure virtual mac
 
 Before you begin with this article, [review the basic concepts of Chef](https://www.chef.io/chef).
 
-The following diagram shows the high-level Chef architecture.
+The following diagram shows the high-level Chef architecture:
 
 ![Chef architecture](media/windows-vm-configure/chef-architecure.png)
 
@@ -47,7 +48,7 @@ Download and install the latest [Azure CLI](https://docs.microsoft.com/cli/azure
 ## Configure Azure Service Principal
 
 We'll be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions, run the following commands within PowerShell:
- 
+
 ```powershell
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -96,10 +97,11 @@ Copy all files under `chef-starter\chef-repo\.chef` to your `c:\chef` directory.
 
 Copy the `organization-validator.pem` file to `c:\chef`, if it's saved in `c:\Downloads`.
 
-Your directory should now look something like the following example.
+Your directory should now look something like the following example:
 
 ```powershell
-    Directory: C:\Users\username\chef
+
+Directory: C:\Users\username\chef
 
 Mode           LastWriteTime    Length Name
 ----           -------------    ------ ----
@@ -175,7 +177,7 @@ On the desktop, you'll see a CW PowerShell. This tool is used to interact with C
 
 `chef --version` should return something like:
 
-```
+```powershell
 Chef Workstation: 0.4.2
   chef-run: 0.3.0
   chef-client: 15.0.300
@@ -197,9 +199,11 @@ This tutorial assumes that you're using the Azure Resource Manager to interact w
 
 Install the Knife Azure extension, which includes the Azure Plugin.
 
-Run the following command.
+Run the following command:
 
-    chef gem install knife-azure ––pre
+```bash
+chef gem install knife-azure ––pre
+```
 
 > [!NOTE]
 > The `–-pre` argument ensures you are receiving the latest RC version of the Knife Azure Plugin which provides access to the latest set of APIs.
@@ -210,9 +214,11 @@ It's likely that a number of dependencies will also be installed at the same tim
 
 ![Output from installing knife-azure](./media/windows-vm-configure/install-knife-azure.png)
 
-To ensure everything is configured correctly, run the following command.
+To ensure everything is configured correctly, run the following command:
 
-    knife azurerm server list
+```bash
+knife azurerm server list
+```
 
 If everything is configured correctly, you will see a list of available Azure images scroll through.
 
@@ -222,29 +228,33 @@ Congratulations. Your workstation is set up!
 
 A cookbook is used by Chef to define a set of commands that you wish to run on your managed client. Creating a cookbook is straightforward, just use the `chef generate cookbook` command to generate the cookbook template. This cookbook is for a web server that automatically deploys IIS.
 
-Under your `C:\Chef directory`, run the following command.
+Under your `C:\Chef directory`, run the following command:
 
-    chef generate cookbook webserver
+```bash
+chef generate cookbook webserver
+```
 
 This command generates a set of files under the directory C:\Chef\cookbooks\webserver. Next, define the set of commands for the Chef client to run on the managed virtual machine.
 
 The commands are stored in the file default.rb. In this file, define a set of commands that installs IIS, starts IIS, and copies a template file to the `wwwroot` folder.
 
-Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.
+Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines:
 
-    powershell_script 'Install IIS' do
-         action :run
-         code 'add-windowsfeature Web-Server'
-    end
+```powershell
+powershell_script 'Install IIS' do
+        action :run
+        code 'add-windowsfeature Web-Server'
+end
 
-    service 'w3svc' do
-         action [ :enable, :start ]
-    end
+service 'w3svc' do
+        action [ :enable, :start ]
+end
 
-    template 'c:\inetpub\wwwroot\Default.htm' do
-         source 'Default.htm.erb'
-         rights :read, 'Everyone'
-    end
+template 'c:\inetpub\wwwroot\Default.htm' do
+        source 'Default.htm.erb'
+        rights :read, 'Everyone'
+end
+```
 
 Save the file once you are done.
 
@@ -254,7 +264,9 @@ In this step, you'll generate a template file to use as the `default.html` page.
 
 Run the following command to generate the template:
 
-    chef generate template webserver Default.htm
+```bash
+chef generate template webserver Default.htm
+```
 
 Navigate to the `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` file. Edit the file by adding some simple *Hello World* HTML code, and then save the file.
 
@@ -262,7 +274,9 @@ Navigate to the `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` 
 
 In this step, you make a copy of the cookbook that you have created on the local machine and upload it to the Chef Hosted Server. Once uploaded, the cookbook appears under the **Policy** tab.
 
-    knife cookbook upload webserver
+```bash
+knife cookbook upload webserver
+```
 
 ![Results of installing cookbook to the Chef Server](./media/windows-vm-configure/cookbook-installation-under-policy-tab.png)
 
@@ -273,20 +287,20 @@ Deploy an Azure virtual machine and apply the `Webserver` cookbook using the `kn
 The `knife` command will also install the IIS web service and default web page.
 
 ```bash
-    knife azurerm server create `
-    --azure-resource-group-name rg-chefdeployment `
-    --azure-storage-account store `
-    --azure-vm-name chefvm `
-    --azure-vm-size 'Standard_DS2_v2' `
-    --azure-service-location 'westus' `
-    --azure-image-reference-offer 'WindowsServer' `
-    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
-    --azure-image-reference-sku '2016-Datacenter' `
-    --azure-image-reference-version 'latest' `
-    -x myuser -P myPassword123 `
-    --tcp-endpoints '80,3389' `
-    --chef-daemon-interval 1 `
-    -r "recipe[webserver]"
+knife azurerm server create `
+--azure-resource-group-name rg-chefdeployment `
+--azure-storage-account store `
+--azure-vm-name chefvm `
+--azure-vm-size 'Standard_DS2_v2' `
+--azure-service-location 'westus' `
+--azure-image-reference-offer 'WindowsServer' `
+--azure-image-reference-publisher 'MicrosoftWindowsServer' `
+--azure-image-reference-sku '2016-Datacenter' `
+--azure-image-reference-version 'latest' `
+-x myuser -P myPassword123 `
+--tcp-endpoints '80,3389' `
+--chef-daemon-interval 1 `
+-r "recipe[webserver]"
 ```
 
 The `knife` command example creates a *Standard_DS2_v2* virtual machine with Windows Server 2016 installed within the West US region. Modify these values to per your app needs.

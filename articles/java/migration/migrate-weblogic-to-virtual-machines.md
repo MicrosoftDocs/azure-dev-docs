@@ -5,11 +5,12 @@ author: edburns
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 1/27/2020
+ms.custom: devx-track-java
 ---
 
-# Migrate WebLogic applications to Azure Virtual Machines
+# Migrate WebLogic Server applications to Azure Virtual Machines
 
-This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines.
+This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines.  For an overview of available WebLogic Server solutions in the Azure Marketplace see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
 ## Pre-migration
 
@@ -23,7 +24,7 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 ### Determine whether the pre-built Marketplace offers are a good starting point
 
-Oracle and Microsoft have partnered to bring a set of Azure solution templates to the Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers [in the Oracle documentation](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/select-required-oracle-weblogic-server-offer-azure-marketplace.html#GUID-187739C5-EE7A-47C6-B3BA-C0A0333DC398)
+Oracle and Microsoft have partnered to bring a set of Azure solution templates to the Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
 If none of the existing offers are a good starting point, you'll have to reproduce the deployment by hand using Azure Virtual Machine resources. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/).
 
@@ -93,7 +94,7 @@ VM filesystems operate the same way as on-premises filesystems with respect to p
 
 The following offers are available for WebLogic on Azure Virtual Machines.
 
-During the deployment of an offer, you'll be asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see [the documentation for the offers](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlazu/deploy-oracle-weblogic-server-administration-server-single-node.html) and also the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
+During the deployment of an offer, you'll be asked to choose the Virtual Machine size for your WebLogic server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see the [Azure Documentation for virtual machine sizing](/azure/cloud-services/cloud-services-sizes-specs)
 
 #### WebLogic Server Single Node with no Admin Server
 
@@ -101,7 +102,7 @@ This offer creates a single VM and installs WebLogic on it, but doesn't configur
 
 #### WebLogic Server Single Node with Admin Server
 
-This offer provisions a single VM and installs WebLogic Server 12.1.2.3 on it. It creates a domain and starts up the admin server.
+This offer provisions a single VM and installs WebLogic Server on it. It creates a domain and starts up the admin server.
 
 #### WebLogic Server N-Node Cluster
 
@@ -113,7 +114,7 @@ This offer creates a highly available and scalable dynamic cluster of WebLogic S
 
 ### Provision the offer
 
-After you've selected which offer to start with, follow the instructions in [documentation for the offers](https://wls-eng.github.io/arm-oraclelinux-wls/) to provision that offer. Make sure to choose the domain name that matches your existing domain name. You can even match the domain password with your existing domain password.
+After you've selected which offer to start with, follow the instructions in [documentation for the offers](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) to provision that offer. Make sure to choose the domain name that matches your existing domain name. You can even match the domain password with your existing domain password.
 
 ### Migrate the domains
 
@@ -130,6 +131,8 @@ You must account for the migration of any SSL KeyStores used by your application
 ### Connect the JMS sources
 
 After you've connected the databases, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
+
+[!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization.md)]
 
 ### Account for logging
 
@@ -152,6 +155,9 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 * Using Azure Storage to serve static content mounted to the virtual machines. For more information, see [Attach or detach a data disk to a virtual machine](/azure/lab-services/devtest-lab-attach-detach-data-disk).
 
 * Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+
+* If you deployed WebLogic Server with Azure Application Gateway by following the steps in [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](migrate-weblogic-with-app-gateway.md), you may want to do additional configuration on the Application Gateway.  For more information, see [Application Gateway configuration overview
+](/azure/application-gateway/configuration-overview).
 
 * Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 

@@ -3,7 +3,7 @@ title: "Step 6: Add a second Python function to Azure Functions with VS Code"
 description: Tutorial step 6, expanding an Azure Functions project by adding a second function.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 6: Add a second Python function to Azure Functions
@@ -48,7 +48,7 @@ After your first deployment, you can make changes to your code, such as adding a
             output += "%04d" % (carry + (total / scale))
             carry = total % scale
 
-        return output;
+        return output
 
     def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('DigitsOfPi HTTP trigger function processed a request.')
@@ -114,4 +114,4 @@ After your first deployment, you can make changes to your code, such as adding a
 > [!div class="nextstepaction"]
 > [I added a second functions - continue to step 7 >>>](tutorial-vs-code-serverless-python-07.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=06-second-function)
+Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

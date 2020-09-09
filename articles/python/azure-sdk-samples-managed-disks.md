@@ -3,6 +3,7 @@ title: Managed Disks
 description: Create, resizing, and updating a managed disk.
 ms.topic: conceptual
 ms.date: 6/15/2017
+ms.custom: devx-track-python
 ---
 
 # Managed Disks

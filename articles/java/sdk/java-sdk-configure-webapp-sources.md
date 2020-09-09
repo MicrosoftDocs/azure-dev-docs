@@ -5,6 +5,7 @@ author: rloutlaw
 ms.assetid: 833e9c78-1e50-4c23-a611-f73a2f0c2983
 ms.topic: article
 ms.date: 03/30/2017
+ms.custom: devx-track-java
 ---
 
 # Configure Azure App Service deployment sources from your Java applications

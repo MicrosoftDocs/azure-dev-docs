@@ -4,6 +4,7 @@ description: In this quickstart, learn how to deploy the Ansible solution templa
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Quickstart: Deploy the Ansible solution template for Azure to CentOS
@@ -20,7 +21,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 ## Deploy the Ansible solution template
 
-1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.ansible?tab=Overview).
+1. Browse to the Ansible solution template in the Azure Marketplace.
 
 1. Select **GET IT NOW**.
 

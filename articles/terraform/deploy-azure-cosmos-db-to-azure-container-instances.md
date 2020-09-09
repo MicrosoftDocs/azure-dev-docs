@@ -1,13 +1,14 @@
 ---
-title: Tutorial - Deploy an Azure Cosmos DB to Azure Container Instances
-description: Learn how to create a simple Terraform configuration while deploying an Azure Cosmos DB to Azure Container Instances.
-ms.topic: tutorial
+title: Deploy an Azure Cosmos DB to Azure Container Instances
+description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
+ms.topic: how-to
 ms.date: 04/26/2020
+ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Deploy an Azure Cosmos DB to Azure Container Instances
+# Deploy an Azure Cosmos DB to Azure Container Instances
 
-In this tutorial, you create Azure resources using Terraform. The steps in this article walk you through creating the following resources:
+In this article, you create Azure resources using Terraform. The steps in this article walk you through creating the following resources:
 
 > [!div class="checklist"]
 > * Azure Cosmos DB instance
@@ -165,7 +166,7 @@ To test the application, navigate to the FQDN of the container instance. You sho
 
 When no longer needed, delete the resources created in this article.
 
-Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command to remove the Azure resources created in this tutorial:
+Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command to remove the Azure resources created in this article:
 
 ```bash
 terraform destroy -auto-approve
@@ -174,4 +175,4 @@ terraform destroy -auto-approve
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and configure Terraform to provision Azure resources](getting-started-cloud-shell.md).
+> [Install and configure Terraform to provision Azure resources](get-started-cloud-shell.md).

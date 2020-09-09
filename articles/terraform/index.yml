@@ -10,7 +10,8 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 04/26/2020
+  ms.date: 07/31/2020
+  ms.custom: devx-track-terraform
 
 landingContent:
   # Card
@@ -30,21 +31,37 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Getting started - Cloud Shell
-            url: getting-started-cloud-shell.md
-      - linkListType: tutorial
+          - text: Configure Terraform using Azure Cloud Shell
+            url: get-started-cloud-shell.md
+          - text: Configure Terraform using Azure PowerShell
+            url: get-started-powershell.md
+      - linkListType: how-to-guide
         links:
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Create a Terraform base template using Yeoman
             url: create-base-template-using-yeoman.md
-          - text: Test Terraform modules using Terratest
-            url: test-modules-using-terratest.md
-            
+
+  # Card
+  - title: Testing Terraform projects
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Terraform testing overview
+            url: best-practices-testing-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Integration testing
+            url: best-practices-integration-testing.md
+          - text: Compliance testing
+            url: best-practices-compliance-testing.md
+          - text: End-to-end testing
+            url: best-practices-end-to-end-testing.md
+
   # Card
   - title: Manage AKS
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Create a Kubernetes cluster with AKS
             url: create-k8s-cluster-with-tf-and-aks.md
@@ -58,7 +75,7 @@ landingContent:
         links:
           - text: Create a Linux VM
             url: create-linux-virtual-machine-with-infrastructure.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Create a VM cluster with Terraform modules
             url: create-vm-cluster-module.md
@@ -90,7 +107,7 @@ landingContent:
   # Card
   - title: Manage databases
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md

@@ -3,7 +3,7 @@ title: "Step 5: Deploy a Python web app to Azure App Service on Linux using VS C
 description: Tutorial step 5, deploying the web app code
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 5: Deploy your Python web app to Azure App Service on Linux
@@ -42,4 +42,4 @@ Use this procedure to deploy your Python app to an Azure App Service.
 > [!div class="nextstepaction"]
 > [I deployed my app - continue to step 6 >>>](tutorial-deploy-app-service-on-linux-06.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=05-deploy-app)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

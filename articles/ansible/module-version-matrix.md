@@ -4,6 +4,7 @@ description: Ansible module and version matrix for Azure
 keywords: ansible, roles, matrix, version, azure, devops
 ms.topic: reference
 ms.date: 10/14/2019
+ms.custom: devx-track-ansible
 ---
 
 # Ansible module and version matrix
