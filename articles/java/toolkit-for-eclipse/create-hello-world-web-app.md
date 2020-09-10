@@ -1,6 +1,6 @@
 ---
 title: Create a Hello World web app for Azure App Service using Eclipse
-description: This tutorial shows you how to use the Azure Toolkit for Eclipse plugin to create a Hello World Web App for Azure.
+description: This tutorial shows you how to use the Azure Toolkit for Eclipse to create a Hello World Web App for Azure.
 services: app-service
 keywords: java, eclipse, web app, azure app service, hello world, quick start
 documentationcenter: java
@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 # Create a Hello World web app for Azure App Service using Eclipse
 
-Using the open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) plugin, create and deploy a simple Hello World application to Azure App Service as a web app in just a few minutes.
+This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app to Azure App Service by using the [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse).
 
 > [!NOTE]
 >
@@ -32,7 +32,9 @@ Using the open sourced [Azure Toolkit for Eclipse](https://marketplace.eclipse.o
 
 ## Installation and sign-in
 
-1. If you have not yet installed the plugin, see [Installing the Azure Toolkit for Eclipse](installation.md).
+The following steps walk you through the Azure sign in process in your Eclipse development environment.
+
+1. If you haven't installed the plugin, see [Installing the Azure Toolkit for Eclipse](installation.md).
 
 1. To sign in to your Azure account, click **Tools**, click **Azure**, and then click **Sign In**.
 
@@ -71,7 +73,7 @@ To ensure you have required components to work with web app projects, follow the
 
 ## Creating a web app project
 
-1. Click **File**, click **New**, and then click **...Project**. Inside the New Project dialog window, expand **Web**, select **Dynamic Web Project**, and click **Next**.
+1. Click **File**, expand **New**, and then click **...Project**. Inside the New Project dialog window, expand **Web**, select **Dynamic Web Project**, and click **Next**.
 
    > [!TIP]
    > If you don't see **Web** listed as an available project, see [this section](###install-required-software-(optional)) to make sure you have the required Eclipse software.

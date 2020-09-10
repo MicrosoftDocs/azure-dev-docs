@@ -7,7 +7,7 @@ documentationcenter: java
 author: selvasingh
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
 ms.reviewer: asirveda
-ms.date: 02/01/2018
+ms.date: 09/09/2020
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 # Create a Hello World web app for Azure App Service using IntelliJ
 
-Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) plugin, creating and deploying a basic Hello World application to Azure App Service as a web app can be done in a few minutes.
+This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app to Azure App Service by using the [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053).
 
 > [!NOTE]
 >
@@ -30,55 +30,43 @@ Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/pl
 
 [!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
 
-## Installation and Sign-in
+## Installation and sign-in
 
-1. In IntelliJ IDEA's Settings/Preferences dialog (Ctrl+Alt+S), select **Plugins**. Then, find the **Azure Toolkit for IntelliJ** in the **Marketplace** and click **Install**. After installed, click **Restart** to activate the plugin. 
+The following steps walk you through the Azure sign in process in your IntelliJ development environment.
 
-   ![Azure Toolkit for IntelliJ plugin in Marketplace][marketplace]
+1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](installation.md).
 
-2. To sign in to your Azure account, open sidebar **Azure Explorer**, and then click the **Azure Sign In** icon in the bar on top (or from IDEA menu **Tools/Azure/Azure Sign in**).
+1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 
-   ![The IntelliJ Azure Sign In command][I01]
+   :::image type="content" source="media/sign-in-instructions/I01.png" alt-text="Sign in to Azure on IntelliJ."::: 
 
-3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
+1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
 
-   ![The Azure Sign In window with device login selected][I02]
+1. Click **Copy&Open** in the **Azure Device Login** dialog.
 
-4. Click **Copy&Open** in **Azure Device Login** dialog .
+1. In the browser, paste your device code (which has been copied when you clicked **Copy&Open** in last step) and then click **Next**.
 
-   ![The Azure Login Dialog window][I03]
+1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
 
-5. In the browser, paste your device code (which has been copied when you click **Copy&Open** in last step) and then click **Next**.
+1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
 
-   ![The device login browser][I04]
+## Creating a new web app project
 
-6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
+1. Click **File**, expand **New**, and then click **Project**.
 
-   ![The Select Subscriptions dialog box][I05]
+1. In the **New Project** dialog box, select **Maven**, and make sure the **Create from Archetype** option is checked. From the list, select **maven-archetype-webapp**, and then click **Next**.
 
-## Creating web app project
+   :::image type="content" source="media/create-hello-world-web-app/maven-archetype-webapp.png" alt-text="Select the maven-archetype-webapp option."::: 
 
-1. In IntelliJ, click the **File** menu, then click **New**, and then click **Project**.
+1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
 
-   ![Create New Project][file-new-project]
+   * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
+   * **GroupId**: The name of the artifact group, usually a company domain. (e.g. *com.microsoft.azure*)
+   * **Version**: We'll keep the default version *1.0-SNAPSHOT*.
 
-2. In the **New Project** dialog box, select **Maven**, then **maven-archetype-webapp**, and then click **Next**.
+1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
-   ![Choose Maven archetype Webapp][maven-archetype-webapp]
-
-3. Specify the **GroupId** and **ArtifactId** for your web app, and then click **Next**.
-
-   ![Specify GroupId and ArtifactId][groupid-and-artifactid]
-
-4. Customize any Maven settings or accept the defaults, and then click **Next**.
-
-   ![Specify Maven settings][maven-options]
-
-5. Specify your project name and location, and then click **Finish**.
-
-   ![Specify project name][project-name]
-
-6. Under Project Explorer view, open and edit the file **src/main/webapp/index.jsp** as following and **save the changes**:
+1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/WEB-INF/index.jsp**. Replace the code with the following and **save the changes**:
 
    ```html
    <html>
@@ -87,51 +75,55 @@ Using open sourced [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/pl
     </body>
    </html>
    ```
-
-   ![Edit index page][edit-index-page]
+   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Select the maven-archetype-webapp option.":::
 
 ## Deploying web app to Azure
 
-1. Under Project Explorer view, right-click your project, expand **Azure**, then click **Deploy to Azure**.
+1. Under the Project Explorer view, right-click your project, expand **Azure**, then click **Deploy to Azure Web Apps**.
 
-   ![Deploy to Azure menu][deploy-to-azure-menu]
+1. In the Deploy to Azure dialog box, you can deploy the application to an existing Tomcat webapp or you can create a new one.
+   a. Click **No available webapp, click to create a new one** to create a new webapp. Otherwise, choose **Create New WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
 
-1. In the Deploy to Azure dialog box, you can directly deploy the application to an existing Tomcat webapp if you already have one, otherwise you should create a new one first.
-   1. Click the link **No Available webapp, click to create a new one** to crete a new web app, you could choose **Create New WebApp** from WebApp dropdown if there are existing webapps in your subscription.
+      :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Select the maven-archetype-webapp option.":::
 
-      ![Deploy to Azure dialog box][deploy-to-azure-dialog]
+   In the pop-up **Create WebApp** dialog box, specify the following information and click **OK**: 
 
-   1. In the pop-up dialog box, chose **TOMCAT 8.5-jre8** as Web Container and specify other required information, then click **OK** to create the webapp.
+      * **Name**: The WebApp's domain name string.
+      * **Subscription**: Specifies the Azure subscription that you want to use for the new WebApp.
+      * **Platform**: Select *Linux*.
+      * **Web Container**: Select *TOMCAT 9.0-jre8* or as appropriate.
+      * **Resource Group**: Specifies the resource group for your WebApp. You may select an existing resource group associated with your Azure account or create a new one.
+      * **App Service Plan**: Specifies the App Service Plan for your WebApp. You may select an existing plan associated with your Azure account or create a new one.
 
-      ![Create new web app][create-new-web-app-dialog]
-
-   1. Choose the web app from WebApp drop down, and then click **Run**.(You could start from here if you want deploy to an existing webapp)
-
-      ![Deploy to existing webapp][deploy-to-existing-webapp]
+   b. To deploy to an existing webapp, choose the web app from WebApp drop down, and then click **Run**.
 
 1. The toolkit will display a status message when it has successfully deployed your web app, along with the URL of your deployed web app if succeed.
 
-   ![Successful deployment][successfully-deployed]
-
 1. You can browse to your web app using the link provided in the status message.
 
-   ![Browsing your web app][browse-web-app]
+   :::image type="content" source="media/create-hello-world-web-app/browse-web-app.png" alt-text="Browsing your web app.":::
 
 ## Managing deploy configurations
 
-1. After you have published your web app, your settings will be saved as the default, and you can run the deployment by clicking the green arrow icon on the toolbar. You can modify your settings by clicking the drop-down menu for your web app and click **Edit Configurations**.
+> [!TIP]
+> After you have published your web app, you can run the deployment by clicking the green arrow icon on the toolbar.
 
-   ![Edit configuration menu][edit-configuration-menu]
+1. Before running your WebApp's deployment, you can modify the default settings by clicking the drop-down menu for your web app and selecting **Edit Configurations**.
 
-1. When the **Run/Debug Configurations** dialog box is displayed, you can modify any of the default settings, and then click **OK**.
+   :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu.png" alt-text="Edit configuration menu.":::
 
-   ![Edit configuration dialog box][edit-configuration-dialog]
+1. On the **Run/Debug Configurations** dialog box, you can modify any of the default settings. Click **OK** to save the settings.
 
 ## Cleaning up resources
 
-1. Deleting Web Apps in Azure Explorer
+1. To delete your web app, navigate to the left-hand **Azure Explorer** sidebar and locate the **Web Apps** item. 
 
-     ![Clean resources][clean-resources]
+   > [!NOTE]
+   > If the Web Apps menu item does not expand, manually refresh the list by clicking the **Refresh** icon on the Azure Explorer toolbar, or by right-clicking the Web Apps menu item and selecting **Refresh**.
+
+1. Right-click the web app you'd like to delete and click **Delete**.
+
+1. To delete your app service plan or resource group, visit the [Azure portal](portal.azure.com) and manually delete the resources under your subscription.
 
 ## Next steps
 
@@ -168,8 +160,3 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [edit-configuration-menu]: media/create-hello-world-web-app/edit-configuration-menu.png
 [edit-configuration-dialog]: media/create-hello-world-web-app/edit-configuration-dialog.png
 [clean-resources]: media/create-hello-world-web-app/clean-resource.png
-[I01]: media/sign-in-instructions/I01.png
-[I02]: media/sign-in-instructions/I02.png
-[I03]: media/sign-in-instructions/I03.png
-[I04]: media/sign-in-instructions/I04.png
-[I05]: media/sign-in-instructions/I05.png

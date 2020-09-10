@@ -12,10 +12,7 @@ ms.custom: devx-track-java
 
 # Installing the Azure Toolkit for Eclipse
 
-There are two ways to install the Azure Toolkit for Eclipse on your Eclipse IDE:
-
-  - [Eclipse marketplace](#eclipse-marketplace)
-  - [Install new software](#install-new-software)
+The Azure Toolkit for Eclipse provides functionality that allow you to easily create, develop, configure, test, and deploy lightweight, highly available and scalable Java web apps and HDInsight Spark jobs to Azure using the Eclipse development environment.
 
 > [!NOTE] 
 > 
@@ -25,6 +22,8 @@ There are two ways to install the Azure Toolkit for Eclipse on your Eclipse IDE:
 > 
 
 [!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
+
+There are two methods of installing the Azure Toolkit for Eclipse: by accessing the **Eclipse Marketplace**, and by using the **Install new software** option on the Help menu. Both installation methods will be demonstrated in the following sections.
 
 ## Eclipse Marketplace
 

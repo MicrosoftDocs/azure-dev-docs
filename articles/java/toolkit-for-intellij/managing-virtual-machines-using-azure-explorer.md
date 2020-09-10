@@ -2,7 +2,7 @@
 title: Manage virtual machines with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for IntelliJ.
 documentationcenter: java
-ms.date: 11/13/2018
+ms.date: 09/09/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,24 +13,23 @@ ms.custom: devx-track-java
 
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
+This article demonstrates how to create and manage virtual machines through the Azure Explorer on IntelliJ.
+
 [!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 [!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
-## Create a virtual machine in IntelliJ
+## Create a virtual machine
 
 To create a virtual machine by using the Azure Explorer, do the following: 
 
 1. Sign in to your Azure account by using the steps in the [Sign-in instructions for the Azure Toolkit for IntelliJ] article.
 
 2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**. 
-
-   ![The Create VM command][CR01]  
-    The **Create new Virtual Machine** wizard opens.
+ 
+   :::image type="content" source="media/managing-virtual-machines-using-azure-explorer/CR01.png" alt-text="Create VM option in Azure Explorer.":::
 
 3. In the **Choose a Subscription** window, select your subscription, and then click **Next**. 
-
-   ![The Choose a Subscription window][CR02]
 
 4. In the **Select a Virtual Machine Image** window, enter the following information:
 
@@ -48,8 +47,6 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
       * **Version #**: Specifies which version of the selected SKU to use.
 
-   ![The Select a Virtual Machine Image window][CR03]
-
 5. Click **Next**. 
 
 6. In the **Virtual Machine Basic Settings** window, enter the following information:
@@ -60,9 +57,7 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **User name**: Specifies the administrator account to create for managing your virtual machine.
 
-   * **Password** and **Confirm**: Specifies the password for your administrator account.
-
-   ![The Virtual Machine Basic Settings window][CR04]
+   * **Password**: Specifies the password for your administrator account. Re-enter your password in the **Confirm** box to validate the credential.
 
 7. Click **Next**. 
 
@@ -72,15 +67,9 @@ To create a virtual machine by using the Azure Explorer, do the following:
       * **Create new**: Specifies that you want to create a new resource group.
       * **Use existing**: Specifies that you want to select from a list of resource groups that are associated with your Azure account.
 
-       ![The Associated Resources window][CR07]
-
    * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can choose an existing storage account or create a new account. If you choose **Create New**, the following dialog box appears:
 
-      ![The Create Storage Account dialog box][CR05]
-
    * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box appears:
-
-      ![The Create Virtual Network dialog box][CR06]
 
    * **Public IP address**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**. 
 
@@ -88,42 +77,33 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Availability set**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set, create a new availability set or, if your virtual machine will not belong to an availability set, select **(None)**.
 
-9. Click **Finish**.  
-    Your new virtual machine appears in the Azure Explorer tool window. 
+9. Click **Finish**. Your new virtual machine appears in the Azure Explorer tool window. 
 
-   ![New virtual machine in the Azure Explorer view][CR08]
-
-## Restart a virtual machine in IntelliJ
+## Restart a virtual machine
 
 To restart a virtual machine by using the Azure Explorer in IntelliJ, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Restart**.
 
-   ![The virtual-machine Restart command][RE01]
-
 2. In the confirmation window, click **Yes**. 
 
    ![The restart virtual machine confirmation window][RE02]
 
-## Shut down a virtual machine in IntelliJ
+## Shut down a virtual machine
 
 To shut down a running virtual machine by using the Azure Explorer in IntelliJ, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Shutdown**.
 
-   ![The virtual-machine Shutdown command][SH01]
-
 2. In the confirmation window, click **Yes**. 
 
    ![The shut down virtual machine confirmation window][SH02]
 
-## Delete a virtual machine in IntelliJ
+## Delete a virtual machine
 
 To delete a virtual machine by using the Azure Explorer in IntelliJ, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Delete**.
-
-   ![The virtual-machine Delete command][DE01]
 
 2. In the confirmation window, click **Yes**. 
 

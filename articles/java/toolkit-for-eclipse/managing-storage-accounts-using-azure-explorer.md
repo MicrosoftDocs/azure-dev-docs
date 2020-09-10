@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 # Manage storage accounts by using the Azure Explorer for Eclipse
 
 > [!NOTE]
-> The Storage Accounts feature in Azure Explorer for Eclipse is deprecated. You can utilize the Azure portal to create and manage storage accounts and containers. See the [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) documentation for quickstarts on how to manage storage accounts.
+> The Storage Accounts feature in Azure Explorer is deprecated. You can utilize the Azure portal to create and manage storage accounts and containers. See the [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) documentation for quickstarts on how to manage storage accounts.
 
 Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the Eclipse integrated development environment (IDE).
 

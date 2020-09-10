@@ -4,7 +4,7 @@ titleSuffix: Azure Toolkit for IntelliJ
 description: Run a basic Hello World web app in a Linux container and deploy it to the cloud using the Azure Toolkit for IntelliJ.
 services: app-service\web
 documentationcenter: java
-ms.date: 12/20/2018
+ms.date: 09/09/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 # Deploy Java app to Azure Web Apps for Containers using Azure Toolkit for IntelliJ
 
-[Docker] containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding features for to deploy containers to Microsoft Azure.
+[Docker] containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding features to deploy containers to Microsoft Azure.
 
 This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app in a Linux container to Azure by using the Azure Toolkit for IntelliJ.
 
@@ -27,29 +27,52 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 > ![Docker settings menu][docker-settings-menu]
 >
 
-## Create a new web app project
+## Installation and sign-in
 
-1. Start IntelliJ and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md) article.
+The following steps walk you through the Azure sign in process in your IntelliJ development environment.
 
-1. Click the **File** menu, then click **New**, and then click **Project**.
-   
-   ![Create New Project][file-new-project]
+1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](installation.md).
 
-1. In the **New Project** dialog box, select **Maven**, then **maven-archetype-webapp**, and then click **Next**.
-   
-   ![Choose Maven archetype webapp][maven-archetype-webapp]
-   
-1. Specify the **GroupId** and **ArtifactId** for your web app, and then click **Next**.
-   
-   ![Specify GroupId and ArtifactId][groupid-and-artifactid]
+1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 
-1. Customize any Maven settings or accept the defaults, and then click **Next**.
-   
-   ![Specify Maven settings][maven-options]
+   :::image type="content" source="media/sign-in-instructions/I01.png" alt-text="Sign in to Azure on IntelliJ."::: 
 
-1. Specify your project name and location, and then click **Finish**.
-   
-   ![Specify project name][project-name]
+1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
+
+1. Click **Copy&Open** in the **Azure Device Login** dialog.
+
+1. In the browser, paste your device code (which has been copied when you clicked **Copy&Open** in last step) and then click **Next**.
+
+1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
+
+1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
+
+## Creating a new web app project
+
+1. Click **File**, expand **New**, and then click **Project**.
+
+1. In the **New Project** dialog box, select **Maven**, and make sure the **Create from Archetype** option is checked. From the list, select **maven-archetype-webapp**, and then click **Next**.
+
+   :::image type="content" source="media/create-hello-world-web-app/maven-archetype-webapp.png" alt-text="Select the maven-archetype-webapp option."::: 
+
+1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
+
+   * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
+   * **GroupId**: The name of the artifact group, usually a company domain. (e.g. *com.microsoft.azure*)
+   * **Version**: We'll keep the default version *1.0-SNAPSHOT*.
+
+1. Customize any Maven settings or accept the defaults, and then click **Finish**.
+
+1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/WEB-INF/index.jsp**. Replace the code with the following and **save the changes**:
+
+   ```html
+   <html>
+    <body>
+      <b><% out.println("Hello World!"); %></b>
+    </body>
+   </html>
+   ```
+   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Select the maven-archetype-webapp option.":::
 
 ## Create an Azure Container Registry to use as a private Docker registry
 
@@ -64,27 +87,37 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    Once you have signed in to your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
-1. Click the menu icon for **+ Create a resource**, then click **Containers**, and then click **Container Registry**.
-   
-   ![Create a new Azure Container Registry][create-container-registry-01]
+1. Click the menu icon for **+ Create a resource**, click the **Containers** category, and then click **Container Registry**.
 
-1. When the **Create container registry** page is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
+1. When the **Create container registry** page is displayed, specify the following information:
 
-   ![Configure Azure Container Registry settings][create-container-registry-02]
+   * **Subscription**: Specifies the Azure subscription that you want to use for the new container registry.
+
+   * **Resource Group**: Specifies the resource group for your container registry. Select one of the following options:
+      * **Create New**: Specifies that you want to create a new resource group.
+      * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
+
+   * **Registry Name**: Specifies the name for the new container registry.
+
+   * **Location**: Specifies the region where your container registry will be created (for example, "West US").
+
+   * **SKU**: Specifies the service tier for your container registry. For this tutorial, select *Basic*. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
+
+1. Click **Review + create** and verify that the information is correct. Finish by clicking **Create**.
 
 ## Deploy your web app in a Docker container
 
-1. Right-click your project in the project explorer, choose **Azure**, and then click **Add Docker Support**.
+The following steps walk you through configuring Docker support for your web app and deploying the web app to .
+
+1. Navigate to your project on the left-hand **Project** tab and right-click your project. Expand **Azure** and click **Add Docker Support**.
 
    This will automatically create a Docker file with a default configuration.
 
-   ![Add Docker support][add-docker-support]
+   :::image type="content" source="media/hello-world-web-app-linux/docker-support-file.png" alt-text="Select the maven-archetype-webapp option.":::
 
-1. After you have added Docker support, right-click your project in the project explorer, choose **Azure**, and then click **Run on Web App for Containers**.
+1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Run on Web App for Containers**.
 
-   ![Run on Web App for Containers][run-on-web-app-for-containers]
-
-1. When the **Run on Web App for Containers** dialog box is displayed, fill in the requisite information:
+1. On the **Run on Web App for Containers** dialog box, fill in the following information:
 
    * **Name**: This specifies the friendly name which is displayed in the Azure Toolkit. 
 
@@ -100,11 +133,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    * **App Service Plan**: Specifies whether you will use an existing or create a new app service plan. 
 
-   ![Run on Web App for Containers][run-on-web-app-linux]
-
 1. When you have finished configuring the settings listed above, click **Run**. When your web app has been successfully deployed, the status will be displayed in the **Run** window.
-
-   ![Successfully deployed web app][successfully-deployed]
 
 1. After your web app has been published, you can browse to the URL that specifed earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
 
@@ -112,13 +141,11 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 ## Optional: Modify your web app publish settings
 
-1. After you have published your web app, your settings will be saved as the default, and you can run your application on Azure by clicking the green arrow icon on the toolbar. You can modify these settings by clicking the drop-down menu for your web app and click **Edit Configurations**.
+1. After you have published your web app, your settings will be saved as the default, and you can run your application on Azure by clicking the green arrow icon on the toolbar. You can modify these settings by clicking the drop-down menu for your web app and clicking **Edit Configurations**.
 
-   ![Edit configuration menu][edit-configuration-menu]
+    :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu.png" alt-text="Edit configuration menu.":::
 
 1. When the **Run/Debug Configurations** dialog box is displayed, you can modify any of the default settings, and then click **OK**.
-
-   ![Edit configuration dialog box][edit-configuration-dialog]
 
 ## Next steps
 
@@ -139,18 +166,5 @@ For additional resources for Docker, see the official [Docker website][Docker].
 
 <!-- IMG List -->
 
-[add-docker-support]: media/hello-world-web-app-linux/add-docker-support.png
 [browsing-to-web-app]:  media/hello-world-web-app-linux/browsing-to-web-app.png
-[create-container-registry-01]: media/hello-world-web-app-linux/create-container-registry-01.png
-[create-container-registry-02]: media/hello-world-web-app-linux/create-container-registry-02.png
 [docker-settings-menu]: media/hello-world-web-app-linux/docker-settings-menu.png
-[edit-configuration-dialog]: media/hello-world-web-app-linux/edit-configuration-dialog.png
-[edit-configuration-menu]: media/hello-world-web-app-linux/edit-configuration-menu.png
-[file-new-project]: media/hello-world-web-app-linux/file-new-project.png
-[groupid-and-artifactid]: media/hello-world-web-app-linux/groupid-and-artifactid.png
-[maven-archetype-webapp]: media/hello-world-web-app-linux/maven-archetype-webapp.png
-[maven-options]: media/hello-world-web-app-linux/maven-options.png
-[project-name]: media/hello-world-web-app-linux/project-name.png
-[run-on-web-app-for-containers]: media/hello-world-web-app-linux/run-on-web-app-for-containers.png
-[run-on-web-app-linux]: media/hello-world-web-app-linux/run-on-web-app-linux.png
-[successfully-deployed]: media/hello-world-web-app-linux/successfully-deployed.png

@@ -17,7 +17,7 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
 
 [!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
-## Create a virtual machine in Eclipse
+## Create a virtual machine
 
 1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions).
 
@@ -72,7 +72,7 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
       > [!NOTE]
       > You can check the creation progress on the lower-right corner of your Eclipse workspace.
 
-## Restart a virtual machine in Eclipse
+## Restart a virtual machine
 
 To restart a virtual machine by using the Azure Explorer in Eclipse, do the following:
 
@@ -82,7 +82,7 @@ To restart a virtual machine by using the Azure Explorer in Eclipse, do the foll
 
    ![The virtual-machine restart confirmation window](media/managing-virtual-machines-using-azure-explorer/RE02.png)
 
-## Shut down a virtual machine in Eclipse
+## Shut down a virtual machine
 
 To shut down a running virtual machine by using the Azure Explorer in Eclipse, do the following:
 
@@ -92,7 +92,7 @@ To shut down a running virtual machine by using the Azure Explorer in Eclipse, d
 
    ![The virtual-machine shutdown confirmation window](media/managing-virtual-machines-using-azure-explorer/SH02.png)
 
-## Delete a virtual machine in Eclipse
+## Delete a virtual machine
 
 To delete a virtual machine by using the Azure Explorer in Eclipse, do the following:
 

@@ -3,7 +3,7 @@ title: Installing the Azure Toolkit for IntelliJ
 description: Learn how to install the Azure Toolkit for IntelliJ plug-in to create and deploy cloud applications to Azure.
 documentationcenter: java
 ms.assetid: c6817c7b-f28c-4c06-8216-41c7a8117de3
-ms.date: 02/01/2018
+ms.date: 09/09/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -48,80 +48,39 @@ The Azure Toolkit for IntelliJ requires to the following software components:
 -->
 
 
-## To install the Azure Toolkit for IntelliJ from the settings dialog box
+## From the settings dialog box
 
-1. Start IntelliJ IDEA.
+1. On the IntelliJ toolbar, click **File**, then click **Settings**.
 
-1. When the IntelliJ IDEA opens, click **File**, then click **Settings**.
-   
-   ![Open the IntelliJ IDEA Settings Dialog Box][01a]
+1. On the left-hand navigation menu of the Settings dialog box, click **Plugins**.
 
-1. In the Settings dialog box, click **Plugins**, and then click **Browse repositories**.
-   
-   ![IntelliJ IDEA Settings Dialog Box][02a]
+1. On the **Marketplace** search bar, type "Azure" to filter the list of plugins. Select **Azure Toolkit for IntelliJ**, and then click **Install**. Read IntelliJ's *Third-party Plugins Privacy Note* and click **Accept**.
 
-1. In the **Browse Repositories** dialog box, type "Azure" in the search box. Highlight **Azure Toolkit for IntelliJ**, and then click **Install**.
-   
-   ![Search for the Azure Toolkit for IntelliJ][03]
-   
-   IntelliJ IDEA displays the installation progress in a dialog box.
-   
-   ![Installation progress][04]
+   :::image type="content" source="media/installation/03-intellij-search-plugin.png" alt-text="Search for the Azure Toolkit for IntelliJ plugin."::: 
 
-1. When the installation has completed, click **Restart IntelliJ IDEA**.
-   
-   ![Restart IntelliJ IDEA][05]
+1. When the installation has completed, click **Restart IDE**.
 
-1. Click **OK** to close the Settings dialog box.
+1. When prompted to restart IntelliJ IDEA, click **Restart**.
    
-   ![Close IntelliJ IDEA Settings Dialog Box][06]
+   :::image type="content" source="media/installation/07-restart-intellij.png" alt-text="Restart IntelliJ IDEA."::: 
 
-1. When prompted to restart IntelliJ IDEA or postpone, click **Restart**.
-   
-1   ![Restart IntelliJ IDEA][07]
+## From the start screen
 
-## To install the Azure Toolkit for IntelliJ from the start screen
+1. On the IntelliJ IDEA start screen, click **Configure**, then click **Plugins**.
 
-1. Start IntelliJ IDEA.
+   :::image type="content" source="media/installation/01-intellij-configure-dropdown.png" alt-text="Plugins from the start screen."::: 
 
-1. When the IntelliJ IDEA start screen appears, click **Configure**, then click **Plugins**.
-   
-   ![Install IntelliJ IDEA Plugins][01b]
+1. On the **Marketplace** search bar, type "Azure" to filter the list of plugins. Select **Azure Toolkit for IntelliJ**, and then click **Install**. Read IntelliJ's *Third-party Plugins Privacy Note* and click **Accept**.
 
-1. In the **Plugins** dialog box, click **Browse repositories**.
-   
-   ![Browse IntelliJ IDEA Plugin Repositories][02b]
+   :::image type="content" source="media/installation/01-intellij-start-screen-marketplace.png" alt-text="Plugins marketplace from the start screen.":::
 
-1. In the **Browse Repositories** dialog box, type "Azure" in the search box. Highlight **Azure Toolkit for IntelliJ**, and then click **Install**.
-   
-   ![Search for the Azure Toolkit for IntelliJ][03]
-   
-   IntelliJ IDEA will display the installation progress in a dialog box.
-   
-   ![Installation progress][04]
+1. When the installation has completed, click **Restart IDE**.
 
-1. When the installation has completed, click **Restart IntelliJ IDEA**.
+1. When prompted to restart IntelliJ IDEA, click **Restart**.
    
-   ![Restart IntelliJ IDEA][05]
-
-1. When prompted to restart IntelliJ IDEA or postpone, click **Restart**.
-   
-   ![Restart IntelliJ IDEA][07]
+   :::image type="content" source="media/installation/01-intellij-start-screen-marketplace-restart.png" alt-text="Plugins marketplace from the start screen.":::
 
 ## Next steps
 
 [!INCLUDE [additional-resources](includes/additional-resources.md)]
 
-<!-- URL List -->
-
-<!-- IMG List -->
-
-[01a]: media/installation/01-intellij-file-settings.png
-[01b]: media/installation/01-intellij-configure-dropdown.png
-[02a]: media/installation/02-intellij-settings-dialog.png
-[02b]: media/installation/02-intellij-plugins-dialog.png
-[03]: media/installation/03-intellij-browse-repositories.png
-[04]: media/installation/04-install-progress.png
-[05]: media/installation/05-restart-intellij.png
-[06]: media/installation/06-intellij-settings-dialog.png
-[07]: media/installation/07-restart-intellij.png
