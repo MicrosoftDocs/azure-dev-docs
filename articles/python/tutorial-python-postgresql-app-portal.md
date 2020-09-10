@@ -225,15 +225,15 @@ With the code deployed and the database in place, the app is almost ready to use
 
 You're now ready to run a quick test of the app to demonstrate that it is working with the PostgreSQL database.
 
-1. In the browser window or tab for the web app, return to the **Overview** page, then select the **URL** for the web app (of the form `http:\//\<app-name>.azurewebsites.net`).
+1. In the browser window or tab for the web app, return to the **Overview** page, then select the **URL** for the web app (of the form `http://<app-name>.azurewebsites.net`).
 
 1. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-1. Browse to `http:\//\<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the superuser credentials from the previous section (`root` and `Pollsdb1`).
+1. Browse to `http://<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the superuser credentials from the previous section (`root` and `Pollsdb1`).
 
 1. Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-1. Browse again to `http:\//\<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+1. Browse again to `http://<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active PostgreSQL database.
 
