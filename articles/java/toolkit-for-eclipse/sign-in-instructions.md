@@ -71,7 +71,7 @@ This section walks you through creating a credentials file that contains your se
 
 4. Click **Copy&Open** in **Azure Device Login** dialog.
 
-   ![The Azure Login Dialog window][A08]
+   ![The Azure Login Dialog window, service principal option][A08]
 
 > [!NOTE]
 >
@@ -84,7 +84,7 @@ This section walks you through creating a credentials file that contains your se
 
 5. In the browser, paste your device code (which has been copied when you click **Copy&Open** in last step) and then click **Next**.
 
-   ![The device login browser][A03]
+   ![The device login browser, service principal option][A03]
 
 6. In the **Create Authentication Files** window, select the subscriptions that you want to use, choose your destination directory, and then click **Start**.
 

@@ -72,7 +72,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
     </body>
    </html>
    ```
-   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Select the maven-archetype-webapp option.":::
+   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Open the index.jsp file.":::
 
 ## Create an Azure Container Registry to use as a private Docker registry
 
@@ -113,7 +113,7 @@ The following steps walk you through configuring Docker support for your web app
 
    This will automatically create a Docker file with a default configuration.
 
-   :::image type="content" source="media/hello-world-web-app-linux/docker-support-file.png" alt-text="Select the maven-archetype-webapp option.":::
+   :::image type="content" source="media/hello-world-web-app-linux/docker-support-file.png" alt-text="The docker support file.":::
 
 1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Run on Web App for Containers**.
 

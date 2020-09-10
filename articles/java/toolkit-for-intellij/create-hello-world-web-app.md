@@ -75,7 +75,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
     </body>
    </html>
    ```
-   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Select the maven-archetype-webapp option.":::
+   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Open the index.jsp file.":::
 
 ## Deploying web app to Azure
 
@@ -84,7 +84,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 1. In the Deploy to Azure dialog box, you can deploy the application to an existing Tomcat webapp or you can create a new one.
    a. Click **No available webapp, click to create a new one** to create a new webapp. Otherwise, choose **Create New WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
 
-      :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Select the maven-archetype-webapp option.":::
+      :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Deploy to Azure dialog window.":::
 
    In the pop-up **Create WebApp** dialog box, specify the following information and click **OK**: 
 
@@ -123,7 +123,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Right-click the web app you'd like to delete and click **Delete**.
 
-1. To delete your app service plan or resource group, visit the [Azure portal](portal.azure.com) and manually delete the resources under your subscription.
+1. To delete your app service plan or resource group, visit the [Azure portal](https://portal.azure.com) and manually delete the resources under your subscription.
 
 ## Next steps
 

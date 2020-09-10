@@ -78,7 +78,7 @@ The Azure Toolkit for IntelliJ requires to the following software components:
 
 1. When prompted to restart IntelliJ IDEA, click **Restart**.
    
-   :::image type="content" source="media/installation/01-intellij-start-screen-marketplace-restart.png" alt-text="Plugins marketplace from the start screen.":::
+   :::image type="content" source="media/installation/01-intellij-start-screen-marketplace-restart.png" alt-text="Restart to install from start screen.":::
 
 ## Next steps
 
