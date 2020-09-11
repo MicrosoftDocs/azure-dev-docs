@@ -3,7 +3,7 @@ title: How to create a Spring Cloud Stream Binder application with Azure Event H
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 12/19/2018
+ms.date: 09/11/2020
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -43,24 +43,24 @@ The following procedure creates an Azure event hub.
 
 1. On the **Create Namespace** page, enter the following information:
 
-   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
-   * Pricing tier.
    * Choose the **Subscription** you want to use for your namespace.
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
+   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys-space** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
    * Specify the **Location** for your event hub namespace.
+   * Pricing tier.
    * You can also specify the **Throughput units** for the namespace.
 
    ![Specify Azure Event Hub Namespace options][IMG02]
 
-1. When you have specified the options listed above, click **Create** to create your namespace.
+1. When you have specified the options listed above, click **Review + Create**, Review the specifications and click **Create** to create your namespace.
 
 ## Create an Azure Event Hub in your namespace
 
-After your namespace is deployed, you can create an event hub in the namespace.
+After your namespace is deployed, click **Go to resource** to open **Event Hubs Namespace** page, you can create an event hub in the namespace.
 
 1. Navigate to the namespace created in the previous step.
 
-1. Click **+ Event Hub** in top menu bar.
+1. Click **+ Event Hubs** in top menu bar.
 
 1. Name the event hub.
 
@@ -74,7 +74,7 @@ The following procedure creates a storage account for event hub checkpoints.
 
 1. Browse to the Azure portal at <https://portal.azure.com/>.
 
-1. Click **+Create**, then **Storage**, and then click **Storage Account**.
+1. Click **+Create a resource**, select **Storage**, and then click **Storage Account**.
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -109,7 +109,7 @@ The following procedure creates a Spring boot application.
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.eventhub*.
    >
 
-1. When you have specified the options listed above, click **Generate Project**.
+1. When you have specified the options listed above, click **GENERATE CTRL +**.
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -119,11 +119,11 @@ The following procedure creates a Spring boot application.
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
-   `C:\SpringBoot\eventhub\pom.xml`
+   `C:\SpringBoot\eventhubs-sample\pom.xml`
 
    -or-
 
-   `/users/example/home/eventhub/pom.xml`
+   `/users/example/home/eventhubs-sample/pom.xml`
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Event Hub Stream Binder starter to the list of `<dependencies>`:
 
@@ -144,13 +144,13 @@ The following procedure creates a Spring boot application.
 1. Navigate to the *resources* directory of your Spring Boot app; for example:
 
    ```shell
-   cd C:\SpringBoot\eventhub\src\main\resources
+   cd C:\SpringBoot\eventhubs-sample\src\main\resources
    ```
 
    -or-
 
    ```shell
-   cd /users/example/home/eventhub/src/main/resources
+   cd /users/example/home/eventhubs-sample/src/main/resources
    ```
 
 1. Sign in to your Azure account:
@@ -176,7 +176,7 @@ The following procedure creates a Spring boot application.
        "state": "Enabled",
        "tenantId": "22222222-2222-2222-2222-222222222222",
        "user": {
-         "name": "gena.soto@wingtiptoys.com",
+         "name": "user@contoso.com",
          "type": "user"
        }
      }
@@ -216,11 +216,11 @@ The following procedure creates a Spring boot application.
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\eventhub\src\main\resources\application.properties`
+   `C:\SpringBoot\eventhubs-sample\src\main\resources\application.properties`
 
    -or-
 
-   `/users/example/home/eventhub/src/main/resources/application.properties`
+   `/users/example/home/eventhubs-sample/src/main/resources/application.properties`
 
 2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
@@ -258,26 +258,28 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Locate the main application Java file in the package directory of your app; for example:
 
-   `C:\SpringBoot\eventhub\src\main\java\com\wingtiptoys\eventhub\EventhubApplication.java`
+   `C:\SpringBoot\eventhubs-sample\src\main\java\com\wingtiptoys\eventhub\EventhubApplication.java`
 
    -or-
 
-   `/users/example/home/eventhub/src/main/java/com/wingtiptoys/eventhub/EventhubApplication.java`
+   `/users/example/home/eventhubs-sample/src/main/java/com/wingtiptoys/eventhub/EventhubApplication.java`
 
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 
    ```java
-   package com.wingtiptoys.eventhub;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-   @SpringBootApplication
-   public class EventhubApplication {
-      public static void main(String[] args) {
-         SpringApplication.run(EventhubApplication.class, args);
-      }
-   }
+    package com.contoso.eventhubs.sample;
+    
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    
+    @SpringBootApplication
+    public class EventhubsSampleApplication {
+    
+        public static void main(String[] args) {
+            SpringApplication.run(EventhubsSampleApplication.class, args);
+        }
+    
+    }
    ```
 
 1. Save and close the main application Java file.
@@ -286,31 +288,31 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Create a new Java file named *EventhubSource.java* in the package directory of your app, then open the file in a text editor and add the following lines:
 
-   ```java
-   package com.wingtiptoys.eventhub;
-
-   import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.cloud.stream.annotation.EnableBinding;
-   import org.springframework.cloud.stream.messaging.Source;
-   import org.springframework.messaging.support.GenericMessage;
-   import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestBody;
-   import org.springframework.web.bind.annotation.RestController;
-
-   @EnableBinding(Source.class)
-   @RestController
-   public class EventhubSource {
-
-      @Autowired
-      private Source source;
-
-      @PostMapping("/messages")
-      public String postMessage(@RequestBody String message) {
-         this.source.output().send(new GenericMessage<>(message));
-         return message;
-      }
-   }
-   ```
+    ```java
+    package com.contoso.eventhubs.sample;
+    
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.cloud.stream.annotation.EnableBinding;
+    import org.springframework.cloud.stream.messaging.Source;
+    import org.springframework.messaging.support.GenericMessage;
+    import org.springframework.web.bind.annotation.PostMapping;
+    import org.springframework.web.bind.annotation.RequestBody;
+    import org.springframework.web.bind.annotation.RestController;
+    
+    @EnableBinding(Source.class)
+    @RestController
+    public class EventhubSource {
+    
+        @Autowired
+        private Source source;
+    
+        @PostMapping("/messages")
+        public String postMessage(@RequestBody String message) {
+            this.source.output().send(new GenericMessage<>(message));
+            return message;
+        }
+    }
+    ```
 1. Save and close the *EventhubSource.java* file.
 
 ### Create a new class for the sink connector
@@ -318,10 +320,10 @@ In this section, you create the necessary Java classes for sending events to you
 1. Create a new Java file named *EventhubSink.java* in the package directory of your app, then open the file in a text editor and add the following lines:
 
    ```java
-   package com.wingtiptoys.eventhub;
+   package com.contoso.eventhubs.sample;
 
    import com.microsoft.azure.spring.integration.core.AzureHeaders;
-   import com.microsoft.azure.spring.integration.core.api.Checkpointer;
+   import com.microsoft.azure.spring.integration.core.api.reactor.Checkpointer;
    import org.slf4j.Logger;
    import org.slf4j.LoggerFactory;
    import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -355,16 +357,16 @@ Use the following procedures to build and test your application.
 
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
-   `cd C:\SpringBoot\eventhub`
+   `cd C:\SpringBoot\eventhubs-sample`
 
    -or-
 
-   `cd /users/example/home/eventhub`
+   `cd /users/example/home/eventhubs-sample`
 
 1. Build your Spring Boot application with Maven and run it; for example:
 
    ```shell
-   mvn clean package
+   mvn clean package -Dmaven.test.skip=true
    mvn spring-boot:run
    ```
 
@@ -376,8 +378,8 @@ Use the following procedures to build and test your application.
    You should see "hello" posted to your application's logs. For example:
 
    ```shell
-   [Thread-13] INFO com.wingtiptoys.eventhub.EventhubSink - New message received: 'hello'
-   [pool-10-thread-7] INFO com.wingtiptoys.eventhub.EventhubSink - Message 'hello' successfully checkpointed
+   2020-09-11 15:11:12.138  INFO 7616 --- [      elastic-4] c.contoso.eventhubs.sample.EventhubSink  : New message received: 'hello'
+   2020-09-11 15:11:12.406  INFO 7616 --- [ctor-http-nio-1] c.contoso.eventhubs.sample.EventhubSink  : Message 'hello' successfully checkpointed
    ```
 
 ## Next steps
@@ -415,13 +417,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 [IMG01]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-01.png
 [IMG02]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-02.png
-[IMG03]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-03.png
-[IMG04]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-04.png
 [IMG05]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-05.png
-[IMG06]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-06.png
-[IMG07]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-07.png
 [IMG08]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-08.png
 
 [SI01]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-01.png
-[SI02]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-02.png
-[SI03]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-03.png
