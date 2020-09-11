@@ -36,8 +36,6 @@ This section walks you through the Azure sign in process by device login.
 
 1. Click **Copy&Open** in **Azure Device Login** dialog .
 
-   ![The Azure Login Dialog window][I03]
-
 > [!NOTE]
 >
 > If the browser doesn't open, configure Eclipse to use an external browser like Internet Explorer, Firefox, or Chrome:
@@ -48,8 +46,6 @@ This section walks you through the Azure sign in process by device login.
 >
 
 1. In the browser, paste your device code (which has been copied when you clicked **Copy&Open** in last step) and then click **Next**.
-
-   ![The device login browser][I04]
 
 1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
 
@@ -71,8 +67,6 @@ This section walks you through creating a credentials file that contains your se
 
 4. Click **Copy&Open** in **Azure Device Login** dialog.
 
-   ![The Azure Login Dialog window, service principal option][A08]
-
 > [!NOTE]
 >
 > If the browser doesn't open, configure eclipse to use an external browser like IE or Chrome:
@@ -84,15 +78,9 @@ This section walks you through creating a credentials file that contains your se
 
 5. In the browser, paste your device code (which has been copied when you click **Copy&Open** in last step) and then click **Next**.
 
-   ![The device login browser, service principal option][A03]
-
 6. In the **Create Authentication Files** window, select the subscriptions that you want to use, choose your destination directory, and then click **Start**.
 
-   ![The Create Authentication Files window][A04]
-
 7. In the **Service Principal Creation Status** dialog box, click **OK** after your files have been created successfully.
-
-   ![The Service Principal Creation Status dialog box][A05]
 
 8. Address of the created file will be automatically filled in the **Azure Sign In** window, now click **Sign in**.
 
@@ -107,11 +95,7 @@ After you have configured your account by preceding steps, you will be automatic
 
 1. In Eclipse, click **Tools**, then click **Azure**, and then click **Sign Out**.
 
-   ![Eclipse Menu for Azure Sign Out][L01]
-
 2. When the **Azure Sign Out** dialog box appears, click **Yes**.
-
-   ![Sign Out Dialog Box][L02]
 
 ## Next steps
 
@@ -122,21 +106,7 @@ After you have configured your account by preceding steps, you will be automatic
 
 <!-- IMG List -->
 
-[I01]: media/sign-in-instructions/I01.png
 [I02]: media/sign-in-instructions/I02.png
-[I03]: media/sign-in-instructions/I03.png
-[I04]: media/sign-in-instructions/I04.png
-[I05]: media/sign-in-instructions/I05.png
 
-[A01]: media/sign-in-instructions/A01.png
 [A02]: media/sign-in-instructions/A02.png
-[A03]: media/sign-in-instructions/A03.png
-[A04]: media/sign-in-instructions/A04.png
-[A05]: media/sign-in-instructions/A05.png
 [A06]: media/sign-in-instructions/A06.png
-[A07]: media/sign-in-instructions/A07.png
-[A08]: media/sign-in-instructions/A08.png
-
-[L01]: media/sign-in-instructions/L01.png
-[L02]: media/sign-in-instructions/L02.png
-[L03]: media/sign-in-instructions/L03.png
