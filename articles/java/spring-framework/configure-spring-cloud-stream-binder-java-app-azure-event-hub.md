@@ -39,7 +39,8 @@ The following procedure creates an Azure event hub.
 
 1. Click **Create**.
 
-   ![Create Azure Event Hub Namespace][IMG01]
+   >[!div class="mx-imgBorder"]
+   >![Create Azure Event Hub Namespace][IMG01]
 
 1. On the **Create Namespace** page, enter the following information:
 
@@ -49,8 +50,9 @@ The following procedure creates an Azure event hub.
    * Specify the **Location** for your event hub namespace.
    * Pricing tier.
    * You can also specify the **Throughput units** for the namespace.
-
-   ![Specify Azure Event Hub Namespace options][IMG02]
+   
+   >[!div class="mx-imgBorder"]
+   >![Specify Azure Event Hub Namespace options][IMG02]
 
 1. When you have specified the options listed above, click **Review + Create**, Review the specifications and click **Create** to create your namespace.
 
@@ -66,7 +68,8 @@ After your namespace is deployed, click **Go to resource** to open **Event Hubs 
 
 1. Click **Create**.
 
-   ![Create Event Hub][IMG05]
+   >[!div class="mx-imgBorder"]
+   >![Create Event Hub][IMG05]
 
 ### Create an Azure Storage Account for your Event Hub checkpoints
 
@@ -82,8 +85,9 @@ The following procedure creates a storage account for event hub checkpoints.
    * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
    * Enter a unique **Name** for the storage account.
    * Specify the **Location** for your storage account.
-
-   ![Specify Azure Storage Account options][IMG08]
+   
+   >[!div class="mx-imgBorder"]
+   >![Specify Azure Storage Account options][IMG08]
 
 1. When you have specified the options listed above, click **Review + create** to create your storage account.
 
@@ -102,7 +106,8 @@ The following procedure creates a Spring boot application.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Web** dependency.
 
-      ![Basic Spring Initializr options][SI01]
+   >[!div class="mx-imgBorder"]
+   >![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
    >
