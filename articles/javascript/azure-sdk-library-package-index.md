@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-javascript
 ---
 
-# Azure libraries package index
+# Azure libraries package index for JavaScript
 
 [Libraries using azure.core](#libraries-using-azurecore)
 
