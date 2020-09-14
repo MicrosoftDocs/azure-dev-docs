@@ -46,7 +46,7 @@ The following procedure creates an Azure event hub.
 
    * Choose the **Subscription** you want to use for your namespace.
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
-   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Name**, the URI would be `wingtiptoys.servicebus.windows.net`.
+   * Enter a unique **Namespace name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Namespace name**, the URI would be `wingtiptoys.servicebus.windows.net`.
    * Specify the **Location** for your event hub namespace.
    * Pricing tier.
    * You can also specify the **Throughput units** for the namespace.
