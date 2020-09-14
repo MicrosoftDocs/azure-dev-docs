@@ -198,7 +198,7 @@ The playbook code in this section deletes the cluster.
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) and save it to `hdinsight_create.yml`.
-- Create a new file named `hdinsight_create.yml` and copy into it the following contents:
+- Create a new file named `hdinsight_create.yml` and copy the following contents into it:
 
 ```yml
 ---

@@ -140,7 +140,7 @@ The sample playbook code in this section is used to:
 There are two ways to get the complete sample playbook:
 
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) and save it to `vnet_peering.yml`.
-- Create a new file named `vnet_peering.yml` and copy into it the following contents:
+- Create a new file named `vnet_peering.yml` and copy the following contents into it:
 
 ```yml
 - hosts: localhost

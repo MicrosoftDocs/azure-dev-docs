@@ -154,7 +154,7 @@ The following code deletes the cache:
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) and save it to `rediscache.yml`.
-- Create a new file named `rediscache.yml` and copy into it the following contents:
+- Create a new file named `rediscache.yml` and copy following contents into it:
 
 ```yml
 - name: Manage Azure Cache for Redis

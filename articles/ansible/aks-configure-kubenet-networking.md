@@ -102,9 +102,9 @@ Here are some key notes to consider when working with the sample playbook:
 - Use `azure_rm_aks_version` module to find the supported version.
 - The `vnet_subnet_id` is the subnet created in the previous section.
 - The `network_profile` defines the properties for the kubenet network plug-in.
-- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that is not used outside of the AKS clusters. However, you can reuse the same service CIDR for multiple AKS clusters. 
+- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used outside of the AKS clusters. However, you can reuse the same service CIDR for multiple AKS clusters. 
 - The `dns_service_ip` address should be the ".10" address of your service IP address range.
-- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed. As with the service CIDR, this IP range should not exist outside of the AKS cluster, but it can be safely reused across clusters.
+- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed. As with the service CIDR, this IP range shouldn't exist outside of the AKS cluster, but it can be safely reused across clusters.
 - The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
 - As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
 - The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
