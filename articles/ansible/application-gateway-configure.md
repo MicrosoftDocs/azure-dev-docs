@@ -3,7 +3,7 @@ title: Tutorial - Manage web traffic with Azure Application Gateway using Ansibl
 description: Learn how to use Ansible to create and configure an Azure Application Gateway to manage web traffic
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-ansible
 ---
 
@@ -280,28 +280,7 @@ It might take several minutes for the application gateway to be created.
 
     ![Successful test of a working application gateway](media/application-gateway-configure/demo.png)
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        state: absent
-```
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

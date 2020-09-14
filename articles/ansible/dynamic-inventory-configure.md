@@ -15,7 +15,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 > [!div class="checklist"]
 >
-> * Configure two test virtual machines. 
+> * Configure two test virtual machines.
 > * Tag one of the virtual machines
 > * Install Nginx on the tagged virtual machines
 > * Configure a dynamic inventory that includes the configured Azure resources
