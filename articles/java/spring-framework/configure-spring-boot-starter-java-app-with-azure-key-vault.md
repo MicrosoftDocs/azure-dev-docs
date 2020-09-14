@@ -182,7 +182,7 @@ The following procedure creates and initializes the Key Vault.
    | secret-permissions | The list of operations to allow from the named principal. |
 
     > [!NOTE]
-    > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at lesat `get` and `list`.
+    > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at least `get` and `list`.
 
 1. Store a secret in your new Key Vault.  A common use case is to store a JDBC connection string.  For example:
 
