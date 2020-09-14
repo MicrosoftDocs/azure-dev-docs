@@ -12,7 +12,7 @@
 
 When no longer needed, delete the resources created in this article.
 
-1. Save the following code as `cleanup.yml`. Replace the `&lt;resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
+1. Save the following code as `cleanup.yml`. Replace the `<resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
 
     ```yml
     ---
