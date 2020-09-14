@@ -35,9 +35,9 @@ The following procedure creates an Azure event hub.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+ Create a resource**, then search for *Event Hubs**.
+1. Select **+ Create a resource**, then search for *Event Hubs*.
 
-1. Click **Create**.
+1. Select **Create**.
 
    >[!div class="mx-imgBorder"]
    >![Create Azure Event Hub Namespace][IMG01]
@@ -46,7 +46,7 @@ The following procedure creates an Azure event hub.
 
    * Choose the **Subscription** you want to use for your namespace.
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
-   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered **wingtiptoys-space** for the **Name**, the URI would be *wingtiptoys.servicebus.windows.net*.
+   * Enter a unique **Name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Name**, the URI would be `wingtiptoys.servicebus.windows.net`.
    * Specify the **Location** for your event hub namespace.
    * Pricing tier.
    * You can also specify the **Throughput units** for the namespace.
@@ -54,19 +54,19 @@ The following procedure creates an Azure event hub.
    >[!div class="mx-imgBorder"]
    >![Specify Azure Event Hub Namespace options][IMG02]
 
-1. When you have specified the options listed above, click **Review + Create**, Review the specifications and click **Create** to create your namespace.
+1. When you have specified the options listed above, select **Review + Create**, review the specifications and select **Create** to create your namespace.
 
 ## Create an Azure Event Hub in your namespace
 
-After your namespace is deployed, click **Go to resource** to open **Event Hubs Namespace** page, you can create an event hub in the namespace.
+After your namespace is deployed, select **Go to resource** to open the **Event Hubs Namespace** page, where you can create an event hub in the namespace.
 
-1. Navigate to the namespace created in the previous step.
+1. Navigate to the namespace created in the previous section.
 
-1. Click **+ Event Hubs** in top menu bar.
+1. Select **+ Event Hubs** in top menu bar.
 
 1. Name the event hub.
 
-1. Click **Create**.
+1. Select **Create**.
 
    >[!div class="mx-imgBorder"]
    >![Create Event Hub][IMG05]
@@ -77,7 +77,7 @@ The following procedure creates a storage account for event hub checkpoints.
 
 1. Browse to the Azure portal at <https://portal.azure.com/>.
 
-1. Click **+Create a resource**, select **Storage**, and then click **Storage Account**.
+1. Select **+Create a resource**, select **Storage**, and then select **Storage Account**.
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -89,9 +89,9 @@ The following procedure creates a storage account for event hub checkpoints.
    >[!div class="mx-imgBorder"]
    >![Specify Azure Storage Account options][IMG08]
 
-1. When you have specified the options listed above, click **Review + create** to create your storage account.
+1. When you have specified the options listed above, select **Review + create** to create your storage account.
 
-1. Review the specifications and click **Create**.  The deployment will take several minutes.
+1. Review the specifications and select **Create**.  The deployment will take several minutes.
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
@@ -102,19 +102,19 @@ The following procedure creates a Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to or greater than 2.0.
+   * Specify a **Spring Boot** version that is equal to or greater than 2.2.
    * Specify the **Group** and **Artifact** names for your application.
-   * Add the **Web** dependency.
+   * Add the *Web* dependency.
 
    >[!div class="mx-imgBorder"]
    >![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
    >
-   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.eventhub*.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.contoso.eventhubs.sample*.
    >
 
-1. When you have specified the options listed above, click **GENERATE CTRL +**.
+1. When you have specified the options listed above, select **GENERATE CTRL +**.
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -122,7 +122,7 @@ The following procedure creates a Spring boot application.
 
 ## Configure your Spring Boot app to use the Azure Event Hub starter
 
-1. Locate the *pom.xml* file in the root directory of your app; for example:
+1. Locate the `pom.xml` file in the root directory of your app; for example:
 
    `C:\SpringBoot\eventhubs-sample\pom.xml`
 
@@ -130,7 +130,7 @@ The following procedure creates a Spring boot application.
 
    `/users/example/home/eventhubs-sample/pom.xml`
 
-1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Event Hub Stream Binder starter to the list of `<dependencies>`:
+1. Open the `pom.xml` file in a text editor, and add the Spring Cloud Azure Event Hub Stream Binder starter to the list of `<dependencies>`:
 
    ```xml
    <dependency>
@@ -140,13 +140,13 @@ The following procedure creates a Spring boot application.
    </dependency>
    ```
 
-1. Save and close the *pom.xml* file.
+1. Save and close the `pom.xml` file.
 
 ## Create an Azure Credential File
 
 1. Open a command prompt.
 
-1. Navigate to the *resources* directory of your Spring Boot app; for example:
+1. Navigate to the **resources** directory of your Spring Boot app; for example:
 
    ```shell
    cd C:\SpringBoot\eventhubs-sample\src\main\resources
@@ -200,7 +200,7 @@ The following procedure creates a Spring boot application.
    az ad sp create-for-rbac --sdk-auth > my.azureauth
    ```
 
-   This command will create a *my.azureauth* file in your *resources* directory with contents that resemble the following example:
+   This command will create a *my.azureauth* file in your **resources** directory with contents that resemble the following example:
 
    ```json
    {
@@ -219,7 +219,7 @@ The following procedure creates a Spring boot application.
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
+1. Locate the `application.properties` in the **resources** directory of your app; for example:
 
    `C:\SpringBoot\eventhubs-sample\src\main\resources\application.properties`
 
@@ -227,7 +227,7 @@ The following procedure creates a Spring boot application.
 
    `/users/example/home/eventhubs-sample/src/main/resources/application.properties`
 
-2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
+2. Open the `application.properties` file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
    ```yaml
    spring.cloud.azure.credential-file-path=my.azureauth
@@ -253,7 +253,7 @@ The following procedure creates a Spring boot application.
    |       `spring.cloud.stream.bindings.input.group `        | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    |    `spring.cloud.stream.bindings.output.destination`     |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
-3. Save and close the *application.properties* file.
+3. Save and close the `application.properties` file.
 
 ## Add sample code to implement basic event hub functionality
 
@@ -360,7 +360,7 @@ In this section, you create the necessary Java classes for sending events to you
 
 Use the following procedures to build and test your application.
 
-1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
+1. Open a command prompt and change directory to the folder where your `pom.xml` file is located; for example:
 
    `cd C:\SpringBoot\eventhubs-sample`
 
@@ -375,7 +375,7 @@ Use the following procedures to build and test your application.
    mvn spring-boot:run
    ```
 
-1. Once your application is running, you can use *curl* to test your application; for example:
+1. Once your application is running, you can use `curl` to test your application; for example:
 
    ```shell
    curl -X POST -H "Content-Type: text/plain" -d "hello" http://localhost:8080/messages
