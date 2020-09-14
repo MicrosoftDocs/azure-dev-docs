@@ -76,7 +76,7 @@ To ensure you have required components to work with web app projects, follow the
 1. Click **File**, expand **New**, and then click **...Project**. Inside the New Project dialog window, expand **Web**, select **Dynamic Web Project**, and click **Next**.
 
    > [!TIP]
-   > If you don't see **Web** listed as an available project, see [this section](###install-required-software-optional) to make sure you have the required Eclipse software.
+   > If you don't see **Web** listed as an available project, see [this section](#install-required-software-optional) to make sure you have the required Eclipse software.
 
 1. For purposes of this tutorial, name the project **MyWebApp**. Your screen will appear similar to the following:
    
