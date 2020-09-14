@@ -271,7 +271,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \
