@@ -26,7 +26,7 @@ When no longer needed, delete the resources created in this article.
 1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command. Replace the `<resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
 
     ```bash
-    ansible-playbook cleanup.yml --extra-vars <resource_group>
+    ansible-playbook cleanup.yml --extra-vars "resource_group=<resource_group>"
     ```
     
 1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group#az_group_show).
