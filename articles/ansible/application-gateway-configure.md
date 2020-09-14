@@ -282,6 +282,11 @@ It might take several minutes for the application gateway to be created.
 
 [!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
+#### [Browser](#tab/browser)
+browser content
+#### [Visual Studio](#tab/visual-studio)
+vs content
+
 ## Next steps
 
 > [!div class="nextstepaction"]
