@@ -51,6 +51,11 @@ For sample workflows to connect to Azure and run scripts based on Az CLI or Az P
 - [Azure PowerShell](https://github.com/Azure/powershell)
 
 
+## Manage Azure resources by deploying ARM Templates
+
+-  [Deploy an Azure Resource Manager Template](https://github.com/Azure/arm-deploy) at different [deployment scopes](https://docs.microsoft.com/bs-latn-ba/Azure/azure-resource-manager/resource-group-template-deploy-rest#deployment-scope) -  resource group deployment scope, subscription deployment scope and management group deployment scopes.
+
+
 ## Sample apps with CI/CD workflow samples 
 
 The following samples provide end-to-end workflows  to build and deploy Web apps of any language, any ecosystem to Azure. 
