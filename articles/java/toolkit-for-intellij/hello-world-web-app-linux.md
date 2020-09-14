@@ -135,7 +135,7 @@ The following steps walk you through configuring Docker support for your web app
 
 1. When you have finished configuring the settings listed above, click **Run**. When your web app has been successfully deployed, the status will be displayed in the **Run** window.
 
-1. After your web app has been published, you can browse to the URL that specifed earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
+1. After your web app has been published, you can browse to the URL that specified earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
 
    ![Browsing to your web app][browsing-to-web-app]
 
