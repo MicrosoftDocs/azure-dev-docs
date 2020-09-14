@@ -26,7 +26,7 @@ When no longer needed, delete the resources created in this article.
             state: absent
     ```
 
-1. Run the playbook using the `ansible-playbook` command.
+1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command.
 
     ```bash
     ansible-playbook cleanup.yml --extra-vars <resource_group>
