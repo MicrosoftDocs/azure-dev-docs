@@ -319,32 +319,7 @@ PLAY RECAP
 localhost                  : ok=15   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
----
-- hosts: localhost
-  vars:
-      resource_group: aksansibletest
-  tasks:
-      - name: Clean up resource group
-        azure_rm_resourcegroup:
-            name: "{{ resource_group }}"
-            state: absent
-            force: yes
-```
-
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

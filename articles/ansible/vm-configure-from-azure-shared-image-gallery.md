@@ -360,38 +360,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 07-delete-gallery.yml
 ```
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-The sample playbook code in this section is used to:
-
-- Delete the two resources groups created earlier
-
-Save the following playbook as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: "{{ resource_group_name }}"
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        force_delete_nonempty: yes
-        state: absent
-```
-
-Here are some key notes to consider when working with the sample playbook:
-
-- Replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-- All resources within the two specified resource groups will be deleted.
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

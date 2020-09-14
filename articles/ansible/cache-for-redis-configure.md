@@ -316,30 +316,7 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ```
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: "{{ resource_group_name }}"
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        state: absent
-```
-
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

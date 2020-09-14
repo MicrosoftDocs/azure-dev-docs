@@ -434,27 +434,7 @@ Once you have the key vault and its secret established, you can use that informa
     - [Azure network interface (azure_rm_networkinterface)](https://docs.ansible.com/ansible/latest/modules/azure_rm_networkinterface_module.html)
     - [Azure virtual machine (azure_rm_virtualmachine)](https://docs.ansible.com/ansible/latest/modules/azure_rm_virtualmachine_module.html)
     
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. Replace the `<kv_rg>` placeholder with the resource group used to hold the demo key vault.
-
-```yml
-- hosts: localhost
-  vars:
-    kv_rg: <kv_rg>
-    test_vm_rg: kv_test_vm_rg
-  tasks:
-    - name: Delete the key vault resource group
-      azure_rm_resourcegroup:
-        name: "{{ kv_rg }}"
-        force_delete_nonempty: yes
-        state: absent
-    - name: Delete the test vm resource group
-      azure_rm_resourcegroup:
-        name: "{{ test_vm_rg }}"
-        force_delete_nonempty: yes
-        state: absent
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

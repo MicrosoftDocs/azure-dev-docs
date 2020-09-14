@@ -474,6 +474,8 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook cleanup.yml
 ```
 
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"] 

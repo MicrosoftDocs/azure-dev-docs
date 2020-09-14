@@ -237,6 +237,8 @@ PLAY RECAP
 localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ```
 
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"] 

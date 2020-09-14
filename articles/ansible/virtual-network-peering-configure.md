@@ -282,46 +282,7 @@ PLAY RECAP
 localhost                  : ok=12   changed=9    unreachable=0    failed=0    skipped=0   rescued=0    ignored=0
 ```
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-The sample playbook code in this section is used to:
-
-- Delete the two resources groups created earlier
-
-Save the following playbook as `cleanup.yml`:
-
-```bash
-- hosts: localhost
-  vars:
-    resource_group: "{{ resource_group_name-1 }}"
-    resource_group_secondary: "{{ resource_group_name-2 }}"
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        force_delete_nonempty: yes
-        state: absent
-
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group_secondary }}"
-        force_delete_nonempty: yes
-        state: absent
-```
-
-Here are some key notes to consider when working with the sample playbook:
-
-- Replace the `{{ resource_group_name-1 }}` placeholder with the name of the first resource group created.
-- Replace the `{{ resource_group_name-2 }}` placeholder with the name of the second resource group created.
-- All resources within the two specified resource groups will be deleted.
-
-Run the playbook using the ansible-playbook command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 
