@@ -165,7 +165,7 @@ The following procedure creates and initializes the Key Vault.
    "https://contosokv.vault.azure.net/"
    ```
 
-1. Configure the Key Vault allows `get` and `list` operations from that Managed identity.  The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
+1. Configure the Key Vault to allow `get` and `list` operations from that Managed identity.  The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
    az keyvault set-policy --name contosokv --spn http://ejbcontososp --secret-permissions get list
@@ -180,6 +180,9 @@ The following procedure creates and initializes the Key Vault.
    | name | The name of the Key Vault. |
    | spn | The `name` from the output of `az ad sp create-for-rbac` command above. |
    | secret-permissions | The list of operations to allow from the named principal. |
+
+    > [!NOTE]
+    > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at lesat `get` and `list`.
 
 1. Store a secret in your new Key Vault.  A common use case is to store a JDBC connection string.  For example:
 
