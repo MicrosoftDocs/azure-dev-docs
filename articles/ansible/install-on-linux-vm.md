@@ -165,6 +165,8 @@ In this section, you export the service principal values to configure your Ansib
 
 You now have a virtual machine with Ansible installed and configured!
 
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

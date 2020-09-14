@@ -17,7 +17,7 @@ When no longer needed, delete the resources created in this article.
     ```yml
     - hosts: localhost
       tasks:
-        - name: Delete a resource group
+        - name: Deleting resource group - "{{ resource_group }}"
           azure_rm_resourcegroup:
             name: "{{ resource_group }}"
             state: absent
