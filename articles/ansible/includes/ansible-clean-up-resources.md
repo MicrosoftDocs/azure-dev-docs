@@ -32,7 +32,7 @@ When no longer needed, delete the resources created in this article.
     ansible-playbook cleanup.yml
     ```
     
-1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group?#az-group-show).
+1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group#az-group-show).
 
     ```azurecli
     az group show --name <resource_group>
@@ -40,13 +40,13 @@ When no longer needed, delete the resources created in this article.
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Run [az group delete](https://docs.microsoft.com/cli/azure/group?#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
+1. Run [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
 
     ```azurecli
     az group delete --name <resource_group>
     ```
 
-1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group?#az-group-show).
+1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group#az-group-show).
 
     ```azurecli
     az group show --name <resource_group>
@@ -54,7 +54,7 @@ When no longer needed, delete the resources created in this article.
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Run [az group delete](https://docs.microsoft.com/cli/azure/group?#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
+1. Run [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
 
     ```azurepowershell
     Remove-AzResourceGroup -Name <resource_group>
