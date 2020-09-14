@@ -34,7 +34,7 @@ When no longer needed, delete the resources created in this article.
     
 1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group?#az-group-show).
 
-    ```azurepowershell
+    ```azurecli
     az group show --name <resource_group>
     ```
 
@@ -48,7 +48,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group?#az-group-show).
 
-    ```azurepowershell
+    ```azurecli
     az group show --name <resource_group>
     ```
 
@@ -56,7 +56,7 @@ When no longer needed, delete the resources created in this article.
 
 1. Run [az group delete](https://docs.microsoft.com/cli/azure/group?#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
 
-    ```azurecli
+    ```azurepowershell
     Remove-AzResourceGroup -Name <resource_group>
     ```
 
