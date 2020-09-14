@@ -286,6 +286,7 @@ It might take several minutes for the application gateway to be created.
 browser content
 #### [Visual Studio](#tab/visual-studio)
 vs content
+---
 
 ## Next steps
 
