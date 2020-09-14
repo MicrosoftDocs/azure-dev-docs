@@ -29,7 +29,7 @@ In this quickstart, you'll complete these tasks:
 
 ## Create an SSH key pair
 
-When connecting to Linux VMs, you can use password authentication or key-based authentication. Key-based authentication is more secure than using passwords. Therefore, this article uses key-based authentication.
+When connecting to Linux VMs, you can use password authentication or key-based authentication. Key-based authentication is more secure than using passwords. As such, this article uses key-based authentication.
 
 With key-based authentication, there are two keys:
 
