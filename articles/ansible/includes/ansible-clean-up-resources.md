@@ -12,12 +12,10 @@ When no longer needed, delete the resources created in this article.
 
 #### [Ansible](#tab/ansible)
 
-1. Save the following code as `cleanup.yml`. Replace the `<resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
+1. Save the following code as `cleanup.yml`.
 
     ```yml
     - hosts: localhost
-      vars:
-        resource_group: <resource_group>
       tasks:
         - name: Delete a resource group
           azure_rm_resourcegroup:
@@ -25,10 +23,10 @@ When no longer needed, delete the resources created in this article.
             state: absent
     ```
 
-1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command.
+1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command. Replace the `<resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
 
     ```bash
-    ansible-playbook cleanup.yml
+    ansible-playbook cleanup.yml --extra-vars <resource_group>
     ```
     
 1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group#az_group_show).
