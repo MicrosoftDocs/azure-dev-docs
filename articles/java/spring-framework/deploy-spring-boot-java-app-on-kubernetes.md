@@ -212,7 +212,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command.
+   * The container name `gs-spring-boot-docker` is specified immediately after the `expose pod` command.
 
    * The `--type` parameter specifies that the cluster uses load balancer.
 
