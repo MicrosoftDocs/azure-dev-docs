@@ -399,29 +399,7 @@ You see that virtual machine's underlying custom image is updated.
 
 ![The scale set is associated with the second VM](media/vm-scale-set-update-image/updated-vm-scale-set.png)
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myrg
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        force_delete_nonempty: yes
-        state: absent
-```
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 
