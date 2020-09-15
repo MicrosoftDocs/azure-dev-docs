@@ -113,7 +113,7 @@ ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
 
 To configure the Ansible credentials, you need the following information:
 
-* Your Azure subscription ID 
+* Your Azure subscription ID
 * The service principal values
 
 If you're using Ansible Tower or Jenkins, declare the service principal values as environment variables.
@@ -163,9 +163,11 @@ In this section, you export the service principal values to configure your Ansib
     export AZURE_TENANT=<security-principal-tenant>
     ```
 
+## Test Ansible installation
+
 You now have a virtual machine with Ansible installed and configured!
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+[!INCLUDE [ansible-test-configuration.md](includes/ansible-test-configuration.md)]
 
 ## Next steps
 

@@ -316,7 +316,9 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ```
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

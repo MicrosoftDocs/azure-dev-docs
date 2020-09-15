@@ -275,7 +275,9 @@ This section walks you through running the sample Ansible playbook presented in 
     ssh azureuser@<ip-address>
     ```
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

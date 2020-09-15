@@ -6,8 +6,6 @@
  ms.author: tarcher
 ---
 
-## Clean up resources
-
 When no longer needed, delete the resources created in this article.
 
 #### [Ansible](#tab/ansible)

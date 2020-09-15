@@ -309,7 +309,9 @@ This section illustrates one technique to test that Nginx is installed on your v
     tom@ansible-inventory-test-vm2:~$
     ```
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

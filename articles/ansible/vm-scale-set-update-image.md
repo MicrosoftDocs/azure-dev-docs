@@ -399,7 +399,9 @@ You see that virtual machine's underlying custom image is updated.
 
 ![The scale set is associated with the second VM](media/vm-scale-set-update-image/updated-vm-scale-set.png)
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

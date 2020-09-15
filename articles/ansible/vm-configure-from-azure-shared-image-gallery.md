@@ -360,7 +360,9 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 07-delete-gallery.yml
 ```
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

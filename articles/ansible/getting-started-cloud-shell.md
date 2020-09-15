@@ -38,12 +38,11 @@ Using your Azure subscription ID, set the `AZURE_SUBSCRIPTION_ID` as follows:
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
-## Verify the configuration
-To verify the successful configuration, use Ansible to create an Azure resource group.
+## Test Ansible installation
 
-[!INCLUDE [create-resource-group-with-ansible.md](includes/ansible-snippet-create-resource-group.md)]
+You now have configured Ansible for use within Cloud Shell!
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+[!INCLUDE [ansible-test-configuration.md](includes/ansible-test-configuration.md)]
 
 ## Next steps
 

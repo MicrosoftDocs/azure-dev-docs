@@ -280,7 +280,9 @@ It might take several minutes for the application gateway to be created.
 
     ![Successful test of a working application gateway](media/application-gateway-configure/demo.png)
 
-[!INCLUDE [ansible-clean-up-resources.md](includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

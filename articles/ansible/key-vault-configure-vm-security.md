@@ -454,6 +454,7 @@ When no longer needed, delete the resources created in this article. Replace the
         name: "{{ test_vm_rg }}"	
         force_delete_nonempty: yes	
         state: absent
+```
 
 ## Next steps
 
