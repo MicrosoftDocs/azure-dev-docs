@@ -122,15 +122,15 @@ The following procedure creates a Spring boot application.
 
 ## Configure your Spring Boot app to use the Azure Event Hub starter
 
-1. Locate the `pom.xml` file in the root directory of your app; for example:
+1. Locate the *pom.xml* file in the root directory of your app; for example:
 
-   `C:\SpringBoot\eventhubs-sample\pom.xml`
+   *C:\SpringBoot\eventhubs-sample\pom.xml*
 
    -or-
 
-   `/users/example/home/eventhubs-sample/pom.xml`
+   */users/example/home/eventhubs-sample/pom.xml*
 
-1. Open the `pom.xml` file in a text editor, and add the Spring Cloud Azure Event Hub Stream Binder starter to the list of `<dependencies>`:
+1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Event Hub Stream Binder starter to the list of `<dependencies>`:
 
    ```xml
    <dependency>
@@ -140,21 +140,21 @@ The following procedure creates a Spring boot application.
    </dependency>
    ```
 
-1. Save and close the `pom.xml` file.
+1. Save and close the *pom.xml* file.
 
 ## Create an Azure Credential File
 
 1. Open a command prompt.
 
-1. Navigate to the **resources** directory of your Spring Boot app; for example:
+1. Navigate to the *resources* directory of your Spring Boot app; for example:
 
-   ```shell
+   ```bash
    cd C:\SpringBoot\eventhubs-sample\src\main\resources
    ```
 
    -or-
 
-   ```shell
+   ```bash
    cd /users/example/home/eventhubs-sample/src/main/resources
    ```
 
@@ -200,7 +200,7 @@ The following procedure creates a Spring boot application.
    az ad sp create-for-rbac --sdk-auth > my.azureauth
    ```
 
-   This command will create a *my.azureauth* file in your **resources** directory with contents that resemble the following example:
+   This command will create a *my.azureauth* file in your *resources* directory with contents that resemble the following example:
 
    ```json
    {
@@ -219,15 +219,15 @@ The following procedure creates a Spring boot application.
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
-1. Locate the `application.properties` in the **resources** directory of your app; for example:
+1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\eventhubs-sample\src\main\resources\application.properties`
+   *C:\SpringBoot\eventhubs-sample\src\main\resources\application.properties*
 
    -or-
 
-   `/users/example/home/eventhubs-sample/src/main/resources/application.properties`
+   */users/example/home/eventhubs-sample/src/main/resources/application.properties*
 
-2. Open the `application.properties` file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
+2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
    ```yaml
    spring.cloud.azure.credential-file-path=my.azureauth
@@ -253,7 +253,7 @@ The following procedure creates a Spring boot application.
    |       `spring.cloud.stream.bindings.input.group `        | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    |    `spring.cloud.stream.bindings.output.destination`     |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
-3. Save and close the `application.properties` file.
+3. Save and close the *application.properties* file.
 
 ## Add sample code to implement basic event hub functionality
 
@@ -263,11 +263,11 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Locate the main application Java file in the package directory of your app; for example:
 
-   `C:\SpringBoot\eventhubs-sample\src\main\java\com\wingtiptoys\eventhub\EventhubApplication.java`
+   *C:\SpringBoot\eventhubs-sample\src\main\java\com\wingtiptoys\eventhub\EventhubApplication.java*
 
    -or-
 
-   `/users/example/home/eventhubs-sample/src/main/java/com/wingtiptoys/eventhub/EventhubApplication.java`
+   */users/example/home/eventhubs-sample/src/main/java/com/wingtiptoys/eventhub/EventhubApplication.java*
 
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 
@@ -360,29 +360,32 @@ In this section, you create the necessary Java classes for sending events to you
 
 Use the following procedures to build and test your application.
 
-1. Open a command prompt and change directory to the folder where your `pom.xml` file is located; for example:
+1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
-   `cd C:\SpringBoot\eventhubs-sample`
-
+   ```bash
+    cd C:\SpringBoot\eventhubs-sample
+   ```
    -or-
 
-   `cd /users/example/home/eventhubs-sample`
+   ```bash
+   cd /users/example/home/eventhubs-sample
+   ```
 
 1. Build your Spring Boot application with Maven and run it; for example:
 
-   ```shell
+   ```bash
    mvn clean package -Dmaven.test.skip=true
    mvn spring-boot:run
    ```
 
 1. Once your application is running, you can use `curl` to test your application; for example:
 
-   ```shell
+   ```bash
    curl -X POST -H "Content-Type: text/plain" -d "hello" http://localhost:8080/messages
    ```
    You should see "hello" posted to your application's logs. For example:
 
-   ```shell
+   ```text
    2020-09-11 15:11:12.138  INFO 7616 --- [      elastic-4] c.contoso.eventhubs.sample.EventhubSink  : New message received: 'hello'
    2020-09-11 15:11:12.406  INFO 7616 --- [ctor-http-nio-1] c.contoso.eventhubs.sample.EventhubSink  : Message 'hello' successfully checkpointed
    ```
