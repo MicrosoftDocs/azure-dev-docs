@@ -251,21 +251,21 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
 1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
 
-   ![Kubernetes Configuration Website][KB01]
+   ![Kubernetes Configuration Website showing message there is nothing to display here][KB01]
 
 1. When the **Resource Creation** page is displayed, specify the following options:
 
    a. Select **CREATE AN APP**.
 
-   b. Enter your Spring Boot application name for the **App name**; for example: "*gs-spring-boot-docker*".
+   b. Enter your Spring Boot application name for the **App name**; for example: *gs-spring-boot-docker*.
 
-   c. Enter your login server and container image from earlier for the **Container image**; for example: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*".
+   c. Enter your login server and container image from earlier for the **Container image**; for example: *wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*.
 
    d. Choose **External** for the **Service**.
 
    e. Specify your external and internal ports in the **Port** and **Target port** text boxes.
 
-   ![Kubernetes Configuration Website][KB02]
+   ![Kubernetes Configuration Website Create an App page][KB02]
 
 1. Select **Deploy** to deploy the container.
 
@@ -273,11 +273,11 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
 1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
 
-   ![Kubernetes Services][KB06]
+   ![Kubernetes website, services list][KB06]
 
 1. If you select the link for **External endpoints**, you can see your Spring Boot application running on Azure.
 
-   ![Kubernetes Services][KB07]
+   ![Kubernetes website, services list, external endpoints highlighted][KB07]
 
    ![Browse Sample App on Azure][SB02]
 
@@ -321,7 +321,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 For more information about iteratively running and debugging containers directly in Azure Kubernetes Service (AKS) with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java]
 
 <!-- URL List -->
-[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
+[kubectl create clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
