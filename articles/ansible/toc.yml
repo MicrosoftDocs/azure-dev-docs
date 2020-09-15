@@ -16,10 +16,8 @@
       items:
       - name: Configure Linux virtual machines
         href: vm-configure.md
-        maintainContext: true
       - name: Manage Linux virtual machines
         href: vm-manage.md
-        maintainContext: true
 - name: Tutorials
   items:
   - name: Azure Application Gateway
