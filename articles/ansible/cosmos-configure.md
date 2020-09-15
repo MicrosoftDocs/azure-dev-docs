@@ -229,7 +229,7 @@ Before running the playbook, make the following changes:
 - In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 - Ensure that the `cosmosdbaccount_name contains only lowercase characters and is globally unique.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook cosmosdb.yml

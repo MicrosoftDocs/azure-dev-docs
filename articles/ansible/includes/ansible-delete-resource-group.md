@@ -6,33 +6,29 @@
  ms.author: tarcher
 ---
 
-When no longer needed, delete the resources created in this article.
-
 #### [Ansible](#tab/ansible)
 
-1. Save the following code as `cleanup.yml`.
+1. Save the following code as `delete_rg.yml`.
 
     ```yml
+    ---
     - hosts: localhost
       tasks:
-        - name: Deleting resource group - "{{ resource_group }}"
+        - name: Deleting resource group - "{{ name }}"
           azure_rm_resourcegroup:
-            name: "{{ resource_group }}"
+            name: "{{ name }}"
             state: absent
+          register: rg
+        - debug:
+            var: rg
     ```
 
-1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command. Replace the `<resource_group>` placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
+1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command. Replace the placeholder with the appropriate values for your environment. All resources within the resource group will be deleted.
 
     ```bash
-    ansible-playbook cleanup.yml --extra-vars "resource_group=<resource_group>"
+    ansible-playbook delete_rg.yml --extra-vars "name=<resource_group>"
     ```
     
-1. Verify that the resource group was deleted by using [az group show](https://docs.microsoft.com/cli/azure/group#az_group_show).
-
-    ```azurecli
-    az group show --name <resource_group>
-    ```
-
 #### [Azure CLI](#tab/azure-cli)
 
 1. Run [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) to delete the resource group. All resources within the resource group will be deleted.

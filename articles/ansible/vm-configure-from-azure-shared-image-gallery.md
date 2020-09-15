@@ -96,7 +96,7 @@ The first sample playbook `00-prerequisites.yml` creates what's necessary to com
           version: latest
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 00-prerequisites.yml
@@ -128,7 +128,7 @@ The next playbook, `01a-create-generalized-image.yml`, generalizes the source VM
         source: "{{ source_vm_name }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 01a-create-generalized-image.yml
@@ -155,7 +155,7 @@ The image gallery is the repository for sharing and managing images. The sample 
         description: This is the gallery description.
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 02-create-shared-image-gallery.yml
@@ -217,7 +217,7 @@ Image definitions include the image type (Windows or Linux), release notes, and 
         var: output
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 03a-create-shared-image-generalized.yml
@@ -248,7 +248,7 @@ Finally, run `04a-create-vm-using-generalized-image.yml` to create a VM based on
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 04a-create-vm-using-generalized-image.yml
@@ -281,7 +281,7 @@ You can also create a virtual machine scale set based on the generalized image. 
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 05a-create-vmss-using-generalized-image.yml
@@ -315,7 +315,7 @@ You can get information about the gallery, image definition, and version by runn
       name: "{{ shared_image_version }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 06-get-info.yml
@@ -354,7 +354,7 @@ To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml
       state: absent
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook 07-delete-gallery.yml
