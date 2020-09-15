@@ -37,14 +37,14 @@ The following steps walk you through building a Spring Boot web application and 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
 
    ```bash
-   md C:\SpringBoot
+   mkdir C:\SpringBoot
    cd C:\SpringBoot
    ```
 
    -- or --
 
    ```bash
-   md /users/$USER/SpringBoot
+   mkdir /users/$USER/SpringBoot
    cd /users/$USER/SpringBoot
    ```
 
@@ -165,7 +165,7 @@ The following steps walk you through building a Spring Boot web application and 
 1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-akscluster* as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and *wingtiptoys-kubernetes* as the DNS prefix:
 
    ```azurecli
-   az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \ 
+   az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \
     --attach-acr wingtiptoysregistry \
     --dns-name-prefix=wingtiptoys-kubernetes --generate-ssh-keys
    ```
