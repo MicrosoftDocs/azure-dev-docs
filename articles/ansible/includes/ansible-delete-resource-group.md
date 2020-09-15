@@ -2,7 +2,7 @@
  author: tomarchermsft
  ms.service: ansible
  ms.topic: include
- ms.date: 09/14/2020
+ ms.date: 09/15/2020
  ms.author: tarcher
 ---
 
@@ -28,6 +28,10 @@
     ```bash
     ansible-playbook delete_rg.yml --extra-vars "name=<resource_group>"
     ```
+
+    **Notes**:
+
+    - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
     
 #### [Azure CLI](#tab/azure-cli)
 
