@@ -69,6 +69,10 @@
       "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
     },
     {
+      "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux"
+    },
+    {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework"
     },
