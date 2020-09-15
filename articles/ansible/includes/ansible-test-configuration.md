@@ -26,7 +26,7 @@ This section shows how to create a test resource group within your new Ansible c
             var: rg
     ```
 
-1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html). Replace the placeholders with the appropriate values for your environment.
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html). Replace the placeholders with the name and location of the resource group to be created.
 
     ```bash
     ansible-playbook create_rg.yml --extra-vars "name=<resource_group_name> location=<resource_group_location>"
