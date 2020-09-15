@@ -48,5 +48,4 @@ This section shows how to create a test resource group within your new Ansible c
 
 ### Delete an Azure resource group
 
-[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
-
+[!INCLUDE [ansible-delete-resource-group.md](ansible-delete-resource-group.md)]
