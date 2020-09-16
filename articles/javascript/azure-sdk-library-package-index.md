@@ -1,5 +1,5 @@
 ---
-title: Azure SDK NPM libraries for JavaScript
+title: Azure SDK libraries for JavaScript
 description: Listing of the package names, NPM links, docs links, and source code links for all libraries in the Azure SDK for JavaScript.
 ms.date: 09/16/2020
 ms.topic: reference
@@ -12,7 +12,7 @@ The Azure libraries for JavaScript are available for installation from:
 * [NPM](https://www.npmjs.com/)
 * [Yarn](https://yarnpkg.com/)
 
-Packages using the `@azure` scope are the modern libraries.
+Packages using scope, such as `@azure`, are the modern libraries.
 
 ## Libraries using azure.core
 
