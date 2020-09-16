@@ -1,16 +1,18 @@
 ---
 title: Package index for Azure SDK libraries for JavaScript
 description: Listing of the package names, NPM links, docs links, and source code links for all libraries in the Azure SDK for JavaScript.
-ms.date: 09/11/2020
-ms.topic: conceptual
+ms.date: 09/16/2020
+ms.topic: reference
 ms.custom: devx-track-javascript
 ---
 
-# Azure libraries package index for JavaScript
+# Azure libraries packages for JavaScript
 
-[Libraries using azure.core](#libraries-using-azurecore)
+The Azure libraries for JavaScript are available for installation from:
+* [NPM](https://www.npmjs.com/)
+* [Yarn](https://yarnpkg.com/)
 
-[All libraries](#all-libraries)
+Packages using the `@azure` scope are the modern libraries.
 
 ## Libraries using azure.core
 
@@ -19,3 +21,7 @@ ms.custom: devx-track-javascript
 ## All libraries
 
 [!INCLUDE [javascript-all-libraries](../includes/js-all.md)]
+
+## Next steps
+
+Find [reference documentation](https://docs.microsoft.com/en-us/javascript/api/overview/azure/?view=azure-node-latest) for all Azure NPM packages.
