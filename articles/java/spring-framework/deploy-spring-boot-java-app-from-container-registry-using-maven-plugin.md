@@ -282,7 +282,7 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
    <plugin>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-webapp-maven-plugin</artifactId>
-      <version>0.1.3</version>
+      <version>1.10.0</version>
       <configuration>
          <authentication>
             <serverId>azure-auth</serverId>
