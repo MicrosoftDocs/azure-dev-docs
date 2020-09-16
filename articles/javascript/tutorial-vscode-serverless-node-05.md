@@ -14,18 +14,19 @@ The Functions App you created includes resources that can incur minimal costs (r
 
 You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
-## Next steps
+[!INCLUDE [Next steps for using VSCode extensions](includes/tutorial-next-steps-vscode-extensions.md)]
+
+[!INCLUDE [Next steps for using JavaScript on Azure](includes/tutorial-next-steps-js-azure.md)]
+
+## Learn more about Azure Functions
 
 * [Azure Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 * [Azure Functions JavaScript developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-node)
 * [Securing Azure Functions](https://docs.microsoft.com/azure/azure-functions/security-concepts)
 * [Storage](https://docs.microsoft.com/azure/azure-functions/storage-considerations) and [Performance](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) considerations
 
-[!INCLUDE [Next steps for using VSCode extensions](includes/tutorial-next-steps-vscode-extensions.md)]
-
-[!INCLUDE [Next steps for using JavaScript on Azure](includes/tutorial-next-steps-js-azure.md)]
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [I'm done](node-howto-write-serverless-code.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=clean-up-resources)
+
