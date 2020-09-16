@@ -26,11 +26,9 @@
           "**/*.png",
           "**/*.jpg",
           "**/*.gif",
-          "**/*.svg"
-        ],
+          "**/*.svg"],
         "exclude": [
           "**/obj/**",
-          "**/includes/**",
           "_themes/**",
           "_themes.pdf/**",
           "**/docfx.json",
@@ -118,8 +116,7 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform",
-        "javascript/**/*.md":"azure-javascript"
+        "terraform/**/*.md": "terraform"
       },
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
@@ -131,7 +128,8 @@
         "**/includes/**/*.md": "include"
       },
       "ms.prod": {
-        "python/**/*.md": "azure-python"
+        "python/**/*.md": "azure-python",
+        "javascript/**/*.md": "azure-nodejs"
       }
     },
     "template": [],
