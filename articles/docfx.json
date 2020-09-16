@@ -131,8 +131,7 @@
         "**/includes/**/*.md": "include"
       },
       "ms.prod": {
-        "python/**/*.md": "azure-python",
-        "javascript/**/*.md": "azure-javascript"
+        "python/**/*.md": "azure-python"
       }
     },
     "template": [],
