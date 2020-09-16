@@ -118,7 +118,8 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform"
+        "terraform/**/*.md": "terraform",
+        "javascript/**/*.md":"azure-javascript"
       },
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
@@ -131,7 +132,7 @@
       },
       "ms.prod": {
         "python/**/*.md": "azure-python",
-        "javascript/**/*.md": "azure-nodejs"
+        "javascript/**/*.md": "azure-javascript"
       }
     },
     "template": [],
