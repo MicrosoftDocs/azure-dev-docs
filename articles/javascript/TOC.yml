@@ -232,7 +232,9 @@
       href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-search
     - name: All Samples
       href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs
-  - name: Library API reference
+
+  - name: NPM Packages
+    href: azure-sdk-library-package-index.md
+  - name: NPM Package Documentation
     href: /javascript/api/overview/azure/?view=azure-node-latest
-  - name: Latest SDKs
-    href: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
+
