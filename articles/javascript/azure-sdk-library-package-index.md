@@ -1,5 +1,5 @@
 ---
-title: Package index for Azure SDK libraries for JavaScript
+title: Azure SDK NPM libraries for JavaScript
 description: Listing of the package names, NPM links, docs links, and source code links for all libraries in the Azure SDK for JavaScript.
 ms.date: 09/16/2020
 ms.topic: reference
