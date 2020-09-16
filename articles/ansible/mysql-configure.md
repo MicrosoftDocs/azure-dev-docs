@@ -52,7 +52,7 @@ Before running the playbook, see the following notes:
 * A resource group named `myResourceGroup` is created.
 * The resource group is created in the `eastus` location:
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook rg.yml
@@ -101,7 +101,7 @@ Before running the playbook, see the following notes:
 * In the `vars` section, the value of `mysqlserver_name` must be unique.
 * In the `vars` section, replace `<server_admin_password>` with a password.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook mysql_create.yml
@@ -143,7 +143,7 @@ Before running the playbook, see the following notes:
 * Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. In that case, you can't connect to your server unless your IT department opens port 3306.
 * The playbook uses the `azure_rm_resource` module, which allows direct use of the REST API.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook mysql_firewall.yml
@@ -243,7 +243,7 @@ Save the following playbook as `mysql_query.yml`:
         var: mysqldatabasefacts
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook mysql_query.yml
@@ -311,26 +311,7 @@ You also see the following output for the MySQL database:
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. 
-
-Save the following playbook as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        state: absent
-```
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

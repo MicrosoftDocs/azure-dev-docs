@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 The following articles help you get started with compute services on Azure:
 
 - [App Service Linux](/azure/app-service/containers/quickstart-java)
-- [App Service Linux - Spring Boot](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin)
+- [App Service Linux - Spring Boot](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 - [App Service using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 - [App Service using Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)

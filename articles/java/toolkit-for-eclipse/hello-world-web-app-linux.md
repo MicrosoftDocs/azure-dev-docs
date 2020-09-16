@@ -92,7 +92,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 1. When you have finished configuring the settings listed above, click **OK** to publish your web app to Azure.
 
-1. After your web app has been published, you can browse to the URL that specifed earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
+1. After your web app has been published, you can browse to the URL that specified earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
 
    ![Browsing to your web app][browsing-to-web-app]
 
