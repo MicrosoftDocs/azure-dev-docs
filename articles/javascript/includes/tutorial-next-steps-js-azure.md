@@ -1,3 +1,9 @@
+---
+ms.topic: include
+ms.date: 03/31/2020
+ms.custom: devx-track-javascript
+---
+
 ## JavaScript with Azure services
 
 To learn more about working with Azure using Node.js, visit the resources below:

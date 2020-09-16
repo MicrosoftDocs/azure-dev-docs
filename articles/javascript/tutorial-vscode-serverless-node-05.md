@@ -1,5 +1,5 @@
 ---
-title: Clean up resource after deploying the Azure Functions application to azure
+title: Clean up resource after deploying the Azure Functions application
 description: "To clean up the resources, right-click the Function App in the Azure: Functions explorer and select Delete Function App."
 ms.topic: conceptual
 ms.date: 08/31/2020
@@ -24,6 +24,8 @@ You can also visit the [Azure portal](https://portal.azure.com), select **Resour
 [!INCLUDE [Next steps for using VSCode extensions](includes/tutorial-next-steps-vscode-extensions.md)]
 
 [!INCLUDE [Next steps for using JavaScript on Azure](includes/tutorial-next-steps-js-azure.md)]
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I'm done](node-howto-write-serverless-code.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=clean-up-resources)
