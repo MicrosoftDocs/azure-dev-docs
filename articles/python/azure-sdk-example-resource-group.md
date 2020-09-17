@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Example: Use the Azure libraries to provision a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article. If you prefer to use the Azure portal, see [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 

@@ -253,7 +253,7 @@ Save the following code as `cleanup.yml`:
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook cleanup.yml

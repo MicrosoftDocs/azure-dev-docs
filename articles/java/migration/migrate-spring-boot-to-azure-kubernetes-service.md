@@ -1,7 +1,7 @@
 ---
 title: Migrate Spring Boot applications to run on Azure Kubernetes Service
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run in an Azure Kubernetes Service container.
-author: mriem
+author: mnriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 4/10/2020
@@ -120,9 +120,9 @@ To create a Dockerfile, you'll need the following prerequisites:
 
 You can then do the steps described in the following sections, where applicable. You can use the [Spring Boot Container Quickstart repo](https://github.com/Azure/spring-boot-container-quickstart) as a starting point for your Dockerfile and your Spring Boot application.
 
-#### Configure KeyVault FlexVolume
+#### Configure Azure Key Vault Provider for Secrets Store CSI Driver
 
-Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
+Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure the [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) to make those secrets accessible to pods.
 
 You'll also need to update the startup script used to bootstrap your Spring Boot application. This script must import the certificates into the keystore used by Spring Boot before starting the application.
 
@@ -182,7 +182,7 @@ docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 
 For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
 
-If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup. This addition will occur if you put the keystore file at */opt/spring-boot/mycert.crt*. You can do so by adding the file directly to the Dockerfile, or by using a KeyVault FlexVolume, as mentioned previously.
+If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup. This addition will occur if you put the keystore file at */opt/spring-boot/mycert.crt*. You can do so by adding the file directly to the Dockerfile, or by using the Azure Key Vault Provider for Secrets Store CSI Driver, as mentioned previously.
 
 If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also enable Application Insights by setting the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). For more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent).
 

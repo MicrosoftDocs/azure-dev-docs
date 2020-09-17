@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create and deploy serverless Azure Functions in Python with VS Code"
-description: Tutorial step 1, configure your environment for Azure functions
+description: Tutorial step 1, configure your local environment for Azure Functions
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: devx-track-python, seo-python-october2019

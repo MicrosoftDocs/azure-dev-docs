@@ -2,7 +2,7 @@
 title: Manage storage accounts with Azure Explorer for Eclipse
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for Eclipse.
 documentationcenter: java
-ms.date: 02/01/2018
+ms.date: 08/25/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -11,25 +11,22 @@ ms.custom: devx-track-java
 
 # Manage storage accounts by using the Azure Explorer for Eclipse
 
-The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the Eclipse integrated development environment (IDE).
+> [!NOTE]
+> The Storage Accounts feature in Azure Explorer is deprecated. You can utilize the Azure portal to create and manage storage accounts and containers. See the [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) documentation for quickstarts on how to manage storage accounts.
+
+Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the Eclipse integrated development environment (IDE).
 
 [!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 [!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
-## Create a storage account in Eclipse
-
-To create a storage account by using the Azure Explorer, do the following:
+## Create a storage account
 
 1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions).
 
 1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
 
-   ![Create Storage Account command][CS01]
-
 1. In the **Create Storage Account** dialog box, specify the following options:
-
-   ![Create New Storage Account dialog box][CS02]
 
    * **Name**: Specifies the name for the new storage account.
 
@@ -41,49 +38,26 @@ To create a storage account by using the Azure Explorer, do the following:
 
    * **Region**: Specifies the location where your storage account will be created (for example, "West US").
 
-   * **Account kind**: Specifies the type of storage account to create (for example, "Blob storage"). For more information, see [About Azure storage accounts].
+   * **Account kind**: Specifies the type of storage account to create (for example, "General purpose v1"). For more information, see [About Azure storage accounts].
 
-   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure storage scalability and performance targets].
+   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Standard"). For more information, see [Azure storage scalability and performance targets].
 
-   * **Replication**: Specifies the replication for the storage account (for example, "Zone-Redundant"). For more information, see [Azure storage replication].
+   * **Replication**: Specifies the replication for the storage account (for example, "Locally Redundant"). For more information, see [Azure storage replication].
 
 1. When you have specified all of the preceding options, click **Create**.
 
-## Create a storage container in Eclipse
+## Create and manage storage containers
 
-To create a storage container by using the Azure Explorer, do the following:
+To create and manage storage containers, visit the Azure portal or programatically provision your resources.
 
-1. In the **Azure Explorer** view, right-click the storage account where you want to create a container, and then click **Create blob container**.
+See [Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal) for a step-by-step tutorial on how to use the Azure portal to create a container in Azure Storage, and to upload and download block blobs in that container.
 
-   ![Create blob container command][CC01]
-
-1. In the **Create blob container** dialog box, specify the name for your container, and then click **OK**. For more information about naming storage containers, see [Naming and referencing containers, blobs, and metadata].
-
-   ![Create blob container dialog box][CC02]
-
-## Delete a storage container in Eclipse
-
-To delete a storage container by using the Azure Explorer, do the following:
-
-1. In the **Azure Explorer** view, right-click the storage container, and then click **Delete**.
-
-   ![Delete storage container command][DC01]
-
-1. In the confirmation window, click **OK**.
-
-   ![Delete storage container confirmation window][DC02]
-
-## Delete a storage account in Eclipse
-
-To delete a storage account by using the Azure Explorer, do the following:
+## Delete a storage account
 
 1. In the **Azure Explorer** view, right-click the storage account, and then click **Delete**.
 
-   ![Delete storage account command][DS01]
-
 1. In the confirmation window, click **OK**.
 
-   ![Delete storage account confirmation window][DS02]
 
 ## Next steps
 

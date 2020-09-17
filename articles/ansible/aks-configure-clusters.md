@@ -78,9 +78,9 @@ Before running the playbook, see the following notes:
 - The first section within `tasks` defines a resource group named `myResourceGroup` within the `eastus` location.
 - The second section within `tasks` defines an AKS cluster named `myAKSCluster` within the `myResourceGroup` resource group.
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-- For the `aks_version` placeholder, use the [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) command.
+- For the `aks_version` placeholder, use the [az aks get-versions](/cli/azure/aks#az-aks-get-versions) command.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook azure_create_aks.yml
@@ -145,7 +145,7 @@ Before running the playbook, see the following notes:
 
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook azure_configure_aks.yml
@@ -188,7 +188,7 @@ Save the following playbook as `azure_delete_aks.yml`:
       state: absent
   ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook azure_delete_aks.yml

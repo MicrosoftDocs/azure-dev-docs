@@ -65,7 +65,7 @@ Save the following playbook as `servicebus_topic.yml`:
           var: topic
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_topic.yml
@@ -98,7 +98,7 @@ The sample playbook code creates the subscription under a Service Bus topic. Azu
 
 Save the following playbook as `servicebus_subscription.yml`:
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_subscription.yml
@@ -135,7 +135,7 @@ Save the following playbook as `servicebus_topic_policy.yml`:
           var: policy
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_topic_policy.yml
@@ -168,7 +168,7 @@ Save the following playbook as `servicebus_namespace_info.yml`:
 Before running the playbook, see the following notes:
 - The `show_sas_policies` value indicates whether to show the SAS policies under the specified namespace. By default, the value is `False` to avoid additional network overhead.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -215,7 +215,7 @@ Save the following playbook as `servicebus_list.yml`:
 Before running the playbook, see the following notes:
 - The `show_sas_policies` value indicates whether to show the SAS policies under the specified queue. By default, this value is set to `False` to avoid additional network overhead.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_list.yml
@@ -244,7 +244,7 @@ Save the following playbook as `servicebus_queue_policy_delete.yml`:
           state: absent
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook servicebus_topic_policy_delete.yml
@@ -290,7 +290,7 @@ Save the following code as `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook cleanup.yml

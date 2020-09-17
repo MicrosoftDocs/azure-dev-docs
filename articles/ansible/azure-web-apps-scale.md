@@ -76,7 +76,7 @@ Save the following playbook as `webapp_scaleup.yml`:
       var: facts.appserviceplans[0].sku
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook webapp_scaleup.yml
