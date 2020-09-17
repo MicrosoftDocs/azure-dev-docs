@@ -26,5 +26,3 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 > [!div class="nextstepaction"]
 > [I made changes and redeployed - continue to step 4 >>>](tutorial-deploy-containers-04.md)
-
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=03-make-changes-redeploy)

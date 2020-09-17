@@ -2,7 +2,7 @@
 title: "Step 8: Clean up resources used with Python code in Azure Functions"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -41,5 +41,3 @@ Some popular extensions are:
 
 > [!div class="nextstepaction"]
 > [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
-
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=08-clean-up-resources)

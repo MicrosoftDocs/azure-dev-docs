@@ -2,13 +2,13 @@
 title: "Step 2: Deploy a container image to Azure App Service with Visual Studio Code"
 description: Tutorial step 2, deploying the actual Docker image to Azure App Service from a container registry.
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 2: Deploy a container image to Azure App Service
 
-[Previous step: prerequisites](tutorial-deploy-containers-01.md)
+[Previous step: configure your environment](tutorial-deploy-containers-01.md)
 
 With a container image in a registry, you can use the Docker extension in VS Code to easily set up an Azure App Service running the container.
 
@@ -42,5 +42,3 @@ With a container image in a registry, you can use the Docker extension in VS Cod
 
 > [!div class="nextstepaction"]
 > [I deployed the image - continue to step 3 >>>](tutorial-deploy-containers-03.md)
-
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-containers&step=02-deploy-container)

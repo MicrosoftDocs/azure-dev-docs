@@ -2,7 +2,7 @@
 title: "Step 3: Examine the Python code files for Azure Functions in VS Code"
 description: Tutorial step 3, understanding the template Python code provided by Azure Functions.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -87,5 +87,3 @@ The important parts of the code are as follows:
 
 > [!div class="nextstepaction"]
 > [I examined the code files - continue to step 4 >>>](tutorial-vs-code-serverless-python-04.md)
-
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=03-examine-code-files)

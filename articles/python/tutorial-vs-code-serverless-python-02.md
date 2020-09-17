@@ -2,13 +2,13 @@
 title: "Step 2: Create a Python function for Azure Functions with VS Code"
 description: Tutorial, step 2, demonstrating the use of the Azure Functions extension for VS Code.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
 # 2: Create a Python function for Azure Functions
 
-[Previous step: prerequisites](tutorial-vs-code-serverless-python-01.md)
+[Previous step: configure your environment](tutorial-vs-code-serverless-python-01.md)
 
 In this article, you create a Python function for Azure Functions with Visual Studio Code. The code for Azure Functions is managed within a Functions _project_, which you create first before creating the code.
 
@@ -22,7 +22,7 @@ In this article, you create a Python function for Azure Functions with Visual St
     | --- | --- | --- |
     | Specify a folder for the project | Current open folder | The folder in which to create the project. You may want to create the project in a subfolder. |
     | Select a language for your function app project | **Python** | The language to use for the function, which determines the template used for the code. |
-    | Select Python interpreter | (Use the default path provided.) | The Python interpreter to use for a virtual environment. |
+    | Select Python interpreter to create a virtual environment | (Use the default path provided, or manually enter the path to a suitable interpreter if none are provided.) | The Python interpreter to use for a virtual environment. |
     | Select a template for your project's first function | **HTTP trigger** | A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (There are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](/azure/azure-functions/functions-overview#what-can-i-do-with-functions).) |
     | Provide a function name | HttpExample | The name is used for a subfolder that contains the function's code along with configuration data, and also defines the name of the HTTP endpoint. Use "HttpExample" rather than accepting the default "HTTPTrigger1" to distinguish the function itself from the trigger. |
     | Authorization level | **Anonymous** | Anonymous authorization makes the function publicly accessible to anyone. |
@@ -42,5 +42,3 @@ In this article, you create a Python function for Azure Functions with Visual St
 
 > [!div class="nextstepaction"]
 > [I created the function - continue to step 3 >>>](tutorial-vs-code-serverless-python-03.md)
-
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=02-create-function)
