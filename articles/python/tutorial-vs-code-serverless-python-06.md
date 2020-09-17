@@ -113,3 +113,4 @@ After your first deployment, you can make changes to your code, such as adding a
 
 > [!div class="nextstepaction"]
 > [I added a second functions - continue to step 7 >>>](tutorial-vs-code-serverless-python-07.md)
+
