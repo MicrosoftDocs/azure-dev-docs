@@ -26,7 +26,7 @@ As noted earlier, you can learn more about the Functions extension by visiting i
 
 Read the [Azure Functions Overview](/azure/azure-functions/functions-overview) to explore the different triggers you can use.
 
-To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/python/?view=azure-python).
+To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/developer/python/).
 
 There are also other Azure extensions for Visual Studio Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
@@ -40,4 +40,4 @@ Some popular extensions are:
 - [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
+> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python&preserve-view=true)

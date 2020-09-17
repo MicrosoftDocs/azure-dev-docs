@@ -44,7 +44,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
         --data {"""name""":"""Visual Studio Code"""} http://localhost:7071/api/HttpExample
     ```
 
-    In PowerShell, you can also use the [Invoke-WebRequest cmdlet](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-6).
+    In PowerShell, you can also use the [Invoke-WebRequest cmdlet](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
 
     # [bash](#tab/bash)
 

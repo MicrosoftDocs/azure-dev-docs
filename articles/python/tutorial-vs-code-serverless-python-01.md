@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create and deploy serverless Azure Functions in Python with VS Code"
-description: Tutorial step 1, introduction and prerequisites.
+description: Tutorial step 1, configure your environment for Azure functions
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: devx-track-python, seo-python-october2019
@@ -51,13 +51,13 @@ Install the following software:
 
 Once you've installed the Azure extension, sign into your Azure account by navigating to the **Azure** explorer, select **Sign in to Azure** under **Functions**, and follow the prompts in the browser.
 
-![Sign in to Azure through VS Code](../media/tutorial-vs-code-serverless-python/sign-in-to-azure-through-visual-studio-code.png)
+![Sign in to Azure through VS Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
 After signing in, verify that the status bar says **Azure: Signed In** and your subscription(s) appears in the **Azure** explorer:
 
-![Visual Studio Code status bar showing Azure account](../media/tutorial-vs-code-serverless-python/azure-account-status-bar.png)
+![Visual Studio Code status bar showing Azure account](media/tutorial-vs-code-serverless-python/azure-account-status-bar.png)
 
-![Visual Studio Code Azure App Service explorer showing subscriptions](../media/tutorial-vs-code-serverless-python/azure-subscription-view.png)
+![Visual Studio Code Azure App Service explorer showing subscriptions](media/tutorial-vs-code-serverless-python/azure-subscription-view.png)
 
 [!INCLUDE [proxy-config](includes/proxy-config.md)]
 
