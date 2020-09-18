@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 08/18/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -146,7 +146,7 @@ In both cases, the identity involved must be assigned permissions for the approp
 ### Using DefaultAzureCredential with SDK management libraries
 
 ```python
-# WARNING: this code presently fails with current release libraries!
+# WARNING: this code fails with azure-mgmt-resource versions < 15
 
 from azure.identity import DefaultAzureCredential
 
@@ -157,21 +157,24 @@ from azure.mgmt.resource import SubscriptionClient
 credential = DefaultAzureCredential()
 subscription_client = SubscriptionClient(credential)
 
-# The following line produces a "no attribute 'signed_session'" error:
+# If using azure-mgmt-resource < version 15 the following line produces
+# a "no attribute 'signed_session'" error:
 subscription = next(subscription_client.subscriptions.list())
 
 print(subscription.subscription_id)
 ```
 
-At present, `DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and preview versions of the Azure SDK management libraries (that is, the latest preview version of libraries whose names begin with `azure-mgmt`), as shown in this code example. That is, with current release libraries, the call to `subscription_client.subscriptions.list()` fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because the current SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
+`DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and updated versions of the Azure SDK management libraries that appear on the [Libaries using azure.core](azure-sdk-library-package-index#libraries-using-azurecore) list.
 
-You can work around the error by using preview management libraries, as described in the blog post, [Introducing new previews for Azure management libraries](https://devblogs.microsoft.com/azure-sdk/introducing-new-previews-for-azure-management-libraries/).
+If you run the preceding code with a version of azure-mgmt-resource version 15.0.0 or higher, the call to `subscription_client.subscriptions.list()` succeeds. If you use an earlier version of the library, the call fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because older versions of SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
 
-Alternately, you can use the following methods:
+You can work around the error by using the most recent versions management libraries from the [Libaries using azure.core](azure-sdk-library-package-index#libraries-using-azurecore) list. When two libraries are listed, use the highest version number. Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.
+
+If the management library you want to use has not yet been updated, then you can use the following alternate methods:
 
 1. Use one of the other authentication methods describe in subsequent sections of this article, which can work well for code that uses *only* SDK management libraries and that won't be deployed to the cloud, in which case you can rely on local service principals only.
 
-1. Instead of `DefaultAzureCredential`, use the [CredentialWrapper class (cred_wrapper.py)](https://gist.github.com/lmazuel/cc683d82ea1d7b40208de7c9fc8de59d) that's provided by a member of the Azure SDK engineering team. Once the updated management libraries are out of preview, you can simply switch back to `DefaultAzureCredential`. This method has the advantage that you can use the same credential with both SDK client and management libraries, and it works both locally and in the cloud.
+1. Instead of `DefaultAzureCredential`, use the [CredentialWrapper class (cred_wrapper.py)](https://gist.github.com/lmazuel/cc683d82ea1d7b40208de7c9fc8de59d) that's provided by a member of the Azure SDK engineering team. Once the desired management library is available, switch back to `DefaultAzureCredential`. This method has the advantage that you can use the same credential with both SDK client and management libraries, and it works both locally and in the cloud.
 
     Assuming that you've downloaded a copy of *cred_wrapper.py* into your project folder, the previous code would appear as follows:
 
@@ -185,7 +188,7 @@ Alternately, you can use the following methods:
     print(subscription.subscription_id)
     ```
 
-    Again, once the updated management libraries are out of preview, you can use `DefaultAzureCredential` directly.
+    Again, once updated management libraries are vailable, you can use `DefaultAzureCredential` directly as shown in the original code example.
 
 ## Other authentication methods
 
