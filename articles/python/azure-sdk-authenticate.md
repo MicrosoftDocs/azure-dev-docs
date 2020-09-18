@@ -395,7 +395,7 @@ print(subscription.subscription_id)
 
 In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`. The application will be authorized for any and all operations as the user.
 
-The SDK uses the default subscription ID, or you can set the subscription prior to running the code using [`az account`](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli). If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
+The SDK uses the default subscription ID, or you can set the subscription prior to running the code using [`az account`](/cli/azure/manage-azure-subscriptions-azure-cli). If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
 
 The `get_client_from_cli_profile` function should be used only for early experimentation and development purposes because a signed-in user typically has owner or administrator privileges and can access most resources without any additional permissions. For more information, see the previous note about [using CLI credentials with `DefaultAzureCredential`](#cli-auth-note).
 

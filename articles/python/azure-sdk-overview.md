@@ -60,13 +60,13 @@ The SDK's *management* (or "management plane") libraries, the names of which all
 
 With the management libraries, you can write configuration and deployment scripts to perform the same tasks that can you through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
+For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
 
 ## Connect to and use Azure resources with client libraries
 
 The SDK's *client* (or "data plane") libraries help you write Python application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API.
 
-For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?languages=python&products=azure).
+For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
 
 ## Get help and connect with the SDK team
 
