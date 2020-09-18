@@ -21,9 +21,9 @@
     - name: Visual Studio Code
       href: https://code.visualstudio.com/docs/languages/java
     - name: IntelliJ IDEA
-      href: /azure/developer/java/toolkit-for-intellij
+      href: ../toolkit-for-intellij/index.yml
     - name: Eclipse
-      href: /azure/developer/java/toolkit-for-eclipse
+      href: ../toolkit-for-eclipse/index.yml
     - name: Maven plugins
       expanded: true
       href: /java/api/overview/azure/maven/README
