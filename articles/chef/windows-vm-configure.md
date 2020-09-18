@@ -43,7 +43,7 @@ First, prep your workstation by creating a directory to store Chef configuration
 
 Create a directory named `C:\Chef`.
 
-Download and install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
+Download and install the latest [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
 
 ## Configure Azure Service Principal
 
