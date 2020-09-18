@@ -13,7 +13,7 @@ Continuous integration (CI) and continuous deployment (CD) form a pipeline by wh
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
 
-to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups/index?view=vsts) that contains Linux virtual machines (VMs). You learn how to:
+to a [deployment group](/azure/devops/pipelines/release/deployment-groups/index?view=vsts) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
@@ -28,17 +28,17 @@ to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/releas
 ## Before you begin
 
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+  see [Create a Jenkins master on an Azure virtual machine](/azure/jenkins/install-jenkins-solution-template). 
 
 * Sign in to your Azure DevOps Services organization (**https://{yourorganization}.visualstudio.com**). 
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](/azure/virtual-network/tutorial-filter-network-traffic).
 
 ## Get the sample app
 
@@ -86,7 +86,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
  
 1.  Create a PAT in your Azure DevOps Services organization if you don't already have one. Jenkins requires this information to access your Azure DevOps Services organization. Be sure to store the token information for upcoming steps in this section.
   
-    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
+    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
@@ -173,7 +173,7 @@ In this tutorial, you automated the deployment of an app to Azure by using Jenki
 > * Create a deployment group for the Azure virtual machines.
 > * Create an Azure Pipeline that configures the VMs and deploys the app.
 
-To learn about how to use Azure Pipelines for both Build and Release steps, refer to [this](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+To learn about how to use Azure Pipelines for both Build and Release steps, refer to [this](/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
 
 To learn about how to author a YAML based CI/CD pipeline to deploy to VMs, advance to the next tutorial.
 

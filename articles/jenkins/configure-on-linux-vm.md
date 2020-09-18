@@ -211,4 +211,4 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Jenkins on Azure](/azure/developer/jenkins)
+> [Jenkins on Azure](./index.yml)

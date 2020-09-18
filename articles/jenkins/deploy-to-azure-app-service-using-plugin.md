@@ -275,4 +275,4 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Jenkins on Azure](/azure/developer/jenkins)
+> [Jenkins on Azure](./index.yml)
