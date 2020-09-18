@@ -26,7 +26,7 @@ To use [Azure login](https://github.com/marketplace/actions/azure-login), you fi
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
-1. If you do not have an existing application, register a [new Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
+1. If you do not have an existing application, register a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
 
     ```azurecli-interactive
         appName="myApp"
@@ -37,7 +37,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
         --identifier-uris http://localhost/$appName
     ```
 
-1. [Create a new service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure portal for your app. 
+1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure portal for your app. 
 
     ```azurecli-interactive
         az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -154,19 +154,19 @@ The following articles provide details on connecting to GitHub from Azure and ot
 
 ### Azure Active Directory 
 
-- [Sign in to GitHub Enterprise with Azure AD (single sign-on)](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)   
+- [Sign in to GitHub Enterprise with Azure AD (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)   
 
 ### Power BI
 
-- [Connect Power BI with GitHub](https://docs.microsoft.com/power-bi/service-connect-to-github)   
+- [Connect Power BI with GitHub](/power-bi/service-connect-to-github)   
 
 ### Connectors
 
-- [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](https://docs.microsoft.com/connectors/github/)   
+- [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)   
 
 ### Azure Databricks
 
-- [Use GitHub as version control for notebooks](https://docs.microsoft.com/azure/databricks/notebooks/github-version-control) 
+- [Use GitHub as version control for notebooks](/azure/databricks/notebooks/github-version-control) 
 
 > [!div class="nextstepaction"]
 > [Deploy apps from GitHub to Azure](deploy-to-azure.md)
