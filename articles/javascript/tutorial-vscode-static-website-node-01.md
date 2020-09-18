@@ -8,7 +8,7 @@ ms.custom: devx-track-javascript
 
 # Deploy a static website to Azure from Visual Studio Code
 
-In this tutorial, you create and deploy a static website to Azure using [Azure Storage](https://docs.microsoft.com/azure/storage). A static website is composed of HTML, CSS, JavaScript, and other static files such as images or fonts. A static site is typically a single-page application (or [SPA](https://en.wikipedia.org/wiki/Single-page_application)) written with Angular, React or Vue. However you design the app, you host and serve these files directly from _storage_ rather than using a web server. Hosting in storage is simpler and less expensive than maintaining a web server.
+In this tutorial, you create and deploy a static website to Azure using [Azure Storage](/azure/storage). A static website is composed of HTML, CSS, JavaScript, and other static files such as images or fonts. A static site is typically a single-page application (or [SPA](https://en.wikipedia.org/wiki/Single-page_application)) written with Angular, React or Vue. However you design the app, you host and serve these files directly from _storage_ rather than using a web server. Hosting in storage is simpler and less expensive than maintaining a web server.
 
 ## Walkthrough video
 

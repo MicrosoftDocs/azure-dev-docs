@@ -88,9 +88,9 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/?view=azure-node-latest
           - text: JS/TS samples
-            url: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+            url: /samples/browse/?languages=javascript%252cnodejs%252ctypescript
   - title: Explore developer tools
     linkLists:
       - linkListType: get-started
@@ -103,4 +103,3 @@ landingContent:
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10#install-your-linux-distribution-of-choice
-
