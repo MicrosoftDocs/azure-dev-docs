@@ -39,7 +39,7 @@ landingContent:
           - text: Use the Azure Cosmos DB SQL API
             url: configure-spring-boot-starter-java-app-with-cosmos-db.md
           - text: Deploy a Spring Boot app
-            url: deploy-spring-boot-java-app-with-maven-plugin.md
+            url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
           - text: Deploy an app to a cluster in AKS
             url: deploy-spring-boot-java-app-on-kubernetes.md
           - text: Deploy an app to Web Apps for Containers

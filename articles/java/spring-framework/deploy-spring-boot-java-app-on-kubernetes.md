@@ -286,7 +286,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -325,7 +325,7 @@ For more information about iteratively running and debugging containers directly
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service/tutorial-custom-container
@@ -344,7 +344,7 @@ For more information about iteratively running and debugging containers directly
 [Namespaces]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 [Pulling an Image from a Private Registry]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
-[Java Development Kit (JDK)]: https://aka.ms/azure-jdks
+[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- Newly added -->

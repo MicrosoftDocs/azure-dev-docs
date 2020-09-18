@@ -357,14 +357,14 @@ In this tutorial, you created a new Java web application using the Azure Active 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
    >[!div class="nextstepaction"]
-   >[Spring on Azure](/azure/developer/java/spring-framework)
+   >[Spring on Azure](./index.yml)
 
 <!-- URL List -->
 
 [Azure Active Directory Documentation]: /azure/active-directory/
 [AAD app manifest]: /azure/active-directory/develop/active-directory-application-manifest
 [Get started with Azure AD]: /azure/active-directory/get-started-azure-ad
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -403,5 +403,3 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
 [hello-world]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-world.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
-
-

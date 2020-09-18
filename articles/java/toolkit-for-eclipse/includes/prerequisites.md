@@ -2,7 +2,7 @@
 
 To complete the steps in this article, you will need to install the Azure Toolkit for Eclipse, which requires the following software components:
 
-* An [Azure supported Java Development Kit (JDK)](https://aka.ms/azure-jdks)
+* An [Azure supported Java Development Kit (JDK)](../../fundamentals/java-jdk-long-term-support.md)
 * An [Eclipse IDE](http://www.eclipse.org/downloads/)
 * The [Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse), see [installation guide](../installation.md) for more information
 * Be [signed in](../sign-in-instructions.md) to your Azure account for the Azure Toolkit for Eclipse

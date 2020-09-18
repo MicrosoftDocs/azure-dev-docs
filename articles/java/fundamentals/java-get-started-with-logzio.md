@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or greater
+* [Java Developer Kit](./java-jdk-long-term-support.md), version 8 or greater
 * A Logz.io account from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 * An existing Java application that uses Log4J or Logback
 

@@ -11,5 +11,5 @@ ms.custom: devx-track-java
 The following articles help you get started with options for directories on Azure:
 
 - [Azure Active Directory](/azure/active-directory/develop/quickstart-v2-java-webapp)
-- [Azure Active Directory - Spring Security](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
-- [Azure Active Directory B2C - Spring Security](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc)
+- [Azure Active Directory - Spring Security](../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md)
+- [Azure Active Directory B2C - Spring Security](../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md)

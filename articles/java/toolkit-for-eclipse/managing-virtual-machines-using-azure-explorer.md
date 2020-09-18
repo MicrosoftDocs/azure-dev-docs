@@ -19,7 +19,7 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
 
 ## Create a virtual machine
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions).
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](./sign-in-instructions.md).
 
 1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**.
 
@@ -117,8 +117,8 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 
 <!-- URL List -->
 
-[Sizes for Windows virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
-[Sizes for Linux virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/sizes
+[Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/sizes
 [Windows virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Linux virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 

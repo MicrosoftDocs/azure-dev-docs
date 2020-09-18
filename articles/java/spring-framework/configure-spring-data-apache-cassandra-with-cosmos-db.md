@@ -162,7 +162,7 @@ In this tutorial, you created a sample Java application that uses Spring Data to
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -170,7 +170,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- URL List -->
 
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

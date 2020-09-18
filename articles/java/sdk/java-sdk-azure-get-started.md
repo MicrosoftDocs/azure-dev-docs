@@ -139,7 +139,7 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 
 ### Install the Azure Toolkit for Intellij
 
-The [Azure toolkit](/azure/developer/java/toolkit-for-intellij/installation) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for IntelliJ quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
+The [Azure toolkit](../toolkit-for-intellij/installation.md) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for IntelliJ quickstart](../toolkit-for-intellij/create-hello-world-web-app.md).
 
 - Select the **File** menu and then select **Settings...**.
 
@@ -149,7 +149,7 @@ The [Azure toolkit](/azure/developer/java/toolkit-for-intellij/installation) is 
 
 ### Install the Azure Toolkit for Eclipse
 
-The [Azure toolkit](/azure/developer/java/toolkit-for-eclipse) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for Eclipse quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
+The [Azure toolkit](../toolkit-for-eclipse/index.yml) is necessary if you're going to be deploying web apps or APIs programmatically but is not currently used for any other kinds of development. The following is a summary of the installation process. For a quickstart, visit [Azure Toolkit for Eclipse quickstart](../toolkit-for-eclipse/create-hello-world-web-app.md).
 
 - Select the **Help** menu and then select **Install New software**.
 

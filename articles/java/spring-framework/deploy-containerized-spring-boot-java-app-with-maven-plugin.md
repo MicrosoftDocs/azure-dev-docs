@@ -303,7 +303,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -326,7 +326,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 <!-- URL List -->
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [Azure portal]: https://portal.azure.com/
 [Docker]: https://www.docker.com/
 [Docker plugin for Maven]: https://github.com/spotify/docker-maven-plugin
@@ -340,7 +340,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [Spring Framework]: https://spring.io/
 [Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
-[Java Development Kit (JDK)]: https://aka.ms/azure-jdks
+[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->

@@ -41,7 +41,7 @@ landingContent:
       - linkListType: download
         links:
         - text: Java for Azure and Azure Stack
-          url: /azure/developer/java/fundamentals
+          url: ../fundamentals/index.yml
   - title: Source code
     linkLists:
       - linkListType: reference
