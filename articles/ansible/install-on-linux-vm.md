@@ -172,4 +172,4 @@ You now have a virtual machine with Ansible installed and configured!
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ansible on Azure](/azure/developer/Ansible)
+> [Ansible on Azure](./index.yml)
