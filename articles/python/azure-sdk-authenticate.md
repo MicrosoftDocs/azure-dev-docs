@@ -164,11 +164,11 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-`DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and updated versions of the Azure SDK management libraries that appear on the [Libaries using azure.core](azure-sdk-library-package-index#libraries-using-azurecore) list.
+`DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and updated versions of the Azure SDK management libraries that appear on the [Libaries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list.
 
 If you run the preceding code with a version of azure-mgmt-resource version 15.0.0 or higher, the call to `subscription_client.subscriptions.list()` succeeds. If you use an earlier version of the library, the call fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because older versions of SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
 
-You can work around the error by using the most recent versions management libraries from the [Libaries using azure.core](azure-sdk-library-package-index#libraries-using-azurecore) list. When two libraries are listed, use the highest version number. Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.
+You can work around the error by using the most recent versions management libraries from the [Libaries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. When two libraries are listed, use the highest version number. Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.
 
 If the management library you want to use has not yet been updated, then you can use the following alternate methods:
 
