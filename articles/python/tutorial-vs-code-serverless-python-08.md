@@ -2,7 +2,7 @@
 title: "Step 8: Clean up resources used with Python code in Azure Functions"
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -26,7 +26,7 @@ As noted earlier, you can learn more about the Functions extension by visiting i
 
 Read the [Azure Functions Overview](/azure/azure-functions/functions-overview) to explore the different triggers you can use.
 
-To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/python/?view=azure-python).
+To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/azure/developer/python/).
 
 There are also other Azure extensions for Visual Studio Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
@@ -40,6 +40,4 @@ Some popular extensions are:
 - [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python)
-
-Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.
+> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python&preserve-view=true)

@@ -24,4 +24,4 @@ Packages using scope, such as `@azure`, are the modern libraries.
 
 ## Next steps
 
-Find [reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest) for all Azure NPM packages.
+Find [reference documentation](/javascript/api/overview/azure/?view=azure-node-latest) for all Azure NPM packages.

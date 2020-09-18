@@ -5,5 +5,5 @@ You can delete the resource group by using either using either the [Azure portal
 - Run the following Azure CLI command (locally or using the [Cloud Shell](/azure/cloud-shell/overview)), replacing `<resource_group>` with the name of the group used in this tutorial:
 
     ```azurecli
-    az group delete --name <resource_group>
+    az group delete --no-wait --name <resource_group>
     ```

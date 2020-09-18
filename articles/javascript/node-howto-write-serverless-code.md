@@ -26,7 +26,7 @@ Next, expand your understanding of what Azure Functions can do by reviewing the 
 
 From here, you can enjoy a number other resources that help you explore serverless code further:
 
-- Microsoft Learn Module: [Enable automatic updates in a web app using Azure functions and SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/)
+- Microsoft Learn Module: [Enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/)
 
 - Learn about using various triggers to run serverless code:
 
