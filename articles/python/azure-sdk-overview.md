@@ -1,7 +1,7 @@
 ---
 title: Use the Azure libraries (SDK) for Python
 description: Overview of the features and capabilities of the Azure libraries for Python that helps developers be more productive when provisioning, using, and managing Azure resources.
-ms.date: 05/26/2020
+ms.date: 09/19/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -58,7 +58,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 The SDK's *management* (or "management plane") libraries, the names of which all begin with `azure-mgmt-`, help you create, provision and otherwise manage Azure resources from Python scripts. All Azure services have corresponding management libraries.
 
-With the management libraries, you can write configuration and deployment scripts to perform the same tasks that can you through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
+With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
 
 For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api?view=azure-python) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
 
