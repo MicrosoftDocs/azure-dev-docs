@@ -74,7 +74,7 @@ The latest libraries use the scope `@azure`. Older packages from Microsoft typic
 
 ## Create Azure resource with service principal
 
-Use the Azure CLI to [create an Azure resource using the service principal](../azure-cli/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
+Use the [Azure CLI] to [create an Azure resource using the service principal](../azure-cli/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
 
 ## Use service principal in JavaScript
 
@@ -152,4 +152,6 @@ You can also use any other source control tool of your choice; Git is simply one
 
 ## Next steps
 
+* [Create and use a service principal](node-sdk-azure-authenticate-principal.md)
+* [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
 * [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
