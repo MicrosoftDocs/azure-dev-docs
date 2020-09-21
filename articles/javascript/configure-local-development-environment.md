@@ -55,140 +55,7 @@ Conceptually, the steps to create and use a service principal include:
 
 ### Create service principal
 
-To make service principal creation easier, use the following steps and provided script to create your service principal to use with Azure quickstarts. The following steps use the name `JOE` as an example user name. Replace this with your own name or email alias.
-
-1. Open VSCode and install the [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in VSCode to see the results.
-
-1. Create a new file named `create-service-principal.sh` and copy the following Azure commands into the file:
-
-    ```azurecli
-    # Replace ALL-CAPS variables with your own values
-
-    ####################################
-    # Login as you
-    ####################################
-
-    # Login - command opens browser, select your account to finish authentication, then close browser
-    az login
-
-    ####################################
-    # Optional, set default subscription
-    ####################################
-
-    # If you have more than 1 subscription, use the `list` command to find the subscription, then use the `set` command to set the default by name or id
-    az account list
-    az account set --subscription MYCOMPANYSUBSCRIPTION
-
-    ####################################
-    # Create service principal
-    ####################################
-
-    # Create a service principal with a name that indicates its purpose and owner - the response includes the `appId` which is necessary in some of the remaining commands
-    az ad sp create-for-rbac --name JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS --skip-assignment
-
-    ####################################
-    # Add role of contributor
-    ####################################
-
-    # Add contributor role to service principal so it can create Azure resources
-    az role assignment create --assignee APP-ID --role CONTRIBUTOR
-
-    ####################################
-    # Optional, verify role assignment
-    ####################################
-
-    # Verify role assignment for service principal
-    az role assignment list --assignee APP-ID
-
-    ####################################
-    # Logout
-    ####################################
-
-    # Logout off Azure CLI
-    az logout
-    ```
-
-    For the remaining steps in this procedure, for each line in the file that does **not** begin with `#`, place the VSCode cursor on the line, then **right-click** to select **Run Line in Editor**.
-
-    :::image type="content" source="media/development-setup/vscode-rightclick-run-line-in-editor.png" alt-text="For the remaining steps in this procedure, for each line in the file that does not begin with `#`, place the VSCode cursor on the line, then right-click to select `Run Line in Editor`.":::
-
-1. Use right-click/Run Line in Editor on the following line to authenticate to Azure with your own user account using the Azure CLI. This command opens an internet browser. Select your Azure account. Once your account is authenticated, close the browser window, you won't need it with the remaining tasks.
-
-    ```azurecli
-    az login
-    ```
-
-    The response includes all subscriptions you have access to, displayed in another VSCode doc window as a JSON array. Find the `name` or `id` property. You need one of these values for the remaining commands.
-
-    ```json
-    [  {
-    "cloudName": "AzureCloud",
-    "id": "320d9379-aaaa-bbbb-cccc-52f2b0fc40ac",
-    "isDefault": false,
-    "name": "contoso-development-team",
-    "state": "Enabled",
-    "tenantId": "72f988bf-aaaa-bbbb-cccc-2d7cd011db47",
-    "user": {
-      "name": "joe@contoso.com",
-      "type": "user"
-    }
-    }]
-    ```
-
-    The subscription marked with `isDefault: true` is the subscription that receives the remaining commands. If you need to change the default subscription, use the `az account set --subscription <name or id>` command.
-
-
-<a name='create-service-principal-command'></a>
-
-1. Use right-click/Run Line in Editor on the following line to create the service principal tied to your user account. This service principal doesn't have any scoped permissions yet, due to the `--skip-assignment` parameter.
-
-
-    ```azurecli
-    az ad sp create-for-rbac --name JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS --skip-assignment
-    ```
-
-    The service principal name is `JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS`. You can see a list of all service principals associated with your Azure user account in the Azure portal, under the Active Directory service's list of applications.
-
-    The result includes information you need: `appId` and `password`. Save the file with the name `create-service-principal.json`
-
-    ```json
-    {
-      "appId": "93453d56-aaaa-bbbb-cccc-db600ecc4f6a",
-      "displayName": "JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS",
-      "name": "http://JOE-SERVICEPRINCIPAL-DOCUMENT-QUICKSTARTS",
-      "password": "d88b21e0-aaaa-bbbb-cccc-e1e9b06d50f6",
-      "tenant": "72f988bf-aaaa-bbbb-cccc-2d7cd011db47"
-    }
-    ```
-
-1. Use right-click/Run Line in Editor on the following line to assign the scoped permission to create Azure resources. The `CONTRIBUTOR` scope allows the service principal to create Azure resources.
-
-    ```azurecli
-    az role assignment create --assignee APP-ID --role CONTRIBUTOR
-    ```
-
-    The result looks like the following:
-
-    ```json
-    {
-      "canDelegate": null,
-      "id": "/subscriptions/a5b1ca8b-aaaa-bbbb-cccc-4cf7ec4791a0/providers/Microsoft.Authorization/roleAssignments/3a155db5-aaaa-bbbb-cccc-0cbfebf75464",
-      "name": "3a155db5-aaaa-bbbb-cccc-0cbfebf75464",
-      "principalId": "c05d56c9-aaaa-bbbb-cccc-0535d6167ed4",
-      "principalType": "ServicePrincipal",
-      "roleDefinitionId": "/subscriptions/a5b1ca8b-aaaa-bbbb-cccc-4cf7ec4791a0/providers/Microsoft.Authorization/roleDefinitions/b24988ac-aaaa-bbbb-cccc-20f7382dd24c",
-      "scope": "/subscriptions/a5b1ca8b-aaaa-bbbb-cccc-4cf7ec4791a0",
-      "type": "Microsoft.Authorization/roleAssignments"
-    }
-    ```
-
-    At this point, your service principal is ready to use.
-
-1. Use right-click/Run Line in Editor on the following line to log out of the Azure CLI with the following command:
-
-    ```azurecli
-    az logout
-    ```
+Learn [how to create](node-sdk-azure-authenticate-principal.md) a service principal. Remember to save the response from the creation step. You will need the `appId`, `tenant`, and `password` values to use the service principal.
 
 ## Steps for each new development project setup
 
@@ -207,7 +74,9 @@ The latest libraries use the scope `@azure`. Older packages from Microsoft typic
 
 ### Create resource using service principal
 
-The following section provides an example of how to create an Azure service resource with a service principal. To sign in with a service principal, you need the `appId`, `tenant`, and `password` you saved from the [Create service principal](#create-service-principal) procedure into the `create-service-principal.json`.
+The following section provides an example of how to create an Azure service resource with a service principal.
+
+To sign in with a service principal, you need the `appId`, `tenant`, and `password` returned as the response when you created your service principal.
 
 1. Open VSCode and use the previously installed [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in VSCode to see the results.
 
@@ -235,7 +104,7 @@ The following section provides an example of how to create an Azure service reso
     # Create resource in westus
     # This is an example of creating a Cognitive Services TextAnalytics resource
     # Review your quickstart to find the exact command
-    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
+    az cognitiveservices account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
 
     ####################################
     # Get resource keys
@@ -259,10 +128,12 @@ The following section provides an example of how to create an Azure service reso
 
     When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
 
+### Create Service principal with Visual Studio Code
+
 1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services TextAnalytics resource. This is an example, your own resource will have a different command.
 
     ```azurecli
-    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
+    az cognitiveservices account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
     ```
 
     The TextAnalytics resource uses a key and endpoint, which you need to use the [quickstarts for TextAnalytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript).
