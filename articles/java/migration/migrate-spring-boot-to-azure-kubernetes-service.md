@@ -186,7 +186,7 @@ If you used our [Spring Boot Container Quickstart GitHub repo](https://github.co
 
 If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also enable Application Insights by setting the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable in your Kubernetes deployment file (the value of the environment variable should look `InstrumentationKey=00000000-0000-0000-0000-000000000000`). For more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent).
 
-If you don't require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) or deploy to AKS. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-kubernetes).
+If you don't require any customization of your Docker image, you could alternatively explore the use of the [Maven Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) or deploy to AKS. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md).
 
 [!INCLUDE [provision-a-public-ip-address](includes/provision-a-public-ip-address.md)]
 

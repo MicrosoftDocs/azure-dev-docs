@@ -30,7 +30,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
 
@@ -61,7 +61,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 ## Tag a VM
 
-You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories.
+You can [use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories.
 
 ### Using Ansible version < 2.8
 Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
@@ -271,7 +271,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \

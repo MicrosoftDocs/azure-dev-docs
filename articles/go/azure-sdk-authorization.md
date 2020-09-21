@@ -108,7 +108,7 @@ The `ResourceManagerURL` varies based on the region name, machine name, and exte
 | Development Kit | `https://management.local.azurestack.external/` |
 | Integrated Systems | `https://management.(region).ext-(machine-name).(FQDN)` |
 
-For more information on how to use the Azure SDK for Go on Azure Stack, see [Use API version profiles with Go in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-go)
+For more information on how to use the Azure SDK for Go on Azure Stack, see [Use API version profiles with Go in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-go)
 
 ## Use file-based authentication
 

@@ -29,7 +29,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 ## Create a new web app project
 
-1. Start Eclipse and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions) article.
+1. Start Eclipse and sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse](./sign-in-instructions.md) article.
 
 1. Click the **File** menu, then click **New**, and then click **Dynamic Web Project**.
    
@@ -106,7 +106,7 @@ For additional resources for Docker, see the official [Docker website][Docker].
 
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Create Docker Registry using Azure CLI]: /azure/container-registry/container-registry-get-started-azure-cli
 
