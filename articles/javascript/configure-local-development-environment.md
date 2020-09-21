@@ -27,7 +27,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 |--|--|
 |[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
 | NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
-|[VSCode](https://aka.ms/vscode-deploy)| VSCode will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
+|[Visual Studio Code](https://aka.ms/Visual Studio Code-deploy)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 |[Azure CLI](../azure-cli/what-is-azure-cli.md)|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
 
 > [!CAUTION]
@@ -78,7 +78,7 @@ The following section provides an example of how to create an Azure service reso
 
 To sign in with a service principal, you need the `appId`, `tenant`, and `password` returned as the response when you created your service principal.
 
-1. Open VSCode and use the previously installed [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in VSCode to see the results.
+1. Open Visual Studio Code and use the previously installed [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in Visual Studio Code to see the results.
 
 1. Create a new file named `create-service-resource.sh` and copy the following Azure commands into the file:
 
@@ -128,21 +128,9 @@ To sign in with a service principal, you need the `appId`, `tenant`, and `passwo
 
     When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
 
-## Create resource using service principal with Visual Studio Code
+## Use service principal in JavaScript
 
-1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services TextAnalytics resource. This is an example, your own resource will have a different command.
-
-    ```azurecli
-    az cognitiveservices account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
-    ```
-
-    The TextAnalytics resource uses a key and endpoint, which you need to use the [quickstarts for TextAnalytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript).
-
-1. Use right-click/Run Line in Editor on the following line to get the TextAnalytics key and endpoint. Authentication to the TextAnalytics service uses the key and endpoint.
-
-    ```azurecli
-    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
-    ```
+[Use the service principal](node-sdk-azure-authenticate-principal.md#using-the-service-principal) when you authenticate to an Azure client library instead of your personal user account.
 
 ## Create environment variables for the Azure libraries
 
