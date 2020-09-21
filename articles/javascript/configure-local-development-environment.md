@@ -74,7 +74,7 @@ The latest libraries use the scope `@azure`. Older packages from Microsoft typic
 
 ## Create Azure resource with service principal
 
-Use the Azure CLI to [create an Azure resource using the service principal](../azure/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
+Use the Azure CLI to [create an Azure resource using the service principal](../azure-cli/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
 
 ## Use service principal in JavaScript
 
