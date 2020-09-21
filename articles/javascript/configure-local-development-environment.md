@@ -27,7 +27,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 |--|--|
 |[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
 | NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
-|[Visual Studio Code](https://aka.ms/Visual Studio Code-deploy)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
+|[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 |[Azure CLI](../azure-cli/what-is-azure-cli.md)|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
 
 > [!CAUTION]
@@ -74,7 +74,7 @@ The latest libraries use the scope `@azure`. Older packages from Microsoft typic
 
 ## Create Azure resource with service principal
 
-Use the [Azure CLI] to [create an Azure resource using the service principal](../azure-cli/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
+Use the Azure CLI to [create an Azure resource using the service principal](../azure-cli/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
 
 ## Use service principal in JavaScript
 
