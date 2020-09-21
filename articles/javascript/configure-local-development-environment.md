@@ -245,7 +245,7 @@ The following section provides an example of how to create an Azure service reso
     az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
     ```
 
-1. Use right-click/Run Line in Editor on the following line to login with the service principal. The variables in all caps were returned in the response from the [previous command to create the service principal](#create-service-principal-command).
+1. Use right-click/Run Line in Editor on the following line to log in with the service principal. The variables in all caps were returned in the response from the [previous command to create the service principal](#create-service-principal-command).
 
     ```azurecli
     az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
