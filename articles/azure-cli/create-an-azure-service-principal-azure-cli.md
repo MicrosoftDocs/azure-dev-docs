@@ -4,7 +4,7 @@ description: Learn how to create and use service principals with Azure CLI.
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/15/2019
+ms.date: 09/21/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
@@ -197,6 +197,58 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password /pa
 ```
 
 To learn more about signing in with a service principal, see [Sign in with the Azure CLI](authenticate-azure-cli.md).
+
+## Create resource using service principal
+
+The following section provides an example of how to create an Azure service resource with a service principal.
+
+To sign in with a service principal, you need the `appId`, `tenant`, and `password` returned as the response when you [created your service principal](#sign-in-using-a-service-principal).
+
+1. Log in as the service principal
+
+    ```azurecli-interactive
+    ####################################
+    # Login as service principal
+    ####################################
+    # User name for command is the app id
+    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
+    ```
+
+1. Create a resource group to hold all resources used for the same quickstart, tutorial, or development project.
+
+    ```azurecli-interactive
+    ####################################
+    # Create resource group
+    ####################################
+
+    # Create resource group in westus region - check your quickstart if it requires a specific region, then change this value to the appropriate region
+    # Common naming convention for resource group is `USERNAME-REGION-PURPOSE`
+    az group create --location WESTUS --name JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    ```
+
+1. Create a resource to an Azure service. Replace `<SERVICENAME>` with the name of the Azure service.
+
+    ```azurecli-interactive
+    ####################################
+    # Create specific service resource
+    ####################################
+
+    # Create resource in westus
+    # This is an example of creating a Cognitive Services TextAnalytics resource
+    # Review your quickstart to find the exact command
+    az cognitiveservices account create --name JOE-WESTUS-<SERVICENAME> --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind <SERVICENAME> --sku F0 --location WESTUS --yes
+    ```
+
+1. Get resource keys for the new resource, which you use in your code to authenticate to the Azure service.
+
+    ```azurecli-interactive
+    ####################################
+    # Get resource keys
+    ####################################
+
+    # Get resource keys
+    az cognitiveservices account keys list --name JOE-WESTUS-<SERVICENAME> --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    ```
 
 ## Reset credentials
 

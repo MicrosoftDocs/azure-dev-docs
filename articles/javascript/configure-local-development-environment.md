@@ -72,61 +72,9 @@ Each new project using Azure should:
 
 The latest libraries use the scope `@azure`. Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
 
-## Create resource using service principal with Azure CLI
+## Create Azure resource with service principal
 
-The following section provides an example of how to create an Azure service resource with a service principal.
-
-To sign in with a service principal, you need the `appId`, `tenant`, and `password` returned as the response when you created your service principal.
-
-1. Open Visual Studio Code and use the previously installed [Azure CLI tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) extension. This extension allows you to execute Azure CLI commands from the script file, line by line. When you run each command, a neighboring doc opens in Visual Studio Code to see the results.
-
-1. Create a new file named `create-service-resource.sh` and copy the following Azure commands into the file:
-
-    ```azurecli
-    ####################################
-    # Login as service principal
-    ####################################
-    # User name for command is the app id
-    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
-
-    ####################################
-    # Create resource group
-    ####################################
-
-    # Create resource group in westus region - check your quickstart if it requires a specific region, then change this value to the appropriate region
-    # Common naming convention for resource group is `USERNAME-REGION-PURPOSE`
-    az group create --location WESTUS --name JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
-
-    ####################################
-    # Create specific service resource
-    ####################################
-
-    # Create resource in westus
-    # This is an example of creating a Cognitive Services TextAnalytics resource
-    # Review your quickstart to find the exact command
-    az cognitiveservices account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
-
-    ####################################
-    # Get resource keys
-    ####################################
-
-    # Get resource keys
-    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
-    ```
-
-1. Use right-click/Run Line in Editor on the following line to log in with the service principal. The variables in all caps were returned in the response from the command to create the service principal.
-
-    ```azurecli
-    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
-    ```
-
-1. Use right-click/Run Line in Editor on the following line to create a resource group for all resources you need to create for the quickstart. The resource group region can only contain resources from that region.
-
-    ```azurecli
-    az group create --location WESTUS --name JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
-    ```
-
-    When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
+Use the Azure CLI to [create an Azure resource using the service principal](../azure/create-an-azure-service-principal-azure-cli.md?view=azure-cli-latest#create-resource-using-service-principal).
 
 ## Use service principal in JavaScript
 
