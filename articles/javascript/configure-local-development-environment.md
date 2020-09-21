@@ -72,7 +72,7 @@ Each new project using Azure should:
 
 The latest libraries use the scope `@azure`. Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
 
-### Create resource using service principal
+## Create resource using service principal with Azure CLI
 
 The following section provides an example of how to create an Azure service resource with a service principal.
 
@@ -114,7 +114,7 @@ To sign in with a service principal, you need the `appId`, `tenant`, and `passwo
     az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
     ```
 
-1. Use right-click/Run Line in Editor on the following line to log in with the service principal. The variables in all caps were returned in the response from the [previous command to create the service principal](#create-service-principal-command).
+1. Use right-click/Run Line in Editor on the following line to log in with the service principal. The variables in all caps were returned in the response from the command to create the service principal.
 
     ```azurecli
     az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
@@ -128,7 +128,7 @@ To sign in with a service principal, you need the `appId`, `tenant`, and `passwo
 
     When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
 
-### Create Service principal with Visual Studio Code
+## Create resource using service principal with Visual Studio Code
 
 1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services TextAnalytics resource. This is an example, your own resource will have a different command.
 
@@ -144,7 +144,7 @@ To sign in with a service principal, you need the `appId`, `tenant`, and `passwo
     az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
     ```
 
-### Create environment variables for the Azure libraries
+## Create environment variables for the Azure libraries
 
 To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
@@ -172,7 +172,7 @@ set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
 
 Replace the values shown in these commands with those of your specific service principal.
 
-### Install NPM packages
+## Install NPM packages
 
 For every project, we recommend that you always create a separate folder, and its own `package.json` file using the following steps:
 
