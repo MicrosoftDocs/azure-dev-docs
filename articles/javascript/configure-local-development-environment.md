@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 07/01/2020
+ms.date: 09/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-javascript
 ---
@@ -17,7 +17,7 @@ This article provides setup instructions to create and validate a local dev envi
 Azure resources are created within a subscription, which is the billing unit for using Azure. While you can create free resources (each subscription offers a free resource for most services), you should create paid-tier resources when you expect to deploy your resource to production.
 
 * If you already have a subscription, you don't need to create a new one. Use the [Azure portal](https://portal.azure.com) to access your existing subscription.
-* [Begin a free trial subscription]()
+* [Begin a free trial subscription](https://azure.microsoft.com/free/cognitive-services)
 
 ## One-time installation
 
@@ -25,10 +25,10 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js]()|Install latest long-term support (LTS) runtime environment for local workstation development. |
-| NPM (installed with modern versions of Node.js) or [Yarn]()|Package manager to install Azure SDK libraries.|
+|[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
+| NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
 |[VSCode](https://aka.ms/vscode-deploy)| VSCode will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
-|[Azure CLI]()|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
+|[Azure CLI](../azure-cli/what-is-azure-cli.md)|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
 
 > [!CAUTION]
 > If you plan to use an Azure resource as the runtime environment for your code, such as an Azure web app or an Azure Container Instance, you should verify your local Node.js development environment matches the Azure resource runtime you plan to use.
@@ -201,12 +201,9 @@ Each new project using Azure should:
 
 ### Library versions
 
-All Azure libraries are moving to the `@azure` scope.
+[Azure libraries](azure-sdk-library-package-index.md) generally use the `@azure` scope.
 
-| Library type | Description|
-|--|--|
-|Modern|Scoped to `@azure`, for example [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) and [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) and include TypeScript types.|
-|Older packages|Typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.|
+The latest libraries use the scope `@azure`. Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
 
 ### Create resource using service principal
 
@@ -236,16 +233,16 @@ The following section provides an example of how to create an Azure service reso
     ####################################
 
     # Create resource in westus
-    # This is an example of creating a Cognitive Services LUIS resource
+    # This is an example of creating a Cognitive Services TextAnalytics resource
     # Review your quickstart to find the exact command
-    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind LUIS --sku F0 --location WESTUS --yes
+    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
 
     ####################################
     # Get resource keys
     ####################################
 
     # Get resource keys
-    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
     ```
 
 1. Use right-click/Run Line in Editor on the following line to login with the service principal. The variables in all caps were returned in the response from the [previous command to create the service principal](#create-service-principal-command).
@@ -262,18 +259,18 @@ The following section provides an example of how to create an Azure service reso
 
     When you are done with the quickstart resources, you can delete the resource group, which deletes on the resources in one action.
 
-1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services LUIS resource. This is an example, your own resource will have a different command.
+1. Use right-click/Run Line in Editor on the following line to create a Cognitive Services TextAnalytics resource. This is an example, your own resource will have a different command.
 
     ```azurecli
-    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind LUIS --sku F0 --location WESTUS --yes
+    az SERVICENAME account create --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP --kind TextAnalytics --sku F0 --location WESTUS --yes
     ```
 
-    The LUIS resource uses a key and endpoint, which you need to use the quickstarts for LUIS.
+    The TextAnalytics resource uses a key and endpoint, which you need to use the [quickstarts for TextAnalytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript).
 
-1. Use right-click/Run Line in Editor on the following line to get the LUIS key and endpoint. Authentication to the LUIS service uses the key and endpoint.
+1. Use right-click/Run Line in Editor on the following line to get the TextAnalytics key and endpoint. Authentication to the TextAnalytics service uses the key and endpoint.
 
     ```azurecli
-    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-LUIS --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
+    az cognitiveservices account keys list --name JOE-WESTUS-COGNITIVESERVICES-TextAnalytics --resource-group JOE-WESTUS-QUICKSTARTS-RESOURCEGROUP
     ```
 
 ### Create environment variables for the Azure libraries
@@ -325,7 +322,7 @@ For every project, we recommend that you always create a separate folder, and it
 1. Install the Azure SDK libraries you need for the quickstart. The following command is an example.
 
     ```console
-    npm install @azure/cognitiveservices-luis-runtime
+    npm install @azure/ai-text-analytics@5.0.0
     ```
 
 ## Use source control
