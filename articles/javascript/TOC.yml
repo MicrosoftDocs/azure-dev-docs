@@ -233,7 +233,7 @@
     - name: All Samples
       href: /samples/browse/?languages=javascript%252cnodejs
 
-  - name: NPM Packages
+  - name: npm Packages
     href: azure-sdk-library-package-index.md
-  - name: NPM Package Documentation
+  - name: npm Package Documentation
     href: /javascript/api/overview/azure/?view=azure-node-latest

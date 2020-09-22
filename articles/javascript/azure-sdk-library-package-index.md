@@ -16,11 +16,11 @@ Packages using scope, such as `@azure`, are the modern libraries.
 
 ## Libraries using azure.core
 
-[!INCLUDE [javascript-new-releases](../includes/js-new.md)]
+[!INCLUDE [javascript-new-releases](../includes/javascript-new.md)]
 
 ## All libraries
 
-[!INCLUDE [javascript-all-libraries](../includes/js-all.md)]
+[!INCLUDE [javascript-all-libraries](../includes/javascript-all.md)]
 
 ## Next steps
 
