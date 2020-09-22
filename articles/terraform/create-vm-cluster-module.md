@@ -3,7 +3,7 @@ title: Create an Azure VM cluster with Terraform using the Module Registry
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure.
 keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -23,28 +23,12 @@ This article walks you through creating a small VM cluster with the Terraform [A
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Set up authentication with Azure
+## Configure your environment
 
-> [!TIP]
-> If you [use Terraform environment variables](get-started-cloud-shell.md) or run this example in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+Based on your environment, install and configure Terraform:
 
- Review [Install Terraform and configure access to Azure](get-started-cloud-shell.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
-
-```hcl
-variable subscription_id {}
-variable tenant_id {}
-variable client_id {}
-variable client_secret {}
-
-provider "azurerm" {
-    version = "~>1.40"
-
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
-```
+- [Configure Terraform using Azure Cloud Shell and Azure CLI](terraform/get-started-cloud-shell.md)
+- [Configure Terraform using Azure PowerShell](terraform/get-started-powershell.md)
 
 ## Create the template
 
