@@ -8,21 +8,11 @@ ms.custom: devx-track-javascript
 
 # Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
 
-In this tutorial, you create an ExpressJS web server which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
-
-<!--
-
-## Walkthrough video
-
-Watch this video for a complete walkthrough of the content in this article.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-to-Azure-App-Service-using-Visual-Studio-Code/player]
-
--->
+In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
 ## Create a web app connected to mongoDB
 
- conceptual explanation of architecture and high level steps
+
 
 ## Prerequisites
 
@@ -33,30 +23,39 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
-[!INCLUDE [In VSCode, use Azure icon to sign into Azure](includes/vscode/extension-sign-in-azure.md)]
+## Sign in to Azure
 
-> [!div class="nextstepaction"]
-> [I installed the Azure extension](tutorial-vscode-azure-app-service-node-02.md) [I ran into an issue](#troubleshooting-tasks-in-tutorial)
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
 
-## Download sample GitHub repository
+[I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
-Download sample repo, run, and deploy
+## Download and run sample code
 
-Git clone
+The initial Express.js web app is provided as a starting point. Download the app, install the dependencies and run the app.
 
-Npm install
+1. [Download the app]() from GitHub to a local directory.
+1. Open the directory with Visual Studio Code.
+1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
 
-Npm run
+    ```javascript
+    npm install
+    ```
 
-at this point customer has a running local project with no use of Azure – customer should feel comfortable at this point
+1. In the same terminal window, run the command to run the web app.
 
-Caveats customer needs to know
+    ```javascript
+    npm start
+    ```
 
-Default port 8080
+1. Open a web browser and use the following url to view the web app on your local computer.
 
-How to change default port
+    ```url
+    http://localhost:3000/
+    ```
 
-Default app is anon access – open to all
+    If you see the simple web app in your browser, you have succeeded with this section of the tutorial.
+
+    If you ran into an issue in this section, use the [tutorial troubleshooting guide](#troubleshooting-tasks-in-tutorial) to resolve the issue or report a problem.
 
 ## Create web app resource
 
