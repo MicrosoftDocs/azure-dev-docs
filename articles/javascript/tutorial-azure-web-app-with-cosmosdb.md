@@ -55,7 +55,8 @@ The initial Express.js web app is provided as a starting point. Download the app
 
     If you see the simple web app in your browser, you have succeeded with this section of the tutorial.
 
-    If you ran into an issue in this section, use the [tutorial troubleshooting guide](#troubleshooting-tasks-in-tutorial) to resolve the issue or report a problem.
+    > [!div class="nextstepaction"]
+    > [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
 ## Create web app resource
 
