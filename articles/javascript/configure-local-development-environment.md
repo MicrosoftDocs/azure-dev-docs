@@ -76,8 +76,6 @@ The latest libraries use the scope `@azure`. Older packages from Microsoft typic
 
 Use the Azure CLI to [create an Azure resource using the service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-a-resource-using-service-principal).
 
-https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
-
 ## Use service principal in JavaScript
 
 [Use the service principal](node-sdk-azure-authenticate-principal.md#using-the-service-principal) when you authenticate to an Azure client library instead of your personal user account.
