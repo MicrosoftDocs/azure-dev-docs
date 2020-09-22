@@ -1,6 +1,6 @@
 ---
 title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
-description: Tutorial part 1, introduction and prerequisites.
+description:
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: devx-track-javascript
@@ -33,7 +33,7 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
-[!INCLUDE [In VSCode, use Azure icon to sign into Azure](../includes/vscode/extension-sign-in-azure.md)]
+[!INCLUDE [In VSCode, use Azure icon to sign into Azure](includes/vscode/extension-sign-in-azure.md)]
 
 > [!div class="nextstepaction"]
 > [I installed the Azure extension](tutorial-vscode-azure-app-service-node-02.md) [I ran into an issue](#troubleshooting-tasks-in-tutorial)
