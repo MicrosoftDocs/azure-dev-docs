@@ -526,7 +526,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 1. **Control** + **Click** on the **Controllers** folder, then choose **New File...** from the **Add** menu.
 
-1. Select **ASP.NET Core** > **Web API Controller Class**, enter *NotificationsController* for the **Name**, then click **New**.
+1. Select **ASP.NET Core** > **API Controller Class - Empty**, enter *NotificationsController.cs* for the **Name**, then click **New**.
 
 1. Add the following namespaces to the top of the file.
 
