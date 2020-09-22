@@ -29,7 +29,7 @@ In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js
 
 [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
-## Download and run sample code
+## Download and run the initial Express.js app
 
 The initial Express.js web app is provided as a starting point. Download the app, install the dependencies and run the app.
 
