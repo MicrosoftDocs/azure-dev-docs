@@ -321,6 +321,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. Add an **Empty Interface** to the **Services** folder called *INotificationService.cs*, then add the following implementation.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     using PushDemoApi.Models;
 
