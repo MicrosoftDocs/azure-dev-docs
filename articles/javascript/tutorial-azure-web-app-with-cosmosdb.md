@@ -27,7 +27,8 @@ In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js
 
 [!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
-[I ran into an issue](#troubleshooting-tasks-in-tutorial)
+> [!div class="nextstepaction"]
+> [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
 ## Download and run the initial Express.js app
 
@@ -59,6 +60,8 @@ The initial Express.js web app is provided as a starting point. Download the app
     > [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
 ## Create web app resource
+
+Use a Visual Studio Code extension to create an App service resource and deploy the initial sample web app to the resource. 
 
 Create web app resource with Azure app service extension
 
