@@ -25,7 +25,7 @@ In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
+[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
 [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
