@@ -288,7 +288,7 @@ az vm create -g PythonAzureExample-VM-rg -n ExampleVM -l "centralus" \
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-VM-rg
+az group delete -n PythonAzureExample-VM-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription.

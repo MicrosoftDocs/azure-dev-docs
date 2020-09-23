@@ -139,7 +139,7 @@ print(f"Provisioned web app {web_app_result.name} at {web_app_result.default_hos
 #
 # You can call this method again to change the repo.
 
-REPO_URL = 'https://github.com/kraigb/python-docs-hello-world'
+REPO_URL = 'https://github.com/<your_fork>/python-docs-hello-world'
 
 poller = app_service_client.web_apps.create_or_update_source_control(RESOURCE_GROUP_NAME,
     WEB_APP_NAME,
@@ -180,14 +180,14 @@ python provision_deploy_web_app.py
 
     Replace "PythonAzureExample-WebApp-12345" with the specific name of your web app.
 
-    You should see "Hello World!" in the browser.
+    You should see "Hello, World!" in the browser.
 
 1. Visit the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that "PythonAzureExample-WebApp-rg" is listed. Then Navigate into that list to verify the expected resources exist, namely the App Service Plan and the App Service.
 
 ## 7: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-WebApp-rg
+az group delete -n PythonAzureExample-WebApp-rg --no-wait
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
