@@ -69,7 +69,7 @@ With [Azure App Service](https://azure.microsoft.com/services/app-service/), you
 - [Azure App Service documentation](/azure/app-service/)
 - [Quickstarts](/azure/app-service/app-service-web-get-started-dotnet)
 - [Samples](/azure/app-service/samples-cli)
-- [Tutorials](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+- [Tutorials](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
 
 ## Azure Kubernetes Service
 

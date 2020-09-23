@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # Use Spring Data JPA with Azure Database for MySQL
 
-This topic demonstrates creating a sample application that uses [Spring Data JPA](https://spring.io/projects/spring-data-jpa) to store and retrieve information in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
+This topic demonstrates creating a sample application that uses [Spring Data JPA](https://spring.io/projects/spring-data-jpa) to store and retrieve information in [Azure Database for MySQL](/azure/mysql/).
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
@@ -81,4 +81,4 @@ Congratulations! You've created a Spring Boot application that uses JPA to store
 
 For more information about Spring Data JPA, see Spring's [reference documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference).
 
-For more information about using Azure with Java, see [Azure for Java developers](/azure/developer/java/) and [Working with Azure DevOps and Java](/azure/devops/).
+For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).

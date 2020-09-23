@@ -3,7 +3,7 @@ title: Use Azure databases with Node.js apps
 description: Azure offers a number of different databases for use with web and other Node.js apps.
 ms.topic: article
 ms.date: 08/20/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to integrate Azure databases in Node.js apps
@@ -12,10 +12,10 @@ The following table links to a variety of articles for connecting to and using A
 
 | Service | Quickstart | Samples |
 | --- | --- | --- |
-| **Cosmos DB** | [Create a Node.js Azure Cosmos DB web app](/azure/cosmos-db/create-sql-api-nodejs) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db) |
-| **MongoDB** | [Create a Node.js and MongoDB web app](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&term=Mongo%20DB) |
+| **Cosmos DB** | [Create a Node.js Azure Cosmos DB web app](/azure/cosmos-db/create-sql-api-nodejs) | [Samples](/samples/browse/?languages=javascript%252cnodejs&products=azure-cosmos-db) |
+| **MongoDB** | [Create a Node.js and MongoDB web app](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app) | [Samples](/samples/browse/?languages=javascript%252cnodejs&term=Mongo%2bDB) |
 | **Redis Cache** | [Create and consume a Redis cache](/azure/redis-cache/cache-nodejs-get-started) | |
-| **Azure SQL database** | [Use Node.js to query and Azure SQL database](/azure/sql-database/sql-database-connect-query-nodejs) | [Samples](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs&products=azure-sql-database) | |
+| **Azure SQL database** | [Use Node.js to query and Azure SQL database](/azure/sql-database/sql-database-connect-query-nodejs) | [Samples](/samples/browse/?languages=javascript%252cnodejs&products=azure-sql-database) | |
 | **MySQL** | [Use Node.js to connect and query data](/azure/mysql/connect-nodejs) | |
 | **PostgreSQL** | [Use Node.js to connect and query data](/azure/postgresql/connect-nodejs) | |
 

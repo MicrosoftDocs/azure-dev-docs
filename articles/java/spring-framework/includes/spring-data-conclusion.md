@@ -19,4 +19,4 @@ az group delete \
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](../index.yml)

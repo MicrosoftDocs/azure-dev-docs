@@ -15,7 +15,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 > [!div class="checklist"]
 >
-> * Configure two test virtual machines. 
+> * Configure two test virtual machines.
 > * Tag one of the virtual machines
 > * Install Nginx on the tagged virtual machines
 > * Configure a dynamic inventory that includes the configured Azure resources
@@ -30,11 +30,11 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
 
-    > [!IMPORTANT]    
+    > [!IMPORTANT]
     > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
     ```azurecli-interactive
@@ -61,17 +61,17 @@ Ansible can be used to pull inventory information from various sources (includin
 
 ## Tag a VM
 
-You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
+You can [use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories.
 
 ### Using Ansible version < 2.8
-Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
+Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ### Using Ansible version >= 2.8
-Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
+Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
 
 ```azurecli-interactive
 az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
@@ -235,7 +235,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Save the file and exit the editor.
 
-1. Run the playbook using the `ansible-playbook` command:
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
    - Ansible < 2.8:
 
@@ -271,7 +271,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \
@@ -308,6 +308,10 @@ This section illustrates one technique to test that Nginx is installed on your v
     * nginx-lightTry: sudo apt install <selected package>
     tom@ansible-inventory-test-vm2:~$
     ```
+
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

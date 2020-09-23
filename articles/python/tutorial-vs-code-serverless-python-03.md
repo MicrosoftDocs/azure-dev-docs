@@ -2,7 +2,7 @@
 title: "Step 3: Examine the Python code files for Azure Functions in VS Code"
 description: Tutorial step 3, understanding the template Python code provided by Azure Functions.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -81,11 +81,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 The important parts of the code are as follows:
 
 - You must import the `azure.functions` module; importing the logging module is optional but recommended.
-- The required `main` Python function receives a `func.HttpRequest`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](/python/api/azure-functions/azure.functions.httprequest?view=azure-python) and [func.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse?view=azure-python) references.
+- The required `main` Python function receives a `func.HttpRequest`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](/python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true) and [func.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true) references.
 - The body of `main` then processes the request and generates a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an generic message.
 
 > [!div class="nextstepaction"]
 > [I examined the code files - continue to step 4 >>>](tutorial-vs-code-serverless-python-04.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=03-examine-code-files)

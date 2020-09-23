@@ -3,7 +3,7 @@ title: Tutorial - Manage web traffic with Azure Application Gateway using Ansibl
 description: Learn how to use Ansible to create and configure an Azure Application Gateway to manage web traffic
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-ansible
 ---
 
@@ -49,7 +49,7 @@ Before running the playbook, see the following notes:
 - The resource group name is `myResourceGroup`. This value is used throughout the tutorial.
 - The resource group is created in the `eastus` location.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook rg.yml
@@ -102,7 +102,7 @@ Before running the playbook, see the following notes:
 * The `vars` section contains the values that are used to create the network resources. 
 * You'll need to change these values for your specific environment.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vnet_create.yml
@@ -155,7 +155,7 @@ Save the following playbook as `aci_create.yml`:
               - 80
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook aci_create.yml
@@ -258,7 +258,7 @@ Before running the playbook, see the following notes:
 * `appGatewayFrontendIP` is defined in the `frontend_ip_configurations` block. It assigns myAGPublicIPAddress to appGatewayHttpListener.
 * `rule1` is defined in the `request_routing_rules` block. It's the default routing rule associated with appGatewayHttpListener.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook appgw_create.yml
@@ -282,26 +282,7 @@ It might take several minutes for the application gateway to be created.
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        state: absent
-```
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

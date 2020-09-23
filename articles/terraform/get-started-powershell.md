@@ -35,13 +35,13 @@ In this article, you learn how to:
 
 ## Configure your environment
 
-1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
+1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). This demo was tested using PowerShell 7.0.2 on Windows 10.
+1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). This demo was tested using PowerShell 7.0.2 on Windows 10.
 
 1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). This demo was tested using Azure CLI version 2.9.1.
 
@@ -66,9 +66,9 @@ When using PowerShell and Terraform, you must log in using a service principal.
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
-There are many options when [creating a service principal with PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+There are many options when [creating a service principal with PowerShell](/powershell/azure/create-azure-service-principal-azureps). For this article, we'll create a service principal with a **Contributor** role. The **Contributor** role (the default role) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password isn't displayed as it's returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then convert the variable to plain text to display it.
+Calling [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) creates a service principal for the specified subscription. Upon successful completion, the service principal's information - such as its service principal names and display name - are displayed. When you call `New-AzADServicePrincipal` without specifying any authentication credentials, a password is automatically generated. However, this password isn't displayed as it's returned in a type `SecureString`. As such, you need to call `New-AzADServicePrincipal` with the results going to a variable. You can then convert the variable to plain text to display it.
 
 1. Get the subscription ID for the Azure subscription you want to use. If you don't know the subscription ID, you can get the value from the [Azure portal](https://portal.azure.com/).
 
@@ -78,7 +78,7 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 
 1. Start PowerShell.
 
-1. Create a new service principal using [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal). Replace `<azure_subscription_id>` with the ID of the Azure subscription you want to use.
+1. Create a new service principal using [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). Replace `<azure_subscription_id>` with the ID of the Azure subscription you want to use.
 
     ```powershell
     $sp = New-AzADServicePrincipal -Scope /subscriptions/<azure_subscription_id>
@@ -90,7 +90,7 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
     $sp.ServicePrincipalNames
     ```
 
-1. Display the autogenerated password as text, [ConvertFrom-SecureString](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertfrom-securestring).
+1. Display the autogenerated password as text, [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring).
 
     ```powershell
     $UnsecureSecret = ConvertFrom-SecureString -SecureString $sp.Secret -AsPlainText
@@ -99,17 +99,17 @@ Calling [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/
 **Notes**:
 
 - The service principal names and password values are needed to log into the subscription using your service principal.
-- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
+- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
 ## Log in to Azure using a service principal
 
-To log into an Azure subscription using a service principal, call [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential).
+To log into an Azure subscription using a service principal, call [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](/dotnet/api/system.management.automation.pscredential).
 
 1. Start PowerShell.
 
-1. Get a [PsCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
+1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
 
-    1. Call [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
+    1. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
         ```powershell
         $spCredential = Get-Credential
@@ -209,7 +209,7 @@ In this section, you create an *execution plan* and apply it to your cloud infra
     terraform apply QuickstartTerraformTest.tfplan
     ```
 
-1. Once the execution plan is applied, you can test that the resource group was successfully created using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
+1. Once the execution plan is applied, you can test that the resource group was successfully created using [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg
@@ -241,7 +241,7 @@ When no longer needed, delete the resources created in this article.
     terraform apply QuickstartTerraformTest.destroy.tfplan
     ```
 
-1. Verify that the resource group was deleted by using [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-AzResourceGroup).
+1. Verify that the resource group was deleted by using [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup).
 
     ```powershell
     Get-AzResourceGroup -Name QuickstartTerraformTest-rg

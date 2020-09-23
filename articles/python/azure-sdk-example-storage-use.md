@@ -16,7 +16,16 @@ All the commands in this article work the same in Linux/Mac OS bash and Windows 
 
 If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+Be sure to create a service principal for local development, set environment variables for the service principal (see below), and create and activate a virtual environment for this project.
+
+This example assumes you've already set the following environment variables:
+
+| Variable name | Expected value |
+| --- | --- |
+| AZURE_SUBSCRIPTION_ID | The GUID of your Azure subscription. |
+| AZURE_CLIENT_ID | The client ID of your local service principal. |
+| AZURE_CLIENT_SECRET | The client secret of your service principal. |
+| AZURE_TENANT_ID | The tenant ID for your service principal. |
 
 ## 2: Install library packages
 
@@ -183,7 +192,7 @@ After running the code of either method, go to the [Azure portal](https://portal
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-Storage-rg
+az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.

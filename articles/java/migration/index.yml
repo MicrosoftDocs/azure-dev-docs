@@ -38,6 +38,8 @@ landingContent:
             url: migrate-tomcat-to-tomcat-app-service.md
           - text: Tomcat to containers on AKS
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
+          - text: Tomcat to Azure Spring Cloud
+            url: migrate-tomcat-to-azure-spring-cloud.md
   - title: Migrate WebLogic to Azure
     linkLists:
       - linkListType: how-to-guide

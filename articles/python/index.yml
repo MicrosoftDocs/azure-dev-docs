@@ -18,21 +18,21 @@ metadata:
   ms.custom: devx-track-python
 
 landingContent:
-  - title: Deploy serverless functions
+  - title: Serverless functions
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Using Visual Studio Code
+          - text: Deploy using Visual Studio Code
             url: tutorial-vs-code-serverless-python-01.md
-          - text: Using the command line
+          - text: Deploy using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
           - text: Connect to storage using Visual Studio Code
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
           - text: Connect to storage using the command line
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
-  - title: Deploy web apps
+  - title: Web apps
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
@@ -44,9 +44,9 @@ landingContent:
             url: /azure/app-service/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
-          - text: Build a CI/CD pipeline
-            url: /azure/devops/pipelines/ecosystems/python-webapp
-  - title: Deploy machine learning models
+          - text: CI/CD pipeline
+            url: /azure/devops/pipelines/ecosystems/python-webapp          
+  - title: Machine learning
     linkLists:      
       - linkListType: how-to-guide
         links:
@@ -60,9 +60,9 @@ landingContent:
             url: quickstarts-cognitive-services.md
           - text: More...
             url: quickstarts-machine-learning.md
-  - title: Deploy data and storage
+  - title: Data and storage
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links: 
           - text: SQL databases
             url: quickstarts-data-solutions.md#sql-databases
@@ -70,7 +70,7 @@ landingContent:
             url: quickstarts-data-solutions.md#tables-blobs-files-nosql
           - text: Big data and analytics
             url: quickstarts-data-solutions.md#big-data-and-analytics
-  - title: Use Azure libraries (SDK)
+  - title: Azure libraries (SDK)
     linkLists:
       - linkListType: get-started
         links:
@@ -82,7 +82,9 @@ landingContent:
             url: azure-sdk-overview.md
           - text: Learn library usage patterns
             url: azure-sdk-library-usage-patterns.md
-  - title: Explore developer tools
+          - text: Authenticate with Azure services
+            url: walkthrough-tutorial-authentication-01.md
+  - title: Developer tools
     linkLists:  
       - linkListType: get-started
         links: 

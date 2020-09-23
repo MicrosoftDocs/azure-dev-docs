@@ -70,7 +70,7 @@
   - name: Tutorials
     items:      
       - name: Deploy to App Service with Maven
-        href: deploy-spring-boot-java-app-with-maven-plugin.md
+        href: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
       - name: Deploy to Kubernetes
         href: deploy-spring-boot-java-app-on-kubernetes.md
       - name: Deploy to Web App for Containers
@@ -89,8 +89,6 @@
         href: https://github.com/Microsoft/todo-app-java-on-azure/
       - name: To Do List with MySQL
         href: https://github.com/Azure-Samples/mysql-spring-boot-todo
-      - name: Azure Storage with Java SDK
-        href: configure-spring-boot-starter-java-app-with-azure-storage-api.md
       - name: Spring Initializr
         href: https://start.spring.io/
   - name: Reference

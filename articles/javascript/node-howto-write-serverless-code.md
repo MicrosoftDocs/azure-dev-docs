@@ -3,7 +3,7 @@ title: Write serverless Node.js code with Azure Functions
 description: Guidance on how to use Azure Functions to create and deploy serverless code using Azure Functions.
 ms.topic: article
 ms.date: 08/19/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
 # Use Azure Functions to write serverless Node.js code on Azure
@@ -26,7 +26,7 @@ Next, expand your understanding of what Azure Functions can do by reviewing the 
 
 From here, you can enjoy a number other resources that help you explore serverless code further:
 
-- Microsoft Learn Module: [Enable automatic updates in a web app using Azure functions and SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/)
+- Microsoft Learn Module: [Enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/)
 
 - Learn about using various triggers to run serverless code:
 

@@ -3,7 +3,7 @@ title: Clean up resources after deploying a static Node.js website to Azure
 description: Tutorial part 6, clean up resources.
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Part 6: Clean up resources
