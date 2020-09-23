@@ -3,7 +3,7 @@ title: Create a container image for a Node.js app from Visual Studio Code
 description: Tutorial part 4, create a Node.js application image
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Create your Node.js application image

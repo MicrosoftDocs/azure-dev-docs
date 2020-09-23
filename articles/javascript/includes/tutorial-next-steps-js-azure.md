@@ -1,7 +1,7 @@
 ---
 ms.topic: include
 ms.date: 03/31/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 ## JavaScript with Azure services

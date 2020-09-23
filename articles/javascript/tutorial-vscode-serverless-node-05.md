@@ -3,7 +3,7 @@ title: Clean up resource after deploying the Azure Functions application
 description: "To clean up the resources, right-click the Function App in the Azure: Functions explorer and select Delete Function App."
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial for Azure Functions: Clean up resources
