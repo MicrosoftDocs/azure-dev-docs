@@ -4,7 +4,7 @@ description: Tutorial part 5, make changes and redeploy
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: buhollan
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Part 5: Make changes and redeploy

@@ -1,5 +1,5 @@
 - name: Azure for Java quickstarts
-  href: /azure/developer/java/quickstarts
+  href: ./index.yml
   items:
     - name: Compute services
       href: compute.md

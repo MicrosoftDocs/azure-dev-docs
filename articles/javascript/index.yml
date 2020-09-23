@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 07/23/2020
+  ms.date: 09/21/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -19,6 +19,18 @@ metadata:
   ms.devlang: javascript
   ms.custom: 2020Aug21Redesign
 landingContent:
+  - title: New to Azure?
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure Fundamentals
+            url: /learn/paths/azure-fundamentals/
+          - text: Set up development environment
+            url: configure-local-development-environment.md
+          - text: Authenticate to client library
+            url: node-sdk-azure-authenticate.md
+          - text: Azure SDK Blog
+            url: https://devblogs.microsoft.com/azure-sdk/
   - title: Hosting
     linkLists:
       - linkListType: tutorial
@@ -88,9 +100,9 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/?view=azure-node-latest
           - text: JS/TS samples
-            url: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+            url: /samples/browse/?languages=javascript%252cnodejs%252ctypescript
   - title: Explore developer tools
     linkLists:
       - linkListType: get-started
@@ -103,4 +115,3 @@ landingContent:
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10#install-your-linux-distribution-of-choice
-

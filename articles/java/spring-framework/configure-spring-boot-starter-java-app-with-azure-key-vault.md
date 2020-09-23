@@ -29,7 +29,7 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).

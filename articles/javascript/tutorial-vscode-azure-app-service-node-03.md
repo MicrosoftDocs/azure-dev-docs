@@ -3,7 +3,7 @@ title: Deploy apps to Azure App Service from Visual Studio Code
 description: Tutorial part 3, deploy the website
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Deploy the app to Azure

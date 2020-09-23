@@ -152,7 +152,7 @@ The script will take a minute or two to complete.
 
 1. If you want to try using these provisioned resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
-For an additional example of using the Azure Storage management library, see the [Manage Python Storage sample](https://docs.microsoft.com/samples/azure-samples/storage-python-manage/storage-python-manage/).
+For an additional example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/storage-python-manage/storage-python-manage/).
 
 ### For reference: equivalent Azure CLI commands
 

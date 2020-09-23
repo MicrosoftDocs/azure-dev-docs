@@ -11,4 +11,4 @@ ms.custom: devx-track-java
 The following articles help you get started with various storage options on Azure:
 
 - [Storage](/azure/storage/blobs/storage-quickstart-blobs-java)
-- [Storage - Spring Resource](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage)
+- [Storage - Spring Resource](../spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md)
