@@ -215,7 +215,7 @@ Leave the resources in place if you want to follow the article [Example: Use Azu
 Otherwise, run the following command to avoid ongoing charges in your subscription.
 
 ```azurecli
-az group delete -n PythonAzureExample-Storage-rg
+az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
 You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
