@@ -192,7 +192,7 @@ After running the code of either method, go to the [Azure portal](https://portal
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-Storage-rg
+az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.

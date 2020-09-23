@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
 description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/23/2020
+ms.date: 09/23/2020
 ms.custom: devx-track-python
 ---
 
@@ -42,9 +42,9 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Open the [Azure portal](https://portal.azure.com)
 
-1. Select **Create a resource**.
+1. Select **Create a resource**, which opens the **New** page.
 
-1. On the **New** page, select **Web App** in the **Popular** column. (If you don't see **Web App** immediately, select **Web** under **Azure Marketplace**, then select **Web App** under **Featured**.) 
+1. Search for and select **Web App**.
 
 1. On the **Create Web App** page, enter the following information:
 
@@ -69,9 +69,9 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Open a new browser window or tab with the [Azure portal](https://portal.azure.com). You use a new tab for provisioning the database because you'll need to transfer some information from the database page to the web app page still open from the previous section.
 
-1. Select **Create a resource**.
+1. Select **Create a resource**, which opens the **New** page.
 
-1. On the **New** page, select **Database** under **Azure Marketplace**, then select **Azure Database for PostgreSQL** under **Featured**.)
+1. Search for and select **Azure Database for PostgreSQL**.
 
 1. On the next page, select **Create** under **Single server**.
 
@@ -85,7 +85,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Data source | **None** |
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
-    | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. |
+    | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. You might also have credit in your Azure account that covers the cost of the server. |
     | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. |
 
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
@@ -140,7 +140,7 @@ In this section, you create settings for the web app that it needs to connect to
 
     ![Portal settings configuration for web apps](media/tutorial-python-postgresql-app-portal/web-app-settings.png)
 
-1. Use the **New application setting** button to create settings for each of the following values:
+1. Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
 
     | Setting name | Value |
     | --- | --- |
@@ -163,7 +163,7 @@ With the database and connection settings in place, you can now configure the we
 
 1. In the browser window or tab for the web app, select **Deployment Center** (under **Deployment** on the left side).
 
-1. In the **Source Control** step, select **GitHub**, then select follow sign-in prompts or select **Continue** to use your current GitHub login.
+1. In the **Source Control** step, select **GitHub** and then **Authorize** (if necessary). Then follow the sign-in prompts or select **Continue** to use your current GitHub login.
 
 1. In the **Build Provider** step, select **App Service build service**, then select **Continue**.
 

@@ -103,7 +103,7 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-ResourceGroup-rg
+az group delete -n PythonAzureExample-ResourceGroup-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.
