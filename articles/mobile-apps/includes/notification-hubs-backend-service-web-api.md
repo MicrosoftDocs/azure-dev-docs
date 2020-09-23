@@ -526,7 +526,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 1. **Control** + **Click** on the **Controllers** folder, then choose **New File...** from the **Add** menu.
 
-1. Select **ASP.NET Core** > **Web API Controller Class**, enter *NotificationsController* for the **Name**, then click **New**.
+1. Select **ASP.NET Core** > **Controller Class - Empty**, enter *NotificationsController* for the **Name**, then click **New**.
 
 1. Add the following namespaces to the top of the file.
 
@@ -548,12 +548,24 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     [Route("api/[controller]")]
     public class NotificationsController : ControllerBase
     {
-        // Templated methods here
+    
+        readonly INotificationService _notificationService;
+
+        public NotificationsController(INotificationService notificationService)
+        {
+            _notificationService = notificationService;
+        }
+        [HttpGet]
+        public IActionResult GetDemo()
+        {
+            return new OkResult();
+        }
     }
+    
     ```
 
     > [!NOTE]
-    > The **Controller** base class provides support support for views but this is not needed in this case and so **ControllerBase** can be used instead.
+    > The **Controller** base class provides support for views but this is not needed in this case and so **ControllerBase** can be used instead.
 
 1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, you should decorate the **NotificationsController** with the **Authorize** attribute as well.
 
@@ -561,32 +573,17 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     [Authorize]
     ```
 
-1. Update the constructor to accept the registered instance of **INotificationService** as an argument and assign it to a readonly member.
 
-    ```cs
-    readonly INotificationService _notificationService;
-
-    public NotificationsController(INotificationService notificationService)
-    {
-        _notificationService = notificationService;
-    }
-    ```
-
-1. In **launchSettings.json** (within the **Properties** folder), change the **launchUrl** from `weatherforecast` to *api/notifications* to match the URL specified in the **RegistrationsController** **Route** attribute.
+1. In **launchSettings.json** (within the **Properties** folder), change the **launchUrl** from `weatherforecast` to *api/notifications* to match the URL specified in the **RegistrationsController** **Route** attribute. 
 
 1. Start debugging (**Command** + **Enter**) to validate the app is working with the new **NotificationsController** and returns a **401 Unauthorized** status.
 
-    > [!NOTE]
-    > Visual Studio may not automatically launch the app in the browser. You will use [Postman](https://www.postman.com/downloads) to test the API from this point on.
-
-1. On a new **[Postman](https://www.postman.com/downloads)** tab, set the request to **GET** and enter the address below.
+1. On a new **[Postman](https://www.postman.com/downloads)** tab, set the request to **GET** and copy the url from your browser. It depends on your ssl-port set in **launchSettings.json** and should look like this.
 
     ```bash
-    https://localhost:5001/api/notifications
+    https://localhost:44301/api/notifications
     ```
 
-    > [!NOTE]
-    > The localhost address should match the **applicationUrl** value found in **Properties** > **launchSettings.json**. The default should be `https://localhost:5001;http://localhost:5000` however this is something to verify if you receive a 404 response.
 
 1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers  to include your **apikey** value.
 
@@ -597,7 +594,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. Click the **Send** button.
 
     > [!NOTE]
-    > You should receive a **200 OK** status with some **JSON** content.
+    > You should receive a **200 OK** status.
     >
     > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **[Postman](https://www.postman.com/downloads)** setting off in the **Settings**.
 
