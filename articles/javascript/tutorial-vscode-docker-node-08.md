@@ -3,7 +3,7 @@ title: Clean up resources after deploying a containerized Node.js app from Visua
 description: Tutorial part 8, clean up resources
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Part 8 Clean up resources

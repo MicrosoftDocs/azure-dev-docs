@@ -3,7 +3,7 @@ title: Clean up resources after deploying to Azure App Service into Visual Studi
 description: Tutorial part 5, clean up resources
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Part 5: Clean up resources
