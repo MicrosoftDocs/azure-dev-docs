@@ -59,14 +59,13 @@ The initial Express.js web app is provided as a starting point. Download the app
     > [!div class="nextstepaction"]
     > [I ran into an issue](#troubleshooting-tasks-in-tutorial)
 
-
 ## Create web app resource
 
-Use the Visual Studio Code extension to create an App service resource and deploy the initial sample web app to the resource.
+Use the Visual Studio Code extension to create an App service resource and deploy the web app to the resource.
 
 1. Navigate to the Azure explorer. Right-click on the subscription then select `Create new web app...`.
 
-    :::image type="content" source="media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
+    :::image type="content" source="media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
 
 1. Follow the prompts, use the following table to understand how your values are used.
 
@@ -75,14 +74,20 @@ Use the Visual Studio Code extension to create an App service resource and deplo
     |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-<YOUR-NAME>`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
     |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
 
-    When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`.
+    When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
 
-1. Select `Deploy`. If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select 
+    :::image type="content" source="media/tutorial-end-to-end-app-cosmos/vscode-app-extension-create-web-app-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app immediately after creating web app.":::
 
+1.  If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select
+
+    :::image type="content" source="media/tutorial-end-to-end-app-cosmos/vscode-app-extension-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app.":::
 
 ## Create JavaScript file to connect to mongoDB
 
-Create cosmosdb file containing client creation with endpoint and key, create db and container if it doesn’t exist, insert method, getall method.
+Create a JavaScript code file which uses the Mongo API to insert and read data from a MongoDB database.
+
+1. In the 
+containing client creation with endpoint and key, create db and container if it doesn’t exist, insert method, getall method.
 
 ## Create ExpressJS routes to pass request to database
 
