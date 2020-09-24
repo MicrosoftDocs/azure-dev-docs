@@ -722,7 +722,7 @@ Next, you deploy the app to the API App to make it accessible from all devices.
 
 1. Follow the auth flow if prompted to do so. Use the account that you used in the previous [create the API App](#create-the-api-app) section.
 
-1. Select the **Azure App Service API App** you created previously from the list as your publish target, and then click **Publish**.
+1. On **Specific Target**, select **Azure App Service (Windows)**. Then in **App Service**, select your **Subscription** and **View** **Resource type**. In the section below, select your API App created previously, and then click **Publish**.
 
 After you've completed the wizard, it publishes the app to Azure and then opens the app. Make a note of the **URL** if you haven't done so already. This URL is your *backend endpoint* that is used later in this tutorial.
 
@@ -752,9 +752,9 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
 1. Click **Send**.
 
     > [!NOTE]
-    > You should receive a **400 Bad Request** status from the service.
+    > You should receive a **405 Method Not Allowed** status from the service.
 
-1. Do steps 1-4 again but this time specifying the requests endpoint to validate you receive the same **400 Bad Request** response.
+1. Do steps 1-4 again but this time specifying the requests endpoint to validate you receive a **400 Bad Request** response.
 
     ```bash
     https://<app_name>.azurewebsites.net/api/notifications/requests
