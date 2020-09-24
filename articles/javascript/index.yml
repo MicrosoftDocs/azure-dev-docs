@@ -80,7 +80,7 @@ landingContent:
           - text: Speech to text
             url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
           - text: Translate text
-            url: /azure/cognitive-services/translator/quickstart-translate?pivots=programming-language-javascript
+            url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
   - title: Security, Messaging, and Logs
