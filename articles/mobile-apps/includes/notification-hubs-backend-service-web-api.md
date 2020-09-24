@@ -601,7 +601,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     >
     > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **[Postman](https://www.postman.com/downloads)** setting off in the **Settings**.
 
-1. Replace the templated class methods with the following code.
+1. Replace the templated class methods in **NotificationsController.cs** with the following code.
 
     ```csharp
     [HttpPut]
