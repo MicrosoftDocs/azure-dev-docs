@@ -109,7 +109,7 @@ The MongoDB connection string is hard-coded in declaration of the `database.loca
 
 Note that if you type the code in manually (instead of copy and paste), when you type the period after `process`, Visual Studio Code displays the available members of the Node.js process global API.
 
-![Autocomplete automatically shows the members of an API](./media/node-howto-e2e/visual-studio-code-process-env.png)
+![VS Code environment variables with process env](./media/node-howto-e2e/visual-studio-code-process-env.png)
 
 Autocompletion works because Visual Studio Code uses TypeScript behind the scenes - even for JavaScript - to provide type information that can then be used to inform the completion list as you type. Visual Studio Code is able to detect that this is a Node.js project, and as a result, automatically downloaded the TypeScript typings file for [Node.js from NPM](https://www.npmjs.com/package/@types/node). The typings file allows you to get autocompletion for other Node.js globals, such as `Buffer` and `setTimeout`, as well as all of the built-in modules such as `fs` and `http`.
 

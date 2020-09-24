@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Functions in Node.js from Visual Studio Code
-description: Tutorial part 1, introduction and prerequisites.
+description: Serverless Tutorial part 1, introduction and prerequisites.
 ms.topic: tutorial
 ms.date: 09/23/2019
 ms.custom: devx-track-js

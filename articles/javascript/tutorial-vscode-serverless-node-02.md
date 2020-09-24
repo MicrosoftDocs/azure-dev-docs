@@ -1,6 +1,6 @@
 ---
 title: Create the Azure Functions application from Visual Studio Code
-description: Tutorial part 2, create the Azure Functions app
+description: Serverless Tutorial part 2, create the Azure Functions app
 ms.topic: tutorial
 ms.date: 09/23/2019
 ms.custom: devx-track-js

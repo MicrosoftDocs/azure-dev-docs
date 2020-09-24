@@ -1,6 +1,6 @@
 ---
 title: Deploy the app code to Azure App Service using the Azure CLI
-description: Tutorial part 4, deploy the website
+description: Tutorial part 4, Azure CLI deploy the website
 ms.topic: tutorial
 ms.date: 09/24/2019
 ms.custom: devx-track-js

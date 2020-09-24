@@ -1,6 +1,6 @@
 ---
 title: Stream logs from Azure App Service into Visual Studio Code
-description: Tutorial part 4, view or tail logs.
+description: Node.js Tutorial part 4, view or tail logs.
 ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: devx-track-js

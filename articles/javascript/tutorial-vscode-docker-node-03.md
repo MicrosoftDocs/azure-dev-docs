@@ -1,6 +1,6 @@
 ---
 title: Create a container image for a JavaScript app from Visual Studio Code
-description: Tutorial part 3, create and run a local Node.js app
+description: Docker Tutorial part 3, create and run a local Node.js app
 ms.topic: tutorial
 ms.date: 03/22/2020
 ms.custom: devx-track-js
