@@ -1,7 +1,7 @@
 ---
 title: Deploy Node.js apps to Azure App Service from Visual Studio Code
-description: Tutorial part 1, introduction and prerequisites.
-ms.topic: conceptual
+description: Node.js tutorial part 1, introduction and prerequisites.
+ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: devx-track-js
 ---

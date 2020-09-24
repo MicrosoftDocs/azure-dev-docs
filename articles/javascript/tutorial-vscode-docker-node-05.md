@@ -1,7 +1,7 @@
 ---
 title: Deploy a container image for a Node.js app from Visual Studio Code
-description: Tutorial part 5, deploy the image to Azure App Service
-ms.topic: conceptual
+description: Docker Tutorial part 5, deploy the image to Azure App Service
+ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: devx-track-js
 ---
