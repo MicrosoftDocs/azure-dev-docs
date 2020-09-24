@@ -135,7 +135,7 @@ When the CLI asks any configuration questions, press enter to select the default
 
 1. Open a browser to `http://localhost:5000` to verify that the app is running:
 
-    ![The running sample Vue app](media/static-website/local-app-svelte.png)
+    ![The running sample svelte app](media/static-website/local-app-svelte.png)
 
 1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 

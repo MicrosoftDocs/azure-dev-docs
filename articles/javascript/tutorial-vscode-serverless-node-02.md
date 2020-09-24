@@ -37,7 +37,7 @@ In this step, you create a local Azure Functions application that contains a fun
 
 1. At the prompt, **Authorization Level**, select **Anonymous**:
 
-    ![Entering a function name](media/functions-extension/create-function-anonymous-auth.png)
+    ![ At the prompt, `Authorization Level`, select `Anonymous`](media/functions-extension/create-function-anonymous-auth.png)
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
 
