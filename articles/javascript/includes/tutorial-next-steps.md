@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 Congratulations, you've successfully completed this walkthrough! You're ready to check out the other Azure extensions.
 

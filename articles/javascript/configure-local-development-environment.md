@@ -3,7 +3,7 @@ title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Configure your local JavaScript dev environment for Azure

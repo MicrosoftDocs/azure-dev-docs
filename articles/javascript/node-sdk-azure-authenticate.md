@@ -3,7 +3,7 @@ title: Authenticate with the Azure management modules for Node.js
 description: Authenticate with a service principal into the Azure management modules for Node.js
 ms.topic: article
 ms.date: 06/17/2017
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Authenticate with the Azure modules for Node.js

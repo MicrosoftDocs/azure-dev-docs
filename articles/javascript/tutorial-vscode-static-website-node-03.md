@@ -3,7 +3,7 @@ title: Create an Azure Storage account for a static Node.js website from Visual 
 description: Tutorial part 3, create an Azure Storage account
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Create an Azure Storage account
