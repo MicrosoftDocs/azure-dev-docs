@@ -1,12 +1,12 @@
 ---
 title: Create an Azure service principal with Node.js
-description: Learn how to use service principal authentication on Azure with Node.js and JavaScript 
-ms.topic: article
+description: Learn how to use service principal authentication on Azure with Node.js and JavaScript
+ms.topic: how-to
 ms.date: 06/17/2017
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
-# Create an Azure service principal with Node.js 
+# Create an Azure service principal for Node.js
 
 When an app needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This identity is known as a *service principal*. Essentially, you create keys for your Azure Active Directory account that you provide to the SDK to authenticate rather than requiring user intervention or username/password.
 
@@ -24,7 +24,7 @@ This topic shows you three techniques for creating a service principal.
 
 ## Create a service principal using the Azure portal
 
-Follow the steps outlined in the topic, 
+Follow the steps outlined in the topic,
 [Use portal to create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), to generate the service principal.
 
 ## Create a service principal using the Azure CLI 2.0
@@ -41,7 +41,7 @@ Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli
 	$ az login
     ```
 
-4. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in). 
+4. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in).
 You'll then be able to access your account via the CLI.
 
 5. Get your subscription and tenant ID:
@@ -90,8 +90,8 @@ You'll then be able to access your account via the CLI.
 
 	**Note the tenant, name, and password values as they'll be used in Step 7.**
 
-7. Set up the environment variables - replacing the &lt;subscriptionId>, &lt;tenant>, &lt;name>, and &lt;password> placeholders 
-with the values you obtained in steps 4 and 5. 
+7. Set up the environment variables - replacing the &lt;subscriptionId>, &lt;tenant>, &lt;name>, and &lt;password> placeholders
+with the values you obtained in steps 4 and 5.
 
 	**Using bash**
 
@@ -113,13 +113,13 @@ with the values you obtained in steps 4 and 5.
 
 ## Create a service principal using the Azure SDK for Node.js
 
-To programmatically create a service principal using JavaScript, use the 
-[ServicePrincipal script](https://github.com/Azure/azure-sdk-for-node/tree/master/Documentation/ServicePrincipal).   
+To programmatically create a service principal using JavaScript, use the
+[ServicePrincipal script](https://github.com/Azure/azure-sdk-for-node/tree/master/Documentation/ServicePrincipal).
 
 ## Using the service principal
 
-Once you have a service principal, the following JavaScript code snippet 
-illustrates how to use the service principal keys to authenticate with the 
+Once you have a service principal, the following JavaScript code snippet
+illustrates how to use the service principal keys to authenticate with the
 Azure SDK for Node.js. Modify the following placeholders: &lt;clientId or appId>, &lt;secret or password>,
 and &lt;domain or tenant>,
 
@@ -140,3 +140,7 @@ MsRest.loginWithServicePrincipalSecret(
   }
 );
 ```
+
+## Next steps
+
+* [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)

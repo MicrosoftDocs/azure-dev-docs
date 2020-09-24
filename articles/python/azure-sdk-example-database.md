@@ -219,7 +219,7 @@ python use_db.py
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-DB-rg
+az group delete -n PythonAzureExample-DB-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
