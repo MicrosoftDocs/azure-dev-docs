@@ -31,8 +31,6 @@
 
 1. Delete **WeatherForecast.cs**.
 
-1. **Control** + **Click** on the **PushDemoApi** project, then choose **New File...** from the **Add** menu.
-
 1. Set up local configuration values using the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=linux#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
 
     ```bash
