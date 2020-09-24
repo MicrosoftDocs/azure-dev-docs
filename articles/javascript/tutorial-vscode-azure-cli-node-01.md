@@ -1,7 +1,7 @@
 ---
 title: Deploy Node.js apps to Azure App Service using the Azure CLI
 description: Tutorial part 1, introduction and prerequisites.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/24/2019
 ms.custom: devx-track-js
 ---

@@ -1,7 +1,7 @@
 ---
 title: Clean up resources after deploying to Azure App Service into Visual Studio Code
 description: Tutorial part 5, clean up resources
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: devx-track-js
 ---

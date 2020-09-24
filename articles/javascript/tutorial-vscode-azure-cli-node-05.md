@@ -1,7 +1,7 @@
 ---
 title: Stream logs from Azure App Service
 description: Tutorial part 5, view logs
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/24/2019
 ms.custom: devx-track-js
 ---

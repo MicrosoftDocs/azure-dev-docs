@@ -1,7 +1,7 @@
 ---
 title: Deploy changes to a static Node.js website from Visual Studio Code
 description: Tutorial part 5, make changes and redeploy
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/24/2019
 ms.author: buhollan
 ms.custom: devx-track-js
