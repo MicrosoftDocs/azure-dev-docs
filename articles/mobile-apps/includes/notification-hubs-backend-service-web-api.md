@@ -174,6 +174,8 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
 1. In **Startup.cs**, update the **ConfigureServices** method to configure the API Key authentication below the call to the **services.AddControllers** method.
 
     ```csharp
+    using PushDemoApi.Authentication;
+    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
