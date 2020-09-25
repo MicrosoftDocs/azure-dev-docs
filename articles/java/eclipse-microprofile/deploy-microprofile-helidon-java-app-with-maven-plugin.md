@@ -178,7 +178,7 @@ In this section, you'll configure the Helidon project `pom.xml` so that Maven ca
    <plugin>
      <groupId>com.microsoft.azure</groupId>  
      <artifactId>azure-webapp-maven-plugin</artifactId>  
-     <version>1.9.1</version>  
+     <version>1.10.0</version>  
      <configuration>
        <schemaVersion>V2</schemaVersion>
        <resourceGroup>microprofile</resourceGroup>
