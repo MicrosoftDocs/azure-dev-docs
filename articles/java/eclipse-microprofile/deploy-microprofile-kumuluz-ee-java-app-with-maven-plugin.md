@@ -106,7 +106,7 @@ In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven 
        <plugin>
          <groupId>com.microsoft.azure</groupId>
          <artifactId>azure-webapp-maven-plugin</artifactId>
-         <version>1.9.1</version>
+         <version>1.10.0</version>
        </plugin>
      </plugins>
    </build>
@@ -123,7 +123,7 @@ In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven 
    |  Input Field  |  Input/Select Value  |
    | ---- | ---- |
    |  Define value for OS(Default: Linux):  | 1. linux  |
-   |  Define value for javaVersion(Default: Java 8):   | 1. Java 8  |
+   |  Define value for javaVersion(Default: Java 8):   | 2. Java 8  |
    |  Confirm (Y/N) | y |
 
    You can configure with the following command:
@@ -131,24 +131,23 @@ In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven 
    ```bash
    $ mvn azure-webapp:config
    [INFO] Scanning for projects...
-   [INFO]
+   [INFO] 
    [INFO] ----< com.microsoft.azure.samples.kumuluzee:kumuluzEE-hello-azure >-----
    [INFO] Building kumuluzEE-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
-   [INFO]
-   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ kumuluzEE-hello-azure ---
-   Define value for OS(Default: Linux):
+   [INFO] 
+   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ kumuluzEE-hello-azure ---
    1. linux [*]
    2. windows
    3. docker
-   Enter index to use:
-   Define value for javaVersion(Default: Java 8):
+   Enter index to use: 1
+   Define value for javaVersion(Default: Java 8): 
    1. Java 11
    2. Java 8 [*]
-   Enter index to use:
+   Enter index to use: 2
    Please confirm webapp properties
-   AppName : kumuluzEE-hello-azure-1591845878159
-   ResourceGroup : kumuluzEE-hello-azure-1591845878159-rg
+   AppName : kumuluzEE-hello-azure-1601006602397
+   ResourceGroup : kumuluzEE-hello-azure-1601006602397-rg
    Region : westeurope
    PricingTier : PremiumV2_P1v2
    OS : Linux
@@ -159,8 +158,8 @@ In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven 
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  10.329 s
-   [INFO] Finished at: 2020-06-11T12:24:45+09:00
+   [INFO] Total time:  44.223 s
+   [INFO] Finished at: 2020-09-25T13:04:02+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -171,11 +170,11 @@ In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven 
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.9.1</version>
+     <version>1.10.0</version>
      <configuration>
        <schemaVersion>V2</schemaVersion>
        <resourceGroup>microprofile</resourceGroup>
-       <appName>kumuluzEE-hello-azure-1591845878159</appName>
+       <appName>kumuluzEE-hello-azure-1601006602397</appName>
        <pricingTier>P1v2</pricingTier>
        <region>japaneast</region>
        <runtime>
@@ -232,12 +231,12 @@ Once you have configured all of the settings in the preceding sections of this a
    ```bash
    mvn azure-webapp:deploy
 
-   [INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1591845878159.azurewebsites.net
+   [INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1601006602397.azurewebsites.net
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  02:28 min
-   [INFO] Finished at: 2020-06-11T12:31:44+09:00
+   [INFO] Total time:  01:23 min
+   [INFO] Finished at: 2020-09-25T13:13:14+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -255,6 +254,17 @@ Once you have configured all of the settings in the preceding sections of this a
    Verify that the deployment was successful and Running. You should see the following screen displayed:
 
    ![Find the URL for your web app in Azure portal App Services](./media/KumuluzEE/KumuluzEE-Azure-Portal-manage.png)
+
+## Confirm the Log Stream from Running App Service
+ 
+You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+ 
+   ```azurecli
+   az webapp log tail -g microprofile -n kumuluzEE-hello-azure-1601006602397
+   ```
+ 
+   ![Confirm the Log Stream](./media/KumuluzEE/Azrue-CLI-AppService-log-stream.png)
+ 
 
 ## Clean up Resources
 
