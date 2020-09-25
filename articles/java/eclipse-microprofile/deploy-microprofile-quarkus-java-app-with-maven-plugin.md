@@ -67,12 +67,13 @@ In this section, you'll create a Quarkus application and test it locally.
 
 In order to create the Java 11 base project, you can execute with following commands:
 
-```bash
-mvn io.quarkus:quarkus-maven-plugin:1.5.2.Final:create \
-  -DprojectGroupId=com.microsoft.azure.samples.quarkus \
-  -DprojectArtifactId=quarkus-hello-azure  \
-  -DclassName="com.microsoft.azure.samples.quarkus.App"
-```
+   ```bash
+   $ mvn io.quarkus:quarkus-maven-plugin:1.8.1.Final:create \
+     -DprojectGroupId=com.microsoft.azure.samples.quarkus \
+     -DprojectArtifactId=quarkus-hello-azure  \
+     -DclassName="com.microsoft.azure.samples.quarkus.App" \
+     -Dpath="/hello"
+   ```
 
 ### Run the application in Local environment
 
@@ -116,7 +117,7 @@ In this section, you'll configure the Quarkus project `pom.xml` so that Maven ca
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.9.1</version>
+       <version>1.10.0</version>
    </plugin>
    ```
 
@@ -138,25 +139,27 @@ In this section, you'll configure the Quarkus project `pom.xml` so that Maven ca
 
    ```bash
    $ mvn azure-webapp:config
+
    [INFO] Scanning for projects...
-   [INFO]
+   [INFO] 
    [INFO] ------< com.microsoft.azure.samples.quarkus:quarkus-hello-azure >-------
    [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
-   [INFO]
-   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ quarkus-hello-azure ---
-   Define value for OS(Default: Linux):
+   [INFO] 
+   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ quarkus-hello-azure ---
+
+   Define value for OS(Default: Linux): 
    1. linux [*]
    2. windows
    3. docker
-   Enter index to use:
-   Define value for javaVersion(Default: Java 8):
+   Enter index to use: 
+   Define value for javaVersion(Default: Java 8): 
    1. Java 11
    2. Java 8 [*]
    Enter index to use: 1
    Please confirm webapp properties
-   AppName : quarkus-hello-azure-1591836715762
-   ResourceGroup : quarkus-hello-azure-1591836715762-rg
+   AppName : quarkus-hello-azure-1601011883156
+   ResourceGroup : quarkus-hello-azure-1601011883156-rg
    Region : westeurope
    PricingTier : PremiumV2_P1v2
    OS : Linux
@@ -167,8 +170,8 @@ In this section, you'll configure the Quarkus project `pom.xml` so that Maven ca
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  17.778 s
-   [INFO] Finished at: 2020-06-11T09:52:05+09:00
+   [INFO] Total time:  16.502 s
+   [INFO] Finished at: 2020-09-25T14:31:34+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -179,7 +182,7 @@ In this section, you'll configure the Quarkus project `pom.xml` so that Maven ca
       <plugin>
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>1.9.1</version>  
+        <version>1.10.0</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>
@@ -268,6 +271,17 @@ Once you have configured all of the settings in the preceding sections of this a
 
    ![Find the URL for your web app in Azure portal App Services](./media/Quarkus/Quarkus-Azure-Portal-manage.png)
 
+## Confirm the Log Stream from Running App Service
+
+You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+
+   ```azurecli
+   az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
+   ```
+
+   ![Find the URL for your web app in Azure portal App Services](./media/Quarkus/Azrue-CLI-AppService-log-stream.png)
+
+
 ## Clean up Resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
@@ -282,7 +296,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 To learn more about MicroProfile and Azure, continue to the MicroProfile on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [MicroProfile on Azure](/azure/developer/java/spring-framework)
+> [MicroProfile on Azure](/azure/developer/java/eclipse-microprofile)
 
 ### Additional Resources
 
