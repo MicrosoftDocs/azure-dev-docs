@@ -76,4 +76,4 @@ output "vm_private_ips" {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Terraform on Azure](./)
+> [Learn more about using Terraform in Azure](/azure/terraform)

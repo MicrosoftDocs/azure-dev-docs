@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Configure Terraform using Azure PowerShell
-description: In this quickstart, you learn how to install and configure Terraform to create Azure resources.
+description: In this quickstart, you learn how to install and configure Terraform using Azure PowerShell.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
 ms.date: 08/18/2020
