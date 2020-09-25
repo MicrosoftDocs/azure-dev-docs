@@ -9,13 +9,7 @@ ms.custom: devx-track-terraform
 
 # Create an Azure VM cluster with Terraform using the Module Registry
 
-This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this article you learn how to:
-
-> [!div class="checklist"]
-> * Set up authentication with Azure
-> * Create the Terraform template
-> * Visualize the changes with plan
-> * Apply the configuration to create the VM cluster
+This article shows example Terraform code for creating a VM cluster on Azure.
 
 [!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
@@ -30,16 +24,15 @@ Based on your environment, install and configure Terraform:
 - [Configure Terraform using Azure Cloud Shell and Azure CLI](get-started-cloud-shell.md)
 - [Configure Terraform using Azure PowerShell](get-started-powershell.md)
 
-## Terraform configuration file to create an Azure VM cluster
+The configuration articles also explain how to do the following tasks:
 
-1. Copy the following code into a file named `create-vm-cluster-module.tf`:
+- Create a Terraform configuration file by inserting a `provider block` in front of your Terraform code.
+- Create and apply a Terraform execution plan to "run" your code.
+- Reverse an execution plan once you're finished using the resources and want to delete them.
+
+## Create an Azure VM cluster
 
 ```hcl
-provider "azurerm" {
-  version = "~>2.0"
-  features {}
-}
-
 resource "azurerm_resource_group" "myResourceGroup" {
   name     = "create-vm-cluster-rg"
   location = "eastus"
@@ -80,26 +73,7 @@ output "vm_private_ips" {
 }
 ```
 
-
-
-1. Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
-
-![Terraform Init](media/create-vm-cluster-module/terraform-init-with-modules.png)
-
-## Visualize the changes with plan
-
-Run `terraform plan` to preview the virtual machine infrastructure created by the template.
-
-![Terraform Plan](media/create-vm-cluster-with-infrastructure/terraform-plan.png)
-
-
-## Create the virtual machines with apply
-
-Run `terraform apply` to provision the VMs on Azure.
-
-![Terraform Apply](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
-
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Browse the list of Azure Terraform modules](https://registry.terraform.io/modules/Azure)
+> [!div class="nextstepaction"]
+> [Terraform on Azure](./)

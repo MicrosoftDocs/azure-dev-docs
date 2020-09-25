@@ -13,6 +13,8 @@
       href: get-started-powershell.md
 - name: How-to guides
   items:
+    - name: Create a resource group
+      href: create-resource-group.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
@@ -37,8 +39,6 @@
       items:
         - name: Virtual machine with infrastructure
           href: create-linux-virtual-machine-with-infrastructure.md
-        - name: Virtual machine cluster with Terraform modules
-          href: create-vm-cluster-module.md
         - name: Virtual machine cluster with Terraform and HCL
           href: create-vm-cluster-with-infrastructure.md
         - name: Virtual machine scale set with infrastructure
