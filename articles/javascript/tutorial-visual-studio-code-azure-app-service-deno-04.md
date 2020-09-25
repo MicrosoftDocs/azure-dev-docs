@@ -1,7 +1,7 @@
 ---
 title: Clean up resources after deploying to Azure App Service
-description: Tutorial part 4, clean up resources
-ms.topic: conceptual
+description: Deno Tutorial part 4, clean up resources
+ms.topic: tutorial
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---

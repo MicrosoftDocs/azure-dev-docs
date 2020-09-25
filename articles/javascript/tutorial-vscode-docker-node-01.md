@@ -1,7 +1,7 @@
 ---
 title: Deploy Docker containers to Azure App Service from Visual Studio Code
-description: Tutorial part 1, introduction and prerequisites.
-ms.topic: conceptual
+description: Docker Tutorial part 1, introduction and prerequisites.
+ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: devx-track-js
 ---

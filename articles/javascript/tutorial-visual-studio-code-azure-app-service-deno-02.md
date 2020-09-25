@@ -1,7 +1,7 @@
 ---
 title: Create the Deno Azure App Service from Visual Studio Code
-description: Tutorial part 2, create the Deno app and run it locally
-ms.topic: conceptual
+description: Deno Tutorial part 2, create the Deno app and run it locally
+ms.topic: tutorial
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---

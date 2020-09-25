@@ -97,7 +97,7 @@ Configure the application using the following procedure.
    spring.application.name=[your app name]
    ```
 
-   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
    > [!NOTE]
    > 
@@ -278,7 +278,7 @@ Application Insights supports automatic collection of external dependencies and 
 
 For more information about Azure Application Insights, and its monitoring capabilities, see the **[Application Insights]** home page.
 
-For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
 For feature requests and potential bugs, please open issues on our [GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) repository.
 
