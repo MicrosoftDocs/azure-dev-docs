@@ -286,7 +286,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 To learn more about MicroProfile and Azure, continue to the MicroProfile on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [MicroProfile on Azure](/azure/developer/java/spring-framework)
+> [MicroProfile on Azure](/azure/developer/java/eclipse-microprofile)
 
 ### Additional Resources
 
