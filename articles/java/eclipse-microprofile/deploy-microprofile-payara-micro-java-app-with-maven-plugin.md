@@ -270,7 +270,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n payaramicro-hello-azure-1601009217863
    ```
  
-   ![Confirm the Log Stream](./media/PayaraMicro/Azrue-CLI-AppService-log-stream.png)
+   ![Confirm the Log Stream](./media/PayaraMicro/Azure-CLI-AppService-log-stream.png)
  
 ## Clean up Resources
 

@@ -256,7 +256,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
 az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
 ```
 
-![Terminal window showing log output](./media/helidon/Azrue-CLI-AppService-log-stream.png)
+![Terminal window showing log output](./media/helidon/Azure-CLI-AppService-log-stream.png)
 
 ## Clean up Resources
 

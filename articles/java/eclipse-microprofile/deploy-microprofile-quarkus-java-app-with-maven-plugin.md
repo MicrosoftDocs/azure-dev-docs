@@ -279,7 +279,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
    ```
 
-   ![Terminal window showing log output.](./media/Quarkus/Azrue-CLI-AppService-log-stream.png)
+   ![Terminal window showing log output.](./media/Quarkus/Azure-CLI-AppService-log-stream.png)
 
 
 ## Clean up Resources

@@ -263,7 +263,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n kumuluzEE-hello-azure-1601006602397
    ```
  
-   ![Confirm the Log Stream](./media/KumuluzEE/Azrue-CLI-AppService-log-stream.png)
+   ![Confirm the Log Stream](./media/KumuluzEE/Azure-CLI-AppService-log-stream.png)
  
 
 ## Clean up Resources
