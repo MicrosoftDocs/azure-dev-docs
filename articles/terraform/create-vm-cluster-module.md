@@ -3,7 +3,7 @@ title: Create an Azure VM cluster with Terraform using the Module Registry
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure.
 keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -27,47 +27,62 @@ This article walks you through creating a small VM cluster with the Terraform [A
 
 Based on your environment, install and configure Terraform:
 
-- [Configure Terraform using Azure Cloud Shell and Azure CLI](terraform/get-started-cloud-shell.md)
-- [Configure Terraform using Azure PowerShell](terraform/get-started-powershell.md)
+- [Configure Terraform using Azure Cloud Shell and Azure CLI](get-started-cloud-shell.md)
+- [Configure Terraform using Azure PowerShell](get-started-powershell.md)
 
-## Create the template
+## Terraform configuration file to create an Azure VM cluster
 
-Create a new Terraform template named `main.tf` with the following code:
+1. Copy the following code into a file named `create-vm-cluster-module.tf`:
 
 ```hcl
-module mycompute {
-    source = "Azure/compute/azurerm"
-    resource_group_name = "myResourceGroup"
-    location = "East US 2"
-    admin_password = "ComplxP@assw0rd!"
-    vm_os_simple = "WindowsServer"
-    is_windows_image = "true"
-    remote_port = "3389"
-    nb_instances = 2
-    public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = module.network.vnet_subnets[0]
+provider "azurerm" {
+  version = "~>2.0"
+  features {}
+}
+
+resource "azurerm_resource_group" "myResourceGroup" {
+  name     = "create-vm-cluster-rg"
+  location = "eastus"
+}
+
+module "windowsservers" {
+  source              = "Azure/compute/azurerm"
+  resource_group_name = azurerm_resource_group.myResourceGroup.name
+  is_windows_image    = true
+  vm_hostname         = "mywinvm" // line can be removed if only one VM module per resource group
+  admin_password      = "ComplxP@ssw0rd!"
+  vm_os_simple        = "WindowsServer"
+  public_ip_dns       = ["winsimplevmips"] // change to a unique name per datacenter region
+  vnet_subnet_id      = module.network.vnet_subnets[0]
+    
+  depends_on = [azurerm_resource_group.myResourceGroup]
 }
 
 module "network" {
-    source = "Azure/network/azurerm"
-    location = "East US 2"
-    resource_group_name = "myResourceGroup"
+  source              = "Azure/network/azurerm"
+  resource_group_name = azurerm_resource_group.myResourceGroup.name
+  subnet_prefixes     = ["10.0.1.0/24"]
+  subnet_names        = ["subnet1"]
+
+  depends_on = [azurerm_resource_group.myResourceGroup]
 }
 
-output "vm_public_name" {
-    value = module.mycompute.public_ip_dns_name
+output "windows_vm_public_name" {
+  value = module.windowsservers.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = module.mycompute.public_ip_address
+  value = module.windowsservers.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = module.mycompute.network_interface_private_ip
+  value = module.windowsservers.network_interface_private_ip
 }
 ```
 
-Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
+
+
+1. Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
 
 ![Terraform Init](media/create-vm-cluster-module/terraform-init-with-modules.png)
 
