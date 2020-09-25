@@ -94,7 +94,7 @@ Push the `DOWNLOAD` button.
 1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
 
    ```bash
-   curl http://localhost:8080/data/hello
+   curl http://localhost:8080/greet
    ```
 
 1. You should see the following message displayed: **Hello World**
@@ -114,7 +114,7 @@ In this section, you'll configure the Helidon project `pom.xml` so that Maven ca
        <plugin>
          <groupId>com.microsoft.azure</groupId>
          <artifactId>azure-webapp-maven-plugin</artifactId>
-         <version>1.9.1</version>
+         <version>1.10.0</version>
        </plugin>
      </plugins>
    </build>
@@ -141,22 +141,22 @@ In this section, you'll configure the Helidon project `pom.xml` so that Maven ca
    [INFO] Scanning for projects...
    [INFO]
    [INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
-   [INFO] Building helidon-hello-azure 1.0-SNAPSHOT
+   [INFO] Building myproject 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
-   [INFO]
-   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helidon-hello-azure ---
-   Define value for OS(Default: Linux):
+   [INFO] 
+   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ helidon-hello-azure ---
+   Define value for OS(Default: Linux): 
    1. linux [*]
    2. windows
    3. docker
-   Enter index to use:
-   Define value for javaVersion(Default: Java 8):
+   Enter index to use: 1
+   Define value for javaVersion(Default: Java 8): 
    1. Java 11
    2. Java 8 [*]
    Enter index to use: 1
    Please confirm webapp properties
-   AppName : helidon-hello-azure-1591663020899
-   ResourceGroup : helidon-hello-azure-1591663020899-rg
+   AppName : helidon-hello-azure-1600998900939
+   ResourceGroup : helidon-hello-azure-1600998900939-rg
    Region : westeurope
    PricingTier : PremiumV2_P1v2
    OS : Linux
@@ -167,8 +167,8 @@ In this section, you'll configure the Helidon project `pom.xml` so that Maven ca
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  17.452 s
-   [INFO] Finished at: 2020-06-09T09:37:12+09:00
+   [INFO] Total time:  02:44 min
+   [INFO] Finished at: 2020-09-25T10:57:35+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -247,6 +247,17 @@ When your web has been deployed, you'll be able to manage it through the [Azure 
    ![Find the URL for your web app in Azure portal App Services](./media/helidon/Azure-Portal-AppService-Overview.png)
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
+
+## Confirm the Log Stream from Running App Service
+
+You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+
+   ```azurecli
+   az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
+   ```
+
+   ![Find the URL for your web app in Azure portal App Services](./media/helidon/Azrue-CLI-AppService-log-stream.png)
+
 
 ## Clean up Resources
 
