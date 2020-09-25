@@ -41,7 +41,8 @@ In this section, you'll create a Quarkus application and test it locally.
 ### Create Java SE 8 base Project
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![MicroProfile Starter for Quarkus](./media/Quarkus/microprofile-starter-Quarkus.png)
+
+   ![MicroProfile Starter for Quarkus](./media/Quarkus/microprofile-starter-Quarkus.png)
 
 2. Input or Select the field like follows.  
 
@@ -54,8 +55,7 @@ In this section, you'll create a Quarkus application and test it locally.
    |  MicroProfile Runtime  |  Quarkus  |
    |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-3. Download the project  
-   Push the `DOWNLOAD` button.
+3. Select the **DOWNLOAD** button to download the project.
 
 4. Unzip the archive file; for example:
 
@@ -107,11 +107,11 @@ In order to create the Java 11 base project, you can execute with following comm
 
 ## Configure Maven Plugin for Azure App Service
 
-In this section, you'll configure the Quarkus project `pom.xml` so that Maven can deploy the app to Azure App Service on Linux.
+In this section, you'll configure the Quarkus project *pom.xml* file so that Maven can deploy the app to Azure App Service on Linux.
 
-1. Open `pom.xml` in a code editor.
+1. Open the *pom.xml* file in a code editor.
 
-2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`s.
+2. In the `<build>` section of the *pom.xml* file, insert the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`s.
 
    ```xml
    <plugin>
@@ -279,7 +279,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
    ```
 
-   ![Find the URL for your web app in Azure portal App Services](./media/Quarkus/Azrue-CLI-AppService-log-stream.png)
+   ![Terminal window showing log output.](./media/Quarkus/Azrue-CLI-AppService-log-stream.png)
 
 
 ## Clean up Resources

@@ -28,9 +28,9 @@ The simplest and easiest way to get the Maven Plugin deploying your Helidon appl
 
 Sign into your Azure account by using the Azure CLI:
 
-   ```azurecli
-   az login
-   ```
+```azurecli
+az login
+```
 
 Follow the instructions to complete the sign-in process.
 
@@ -39,21 +39,21 @@ Follow the instructions to complete the sign-in process.
 In this section, you'll create a Helidon application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
+
+   ![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
 
 1. Input or Select the field like follows.  
 
-|  Field  | Value  |
-| ---- | ---- |
-|  groupId  |  com.microsoft.azure.samples.helidon  |
-|  artifactId  |  helidon-hello-azure  |
-|  MicroProfile Version  |  MP 3.2  |
-|  Java SE Version  |  Java 11  |
-|  MicroProfile Runtime  |  Helidon  |
-|  Examples for Specifications  |  Metrics, OpenAPI  |
+   |  Field  | Value  |
+   | ---- | ---- |
+   |  groupId  |  com.microsoft.azure.samples.helidon  |
+   |  artifactId  |  helidon-hello-azure  |
+   |  MicroProfile Version  |  MP 3.2  |
+   |  Java SE Version  |  Java 11  |
+   |  MicroProfile Runtime  |  Helidon  |
+   |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-1. Download the project  
-Push the `DOWNLOAD` button.
+1. Select the **DOWNLOAD** button to download the project.
 
 1. Unzip the archive file; for example:
 
@@ -101,11 +101,11 @@ Push the `DOWNLOAD` button.
 
 ## Configure Maven Plugin for Azure App Service
 
-In this section, you'll configure the Helidon project `pom.xml` so that Maven can deploy the app to Azure App Service on Linux.
+In this section, you'll configure the Helidon project *pom.xml* file so that Maven can deploy the app to Azure App Service on Linux.
 
-1. Open `pom.xml` in a code editor.
+1. Open the *pom.xml* file in a code editor.
 
-2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag.
+2. In the `<build>` section of the *pom.xml* file, insert the following `<plugin>` entry inside the `<plugins>` tag.
 
    ```xml
    <build>
@@ -252,12 +252,11 @@ Verify that the deployment was successful by using the same cURL command as befo
 
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
-   ```azurecli
-   az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
-   ```
+```azurecli
+az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
+```
 
-   ![Find the URL for your web app in Azure portal App Services](./media/helidon/Azrue-CLI-AppService-log-stream.png)
-
+![Terminal window showing log output](./media/helidon/Azrue-CLI-AppService-log-stream.png)
 
 ## Clean up Resources
 

@@ -41,7 +41,8 @@ In this section, you'll create a KumuluzEE application and test it locally.
 ### Create Java SE 8 base Project
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
-![MicroProfile Starter for Kumuluz EE](./media/KumuluzEE/microprofile-starter-KumuluzEE.png)
+
+   ![MicroProfile Starter for Kumuluz EE](./media/KumuluzEE/microprofile-starter-KumuluzEE.png)
 
 2. Input or Select the field like follows.  
 
@@ -54,8 +55,7 @@ In this section, you'll create a KumuluzEE application and test it locally.
    |  MicroProfile Runtime  |  KumuluzEE  |
    |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-3. Download the project  
-   Push the `DOWNLOAD` button.
+3. Select the **DOWNLOAD** button to download the project.
 
 4. Unzip the archive file; for example:
 
@@ -93,11 +93,11 @@ In this section, you'll create a KumuluzEE application and test it locally.
 
 ## Configure Maven Plugin for Azure App Service
 
-In this section, you'll configure the KumuluzEE project `pom.xml` so that Maven can deploy the app to Azure App Service on Linux.
+In this section, you'll configure the KumuluzEE project *pom.xml* file so that Maven can deploy the app to Azure App Service on Linux.
 
-1. Open `pom.xml` in a code editor.
+1. Open the *pom.xml* file in a code editor.
 
-2. In the `<build>` section of the pom.xml, insert the following `<plugin>` entry inside the `<plugins>` tag.
+2. In the `<build>` section of the *pom.xml* file, insert the following `<plugin>` entry inside the `<plugins>` tag.
 
    ```xml
    <build>
