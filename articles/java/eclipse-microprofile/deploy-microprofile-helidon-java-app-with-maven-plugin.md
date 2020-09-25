@@ -240,11 +240,11 @@ When your web has been deployed, you'll be able to manage it through the [Azure 
 
 * Your web app will be listed in **App Services**:
 
-   ![Web app listed in Azure portal App Services](./media/helidon/Azure-Portal-App-Service-Screen.png)
+   ![Web app listed in Azure portal App Services](./media/helidon/azure-portal-app-service-screen.png)
 
 * And you can access to your web app by click the `Browse` button in the **Overview** for your web app:
 
-   ![Find the URL for your web app in Azure portal App Services](./media/helidon/Azure-Portal-AppService-Overview.png)
+   ![Find the URL for your web app in Azure portal App Services](./media/helidon/azure-portal-app-service-overview.png)
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 
@@ -256,7 +256,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
 az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
 ```
 
-![Terminal window showing log output](./media/helidon/Azure-CLI-AppService-log-stream.png)
+![Terminal window showing log output](./media/helidon/azure-cli-app-service-log-stream.png)
 
 ## Clean up Resources
 

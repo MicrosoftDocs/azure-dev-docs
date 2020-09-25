@@ -42,7 +42,7 @@ In this section, you'll create a KumuluzEE application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for Kumuluz EE](./media/KumuluzEE/microprofile-starter-KumuluzEE.png)
+   ![MicroProfile Starter for Kumuluz EE](./media/kumuluz-ee/microprofile-starter-kumuluz-ee.png)
 
 2. Input or Select the field like follows.  
 
@@ -242,18 +242,18 @@ Once you have configured all of the settings in the preceding sections of this a
 
    Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
 
-   ![Kumuluz EE Front Page](./media/KumuluzEE/Kumuluzee-front-page.png)
+   ![Kumuluz EE Front Page](./media/kumuluz-ee/kumuluz-ee-front-page.png)
 
    When your web has been deployed, you'll be able to manage it through the [Azure portal].
 
    * Your web app will be listed in **microprofile** resource group:
 
-   ![Web app listed in Azure portal App Services](./media/KumuluzEE/KumuluzEE-Azure-Portal-rg.png)
+   ![Web app listed in Azure portal App Services](./media/kumuluz-ee/kumuluz-ee-azure-portal-rg.png)
 
    * And you can access to your web app by clicking the `Browse` button in the **Overview** for your web app.  
    Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-   ![Find the URL for your web app in Azure portal App Services](./media/KumuluzEE/KumuluzEE-Azure-Portal-manage.png)
+   ![Find the URL for your web app in Azure portal App Services](./media/kumuluz-ee/kumuluz-ee-azure-portal-manage.png)
 
 ## Confirm the Log Stream from Running App Service
  
@@ -263,7 +263,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n kumuluzEE-hello-azure-1601006602397
    ```
  
-   ![Confirm the Log Stream](./media/KumuluzEE/Azure-CLI-AppService-log-stream.png)
+   ![Confirm the Log Stream](./media/kumuluz-ee/azure-cli-app-service-log-stream.png)
  
 
 ## Clean up Resources

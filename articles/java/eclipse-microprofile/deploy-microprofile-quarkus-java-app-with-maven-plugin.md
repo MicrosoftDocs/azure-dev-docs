@@ -42,7 +42,7 @@ In this section, you'll create a Quarkus application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for Quarkus](./media/Quarkus/microprofile-starter-Quarkus.png)
+   ![MicroProfile Starter for Quarkus](./media/quarkus/microprofile-starter-quarkus.png)
 
 2. Input or Select the field like follows.  
 
@@ -258,18 +258,18 @@ Once you have configured all of the settings in the preceding sections of this a
 
    Maven will deploy your web application to Azure; if the web application or web application plan does not already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
 
-   ![Front Page for Quarkus](./media/Quarkus/Quarkus-front-page-11.png)
+   ![Front Page for Quarkus](./media/quarkus/quarkus-front-page-11.png)
 
    When your web application has been deployed, you'll be able to manage it through the [Azure portal].
 
    * Your web application will be listed in **microprofile** resource group:
 
-   ![Web app listed in Azure portal App Services](./media/Quarkus/Quarkus-Azure-Portal-rg.png)
+   ![Web app listed in Azure portal App Services](./media/quarkus/quarkus-azure-portal-rg.png)
 
    * And you can access to your web application by clicking the `Browse` button in the **Overview** for your web app.  
    Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-   ![Find the URL for your web app in Azure portal App Services](./media/Quarkus/Quarkus-Azure-Portal-manage.png)
+   ![Find the URL for your web app in Azure portal App Services](./media/quarkus/quarkus-azure-portal-manage.png)
 
 ## Confirm the Log Stream from Running App Service
 
@@ -279,7 +279,7 @@ You can see (or "tail") the logs from the running App Service. Any calls to `con
    az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
    ```
 
-   ![Terminal window showing log output.](./media/Quarkus/Azure-CLI-AppService-log-stream.png)
+   ![Terminal window showing log output.](./media/Quarkus/azure-cli-app-service-log-stream.png)
 
 
 ## Clean up Resources
