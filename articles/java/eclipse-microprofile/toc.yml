@@ -15,8 +15,8 @@
           href: deploy-microprofile-helidon-java-app-with-maven-plugin.md
         - name: Deploy Payara Micro
           href: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
-        - name: Deploy Kumuluz EE
-          href: deploy-microprofile-kumuluz-ee-java-app-with-maven-plugin.md
+        - name: Deploy KumuluzEE
+          href: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
       - name: Config Source for Azure Key Vault
         href: configure-microprofile-with-keyvault.md
       - name: CI/CD for MicroProfile applications using Azure Pipelines

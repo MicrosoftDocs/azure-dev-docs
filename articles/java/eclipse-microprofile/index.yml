@@ -32,8 +32,8 @@ landingContent:
         url: deploy-microprofile-helidon-java-app-with-maven-plugin.md
       - text: Deploy Payara Micro
         url: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
-      - text: Deploy Kumuluz EE
-        url: deploy-microprofile-kumuluz-ee-java-app-with-maven-plugin.md
+      - text: Deploy KumuluzEE
+        url: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
 - title: Code samples
   linkLists:
   - linkListType: sample
