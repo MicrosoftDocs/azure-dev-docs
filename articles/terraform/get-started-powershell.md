@@ -41,9 +41,9 @@ In this article, you learn how to:
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7). This demo was tested using PowerShell 7.0.2 on Windows 10.
+1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7&preserve_view=true). This demo was tested using PowerShell 7.0.2 on Windows 10.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). This demo was tested using Azure CLI version 2.9.1.
+1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.9.1.
 
 1. [Download Terraform](https://www.terraform.io/downloads.html).
 
