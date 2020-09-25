@@ -58,7 +58,7 @@ In this section, you'll create a PayaraMicro application and test it locally.
 4. Unzip the archive file; for example:
 
    ```bash
-   unzip PayaraMicro-hello-azure.zip
+   unzip payaraMicro-hello-azure.zip
    ```
 
 ### Run the application in Local environment
@@ -104,7 +104,7 @@ In this section, you'll configure the PayaraMicro project `pom.xml` so that Mave
        <plugin>
          <groupId>com.microsoft.azure</groupId>
          <artifactId>azure-webapp-maven-plugin</artifactId>
-           <version>1.9.1</version>
+           <version>1.10.0</version>
        </plugin>
      </plugins>
    </build>
@@ -133,28 +133,28 @@ In this section, you'll configure the PayaraMicro project `pom.xml` so that Mave
    ```cmd
    mvn azure-webapp:config
    [INFO] Scanning for projects...
-   [INFO]
+   [INFO] 
    [INFO] --< com.microsoft.azure.samples.payaramicro:payaramicro-hello-azure >---
    [INFO] Building payaramicro-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ war ]---------------------------------
-   [INFO]
-   [INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ payaramicro-hello-azure ---
-   Define value for OS(Default: Linux):
+   [INFO] 
+   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ payaramicro-hello-azure ---
+   Define value for OS(Default: Linux): 
    1. linux [*]
    2. windows
    3. docker
-   Enter index to use:
-   Define value for javaVersion(Default: Java 8):
+   Enter index to use: 
+   Define value for javaVersion(Default: Java 8): 
    1. Java 11
    2. Java 8 [*]
    Enter index to use: 1
-   Define value for runtimeStack(Default: TOMCAT 8.5):
+   Define value for runtimeStack(Default: TOMCAT 8.5): 
    1. TOMCAT 9.0
    2. TOMCAT 8.5 [*]
-   Enter index to use:
+   Enter index to use: 
    Please confirm webapp properties
-   AppName : payaramicro-hello-azure-1591860934798
-   ResourceGroup : payaramicro-hello-azure-1591860934798-rg
+   AppName : payaramicro-hello-azure-1601009217863
+   ResourceGroup : payaramicro-hello-azure-1601009217863-rg
    Region : westeurope
    PricingTier : PremiumV2_P1v2
    OS : Linux
@@ -165,8 +165,8 @@ In this section, you'll configure the PayaraMicro project `pom.xml` so that Mave
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  19.443 s
-   [INFO] Finished at: 2020-06-11T16:35:49+09:00
+   [INFO] Total time:  22.302 s
+   [INFO] Finished at: 2020-09-25T13:47:11+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -238,12 +238,12 @@ Once you have configured all of the settings in the preceding sections of this a
    ```bash
    mvn azure-webapp:deploy
 
-   [INFO] Successfully deployed the artifact to https://payaramicro-hello-azure-1591860934798.azurewebsites.net
+   [INFO] Successfully deployed the artifact to https://payaramicro-hello-azure-1601009217863.azurewebsites.net
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  03:04 min
-   [INFO] Finished at: 2020-06-11T16:49:57+09:00
+   [INFO] Total time:  01:58 min
+   [INFO] Finished at: 2020-09-25T13:55:13+09:00
    [INFO] ------------------------------------------------------------------------
    ```
 
@@ -262,6 +262,16 @@ Verify that the deployment was successful and Running. You should see the follow
 
    ![Find the URL for your web app in Azure portal App Services](./media/PayaraMicro/PayaraMicro-Azure-Portal-manage.png)
 
+## Confirm the Log Stream from Running App Service
+ 
+You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+ 
+   ```azurecli
+   az webapp log tail -g microprofile -n payaramicro-hello-azure-1601009217863
+   ```
+ 
+   ![Confirm the Log Stream](./media/PayaraMicro/Azrue-CLI-AppService-log-stream.png)
+ 
 ## Clean up Resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
