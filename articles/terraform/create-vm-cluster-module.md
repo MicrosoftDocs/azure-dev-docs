@@ -28,34 +28,31 @@ The configuration articles also explain how to do the following tasks:
 - Create and apply a Terraform execution plan to "run" your code.
 - Reverse an execution plan once you're finished using the resources and want to delete them.
 
+[!INCLUDE [terraform-create-resource-group.md](includes/terraform-create-resource-group.md)]
+
 ## Sample Terraform HCL file that configures an Azure VM cluster
 
 ```hcl
-resource "azurerm_resource_group" "myResourceGroup" {
-  name     = "create-vm-cluster-rg"
-  location = "eastus"
-}
-
 module "windowsservers" {
   source              = "Azure/compute/azurerm"
-  resource_group_name = azurerm_resource_group.myResourceGroup.name
+  resource_group_name = azurerm_resource_group.rg.name
   is_windows_image    = true
   vm_hostname         = "mywinvm" // line can be removed if only one VM module per resource group
   admin_password      = "ComplxP@ssw0rd!"
   vm_os_simple        = "WindowsServer"
-  public_ip_dns       = ["winsimplevmips"] // change to a unique name per datacenter region
+  public_ip_dns       = ["winsimplevmips"] // change to a unique name per data center region
   vnet_subnet_id      = module.network.vnet_subnets[0]
     
-  depends_on = [azurerm_resource_group.myResourceGroup]
+  depends_on = [azurerm_resource_group.rg]
 }
 
 module "network" {
   source              = "Azure/network/azurerm"
-  resource_group_name = azurerm_resource_group.myResourceGroup.name
+  resource_group_name = azurerm_resource_group.rg.name
   subnet_prefixes     = ["10.0.1.0/24"]
   subnet_names        = ["subnet1"]
 
-  depends_on = [azurerm_resource_group.myResourceGroup]
+  depends_on = [azurerm_resource_group.rg]
 }
 
 output "windows_vm_public_name" {

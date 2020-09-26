@@ -28,14 +28,7 @@ The configuration articles also explain how to do the following tasks:
 - Create and apply a Terraform execution plan to "run" your code.
 - Reverse an execution plan once you're finished using the resources and want to delete them.
 
-## Create an Azure resource group
-
-```hcl
-  resource "azurerm_resource_group" "rg" {
-    name = "<your_resource_group_name>"
-    location = "<your_resource_group_location>"
-  }
-```
+[!INCLUDE [terraform-create-resource-group.md](includes/terraform-create-resource-group.md)]
 
 **Notes**:
 
