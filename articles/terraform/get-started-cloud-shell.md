@@ -178,6 +178,8 @@ In this section, you learn how to create an *execution plan* and apply it to you
     terraform apply <terraform_plan>.destroy.tfplan
     ```
 
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

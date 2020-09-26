@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform using Azure PowerShell
 description: In this quickstart, you learn how to install and configure Terraform using Azure PowerShell.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
@@ -256,7 +256,10 @@ When no longer needed, delete the resources created in this article.
     cd .. && rm -r QuickstartTerraformTest
     ```
 
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure VM with Terraform](create-linux-virtual-machine-with-infrastructure.md)
+> [Create an Azure resource group using Terraform](create-resource-group.md)

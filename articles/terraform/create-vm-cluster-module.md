@@ -11,8 +11,6 @@ ms.custom: devx-track-terraform
 
 This article shows example Terraform code for creating a VM cluster on Azure.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -72,6 +70,8 @@ output "vm_private_ips" {
   value = module.windowsservers.network_interface_private_ip
 }
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 
