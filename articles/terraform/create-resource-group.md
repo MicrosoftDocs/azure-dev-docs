@@ -29,9 +29,3 @@ The configuration articles also explain how to do the following tasks:
 - Reverse an execution plan once you're finished using the resources and want to delete them.
 
 [!INCLUDE [terraform-create-resource-group.md](includes/terraform-create-resource-group.md)]
-
-**Notes**:
-
-- The [resource declaration](https://www.terraform.io/docs/configuration/resources.html) of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html) has two arguments: `name` and `location`. Set the placeholders to the appropriate values for your environment.
-
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
