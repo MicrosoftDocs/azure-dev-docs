@@ -27,8 +27,6 @@ In this article, you learn how to:
 > * Create and apply a Terraform execution plan
 > * Use the `terraform plan -destroy` flag to reverse an execution plan
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
