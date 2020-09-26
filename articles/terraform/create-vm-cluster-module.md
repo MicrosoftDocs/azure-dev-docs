@@ -30,7 +30,7 @@ The configuration articles also explain how to do the following tasks:
 
 [!INCLUDE [terraform-create-resource-group.md](includes/terraform-create-resource-group.md)]
 
-## Sample Terraform HCL to configure an Azure VM cluster
+## Configure an Azure VM cluster
 
 ```hcl
 module "windowsservers" {
