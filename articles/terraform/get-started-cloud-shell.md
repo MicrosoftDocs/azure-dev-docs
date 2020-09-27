@@ -116,72 +116,11 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
-## Creating a base Terraform configuration file
+[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
 
-A Terraform configuration file starts off with the specification of the provider. When using Azure, you'll specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
+[!INCLUDE [terraform-create-and-apply-execution-plan.md](includes/terraform-create-and-apply-execution-plan.md)]
 
-```terraform
-provider "azurerm" {
-  version = "~>2.0"
-  features {}
-}
-
-resource "azurerm_resource_group" "rg" {
-  name = "<your_resource_group_name>"
-  location = "<your_resource_group_location>"
-}
-
-# Your Terraform code goes here...
-
-```
-
-**Notes**:
-
-- While the `version` attribute is optional, HashiCorp recommends pinning to a given version of the provider. 
-- If you are using Azure provider 1.x, the `features` block is not allowed.
-- If you are using Azure provider 2.x, the `features` block is required.
-- The [resource declaration](https://www.terraform.io/docs/configuration/resources.html) of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html) has two arguments: `name` and `location`. Set the placeholders to the appropriate values for your environment.
-- The [local named value](https://www.terraform.io/docs/configuration/expressions.html#references-to-named-values) of `rg` for the resource group is used throughout the how-to and tutorial articles when referencing the resource group. This is independent of the resource group name and only refers to the variable name in your code. If you change this value in the resource group definition, you'll need to also change it in the code that references it.
-
-## Creating and applying a Terraform execution plan
-
-In this section, you learn how to create an *execution plan* and apply it to your cloud infrastructure.
-
-1. To initialize the Terraform deployment, run [terraform init](https://www.terraform.io/docs/commands/init.html). This command downloads the Azure modules required to create an Azure resource group.
-
-    ```cmd
-    terraform init
-    ```
-
-1. After initialization, you create an execution plan by running [terraform plan](https://www.terraform.io/docs/commands/plan.html).
-
-    ```cmd
-    terraform plan -out <terraform_plan>.tfplan
-    ```
-
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
-
-1. Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
-
-    ```cmd
-    terraform apply <terraform_plan>.tfplan
-    ```
-
-## Reversing a Terraform execution plan
-
-1. To reverse, or undo, the execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag as follows:
-
-    ```cmd
-    terraform plan -destroy -out <terraform_plan>.destroy.tfplan
-    ```
-
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
-
-1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
-
-    ```cmd
-    terraform apply <terraform_plan>.destroy.tfplan
-    ```
+[!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 

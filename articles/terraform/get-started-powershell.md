@@ -58,9 +58,15 @@ In this article, you learn how to:
     **Notes**:
     - If the Terraform executable is found, it will list the syntax and available commands.
 
-## Create an Azure service principal
+## Authenticate to Azure
 
-When using PowerShell and Terraform, you must log in using a service principal.
+When using PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
+
+- [Create an Azure service principal](#create-an-azure-service-principal")Create an Azure service principal
+- [Log in to Azure using a service prinicipal](#log-in-to-azure-using-a-service-principal")Log in to Azure using a service principal
+
+
+### <a name="create-an-azure-service-principal">Create an Azure service principal</a>
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
@@ -99,7 +105,7 @@ Calling [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServi
 - The service principal names and password values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-## Log in to Azure using a service principal
+### <a name="log-in-to-azure-using-a-service-principal">Log in to Azure using a service principal</a>
 
 To log into an Azure subscription using a service principal, call [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](/dotnet/api/system.management.automation.pscredential).
 
@@ -137,72 +143,11 @@ $env:ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 $env:ARM_TENANT_ID="<azure_subscription_tenant_id>"
 ```
 
-## Creating a base Terraform configuration file
+[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
 
-A Terraform configuration file starts off with the specification of the provider. When using Azure, you'll specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
+[!INCLUDE [terraform-create-and-apply-execution-plan.md](includes/terraform-create-and-apply-execution-plan.md)]
 
-```terraform
-provider "azurerm" {
-  version = "~>2.0"
-  features {}
-}
-
-resource "azurerm_resource_group" "rg" {
-  name = "<your_resource_group_name>"
-  location = "<your_resource_group_location>"
-}
-
-# Your Terraform code goes here...
-
-```
-
-**Notes**:
-
-- While the `version` attribute is optional, HashiCorp recommends pinning to a given version of the provider. 
-- If you are using Azure provider 1.x, the `features` block is not allowed.
-- If you are using Azure provider 2.x, the `features` block is required.
-- The [resource declaration](https://www.terraform.io/docs/configuration/resources.html) of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html) has two arguments: `name` and `location`. Set the placeholders to the appropriate values for your environment.
-- The [local named value](https://www.terraform.io/docs/configuration/expressions.html#references-to-named-values) of `rg` for the resource group is used throughout the how-to and tutorial articles when referencing the resource group. This is independent of the resource group name and only refers to the variable name in your code. If you change this value in the resource group definition, you'll need to also change it in the code that references it.
-
-## Creating and applying a Terraform execution plan
-
-In this section, you learn how to create an *execution plan* and apply it to your cloud infrastructure.
-
-1. To initialize the Terraform deployment, run [terraform init](https://www.terraform.io/docs/commands/init.html). This command downloads the Azure modules required to create an Azure resource group.
-
-    ```cmd
-    terraform init
-    ```
-
-1. After initialization, you create an execution plan by running [terraform plan](https://www.terraform.io/docs/commands/plan.html).
-
-    ```cmd
-    terraform plan -out <terraform_plan>.tfplan
-    ```
-
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
-
-1. Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
-
-    ```cmd
-    terraform apply <terraform_plan>.tfplan
-    ```
-
-## Reversing a Terraform execution plan
-
-1. To reverse, or undo, the execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag as follows:
-
-    ```cmd
-    terraform plan -destroy -out <terraform_plan>.destroy.tfplan
-    ```
-
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
-
-1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
-
-    ```cmd
-    terraform apply <terraform_plan>.destroy.tfplan
-    ```
+[!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
