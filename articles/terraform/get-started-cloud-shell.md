@@ -16,13 +16,13 @@ This article describes how to get started with [Terraform on Azure](https://www.
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Authenticate to Azure using `az login`
+> * Authenticate to Azure
 > * Create an Azure service principal using the Azure CLI
 > * Authenticate to Azure using a service principal
 > * Set the current Azure subscription - for use if you have multiple subscriptions
-> * Write a Terraform script to create an Azure resource group
+> * Create a base Terraform configuration file
 > * Create and apply a Terraform execution plan
-> * Use the `terraform plan -destroy` flag to reverse an execution plan
+> * Reverse an execution plan
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
-## Creating a Terraform configuration file
+## Creating a base Terraform configuration file
 
 A Terraform configuration file starts off with the specification of the provider. When using Azure, you'll specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
 
@@ -124,6 +124,11 @@ A Terraform configuration file starts off with the specification of the provider
 provider "azurerm" {
   version = "~>2.0"
   features {}
+}
+
+resource "azurerm_resource_group" "rg" {
+  name = "<your_resource_group_name>"
+  location = "<your_resource_group_location>"
 }
 
 # Your Terraform code goes here...
@@ -135,6 +140,8 @@ provider "azurerm" {
 - While the `version` attribute is optional, HashiCorp recommends pinning to a given version of the provider. 
 - If you are using Azure provider 1.x, the `features` block is not allowed.
 - If you are using Azure provider 2.x, the `features` block is required.
+- The [resource declaration](https://www.terraform.io/docs/configuration/resources.html) of [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html) has two arguments: `name` and `location`. Set the placeholders to the appropriate values for your environment.
+- The [local named value](https://www.terraform.io/docs/configuration/expressions.html#:~:text=Local%20Named%20Values) of `rg` for the resource group is used throughout the how-to and tutorial articles when referencing the resource group. This is independent of the resource group name and only refers to the variable name in your code. If you change this value in the resource group definition, you'll need to also change it in the code that references it.
 
 ## Creating and applying a Terraform execution plan
 
@@ -181,4 +188,4 @@ In this section, you learn how to create an *execution plan* and apply it to you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Create a Linux VM using Terraform](create-linux-virtual-machine-with-infrastructure.md)

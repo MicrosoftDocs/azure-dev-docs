@@ -13,8 +13,10 @@
       href: get-started-powershell.md
 - name: How-to guides
   items:
-    - name: Create a resource group
-      href: create-resource-group.md
+    - name: Setup and configuration
+      items:
+        - name: Store Terraform state in Azure Storage
+          href: store-state-in-azure-storage.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
@@ -49,10 +51,6 @@
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Tutorials
   items:
-    - name: Setup and configuration
-      items:
-        - name: Store Terraform state in Azure Storage
-          href: store-state-in-azure-storage.md
     - name: Networks
       items:
       - name: Hub and spoke topology 

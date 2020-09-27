@@ -256,8 +256,7 @@ When no longer needed, delete the resources created in this article.
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Create a Linux VM using Terraform](create-linux-virtual-machine-with-infrastructure.md)
