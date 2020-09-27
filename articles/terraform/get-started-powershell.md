@@ -62,11 +62,11 @@ In this article, you learn how to:
 
 When using PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
 
-- [Create an Azure service principal](#create-an-azure-service-principal)Create an Azure service principal
-- [Log in to Azure using a service prinicipal](#log-in-to-azure-using-a-service-principal)Log in to Azure using a service principal
+- [Create an Azure service principal](#create-an-azure-service-principal)
+- [Log in to Azure using a service principal](#log-in-to-azure-using-a-service-principal)
 
 
-### <a name="create-an-azure-service-principal">Create an Azure service principal</a>
+### <a id="create-an-azure-service-principal">Create an Azure service principal</a>
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
