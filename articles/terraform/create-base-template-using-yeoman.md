@@ -17,8 +17,6 @@ In this article, you learn how to do the following tasks:
 > * Run the Terraform module using a Docker file.
 > * Run the Terraform module natively in Azure Cloud Shell.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -285,6 +283,8 @@ In this section, the Yeoman generator is used to create and test a module in Clo
     ```
 
     ![Test-pass results](media/create-a-base-template-using-yeoman/ymg-pass.png)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 
