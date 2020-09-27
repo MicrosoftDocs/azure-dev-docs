@@ -16,7 +16,7 @@ ms.author: tarcher
     terraform plan -destroy -out <terraform_plan>.destroy.tfplan
     ```
 
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
+    [!INCLUDE [terraform-plan-notes.md](terraform-plan-notes.md)]
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 

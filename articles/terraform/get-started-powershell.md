@@ -66,7 +66,7 @@ When using PowerShell and Terraform, you must log in using a service principal. 
 - [Log in to Azure using a service prinicipal](#log-in-to-azure-using-a-service-principal")Log in to Azure using a service principal
 
 
-### <a name="create-an-azure-service-principal">Create an Azure service principal</a>
+### <a id="create-an-azure-service-principal">Create an Azure service principal</a>
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
@@ -105,7 +105,7 @@ Calling [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServi
 - The service principal names and password values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
-### <a name="log-in-to-azure-using-a-service-principal">Log in to Azure using a service principal</a>
+### <a id="log-in-to-azure-using-a-service-principal">Log in to Azure using a service principal</a>
 
 To log into an Azure subscription using a service principal, call [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](/dotnet/api/system.management.automation.pscredential).
 

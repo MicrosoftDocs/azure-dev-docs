@@ -12,8 +12,8 @@ ms.author: tarcher
 
 Based on your environment, install and configure Terraform:
 
-- [Configure Terraform using Azure Cloud Shell and Azure CLI](get-started-cloud-shell.md)
-- [Configure Terraform using Azure PowerShell](get-started-powershell.md)
+- [Configure Terraform using Azure Cloud Shell and Azure CLI](../get-started-cloud-shell.md)
+- [Configure Terraform using Azure PowerShell](../get-started-powershell.md)
 
 The configuration articles also explain how to do the following tasks:
 

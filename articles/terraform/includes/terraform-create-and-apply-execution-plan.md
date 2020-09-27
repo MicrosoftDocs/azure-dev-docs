@@ -24,7 +24,7 @@ In this section, you learn how to create an *execution plan* and apply it to you
     terraform plan -out <terraform_plan>.tfplan
     ```
 
-    [!INCLUDE [terraform-plan-notes.md](includes/terraform-plan-notes.md)]
+    [!INCLUDE [terraform-plan-notes.md](terraform-plan-notes.md)]
 
 1. Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
