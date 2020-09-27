@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform using Azure PowerShell
 description: In this quickstart, you learn how to install and configure Terraform using Azure PowerShell.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 09/27/2020
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
@@ -23,9 +23,9 @@ In this article, you learn how to:
 > * Create an Azure service principal for authentication purposes
 > * Log into Azure using the service principal 
 > * Set environment variables so that Terraform correctly authenticates to your Azure subscription
-> * Write a Terraform script to create an Azure resource group
+> * Create a base Terraform configuration file
 > * Create and apply a Terraform execution plan
-> * Use the `terraform plan -destroy` flag to reverse an execution plan
+> * Reverse an execution plan
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ When using PowerShell and Terraform, you must log in using a service principal. 
 - [Log in to Azure using a service prinicipal](#log-in-to-azure-using-a-service-principal)Log in to Azure using a service principal
 
 
-### <a id="create-an-azure-service-principal">Create an Azure service principal</a>
+### <a name="create-an-azure-service-principal">Create an Azure service principal</a>
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
 
