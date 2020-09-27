@@ -24,10 +24,10 @@ module "windowsservers" {
   source              = "Azure/compute/azurerm"
   resource_group_name = azurerm_resource_group.rg.name
   is_windows_image    = true
-  vm_hostname         = "mywinvm" // line can be removed if only one VM module per resource group
-  admin_password      = "ComplxP@ssw0rd!"
+  vm_hostname         = "mywinvm"                         // Line can be removed if only one VM module per resource group
+  admin_password      = "ComplxP@ssw0rd!"                 // See note following code about storing passwords in your config files
   vm_os_simple        = "WindowsServer"
-  public_ip_dns       = ["winsimplevmips"] // change to a unique name per data center region
+  public_ip_dns       = ["winsimplevmips"]                // Change to a unique name per your data center region
   vnet_subnet_id      = module.network.vnet_subnets[0]
     
   depends_on = [azurerm_resource_group.rg]
@@ -54,6 +54,10 @@ output "vm_private_ips" {
   value = module.windowsservers.network_interface_private_ip
 }
 ```
+
+**Notes**:
+
+- In the preceding code example, the variable `admin_password` is assigned a literal value for the sake of simplicity. Also, there are many ways in which to store sensitive data like this. The decision as to how you want to protect your data comes down to individual choices involving your particular environment and comfort level exposing this data. For example, depending on your source control system, this value might be seen by others. For more information on this subject, HashiCorp has documented various ways to [declare input variables](https://www.terraform.io/docs/configuration/variables.html) and techniques for [managing sensitive data (such as passwords)](https://www.terraform.io/docs/state/sensitive-data.html).
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
