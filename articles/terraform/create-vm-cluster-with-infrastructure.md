@@ -22,8 +22,6 @@ You'll learn how to do the following tasks:
 > * Create a Terraform execution plan.
 > * Apply the Terraform execution plan to create the Azure resources.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -247,6 +245,8 @@ If you want to apply a previously saved execution plan, run the following comman
   ```
 
 ![Applying a Terraform execution plan](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

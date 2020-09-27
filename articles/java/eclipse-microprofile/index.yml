@@ -5,10 +5,10 @@ summary: MicroProfile is an Eclipse Foundation project aimed at leveraging and e
 
 metadata:
   title: Eclipse MicroProfile on Azure documentation
-  description: Get started using Eclipse MicroProfile to develop apps on Azure by leveraging and evolving Enterprise Java technologies.
-  author: brborges
-  ms.author: brborges
-  ms.date: 03/13/2020
+  description: Get started using Eclipse MicroProfile to develop apps on Azure.
+  author: yoshioterada
+  ms.author: yoterada
+  ms.date: 06/29/2020
   ms.topic: landing-page
 
 landingContent:
@@ -18,12 +18,22 @@ landingContent:
     links:
       - text: Deploy to Azure Container Instances
         url: deploy-microprofile-to-container-instances.md
-      - text: Deploy to Azure Web Apps
-        url: deploy-microprofile-to-web-app-for-containers.md
       - text: Config Source for Azure Key Vault
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps
         url: cicd-microprofile.md
+- title: Deploy to Azure App Service with Maven
+  linkLists:
+  - linkListType: quickstart
+    links:
+      - text: Deploy Quarkus
+        url: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
+      - text: Deploy Helidon
+        url: deploy-microprofile-helidon-java-app-with-maven-plugin.md
+      - text: Deploy Payara Micro
+        url: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
+      - text: Deploy KumuluzEE
+        url: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
 - title: Code samples
   linkLists:
   - linkListType: sample

@@ -11,8 +11,6 @@ ms.custom: devx-track-terraform
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -430,8 +428,6 @@ After you execute the previous command, you should see something like the follow
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
-
-
 ...
 
 Note: You didn't specify an "-out" parameter to save this plan, so when
@@ -470,6 +466,8 @@ You can then SSH to your VM:
 ```bash
 ssh azureuser@<publicIps>
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 
