@@ -20,8 +20,6 @@ In this article, you learn how to do the following tasks:
 > * Run `terraform plan` to validate that Terraform configuration files from a remote services perspective.
 > * Use an Azure Pipeline to automate continuous integration.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -217,6 +215,8 @@ You can run the pipeline manually from the Azure DevOps UI. However, the point o
 Once you've done that step, access the details in Azure DevOps to ensure that everything ran correctly.
 
 ![Azure DevOps Green Pipeline](media/best-practices-integration-testing/azure-devops-green-pipeline.png)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

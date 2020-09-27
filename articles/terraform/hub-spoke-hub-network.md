@@ -18,8 +18,6 @@ This article covers the following tasks:
 > * Use Terraform to create a hub virtual private network gateway.
 > * Use Terraform to create hub and on-premises gateway connections.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 1. [Create a hub-and-spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
@@ -222,6 +220,8 @@ Create the Terraform configuration file that declares the hub virtual network.
     ```
     
 3. Save the file, and exit the editor.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

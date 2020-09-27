@@ -23,8 +23,6 @@ for all resources
 > * Use Terraform to establish gateways and connections between on premises and Azure networks
 > * Use Terraform to create VNet peerings to spoke networks
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -153,6 +151,8 @@ Create the Terraform configuration file for common variables that are used acros
     ```
 
 1. Save the file and exit the editor.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

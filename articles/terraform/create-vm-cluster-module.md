@@ -56,3 +56,8 @@ output "vm_private_ips" {
 ```
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

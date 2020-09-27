@@ -15,8 +15,6 @@ In this article, you create Azure resources using Terraform. The steps in this a
 > * Azure Container Instance
 > * App that works across these two resources
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -171,6 +169,8 @@ Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html)
 ```bash
 terraform destroy -auto-approve
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

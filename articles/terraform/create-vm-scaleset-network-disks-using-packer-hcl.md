@@ -20,8 +20,6 @@ In this article, you learn how to:
 > * Create and deploy a virtual machine scale set by using the custom image.
 > * Create and deploy a jumpbox.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -445,6 +443,8 @@ terraform destroy
 ```
 
 Enter *yes* when you're asked to confirm the deletion of the resources. The destruction process can take a few minutes to complete.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

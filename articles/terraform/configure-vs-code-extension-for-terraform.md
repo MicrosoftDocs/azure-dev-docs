@@ -16,8 +16,6 @@ In this article, you learn how to:
 > * install and use the Terraform Visual Studio Code extension for Azure services.
 > * Use Visual Studio Code to write, plan, and execute Terraform plans.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -297,6 +295,9 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 ![Test results](media/configure-vs-code-extension-for-terraform/tf-end-to-end-test-results.png)
 
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [List of the Terraform modules available for Azure (and other supported providers)](https://registry.terraform.io/)

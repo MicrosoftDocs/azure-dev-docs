@@ -22,8 +22,6 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Test cases are written in Go** - Many developers who use Terraform are Go developers. If you're a Go developer, you don't have to learn another programming language to use Terratest.
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -516,6 +514,8 @@ With mage, you could also share the steps by using the Go package system. In tha
 **Optional: Set service principal environment variables to run acceptance tests**
  
 Instead of executing `az login` before tests, you can complete Azure authentication by setting the service principal environment variables. Terraform publishes a [list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailed instructions that explain how to [obtain the value of these environment variables](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

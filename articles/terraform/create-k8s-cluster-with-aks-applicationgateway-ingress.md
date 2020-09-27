@@ -22,8 +22,6 @@ In this article, you learn how to do the following tasks:
 > * Use Terraform and AKS to create a Kubernetes cluster.
 > * Use the kubectl tool to test the availability of a Kubernetes cluster.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -769,6 +767,8 @@ Replace the placeholder with the appropriate value. All resources within the spe
 ```azurecli
 az group delete -n <resource-group>
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

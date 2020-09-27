@@ -36,6 +36,7 @@ Terraform is adept at deploying an infrastructure across multiple cloud provider
 
 Now that you have an overview of Terraform and its benefits, here are suggested next steps:
 
-- Get started by [installing Terraform and configuring it to use Azure](get-started-cloud-shell.md).
-- [Create an Azure virtual machine using Terraform](create-linux-virtual-machine-with-infrastructure.md)
-- Explore the [Azure Resource Manager module for Terraform](https://www.terraform.io/docs/providers/azurerm/) 
+Based on your environment, install and configure Terraform:
+
+- [Configure Terraform using Azure Cloud Shell and Azure CLI](../get-started-cloud-shell.md)
+- [Configure Terraform using Azure PowerShell](../get-started-powershell.md)
