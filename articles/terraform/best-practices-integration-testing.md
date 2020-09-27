@@ -23,9 +23,9 @@ In this article, you learn how to do the following tasks:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Azure DevOps organization and project**: If you don't have one, [create an Azure DevOps organization](/azure/devops/organizations/projects/create-project?tabs=preview-page&view=azure-devops).
+- **Azure DevOps organization and project**: If you don't have one, [create an Azure DevOps organization](/azure/devops/organizations/projects/create-project).
 - **Terraform Build & Release Tasks extension**: [Install the Terraform build/release tasks extension](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform) into your Azure DevOps organization.
-- **Grant Azure DevOps access to your Azure Subscription**: Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) named `terraform-basic-testing-azure-connection` to allow Azure Pipelines to connect to your Azure subscriptions
+- **Grant Azure DevOps access to your Azure Subscription**: Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure) named `terraform-basic-testing-azure-connection` to allow Azure Pipelines to connect to your Azure subscriptions
 - **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
 - **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
@@ -188,7 +188,7 @@ Continuous integration involves testing an entire system when a change is introd
 
     ![Where is your code?](media/best-practices-integration-testing/new-pipeline-where-github-yaml.png)
 
-1. At this point, you might have to authorize Azure DevOps to access your organization. For more information on this topic, see the article, [Build GitHub repositories](/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml).
+1. At this point, you might have to authorize Azure DevOps to access your organization. For more information on this topic, see the article, [Build GitHub repositories](/azure/devops/pipelines/repos/github).
 
 1. In the repositories list, select the fork of the repository you created in your GitHub organization.
 

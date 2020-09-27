@@ -388,10 +388,6 @@ In Cloud Shell, do the following steps:
     terraform apply
     ```
 
-    The output of the command should be similar to the following screenshot:
-
-    ![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
-
 1. Open a browser and connect to the FQDN that was returned by the command.
 
     ![Results of browsing to FQDN](./media/create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
@@ -497,12 +493,9 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    terraform apply
    ```
 
-Once the deployment has completed, the content of the resource group resembles that shown in the following screenshot:
+**Notes**:
 
-![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
-
-> [!NOTE]
-> The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
+- The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 
 ## Environment cleanup
 

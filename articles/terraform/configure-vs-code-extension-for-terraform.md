@@ -131,8 +131,6 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 1. When the confirmation appears, select **OK**.
 
-    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloud-shell.png)
-
 1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
     ![First launch of Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-first-launch-of-cloud-shell.png)
@@ -263,11 +261,9 @@ Before you can begin using the Terraform commands from within Visual Studio Code
 
 1. From the list of test-type options, select **lint**.
 
-    ![Select type of test](media/configure-vs-code-extension-for-terraform/tf-select-type-of-test-lint.png)
+    ![Select "lint" as the type of test](media/configure-vs-code-extension-for-terraform/tf-select-type-of-test-lint.png)
 
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
-
-    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
@@ -282,11 +278,9 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 1. From the list of test type options, select **end to end**.
 
-    ![Select type of test](media/configure-vs-code-extension-for-terraform/tf-select-type-of-test-end-to-end.png)
+    ![Select "end to end" as the type of test](media/configure-vs-code-extension-for-terraform/tf-select-type-of-test-end-to-end.png)
 
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
-
-    ![Confirmation dialog for opening Cloud Shell](media/configure-vs-code-extension-for-terraform/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
