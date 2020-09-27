@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Install the Azure CLI
 > * Install Terraform
 > * Create an Azure service principal for authentication purposes
-> * Log into Azure using the service principal 
+> * Log in to Azure using the service principal 
 > * Set environment variables so that Terraform correctly authenticates to your Azure subscription
 > * Create a base Terraform configuration file
 > * Create and apply a Terraform execution plan
