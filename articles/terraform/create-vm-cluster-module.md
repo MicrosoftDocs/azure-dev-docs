@@ -57,7 +57,7 @@ output "vm_private_ips" {
 
 **Notes**:
 
-- In the preceding code example, the variable `admin_password` is assigned a literal value for the sake of simplicity. Also, there are many ways in which to store sensitive data like this. The decision as to how you want to protect your data comes down to individual choices involving your particular environment and comfort level exposing this data. For example, depending on your source control system, this value might be seen by others. For more information on this subject, HashiCorp has documented various ways to [declare input variables](https://www.terraform.io/docs/configuration/variables.html) and techniques for [managing sensitive data (such as passwords)](https://www.terraform.io/docs/state/sensitive-data.html).
+- In the preceding code example, the variable `admin_password` is assigned a literal value for the sake of simplicity. There are many ways in which to store sensitive data such as passwords. The decision as to how you want to protect your data comes down to individual choices involving your particular environment and comfort level exposing this data. As an example of the risk, storing a file like this in source control could potentially result in the password being seen by others. For more information on this subject, HashiCorp has documented various ways to [declare input variables](https://www.terraform.io/docs/configuration/variables.html) and techniques for [managing sensitive data (such as passwords)](https://www.terraform.io/docs/state/sensitive-data.html).
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
