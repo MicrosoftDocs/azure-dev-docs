@@ -164,13 +164,14 @@ If you have a Docker account, you can build your Docker container image locally 
 
 1. Open the `pom.xml` file for your Spring Boot application in a text editor.
 
-1. Locate the `<imageName>` child element of the `<containerSettings>` element.
+1. Locate the `<image>` child element of the `<runtime>` element.
 
 1. Update the `${docker.image.prefix}` value with your Docker account name:
    ```xml
-   <containerSettings>
-      <imageName>mydockeraccountname/${project.artifactId}</imageName>
-   </containerSettings>
+   <runtime>
+      ...
+      <image>mydockeraccountname/${project.artifactId}</image>
+   </runtime>
    ```
 
 1. Choose one of the following deployment methods:
@@ -194,17 +195,19 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
    <plugin>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-webapp-maven-plugin</artifactId>
-      <version>0.1.3</version>
+      <version>1.11.0</version>
       <configuration>
-         <authentication>
+         <schemaVersion>V2</schemaVersion>
+         <auth>
             <serverId>azure-auth</serverId>
-         </authentication>
+         </auth>
          <resourceGroup>maven-plugin</resourceGroup>
          <appName>maven-linux-app-${maven.build.timestamp}</appName>
          <region>westus</region>
-         <containerSettings>
-            <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-         </containerSettings>
+         <runtime>
+            <os>docker</os>
+            <image>${docker.image.prefix}/${project.artifactId}</image>
+         </runtime>
          <appSettings>
             <property>
                <name>PORT</name>
@@ -219,8 +222,8 @@ There are several values that you can modify for the Maven plugin, and a detaile
 
 | Element | Description |
 |---|---|
-| `<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should check the version listed in the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) to ensure that you are using the latest version. |
-| `<authentication>` | Specifies the authentication information for Azure, which in this example contains a `<serverId>` element that contains `azure-auth`; Maven uses that value to look up the Azure service principal values in your Maven *settings.xml* file, which you defined in an earlier section of this article. |
+| `<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should use `V2`. |
+| `<auth>` | Specifies the authentication information for Azure, which in this example contains a `<serverId>` element that contains `azure-auth`; Maven uses that value to look up the Azure service principal values in your Maven *settings.xml* file, which you defined in an earlier section of this article. |
 | `<resourceGroup>` | Specifies the target resource group, which is `maven-plugin` in this example. The resource group will be created during deployment if it does not already exist. |
 | `<appName>` | Specifies the target name for your web app. In this example, the target name is `maven-linux-app-${maven.build.timestamp}`, where the `${maven.build.timestamp}` suffix is appended in this example to avoid conflict. (The timestamp is optional; you can specify any unique string for the app name.) |
 | `<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.) |
