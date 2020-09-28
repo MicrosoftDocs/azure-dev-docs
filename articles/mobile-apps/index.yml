@@ -31,7 +31,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build mobile apps with Xamarin.Forms
-            url: https://docs.microsoft.com/learn/paths/build-mobile-apps-with-xamarin-forms/
+            url: /learn/paths/build-mobile-apps-with-xamarin-forms/
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
@@ -45,19 +45,19 @@ landingContent:
       - linkListType: overview
         links:
           - text: Build a serverless mobile application back end with Azure Functions and other services
-            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+            url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
           - text: Build real-time applications with Azure SignalR
             url: real-time-communication.md          
       - linkListType: quickstart
         links:
           - text: Get started with Azure Functions and Xamarin
-            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+            url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
           - text: Azure SignalR Service with Xamarin.Forms
-            url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
+            url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
       - linkListType: learn
         links:
           - text: Consume a RESTful Web Service with Xamarin
-            url: https://docs.microsoft.com/learn/modules/consume-rest-services
+            url: /learn/modules/consume-rest-services
 
   # Card (optional)
   - title: Save data
@@ -73,11 +73,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Save data with Azure Cosmos DB
-            url: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-xamarin-dotnet
+            url: /azure/cosmos-db/create-sql-api-xamarin-dotnet
           - text: Work with blob storage
-            url: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-xamarin
+            url: /azure/storage/blobs/storage-quickstart-blobs-xamarin
           - text: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
-            url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-xamarin
+            url: /azure/cosmos-db/create-mongodb-xamarin
 
   # Card
   - title: Send push notifications
@@ -89,15 +89,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create an Azure notification hub in the Azure portal
-            url: https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal
+            url: /azure/notification-hubs/create-notification-hub-portal
       - linkListType: tutorial
         links:
           - text: Send push notifications to Xamarin.Forms apps using ASP.NET Core and Azure Notification Hubs
             url: notification-hubs-backend-service-xamarin-forms.md
           - text: Send push notifications to Android devices
-            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started          
+            url: /azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started
           - text: Push rich content to devices
-            url: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich
+            url: /azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich
 
   # Card
   - title: Authenticate users 
@@ -105,15 +105,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: Supported authentication flows with Microsoft Authentication Library (MSAL)
-            url: https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows      
+            url: /azure/active-directory/develop/msal-authentication-flows
           - text: Add authentication and manage user identities in your mobile apps
             url: authentication.md
       - linkListType: tutorial
         links:
           - text: Sign in users and call the Microsoft Graph from an Android application
-            url: https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android      
+            url: /azure/active-directory/develop/tutorial-v2-android
           - text: Add a native client application to your Azure Active Directory B2C tenant
-            url: https://docs.microsoft.com/azure/active-directory-b2c/add-native-application
+            url: /azure/active-directory-b2c/add-native-application
       - linkListType: sample
         links:
           - text: Sign in users with a Swift iOS app
@@ -129,15 +129,15 @@ landingContent:
           - text: Automate the lifecycle of your apps with continuous build and integration
             url: continuous-integration.md
           - text: Key concepts for new Azure Pipelines users
-            url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+            url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
       - linkListType: overview
         links:
           - text: Release a build with App Center
-            url: https://docs.microsoft.com/appcenter/distribution/uploading
+            url: /appcenter/distribution/uploading
       - linkListType: how-to-guide
         links:
           - text: App Center CodePush
-            url: https://docs.microsoft.com/appcenter/distribution/codepush
+            url: /appcenter/distribution/codepush
 
   # Card
   - title: Track analytics and crashes
@@ -151,15 +151,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: App Center Analytics
-            url: https://docs.microsoft.com/appcenter/analytics/overview
+            url: /appcenter/analytics/overview
       - linkListType: how-to-guide
         links:
           - text: Enabling diagnostics in an app
-            url: https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
+            url: /appcenter/diagnostics/enabling-diagnostics
       - linkListType: tutorial
         links:
           - text: Receive real time analytics
-            url: https://docs.microsoft.com/appcenter/analytics/log-flow
+            url: /appcenter/analytics/log-flow
 
   # Card
   - title: Develop with SDKs
