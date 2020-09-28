@@ -393,7 +393,7 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
     <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.9.1</version>
+     <version>1.11.0</version>
     </plugin>
    ```
 
@@ -407,7 +407,9 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
    mvn azure-webapp:config
    ```
 
-1. For the OS, ensure `linux` is selected.
+1. For the `Subscription`, ensure you have select the same subscription id with the Key Vault you created.
+1. For the `Web App`, you can either select an existing Web App or select `<create>` to create a new one, if you select an existing Web App, it will jump directly to the last **confirm** step.
+1. For the `OS`, ensure `linux` is selected.
 1. For the `javaVersion`, ensure the Java version you chose in Spring Initializr is chosen.  We chose `11` above, so we choose 11 here.
 1. Accept the defaults for the remaining questions.
 1. When asked to confirm, answer Y to continue or N to start answering the questions again.  When the plugin completes running, you're ready to edit the POM.
@@ -432,9 +434,10 @@ Follow these steps to make further necessary edits to the POM.
      <plugin> 
        <groupId>com.microsoft.azure</groupId>  
        <artifactId>azure-webapp-maven-plugin</artifactId>  
-       <version>1.9.1</version>  
+       <version>1.11.0</version>  
        <configuration>
          <schemaVersion>V2</schemaVersion>
+         *<subscriptionId>********-****-****-****-************</subscriptionId>
          *<resourceGroup>contosorg</resourceGroup>
          *<appName>contosokeyvault</appName>
          <pricingTier>P1v2</pricingTier>
