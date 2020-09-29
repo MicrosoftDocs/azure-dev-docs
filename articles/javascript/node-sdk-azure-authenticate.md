@@ -6,66 +6,51 @@ ms.date: 06/17/2017
 ms.custom: devx-track-js
 ---
 
-# Authenticate with the Azure modules for Node.js
+# Authenticate with the Azure management modules for JavaScript
+
+There are two sets of management packages for Azure services that helps you with resource management.
+- Azure SDK for Node.js
+- Azure SDK for JavaScript
+
+Azure SDK for Node.js is the older set of management packages for Azure services that 
+- are usable only in Node.js and not browsers
+- are written in JavaScript with hand written type declaration files
+- not in active development and deprecated in favor of the Azure SDK for JavaScript packages
+- have package names that begin with `azure-arm-`
+- require [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) package to create credentials which can 
+then be passed to the client classes in the packages in order to authenticate using Azure Active Directory.
+- live in the https://github.com/Azure/azure-sdk-for-node repo
+
+Azure SDK for JavaScript is the newer set of management packages for Azure services that are
+- usable both in Node.js and browsers
+- written in TypeScript, can be used in both JavaScript and TypeScript projects
+- in active development and receive updates as and when Azure services update their ARM APIs
+- have package names that begin with `@azure/arm-`
+- require [@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth) package to create 
+credentials which can then be passed to the client classes in the packages in order to authenticate using 
+Azure Active Directory. If your application runs in the browser, use 
+[@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth) instead.
+- live in the https://github.com/Azure/azure-sdk-for-js repo
+
+An easy way to differentiate between the two sets of packages is to look at the package names.
 
 All service APIs require authentication via a `credentials` object when being
-instantiated. There are three ways of authenticating and creating the required
-credentials via the Azure SDK for Node.js:
+instantiated. There are multiple ways of authenticating and creating the required
+credentials for packages in both Azure SDK for Node.js and Azure SDK for JavaScript.
 
-- Basic authentication
-- Interactive login
-- Service principal authentication
+Some common methods are:
+
+- Basic authentication that uses username and password
+- Interactive login which is the easiest way to authenticate, but requires logging in with a user account.
+- Service principal authentication. The topic, 
+[Create an Azure service principal with Node.js](./node-sdk-azure-authenticate-principal.md), 
+explains various techniques for creating a service principal. 
+
+The readme on each of the packages below go into details on the the various ways you can get a credential object.
+- [@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth) when using any management package
+in Azure SDK for JavaScript in Node.js
+- [@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth) when using any management package
+in Azure SDK for JavaScript in a browser
+- [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) when using any management package in the older Azure SDK for Node.js
 
 [!INCLUDE [chrome-note](includes/chrome-note.md)]
-
-## Basic authentication
-
-To programmatically authenticate using your Azure account credentials, use the `loginWithUsernamePassword` function. The following JavaScript code snippet illustrates how to use basic authentication using credentials that are stored as environment variables.
-
-```javascript
-const Azure = require('azure');
-const MsRest = require('ms-rest-azure');
-
-MsRest.loginWithUsernamePassword(process.env.AZURE_USER,
-                                 process.env.AZURE_PASS,
-                                 (err, credentials) => {
-  if (err) throw err;
-
-  let storageClient = Azure.createARMStorageManagementClient(credentials,
-                                                             '<azure-subscription-id>');
-
-  // ..use the client instance to manage service resources.
-});
-```
-
-## Interactive login
-
-Interactive login provides a link and a code that allows the user to
-authenticate from a browser. Use this method when multiple accounts are used by
-the same script or when user intervention is preferred.
-
-```javascript
-const Azure = require('azure');
-const MsRest = require('ms-rest-azure');
-
-MsRest.interactiveLogin((err, credentials) => {
-  if (err) throw err;
-
-  let storageClient = Azure.createARMStorageManagementClient(credentials, '<azure-subscription-id>');
-
-  // ..use the client instance to manage service resources.
-});
-```
-
-## Service principal authentication
-
-[Interactive login](#interactive-login) is the easiest way to
-authenticate. However, when using the Node.js SDK, you may want
-to use service principal authentication rather than providing your account
-credentials. The topic,
-[Create an Azure service principal with Node.js](./node-sdk-azure-authenticate-principal.md),
-explains various techniques for creating (and using) a service principal.
-
-## Next steps
-
-* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
