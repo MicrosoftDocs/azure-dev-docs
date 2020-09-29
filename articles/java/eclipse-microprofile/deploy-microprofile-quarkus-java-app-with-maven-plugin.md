@@ -296,7 +296,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 To learn more about MicroProfile and Azure, continue to the MicroProfile on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [MicroProfile on Azure](/azure/developer/java/eclipse-microprofile)
+> [MicroProfile on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -311,7 +311,7 @@ For more information about the various technologies discussed in this article, s
 <!-- URL List -->
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [Azure portal]: https://portal.azure.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
@@ -320,7 +320,7 @@ For more information about the various technologies discussed in this article, s
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Maven Plugin for Azure Web Apps]: /java/api/overview/azure/maven/azure-webapp-maven-plugin/readme
 
-[Java Development Kit (JDK)]: https://aka.ms/azure-jdks
+[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->
