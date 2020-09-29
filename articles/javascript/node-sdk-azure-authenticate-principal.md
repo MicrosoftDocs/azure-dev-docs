@@ -18,7 +18,6 @@ This topic shows you three techniques for creating a service principal.
 
 - Azure portal
 - Azure CLI 2.0
-- Azure SDK for Node.js
 
 [!INCLUDE [chrome-note](includes/chrome-note.md)]
 
@@ -33,24 +32,12 @@ Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli
 
 1. Download the [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
-2. Open a terminal window.
+2. Open a terminal window and type the command `az login` to start the login process.
 
-3. Type the following command to start the login process:
-
-	```shell
-	$ az login
-    ```
-
-4. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in).
+3. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in). 
 You'll then be able to access your account via the CLI.
 
-5. Get your subscription and tenant ID:
-
-	```shell
-	$ az account list
-    ```
-
-	The following shows an example of the output:
+4. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
 
 	```shell
 	{
@@ -68,79 +55,10 @@ You'll then be able to access your account via the CLI.
 	}
     ```
 
-	**Note the subscription ID as it will be used in Step 7.**
+5. Follow the steps outlined in the topic,
+[Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), to generate the service principal. The JSON object in the output will contain the information you would need to authenticate with Azure.
 
-6. Create a service principal to get a JSON object containing the other pieces of information you need to authenticate with Azure.
-
-	```shell
-	$ az ad sp create-for-rbac
-    ```
-
-	The following shows an example of the output:
-
-	```shell
-	{
-	"appId": "<appId>",
-	"displayName": "<displayName>",
-	"name": "<name>",
-	"password": "<password>",
-	"tenant": "<tenant>"
-	}
-    ```
-
-	**Note the tenant, name, and password values as they'll be used in Step 7.**
-
-7. Set up the environment variables - replacing the &lt;subscriptionId>, &lt;tenant>, &lt;name>, and &lt;password> placeholders
-with the values you obtained in steps 4 and 5.
-
-	**Using bash**
-
-	```shell
-	export azureSubId='<subscriptionId>'
-	export azureServicePrincipalTenantId='<tenant>'
-	export azureServicePrincipalClientId='<name>'
-	export azureServicePrincipalPassword='<password>'
-    ```
-
-	**Using PowerShell**
-
-	```shell
-	$env:azureSubId='<subscriptionId>'
-	$env:azureServicePrincipalTenantId='<tenant>'
-	$env:azureServicePrincipalClientId='<name>'
-	$env:azureServicePrincipalPassword='<password>'
-    ```
-
-## Create a service principal using the Azure SDK for Node.js
-
-To programmatically create a service principal using JavaScript, use the
-[ServicePrincipal script](https://github.com/Azure/azure-sdk-for-node/tree/master/Documentation/ServicePrincipal).
 
 ## Using the service principal
 
-Once you have a service principal, the following JavaScript code snippet
-illustrates how to use the service principal keys to authenticate with the
-Azure SDK for Node.js. Modify the following placeholders: &lt;clientId or appId>, &lt;secret or password>,
-and &lt;domain or tenant>,
-
-```javascript
-const Azure = require('azure');
-const MsRest = require('ms-rest-azure');
-
-MsRest.loginWithServicePrincipalSecret(
-  <clientId or appId>,
-  <secret or password>,
-  <domain or tenant>,
-  (err, credentials) => {
-    if (err) throw err
-
-    let storageClient = Azure.createARMStorageManagementClient(credentials, '<azure-subscription-id>');
-
-    // ..use the client instance to manage service resources.
-  }
-);
-```
-
-## Next steps
-
-* [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
+Once you have a service principal, follow the [Authenticate with the Azure management modules for JavaScript](./node-sdk-azure-authenticate.md) topic for how to a create credentials object which you can use to authenticate your client with Azure Active Directory.
