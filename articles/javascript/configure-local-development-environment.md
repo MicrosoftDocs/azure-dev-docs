@@ -43,15 +43,15 @@ The following common local workstation installations are optional to help with y
 
 ## One-time configuration of service principal
 
-Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a service principal. A service principal allows you to concretely define the access scope to the immediate development need.
+Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a [service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to concretely define the access scope to the immediate development need.
 
-Conceptually, the steps to create and use a service principal include:
+Conceptually, to create and use a service principal:
 
-* Log in to Azure with your individual user account, such as joe@microsoft.com.
-* Create a named service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
+* Sign in to Azure with your individual user account, such as joe@microsoft.com.
+* Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
 * Log off Azure with your user account.
-* Authenticate to Azure programmatically with service principal.
-* Service principal creates an Azure resource and uses the service associated with the service.
+* Authenticate to Azure programmatically with the service principal.
+* Create resources with service principal and use the service.
 
 ### Create service principal
 
@@ -68,9 +68,9 @@ Each new project using Azure should:
 
 ### Library versions
 
-[Azure libraries](azure-sdk-library-package-index.md) generally use the `@azure` scope.
+Use the latest, modern [Azure libraries](azure-sdk-library-package-index.md) scoped with `@azure`.
 
-The latest libraries use the scope `@azure`. Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
+Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
 
 ## Create Azure resource with service principal
 
@@ -108,7 +108,7 @@ set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
 
 Replace the values shown in these commands with those of your specific service principal.
 
-## Install NPM packages
+## Install npm packages
 
 For every project, we recommend that you always create a separate folder, and its own `package.json` file using the following steps:
 

@@ -12,9 +12,10 @@ The Azure libraries for JavaScript are available for installation from:
 * [NPM](https://www.npmjs.com/)
 * [Yarn](https://yarnpkg.com/)
 
-Packages using scope, such as `@azure`, are the modern libraries.
 
-## Libraries using azure.core
+[!INCLUDE [Types of SDK client libraries](includes/azure-sdk-types.md)]
+
+## Modern JavaScript/Typescript libraries
 
 [!INCLUDE [javascript-new-releases](../includes/javascript-new.md)]
 
