@@ -56,7 +56,7 @@ You'll then be able to access your account via the CLI.
     ```
 
 5. Follow the steps outlined in the topic,
-[Create an Azure service principal with the Azure CLI](cli/azure/create-an-azure-service-principal-azure-cli), to generate the service principal. The JSON object in the output will contain the information you would need to authenticate with Azure.
+[Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), to generate the service principal. The JSON object in the output will contain the information you would need to authenticate with Azure.
 
 
 ## Using the service principal
