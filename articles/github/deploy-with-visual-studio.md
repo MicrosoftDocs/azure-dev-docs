@@ -13,10 +13,10 @@ ms.date: 05/05/2020
 
 Review the following article to learn how to use Visual Studio or Visual Studio Code with GitHub.  
 
-- [Deploy to Azure App Service using Visual Studio Code](https://docs.microsoft.com/azure/devops/pipelines/targets/deploy-to-azure-vscode)  
-- [Visual Studio subscription with GitHub offer](https://docs.microsoft.com/visualstudio/subscriptions/access-github)  
+- [Deploy to Azure App Service using Visual Studio Code](/azure/devops/pipelines/targets/deploy-to-azure-vscode)  
+- [Visual Studio subscription with GitHub offer](/visualstudio/subscriptions/access-github)  
 
 And, the following Marketplace extensions provide developer support for integrating with GitHub. 
 
 - [GitHub extension for Visual Studio](https://visualstudio.github.com/)  
-- [GitHub extension for Visual Studio Code](https://vscode.github.com/) 
+- [GitHub extension for Visual Studio Code](https://vscode.github.com/)

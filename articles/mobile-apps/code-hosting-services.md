@@ -58,7 +58,7 @@ Use the following services to host your application data in the cloud.
 
 ## Azure DevOps
 
-[Azure DevOps](https://azure.microsoft.com/services/devops/) supports [Azure Repos](https://azure.microsoft.com/services/devops/repos/) and [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/azure/devops/repos/tfvc/index?view=azure-devops) as source control options. It has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high-quality code. Azure Repos is great for small projects and large organizations that need native Azure Active Directory support and advanced policies.
+[Azure DevOps](https://azure.microsoft.com/services/devops/) supports [Azure Repos](https://azure.microsoft.com/services/devops/repos/) and [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index?view=azure-devops) as source control options. It has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high-quality code. Azure Repos is great for small projects and large organizations that need native Azure Active Directory support and advanced policies.
 
 ### Azure DevOps features
 
