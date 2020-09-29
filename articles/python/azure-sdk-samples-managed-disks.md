@@ -21,7 +21,7 @@ You can easily create standalone Managed Disks in a variety of ways.
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.disks.create_or_update(
+async_creation = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -40,7 +40,7 @@ disk_resource = async_creation.result()
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.disks.create_or_update(
+async_creation = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -59,7 +59,7 @@ disk_resource = async_creation.result()
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.images.create_or_update(
+async_creation = compute_client.images.begin_create_or_update(
     'my_resource_group',
     'my_image_name',
     {
@@ -84,7 +84,7 @@ from azure.mgmt.compute.models import DiskCreateOption
 
 # If you don't know the id, do a 'get' like this to obtain it
 managed_disk = compute_client.disks.get(self.group_name, 'myImageDisk')
-async_creation = compute_client.disks.create_or_update(
+async_creation = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -146,7 +146,7 @@ vm.storage_profile.data_disks.append({
         'id': managed_disk.id
     }
 })
-async_update = compute_client.virtual_machines.create_or_update(
+async_update = compute_client.virtual_machines.begin_create_or_update(
     'my_resource_group',
     vm.name,
     vm,
