@@ -19,9 +19,9 @@ This article gives a basic overview of some of the benefits of using Ansible wit
 
 ## Ansible modules
 
-Ansible includes a suite of [Ansible modules](https://docs.ansible.com/ansible/latest/modules_by_category.html) that are run directly on remote hosts or via [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Users can create their own modules. Modules are used to control system resources - such as services, packages, or files - or execute system commands.
+Ansible includes a suite of [Ansible modules](https://docs.ansible.com/ansible/2.7/modules/modules_by_category.html) that are run directly on remote hosts or via [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Users can create their own modules. Modules are used to control system resources - such as services, packages, or files - or execute system commands.
 
-For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure). These modules enable you to create and orchestrate your infrastructure on Azure. 
+For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/2.7/modules/list_of_cloud_modules.html#azure). These modules enable you to create and orchestrate your infrastructure on Azure. 
 
 ## Migrate existing workload to Azure
 
