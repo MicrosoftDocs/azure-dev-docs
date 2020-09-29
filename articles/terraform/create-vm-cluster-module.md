@@ -1,105 +1,67 @@
 ---
-title: Create an Azure VM cluster with Terraform using the Module Registry
+title: Configure an Azure VM cluster using Terraform
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure.
 keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 09/27/2020
+ms.custom: devx-track-terraform
 ---
 
-# Create an Azure VM cluster with Terraform using the Module Registry
+# Configure an Azure VM cluster using Terraform
 
-This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this article you learn how to:
-
-> [!div class="checklist"]
-> * Set up authentication with Azure
-> * Create the Terraform template
-> * Visualize the changes with plan
-> * Apply the configuration to create the VM cluster
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
+This article shows example Terraform code for creating a VM cluster on Azure.
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Set up authentication with Azure
+[!INCLUDE [terraform-configure-environment.md](includes/terraform-configure-environment.md)]
 
-> [!TIP]
-> If you [use Terraform environment variables](get-started-cloud-shell.md) or run this example in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
-
- Review [Install Terraform and configure access to Azure](get-started-cloud-shell.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+## Configure an Azure VM cluster
 
 ```hcl
-variable subscription_id {}
-variable tenant_id {}
-variable client_id {}
-variable client_secret {}
-
-provider "azurerm" {
-    version = "~>1.40"
-
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
-```
-
-## Create the template
-
-Create a new Terraform template named `main.tf` with the following code:
-
-```hcl
-module mycompute {
-    source = "Azure/compute/azurerm"
-    resource_group_name = "myResourceGroup"
-    location = "East US 2"
-    admin_password = "ComplxP@assw0rd!"
-    vm_os_simple = "WindowsServer"
-    is_windows_image = "true"
-    remote_port = "3389"
-    nb_instances = 2
-    public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = module.network.vnet_subnets[0]
+module "windowsservers" {
+  source              = "Azure/compute/azurerm"
+  resource_group_name = azurerm_resource_group.rg.name
+  is_windows_image    = true
+  vm_hostname         = "mywinvm"                         // Line can be removed if only one VM module per resource group
+  admin_password      = "ComplxP@ssw0rd!"                 // See note following code about storing passwords in config files
+  vm_os_simple        = "WindowsServer"
+  public_ip_dns       = ["winsimplevmips"]                // Change to a unique name per data center region
+  vnet_subnet_id      = module.network.vnet_subnets[0]
+    
+  depends_on = [azurerm_resource_group.rg]
 }
 
 module "network" {
-    source = "Azure/network/azurerm"
-    location = "East US 2"
-    resource_group_name = "myResourceGroup"
+  source              = "Azure/network/azurerm"
+  resource_group_name = azurerm_resource_group.rg.name
+  subnet_prefixes     = ["10.0.1.0/24"]
+  subnet_names        = ["subnet1"]
+
+  depends_on = [azurerm_resource_group.rg]
 }
 
-output "vm_public_name" {
-    value = module.mycompute.public_ip_dns_name
+output "windows_vm_public_name" {
+  value = module.windowsservers.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = module.mycompute.public_ip_address
+  value = module.windowsservers.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = module.mycompute.network_interface_private_ip
+  value = module.windowsservers.network_interface_private_ip
 }
 ```
 
-Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
+**Notes**:
 
-![Terraform Init](media/create-vm-cluster-module/terraform-init-with-modules.png)
+- In the preceding code example, the variable `admin_password` is assigned a literal value for the sake of simplicity. There are many ways in which to store sensitive data such as passwords. The decision as to how you want to protect your data comes down to individual choices involving your particular environment and comfort level exposing this data. As an example of the risk, storing a file like this in source control could potentially result in the password being seen by others. For more information on this subject, HashiCorp has documented various ways to [declare input variables](https://www.terraform.io/docs/configuration/variables.html) and techniques for [managing sensitive data (such as passwords)](https://www.terraform.io/docs/state/sensitive-data.html).
 
-## Visualize the changes with plan
-
-Run `terraform plan` to preview the virtual machine infrastructure created by the template.
-
-![Terraform Plan](media/create-vm-cluster-with-infrastructure/terraform-plan.png)
-
-
-## Create the virtual machines with apply
-
-Run `terraform apply` to provision the VMs on Azure.
-
-![Terraform Apply](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Browse the list of Azure Terraform modules](https://registry.terraform.io/modules/Azure)
+> [Learn more about using Terraform in Azure](/azure/terraform)

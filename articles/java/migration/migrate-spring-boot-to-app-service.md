@@ -108,7 +108,7 @@ You'll need to create a Web App on your App Service Plan (choosing "Java SE" as 
 
 #### Maven applications
 
-If your application is built from a Maven POM file, [use the Webapp plugin for Maven](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin#configure-maven-plugin-for-azure-app-service) to create the Web App and deploy your application.
+If your application is built from a Maven POM file, use the Webapp plugin for Maven to create the Web App and deploy your application. For more information, see [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux).
 
 #### Non-Maven applications
 
@@ -157,7 +157,7 @@ Now that you have your application migrated to Azure App Service you should veri
 
 ### Recommendations
 
-* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
 
 * If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 

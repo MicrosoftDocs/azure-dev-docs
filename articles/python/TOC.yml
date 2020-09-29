@@ -16,7 +16,7 @@
       items:
         - name: Using Visual Studio Code
           items:
-            - name: 1 Introduction and prerequisites
+            - name: 1 Configure your environment
               href: tutorial-vs-code-serverless-python-01.md
             - name: 2 Create the Python function
               href: tutorial-vs-code-serverless-python-02.md
@@ -47,7 +47,7 @@
     items:
       - name: Using Visual Studio Code
         items:
-        - name: 1 Introduction and prerequisites
+        - name: 1 Configure your environment
           href: tutorial-deploy-app-service-on-linux-01.md
         - name: 2 Prepare your app
           href: tutorial-deploy-app-service-on-linux-02.md
@@ -84,7 +84,7 @@
   items:
     - name: Using Visual Studio Code
       items:
-        - name: 1 Introduction and prerequisites
+        - name: 1 Configure your environment
           href: tutorial-deploy-containers-01.md
         - name: 2 Deploy the container image
           href: tutorial-deploy-containers-02.md
@@ -115,10 +115,26 @@
       items:
       - name: Authenticate apps with Azure
         href: azure-sdk-authenticate.md
-      - name: Manage service principals
-        href: how-to-manage-service-principals.md
       - name: Assign role permissions to security principals
         href: how-to-assign-role-permissions.md
+      - name: Manage service principals
+        href: how-to-manage-service-principals.md
+      - name: Walkthrough tutorial
+        items:
+        - name: 1 Introduction and background
+          href: walkthrough-tutorial-authentication-01.md
+        - name: 2 Authentication requirements
+          href: walkthrough-tutorial-authentication-02.md
+        - name: 3 Third-party API implementation
+          href: walkthrough-tutorial-authentication-03.md
+        - name: 4 Main app implementation
+          href: walkthrough-tutorial-authentication-04.md
+        - name: 5 Dependencies and environment variables
+          href: walkthrough-tutorial-authentication-05.md
+        - name: 6 Main app startup code
+          href: walkthrough-tutorial-authentication-06.md
+        - name: 7 Main app endpoint
+          href: walkthrough-tutorial-authentication-07.md
     - name: Install packages
       href: azure-sdk-install.md
     - name: Package index

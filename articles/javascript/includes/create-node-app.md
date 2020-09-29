@@ -4,6 +4,7 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: buhollan
+ms.custom: devx-track-js
 ---
 
 1. At a terminal command prompt, go to the location where you want to create the app folder.

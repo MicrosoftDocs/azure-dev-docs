@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure VM security using Azure Key V
 keywords: ansible, azure, devops, key vault, security, credentials, secrets, keys, certificates, ansible modules for azure, resource group, azure_rm_resourcegroup, 
 ms.topic: tutorial
 ms.date: 04/20/2020
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Use Azure Key Vault with a Linux virtual machine in Ansible
@@ -34,13 +35,13 @@ This tutorial shows you how to use the Ansible collection for Azure modules in u
 
 Use the Azure CLI to get the necessary Azure subscription information needed when using the Ansible modules for Azure. 
 
-1. Get the Azure subscription ID and Azure subscription tenant ID using the `az account show` command. For the `<Subscription>` placeholder, specify either the Azure subscription name or Azure subscription ID. The command will display many of the key values associated with the default Azure subscription. If you have multiple subscriptions, you might need to set the current subscription via the [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. From the command's output, make note of both the **ID** and **tenantID** values.
+1. Get the Azure subscription ID and Azure subscription tenant ID using the `az account show` command. For the `<Subscription>` placeholder, specify either the Azure subscription name or Azure subscription ID. The command will display many of the key values associated with the default Azure subscription. If you have multiple subscriptions, you might need to set the current subscription via the [az account set](/cli/azure/account#az-account-set) command. From the command's output, make note of both the **ID** and **tenantID** values.
 
     ```azurecli
     az account show --subscription "<Subscription>" --query tenantId
     ```
 
-1. If you don't have a service principal for the Azure subscription. [create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). From the command's output, make note of the **appId** value.
+1. If you don't have a service principal for the Azure subscription. [create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). From the command's output, make note of the **appId** value.
 
 1. Get the object ID of the service principal using the `az ad sp show` command. For the `<ApplicationID>` placeholder, specify the service principal appId. The `--query` parameter indicates which value to print to *stdout*. In this case, it's the service principal object ID.
 
@@ -435,23 +436,23 @@ Once you have the key vault and its secret established, you can use that informa
     
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. Replace the `<kv_rg>` placeholder with the resource group used to hold the demo key vault.
+When no longer needed, delete the resources created in this article. Replace the `<kv_rg>` placeholder with the resource group used to hold the demo key vault.	
 
-```yml
-- hosts: localhost
-  vars:
-    kv_rg: <kv_rg>
-    test_vm_rg: kv_test_vm_rg
-  tasks:
-    - name: Delete the key vault resource group
-      azure_rm_resourcegroup:
-        name: "{{ kv_rg }}"
-        force_delete_nonempty: yes
-        state: absent
-    - name: Delete the test vm resource group
-      azure_rm_resourcegroup:
-        name: "{{ test_vm_rg }}"
-        force_delete_nonempty: yes
+```yml	
+- hosts: localhost	
+  vars:	
+    kv_rg: <kv_rg>	
+    test_vm_rg: kv_test_vm_rg	
+  tasks:	
+    - name: Delete the key vault resource group	
+      azure_rm_resourcegroup:	
+        name: "{{ kv_rg }}"	
+        force_delete_nonempty: yes	
+        state: absent	
+    - name: Delete the test vm resource group	
+      azure_rm_resourcegroup:	
+        name: "{{ test_vm_rg }}"	
+        force_delete_nonempty: yes	
         state: absent
 ```
 

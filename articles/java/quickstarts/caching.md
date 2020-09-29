@@ -11,4 +11,4 @@ ms.custom: devx-track-java
 The following articles help you get started with various caching options on Azure:
 
 - [Redis - App Cache](/azure/azure-cache-for-redis/cache-java-get-started)
-- [Redis - Spring Data Reactive Redis](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)
+- [Redis - Spring Data Reactive Redis](../spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md)

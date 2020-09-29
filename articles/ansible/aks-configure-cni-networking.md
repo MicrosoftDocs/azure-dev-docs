@@ -1,9 +1,10 @@
 ---
 title: Tutorial - Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
-description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
+description: Learn how to use Ansible to configure Azure CNI networking in Azure Kubernetes Service (AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
@@ -239,37 +240,7 @@ localhost                  : ok=9    changed=4    unreachable=0    failed=0    s
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. 
-
-The sample playbook code in this section is used to:
-
-- Delete a resource group referred to in the `vars` section.
-
-Save the following playbook as `cleanup.yml`:
-
-```yml
----
-- hosts: localhost
-  vars:
-      resource_group: {{ resource_group_name }}
-  tasks:
-      - name: Clean up resource group
-        azure_rm_resourcegroup:
-            name: "{{ resource_group }}"
-            state: absent
-            force: yes
-```
-
-Here are some key notes to consider when working with the sample playbook:
-
-- Replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-- All resources within the specified resource group will be deleted.
-
-Run the playbook using the ansible-playbook command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

@@ -12,6 +12,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 04/03/2020
+  ms.custom: devx-track-ansible
 
 landingContent:
   # Card
@@ -33,11 +34,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Getting started - Cloud Shell
+          - text: Configure Ansible using Azure Cloud Shell
             url: getting-started-cloud-shell.md
-          - text: Deploy Ansible solution template to CentOS
-            url: solution-template-deploy.md
-          - text: Install Ansible on Linux virtual machines
+          - text: Configure Ansible using Azure CLI
             url: install-on-linux-vm.md
       - linkListType: tutorial
         links:

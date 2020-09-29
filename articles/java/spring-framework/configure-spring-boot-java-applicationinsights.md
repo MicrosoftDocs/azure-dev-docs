@@ -97,7 +97,7 @@ Configure the application using the following procedure.
    spring.application.name=[your app name]
    ```
 
-   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
    > [!NOTE]
    > 
@@ -264,7 +264,7 @@ Within a few seconds, you should see all the spring logs being available on Azur
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -278,7 +278,7 @@ Application Insights supports automatic collection of external dependencies and 
 
 For more information about Azure Application Insights, and its monitoring capabilities, see the **[Application Insights]** home page.
 
-For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
 For feature requests and potential bugs, please open issues on our [GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) repository.
 
@@ -288,7 +288,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- URL List -->
 
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

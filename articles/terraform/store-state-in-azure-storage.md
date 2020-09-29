@@ -3,6 +3,7 @@ title: Tutorial - Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: tutorial
 ms.date: 11/07/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Store Terraform state in Azure Storage
@@ -14,8 +15,6 @@ Terraform state is used to reconcile deployed resources with Terraform configura
 - Storing state locally increases the chance of inadvertent deletion.
 
 Terraform supports the persisting of state in remote storage. One such supported back end is Azure Storage. This document shows how to configure and use Azure Storage for this purpose.
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -120,6 +119,8 @@ You can see the lock when you examine the blob through the Azure portal or other
 Data stored in an Azure blob is encrypted before being persisted. When needed, Terraform retrieves the state from the back end and stores it in local memory. Using this pattern, state is never written to your local disk.
 
 For more information on Azure Storage encryption, see [Azure Storage service encryption for data at rest](/azure/storage/common/storage-service-encryption).
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

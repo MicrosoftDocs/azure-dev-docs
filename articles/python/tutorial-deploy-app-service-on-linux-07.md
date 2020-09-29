@@ -20,11 +20,11 @@ Congratulations on completing this walkthrough of deploying Python code to App S
 
 As noted earlier, you can learn more about the App Service extension by visiting its GitHub repository, [vscode-azureappservice](https://github.com/Microsoft/vscode-azureappservice). Issues and contributions are also welcome.
 
-To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](https://docs.microsoft.com/python/azure/?view=azure-python).
+To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](/python/azure/?view=azure-python).
 
 There are also other Azure extensions for VS Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
-![Azure extensions for Visual Studio Code](media/deploy-containers/azure-extensions-for-visual-studio-code.png)
+![Azure extensions for Visual Studio Code](media/deploy-azure/azure-extensions-for-visual-studio-code.png)
 
 Some popular extensions are:
 
@@ -34,6 +34,6 @@ Some popular extensions are:
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 > [!div class="nextstepaction"]
-> [I'm done!](https://docs.microsoft.com/python/azure/?view=azure-python) 
+> [I'm done!](/python/azure/?view=azure-python) 
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=07-clean-up-resources)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

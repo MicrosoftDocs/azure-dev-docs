@@ -3,6 +3,7 @@ title: Tutorial - Setup end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: tutorial
 ms.date: 07/31/2020
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Setup end-to-end Terratest testing on Terraform projects
@@ -15,8 +16,6 @@ In this article, you learn how to do the following tasks:
 > * Understand the basics of end-to-end testing with [Terratest](https://github.com/gruntwork-io/terratest)
 > * Learn how to write end-to-end test using Golang
 > * Learn how to use Azure DevOps to automatically trigger end-to-end tests when code is committed to your repo
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -149,6 +148,8 @@ The test will display results similar to the following output:
 PASS
 ok      test    391.052s
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

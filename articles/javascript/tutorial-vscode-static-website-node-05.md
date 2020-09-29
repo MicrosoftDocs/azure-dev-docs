@@ -1,12 +1,13 @@
 ---
 title: Deploy changes to a static Node.js website from Visual Studio Code
-description: Tutorial part 5, make changes and redeploy
-ms.topic: conceptual
+description: Static web app tutorial part 5, make changes and redeploy
+ms.topic: tutorial
 ms.date: 09/24/2019
 ms.author: buhollan
+ms.custom: devx-track-js
 ---
 
-# Make changes and redeploy
+# Part 5: Make changes and redeploy
 
 [Previous step: Deploy to Azure Storage](tutorial-vscode-static-website-node-04.md)
 
@@ -26,7 +27,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Changes in the app after redeployment](media/static-website/updated-azure-app-angular.png)
+    ![Angular - Once your deployment is complete, refresh the site in the browser to observe changes](media/static-website/updated-azure-app-angular.png)
 
 # [React](#tab/react)
 
@@ -42,7 +43,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Changes in the app after redeployment](media/static-website/updated-azure-app-react.png)
+    ![React - Changes in the app after redeployment](media/static-website/updated-azure-app-react.png)
 
 # [Vue](#tab/vue)
 
@@ -58,7 +59,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Changes in the app after redeployment](media/static-website/updated-azure-app-vue.png)
+    ![Vue - Changes in the app after redeployment](media/static-website/updated-azure-app-vue.png)
 
 # [Svelte](#tab/svelte)
 
@@ -89,7 +90,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Changes in the app after redeployment](media/static-website/updated-azure-app-svelte.png)
+    ![Svelte - Changes in the app after redeployment](media/static-website/updated-azure-app-svelte.png)
 
 ---
 

@@ -73,7 +73,7 @@ The Azure CLI normally maintains your sign-in across sessions, but it's a good p
 
 ## Configure authentication
 
-As described in [How to manage service principals - Basics of authorization](how-to-manage-service-principals.md#basics-of-azure-authorization), each developer needs a service principal to use as the application identity when testing app code locally.
+As described in [How to Authenticate apps](azure-sdk-authenticate.md#identity-when-running-the-app-locally), each developer needs a service principal to use as the application identity when testing app code locally.
 
 The following sections describe how to create a service principal and the environment variables that provide the service principal's properties to the Azure libraries when needed.
 
@@ -93,7 +93,7 @@ Each developer in your organization should perform these steps individually.
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
-1. Create environment variables that the Azure libraries require. (The `DefaultAzureCredential` object of the azure-identity library looks for these variables).
+1. Use the following commands to create environment variables that the Azure libraries require. (The `DefaultAzureCredential` object of the azure-identity library looks for these variables).
 
     # [cmd](#tab/cmd)
 
@@ -119,7 +119,7 @@ Each developer in your organization should perform these steps individually.
 
     To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
 
-    For convenience, create a *.sh* or *.cmd* file with these commands that you can run whenever you open a terminal or command prompt for local testing. Again, don't add the file to source control so it remains only within your user account.
+    For convenience, create a command line script file (such as *setenv.sh* on macOS/Linux or *setenv.cmd* on Windows) that contains these same commands. You can then run the script to set the variables whenever you open a terminal or command prompt for local testing. Again, don't add the script file to source control so it remains only within your user account.
 
 1. Safeguard the client ID and client secret (and any files storing them) so they always remain within a specific user account on a workstation. Never save these properties in source control or share them with other developers. If needed, you can delete the service principal and create a new one.
 

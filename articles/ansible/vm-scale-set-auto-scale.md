@@ -4,6 +4,7 @@ description: Learn how to use Ansible to scale virtual machine scale sets with a
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Autoscale virtual machine scale sets in Azure using Ansible
@@ -72,7 +73,7 @@ Save the following playbook as `vmss-auto-scale.yml`:
               - '10'
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
@@ -166,7 +167,7 @@ Save the following playbook as `vmss-auto-scale-metrics.yml`:
             value: '1'
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
@@ -194,7 +195,7 @@ Save the following playbook as `vmss-auto-scale-get-settings.yml`:
         var: autoscale_query.autoscales[0]
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vmss-auto-scale-get-settings.yml
@@ -221,7 +222,7 @@ Save the following playbook as `vmss-auto-scale-delete-setting.yml`:
          state: absent
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 vmss-auto-scale-delete-setting.yml

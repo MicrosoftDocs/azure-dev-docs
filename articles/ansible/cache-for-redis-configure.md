@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create, scale, reboot, and add a firewa
 keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure caches in Azure Cache for Redis using Ansible
@@ -153,7 +154,7 @@ The following code deletes the cache:
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) and save it to `rediscache.yml`.
-- Create a new file named `rediscache.yml` and copy into it the following contents:
+- Create a new file named `rediscache.yml` and copy following contents into it:
 
 ```yml
 - name: Manage Azure Cache for Redis
@@ -235,7 +236,7 @@ In this section, run the playbook to test various features shown in this article
 
 In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook rediscache.yml
@@ -317,30 +318,9 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: "{{ resource_group_name }}"
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        state: absent
-```
-
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)

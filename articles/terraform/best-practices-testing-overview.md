@@ -3,6 +3,7 @@ title: Tutorial - Terraform testing overview
 description: Learn about the different testing options that you can configure to validate Terraform projects.
 ms.topic: overview
 ms.date: 07/31/2020
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Terraform testing overview
@@ -10,8 +11,6 @@ ms.date: 07/31/2020
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 Terraform is an Infrastructure as Code (IaC) tool. This category of tool refers to the fact that you treat your Terraform files as you would the project's source code. Part of that process includes versioning and source code control. Also, testing should also be a part of your process. This article gives an overview of the different types of tests that can be run against a Terraform project.
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Integration Testing
 
@@ -53,3 +52,5 @@ E2E testing is typically a three-step process. First, the configuration is appli
 
 > [!div class="nextstepaction"]
 > [Learn more about End-to-end Testing](best-practices-end-to-end-testing.md)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]

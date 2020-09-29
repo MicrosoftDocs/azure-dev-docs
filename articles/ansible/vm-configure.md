@@ -3,11 +3,8 @@ title: Quickstart - Configure Linux virtual machines in Azure using Ansible
 description: In this quickstart, learn how to create a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: gwallace
-ms.author: tarcher
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Quickstart: Configure Linux virtual machines in Azure using Ansible
@@ -56,10 +53,6 @@ The following sample Ansible playbook section creates a subnet named `mySubnet` 
 ```
 
 ## Create a public IP address
-
-
-
-
 
 [Public IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) allow Internet resources to communicate inbound to Azure resources. 
 Public IP addresses also enable Azure resources to communicate outbound to public-facing Azure services. In both scenarios, an IP address assigned to the resource being accessed. The address is dedicated to the resource until you unassign it. If a public IP address isn't assigned to a resource, the resource can still communicate outbound to the Internet. The connection is made by Azure dynamically assigning an available IP address. The dynamically assigned address isn't dedicated to the resource.
@@ -281,6 +274,10 @@ This section walks you through running the sample Ansible playbook presented in 
     ```bash
     ssh azureuser@<ip-address>
     ```
+
+## Clean up resources
+
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

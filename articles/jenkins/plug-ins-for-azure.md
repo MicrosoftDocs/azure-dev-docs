@@ -4,6 +4,7 @@ description: Learn about the Jenkins plug-in available for use with Azure
 keywords: jenkins, plugis, azure, devops
 ms.date: 04/25/2020
 ms.topic: article
+ms.custom: devx-track-jenkins
 ---
 
 # Jenkins plug-ins for Azure

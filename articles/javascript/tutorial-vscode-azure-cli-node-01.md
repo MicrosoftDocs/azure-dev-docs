@@ -1,24 +1,25 @@
 ---
 title: Deploy Node.js apps to Azure App Service using the Azure CLI
-description: Tutorial part 1, introduction and prerequisites.
-ms.topic: conceptual
+description: Tutorial part 1, Azure CLI introduction and prerequisites.
+ms.topic: tutorial
 ms.date: 09/24/2019
+ms.custom: devx-track-js
 ---
 
 # Deploy to Azure App Service using the Azure CLI
 
-In this tutorial, you deploy a Node.js application to Azure App Service using the [Azure Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), which runs on all operating systems. With the CLI you can create Azure resources, set up a deployment pipeline between a Git repository and Azure, and view the app's `console.log` output.
+In this tutorial, you deploy a Node.js application to Azure App Service using the [Azure Command Line Interface (CLI)](/cli/azure/overview?view=azure-cli-latest), which runs on all operating systems. With the CLI you can create Azure resources, set up a deployment pipeline between a Git repository and Azure, and view the app's `console.log` output.
 
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
 - [Node.js and npm 6.x or higher](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- The [Azure CLI](/cli/azure/install-azure-cli).
 
 You can alternately use the [Azure CLI extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli), which provides syntax colorization, IntelliSense (completions) and snippets when writing Azure CLI scripts.
 
-A second alternative is the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which you can use from within Visual Studio Code using the the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+A second alternative is the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can use from within Visual Studio Code using the the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ### Azure subscription
 

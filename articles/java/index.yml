@@ -17,7 +17,7 @@ conceptualContent:
       links:
         - text: Deploy a Java SE web app to Linux
           itemType: quickstart
-          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+          url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
         - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
@@ -83,7 +83,7 @@ conceptualContent:
           url: /azure/app-service/containers/configure-language-java
         - text: Deploy a Spring app with MySQL
           itemType: tutorial
-          url: /azure/developer/java/spring-framework/spring-app-service-e2e
+          url: ./spring-framework/spring-app-service-e2e.md
       footerLink:
         text: See App Service documentation
         url: /azure/app-service/containers/
@@ -113,7 +113,7 @@ conceptualContent:
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
           itemType: tutorial
-          url: spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md
+          url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
       footerLink:
         text: See more
         url: spring-framework/index.yml
@@ -125,7 +125,7 @@ conceptualContent:
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
         - text: Create a Spring Cloud Function
           itemType: tutorial
-          url: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure
+          url: ./spring-framework/getting-started-with-spring-cloud-function-in-azure.md
         - text: Developer guide
           itemType: reference
           url: /azure/azure-functions/functions-reference-java
@@ -140,7 +140,7 @@ conceptualContent:
           url: /azure/azure-monitor/app/java-in-process-agent
         - text: Get started with ELK
           itemType: tutorial
-          url: /azure/developer/java/fundamentals/java-get-started-with-logzio
+          url: ./fundamentals/java-get-started-with-logzio.md
         - text: Monitor Spring apps
           itemType: how-to-guide
           url: /azure/spring-cloud/diagnostic-services
@@ -187,3 +187,8 @@ tools:
     - title: Jenkins on Azure
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
       url: /azure/jenkins
+
+additionalContent:
+  sections:
+    - title: ""
+  footer: Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.

@@ -3,6 +3,7 @@ title: Tutorial - Validate a hub and spoke network in Azure using Terraform
 description: Learn how to validate hub and spoke network topology with all virtual networks connected to one another.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Validate a hub and spoke network in Azure using Terraform
@@ -17,8 +18,6 @@ This tutorial covers the following tasks:
 > * Use Terraform apply to create the resources in Azure
 > * Verify the connectivity between different networks
 > * Use Terraform to destroy all the resources
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -138,6 +137,8 @@ When no longer needed, delete the resources created in the tutorial series.
     ```bash
     rm -r hub-spoke
     ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

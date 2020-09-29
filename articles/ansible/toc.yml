@@ -7,22 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Getting started - Cloud Shell
+    - name: Configure Ansible using Azure Cloud Shell
       href: getting-started-cloud-shell.md
-    - name: Deploy Ansible solution template to CentOS
-      href: solution-template-deploy.md
-    - name: Install Ansible on Linux virtual machines
+    - name: Configure Ansible using Azure CLI
       href: install-on-linux-vm.md
-      maintainContext: true
     - name: Work with Linux Virtual Machines
       expanded: true
       items:
       - name: Configure Linux virtual machines
         href: vm-configure.md
-        maintainContext: true
       - name: Manage Linux virtual machines
         href: vm-manage.md
-        maintainContext: true
 - name: Tutorials
   items:
   - name: Azure Application Gateway

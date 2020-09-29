@@ -3,6 +3,7 @@ title: Tutorial - Create a spoke network in Azure using Terraform
 description: Learn how to implement two spoke virtual networks (VNets) connected to a hub in a hub-spoke topology.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create a spoke network in Azure using Terraform
@@ -15,8 +16,6 @@ This tutorial covers the following tasks:
 > * Use HCL (HashiCorp Language) to implement the Spoke VNets in hub-spoke topology
 > * Use Terraform to create Virtual machines in the spoke networks
 > * Use Terraform to establish virtual network peerings with the hub networks
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -297,6 +296,8 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
      
 1. Save the file and exit the editor.
   
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"] 

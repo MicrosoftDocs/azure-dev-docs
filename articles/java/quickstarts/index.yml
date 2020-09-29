@@ -16,9 +16,9 @@ landingContent:
         - text: Linux and Tomcat
           url: /azure/app-service/containers/quickstart-java
         - text: Linux and Java SE
-          url: /azure/developer/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+          url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
         - text: Deploy to Linux using IntelliJ
-          url: /azure/developer/java/toolkit-for-intellij/create-hello-world-web-app
+          url: ../toolkit-for-intellij/create-hello-world-web-app.md
         - text: Deploy to Linux using Visual Studio Code
           url: https://code.visualstudio.com/docs/java/java-webapp
   - title: Serverless functions
@@ -28,7 +28,7 @@ landingContent:
         - text: Create and publish a function to Azure
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Deploy using IntelliJ
-          url: /azure/developer/java/toolkit-for-intellij/quickstart-functions
+          url: ../toolkit-for-intellij/quickstart-functions.md
         - text: Deploy using Visual Studio Code
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
   - title: Azure Spring Cloud
@@ -106,4 +106,4 @@ landingContent:
           - text: App Cache using Jedis
             url: /azure/azure-cache-for-redis/cache-java-get-started
           - text: Spring Data Reactive Redis
-            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+            url: ../spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md

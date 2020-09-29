@@ -4,6 +4,7 @@ description: Learn how to consistently deploy your application to Azure virtual 
 keywords: azure, chef, devops, virtual machines, overview, automate, habitat
 ms.date: 05/15/2018
 ms.topic: article
+ms.custom: devx-track-chef
 ---
 
 # Use Habitat to deploy your application to Azure
@@ -22,7 +23,7 @@ Habitat solves the continuous deployment of complex, microservice-oriented appli
 
 ## Run any application anywhere
 
-With Habitat, applications can run unmodified in any runtime environment. This includes everything from bare metal and virtual machines to containers (such as Docker), cluster-management systems (such as Mesosphere or Kubernetes), and PaaS systems (such as Pivotal Cloud Foundry).
+With Habitat, applications can run unmodified in any runtime environment. This includes everything from bare metal and virtual machines to containers (such as Docker), cluster-management systems (such as Mesosphere or Kubernetes), and PaaS systems (such as VMware Tanzu Application Service (formerly Pivotal Cloud Foundry)).
 
 ## Integrate into the Chef DevOps workflow
 

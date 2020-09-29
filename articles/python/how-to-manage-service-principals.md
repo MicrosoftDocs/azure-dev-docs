@@ -1,26 +1,16 @@
 ---
 title: Manage local service principals for Azure development
 description: How to manage service principals created for local development by using the Azure portal or the Azure CLI.
-ms.date: 05/12/2020
+ms.date: 08/18/2020
 ms.topic: conceptual 
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # How to manage service principals
 
-For security purposes, you always want to carefully manage how app code is authorized to access and modify any Azure resources. When testing code locally, you should always use a local *service principal* rather than running as a fully privileged user, as described in [Configure your local Python dev environment - Authentication](configure-local-development-environment.md#configure-authentication).
+As described in [How to authenticate an app](azure-sdk-authenticate.md), you often use service principals to identify an app with Azure except when using managed identity.
 
-Over time, you'll probably need to delete, rename, or otherwise manage these service principals, which you can do through the Azure portal or by using the Azure CLI.
-
-## Basics of Azure authorization
-
-Whenever your code attempts to perform any operation on Azure resources (which you do through classes in the Azure libraries), Azure ensures that the application is authorized to perform that action. You use the [Azure portal](https://portal.azure.com) or the Azure CLI to grant specific role- or resource-based permissions to the application's identity. (This procedure avoids granting excess permissions to the application that could be exploited if your application's security is ever compromised.)
-
-When deployed to Azure, the application's identity is typically the same as the name you give the app within the service that's hosting it (such as Azure App Service, Azure Functions, a virtual machine, etc., when managed identity is enabled). When you run your code locally, however, no such hosting service is involved, so you need to present Azure with a suitable substitute.
-
-For this purpose, you use a local *service principal*, which is another name for an app identity as opposed to a user identity. The service principal has a name, a "tenant" identifier (essentially an ID for your organization), an app or "client" identifier, and a secret/password. These credentials are sufficient to authenticate the identity with Azure, which can then check whether that identity is authorized to access any given resource.
-
-Each developer should have his or her own service principal that's secured within their user account on their workstation and never stored in a source control repository. If any one service principal is every stolen or compromised, you can easily delete it on the Azure portal to revoke all of its permissions, and then recreate the service principal for that developer.
+Over time, you typically need to delete, rename, or otherwise manage these service principals, which you can do through the Azure portal or by using the Azure CLI.
 
 ## Manage service principals using the Azure portal
 

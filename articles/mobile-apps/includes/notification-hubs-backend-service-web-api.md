@@ -31,9 +31,7 @@
 
 1. Delete **WeatherForecast.cs**.
 
-1. **Control** + **Click** on the **PushDemoApi** project, then choose **New File...** from the **Add** menu.
-
-1. Set up local configuration values using the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=linux#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
+1. Set up local configuration values using the [Secret Manager tool](/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=linux#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
 
     ```bash
     dotnet user-secrets init
@@ -54,7 +52,7 @@
 
 ### Authenticate clients using an API Key (Optional)
 
-API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
+API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
 
 1. Add the **API key** to the local configuration values.
 
@@ -145,7 +143,7 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
     ```
 
     > [!NOTE]
-    > An [Authentication Handler](https://docs.microsoft.com/aspnet/core/security/authentication/?view=aspnetcore-3.1#authentication-handler) is a type that implements the behavior of a scheme, in this case a custom API Key scheme.
+    > An [Authentication Handler](/aspnet/core/security/authentication/?view=aspnetcore-3.1#authentication-handler) is a type that implements the behavior of a scheme, in this case a custom API Key scheme.
 
 1. Add another **Empty Class** to the **Authentication** folder called *ApiKeyAuthenticationBuilderExtensions.cs*, then add the following implementation.
 
@@ -176,6 +174,8 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
 1. In **Startup.cs**, update the **ConfigureServices** method to configure the API Key authentication below the call to the **services.AddControllers** method.
 
     ```csharp
+    using PushDemoApi.Authentication;
+    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
@@ -218,7 +218,7 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
 
 ### Add dependencies and configure services
 
-ASP.NET Core supports the [dependency injection (DI)](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
+ASP.NET Core supports the [dependency injection (DI)](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
 
 Use of the notification hub and the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) is encapsulated within a service. The service is registered and made available through a suitable abstraction.
 
@@ -255,9 +255,9 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages).
+    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages).
 
-1. Select **General** > **Empty Class**, enter *DeviceInstallation.cs* for the **Name**, then click **New** adding the following implementation.
+1. Add another **Empty Class** to the **Models** folder called *DeviceInstallation.cs*, then add the following implementation.
 
     ```csharp
     using System.Collections.Generic;
@@ -321,6 +321,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. Add an **Empty Interface** to the **Services** folder called *INotificationService.cs*, then add the following implementation.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     using PushDemoApi.Models;
 
@@ -505,7 +506,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > The tag expression provided to **SendTemplateNotificationAsync** is limited to 20 tags. It is limited to 6 for most operators but the expression contains only ORs (||) in this case. If there are more than 20 tags in the request then they must be split into multiple requests. See the [Routing and Tag Expressions](https://msdn.microsoft.com/library/azure/Dn530749.aspx?f=255&MSPPError=-2147217396) documentation for more detail.
+    > The tag expression provided to **SendTemplateNotificationAsync** is limited to 20 tags. It is limited to 6 for most operators but the expression contains only ORs (||) in this case. If there are more than 20 tags in the request then they must be split into multiple requests. See the [Routing and Tag Expressions](/previous-versions/azure/azure-services/dn530749(v=azure.100)?f=255&MSPPError=-2147217396) documentation for more detail.
 
 1. In **Startup.cs**, update the **ConfigureServices** method to add the **NotificationHubsService** as a singleton implementation of **INotificationService**.
 
@@ -601,7 +602,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     >
     > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **[Postman](https://www.postman.com/downloads)** setting off in the **Settings**.
 
-1. Replace the templated class methods with the following code.
+1. Replace the templated class methods in **NotificationsController.cs** with the following code.
 
     ```csharp
     [HttpPut]
@@ -664,7 +665,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 ### Create the API app
 
-You now create an [API App](https://azure.microsoft.com/services/app-service/api/) in [Azure App Service](https://docs.microsoft.com/azure/app-service/) for hosting the backend service.  
+You now create an [API App](https://azure.microsoft.com/services/app-service/api/) in [Azure App Service](/azure/app-service/) for hosting the backend service.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

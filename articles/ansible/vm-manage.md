@@ -3,11 +3,8 @@ title: Quickstart - Manage Linux virtual machines in Azure using Ansible
 description: In this quickstart, learn how to manage a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
-ms.service: ansible
-author: tomarchermsft
-manager: gwallace
-ms.author: tarcher
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Quickstart: Manage Linux virtual machines in Azure using Ansible
@@ -51,7 +48,7 @@ In this section, you use Ansible to deallocate (stop) an Azure virtual machine.
 
 1. Save the file and exit the editor.
 
-1. Run the playbook using the `ansible-playbook` command:
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
     ```bash
     ansible-playbook azure-vm-stop.yml
@@ -103,7 +100,7 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
 
 1. Save the file and exit the editor.
 
-1. Run the playbook using the `ansible-playbook` command:
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
     ```bash
     ansible-playbook azure-vm-start.yml

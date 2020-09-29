@@ -84,7 +84,7 @@ Use the following grid to identify potential destinations for your application t
 | Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
 | Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
-| VNet Integration/Hybrid Connectivity                              |Preview |Preview |        |&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|Preview |&#x2714;|&#x2714;|
 | Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
@@ -138,7 +138,7 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first conver
 |---|---|---|---|---|---|---|
 | Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | [guidance][16] | [guidance][14]      | guidance<br>planned |
 | Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15] | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A            | [guidance][3]       | guidance<br>planned |
+| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | [guidance][17] | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
@@ -168,3 +168,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [14]: migrate-spring-boot-to-azure-kubernetes-service.md
 [15]: migrate-spring-cloud-to-azure-spring-cloud.md
 [16]: migrate-spring-boot-to-azure-spring-cloud.md
+[17]: migrate-tomcat-to-azure-spring-cloud.md

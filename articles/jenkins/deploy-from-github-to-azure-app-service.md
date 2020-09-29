@@ -4,6 +4,7 @@ description: Learn how to configure Jenkins for continuous integration (CI) from
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 08/10/2020
+ms.custom: devx-track-jenkins
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service using Jenkins
@@ -147,7 +148,7 @@ uses for authenticating and accessing Azure resources.
 
 ## Create service principal
 
-In a later section, you create a Jenkins pipeline job that builds your app from GitHub and deploys your app to Azure App Service. To have Jenkins access Azure without entering your credentials, you need a [service principal](/active-directory/develop/app-objects-and-service-principals)). If you already have a service principal you can use for this article, you can skip this section.
+In a later section, you create a Jenkins pipeline job that builds your app from GitHub and deploys your app to Azure App Service. To have Jenkins access Azure without entering your credentials, you need a [service principal](/azure/active-directory/develop/app-objects-and-service-principals)). If you already have a service principal you can use for this article, you can skip this section.
 
 To create this service principal, run the Azure CLI command [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac).
 
@@ -326,11 +327,11 @@ Make sure your web app has a unique name.
 
    For more information about these Azure CLI commands, see these pages:
 
-   * [**`az group create`**](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)
+   * [**`az group create`**](/cli/azure/group?view=azure-cli-latest#az-group-create)
 
-   * [**`az appservice plan create`**](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
+   * [**`az appservice plan create`**](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
 
-   * [**`az webapp create`**](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+   * [**`az webapp create`**](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 
 1. In Jenkins, select your pipeline job, and select **Build Now**.
 

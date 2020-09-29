@@ -4,6 +4,7 @@ description: Learn how to use Terraform and HCL to create a Linux virtual machin
 keywords: azure devops terraform vm virtual machine cluster
 ms.topic: how-to
 ms.date: 03/09/2020
+ms.custom: devx-track-terraform
 ---
 
 # Create an Azure VM cluster with Terraform and HCL
@@ -20,8 +21,6 @@ You'll learn how to do the following tasks:
 > * Initialize Terraform.
 > * Create a Terraform execution plan.
 > * Apply the Terraform execution plan to create the Azure resources.
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -246,6 +245,8 @@ If you want to apply a previously saved execution plan, run the following comman
   ```
 
 ![Applying a Terraform execution plan](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

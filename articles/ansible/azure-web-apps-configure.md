@@ -4,6 +4,7 @@ description: Learn how to create an app in Azure App Service with Java 8 and the
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure apps in Azure App Service using Ansible
@@ -66,7 +67,7 @@ Save the following playbook as `firstwebapp.yml`:
               java_container_version: 8.5
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook firstwebapp.yml
@@ -190,7 +191,7 @@ Save the following playbook as `webapp.yml`:
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook webapp.yml

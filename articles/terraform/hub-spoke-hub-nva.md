@@ -3,6 +3,7 @@ title: Tutorial - Create a hub virtual network appliance in Azure using Terrafor
 description: Learn how to create a Hub virtual network (VNet) that acts as a common connection point between other networks.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create a hub virtual network appliance in Azure using Terraform
@@ -18,8 +19,6 @@ This article covers the following tasks:
 > * Use Terraform to create Hub Network Virtual Machine which acts as appliance
 > * Use Terraform to enable routes using CustomScript extensions
 > * Use Terraform to create Hub and Spoke gateway route tables
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -264,6 +263,8 @@ Create the Terraform configuration file that declares an on-premises virtual net
     ```
 
 1. Save the file and exit the editor.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

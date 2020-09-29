@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Example: Use the Azure libraries to provision a resource group
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.)
+This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article. If you prefer to use the Azure portal, see [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).)
 
 All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
 
@@ -103,7 +103,7 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-ResourceGroup-rg
+az group delete -n PythonAzureExample-ResourceGroup-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.

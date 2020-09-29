@@ -4,6 +4,7 @@ description: Learn how to use InSpec to detect issues in your Azure deployments
 keywords: azure, chef, devops, virtual machines, overview, automate, inspec
 ms.date: 03/19/2019
 ms.topic: article
+ms.custom: devx-track-chef
 ---
 
 # Use InSpec for compliance automation of your Azure infrastructure
@@ -24,7 +25,7 @@ InSpec's agentless detect mode enable you to quickly assess - at scale - your ex
 
 ## Audit Azure virtual machines with Policy Guest Configuration
 
-Azure directly supports use of Chef InSpec definitions to audit Azure virtual machines through [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). Guest Configuration evaluates a Linux virtual machine to a provided Chef InSpec definition and reports compliance back through Azure Policy. The results of these audits are also reported through Azure Monitor logs; enabling alerts and other automation scenarios.
+Azure directly supports use of Chef InSpec definitions to audit Azure virtual machines through [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration). Guest Configuration evaluates a Linux virtual machine to a provided Chef InSpec definition and reports compliance back through Azure Policy. The results of these audits are also reported through Azure Monitor logs; enabling alerts and other automation scenarios.
 
 ## Satisfy audits
 

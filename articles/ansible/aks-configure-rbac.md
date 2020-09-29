@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Serv
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure role-based access control (RBAC) roles in Azure Kubernetes Service (AKS) using Ansible
@@ -252,7 +253,7 @@ Save the following code as `cleanup.yml`:
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook cleanup.yml

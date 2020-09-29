@@ -33,9 +33,9 @@ landingContent:
           - text: Visual Studio Code
             url: https://code.visualstudio.com/docs/languages/java
           - text: IntelliJ IDEA
-            url: /azure/developer/java/toolkit-for-intellij
+            url: ../toolkit-for-intellij/index.yml
           - text: Eclipse
-            url: /azure/developer/java/toolkit-for-eclipse
+            url: ../toolkit-for-eclipse/index.yml
   - title: Maven plugins
     linkLists:
       - linkListType: overview
@@ -51,7 +51,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Configure logging with the Azure SDK for Java
-            url: /azure/developer/java/sdk/java-sdk-azure-log
+            url: ../sdk/java-sdk-azure-log.md
           - text: Monitoring and logging using Logz.io
             url: java-get-started-with-logzio.md
   - title: DevOps

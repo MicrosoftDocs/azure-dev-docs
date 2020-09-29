@@ -3,6 +3,7 @@ title: Deploy an Azure Cosmos DB to Azure Container Instances
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: how-to
 ms.date: 04/26/2020
+ms.custom: devx-track-terraform
 ---
 
 # Deploy an Azure Cosmos DB to Azure Container Instances
@@ -13,8 +14,6 @@ In this article, you create Azure resources using Terraform. The steps in this a
 > * Azure Cosmos DB instance
 > * Azure Container Instance
 > * App that works across these two resources
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -170,6 +169,8 @@ Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html)
 ```bash
 terraform destroy -auto-approve
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

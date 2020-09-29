@@ -102,14 +102,24 @@ Before you execute the steps in [Test queries to the managed domain](/azure/acti
    >
    > Here are some tips about querying the LDAP data, which you'll need to do to collect some values necessary for WLS configuration.
    >
-   > * The tutorial advises use of the Windows program *LDP.exe*.  It's also possible to use [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) for the same purpose.
+   > * The tutorial advises use of the Windows program *LDP.exe*.  This program is only available on Windows.  For non-Windows users, it's also possible to use [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) for the same purpose.
    > * When logging in to LDAP with *LDP.exe*, the username is just the part before the @.  For example, if the user is `alice@contoso.onmicrosoft.com`, the username for the *LDP.exe* bind action is `alice`.  Also, leave *LDP.exe* running and logged in for use in subsequent steps.
    >
 In the section [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access), note down the value for **Secure LDAP external IP address**.  You'll use it later.
 
+If the value of the **Secure LDAP external IP address** is not readily apparent, follow these steps to get the IP address.
+
+1. In the portal, find the resource group that contains the Azure AD Domain Services resource.
+1. In the list of resources, select the public IP resource for the Azure AD Domain Services resource, as shown next.  The public IP will likely start with `aads`.
+   :::image type="content" source="media/migrate-weblogic-with-aad-ldap/alternate-secure-ip-address-technique.png" alt-text="Browser showing how to select the public IP.":::
+1. The public IP is shown next to the label, **IP address**.
+
 Do not execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
 
 With the above variations in mind, complete [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).  We can now collect the values necessary to provide to the WLS Configuration.
+
+>[!NOTE]
+> Please wait for the secure LDAP configuration to complete processing before moving on to the next section.
 
 ### Disable weak TLS v1
 
@@ -153,11 +163,11 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 |----------------|---------------|---------|
 | `aadsServerHost` | Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
 | `aadsPublicIP` | Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
-| `wlsLDAPPrincipal` | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users"**.</li></ol> |
+| `wlsLDAPPrincipal` | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
 | `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
 | `wlsLDAPPrincipalPassword` | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
 | `wlsLDAPProviderName` | Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
-| `wlsLDAPSSLCertificate` | Trust Keystore for SSL Configuration | This value is the base 64 encoded *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).  This value can be obtained with the following UNIX or PowerShell commands. <br /> bash: <br /> `base64 your-certificate.cer -w 0 >temp.txt` <br /> PowerShell: <br /> `$Content = Get-Content -Path .\your-certificate.cer -Encoding Byte`<br /> `$Base64 = [System.Convert]::ToBase64String($Content)` <br /> `$Base64 | Out-File .\temp.txt`
+| `wlsLDAPSSLCertificate` | Trust Keystore for SSL Configuration | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ### Integrating Azure AD DS LDAP with WLS
 
@@ -194,4 +204,4 @@ Now it's time to follow the steps on the [Clean up resources](/azure/active-dire
 Explore other aspects of migrating WebLogic Server apps to Azure.
 
 > [!div class="nextstepaction"]
-> [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
+> [Migrate WebLogic Server applications to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)

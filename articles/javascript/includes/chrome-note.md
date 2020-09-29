@@ -1,2 +1,5 @@
+---
+ms.custom: devx-track-js
+---
 > [!NOTE] 
 > You need to verify your website works as expected with the upcoming changes in how cookies are handled in Google Chrome. Although the change helps prevent cross-site request forgery (CSRF) attacks, without proper remediation it will severely affect many applications and services that rely on today’s cookie handling defaults, including Microsoft cloud services or your own. This change is expected to roll out as the default Chrome behavior in release 80 that is targeted for February 4, 2020. For more information and details on how to test your app, see [Potential disruption to customer websites and Microsoft products and services in Chrome version 79 and later](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome).

@@ -3,6 +3,7 @@ title: Tutorial - Create a hub virtual network in Azure by using Terraform
 description: Learn how to create a hub virtual network in Azure that acts as a common connection point between other networks.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create a hub virtual network in Azure by using Terraform
@@ -16,8 +17,6 @@ This article covers the following tasks:
 > * Use Terraform to create a hub jumpbox virtual machine.
 > * Use Terraform to create a hub virtual private network gateway.
 > * Use Terraform to create hub and on-premises gateway connections.
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -221,6 +220,8 @@ Create the Terraform configuration file that declares the hub virtual network.
     ```
     
 3. Save the file, and exit the editor.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

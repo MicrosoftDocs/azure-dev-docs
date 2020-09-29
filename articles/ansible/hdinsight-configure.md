@@ -4,6 +4,7 @@ description: Learn how to use Ansible to configure, resize, and delete an Azure 
 keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure a cluster in Azure HDInsight using Ansible
@@ -197,7 +198,7 @@ The playbook code in this section deletes the cluster.
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) and save it to `hdinsight_create.yml`.
-- Create a new file named `hdinsight_create.yml` and copy into it the following contents:
+- Create a new file named `hdinsight_create.yml` and copy the following contents into it:
 
 ```yml
 ---
@@ -346,7 +347,7 @@ In this section, run the playbook to test various features shown in this article
 Before running the playbook, make the following changes:
 - In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -354,27 +355,7 @@ ansible-playbook hdinsight.yml
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-  tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        force_delete_nonempty: yes
-        state: absent
-```
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 

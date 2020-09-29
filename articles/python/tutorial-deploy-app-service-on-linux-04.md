@@ -108,4 +108,4 @@ To use a framework other than Django or Flask (such as Falcon, FastAPI, etc.), o
 > [!div class="nextstepaction"]
 > [I configured my startup file - continue to step 5 >>>](tutorial-deploy-app-service-on-linux-05.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=04-startup-command)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

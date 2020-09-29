@@ -2,7 +2,7 @@
 title: "Step 5: Deploy Azure Functions in Python with VS Code"
 description: Tutorial step 5, deploying Python function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/17/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -18,7 +18,9 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
     ![Deploy your Python function to an Azure Function App](media/tutorial-vs-code-serverless-python/deploy-a-python-fuction-to-azure-function-app.png)
 
-1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens). If you previously created a Function App, its name appears in this list of options.
+1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens).
+
+    If you previously created a Function App, its name appears in this list of options.
 
 1. When prompted, select a Python version and Azure location.
 
@@ -70,4 +72,3 @@ To apply any changes you make through the portal or through the **Azure Explorer
 > [!div class="nextstepaction"]
 > [I deployed the functions - continue to step 6 >>>](tutorial-vs-code-serverless-python-06.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-functions-python&step=05-deploy)

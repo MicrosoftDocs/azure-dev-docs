@@ -4,6 +4,7 @@ description: Learn how to use Ansible to create and configure virtual machine sc
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure virtual machine scale sets in Azure using Ansible
@@ -140,7 +141,7 @@ Before running the playbook, see the following notes:
 
 * In the `vars` section, replace the `{{ admin_password }}` placeholder with your own password.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vmss-create.yml
@@ -238,7 +239,7 @@ There are two ways to get the sample playbook:
       azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook vmss-scale-out.yml

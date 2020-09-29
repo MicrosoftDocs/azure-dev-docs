@@ -4,6 +4,7 @@ description: Introduction to using Chef to configure and test your Azure infrast
 keywords:  azure, chef, devops, virtual machines, overview, automate
 ms.date: 02/22/2020
 ms.topic: article
+ms.custom: devx-track-chef
 ---
 
 # Using Chef with Azure
@@ -14,7 +15,7 @@ This article describes the benefits of using Chef to manage Azure infrastructure
 
 ## Chef Extension on Azure
 
-Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](https://docs.microsoft.com/azure/chef/chef-extension-portal) on the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). Once provisioned, these virtual machines are ready to be managed by a Chef server.
+Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](/azure/chef/chef-extension-portal) on the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
 ## Chef Cloud Shell
 

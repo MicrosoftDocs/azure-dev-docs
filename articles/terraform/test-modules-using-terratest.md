@@ -3,6 +3,7 @@ title: Tutorial - Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Test Terraform modules in Azure using Terratest
@@ -21,14 +22,12 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Test cases are written in Go** - Many developers who use Terraform are Go developers. If you're a Go developer, you don't have to learn another programming language to use Terratest.
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **Azure CLI**: The [Azure CLI](/cli/azure/install-azure-cli) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 - **mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
 
 ## Create a static webpage module
@@ -515,6 +514,8 @@ With mage, you could also share the steps by using the Go package system. In tha
 **Optional: Set service principal environment variables to run acceptance tests**
  
 Instead of executing `az login` before tests, you can complete Azure authentication by setting the service principal environment variables. Terraform publishes a [list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailed instructions that explain how to [obtain the value of these environment variables](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

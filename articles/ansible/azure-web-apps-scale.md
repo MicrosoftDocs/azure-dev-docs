@@ -4,6 +4,7 @@ description: Learn how to scale up an app in Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Scale apps in Azure App Service using Ansible
@@ -75,7 +76,7 @@ Save the following playbook as `webapp_scaleup.yml`:
       var: facts.appserviceplans[0].sku
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook webapp_scaleup.yml

@@ -147,7 +147,7 @@ Without any authentication parameters, password-based authentication is used wit
 
 1. Retrieve the password for your container registry:
    ```azurecli
-   az acr credential show --name wingtiptoysregistry --query passwords[0]
+   az acr credential show --name wingtiptoysregistry --resource-group wingtiptoysresources "passwords[0].value"
    ```
    Azure will respond with your password; for example:
    ```json
@@ -282,7 +282,7 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
    <plugin>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-webapp-maven-plugin</artifactId>
-      <version>0.1.3</version>
+      <version>1.10.0</version>
       <configuration>
          <authentication>
             <serverId>azure-auth</serverId>
@@ -369,7 +369,7 @@ When your web has been deployed, you will be able to manage it by using the [Azu
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
@@ -391,7 +391,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 [Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Container Service (AKS)]: https://azure.microsoft.com/services/container-service/
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [Azure portal]: https://portal.azure.com/
 [Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
@@ -407,7 +407,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
 
-[Java Development Kit (JDK)]: https://aka.ms/azure-jdks
+[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->

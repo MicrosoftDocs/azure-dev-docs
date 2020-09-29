@@ -3,6 +3,7 @@ title: Tutorial - Create on-premises virtual network in Azure using Terraform
 description: Learn how to implement an on-premises virtual network (VNet) in Azure that houses local resources.
 ms.topic: tutorial
 ms.date: 10/26/2019
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create on-premises virtual network in Azure using Terraform
@@ -16,8 +17,6 @@ The following tasks are explained:
 > * Use Terraform to create hub network appliance resources
 > * Use Terraform to create on-premises virtual machine
 > * Use Terraform to create on-premises virtual private network gateway
-
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
 
 ## Prerequisites
 
@@ -215,6 +214,8 @@ Create the Terraform configuration file that declares an on-premises VNet.
     ```
 
 1. Save the file and exit the editor.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy Python apps to Azure App Service on Linux from Visual Studio Code"
-description: Tutorial step 1, introduction, prerequisites, and signing into Azure.
+description: Tutorial step 1, configure your environment for App Service
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-python, seo-python-october2019
@@ -10,14 +10,17 @@ ms.custom: devx-track-python, seo-python-october2019
 
 This article walks you through using Visual Studio Code to deploy a Python application to Azure App Service on Linux using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **I ran into an issue** link at the end of each article to submit feedback.
+If you encounter issues with any of the steps in this tutorial, we'd love to hear the details. Use the **Having issues? Let us know.** link at the end of each article to submit feedback.
 
 For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc-sA&feature=youtu.be&ocid=AID3006292" target="_blank">Build WebApps with VS Code and Azure App Service</a> (youtube.com) from virtual PyCon 2020.
+
+> [!NOTE]
+> If you prefer to deploy apps through the CLI, see **[Quickstart: Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)**.
 
 > [!TIP]
 > [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described on [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7).
 
-## Prerequisites
+## Configure your environment
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code with the Azure App Service extension](#visual-studio-code-python-and-the-azure-app-service-extension).
@@ -42,4 +45,4 @@ Install the following software:
 > [!div class="nextstepaction"]
 > [I signed into Azure - continue to step 2 >>>](tutorial-deploy-app-service-on-linux-02.md)
 
-[I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=vscode-appservice-python&step=01-verify-prerequisites)
+[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)

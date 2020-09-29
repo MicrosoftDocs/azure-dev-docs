@@ -4,6 +4,7 @@ description: Learn how to create, manage, and delete Azure route tables using An
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 ms.topic: tutorial
 ms.date: 04/30/2019
+ms.custom: devx-track-ansible
 ---
 
 # Tutorial: Configure Azure route tables using Ansible
@@ -47,7 +48,7 @@ Save the following playbook as `route_table_create.yml`:
         resource_group: "{{ resource_group }}"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_table_create.yml
@@ -104,7 +105,7 @@ Save the following playbook as `route_table_associate.yml`:
         route_table: "{ route_table_name }"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_table_associate.yml
@@ -133,7 +134,7 @@ Save the following playbook as `route_table_dissociate.yml`:
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_table_dissociate.yml
@@ -166,7 +167,7 @@ Before running the playbook, see the following notes:
 * `virtual_network_gateway` is defined as `next_hop_type`. For more information about how Azure selects routes, see [Routing overview](/azure/virtual-network/virtual-networks-udr-overview).
 * `address_prefix` is defined as `10.1.0.0/16`. The prefix can't be duplicated within the route table.
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_create.yml
@@ -193,7 +194,7 @@ Save the following playbook as `route_delete.yml`:
         state: absent
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_delete.yml
@@ -221,7 +222,7 @@ Save the following playbook as `route_table_facts.yml`:
          var: query.route_tables[0]
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_table_facts.yml
@@ -250,7 +251,7 @@ Save the following playbook as `route_table_delete.yml`:
         state: absent
 ```
 
-Run the playbook using the `ansible-playbook` command:
+Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
 ```bash
 ansible-playbook route_table_delete.yml
