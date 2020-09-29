@@ -237,7 +237,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-storage-blob>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-cloud-storage-resource-sample>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -256,8 +256,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-          <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-storage-spring-boot-starter</artifactId>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>spring-starter-azure-storage</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
