@@ -13,7 +13,13 @@ ms.custom: devx-track-java
 
 This article describes the various Spring Boot Starters for the [Spring Initializr] that provide Java developers with integration features for working with Microsoft Azure.
 
+>[!div class="mx-imgBorder"]
 ![Azure Spring Boot Starters][spring-boot-starters]
+
+> [!NOTE]
+>
+> The default Java version is 11, please select Java 8.
+> 
 
 The following Spring Boot Starters are currently available for Azure:
 
@@ -32,6 +38,11 @@ The following Spring Boot Starters are currently available for Azure:
 * **[Azure Storage](#azure-storage)**
 
    Provides Spring Boot support for Azure Storage services.
+   
+   > [!NOTE]
+   >
+   > The new version does not support adding Azure storage dependency on this page, you can manually modify the pom.xml file.
+   > 
 
 <a name="azure-support"></a>
 ## Azure Support
@@ -49,18 +60,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-spring-boot</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -94,18 +120,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-active-directory-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -128,6 +169,11 @@ When you add this starter to a Spring Boot project, the following changes are ma
 
 This Spring Boot Starter provides Spring value annotation support for integration with Azure Key Vault Secrets.
 
+   > [!NOTE]
+   >
+   > Default Java version is 11, please select Java 8.
+   > 
+
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
 * <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-keyvault-secrets>
@@ -139,18 +185,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -185,18 +246,32 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-storage-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-storage-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
