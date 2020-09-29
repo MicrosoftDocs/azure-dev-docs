@@ -24,7 +24,7 @@ then be passed to the client classes in the packages in order to authenticate us
 Azure SDK for JavaScript is the newer set of management packages for Azure services that are
 - usable both in Node.js and browsers
 - written in TypeScript, can be used in both JavaScript and TypeScript projects
-- in active development and receive updates as and when Azure services update their ARM APIs
+- in active development and receive updates as and when Azure services update their resource management APIs
 - have package names that begin with `@azure/arm-`
 - require [@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth) package to create 
 credentials which can then be passed to the client classes in the packages in order to authenticate using 
@@ -54,3 +54,7 @@ in Azure SDK for JavaScript in a browser
 - [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) when using any management package in the older Azure SDK for Node.js
 
 [!INCLUDE [chrome-note](includes/chrome-note.md)]
+
+## Next steps	
+
+* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
