@@ -226,7 +226,11 @@
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version"
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
@@ -266,7 +270,11 @@
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version"
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",

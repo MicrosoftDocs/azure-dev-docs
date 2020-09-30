@@ -31,25 +31,25 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
 
     **Linux:**
 
-    ```cli
+    ```azurecli
     tar -xzvf zmc7.0.0-EA-linux_x64.tar.gz
     ```
 
     **Windows:**
 
-    ```cli
+    ```azurecli
     unzip -zxvf zmc7.0.0-EA-win_x64.zip
     ```
 
     **macOS:**
 
-    ```cli
+    ```azurecli
     tar -xzvf zmc7.0.0-EA-macosx_x64.tar.gz
     ```
 
 4. Start your Java application using one of the compatible JDKs. For example:
 
-    ```cli
+    ```azurecli
     $JAVA_HOME/bin/java -jar MyApplication.jar
     ```
 
@@ -57,19 +57,19 @@ Follow the steps below to install Zulu Mission Control, connect to a Java Virtua
 
     **Linux:**
 
-    ```cli
+    ```azurecli
     zmc7.0.0-EA-linux_x64/zmc
     ```
 
     **Windows:**
 
-    ```cli
+    ```azurecli
     zmc7.0.0-EA-win_x64\zmc.exe
     ```
 
     **macOS:**
 
-    ```cli
+    ```azurecli
     zmc7.0.0-EA-macosx_x64/Zulu\ Mission\ Control.app/Contents/MacOS/zmc
     ```
 
