@@ -47,14 +47,14 @@ Each Azure service has an authentication mechanism. This can include keys and en
 
 Steps to **create service principal**: 
 
-* Sign in to Azure with your individual user account, such as joe@microsoft.com.
-* Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
-* Log off Azure with your user account.
+1. Sign in to Azure with your individual user account.
+1. Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
+1. Log off Azure with your individual user account.
 
 Steps to **use service principal**:
 
-* Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
-* Create resources with service principal and use the service.
+1. Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
+1. Create Azure resources with service principal and use the service.
 
 Learn [how to create a service principal](node-sdk-azure-authenticate-principal.md). Remember to save the response from the creation step. You will need the response's `appId`, `tenant`, and `password` values to use the service principal.
 
