@@ -120,7 +120,7 @@ The [modules necessary to run Ansible on Azure](https://raw.githubusercontent.co
     cd install_azure_modules
     ```
 
-1. Run [wget]() to download the Ansible/Azure modules list file.
+1. Run [wget](https://www.gnu.org/software/wget/manual/wget.html) to download the Ansible/Azure modules list file.
 
     ```bash
     wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
