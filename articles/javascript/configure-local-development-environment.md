@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-ai-text-analytics-5.0.0
 ---
@@ -43,44 +43,39 @@ The following common local workstation installations are optional to help with y
 
 ## One-time configuration of service principal
 
-Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a service principal. A service principal allows you to concretely define the access scope to the immediate development need.
+Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a [service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to concretely define the access scope to the immediate development need.
 
-Conceptually, the steps to create and use a service principal include:
+Steps to **create service principal**: 
 
-* Log in to Azure with your individual user account, such as joe@microsoft.com.
-* Create a named service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
+* Sign in to Azure with your individual user account, such as joe@microsoft.com.
+* Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
 * Log off Azure with your user account.
-* Authenticate to Azure programmatically with service principal.
-* Service principal creates an Azure resource and uses the service associated with the service.
 
-### Create service principal
+Steps to **use service principal**:
 
-Learn [how to create](node-sdk-azure-authenticate-principal.md) a service principal. Remember to save the response from the creation step. You will need the `appId`, `tenant`, and `password` values to use the service principal.
+* Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
+* Create resources with service principal and use the service.
+
+Learn [how to create a service principal](node-sdk-azure-authenticate-principal.md). Remember to save the response from the creation step. You will need the response's `appId`, `tenant`, and `password` values to use the service principal.
+
+[Create Azure resources with your service principal](/cli/azure/create-an-azure-service-principal-azure-cli.md#create-a-resource-using-service-principal).
 
 ## Steps for each new development project setup
 
-Because the Azure SDK libraries are provided individually for each service, there isn't a single downloadable package to access all of the Azure resources. You install each library based on the Azure service you want to use.
+The [Azure SDK libraries](azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
 
 Each new project using Azure should:
-- Create Azure resources or find authentication information for existing Azure resources
-- Install Azure SDK libraries from NPM or Yarn. Learn about [library versions](#library-versions).
-- Manage authentication information within the project securely. One common method is to use **[Dotenv](https://www.npmjs.com/package/dotenv)** to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
+- Create Azure resources and save associated keys or configuration to a [secure location]().
+- Install Azure SDK libraries from NPM or Yarn. 
+- Use Service Principal to authenticate to Azure SDKs, then use configuration information to access specific services.
 
-### Library versions
+## Securing configuration information
 
-[Azure libraries](azure-sdk-library-package-index.md) generally use the `@azure` scope.
+You have several options to store configuration information:
+- [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
+- Azure [Key Vault](/key-vault/overview.md) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
 
-The latest libraries use the scope `@azure`. Older packages from Microsoft typically begin with `azure-`. Many packages begin with this name, which are not produced by Microsoft. Verify the owner of the package is either Microsoft or Azure.
-
-## Create Azure resource with service principal
-
-Use the Azure CLI to [create an Azure resource using the service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-a-resource-using-service-principal).
-
-## Use service principal in JavaScript
-
-[Use the service principal](node-sdk-azure-authenticate-principal.md#using-the-service-principal) when you authenticate to an Azure client library instead of your personal user account.
-
-## Create environment variables for the Azure libraries
+### Create environment variables for the Azure libraries
 
 To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
@@ -108,7 +103,7 @@ set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
 
 Replace the values shown in these commands with those of your specific service principal.
 
-## Install NPM packages
+## Install npm packages
 
 For every project, we recommend that you always create a separate folder, and its own `package.json` file using the following steps:
 
