@@ -27,15 +27,10 @@ This guide walks you through setting up a development environment for Azure deve
 
 Your Java application needs read and create permissions in your Azure subscription to run the sample code in this tutorial. Create a service principal and configure your application to run with its credentials. Service principals provide a way to create a non-interactive account associated with your identity to which you grant only the privileges your app needs to run.
 
-[Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output. Provide a [secure password](/azure/active-directory/active-directory-passwords-policy) in the password argument instead of `MY_SECURE_PASSWORD`. Your password must be 8 to 16 characters and match at least 3 out of the 4 following criteria:
-
-* Include lowercase characters
-* Include uppercase characters
-* Include numbers
-* Include one of the following symbols: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ? / ` ~ " ( ) ;
+[Create a service principal using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli) and capture the output.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name AzureJavaTest --password "MY_SECURE_PASSWORD"
+az ad sp create-for-rbac --name AzureJavaTest
 ```
 
 Which gives you a reply in the following format:
@@ -45,7 +40,7 @@ Which gives you a reply in the following format:
   "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
   "displayName": "AzureJavaTest",
   "name": "http://AzureJavaTest",
-  "password": password,
+  "password": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
   "tenant": "tttttttt-tttt-tttt-tttt-tttttttttttt"
 }
 ```
@@ -56,7 +51,7 @@ Next, copy the following into a text file on your system:
 # sample management library properties file
 subscription=ssssssss-ssss-ssss-ssss-ssssssssssss
 client=cccccccc-cccc-cccc-cccc-cccccccccccc
-key=kkkkkkkkkkkkkkkk
+key=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
 tenant=tttttttt-tttt-tttt-tttt-tttttttttttt
 managementURI=https\://management.core.windows.net/
 baseURL=https\://management.azure.com/
@@ -110,9 +105,9 @@ This creates a basic Maven project under the `testAzureApp` folder. Add the foll
     <version>1.3.0</version>
 </dependency>
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-storage</artifactId>
-    <version>5.0.0</version>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-blob</artifactId>
+      <version>12.8.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
@@ -179,14 +174,19 @@ import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
 
 import com.microsoft.rest.LogLevel;
 
-import com.microsoft.azure.storage.*;
-import com.microsoft.azure.storage.blob.*;
+import com.azure.storage.blob.BlobClient;
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.blob.models.PublicAccessType;
+import com.azure.storage.common.StorageSharedKeyCredential;
 
-import java.io.File;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 public class AzureApp {
 
@@ -401,26 +401,29 @@ public static void main(String[] args) {
 
         // create a storage container to hold the file
         List<StorageAccountKey> keys = storage.getKeys();
-        final String storageConnection = "DefaultEndpointsProtocol=https;"
-                + "AccountName=" + storage.name()
-                + ";AccountKey=" + keys.get(0).value()
-                + ";EndpointSuffix=core.windows.net";
+        PublicEndpoints endpoints = storage.endPoints();
+        String accountName = storage.name();
+        String accountKey = keys.get(0).value();
+        String endpoint = endpoints.primary().blob();
 
-        CloudStorageAccount account = CloudStorageAccount.parse(storageConnection);
-        CloudBlobClient serviceClient = account.createCloudBlobClient();
+        StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-        // Container name must be lower case.
-        CloudBlobContainer container = serviceClient.getContainerReference("helloazure");
-        container.createIfNotExists();
+        BlobServiceClient storageClient = new BlobServiceClientBuilder().endpoint(endpoint).credential(credential).buildClient();
+
+        // Container name must be lower case
+        BlobContainerClient blobContainerClient = storageClient.getBlobContainerClient("helloazure");
+        blobContainerClient.create();
 
         // Make the container public
-        BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
-        containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
-        container.uploadPermissions(containerPermissions);
+        blobContainerClient.setAccessPolicy(PublicAccessType.CONTAINER, null);
 
         // write a blob to the container
-        CloudBlockBlob blob = container.getBlockBlobReference("helloazure.txt");
-        blob.uploadText("hello Azure");
+        String fileName = "helloazure.txt";
+        String textNew = "Hello Azure";
+
+        BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
+        InputStream is = new ByteArrayInputStream(textNew.getBytes());
+        blobClient.upload(is, textNew.length());
 
     } catch (Exception e) {
         System.out.println(e.getMessage());
