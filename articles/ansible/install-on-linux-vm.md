@@ -113,7 +113,7 @@ ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
 
 The [modules necessary to run Ansible on Azure](https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt) are listed in a file on the Ansible collection GitHub repo. In this section, you'll see how to download that file and install the modules.
 
-1. On the host virtual machine, create a directory and switch to it
+1. On the host virtual machine, create a temporary directory and switch to it
 
     ```bash
     mkdir install_azure_modules
@@ -130,6 +130,12 @@ The [modules necessary to run Ansible on Azure](https://raw.githubusercontent.co
 
     ```bash
     sudo pip3 install -r requirements-azure.txt
+    ```
+
+1. After installing the modules, you can delete the temporary directory and module-list file.
+ 
+    ```bash
+    cd .. && rm -r install_azure_modules
     ```
 
 ## Create Azure credentials
