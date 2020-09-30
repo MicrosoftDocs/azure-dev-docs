@@ -8,7 +8,7 @@ ms.date: 09/29/2020
 
 There are two sets of management packages for Azure services that helps you with resource management.
 
-|Feature|Azure SDK for JavaScript<br>(recommended, newer)|Azure SDK for Node.js<br>(older)|
+|Feature|Azure SDK for JavaScript<br>(recommended, modern)|Azure SDK for Node.js<br>(older)|
 |--|--|--|
 |In active development|✔️|❌|
 |Use in Node.js|✔️|✔️|
