@@ -14,11 +14,11 @@ ms.custom: devx-track-java
 This article describes the various Spring Boot Starters for the [Spring Initializr] that provide Java developers with integration features for working with Microsoft Azure.
 
 >[!div class="mx-imgBorder"]
-![Azure Spring Boot Starters][spring-boot-starters]
+![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
 
 > [!NOTE]
 >
-> The default Java version is 11, please select Java 8.
+> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 > 
 
 The following Spring Boot Starters are currently available for Azure:
@@ -41,7 +41,7 @@ The following Spring Boot Starters are currently available for Azure:
    
    > [!NOTE]
    >
-   > The new version does not support adding Azure storage dependency on this page, you can manually modify the pom.xml file.
+   > The new version of the Spring Boot Starter for Azure Storage doesn't currently support adding an Azure storage dependency from within Spring Initializr. However, you can add the dependency by modifying the *pom.xml* file after the project is generated.
    > 
 
 <a name="azure-support"></a>
@@ -168,11 +168,6 @@ When you add this starter to a Spring Boot project, the following changes are ma
 ## Azure Key Vault
 
 This Spring Boot Starter provides Spring value annotation support for integration with Azure Key Vault Secrets.
-
-   > [!NOTE]
-   >
-   > Default Java version is 11, please select Java 8.
-   > 
 
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
@@ -315,4 +310,4 @@ For help with getting started with your own Spring Boot applications, see the **
 
 <!-- IMG List -->
 
-[spring-boot-starters]: media/spring-boot-starters-for-azure/spring-boot-starters-cropped.png
+[configure-azure-spring-boot-starters-with-initializr]: media/spring-boot-starters-for-azure/configure-azure-spring-boot-starters-with-initializr.png
