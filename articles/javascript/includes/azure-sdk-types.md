@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 09/29/2020
+ms.date: 09/30/2020
 ---
 
 ## Types of SDK client libraries
