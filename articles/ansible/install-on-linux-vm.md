@@ -152,7 +152,7 @@ Configure the Ansible credentials using one of the following techniques:
 - [Create an Ansible credentials file](#file-credentials)
 - [Define Ansible environment variables](#env-credentials)
 
-### <span id="file-credentials"/> Create Ansible credentials file
+#### <span id="file-credentials"/> Create Ansible credentials file
 
 In this section, you create a local credentials file to provide credentials to Ansible.
 
@@ -177,7 +177,7 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
 1. Save and close the file.
 
-### <span id="env-credentials"/>Define Ansible environment variables
+#### <span id="env-credentials"/>Define Ansible environment variables
 
 On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
