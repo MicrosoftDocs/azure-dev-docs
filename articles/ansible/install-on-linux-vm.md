@@ -3,7 +3,7 @@ title: Quickstart - Configure Ansible using Azure CLI
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-ansible,devx-track-cli
 ---
 
@@ -108,35 +108,6 @@ Using the SSH command, connect to your virtual machine. Replace the placeholders
 ```azurecli
 ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
 ```
-
-## Download Azure dependencies
-
-The [modules necessary to run Ansible on Azure](https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt) are listed in a file on the Ansible collection GitHub repo. In this section, you'll see how to download that file and install the modules.
-
-1. On the host virtual machine, create a temporary directory and switch to it
-
-    ```bash
-    mkdir install_azure_modules
-    cd install_azure_modules
-    ```
-
-1. Run [wget](https://www.gnu.org/software/wget/manual/wget.html) to download the Ansible/Azure modules list file.
-
-    ```bash
-    wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-    ```
-
-1. Install the modules listed in the downloaded file.
-
-    ```bash
-    sudo pip3 install -r requirements-azure.txt
-    ```
-
-1. After installing the modules, you can delete the temporary directory and module-list file.
- 
-    ```bash
-    cd .. && rm -r install_azure_modules
-    ```
 
 ## Create Azure credentials
 
