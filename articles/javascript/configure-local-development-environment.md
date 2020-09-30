@@ -16,8 +16,11 @@ This article provides setup instructions to create and validate a local dev envi
 
 Azure resources are created within a subscription, which is the billing unit for using Azure. While you can create free resources (each subscription offers a free resource for most services), you should create paid-tier resources when you expect to deploy your resource to production.
 
-* If you already have a subscription, you don't need to create a new one. Use the [Azure portal](https://portal.azure.com) to access your existing subscription.
-* [Begin a free trial subscription](https://azure.microsoft.com/free/cognitive-services)
+|Type|Description|
+|--|--|
+|[Trial subscription](https://azure.microsoft.com/free/cognitive-services)|Create a _free_ trial subscription.|
+|[Existing subscription](https://portal.azure.com)|If you already have a subscription, access your existing subscription in the Azure portal, the Azure CLI, or JavaScript.|
+|[Across multiple subscriptions](/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
 
 ## One-time installation
 
