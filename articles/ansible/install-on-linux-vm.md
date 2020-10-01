@@ -3,7 +3,7 @@ title: Quickstart - Configure Ansible using Azure CLI
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-ansible,devx-track-cli
 ---
 
@@ -61,7 +61,7 @@ The following steps walk you through creating an SSH key pair.
     az group create --name QuickstartAnsible-rg --location eastus
     ```
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create). Replace the placeholder with the fully qualified name of your SSH **public** key filename.
 
     ```azurecli
     az vm create \
@@ -103,7 +103,7 @@ az vm extension set \
 
 ## Connect to your virtual machine via SSH
 
-Using the SSH command, connect to your virtual machine.
+Using the SSH command, connect to your virtual machine. Replace the placeholders with the appropriate values returned.
 
 ```azurecli
 ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
@@ -121,15 +121,15 @@ If you're using Ansible Tower or Jenkins, declare the service principal values a
 Configure the Ansible credentials using one of the following techniques:
 
 - [Create an Ansible credentials file](#file-credentials)
-- [Use Ansible environment variables](#env-credentials)
+- [Define Ansible environment variables](#env-credentials)
 
-### <span id="file-credentials"/> Create Ansible credentials file
+#### <span id="file-credentials"/> Create Ansible credentials file
 
 In this section, you create a local credentials file to provide credentials to Ansible.
 
 For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
 
-1. For a development environment, create a file named `credentials` on the host virtual machine:
+1. Once you've successfully connected to the host virtual machine, create and open a file named `credentials`:
 
     ```bash
     mkdir ~/.azure
@@ -148,20 +148,16 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
 1. Save and close the file.
 
-### <span id="env-credentials"/>Use Ansible environment variables
+#### <span id="env-credentials"/>Define Ansible environment variables
 
-In this section, you export the service principal values to configure your Ansible credentials.
+On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
-1. Open a terminal window.
-
-1. Export the service principal values:
-
-    ```bash
-    export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
-    export AZURE_CLIENT_ID=<security-principal-appid>
-    export AZURE_SECRET=<security-principal-password>
-    export AZURE_TENANT=<security-principal-tenant>
-    ```
+```bash
+export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+export AZURE_CLIENT_ID=<security-principal-appid>
+export AZURE_SECRET=<security-principal-password>
+export AZURE_TENANT=<security-principal-tenant>
+```
 
 ## Test Ansible installation
 
