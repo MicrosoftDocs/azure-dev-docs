@@ -44,3 +44,5 @@ The initial Express.js web app is provided as a starting point. Download the app
 
     If you see the simple web app in your browser, you have succeeded with this section of the tutorial.
 
+    > [!NOTE]
+    > The app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 

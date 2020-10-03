@@ -14,27 +14,18 @@ Use the Visual Studio Code extension to create an App service resource and deplo
     |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-<YOUR-NAME>`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
     |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
 
-    When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
+1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-extension-create-web-app-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app immediately after creating web app.":::
 
-1.  If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select
+    If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select **Deploy to Web App...**.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-extension-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app.":::
+1. During the deployment process, a notification allows you to select to see the **output window**.  This displays the rolling status of the deployment. 
 
-## Create JavaScript file to connect to mongoDB
+1. When the deployment is complete, a notification appears. Select **Stream logs** to see the rolling logs. 
 
-Create a JavaScript code file which uses the Mongo API to insert and read data from a MongoDB database.
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::
 
-1. In the 
-containing client creation with endpoint and key, create db and container if it doesn’t exist, insert method, getall method.
+1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
 
-## Create ExpressJS routes to pass request to database
-
-Create insert and getall routes that return DB response to browser and logging stream
-
-## Verify app on local computer
-
-## Redeploy to App service and verify cloud app works
-
-## Next steps
+    The website is now able to run locally and remotely. 

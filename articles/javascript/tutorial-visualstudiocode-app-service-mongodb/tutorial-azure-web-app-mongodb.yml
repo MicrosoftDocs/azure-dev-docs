@@ -13,24 +13,21 @@ items:
 - durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-00.md)]
-- title: 01 title
+- title: Run site locally
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-01.md)]
-- title: 02 title
+- title: Run site on Azure
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-02.md)]
-- title: 03 title
+- title: Connect local database
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-03.md)]
-- title: 04 title
+- title: Connect remote database
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-04.md)]
-- title: playing with yml
-  durationInMinutes: 2
-  content: this is hardcoded
 - content: |
     [!INCLUDE [](completed.md)]
