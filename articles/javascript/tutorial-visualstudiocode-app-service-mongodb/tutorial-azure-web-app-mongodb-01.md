@@ -16,10 +16,7 @@ ms.custom: devx-track-javascript
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](#troubleshooting-tasks-in-tutorial)
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
 
 ## Download and run the initial Express.js app
 
@@ -47,5 +44,3 @@ The initial Express.js web app is provided as a starting point. Download the app
 
     If you see the simple web app in your browser, you have succeeded with this section of the tutorial.
 
-    > [!div class="nextstepaction"]
-    > [I ran into an issue](#troubleshooting-tasks-in-tutorial)
