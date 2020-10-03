@@ -1,0 +1,36 @@
+### YamlMime:Tutorial
+title:  yml title
+metadata:
+  title: yml title 2
+  description: yml description
+  audience: Developer
+  level: Beginner
+  displayType: one-column
+  ms.date: 10/01/2020
+  ms.topic: tutorial
+  ms.custom: scenarios:getting-started, languages:JavaScript
+items:
+- durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-00.md)]
+- title: 01 title
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-01.md)]
+- title: 02 title
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-02.md)]
+- title: 03 title
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-03.md)]
+- title: 04 title
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-04.md)]
+- title: playing with yml
+  durationInMinutes: 2
+  content: this is hardcoded
+- content: |
+    [!INCLUDE [](completed.md)]
