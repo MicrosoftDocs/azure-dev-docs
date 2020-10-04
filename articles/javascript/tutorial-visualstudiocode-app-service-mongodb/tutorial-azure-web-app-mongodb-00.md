@@ -13,3 +13,17 @@ In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js
 ## Create a web app connected to mongoDB
 
 TBD conceptual and architectural information about this tutorial. 
+
+## Install tools locally
+
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
+- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine.
+- Visual Studio Code extensions:
+    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
+    - [Remote Containers]()
+- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [Docker Community edition]()
+
+## Summary
+
+Now that the tools are installed, you can begin working with the sample app for this tutorial. 

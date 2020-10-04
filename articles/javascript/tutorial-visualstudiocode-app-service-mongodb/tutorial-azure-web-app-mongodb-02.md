@@ -28,4 +28,13 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
 1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
 
-    The website is now able to run locally and remotely. 
+    TBD - add screenshot
+
+    The website is now able to run locally and remotely, but still doesn't connect to the database. Let's fix in the next step.  
+
+## Want to know more?
+
+The initial web service is configured to run on port 8080 and is publicly available. These type of web site settings are configurable.
+* [App settings](/app-service/configure-common)
+* [Authentication](/app-service/configure-authentication-provider-microsoft)
+* [Restrict access by network](/azure/app-service/app-service-ip-restrictions)

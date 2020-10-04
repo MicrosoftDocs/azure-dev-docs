@@ -5,14 +5,6 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: devx-track-javascript
 ---
-## Prerequisites
-
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
-- [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
-- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
-
-> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in to Azure
 
@@ -20,7 +12,9 @@ ms.custom: devx-track-javascript
 
 ## Download and run the initial Express.js app
 
-The initial Express.js web app is provided as a starting point. Download the app, install the dependencies and run the app.
+The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app.
+
+The initial app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. Later in the tutorial, we'll add the code to connect to a MongoDB with the native API. 
 
 1. [Download the app]() from GitHub to a local directory.
 1. Open the directory with Visual Studio Code.
@@ -39,10 +33,17 @@ The initial Express.js web app is provided as a starting point. Download the app
 1. Open a web browser and use the following url to view the web app on your local computer.
 
     ```url
-    http://localhost:3000/
+    http://localhost:8080/
     ```
 
-    If you see the simple web app in your browser, you have succeeded with this section of the tutorial.
+    If you see the simple web app in your browser with the text that the database isn't found, you have succeeded with this section of the tutorial.
 
-    > [!NOTE]
-    > The app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 
+    > [!CAUTION]
+    > You may be accustomed to using a different port for your Node.js apps. App service uses 8080 as a default port. After you have successfully run the tutorial on port 8080, use the App service's settings to add the `WEBSITES_PORT` with your typical port value and remember to change the port value in the .env file before redeploying the app.
+    > TBD - add link to app service config change 
+
+## Summary
+
+The web app is now running locally. 
+
+TBD - Screenshot
