@@ -43,7 +43,7 @@ If you need a custom startup file, use the following steps:
 
 1. The App Service restarts when you save changes. Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
 
-You can also specify a startup command with the Azure CLI [`az webapp create` command](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) by using the `--startup-file` argument.
+You can also specify a startup command with the Azure CLI [`az webapp create` command](/cli/azure/webapp#az-webapp-create) by using the `--startup-file` argument.
 
 ## Django startup commands
 

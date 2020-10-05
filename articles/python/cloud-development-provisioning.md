@@ -37,7 +37,7 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 ## Azure CLI
 
-The [Azure CLI](/cli/azure/?view=azure-cli-latest) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
+The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
   
 **Pros**: Easily automated through scripts and processing of output. Provides higher-level commands that provision multiple resources together for common tasks, such as deploying a web app. Scripts can be managed in source control.
 
@@ -49,7 +49,7 @@ In place of the local CLI or PowerShell, you can use the Azure Cloud Shell direc
 
 ## Azure REST API and Azure libraries
 
-The [Azure REST API](/rest/api/?view=Azure) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
+The [Azure REST API](/rest/api/?view=Azure&preserve-view=true) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
 
 For developers, the Azure libraries provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
 
