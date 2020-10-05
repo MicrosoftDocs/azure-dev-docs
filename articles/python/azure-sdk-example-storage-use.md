@@ -121,7 +121,7 @@ For these reasons, we recommend using the authentication method in production co
 
     Because the local service principal that you're using does not have permission to access the blob container, you see the error: "This request is not authorized to perform this operation using this permission."
 
-1. Grant container permissions fto the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) (it's a long one!):
+1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) (it's a long one!):
 
     # [cmd](#tab/cmd)
 
