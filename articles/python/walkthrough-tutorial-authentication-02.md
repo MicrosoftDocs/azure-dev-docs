@@ -46,7 +46,7 @@ Once you do these steps for the local service principal, the same code works bot
 
 The remainder of this tutorial demonstrates all the details of the process in the context of the example scenario and the accompanying sample code.
 
-In the sample's provisioning script, all of the resources are created under a resource group named `auth-scenario-rg`. This group is created using the Azure CLI [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+In the sample's provisioning script, all of the resources are created under a resource group named `auth-scenario-rg`. This group is created using the Azure CLI [`az group create`](/cli/azure/group#az-group-create) command.
 
 > [!div class="nextstepaction"]
 > [Part 3 - Example third-party API implementation >>>](walkthrough-tutorial-authentication-03.md)

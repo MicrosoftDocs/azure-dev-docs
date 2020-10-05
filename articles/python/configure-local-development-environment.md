@@ -117,7 +117,7 @@ Each developer in your organization should perform these steps individually.
 
     Replace the values shown in these commands with those of your specific service principal.
 
-    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) command and look for the `id` property in the output.
+    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account#az-account-show) command and look for the `id` property in the output.
 
     For convenience, create a command line script file (such as *setenv.sh* on macOS/Linux or *setenv.cmd* on Windows) that contains these same commands. You can then run the script to set the variables whenever you open a terminal or command prompt for local testing. Again, don't add the script file to source control so it remains only within your user account.
 
@@ -133,7 +133,7 @@ Each developer in your organization should perform these steps individually.
 
 The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC).
 
-- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command reference.
+- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command reference.
 
 - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 

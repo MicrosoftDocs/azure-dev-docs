@@ -52,7 +52,7 @@ When running the locally, you create these variables within whatever command she
 
 When deploying to Azure App Service, however, you don't have access to the server itself. In this case, you create *application settings* with the same names, which then appear to the app as environment variables. 
 
-The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). All four variables are set with a single command.
+The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). All four variables are set with a single command.
 
 To create settings through the Azure portal, see [Configure an App Service app in the Azure portal](/azure/app-service/configure-common).
 

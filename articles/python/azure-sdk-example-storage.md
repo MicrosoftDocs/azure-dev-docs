@@ -134,7 +134,7 @@ container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_A
 print(f"Provisioned blob container {container.name}")
 ```
 
-[!INCLUDE [cli_auth_note](includes/cli_auth_note.md)]
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 

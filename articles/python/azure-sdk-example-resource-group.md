@@ -81,7 +81,7 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 # result = poller.result()
 ```
 
-[!INCLUDE [cli_auth_note](includes/cli_auth_note.md)]
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 

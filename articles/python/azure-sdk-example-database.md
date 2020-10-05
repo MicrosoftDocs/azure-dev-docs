@@ -230,7 +230,7 @@ Run this command if you don't need to keep the resources provisioned in this exa
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres`](/cli/azure/postgres?view=azure-cli-latest) commands; for MariaDB, use [`az mariadb`](/cli/azure/mariadb?view=azure-cli-latest) commands.
+The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres`](/cli/azure/postgres) commands; for MariaDB, use [`az mariadb`](/cli/azure/mariadb) commands.
 
 # [cmd](#tab/cmd)
 

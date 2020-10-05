@@ -37,7 +37,7 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 ## Azure CLI
 
-The [Azure CLI](/cli/azure/?view=azure-cli-latest) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
+The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
   
 **Pros**: Easily automated through scripts and processing of output. Provides higher-level commands that provision multiple resources together for common tasks, such as deploying a web app. Scripts can be managed in source control.
 

@@ -29,7 +29,7 @@ credential = DefaultAzureCredential()
 
 When run locally, `DefaultAzureCredential` looks for the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables that contain information for your local service principal. When run in the cloud, `DefaultAzureCredential` automatically uses the service principal registered for the app, which is typically contained within the managed identity.
 
-The code next retrieves the third-party API's access key from Azure Key Vault. In the provisioning script, the Key Vault is created using [`az keyvault create`](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create), and the secret is stored with [`az keyvault secret set`](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set).
+The code next retrieves the third-party API's access key from Azure Key Vault. In the provisioning script, the Key Vault is created using [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create), and the secret is stored with [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set).
 
 The Key Vault resource itself is accessed through a URL, which is loaded from the `KEY_VAULT_URL` environment variable.
 
@@ -54,7 +54,7 @@ vault_secret = keyvault_client.get_secret(api_secret_name)
 access_key = vault_secret.value
 ```
 
-Even if the app identity is authorized to access the key vault, it must still be specifically authorized to access secrets.  Otherwise, the `get_secret` call fails. For this reason, the provisioning script sets a "get secrets" access policy for the app using the Azure CLI command, [`az keyvault set-policy`](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). For more information, see [Key Vault Authentication](/azure/key-vault/general/authentication) as well as [Grant your app access to Key Vault](/azure/key-vault/general/managed-identity#grant-your-app-access-to-key-vault). The latter article shows how to set an access policy using the Azure portal. (The article is also written for managed identity, but applies equally to a local service principle used in development.)
+Even if the app identity is authorized to access the key vault, it must still be specifically authorized to access secrets.  Otherwise, the `get_secret` call fails. For this reason, the provisioning script sets a "get secrets" access policy for the app using the Azure CLI command, [`az keyvault set-policy`](/cli/azure/keyvault#az-keyvault-set-policy). For more information, see [Key Vault Authentication](/azure/key-vault/general/authentication) as well as [Grant your app access to Key Vault](/azure/key-vault/general/managed-identity#grant-your-app-access-to-key-vault). The latter article shows how to set an access policy using the Azure portal. (The article is also written for managed identity, but applies equally to a local service principle used in development.)
 
 Finally, the app code sets up the client object through which we can write messages to an Azure Storage Queue. The Queue's URL is in the environment variable `STORAGE_QUEUE_URL`.
 
