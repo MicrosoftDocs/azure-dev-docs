@@ -41,6 +41,11 @@ The connection to the database is set with an environment variable named `DATABA
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-web-app-application-settings.png" alt-text="Partial screenshot of Visual Studio Code's remote web app application settings"::: 
 
+1. Add the `ENVIRONMENT` property and set its value to `production`.
+
+
+
+
 ## Want to know more? 
 
 ### MongoDB connection strings

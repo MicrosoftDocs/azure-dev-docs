@@ -48,16 +48,18 @@ In this section, run your development environment with both containers, and view
 
 ## Want to know more? 
 
-The database code is already provided in the **\src\data.js** file of the project. It uses the MongoDB native API. The database and collection are created for you, if they don't exist. This allows you to quickly move from the development to production environment without having to setup the database. 
+The database code is provided in two files:
 
-The database settings are managed in the **.env** file:
+|File|Purpose|
+|--|--|
+|/src/index.js|Database connection string, stored in variable `database_URL`. Depending on the `production` configuration setting, either a local MongoDB database is used or an environment variable `DATABASE_URL` value is used. The `connectToDatabase` function calls into **/src/data.js** to connect with the MongoDB native APIs.|
+|/src/data.js|Provides functions to use MongoDB.|
+
+The database name and collection name settings are managed in the **.env** file:
 
 ```env
-DATABASE_URL=mongodb://localhost:27017
 DATABASE_NAME=my-tutorial-db
 DATABASE_COLLECTION_NAME=my-collection
-# use Azure app service's config setting WEBSITES_PORT to use a different port
-WEB_PORT=8080
 ```
 
 Connect to the MongoDB container with a Visual Studio Code extension: **[MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)** to see your data.
