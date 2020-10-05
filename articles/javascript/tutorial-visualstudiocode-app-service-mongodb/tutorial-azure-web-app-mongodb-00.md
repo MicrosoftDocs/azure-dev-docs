@@ -21,8 +21,13 @@ TBD conceptual and architectural information about this tutorial.
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
     - [Remote Containers]()
+    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Docker Community edition]()
+
+## Want to know more? 
+
+Each step of the tutorial includes a **Want to know more?** section. This is _optional information_ to allow you to explore the information presented in that section in depth. You can read and explore as you go through the tutorial, or return to the tutorial later. 
 
 ## Summary
 

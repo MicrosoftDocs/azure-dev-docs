@@ -38,3 +38,4 @@ The initial web service is configured to run on port 8080 and is publicly availa
 * [App settings](/app-service/configure-common)
 * [Authentication](/app-service/configure-authentication-provider-microsoft)
 * [Restrict access by network](/azure/app-service/app-service-ip-restrictions)
+* [Deployment configuration](https://github.com/microsoft/vscode-azureappservice/wiki/Configuring-Zip-Deployment#additional-zip-deploy-configuration-settings)

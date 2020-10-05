@@ -42,6 +42,8 @@ The initial app tries to connect to a database if it is available. If it isn't a
     > You may be accustomed to using a different port for your Node.js apps. App service uses 8080 as a default port. After you have successfully run the tutorial on port 8080, use the App service's settings to add the `WEBSITES_PORT` with your typical port value and remember to change the port value in the .env file before redeploying the app.
     > TBD - add link to app service config change 
 
+## Want to know more?
+
 ## Summary
 
 The web app is now running locally. 

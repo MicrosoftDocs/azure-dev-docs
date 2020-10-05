@@ -42,6 +42,10 @@ In this section, run your development environment with both containers, and view
 
 1. Enter data in the fields and submit the form. Notice that the data is immediately displayed using the server-side React rendering. 
 
+1. When you done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...** 
+
+    This stops the containers but leaves them on your local computer. 
+
 ## Want to know more? 
 
 The database code is already provided in the **\src\data.js** file of the project. It uses the MongoDB native API. The database and collection are created for you, if they don't exist. This allows you to quickly move from the development to production environment without having to setup the database. 
@@ -56,8 +60,12 @@ DATABASE_COLLECTION_NAME=my-collection
 WEB_PORT=8080
 ```
 
-Connect to the MongoDB container with a Visual Studio Code terminal by opening a new Visual Studio Code window, then using the **Remote-Containers: Attach to Running Container...**, then select the container ending in `-db`. Once the window is attached to the container, open a Visual Studio Code terminal. You can immediately access the Mongo shell using the following command:
+Connect to the MongoDB container with a Visual Studio Code extension: **[MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)** to see your data.
+
+If you would rather use the **mongo** shell, connect to the MongoDB container with a Visual Studio Code terminal by opening a new Visual Studio Code window, then using the **Remote-Containers: Attach to Running Container...**, then select the container ending in `-db`. Once the window is attached to the container, open a Visual Studio Code terminal. You can immediately access the Mongo shell using the following command:
 
 ```console
 mongo
 ```
+
+When you want to clean up your containers, use the Visual Studio Code extension, **[Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)**.
