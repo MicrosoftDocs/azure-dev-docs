@@ -47,7 +47,7 @@ Assuming that the API call succeeds and returns a numerical value, we then const
 
 The `code` variable here contains the full JSON response for the app's API, which includes the code value as well as a timestamp. An example response would be `{"code":"ojE-161-pTv","timestamp":"2020-04-15 16:54:48.816549"}`.
 
-Before returning that response, however, we write a message with it in our storage queue using the Queue client's [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient?view=azure-python#send-message-content----kwargs-) method:
+Before returning that response, however, we write a message with it in our storage queue using the Queue client's [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method:
 
 ```python
     queue_client.send_message(code)
@@ -71,7 +71,7 @@ else:
     call queue_client.send_message(code, visibility_timeout=600)
 </pre>
 
-This pseudo-code employs the [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient?view=azure-python#send-message-content----kwargs-) method's optional `visibility_timeout` parameter, which specifies the number of seconds before the message becomes visible in the queue. Because the default timeout is zero, messages initially written by the API endpoint become immediately visible to the queue-watching process. As a result, that process stores them in the valid code table right away. By queuing the same message again with the timeout, the process knows that it will receive the code again 10 minutes later, at which point it removes it from the table.
+This pseudo-code employs the [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method's optional `visibility_timeout` parameter, which specifies the number of seconds before the message becomes visible in the queue. Because the default timeout is zero, messages initially written by the API endpoint become immediately visible to the queue-watching process. As a result, that process stores them in the valid code table right away. By queuing the same message again with the timeout, the process knows that it will receive the code again 10 minutes later, at which point it removes it from the table.
 
 ## Implementing the main app API endpoint in Azure Functions
 

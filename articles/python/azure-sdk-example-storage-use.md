@@ -110,8 +110,8 @@ For these reasons, we recommend using the authentication method in production co
     ```
 
     Reference links:
-      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python)
-      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)
+      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
+      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
 
 1. Attempt to run the code (which fails intentionally):
 
@@ -197,7 +197,7 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-[!INCLUDE [resource_group_begin_delete](../includes/resource_group_begin_delete.md)]
+[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
 
 ## See also
 

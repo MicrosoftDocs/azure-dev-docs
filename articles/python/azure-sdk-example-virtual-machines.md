@@ -202,13 +202,13 @@ vm_result = poller.result()
 print(f"Provisioned virtual machine {vm_result.name}")
 ```
 
-[!INCLUDE [cli_auth_note](../includes/cli_auth_note.md)]
+[!INCLUDE [cli_auth_note](includes/cli_auth_note.md)]
 
 ### Reference links for classes used in the code
 
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
-- [NetworkManagementClient (azure.mgmt.network)](/python/api/azure-mgmt-network/azure.mgmt.network.networkmanagementclient?view=azure-python)
-- [ComputeManagementClient (azure.mgmt.compute)](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient?view=azure-python)
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
+- [NetworkManagementClient (azure.mgmt.network)](/python/api/azure-mgmt-network/azure.mgmt.network.networkmanagementclient)
+- [ComputeManagementClient (azure.mgmt.compute)](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)
 
 ## 4. Run the script
 
@@ -299,7 +299,7 @@ az group delete -n PythonAzureExample-VM-rg  --no-wait
 
 Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription.
 
-[!INCLUDE [resource_group_begin_delete](../includes/resource_group_begin_delete.md)]
+[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
 
 ## See also
 

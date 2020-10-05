@@ -14,7 +14,7 @@ This part examines the Python libraries brought into the main app and the enviro
 
 ## Dependencies and import statements
 
-The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme?view=azure-python)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme?view=azure-python)). These libraries are included in the app's *requirements.txt* file:
+The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme)). These libraries are included in the app's *requirements.txt* file:
 
 ```txt
 flask

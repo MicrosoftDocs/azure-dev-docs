@@ -134,12 +134,12 @@ container = storage_client.blob_containers.create(RESOURCE_GROUP_NAME, STORAGE_A
 print(f"Provisioned blob container {container.name}")
 ```
 
-[!INCLUDE [cli_auth_note](../includes/cli_auth_note.md)]
+[!INCLUDE [cli_auth_note](includes/cli_auth_note.md)]
 
 ### Reference links for classes used in the code
 
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
-- [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient?view=azure-python)
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
+- [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient)
 
 ## 4. Run the script
 
@@ -227,7 +227,7 @@ Otherwise, run the following command to avoid ongoing charges in your subscripti
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
-[!INCLUDE [resource_group_begin_delete](../includes/resource_group_begin_delete.md)]
+[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
 
 ## See also
 
