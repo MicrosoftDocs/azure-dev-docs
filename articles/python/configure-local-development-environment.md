@@ -233,7 +233,7 @@ git init
 
 From there you can run commands like `git add` and `git commit` to commit changes. By regularly committing changes, you create a commit history with which you can revert to any previous state.
 
-To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git?view=azure-devops). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
+To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git?view=azure-devops&preserve-view=true). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
 
 Documentation for git is found on [git-scm.com/docs](https://git-scm.com/docs) and all around the Internet.
 
