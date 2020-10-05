@@ -183,7 +183,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## Create virtual machine
 
-The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 16.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
+The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
  SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
 
@@ -211,7 +211,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
-        sku       = "16.04.0-LTS"
+        sku       = "18.04-LTS"
         version   = "latest"
     }
 
