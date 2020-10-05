@@ -24,7 +24,7 @@ The sample's provisioning script performs the following steps:
 
 1. Create a Queue in the storage account named "code-requests" (using [`az storage queue create`](/cli/azure/storage/queue?view=azure-cli-latest#az-storage-queue-create)).
 
-1. To ensure that the app is allowed to write to the queue, use [`az role assignment create`](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign the "Storage Queue Data Contributor" role to the app. For more information about roles, see [How to assign role permissions](how-to-assign-role-permissions.md).
+1. To ensure that the app is allowed to write to the queue, use [`az role assignment create`](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign the "Storage Queue Data Contributor" role to the app. For more information about roles, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 The main app code is as follows; explanations of important details are given in the next parts of this series.
 

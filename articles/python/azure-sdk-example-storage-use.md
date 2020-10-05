@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you have provisioned the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
+All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
@@ -149,7 +149,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. After waiting a minute or two for the permissions to propagate, run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
-For more information on scopes and role assignments, see [How to assign role permissions](how-to-assign-role-permissions.md).
+For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 ### 4b: Use blob storage with a connection string
 
@@ -197,7 +197,7 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+[!INCLUDE [resource_group_begin_delete](../includes/resource_group_begin_delete.md)]
 
 ## See also
 

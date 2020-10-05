@@ -28,7 +28,7 @@ Fortunately, integrated authentication with Azure Active Directory (AD) allows a
 
 ## Integrated authentication with managed identity
 
-Many Azure services, like Storage and Key Vault, are integrated with Azure Active Directory (Azure AD) such that when you authenticate the application with Azure AD using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](how-to-assign-role-permissions.md) and occasionally through other access policies.
+Many Azure services, like Storage and Key Vault, are integrated with Azure Active Directory (Azure AD) such that when you authenticate the application with Azure AD using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
 
 This integration means that you never need to handle any Azure-related credentials in your app code and those credentials never appear on developer workstations or in source control. Furthermore, any handling of keys for third-party APIs and services is done entirely at run time, thus keeping those keys secure.
 
