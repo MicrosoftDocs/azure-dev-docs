@@ -102,7 +102,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = azurerm_resource_group.myterraformgroup.name
-    
+
     security_rule {
         name                       = "SSH"
         priority                   = 1001
@@ -120,7 +120,6 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     }
 }
 ```
-
 
 ## Create virtual network interface card
 
@@ -161,7 +160,7 @@ resource "random_id" "randomId" {
         # Generate a new ID only when a new resource group is defined
         resource_group = azurerm_resource_group.myterraformgroup.name
     }
-    
+
     byte_length = 8
 }
 ```
@@ -182,10 +181,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 }
 ```
 
-
 ## Create virtual machine
 
-The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 16.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
+The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
  SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
 
@@ -195,7 +193,7 @@ resource "tls_private_key" "example_ssh" {
   rsa_bits = 4096
 }
 
-output "tls_private_key" { value = "tls_private_key.example_ssh.private_key_pem" }
+output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
 
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -213,14 +211,14 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
-        sku       = "16.04.0-LTS"
+        sku       = "18.04-LTS"
         version   = "latest"
     }
 
     computer_name  = "myvm"
     admin_username = "azureuser"
     disable_password_authentication = true
-        
+
     admin_ssh_key {
         username       = "azureuser"
         public_key     = tls_private_key.example_ssh.public_key_openssh
@@ -296,7 +294,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = azurerm_resource_group.myterraformgroup.name
-    
+
     security_rule {
         name                       = "SSH"
         priority                   = 1001
@@ -344,7 +342,7 @@ resource "random_id" "randomId" {
         # Generate a new ID only when a new resource group is defined
         resource_group = azurerm_resource_group.myterraformgroup.name
     }
-    
+
     byte_length = 8
 }
 
@@ -366,7 +364,7 @@ resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
 }
-output "tls_private_key" { value = "${tls_private_key.example_ssh.private_key_pem}" }
+output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -385,14 +383,14 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
-        sku       = "16.04.0-LTS"
+        sku       = "18.04-LTS"
         version   = "latest"
     }
 
     computer_name  = "myvm"
     admin_username = "azureuser"
     disable_password_authentication = true
-        
+
     admin_ssh_key {
         username       = "azureuser"
         public_key     = tls_private_key.example_ssh.public_key_openssh
