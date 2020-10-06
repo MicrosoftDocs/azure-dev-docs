@@ -37,9 +37,9 @@ In the sample repository, this code is found under *third_party_api/RandomNumber
 
 To deploy the code, the sample's provisioning script performs the following steps:
 
-1. Create a backing storage account for Azure Functions with the Azure CLI command, [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Create a backing storage account for Azure Functions with the Azure CLI command, [`az storage account create`](/cli/azure/storage/account#az-storage-account-create).
 
-1. Create an Azure Functions "app" with the Azure CLI command, [`az function app create`](/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-create).
+1. Create an Azure Functions "app" with the Azure CLI command, [`az function app create`](/cli/azure/functionapp#az-functionapp-create).
 
 1. After waiting 60 seconds for the host to be fully provisioned, deploy the code using the [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) command, [`func azure functionapp publish`](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash#project-file-deployment)
 

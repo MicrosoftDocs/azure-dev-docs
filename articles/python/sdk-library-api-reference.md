@@ -1,5 +1,6 @@
 ---
 title: Azure SDK library API reference - Python
+description: Pointers to the Python API reference documentation
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
@@ -10,7 +11,7 @@ ms.custom: devx-track-python
 Full reference for all services:
 
 > [!div class="nextstepaction"]
-> [Python API browser >>>](/python/api/?view=azure-python)
+> [Python API browser >>>](/python/api/)
 
 We are piloting per-service reference sections, starting with Storage (blobs, files, queues). Please [provide feedback][1] on this experience.
 

@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 09/18/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -48,7 +48,7 @@ Each developer should have his or her own service principal that's secured withi
 
 ## Assign roles and permissions to an identity
 
-Once you know the identities for the app both on Azure and when running locally, you use role-based access control (RBAC) to grant permissions through the Azure portal or the Azure CLI. For full details, see [How to assign role permissions to an app identity or service principal](how-to-assign-role-permissions.md)
+Once you know the identities for the app both on Azure and when running locally, you use role-based access control (RBAC) to grant permissions through the Azure portal or the Azure CLI. For full details, see [How to assign role permissions to an app identity or service principal](/azure/role-based-access-control/role-assignments-steps).
 
 ## When does authentication and authorization occur?
 
@@ -103,7 +103,7 @@ secret_client = SecretClient(vault_url=vault_url, credential=credential)
 retrieved_secret = secret_client.get_secret("secret-name-01")
 ```
 
-Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks. 
+Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks.
 
 Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient) object also involves no communication with the resource in question. The `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. 
 
@@ -121,7 +121,7 @@ from azure.keyvault.secrets import SecretClient
 # Acquire the resource URL
 vault_url = os.environ["KEY_VAULT_URL"]
 
-# Aquire a credential object
+# Acquire a credential object
 credential = DefaultAzureCredential()
 
 # Acquire a client object
@@ -137,38 +137,30 @@ When code is deployed to and running on Azure, `DefaultAzureCredential` automati
 
 When you run your code locally, `DefaultAzureCredential` automatically uses the service principal described by the environment variables named `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET`. The client object then includes these values (securely) in the HTTP request header when calling the API endpoint. No code changes are necessary when running locally or in the cloud. For details on creating the service principal and setting up the environment variables, see [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication).
 
-In both cases, the identity involved must be assigned permissions for the appropriate resource. The general process is described on [How to assign role permissions](how-to-assign-role-permissions.md); specifics can be found in the documentation for the individual services. For details on Key Vault permissions, for example, as would be needed for the previous code, see [Provide Key Vault authentication with an access control policy](/azure/key-vault/general/group-permissions-for-apps).
-
-<a name="cli-auth-note"></a>
-> [!IMPORTANT]
-> In the future, `DefaultAzureCredential` will use the identity signed into the Azure CLI through `az login` if service principal environment variables aren't available. If you're the owner or administrator of your subscription, the practical upshot of this feature is that your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use specific service principals and assign specific permissions when you start writing production code because you'll learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production.
+In both cases, the identity involved must be assigned permissions for the appropriate resource. The general process is described on [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps); specifics can be found in the documentation for the individual services. For details on Key Vault permissions, for example, as would be needed for the previous code, see [Provide Key Vault authentication with an access control policy](/azure/key-vault/general/group-permissions-for-apps).
 
 ### Using DefaultAzureCredential with SDK management libraries
 
+`DefaultAzureCredential` works with versions of the Azure SDK management libraries (those with "mgmt" in their named) that appear on the [Libraries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. (Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.)
+
+For example, you can use `DefaultAzureCredential` with version 15.0.0 or higher of azure-mgmt-resource:
+
 ```python
-# WARNING: this code fails with azure-mgmt-resource versions < 15
-
 from azure.identity import DefaultAzureCredential
-
-# azure.mgmt.resource is an Azure SDK management library
 from azure.mgmt.resource import SubscriptionClient
 
-# Attempt to retrieve the subscription ID
 credential = DefaultAzureCredential()
 subscription_client = SubscriptionClient(credential)
 
-# If using azure-mgmt-resource < version 15 the following line produces
-# a "no attribute 'signed_session'" error:
-subscription = next(subscription_client.subscriptions.list())
-
-print(subscription.subscription_id)
+sub_list = subscription_client.subscriptions.list()
+print(list(sub_list))
 ```
 
-`DefaultAzureCredential` works only with Azure SDK client ("data plane") libraries and updated versions of the Azure SDK management libraries that appear on the [Libaries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list.
+### "'DefaultAzureCredential' object has no attribute 'signed-session'"
 
-If you run the preceding code with a version of azure-mgmt-resource version 15.0.0 or higher, the call to `subscription_client.subscriptions.list()` succeeds. If you use an earlier version of the library, the call fails with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". This error happens because older versions of SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
+If you attempt to use `DefaultAzureCredential` with a library that has not been updated to use azure.core, calls through a client object fail with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". You'd encounter such a failure, ror example, if you use the code in the preceding section with an azure-mgmt-resource library below version 15.
 
-You can work around the error by using the most recent versions management libraries from the [Libaries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. When two libraries are listed, use the highest version number. Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.
+This error happens because non-azure.core versions of SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
 
 If the management library you want to use has not yet been updated, then you can use the following alternate methods:
 
@@ -188,7 +180,7 @@ If the management library you want to use has not yet been updated, then you can
     print(subscription.subscription_id)
     ```
 
-    Again, once updated management libraries are vailable, you can use `DefaultAzureCredential` directly as shown in the original code example.
+    Again, once updated management libraries are available, you can use `DefaultAzureCredential` directly as shown in the original code example.
 
 ## Other authentication methods
 
@@ -196,7 +188,7 @@ Although `DefaultAzureCredential` is the recommended authentication method for m
 
 - Most of the methods work with explicit service principals and don't take advantage of managed identity for code that's deployed to the cloud. When used with production code, then, you must manage and maintain distinct service principals for your cloud applications.
 
-- Some methods, such as CLI-based authentication, work only with local scripts and cannot be used with production code.
+- Some methods, such as CLI-based authentication, work only with local scripts and cannot be used with production code. CLI-based authentication is convenient for development work because it uses the permissions of your Azure login and doesn't require explicit role assignments.
 
 Service principals for applications deployed to the cloud are managed in your subscriptions Active Directory. For more information, see [How to manage service principals](how-to-manage-service-principals.md).
 
@@ -386,6 +378,31 @@ Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constan
 
 ### CLI-based authentication (development purposes only)
 
+In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`. CLI-based authentication works only for development purposes because it cannot be used in production environments.
+
+The Azure libraries use the default subscription ID, or you can set the subscription prior to running the code using [`az account`](/cli/azure/manage-azure-subscriptions-azure-cli).
+
+When using CLI-based authentication, the application is authorized for any and all operations allowed by the CLI login credentials. As a result, if you are the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use specific service principals and assign specific permissions when you start writing production code because you learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production.
+
+#### CLI-based authentication with azure.core libraries
+
+When using [Azure libraries that are updated for azure.core](/azure/developer/python/azure-sdk-library-package-index#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
+
+```python
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import SubscriptionClient
+
+credential = AzureCliCredential()
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+#### CLI-based authentication with older (non azure.core) libraries
+
+When using older Azure libraries that have not been updated for azure.core, you can use the [`get_client_from_cli_profile`](/python/api/azure-common/azure.common.client_factory#get-client-from-cli-profile-client-class----kwargs-) method from the azure-cli-core library. For example, the following code can be used with versions of azure-mgmt-resource below 15.0.0:
+
 ```python
 from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource import SubscriptionClient
@@ -396,11 +413,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`. The application will be authorized for any and all operations as the user.
-
-The SDK uses the default subscription ID, or you can set the subscription prior to running the code using [`az account`](/cli/azure/manage-azure-subscriptions-azure-cli). If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
-
-The `get_client_from_cli_profile` function should be used only for early experimentation and development purposes because a signed-in user typically has owner or administrator privileges and can access most resources without any additional permissions. For more information, see the previous note about [using CLI credentials with `DefaultAzureCredential`](#cli-auth-note).
+If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
 
 ### Deprecated: Authenticate with UserPassCredentials
 
@@ -409,7 +422,7 @@ Before the [Azure Active Directory Authentication Library (ADAL) for Python](htt
 ## See also
 
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
-- [How to assign role permissions](how-to-assign-role-permissions.md)
+- [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)

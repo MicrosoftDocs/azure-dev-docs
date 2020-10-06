@@ -1,7 +1,7 @@
 ---
 title: The Azure development flow
 description: An overview of the cloud development cycle on Azure, which involves provisioning, coding, testing, deployment, and management.
-ms.date: 06/04/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -26,17 +26,19 @@ As described in the [previous article of this series](cloud-development-provisio
 
 Provisioning begins by creating a resource group in a suitable Azure region. You can create a resource group through the Azure portal, through the Azure CLI, or with a custom script that uses the Azure libraries (or REST API).
 
-Within that resource group, you then provision and configure the individual resources you need, again using the portal, the CLI, or the Azure libraries. Configuration includes setting access policies that control what identities (service principals and/or application IDs) are able to access those resources.
+Within that resource group, you then provision and configure the individual resources you need, again using the portal, the CLI, or the Azure libraries. (Again, review the [Azure developer's guide](/azure/guides/developer/azure-developer-guide) for an overview of available resource types.)
 
-For most application scenarios, you'll likely create provisioning scripts with the Azure CLI and/or Python code using the Azure libraries. Such scripts describe the totality of your application's resource needs. A script enables you to easily recreate the same set of resources within different development, test, staging, and production environments, rather than manually performing many repeated steps in the Azure portal. Such scripts also make it easy to provision an environment in a different region, or to use different resource groups. You can also maintain these scripts in source control repositories so that you have full auditing and change history.
+Configuration includes setting access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are generally managed through [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As an cloud developer working with Azure, make sure to familiarize yourself with RBAC because you use it with just about any resource that has security concerns.
+
+For most application scenarios, you typically create provisioning scripts with the Azure CLI and/or Python code using the Azure libraries. Such scripts describe the totality of your application's resource needs (essentially defining the custom cloud computer to which you're deploying the application). A script enables you to easily recreate the same set of resources within different development, test, staging, and production environments, rather than manually performing many repeated steps in the Azure portal. Such scripts also make it easy to provision an environment in a different region, or to use different resource groups. If you also maintain these scripts in source control repositories, you also have full auditing and change history.
 
 ## Step 2: Write your app code to use resources
 
-Once you've provisioned the resources you need for your application, you write the application code to work with those resources (excepting the resources to which you deploy the code itself).
+Once you've provisioned the resources you need for your application, you write the application code to work with the run time aspects of those resources.
 
-For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. From your code, now, you can authenticate with that storage account and then create, update, or delete blobs within that container. (This process is demonstrated in [Example - Use Azure Storage](azure-sdk-example-storage.md)) Similarly, you might have provisioned a database with a schema and appropriate permissions, so that your application code can connect to the database and perform the usual create-read-update-delete operations.
+For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. This provisioning process is demonstrated in [Example - Provision Azure Storage](azure-sdk-example-storage.md). From your code, you can then authenticate with that storage account and then create, update, or delete blobs within that container. This run time process is demonstrated in [Example - Use Azure Storage](azure-sdk-example-storage.md). Similarly, you might have provisioned a database with a schema and appropriate permissions (as demonstrated in [Example - Provision a database](azure-sdk-example-database.md)), so that your application code can connect to the database and perform the usual create-read-update-delete queries.
 
-App code typically uses environment variables to identify the names and URLs of the resources to use. Environment variables allow you to easily switch between cloud environments (dev, test, staging, and production) without any changes to the code.
+App code typically uses environment variables to identify the names and URLs of the resources to use. Environment variables allow you to easily switch between cloud environments (dev, test, staging, and production) without any changes to the code. The various Azure services that host application code provide a means to define the necessary variables. For example, in Azure App Service (to host web apps) and Azure Functions (Azure's serverless host), you define *application settings* through the Azure portal or Azure CLI, which then appear to your code as environment variables.
 
 As a Python developer, you'll likely write your application code in Python using the Azure libraries for Python. That said, any independent part of a cloud application can be written in any supported language. If you're working in a team with a variety of language expertise, for instance, it's entirely possible that some parts of the application are written in Python, some in JavaScript, some in Java, and others in C#.
 
