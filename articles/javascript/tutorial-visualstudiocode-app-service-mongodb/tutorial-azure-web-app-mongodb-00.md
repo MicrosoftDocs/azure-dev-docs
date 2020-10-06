@@ -6,8 +6,6 @@ ms.date: 09/22/2020
 ms.custom: devx-track-javascript
 ---
 
-# Use MongoDB in Node.js app deployed to Azure App Service from Visual Studio Code
-
 In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
