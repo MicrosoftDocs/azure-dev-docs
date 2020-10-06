@@ -1,7 +1,7 @@
 ### YamlMime:Tutorial
-title:  Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
+title:  Use Node.js MongoDB app deployed to Azure App Service from Visual Studio Code
 metadata:
-  title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
+  title: Use Node.js MongoDB app deployed to Azure App Service from Visual Studio Code
   description: yml description
   audience: Developer
   level: Beginner
@@ -17,7 +17,7 @@ items:
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-01.md)]
-- title: Run site on Azure
+- title: Deploy site to Azure
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-02.md)]

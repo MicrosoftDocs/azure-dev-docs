@@ -2,7 +2,7 @@ Use Visual Studio Code to quickly and easily add a local MongoDB database to you
 
 ## Configure Visual Studio Code to run containers
 
-In this section, configure your development environment to run two containers, one for your Node.js project, and one for your MongoDB container. 
+In this section, configure your development environment to run two containers, one for your Node.js project, and one for your MongoDB container. Because this section uses Visual Studio Code Dev Containers, the container configuration is saved in the **.devcontainer** folder. You can commit this to your source control so others on your team can also have access to a local MongoDB.  
 
 1. In Visual Studio Code, use the Command Palette (CTRL+Shift+P) to select **Remote-Containers: Add Development Container Configuration Files**. 
 
@@ -40,11 +40,9 @@ In this section, run your development environment with both containers, and view
     http://localhost:8080/
     ```
 
-1. Enter data in the fields and submit the form. Notice that the data is immediately displayed using the server-side React rendering. 
+1. Enter data in the fields and submit the form. The data is displayed using the server-side React rendering. 
 
-1. When you done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...** 
-
-    This stops the containers but leaves them on your local computer. 
+1. When you're done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...**. This stops the containers but leaves them on your local computer. 
 
 ## Want to know more? 
 

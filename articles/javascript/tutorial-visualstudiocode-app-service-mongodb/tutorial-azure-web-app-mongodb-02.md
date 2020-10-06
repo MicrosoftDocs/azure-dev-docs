@@ -1,3 +1,5 @@
+This section of the tutorial deploys the sample application to Azure. Then you can view the remotely running app in your browser. 
+
 ## Sign in to Azure
 
 [!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
@@ -10,11 +12,11 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
 
-1. Follow the prompts, use the following table to understand how your values are used.
+1. Follow the prompts using the following table to understand how your values are used.
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-<YOUR-NAME>`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
+    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
     |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
 
 1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
@@ -29,11 +31,11 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::
 
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-stream-logs.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::    
+
 1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
-
-    TBD - add screenshot
-
-    The website is now able to run locally and remotely, but still doesn't connect to the database. Let's fix in the next step.  
+    
+    The website is now able to run locally and remotely, but still doesn't connect to the database. Let's fix this in the next step.  
 
 ## Want to know more?
 

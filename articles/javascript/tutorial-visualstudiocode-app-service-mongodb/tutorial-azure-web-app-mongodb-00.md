@@ -1,5 +1,5 @@
 ---
-title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
+title: Use Node.js MongoDB app deployed to Azure App Service from Visual Studio Code
 description: In this tutorial, add web server, which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the App Service extension.
 ms.topic: tutorial
 ms.date: 09/22/2020
@@ -36,17 +36,16 @@ When the database connection is made, the app consists of two text fields in a f
 
 ## Prepare to use this tutorial
 
-You need the following to complete this tutorial. If you already have some of them, you do not need to redo those steps. 
+You need the following to complete this tutorial. 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
-    - [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
-    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
+    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
     - [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [Docker](https://docs.docker.com/get-docker/)
+- [Docker](https://docs.docker.com/get-docker/) - Docker is used to provide a local MongoDB database without having to install Mongo. Visual Studio [Dev Containers](https://code.visualstudio.com/docs/remote/containers) provide several common containers for JavaScript development
 
 ## Want to know more? 
 
@@ -55,6 +54,10 @@ Each step of the tutorial includes a **Want to know more?** section. This is _op
 Optional Visual Studio Code extensions:
 * [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+
+### Limited time to work on the tutorial?
+
+Later in the tutorial, you create an Azure resource for Cosmos DB, which is how Azure hosts MongoDB databases. This process can take up to 20 minutes. You can [start that process now](tutorial-azure-web-app-mongodb.md?tutorial-step=4) if your time is limited, then the resource may be available when you need it. 
 
 ## Summary
 

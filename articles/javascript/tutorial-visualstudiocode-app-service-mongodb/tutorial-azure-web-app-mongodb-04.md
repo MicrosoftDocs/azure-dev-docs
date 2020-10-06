@@ -1,4 +1,4 @@
-In this section, create a cloud-based database and connect to code to use that database. 
+In this section, create a cloud-based database and connect the remote app to use that cloud database. 
 
 ## Create a Cosmos database
 
@@ -12,14 +12,15 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
 
 1. In the **Databases** section of the Azure explorer, select your subscription with a right-click, then select **Create Server**.
 1. In the **Create new Azure Datbase Server** Command Palette, select **Azure Cosmos DB for MongoDB API**. 
-1. Enter your **Account name** which will be the resource name and the public URL to access the resource. 
+1. Follow the prompts using the following table to understand how your values are used. The database may take up to 15 minutes to create.
 
-    For resources in a team, use a naming convention that helps identify the resource and owner, such as **cosmos-mongo-<YOUR-NAME>**.
+    |Property|Value|
+    |--|--|
+    |Enter a globally unique **Account name** name for the new resource.| Enter a value such as `cosmos-mongodb-YOUR-NAME`, for your resource. Replace `YOUR-NAME` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
+    |Select or create a resource group.|If you need to create a resource group, use a naming convention the identifies the owner, purpose, and region such as `westus-cosmostutorial-joesmith`.|
+    |Location|The location of the resource. For this tutorial, select a regional location close to you.|
 
-    TBD - waiting for [extension bug fix](https://github.com/microsoft/vscode-cosmosdb/issues/1721)
-
-    The database may take up to 15 minutes to create. 
-
+     
 1. View the newly created Cosmos resource in the explore. It doesn't have any databases yet. 
 1. Copy the connection string found at TBD. You will need this in the next section.
 
