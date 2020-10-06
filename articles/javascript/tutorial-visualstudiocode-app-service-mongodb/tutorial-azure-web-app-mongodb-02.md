@@ -1,3 +1,6 @@
+## Sign in to Azure
+
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
 
 ## Create web app resource
 

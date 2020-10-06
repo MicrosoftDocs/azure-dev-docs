@@ -6,10 +6,6 @@ ms.date: 09/22/2020
 ms.custom: devx-track-javascript
 ---
 
-## Sign in to Azure
-
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
-
 ## Download and run the initial Express.js app
 
 The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app.
