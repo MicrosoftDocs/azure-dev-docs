@@ -1,7 +1,7 @@
 ---
 title: Cloud Development with Azure - What is Azure?
 description: An overview of developing cloud applications on Microsoft Azure, starting with how data centers, services, and resources relate.
-ms.date: 05/12/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -20,9 +20,11 @@ In the case of Azure, the computer's hardware is not a single machine but an eno
 
 Resources are the building blocks of a cloud application. The cloud development process thus begins with creating the appropriate environment into which you can deploy the different parts of the application. Put simply, you cannot deploy any code or data to Azure until you've allocated and configured&mdash;that is *provisioned*&mdash;a suitable target resource, such as a virtual machine, a database, a storage account, a container registry, a container orchestrator, a web host, a virtual network, AI and analytics engines, and so on.
 
-The process of creating the environment for your application, then, involves identifying the relevant services and resource types involved, and then provisioning those resources (at which point you begin renting them from Azure). Indeed, there are hundreds of different types of resources at your disposal, from basic "infrastructure" resources like virtual machines, where you retain full control and responsibility for the software you deploy, to higher-level "platform" services that provide a more managed environment where you concern yourself with only data and application code.
+The process of creating the environment for your application, then, involves identifying the relevant services and resource types involved, and then provisioning those resources (at which point you begin renting them from Azure). The provisioning process is essentially how you construct the computing system to which you deploy your application.
 
-Finding the right services for your application, and balancing their relative costs, can be challenging, but is also part of the creative fun of cloud development. Other articles on this developer center help you understand your choices. In the meantime, let's discuss how you actually work with all of these services and resources.
+There are hundreds of different types of resources at your disposal, from basic "infrastructure" resources like virtual machines, where you retain full control and responsibility for the software you deploy, to higher-level "platform" services that provide a more managed environment where you concern yourself with only data and application code.
+
+Finding the right services for your application, and balancing their relative costs, can be challenging, but is also part of the creative fun of cloud development. To understand the many choices, review the [Azure developer's guide](/azure/guides/developer/azure-developer-guide). Here, let's next discuss how you actually work with all of these services and resources.
 
 > [!NOTE]
 > You've probably seen and perhaps have grown weary of the terms "IaaS" (infrastructure-as-a-service), "PaaS" (platform-as-a-service), and so on. The "as-a-service" part reflects the reality that you generally don't have physical access to the data centers themselves. Instead, you use tools like the Azure portal, the Azure CLI, or Azure's REST API to provision "infrastructure" resources, "platform" resources, and so on. As a "service," Azure is always standing by waiting to receive your requests.
