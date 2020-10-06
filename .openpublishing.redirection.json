@@ -341,6 +341,10 @@
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
+      "source_path": "articles/developer/python/how-to-assign-role-permissions.md",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
+    },
+    {
       "source_path": "articles/python/sdk.md",
       "redirect_url": "/azure/developer/python/sdk-library-api-reference"
     },

@@ -38,19 +38,19 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 1. Install the Azure Spring Cloud extension:
 
-    ```Azure CLI
+    ```azurecli
     az extension add --name spring-cloud
     ```
 
 1. Create a resource group to contain your Azure Spring Cloud service:
 
-    ```Azure CLI
+    ```azurecli
     az group create --location eastus --name <resource group name>
     ```
 
 1. Provision an instance of Azure Spring Cloud:
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud create -n <service name> -g <resource group name>
     ```
 
@@ -63,7 +63,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 1. Set up your configuration server. Make sure you replace &lt;your GitHub id&gt; with the correct value.
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
     ```
 
@@ -76,7 +76,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 1. Create the three microservices: **gateway**, **auth-service**, and **account-service**:
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app create --n gateway -s <service name> -g <resource group name>
     az spring-cloud app create --n auth-service -s <service name> -g <resource group name>
     az spring-cloud app create --n account-service -s <service name> -g <resource group name>
@@ -84,7 +84,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 1. Deploy the applications:
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app deploy -n gateway -s <service name> -g <resource group name> --jar-path ./gateway/target/gateway.jar
     az spring-cloud app deploy -n account-service -s <service name> -g <resource group name> --jar-path ./account-service/target/account-service.jar
     az spring-cloud app deploy -n auth-service -s <service name> -g <resource group name> --jar-path ./auth-service/target/auth-service.jar
@@ -92,13 +92,13 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 1. Assign public endpoint to gateway:
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app update -n gateway -s <service name> -g <resource group name> --is-public true
     ```
 
 1. Query the gateway application to get the url so that you can verify that the application is running.
 
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app show --name gateway | grep url
     ```
     

@@ -27,7 +27,7 @@ landingContent:
           - text: Releases and features
             url: module-version-matrix.md  
           - text: All modules for Azure
-            url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+            url:  https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure
 
   # Card
   - title: Install and Configure Ansible

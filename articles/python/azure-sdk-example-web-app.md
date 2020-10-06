@@ -1,7 +1,7 @@
 ---
 title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 05/29/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a web app on Azure App Service and deploy app code from a GitHub repository. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
 
-All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
+All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
@@ -23,10 +23,12 @@ Be sure to create a service principal for local development, and create and acti
 Create a file named *requirements.txt* with the following contents:
 
 ```text
-azure-mgmt-resource
+azure-mgmt-resource==10.2.0
 azure-mgmt-web
 azure-cli-core
 ```
+
+The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -139,7 +141,7 @@ print(f"Provisioned web app {web_app_result.name} at {web_app_result.default_hos
 #
 # You can call this method again to change the repo.
 
-REPO_URL = 'https://github.com/<your_fork>/python-docs-hello-world'
+REPO_URL = os.environ[REPO_URL]
 
 poller = app_service_client.web_apps.create_or_update_source_control(RESOURCE_GROUP_NAME,
     WEB_APP_NAME,
@@ -161,8 +163,8 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 
 ### Reference links for classes used in the code
 
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
-- [WebSiteManagementClient (azure.mgmt.web import)](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient?view=azure-python)
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
+- [WebSiteManagementClient (azure.mgmt.web import)](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient)
 
 ## 5: Run the script
 
@@ -192,7 +194,7 @@ az group delete -n PythonAzureExample-WebApp-rg --no-wait
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
 
 ### For reference: equivalent Azure CLI commands
 
@@ -212,7 +214,7 @@ rem You can use --deployment-source-url with the first create command. It's show
 rem to match the sequence of the Python code.
 
 az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan ^
-    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
+    --deployment-source-url %REPO_URL% --runtime "python|3.8"
 
 rem Replace <your_fork> with the specific URL of your forked repository.
 ```

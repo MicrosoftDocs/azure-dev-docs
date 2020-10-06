@@ -32,8 +32,8 @@ Over time, you typically need to delete, rename, or otherwise manage these servi
 
 Using the Azure CLI, you can perform many of the same operations on service principals that you can through the Azure Portal:
 
-- Create, view, update, and delete service principals: [az ad sp](/cli/azure/ad/sp?view=azure-cli-latest) command. Also see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
-- Manage role assignments: [az role assignment](/cli/azure/role/assignment?view=azure-cli-latest) command.
+- Create, view, update, and delete service principals: [az ad sp](/cli/azure/ad/sp) command. Also see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+- Manage role assignments: [az role assignment](/cli/azure/role/assignment) command.
 
 See also:
 
