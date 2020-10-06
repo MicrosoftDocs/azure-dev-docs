@@ -20,7 +20,7 @@ Azure resources are created within a subscription, which is the billing unit for
 |--|--|
 |[Trial subscription](https://azure.microsoft.com/free/cognitive-services)|Create a _free_ trial subscription.|
 |[Existing subscription](https://portal.azure.com)|If you already have a subscription, access your existing subscription in the Azure portal, the Azure CLI, or JavaScript.|
-|[Across multiple subscriptions](/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
+|[Across multiple subscriptions](/azure/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
 
 ## One-time installation
 
@@ -61,7 +61,7 @@ Steps to **use service principal**:
 
 Learn [how to create a service principal](node-sdk-azure-authenticate-principal.md). Remember to save the response from the creation step. You will need the response's `appId`, `tenant`, and `password` values to use the service principal.
 
-[Create Azure resources with your service principal](/cli/azure/create-an-azure-service-principal-azure-cli.md#create-a-resource-using-service-principal).
+[Create Azure resources with your service principal](/cli/azure/create-an-azure-service-principal-azure-cli#create-a-resource-using-service-principal).
 
 ## Steps for each new development project setup
 
@@ -76,7 +76,7 @@ Each new project using Azure should:
 
 You have several options to store configuration information:
 - [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
-- Azure [Key Vault](/key-vault/overview.md) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
+- Azure [Key Vault](https://docs.microsoft.com/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
 
 ### Create environment variables for the Azure libraries
 
