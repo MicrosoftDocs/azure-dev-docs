@@ -318,24 +318,24 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 [Azure for Java Developers]: ../index.yml
 [Azul Systems web page for the Zulu OpenJDK]: https://go.microsoft.com/fwlink/?LinkId=402457
-[Azure Service Endpoints]: https://go.microsoft.com/fwlink/?LinkID=699526
-[Azure Storage Account List]: https://go.microsoft.com/fwlink/?LinkID=699528
-[Components properties]: https://go.microsoft.com/fwlink/?LinkID=699525#components_properties
+[Azure Service Endpoints]: ./index.yml
+[Azure Storage Account List]: ./index.yml
+[Components properties]: ./index.yml#components_properties
 [Creating a Hello World Application for Azure in Eclipse]: https://go.microsoft.com/fwlink/?LinkID=699533
 [Debugging Azure Applications in Eclipse]: https://go.microsoft.com/fwlink/?LinkID=699535
-[Deploying Large Deployments]: https://go.microsoft.com/fwlink/?LinkID=699536
-[Endpoints properties]: https://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
-[Environment variables properties]: https://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
+[Deploying Large Deployments]: ./index.yml
+[Endpoints properties]: ./index.yml#endpoints_properties
+[Environment variables properties]: ./index.yml#environment_variables_properties
 [HDInsight Tools Plugin for Eclipse]: /azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: https://go.microsoft.com/fwlink/?LinkID=264703
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: /azure/active-directory/azuread-dev/active-directory-authentication-libraries
 [How to Use SSL Offloading]: https://go.microsoft.com/fwlink/?LinkID=699545
-[Local storage properties]: https://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
+[Local storage properties]: ./index.yml#local_storage_properties
 [Microsoft Azure Client API]: https://go.microsoft.com/fwlink/?LinkId=280397
-[Server configuration properties]: https://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Session Affinity]: https://go.microsoft.com/fwlink/?LinkID=699548
+[Server configuration properties]: ./index.yml#server_configuration_properties
+[Session Affinity]: ./index.yml
 [SSL Offloading]: https://go.microsoft.com/fwlink/?LinkID=699549
-[To create a new storage account]: https://go.microsoft.com/fwlink/?LinkID=699528#create_new
-[Virtual Machine and Cloud Service Sizes for Azure]: https://go.microsoft.com/fwlink/?LinkId=466520
+[To create a new storage account]: ./index.yml#create_new
+[Virtual Machine and Cloud Service Sizes for Azure]: /previous-versions/azure/dn197896(v=azure.100)
 
 <!-- IMG List -->
 
