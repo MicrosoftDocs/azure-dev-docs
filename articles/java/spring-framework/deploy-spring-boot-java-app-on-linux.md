@@ -3,7 +3,7 @@ title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: azure app service
 documentationcenter: java
-ms.date: 12/31/2019
+ms.date: 10/06/2020
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -169,7 +169,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * Click **Next: Docker**.
 
-   ![Configure web app settings][LX02]
+   ![Click the Next: Docker button to proceed.][LX02]
 
       On the **Web App** page select **Docker**, and enter the following information:
 
@@ -185,7 +185,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    After you have entered all of the above information, click **Review + create**.
 
-   ![Configure web app settings][LX02-A]
+   ![Finish by selecting Review + Create.][LX02-A]
 
    * Click **Review + create**.
 
@@ -243,7 +243,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
 * [Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
