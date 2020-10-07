@@ -44,8 +44,7 @@ The connection to the database is set with an environment variable named `DATABA
 
 1. Add the `ENVIRONMENT` property and set its value to `production`.
 
-
-
+1. Open the remote web site in a browser, and use the form to add and delete data. 
 
 ## Want to know more? 
 
