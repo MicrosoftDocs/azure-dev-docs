@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: karler
-ms.date: 10/02/2019
+ms.date: 10/06/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -32,7 +32,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Click **Databases**, and then click **Azure Cosmos DB**.
 
-    ![Azure portal][AZ02]
+    ![Selecting Azure Cosmos DB in the Azure portal.][AZ02]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
@@ -44,13 +44,13 @@ The following prerequisites are required in order to follow the steps in this ar
 
     When you have specified these options, click **Review + create**, review your specifications, and click **Create**.
 
-    ![Azure portal][AZ03]
+    ![Select Review + Create to proceed.][AZ03]
 
 1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
-    ![Azure portal][AZ05]
+    ![Copy the URI and access keys in the Keys section.][AZ05]
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
@@ -416,7 +416,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 * [Spring Boot Cosmos DB Starter for Azure]
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 
