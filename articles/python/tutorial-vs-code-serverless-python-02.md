@@ -42,4 +42,3 @@ In this article, you create a Python function for Azure Functions with Visual St
 
 > [!div class="nextstepaction"]
 > [I created the function - continue to step 3 >>>](tutorial-vs-code-serverless-python-03.md)
-
