@@ -30,6 +30,8 @@
         href: /azure/aks/kubernetes-walkthrough?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Linux VMs
         href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Express.js with MongoDB
+        href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb.yml
     - name: DevOps
       items:
       - name: Azure Repos
@@ -126,6 +128,18 @@
             href: tutorial-vscode-azure-app-service-node-04.md
           - name: Clean up resources
             href: tutorial-vscode-azure-app-service-node-05.md
+      - name: Express.js with MongoDB
+        items:
+          - name: Get started
+            href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb?tabs=bash
+          - name: Run site locally
+            href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb?tabs=bash&tutorial-step=1
+          - name: Deploy site to Azure
+            href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb?tabs=bash&tutorial-step=2
+          - name: Connect local database
+            href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb?tabs=bash&tutorial-step=3
+          - name: Connect remote database
+            href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb?tabs=bash&tutorial-step=4
       - name: Deploy Deno to App Service with VS Code
         items:
           - name: Introduction and prerequisites

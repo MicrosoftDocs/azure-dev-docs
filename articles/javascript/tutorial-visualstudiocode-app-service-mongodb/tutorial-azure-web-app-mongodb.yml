@@ -1,7 +1,7 @@
 ### YamlMime:Tutorial
 title:  Deploy Node.js MongoDB app to App Service from Visual Studio Code
 metadata:
-  title:  Deploy Node.js MongoDB app to App Service from Visual Studio Cod
+  title:  Deploy Node.js MongoDB app to App Service from Visual Studio Code
   description: yml description
   audience: Developer
   level: Beginner
