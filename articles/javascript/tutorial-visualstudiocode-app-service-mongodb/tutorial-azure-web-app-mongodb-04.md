@@ -24,7 +24,7 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
 1. View the newly created Cosmos resource in the explore. It doesn't have any databases yet. 
 1. Copy the connection string found at TBD. You will need this in the next section.
 
-## Use new cloud database in local environment
+## Optional: Use new cloud database in local environment
 
 In order to use the new cloud database, the local code needs to change to use the new connection string. 
 
