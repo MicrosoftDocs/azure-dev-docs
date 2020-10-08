@@ -50,7 +50,8 @@ You can also specify a startup command with the Azure CLI [`az webapp create` co
 By default, App Service automatically locates the folder that contains your *wsgi.py* file and starts Gunicorn with the following command:
 
 ```cmd
-# <module> is the path to the folder that contains wsgi.py
+# <module> is the folder that contains wsgi.py. If you need to use a subfolder,
+# specify the parent of <module> using --chdir.
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 

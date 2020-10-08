@@ -5,7 +5,7 @@ services: Application-Insights
 documentationcenter: java
 author: dhaval24
 ms.author: dhdoshi
-ms.date: 11/29/2019
+ms.date: 10/06/2020
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
@@ -62,7 +62,7 @@ Create an application insights resource using the following procedure.
 
    When you have specified these options, click **Review and create**.
 
-   ![Azure][AZ03]
+   ![Review and Create, Application Insights][AZ03]
 
 * Review the specifications, and click **Create**.
 
@@ -70,7 +70,7 @@ After your resource has been created, you will see it listed on your Azure **Das
 
 From the overview page copy the **instrumentation key**.
 
-   ![Azure][AZ04]
+   ![Copy the instrumentation key][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
@@ -175,11 +175,11 @@ Configure the application using the following procedure.
 
    After a few seconds you should see the data on Azure. 
 
-   ![Azure][AZ05]
+   ![Data display on the Azure portal.][AZ05]
 
 Click on the **Application Map** tile to view high-level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Remember to set it.
 
-   ![Azure][AZ08] 
+   ![Application map display.][AZ08] 
 
 ## Configure Springboot Application to send log4j logs to Application Insights
 
@@ -257,7 +257,7 @@ Configure the application to send logs using the following procedure.
 
 Within a few seconds, you should see all the spring logs being available on Azure. You can look at the detailed log messages and do analysis on Analytics Portal.
 
-![Azure][AZ07]
+![Log messages in the Analytics Portal.][AZ07]
 
 ## Next steps
 
@@ -270,7 +270,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 

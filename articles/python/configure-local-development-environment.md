@@ -188,13 +188,15 @@ For every project, we recommend that you always create and activate a *virtual e
     # [cmd](#tab/cmd)
 
     ```bash
-    python -m venv .venv
+    # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+    py -3 -m venv .venv
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    python -m venv .venv
+    # On Windows, use py -3 -m venv .venv
+    python3 -m venv .venv
     ```
 
     ---

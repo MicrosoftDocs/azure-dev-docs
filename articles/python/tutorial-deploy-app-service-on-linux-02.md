@@ -57,15 +57,15 @@ This section describes the minimal Flask app used in this walkthrough.
 
     ```bash
     sudo apt-get install python3-venv    # If needed
-    python3 -m venv env
-    source env/bin/activate
+    python3 -m venv .venv
+    source .venv/bin/activate
     ```
 
     # [Windows](#tab/windows)
 
     ```cmd
-    python -m venv env
-    env\scripts\activate
+    py -3 -m venv .venv
+    .venv\scripts\activate
     ```
 
     ---

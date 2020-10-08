@@ -173,5 +173,5 @@ Create an authenticator with its associated `New` function, and then call `Autho
 ```go
 import "github.com/Azure/go-autorest/autorest/azure/auth"
 certificateAuthorizer := auth.NewClientCertificateConfig(certificatePath, certificatePassword, clientID, tenantID)
-authorizerToken, err := certificateAuthorizer.Authorize()
+authorizerToken, err := certificateAuthorizer.Authorizer()
 ```
