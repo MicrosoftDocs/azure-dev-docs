@@ -28,16 +28,14 @@ In this article, we will code a sample application. If you want to go faster, th
 
 ### Generate the application by using Spring Initializr
 
-> [!NOTE]
->
-> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-> 
-
 Generate the application on the command line by entering:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
+
+> [!NOTE]
+> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 ### Add the reactive MySQL driver implementation
 

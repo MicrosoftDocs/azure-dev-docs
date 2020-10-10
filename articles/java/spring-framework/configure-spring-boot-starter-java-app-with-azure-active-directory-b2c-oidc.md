@@ -14,9 +14,7 @@ ms.workload: identity
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory B2C.
-
-## Overview
+# Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory B2C
 
 This article demonstrates creating a Java app with the [Spring Initializr](https://start.spring.io/) that uses the Spring Boot Starter for Azure Active Directory (Azure AD).
 
@@ -44,16 +42,14 @@ In this tutorial, you learn how to:
 
     * Under **Project**, select **Maven Project**.
     * Under **Language**, select **Java**.
-    * Under **Spring Boot**, select **2.2.7**.
+    * Under **Spring Boot**, select **2.3.4**.
     * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill some of these out as you type.
     * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
    ![Fill in the values to generate the project](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/fill-in-the-values-to-generate-the-project.png)
 
     > [!NOTE]
-    >
     > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-    > 
 
 
 3. Select **Generate Project**, then download the project to a path on your local computer. Move the downloaded file to a directory named after your project and unzip the file. The file layout should look something like the following, with the value you entered for **Group** in place of `yourProject`.
@@ -183,9 +179,9 @@ Now that you've created the AAD B2C instance and some user flows, you'll connect
     </dependency>
     ```
 
-    For the `azure-active-directory-b2c-spring-boot-starter`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this writing the latest version is `2.2.4`.
+    For the `azure-active-directory-b2c-spring-boot-starter`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this updating the latest version is `2.3.5`.
 
-    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.2.7.RELASE`.
+    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELASE`.
 
     For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
 
@@ -355,6 +351,10 @@ you should be redirected to login page.
 ## Summary
 
 In this tutorial, you created a new Java web application using the Azure Active Directory B2C starter, configured a new Azure AD B2C tenant, and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
+
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
