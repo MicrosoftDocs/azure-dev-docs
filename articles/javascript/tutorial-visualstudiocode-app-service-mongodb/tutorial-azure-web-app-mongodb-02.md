@@ -16,7 +16,7 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique id. This unique name is also used as part of the URL to access the resource in a browser.|
+    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
     |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
 
 1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
@@ -39,7 +39,7 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
 ## Want to know more?
 
-The initial web service is configured to run on port 8080 and is publicly available. These type of web site settings are configurable.
+The initial web service is configured to run on port 8080 and is publicly available. These types of web site settings are configurable.
 * [App settings](/app-service/configure-common)
 * [Authentication](/app-service/configure-authentication-provider-microsoft)
 * [Restrict access by network](/azure/app-service/app-service-ip-restrictions)

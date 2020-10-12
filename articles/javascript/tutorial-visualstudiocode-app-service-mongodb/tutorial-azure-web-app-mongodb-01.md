@@ -1,12 +1,12 @@
 ---
 title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
-description: In this tutorial, add web server which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the App Service extension.
+description: In this tutorial, add web server, which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the App Service extension.
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: devx-track-javascript
 ---
 
-This section of the tutorial brings down the sample application to your local machine and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser. 
+In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser. 
 
 ## Download and run the initial Express.js app
 
