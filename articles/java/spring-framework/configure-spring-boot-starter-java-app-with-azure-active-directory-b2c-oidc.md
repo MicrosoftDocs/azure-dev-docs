@@ -149,11 +149,11 @@ In this tutorial, you learn how to:
 
     Follow all the steps in [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create user flows for "sign-up and sign in", "profile editing" and "password reset".
 
-    AAD B2C supports local accounts as well as social identity providers. For an example of creating a GitHub identity provider, see [Set up sign-up and sign-in with a GitHub account using Azure Active Directory B2C](/azure/active-directory-b2c/identity-provider-github).
+    Azure AD B2C supports local accounts as well as social identity providers. For an example of creating a GitHub identity provider, see [Set up sign-up and sign-in with a GitHub account using Azure Active Directory B2C](/azure/active-directory-b2c/identity-provider-github).
 
 ## Configure and compile your app
 
-Now that you've created the AAD B2C instance and some user flows, you'll connect your Spring app to the AAD B2C instance.
+Now that you've created the Azure AD B2C instance and some user flows, you'll connect your Spring app to the Azure AD B2C instance.
 
 1. From the command line, cd to the directory where you unzipped the .zip file you downloaded from Spring Initializr.
 
