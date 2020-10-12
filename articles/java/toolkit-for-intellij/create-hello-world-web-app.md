@@ -48,7 +48,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
 
-1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
+1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select**.
 
 ## Creating a new web app project
 
@@ -66,7 +66,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
-1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/WEB-INF/index.jsp**. Replace the code with the following and **save the changes**:
+1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/index.jsp**. Replace the code with the following and **save the changes**:
 
    ```html
    <html>
