@@ -1,47 +1,39 @@
-This section of the tutorial deploys the sample application to Azure. Then you can view the remotely running app in your browser. 
+---
+title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
+description: In this tutorial, add web server, which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the App Service extension.
+ms.topic: tutorial
+ms.date: 09/22/2020
+ms.custom: devx-track-javascript
+---
 
-## Sign in to Azure
+In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser. 
 
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
+## Download and run the initial Express.js app
 
-## Create web app resource
+The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app.
 
-Use the Visual Studio Code extension to create an App service resource and deploy the web app to the resource.
+The initial app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 
 
-1. Navigate to the Azure explorer. Right-click on the subscription then select `Create new web app...`.
+1. [Download the zipped GitHub repo](https://github.com/Azure-Samples/js-e2e-express-mongo.git) to your local computer then expand to a folder. 
+1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder, `code .`. 
+1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
+    ```javascript
+    npm install
+    ```
 
-1. Follow the prompts using the following table to understand how your values are used.
+1. In the same terminal window, run the command to run the web app.
 
-    |Property|Value|
-    |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
-    |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
+    ```javascript
+    npm start
+    ```
 
-1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
+1. Open a web browser and use the following url to view the web app on your local computer.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-extension-create-web-app-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app immediately after creating web app.":::
+    ```url
+    http://localhost:8080/
+    ```
 
-    If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select **Deploy to Web App...**.
+    If you see the simple web app in your browser with the text that the database isn't found, you have succeeded with this section of the tutorial.
 
-1. During the deployment process, a notification allows you to select to see the **output window**.  This displays the rolling status of the deployment. 
-
-1. When the deployment is complete, a notification appears. Select **Stream logs** to see the rolling logs. 
-
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::
-
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-stream-logs.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::    
-
-1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
-    
-    The website is now able to run locally and remotely, but still doesn't connect to the database. Let's fix this in the next step.  
-
-## Want to know more?
-
-The initial web service is configured to run on port 8080 and is publicly available. These types of web site settings are configurable.
-* [App settings](/app-service/configure-common)
-* [Authentication](/app-service/configure-authentication-provider-microsoft)
-* [Restrict access by network](/azure/app-service/app-service-ip-restrictions)
-
-When using this App service extension to deploy your web site to the Azure cloud, you may want to know more about how to [configure that deployment](https://github.com/microsoft/vscode-azureappservice/wiki/Configuring-Zip-Deployment#additional-zip-deploy-configuration-settings)
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::

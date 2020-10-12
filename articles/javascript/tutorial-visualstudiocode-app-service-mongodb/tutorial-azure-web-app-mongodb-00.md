@@ -10,6 +10,8 @@ In this tutorial, use a Node.js app with a MongoDB database using the MongoDB na
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
+## Top tasks
+
 This tutorial includes several **top Azure tasks** for JavaScript developers:
 
 * Use a local MongoDB database
@@ -18,7 +20,7 @@ This tutorial includes several **top Azure tasks** for JavaScript developers:
 * Configure cloud-hosted app settings 
 * Connect local app to a remote database
 
-## Create a web app connected to mongoDB
+## Sample application
 
 The Node.js app consists of the following elements:
 
@@ -28,37 +30,16 @@ The Node.js app consists of the following elements:
 
 :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
-### The MongoDB connection
+## The MongoDB connection
 
 If the database connection can't be made, the app displays the message, `No database found.`. This will be the initial state of the app.
 
 When the database connection is made, the app consists of two text fields in a form with a submit button with the contents of the Mongo collection displayed under the form.
 
-## Prepare to use this tutorial
+## Limited time to work on the tutorial?
 
-You need the following to complete this tutorial. 
-
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
-- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
-- Visual Studio Code extensions:
-    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
-    - [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [Docker](https://docs.docker.com/get-docker/) - Docker is used to provide a local MongoDB database without having to install Mongo. Visual Studio [Dev Containers](https://code.visualstudio.com/docs/remote/containers) provide several common containers for JavaScript development
+In the tutorial, you create an Azure resource for Cosmos DB, which is how Azure hosts MongoDB databases. This resource creation process can take up to 20 minutes. You can [start that process now](tutorial-azure-web-app-mongodb.md?tutorial-step=5) if your time is limited, then the resource should be available when you need it. 
 
 ## Want to know more? 
 
 Each step of the tutorial includes a **Want to know more?** section. This is _optional information_ to allow you to explore in depth. You can read as you go through the tutorial, or return to the tutorial later. 
-
-Optional Visual Studio Code extensions:
-* [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-
-### Limited time to work on the tutorial?
-
-Later in the tutorial, you create an Azure resource for Cosmos DB, which is how Azure hosts MongoDB databases. This process can take up to 20 minutes. You can [start that process now](tutorial-azure-web-app-mongodb.md?tutorial-step=4) if your time is limited, then the resource may be available when you need it. 
-
-## Summary
-
-Now that the tools are installed, you can download and run the app. 

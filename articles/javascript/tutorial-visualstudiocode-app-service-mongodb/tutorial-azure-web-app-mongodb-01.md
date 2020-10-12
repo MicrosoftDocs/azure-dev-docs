@@ -1,37 +1,32 @@
 ---
-title: Use MongoDB (Cosmos DB) in Node.js app deployed to Azure App Service from Visual Studio Code
+title: Use Node.js MongoDB app deployed to Azure App Service from Visual Studio Code
 description: In this tutorial, add web server, which connects to a MongoDB. Deploy the Node.js application to Azure App Service (on Linux or Windows) using the App Service extension.
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: devx-track-javascript
 ---
+In this section of the tutorial, you need an Azure subscription and all the software to use this tutorial.
 
-In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser. 
+## Create or use existing Azure Subscription 
 
-## Download and run the initial Express.js app
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 
-The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app.
+## Install software
 
-The initial app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 
+- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [Docker](https://docs.docker.com/get-docker/) - Docker is used to provide a local MongoDB database without having to install MongoDB. 
+    - If you need to use Docker to get a local MongoDB database, you also need to use:
+        -  Visual Studio [Dev Containers](https://code.visualstudio.com/docs/remote/containers) provide several common containers for JavaScript development. 
+        - [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    - If you already have a local MongoDB, and don't want to install Docker, you can still this step. Any steps using the Development Container to access a locally running MongoDB can be repurposed to use your own local MongoDB as long as the following MongoDB URL is available: 
+        - `mongodb://localhost:27017`
+- [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
+- Visual Studio Code extensions:
+    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
+    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-1. [Download the zipped GitHub repo]() (TBD-new GitHub repo) to a local folder then expand to a folder. 
-1. Open the folder with Visual Studio Code.
-1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
+## Want to know more? 
 
-    ```javascript
-    npm install
-    ```
-
-1. In the same terminal window, run the command to run the web app.
-
-    ```javascript
-    npm start
-    ```
-
-1. Open a web browser and use the following url to view the web app on your local computer.
-
-    ```url
-    http://localhost:8080/
-    ```
-
-    If you see the simple web app in your browser with the text that the database isn't found, you have succeeded with this section of the tutorial.
+Optional Visual Studio Code extensions:
+* [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)

@@ -13,21 +13,25 @@ items:
 - durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-00.md)]
-- title: Run site locally
+- title: Prepare to use this tutorial
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-01.md)]
-- title: Deploy site to Azure
+- title: Run site locally
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-02.md)]
-- title: Connect local database
+- title: Deploy site to Azure
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-03.md)]
-- title: Connect remote database
+- title: Connect local database
   durationInMinutes: 2
   content: |
     [!INCLUDE [](tutorial-azure-web-app-mongodb-04.md)]
+- title: Connect remote database
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [](tutorial-azure-web-app-mongodb-05.md)]
 - content: |
     [!INCLUDE [](completed.md)]

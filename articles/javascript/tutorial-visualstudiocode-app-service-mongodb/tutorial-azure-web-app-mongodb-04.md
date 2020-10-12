@@ -1,54 +1,73 @@
-In this section, create a cloud-based database and connect the remote app to use that cloud database. 
+This section of the tutorial add a local MongoDB database to your application using a Visual Studio Code extension and Docker containers.
 
-## Create a Cosmos database
+## Configure Visual Studio Code to run containers
 
-Create a Cosmos resource to host a cloud-based MongoDB database. 
+In this section, configure your development environment to run two containers, one for your Node.js project, and one for your MongoDB container. Because this section uses Visual Studio Code Dev Containers, the container configuration is saved in the **.devcontainer** folder. You can commit this to your source control so others on your team can also have access to a local MongoDB.  
 
-1. In Visual Studio Code, select the **Azure** icon in the left-most menu, then select the **Databases** section. 
+1. In Visual Studio Code, use the Command Palette (CTRL+Shift+P) to select **Remote-Containers: Add Development Container Configuration Files**. 
 
-    If the **Databases** section isn't visible, make sure you have checked the section in the top Azure **...** menu. 
+1. Select **Node.js & Mongo DB** from the list.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-azure-extension-select-database-section.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-configure-development-container.png" alt-text="Partial screenshot of Visual Studio Code's Command Palette."::: 
 
-1. In the **Databases** section of the Azure explorer, select your subscription with a right-click, then select **Create Server**.
-1. In the **Create new Azure Database Server** Command Palette, select **Azure Cosmos DB for MongoDB API**. 
-1. Follow the prompts using the following table to understand how your values are used. The database may take up to 15 minutes to create.
+1. In the **\.devcontainer\devcontainer.json** file, find the **forwardPorts** property, uncomment it and add `8080` to the array. If you also want access to access the MongoDB container with the shell, add the port `27017` to the array.  
 
-    |Property|Value|
-    |--|--|
-    |Enter a globally unique **Account name** name for the new resource.| Enter a value such as `cosmos-mongodb-YOUR-NAME`, for your resource. Replace `YOUR-NAME` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
-    |Select or create a resource group.|If you need to create a resource group, use a naming convention that identifies the owner, purpose, and region such as `westus-cosmostutorial-joesmith`.|
-    |Location|The location of the resource. For this tutorial, select a regional location close to you.|
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-dev-container-configuration-forward-ports.png" alt-text="Partial screenshot of Visual Studio Code's `devcontainer.json` file with forwarding ports for app and MongoDB."::: 
 
-    > [!CAUTION]
-    > Creating the resource may take up to 15 minutes.     
+## Run web app locally with database
 
-1. View the newly created Cosmos resource in the explore. It doesn't have any databases yet. 
-1. Copy the connection string found at TBD. You will need this in the next section.
+In this section, run your development environment with both containers, and view the web site. 
 
-## Optional: Use new cloud database in local environment
+1. Select the green **Remote Containers** icon in the bottom-left corner of Visual Studio Code. This opens the Command Palette. 
 
-In order to use the new cloud database, the local code needs to change to use the new connection string. 
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-container-icon.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
 
-1. In Visual Studio Code, open the `.env` file and change the **DATABASE_URL** value to new connection string. 
-1. Add `&retrywrites=false` to the end of the connection string so that the database can be created the first time the web app runs. 
+1. From the Command Palette, select **Remote-Containers: Reopen in Container**. The first time you open the project with containers, the Node.js and MongoDB images are pulled down and started. This may take a few minutes. 
 
-1. Run the web app locally, without using the Dev Container, to make sure the cloud database is working. 
+    When the containers are running, the Visual Studio Code terminal displays the Node.js container's terminal. 
 
-## Use new cloud database in remote web app
+    Optionally, you can use the `ls` command to see your files. Notice your files are using a shared volume with your local computer. Changes you make inside the Node.js container to the code files are saved in your local files.
 
-The connection to the database is set with an environment variable named `DATABASE_URL`. In order to configure the remote web app to use that environment variable, you need to create that variable on the remote web app. 
+1. Start the project at the terminal with the following command:
 
-1. In Visual Studio Code, in the Azure app service explorer, select and expand the web app service node.
-1.  Right-click on the **Application Settings** node to add the `DATABASE_URL` property with the connection string for your Azure Cosmos DB for MongoDB. 
+    ```console
+    npm start
+    ```
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-web-app-application-settings.png" alt-text="Partial screenshot of Visual Studio Code's remote web app application settings"::: 
+1. Open a browser with your local web app URL:
 
-1. Add the `ENVIRONMENT` property and set its value to `production`.
+    ```http
+    http://localhost:8080/
+    ```
 
-1. Open the remote web site in a browser, and use the form to add and delete data. 
+1. Enter data in the fields and submit the form. The data is displayed using the server-side React rendering. 
+
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Express.js web app form and data results from local MongoDB.":::
+
+1. When you're done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...**. This stops the containers but leaves them on your local computer. 
 
 ## Want to know more? 
 
-### MongoDB connection strings
-Creating the database the first time the code runs may require retries so the connection string must have the `&retrywrites=false` setting. If you want to investigate more of this issue, start with this [public issue #1296](https://github.com/microsoft/vscode-cosmosdb/issues/1296) on GitHub. 
+The database code is provided in two files:
+
+|File|Purpose|
+|--|--|
+|/src/index.js|Database connection string, stored in variable `DATABASE_URL`. Depending on the `production` configuration setting, either a local MongoDB database is used or an environment variable `DATABASE_URL` value is used. The `connectToDatabase` function calls into **/src/data.js** to connect with the MongoDB native APIs.|
+|/src/data.js|Provides functions to use MongoDB.|
+
+The database name and collection name settings are managed in the **.env** file:
+
+```env
+DATABASE_NAME=my-tutorial-db
+DATABASE_COLLECTION_NAME=my-collection
+```
+
+Connect to the MongoDB container with a Visual Studio Code extension: **[MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)** to see your data.
+
+If you would rather use the **mongo** shell, connect to the MongoDB container with a Visual Studio Code terminal by opening a new Visual Studio Code window, then using the **Remote-Containers: Attach to Running Container...**, then select the container ending in `-db`. Once the window is attached to the container, open a Visual Studio Code terminal. You can immediately access the Mongo shell using the following command:
+
+```console
+mongo
+```
+
+When you want to clean up your containers, use the Visual Studio Code extension, **[Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)**.

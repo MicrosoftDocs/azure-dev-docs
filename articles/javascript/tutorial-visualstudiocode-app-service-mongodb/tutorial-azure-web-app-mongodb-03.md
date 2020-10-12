@@ -1,71 +1,47 @@
-Use Visual Studio Code to quickly and easily add a local MongoDB database to your application using Docker.
+This section of the tutorial deploys the sample application to Azure. Then, you can view the remotely running app in your browser. 
 
-## Configure Visual Studio Code to run containers
+## Sign in to Azure
 
-In this section, configure your development environment to run two containers, one for your Node.js project, and one for your MongoDB container. Because this section uses Visual Studio Code Dev Containers, the container configuration is saved in the **.devcontainer** folder. You can commit this to your source control so others on your team can also have access to a local MongoDB.  
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
 
-1. In Visual Studio Code, use the Command Palette (CTRL+Shift+P) to select **Remote-Containers: Add Development Container Configuration Files**. 
+## Create web app resource
 
-1. Select **Node.js & Mongo DB** from the list.
+Use the Visual Studio Code extension to create an App service resource and deploy the web app to the resource.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-configure-development-container.png" alt-text="Partial screenshot of Visual Studio Code's Command Palette."::: 
+1. Navigate to the Azure explorer. Right-click on the subscription then select `Create new web app...`.
 
-1. In the **\.devcontainer\devcontainer.json** file, find the **forwardPorts** property, uncomment it and add `8080` to the array. If you also want access to access the MongoDB container with the shell, add the port `27017` to the array.  
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-dev-container-configuration-forward-ports.png" alt-text="Partial screenshot of Visual Studio Code's `devcontainer.json` file with forwarding ports for app and MongoDB."::: 
+1. Follow the prompts using the following table to understand how your values are used.
 
-## Run web app locally with database
+    |Property|Value|
+    |--|--|
+    |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
+    |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
 
-In this section, run your development environment with both containers, and view the web site. 
+1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
 
-1. Select the green **Remote Containers** icon in the bottom-left corner of Visual Studio Code. This opens the Command Palette. 
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-extension-create-web-app-deploy-web-app.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app immediately after creating web app.":::
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-container-icon.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
+    If the status message is no longer visible, you can deploy by selecting the Azure explorer, then right-click on the resource name, then select **Deploy to Web App...**.
 
-1. From the Command Palette, select **Remote-Containers: Reopen in Container**. The first time you open the project with containers, the Node.js and MongoDB images are pulled down and started. This may take a few minutes. 
+1. During the deployment process, a notification allows you to select to see the **output window**.  This displays the rolling status of the deployment. 
 
-    When the containers are running, the Visual Studio Code terminal displays the Node.js container's terminal. 
+1. When the deployment is complete, a notification appears. Select **Stream logs** to see the rolling logs. 
 
-    Optionally, you can use the `ls` command to see your files. Notice your files are using a shared volume with your local computer. Changes you make inside the Node.js container to the code files are saved in your local files.
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::
 
-1. Start the project at the terminal with the following command:
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-stream-logs.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::    
 
-    ```console
-    npm start
-    ```
+1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
+    
+    The website is now able to run locally and remotely, but still doesn't connect to the database. 
 
-1. Open a browser with your local web app URL:
+## Want to know more?
 
-    ```http
-    http://localhost:8080/
-    ```
+The initial web service is configured to run on port 8080 and is publicly available. These types of web site settings are configurable.
+* [App settings](/app-service/configure-common)
+* [Authentication](/app-service/configure-authentication-provider-microsoft)
+* [Restrict access by network](/azure/app-service/app-service-ip-restrictions)
 
-1. Enter data in the fields and submit the form. The data is displayed using the server-side React rendering. 
-
-1. When you're done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...**. This stops the containers but leaves them on your local computer. 
-
-## Want to know more? 
-
-The database code is provided in two files:
-
-|File|Purpose|
-|--|--|
-|/src/index.js|Database connection string, stored in variable `database_URL`. Depending on the `production` configuration setting, either a local MongoDB database is used or an environment variable `DATABASE_URL` value is used. The `connectToDatabase` function calls into **/src/data.js** to connect with the MongoDB native APIs.|
-|/src/data.js|Provides functions to use MongoDB.|
-
-The database name and collection name settings are managed in the **.env** file:
-
-```env
-DATABASE_NAME=my-tutorial-db
-DATABASE_COLLECTION_NAME=my-collection
-```
-
-Connect to the MongoDB container with a Visual Studio Code extension: **[MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)** to see your data.
-
-If you would rather use the **mongo** shell, connect to the MongoDB container with a Visual Studio Code terminal by opening a new Visual Studio Code window, then using the **Remote-Containers: Attach to Running Container...**, then select the container ending in `-db`. Once the window is attached to the container, open a Visual Studio Code terminal. You can immediately access the Mongo shell using the following command:
-
-```console
-mongo
-```
-
-When you want to clean up your containers, use the Visual Studio Code extension, **[Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)**.
+When using this App service extension to deploy your web site to the Azure cloud, you may want to know more about how to [configure that deployment](https://github.com/microsoft/vscode-azureappservice/wiki/Configuring-Zip-Deployment#additional-zip-deploy-configuration-settings)
