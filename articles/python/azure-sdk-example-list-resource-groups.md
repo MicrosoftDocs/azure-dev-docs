@@ -119,11 +119,15 @@ for resource in list(resource_list):
 
 ## 4: Run the scripts
 
-```cmd
-# List all resources groups in the subscription
-python list_groups.py
+List all resources groups in the subscription:
 
-# List all resources in a resource group
+```cmd
+python list_groups.py
+```
+
+List all resources in a resource group:
+
+```cmd
 python list_resources.py
 ```
 
