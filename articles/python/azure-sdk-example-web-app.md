@@ -163,6 +163,7 @@ To use such code in a production script, you should instead use `DefaultAzureCre
 
 ### Reference links for classes used in the code
 
+- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 - [WebSiteManagementClient (azure.mgmt.web import)](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient)
 
@@ -243,6 +244,7 @@ az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-We
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
