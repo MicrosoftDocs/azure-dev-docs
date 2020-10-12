@@ -479,6 +479,14 @@
     {
       "source_path": "articles/terraform/getting-started-cloud-shell.md",
       "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
     }
   ]
 }
