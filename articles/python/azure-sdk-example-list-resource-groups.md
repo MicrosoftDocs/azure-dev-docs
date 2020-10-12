@@ -91,11 +91,10 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 # Obtain the management object for resources.
 resource_client = ResourceManagementClient(credential, subscription_id)
 
-# Retrieve the list of resources in "myResourceGroup" (change to any name desired)
-group_name = "myResourceGroup"
-
+# Retrieve the list of resources in "myResourceGroup" (change to any name desired).
+# The expand argument includes additional properties in the output.
 resource_list = resource_client.resources.list_by_resource_group(
-    resource_group_name = group_name, filter = None, expand = "createdTime,changedTime", top = None)
+    "myResourceGroup", expand = "createdTime,changedTime")
 
 # Show the resources in formatted output
 column_width = 36
