@@ -26,7 +26,6 @@ In this article, we will code a sample application. If you want to go faster, th
 
 ### Generate the application by using Spring Initializr
 
-
 Generate the application on the command line by entering:
 
 ```bash
@@ -68,11 +67,11 @@ Here's a screenshot of the application running for the first time:
 Next, add the Java code that will use JPA to store and retrieve data from your PostgreSQL server.
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
-
+    
 Here's a screenshot of these cURL requests:
 
 [![Test with cURL](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png)](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png#lightbox)
-
+    
 Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for PostgreSQL.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
