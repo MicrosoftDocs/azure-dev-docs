@@ -94,7 +94,9 @@ resource_client = ResourceManagementClient(credential, subscription_id)
 # Retrieve the list of resources in "myResourceGroup" (change to any name desired).
 # The expand argument includes additional properties in the output.
 resource_list = resource_client.resources.list_by_resource_group(
-    "myResourceGroup", expand = "createdTime,changedTime")
+    "myResourceGroup",
+    expand = "createdTime,changedTime"
+)
 
 # Show the resources in formatted output
 column_width = 36
