@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+Be sure to create and activate a virtual environment for this project.
 
 ## 2: Install the Azure library packages
 
@@ -85,6 +85,7 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 
 ### Reference links for classes used in the code
 
+- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 
 ## 4: Run the script
@@ -125,6 +126,7 @@ az group create -n PythonAzureExample-rg -l centralus
 
 ## See also
 
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
