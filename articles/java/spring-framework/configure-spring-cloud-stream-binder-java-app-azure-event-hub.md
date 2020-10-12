@@ -3,7 +3,7 @@ title: How to create a Spring Cloud Stream Binder application with Azure Event H
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 09/11/2020
+ms.date: 10/12/2020
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -119,7 +119,10 @@ The following procedure creates a Spring boot application.
 1. When prompted, download the project to a path on your local computer.
 
 1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
-
+   
+   > [!NOTE]
+   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+    
 ## Configure your Spring Boot app to use the Azure Event Hub starter
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:

@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: karler
-ms.date: 10/06/2020
+ms.date: 10/12/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -68,6 +68,10 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. When prompted, download the project to a path on your local computer and extract the files.
 
 Your simple Spring Boot application is now ready for editing.
+    
+   > [!NOTE]
+   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+  
 
 ## Configure your Spring Boot application to use the Azure Spring Boot Starter
 
