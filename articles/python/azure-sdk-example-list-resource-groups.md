@@ -33,7 +33,7 @@ In a terminal or command prompt with the virtual environment activated, install 
 pip install -r requirements.txt
 ```
 
-## 3: Write code to provision a resource group
+## 3: Write code to list resource groups
 
 Create a Python file named *list_groups.py* with the following code. The comments explain the details:
 

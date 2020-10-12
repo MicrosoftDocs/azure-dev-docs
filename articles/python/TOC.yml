@@ -143,6 +143,8 @@
       items:
       - name: "Provision a resource group"
         href: azure-sdk-example-resource-group.md
+      - name: "List resource groups"
+        href: azure-sdk-example-list-resource-groups.md
       - name: "Provision Azure storage"
         href: azure-sdk-example-storage.md
       - name: "Use Azure storage"
