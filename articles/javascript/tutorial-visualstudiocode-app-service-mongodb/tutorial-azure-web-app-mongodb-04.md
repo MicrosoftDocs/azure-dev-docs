@@ -20,7 +20,9 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
     |Select or create a resource group.|If you need to create a resource group, use a naming convention that identifies the owner, purpose, and region such as `westus-cosmostutorial-joesmith`.|
     |Location|The location of the resource. For this tutorial, select a regional location close to you.|
 
-     
+    > [!CAUTION]
+    > Creating the resource may take up to 15 minutes.     
+
 1. View the newly created Cosmos resource in the explore. It doesn't have any databases yet. 
 1. Copy the connection string found at TBD. You will need this in the next section.
 
