@@ -28,7 +28,7 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
     > [!CAUTION]
     > Creating the resource may take up to 15 minutes.     
 
-1. View the newly created Cosmos resource in the explore. It doesn't have any databases yet. 
+1. View the newly created Cosmos resource in the explorer. It doesn't have any databases yet. 
 1. While still in the Azure Databases explorer, right-click the resource name, the select **Copy Connection String** to copy the connection string. You will need this later in the tutorial.
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-databases-extenion-copy-connection-string.png" alt-text="Express.js web app form and data results from local MongoDB.":::

@@ -42,7 +42,7 @@ In this section, run your development environment with both containers, and view
 
 1. Open a browser with your local web app URL:
 
-    ```http
+    ```
     http://localhost:8080/
     ```
 
@@ -53,20 +53,6 @@ In this section, run your development environment with both containers, and view
 1. When you're done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...**. This stops the containers but leaves them on your local computer. 
 
 ## Want to know more? 
-
-The database code is provided in two files:
-
-|File|Purpose|
-|--|--|
-|/src/index.js|Database connection string, stored in variable `DATABASE_URL`. Depending on the `production` configuration setting, either a local MongoDB database is used or an environment variable `DATABASE_URL` value is used. The `connectToDatabase` function calls into **/src/data.js** to connect with the MongoDB native APIs.|
-|/src/data.js|Provides functions to use MongoDB.|
-
-The database name and collection name settings are managed in the **.env** file:
-
-```env
-DATABASE_NAME=my-tutorial-db
-DATABASE_COLLECTION_NAME=my-collection
-```
 
 Connect to the MongoDB container with a Visual Studio Code extension: **[MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)** to see your data.
 

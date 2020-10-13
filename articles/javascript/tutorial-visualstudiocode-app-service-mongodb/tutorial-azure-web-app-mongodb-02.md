@@ -8,12 +8,15 @@ In this section of the tutorial, you download the sample application to your loc
 
 ## Download and run the initial Express.js app
 
-The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app.
-
-The initial app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 
+The initial Express.js web app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app. The initial app tries to connect to a database if it is available. If it isn't available, the website still responds successfully to a request. 
 
 1. [Download the zipped GitHub repo](https://github.com/Azure-Samples/js-e2e-express-mongo.git) to your local computer then expand to a folder. 
-1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder, `code .`. 
+1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder:
+
+    ```console
+    code .
+    ```
+
 1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
 
     ```javascript
