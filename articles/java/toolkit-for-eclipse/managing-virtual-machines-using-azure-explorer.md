@@ -98,7 +98,7 @@ To delete a virtual machine by using the Azure Explorer in Eclipse, do the follo
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Delete**.
 
-1. In the confirmation window, click **Yes**.
+1. In the confirmation window, click **ok**.
 
    ![The virtual-machine delete confirmation window](media/managing-virtual-machines-using-azure-explorer/DE02.png)
 
