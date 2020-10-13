@@ -126,7 +126,7 @@
         "terraform/**/*.yml" : "Terraform"
       },
       "featureFlags": {
-        "javascript/tutorial-visualstudiocode-app-service-mongodb/*.yml": [
+        "javascript/**/*-feedback.yml": [
           "enable_tutorial_feedback"
         ]
       },
