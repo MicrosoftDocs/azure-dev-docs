@@ -3,7 +3,7 @@ title: Create a Spring Boot Initializer app - Azure Redis Cache
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Redis Cache.
 services: redis-cache
 documentationcenter: java
-ms.date: 10/06/2020
+ms.date: 10/13/2020
 ms.service: cache
 ms.tgt_pltfrm: cache-redis
 ms.topic: conceptual
@@ -26,7 +26,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
+1. Specify that you want to generate a **Maven** project with **Java**,select **8** Java version,enter the **Group** and **Artifact** names for your application.
 
 1. Add dependencies for **Spring Web** section and check the box for **Web**, then scroll down to the **NoSQL** section and check the box for **Spring Data Reactive Redis**. 
 1. Scroll to the bottom of the page and click the button to **Generate Project**.
