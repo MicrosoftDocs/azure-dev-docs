@@ -1,7 +1,8 @@
 ---
-title: include file
-description: include file
+title: include file tutorial-azure-web-app-mongodb-05.md
+description: include file tutorial-azure-web-app-mongodb-05.md
 ms.date: 10/13/2020
+ms.topic: include
 ms.custom: devx-track-javascript
 ---
 In this section of the tutorial, create a cloud-based database and connect the remote app to use that cloud database. 
