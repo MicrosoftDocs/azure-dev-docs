@@ -5,7 +5,7 @@ services: Application-Insights
 documentationcenter: java
 author: dhaval24
 ms.author: dhdoshi
-ms.date: 10/06/2020
+ms.date: 10/13/2020
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
@@ -20,9 +20,9 @@ This article walks you through creating a Spring Boot application using **[Sprin
 
 The following prerequisites are required in order to complete the steps in this article:
 
-* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 * Web Flux and Netty APIs are **not currently supported** with the Application Insights Spring Boot starter.
 
 ## Create a custom application using Spring Initializr
@@ -36,9 +36,8 @@ Create an application with the following procedure.
    ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
-   >
-   > Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*.
-   >
+   > 1. Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*. 
+   > 1. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 1. Click the **Generate** button.
 
@@ -82,7 +81,7 @@ Configure the application using the following procedure.
  <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-spring-boot-starter</artifactId>
-    <version>1.1.1</version>
+    <version>2.6.2</version>
 </dependency>
 ```
 
@@ -214,13 +213,13 @@ Configure the application to send logs using the following procedure.
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.1</version>
+        <version>2.6.2</version>
     </dependency>
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-logging-log4j2</artifactId>
-        <version>2.1.1</version>
+        <version>2.6.2</version>
     </dependency>
 </dependencies>
 ```
@@ -258,6 +257,10 @@ Configure the application to send logs using the following procedure.
 Within a few seconds, you should see all the spring logs being available on Azure. You can look at the detailed log messages and do analysis on Analytics Portal.
 
 ![Log messages in the Analytics Portal.][AZ07]
+
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
@@ -309,7 +312,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ07]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/traces_details.png
 [AZ08]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/AppMap.png
 
-[SI01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.PNG
+[SI01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.png
 [SI02]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/After_extract.png
 
 [RE01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationproperties_loc.png
