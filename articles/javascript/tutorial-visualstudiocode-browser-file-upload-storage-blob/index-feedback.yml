@@ -13,5 +13,9 @@ items:
 - durationInMinutes: 2
   content: |
     [!INCLUDE [Tutorial introduction](introduction.md)]
+- title: Prepare to use this tutorial
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Prepare to use this tutorial](tutorial-01.md)]
 - content: |
     [!INCLUDE [Completed tutorial](completed.md)]
