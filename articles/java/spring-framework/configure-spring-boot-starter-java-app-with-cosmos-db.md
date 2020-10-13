@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: karler
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -58,7 +58,7 @@ Use the following steps to create a new Spring Boot application project with Azu
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven Project** with **Java**, specify your **Spring Boot** version, enter the **Group** and **Artifact** names for your application, add **Azure Support** in the dependencies, and then click the button to **Generate Project**.
+1. Specify that you want to generate a **Maven Project** with **Java**, specify your **Spring Boot** version, enter the **Group** and **Artifact** names for your application, select **8** Java version, add **Azure Support** in the dependencies, and then click the button to **Generate Project**.
 
     ![Basic Spring Initializr options][SI01]
 
@@ -69,10 +69,6 @@ Use the following steps to create a new Spring Boot application project with Azu
 
 Your simple Spring Boot application is now ready for editing.
     
-   > [!NOTE]
-   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-  
-
 ## Configure your Spring Boot application to use the Azure Spring Boot Starter
 
 1. Locate the *pom.xml* file in the directory of your app; for example:
