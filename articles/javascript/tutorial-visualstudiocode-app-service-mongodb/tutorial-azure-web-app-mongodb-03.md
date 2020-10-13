@@ -35,7 +35,7 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 
 1. When the deployment is complete, a notification appears. Select **Stream logs** to see the rolling logs. 
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::
+    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-deployed.png" alt-text="Service is deployed. `Stream logs`.":::
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-stream-logs.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::    
 

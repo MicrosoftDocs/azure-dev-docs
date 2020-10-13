@@ -1,9 +1,7 @@
 ---
-title: "Tutorial: completed"
-description: Completed Tutorial.
-ms.topic: tutorial
-ms.date: 06/01/2020
-ms.custom: devx-track-js
+ms.topic: include
+ms.date: 10/13/2020
+ms.custom: devx-track-javascript
 ---
 
 You've completed the tutorial. Now that you have a working Deno app, you can experiment and add new features. 

@@ -36,7 +36,7 @@ When the database connection is made, the app consists of two text fields in a f
 
 ## Limited time to work on the tutorial?
 
-In the tutorial, you create an Azure resource for Cosmos DB, which is how Azure hosts MongoDB databases. This resource creation process can take up to 20 minutes. You can [start that process now](tutorial-azure-web-app-mongodb.md?tutorial-step=5) if your time is limited, then the resource should be available when you need it. 
+In the tutorial, you create an Azure resource for Cosmos DB, which is how Azure hosts MongoDB databases. This resource creation process can take up to 20 minutes. You can [start that process now](tutorial-azure-web-app-mongodb.yml?tutorial-step=5) if your time is limited, then the resource should be available when you need it. 
 
 ## Want to know more? 
 
