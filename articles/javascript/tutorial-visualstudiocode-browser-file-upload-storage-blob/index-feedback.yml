@@ -1,0 +1,17 @@
+### YamlMime:Tutorial
+title:  Upload image to Blob Storage Visual Studio Code
+metadata:
+  title:  
+  description:  
+  audience: Developer
+  level: Beginner
+  displayType: one-column
+  ms.date: 10/13/2020
+  ms.topic: tutorial
+  ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
+items:
+- durationInMinutes: 2
+  content: |
+    [!INCLUDE [Tutorial introduction](introduction.md)]
+- content: |
+    [!INCLUDE [Completed tutorial](completed.md)]

@@ -124,6 +124,11 @@
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform"
       },
+      "featureFlags": {
+          "javascript/**/*-feedback.yml": [
+            "enable_tutorial_feedback"
+          ]
+      },
       "ms.topic": {
         "**/includes/**/*.md": "include"
       },
