@@ -5,5 +5,3 @@ ms.custom: devx-track-javascript
 ---
 
 You've completed the tutorial. Now that you have a deployed Express.js app using a MongoDB database, you can experiment and add new features. 
-
-Please provide any feedback on this tutorial in the [GitHub repository](https://github.com/MicrosoftDocs/azure-dev-docs-pr).
