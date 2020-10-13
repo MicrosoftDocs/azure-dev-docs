@@ -37,8 +37,9 @@ The following procedure creates and configures a Cosmos account in the Azure por
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Select **+Create a resource**, then **Get started**, and then select **Azure Cosmos DB**.
-
-   ![Create an Azure Cosmos DB account][COSMOSDB01]
+    
+   >[!div class="mx-imgBorder"]
+   >![Create an Azure Cosmos DB account][COSMOSDB01]
 
 1. Specify the following information:
 
@@ -47,14 +48,16 @@ The following procedure creates and configures a Cosmos account in the Azure por
    - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
    - **API**: Specify `Cassandra` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
-
-   ![Specify your Cosmos DB account settings][COSMOSDB02]
+   
+   >[!div class="mx-imgBorder"]
+   >![Specify your Cosmos DB account settings][COSMOSDB02]
    
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
-
-   ![Review your Cosmos DB account settings][COSMOSDB03]
+   
+   >[!div class="mx-imgBorder"]
+   >![Review your Cosmos DB account settings][COSMOSDB03]
 
 It will take a few minutes to deploy the database.
 
@@ -65,10 +68,12 @@ It will take a few minutes to deploy the database.
 1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
 
 1. Select **Data Explorer**, select down arrow and select **New Keyspace**. Enter a unique identifier for your **Keyspace id**, then select **OK**.
-
-   ![Select New keyspace][COSMOSDB05]
+    
+   >[!div class="mx-imgBorder"]
+   >![Select New keyspace][COSMOSDB05]
    
-   ![Create a Cosmos DB keyspace][COSMOSDB05-1]
+   >[!div class="mx-imgBorder"]
+   >![Create a Cosmos DB keyspace][COSMOSDB05-1]
 
 ### Retrieve the connection settings for your Azure Cosmos DB account
 
@@ -77,8 +82,9 @@ It will take a few minutes to deploy the database.
 1. Select **All Resources**, then click the Azure Cosmos DB account you just created.
 
 1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
-
-   ![Retrieve your Cosmos DB connection settings][COSMOSDB06]
+   
+   >[!div class="mx-imgBorder"]
+   >![Retrieve your Cosmos DB connection settings][COSMOSDB06]
 
 ## Configure the sample application
 
