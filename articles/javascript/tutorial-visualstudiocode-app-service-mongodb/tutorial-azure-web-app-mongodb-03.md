@@ -1,3 +1,9 @@
+---
+ms.topic: include
+ms.date: 10/13/2020
+ms.custom: devx-track-javascript
+---
+
 This section of the tutorial deploys the sample application to Azure. Then, you can view the remotely running app in your browser. 
 
 ## Sign in to Azure

@@ -1,3 +1,8 @@
+---
+ms.topic: include
+ms.date: 10/13/2020
+ms.custom: devx-track-javascript
+---
 In this section of the tutorial, create a cloud-based database and connect the remote app to use that cloud database. 
 
 ## Create a Cosmos database

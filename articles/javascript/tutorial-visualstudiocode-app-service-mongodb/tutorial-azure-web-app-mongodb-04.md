@@ -1,3 +1,9 @@
+---
+ms.topic: include
+ms.date: 10/13/2020
+ms.custom: devx-track-javascript
+---
+
 This section of the tutorial add a local MongoDB database to your application using a Visual Studio Code extension and Docker containers.
 
 ## Configure Visual Studio Code to run containers

@@ -2,36 +2,36 @@
 title:  Deploy Node.js MongoDB app to App Service from Visual Studio Code
 metadata:
   title:  Deploy Node.js MongoDB app to App Service from Visual Studio Code
-  description: yml description
+  description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. 
   audience: Developer
   level: Beginner
   displayType: one-column
-  ms.date: 10/03/2020
+  ms.date: 10/13/2020
   ms.topic: tutorial
-  ms.custom: scenarios:getting-started, languages:JavaScript
+  ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 items:
 - durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-00.md)]
+    [!INCLUDE [Tutorial introduction](tutorial-azure-web-app-mongodb-00.md)]
 - title: Prepare to use this tutorial
   durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-01.md)]
+    [!INCLUDE [Prepare to use this tutorial](tutorial-azure-web-app-mongodb-01.md)]
 - title: Run site locally
   durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-02.md)]
+    [!INCLUDE [Run site locally](tutorial-azure-web-app-mongodb-02.md)]
 - title: Deploy site to Azure
   durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-03.md)]
+    [!INCLUDE [Deploy site to Azure](tutorial-azure-web-app-mongodb-03.md)]
 - title: Connect local database
   durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-04.md)]
+    [!INCLUDE [Connect local database](tutorial-azure-web-app-mongodb-04.md)]
 - title: Connect remote database
   durationInMinutes: 2
   content: |
-    [!INCLUDE [](tutorial-azure-web-app-mongodb-05.md)]
+    [!INCLUDE [Connect remote database](tutorial-azure-web-app-mongodb-05.md)]
 - content: |
-    [!INCLUDE [](completed.md)]
+    [!INCLUDE [Completed tutorial](completed.md)]
