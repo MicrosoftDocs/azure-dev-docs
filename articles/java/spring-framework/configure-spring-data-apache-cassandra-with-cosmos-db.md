@@ -66,7 +66,7 @@ It will take a few minutes to deploy the database.
 
 1. Select **Data Explorer**, select down arrow and select **New Keyspace**. Enter a unique identifier for your **Keyspace id**, then select **OK**.
 
-   ![Create a Cosmos DB keyspace][COSMOSDB05]
+   ![Select New keyspace][COSMOSDB05]
    
    ![Create a Cosmos DB keyspace][COSMOSDB05-1]
 

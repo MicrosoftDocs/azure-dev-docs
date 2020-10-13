@@ -99,6 +99,6 @@ For more information about Spring Data JDBC, see Spring's [reference documentati
 
 For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).
 
-## Clean up resources
+### Clean up resources
 
 When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
