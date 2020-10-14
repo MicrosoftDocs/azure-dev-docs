@@ -3,7 +3,7 @@ title: How to use Spring Data Apache Cassandra API with Azure Cosmos DB
 description: Learn how to use Spring Data Apache Cassandra API with Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: java
-ms.date: 10/13/2018
+ms.date: 10/13/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
