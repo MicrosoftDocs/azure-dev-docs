@@ -4,7 +4,7 @@ description: This tutorial walks you through deploying WebLogic Server to Azure 
 author: edburns
 ms.author: edburns
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 10/15/2020
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
@@ -139,7 +139,7 @@ This section will show you how to use the Key Vault, SSL certificate, and passwo
 
 To create the WLS cluster and Application Gateway, follow these steps:
 
-1. Start following the steps to provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach the **Azure Application Gateway** blade, shown here.
+1. Provision a WebLogic Server Cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs) using the [WebLogic Server Cluster Offer in the Azure Portal](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster), but come back to this page when you reach the **Azure Application Gateway** blade, shown here.
 
    :::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="Diagram showing the relationship between WLS, App Gateway, and Key Vault.":::
 
