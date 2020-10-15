@@ -100,3 +100,4 @@ In this section, you add a storage binding to the HttpExample function created e
 > [!div class="nextstepaction"]
 > [I added a storage binding - continue to step 8 >>>](tutorial-vs-code-serverless-python-08.md)
 
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)
