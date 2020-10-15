@@ -17,5 +17,13 @@ items:
   durationInMinutes: 2
   content: |
     [!INCLUDE [Prepare to use this tutorial](tutorial-01.md)]
+- title: Run site locally
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Prepare to use this tutorial](tutorial-02.md)]
+- title: Create Storage resource
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Create Storage resource](tutorial-03.md)]
 - content: |
     [!INCLUDE [Completed tutorial](completed.md)]

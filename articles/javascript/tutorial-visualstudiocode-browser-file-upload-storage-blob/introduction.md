@@ -1,30 +1,36 @@
 ---
-ms.topic: include
+title: include file tutorial-azure-web-app-mongodb-00.md 
+description: include file tutorial-azure-web-app-mongodb-00.md
 ms.date: 10/13/2020
+ms.topic: include
 ms.custom: devx-track-javascript
 ---
 
-In this tutorial, use a 
+In this tutorial, use a React app to upload a file to an Azure Storage blob. 
 
-The programming work is done for you, this tutorial focuses on 
+The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
 ## Top tasks
 
 This tutorial includes several **top Azure tasks** for JavaScript developers:
 
-* .
-* .
+* Create a Storage resource
+* Configure a Storage resource for file uploads
+    * Configure CORS
+    * Create Shared access signatures (SAS) token
+* Configure Azure SDK client library to use:
+    *  Use SAS token to authenticate to service
+* Run a React app locally with Visual Studio Code
+* Deploy React app to Azure Static web apps
 
 ## Sample application
 
-The [sample React (create-react-app) app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), available on GitHub, consists of the following elements:
+The [sample React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), available on GitHub, consists of the following elements:
 
-* 
+* **React app** hosted on port 3000
+* Azure SDK client library script to upload to Storage blobs
 
-
-## React using bundling provided by create-react-app
-
-If you intend to use Azure client libraries, you need to provide bundling of the client libraries. Create-react-app provides bundling automatically so it is an ideal framework for an introductory tutorial for client applications.
+:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
 ## Want to know more? 
 

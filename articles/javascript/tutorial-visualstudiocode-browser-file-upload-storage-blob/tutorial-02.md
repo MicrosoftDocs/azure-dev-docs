@@ -4,36 +4,58 @@ ms.date: 10/13/2020
 ms.custom: devx-track-javascript
 ---
 
-In this section of the tutorial, create an Azure Storage resource. Images are typically stored in Azure Storage as blobs in your resource. 
+In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser.
 
-
-## Sign in to Azure
-
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
-
-## Create storage resource
-
-Use the **Azure Storage** extension for Visual Studio Code to create a resource.
-
-1. Navigate to the Azure explorer. Right-click on the subscription then select `Create storage account...`.
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
-
-1. Follow the prompts using the following table to understand how your values are used.
-
-    |Property|Value|
-    |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadYOURNAME`, for your Storage resource. Replace `<YOURNAME>` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser. Do not use anything except letters and numbers.|
-
-1. When the storage creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with information about the resource.
-
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="Partial screenshot of Visual Studio Code, using Azure App service extension to deploy web app immediately after creating web app.":::
 
 ## Want to know more?
 
-The initial web service is configured to run on port 8080 and is publicly available. These types of web site settings are configurable.
-* [App settings](/app-service/configure-common)
-* [Authentication](/app-service/configure-authentication-provider-microsoft)
-* [Restrict access by network](/azure/app-service/app-service-ip-restrictions)
+When using Azure Storage, the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), a separate installable tool is helpful. 
 
-When using this App service extension to deploy your web site to the Azure cloud, you may want to know more about how to [configure that deployment](https://github.com/microsoft/vscode-azureappservice/wiki/Configuring-Zip-Deployment#additional-zip-deploy-configuration-settings)
+## Download and run the initial React app
+
+The initial React app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
+
+1. [Download the zipped GitHub repo](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob) to your local computer then expand to a folder. 
+1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder:
+
+    ```console
+    code .
+    ```
+
+1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
+
+    ```javascript
+    npm install
+    ```
+
+1. In the same terminal window, run the command to run the web app.
+
+    ```javascript
+    npm start
+    ```
+
+1. Open a web browser and use the following url to view the web app on your local computer.
+
+    ```url
+    http://localhost:3000/
+    ```
+
+    If you see the simple web app in your browser with the text that the Storage isn't configured, you have succeeded with this section of the tutorial.
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+
+## Want to know more? 
+
+The sample app is made with [create-react-app](https://www.npmjs.com/package/create-react-app) with TypeScript. The structural changes to the boilerplate are in the following files:
+*
+* `[src/App.tsx](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)` - this file is the user interface for the app including:
+    * Message if Storage isn't configured
+    * Form to select and upload file
+    * List of current files in Storage container
+* `[src/uploadToBlob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/uploadToBlob.ts)` - this the all of the code interacting with Azure Storage including:
+    * Creating a container if it doesn't exist
+    * Uploading a file
+    * Get a flat listing of the blobs (files) in the Storage container
+
+These files have not been developed for a production environment. They are only to be used as code that works for a learning experience. When you plan to develop a client application to directly connect to Azure Storage, you need to use cloud-based best practices. For more information, use the following resources: 
+* [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
