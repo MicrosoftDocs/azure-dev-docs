@@ -39,4 +39,4 @@ The initial Express.js web app is provided as a starting point. In this procedur
 
     If you see the simple web app in your browser with the text that the database isn't found, you have succeeded with this section of the tutorial.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::

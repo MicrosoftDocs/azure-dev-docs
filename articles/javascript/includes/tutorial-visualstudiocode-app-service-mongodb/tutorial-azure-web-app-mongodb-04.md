@@ -16,11 +16,11 @@ In this section, configure your development environment to run two containers, o
 
 1. Select **Node.js & Mongo DB** from the list.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-configure-development-container.png" alt-text="Partial screenshot of Visual Studio Code's Command Palette."::: 
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-configure-development-container.png" alt-text="Partial screenshot of Visual Studio Code's Command Palette."::: 
 
 1. In the **\.devcontainer\devcontainer.json** file, find the **forwardPorts** property, uncomment it and add `8080` to the array. If you also want access to access the MongoDB container with the shell, add the port `27017` to the array.  
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-dev-container-configuration-forward-ports.png" alt-text="Partial screenshot of Visual Studio Code's `devcontainer.json` file with forwarding ports for app and MongoDB."::: 
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-dev-container-configuration-forward-ports.png" alt-text="Partial screenshot of Visual Studio Code's `devcontainer.json` file with forwarding ports for app and MongoDB."::: 
 
 ## Run web app locally with database
 
@@ -28,7 +28,7 @@ In this section, run your development environment with both containers, and view
 
 1. Select the green **Remote Containers** icon in the bottom-left corner of Visual Studio Code. This opens the Command Palette. 
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-container-icon.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-remote-container-icon.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
 
 1. From the Command Palette, select **Remote-Containers: Reopen in Container**. The first time you open the project with containers, the Node.js and MongoDB images are pulled down and started. This may take a few minutes. 
 
@@ -50,7 +50,7 @@ In this section, run your development environment with both containers, and view
 
 1. Enter data in the fields and submit the form. The data is displayed using the server-side React rendering. 
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Express.js web app form and data results from local MongoDB.":::
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Express.js web app form and data results from local MongoDB.":::
 
 1. When you're done exploring the app, stop the containers by using the Command Palette to select **Remote-Containers: Reopen Locally...**. This stops the containers but leaves them on your local computer. 
 

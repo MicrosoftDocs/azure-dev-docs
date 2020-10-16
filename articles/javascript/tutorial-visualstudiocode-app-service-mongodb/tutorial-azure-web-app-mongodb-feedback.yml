@@ -12,26 +12,26 @@ metadata:
 items:
 - durationInMinutes: 2
   content: |
-    [!INCLUDE [Tutorial introduction](tutorial-azure-web-app-mongodb-00.md)]
+    [!INCLUDE [Tutorial introduction](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-00.md)]
 - title: Prepare to use this tutorial
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Prepare to use this tutorial](tutorial-azure-web-app-mongodb-01.md)]
+    [!INCLUDE [Prepare to use this tutorial](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-01.md)]
 - title: Run site locally
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Run site locally](tutorial-azure-web-app-mongodb-02.md)]
+    [!INCLUDE [Run site locally](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-02.md)]
 - title: Deploy site to Azure
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Deploy site to Azure](tutorial-azure-web-app-mongodb-03.md)]
+    [!INCLUDE [Deploy site to Azure](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-03.md)]
 - title: Connect local database
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Connect local database](tutorial-azure-web-app-mongodb-04.md)]
+    [!INCLUDE [Connect local database](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-04.md)]
 - title: Connect remote database
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Connect remote database](tutorial-azure-web-app-mongodb-05.md)]
+    [!INCLUDE [Connect remote database](includes/tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-05.md)]
 - content: |
-    [!INCLUDE [Completed tutorial](completed.md)]
+    [!INCLUDE [Completed tutorial](includes/tutorial-visualstudiocode-app-service-mongodb/completed.md)]

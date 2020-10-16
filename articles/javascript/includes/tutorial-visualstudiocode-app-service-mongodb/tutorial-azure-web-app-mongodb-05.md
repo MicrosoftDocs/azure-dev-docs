@@ -15,7 +15,7 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
 
     If the **Databases** section isn't visible, make sure you have checked the section in the top Azure **...** menu. 
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-azure-extension-select-database-section.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-azure-extension-select-database-section.png" alt-text="Partial screenshot of Visual Studio Code's remote container icon"::: 
 
 1. In the **Databases** section of the Azure explorer, select your subscription with a right-click, then select **Create Server**.
 1. In the **Create new Azure Database Server** Command Palette, select **Azure Cosmos DB for MongoDB API**. 
@@ -33,7 +33,7 @@ Create a Cosmos resource to host a cloud-based MongoDB database.
 1. View the newly created Cosmos resource in the explorer. It doesn't have any databases yet. 
 1. While still in the Azure Databases explorer, right-click the resource name, the select **Copy Connection String** to copy the connection string. You will need this later in the tutorial.
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-databases-extenion-copy-connection-string.png" alt-text="Express.js web app form and data results from local MongoDB.":::
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-databases-extenion-copy-connection-string.png" alt-text="Express.js web app form and data results from local MongoDB.":::
 
 ## Optional: Use new cloud database in local environment
 
@@ -50,7 +50,7 @@ The connection to the database is set with an environment variable named `DATABA
 1. In Visual Studio Code, in the Azure app service explorer, select and expand the web app service node.
 1.  Right-click on the **Application Settings** node to add the `DATABASE_URL` property with the connection string for your Azure Cosmos DB for MongoDB. Add `&retrywrites=false` to the end of the connection string so that the database can be created the first time the web app runs. 
 
-    :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-remote-web-app-application-settings.png" alt-text="Partial screenshot of Visual Studio Code's remote web app application settings"::: 
+    :::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/vscode-remote-web-app-application-settings.png" alt-text="Partial screenshot of Visual Studio Code's remote web app application settings"::: 
 
 1. Open the remote web site in a browser, and use the form to add and delete data. 
 

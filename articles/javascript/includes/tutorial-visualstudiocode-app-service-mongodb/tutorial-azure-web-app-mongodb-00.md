@@ -28,7 +28,7 @@ The [sample Node.js app](https://github.com/Azure-Samples/js-e2e-express-mongo),
 * Simple **React.js server-side view** engine
 * **MongoDB native API** functions to insert, delete, and find data
 
-:::image type="content" source="../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+:::image type="content" source="../../media/tutorial-end-to-end-app-cosmos/nodejs-app-connected-mongodb-form.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
 ## The MongoDB connection
 
