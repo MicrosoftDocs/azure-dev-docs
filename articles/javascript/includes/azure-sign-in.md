@@ -1,7 +1,12 @@
 ---
 ms.custom: devx-track-js
+ms.topic: include
+ms.date: 010/16/2020
 ---
-Once you've installed the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) in Visual Studio Code, sign into your Azure account by navigating to the **Azure** explorer, select **Sign in to Azure**, and follow the prompts. (If you have multiple Azure extensions installed, select the one for the area in which you're working, such as App Service, Functions, etc.)
+
+If you already use the Azure service extensions, you should already be logged in and can skip this step. If you don't use the Azure service extensions, continue in this section to sign in to Azure.
+
+Once you've installed an Azure service extension in Visual Studio Code, you need to sign into your Azure account by navigating to the **Azure** explorer, select **Sign in to Azure**, and follow the prompts. (If you have multiple Azure extensions installed, select the one for the area in which you're working, such as App Service, Functions, etc.)
 
 ![Sign in to Azure through VS Code](../media/deploy-azure/azure-sign-in.png)
 
