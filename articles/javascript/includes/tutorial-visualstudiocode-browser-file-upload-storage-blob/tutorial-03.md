@@ -40,11 +40,11 @@ Set the resource name in `src/uploadToBlob.ts` for the storageAccountName value 
 const storageAccountName = process.env.storageresourcename || ""; 
 ```
 
-## Generate your shared access signature (SAS) token with Azure CLI
+## Generate your shared access signature (SAS) token 
 
 Generate the SAS token before configuring CORS. 
 
-You can configure a SAS Token for your resource with , [Azure CLI](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas), and the Azure Portal. 
+#### [Azure CLI](#tab/azureclisastoken)
 
 1. Sign in with the Azure CLI using the following command at a terminal:
 
@@ -78,14 +78,40 @@ You can configure a SAS Token for your resource with , [Azure CLI](/cli/azure/st
 
     > [!CAUTION]
     > **Line Continuation** - If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
-    > **SAS Token** value as a string - The value returned from the Azure CLI is returned as a quoted string "value". The value inside the string is your token but when you use it in the Azure CLi or the Azure SDK code, it needs to be in quotes because it contains characters that are not allowed as input unless they are in a string. 
-    > **SAS Token** value beginning with `?` - The value returned from the Azure CLI does not begin with a `?` but the Azure portal SAS token does. Remove the `?`, if you created your token in the Azure portal. The `?` is added in code for you, when you create the blob service:<br>
-    ```typescript
-      // get BlobService
-      const blobService = new BlobServiceClient(
-        `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
-      );
     ``` 
+
+#### [Azure portal](#tab/azureportalsastoken)
+
+1. Open the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll) then select your Storage resource.
+1. In the **Settings** section, select **Shared access signature**. 
+1. Configure the SAS token as show in the image. The settings are explained below the image. 
+
+    :::image type="content" source="../../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Configure the SAS token as show in the image. The settings are explained below the image.":::
+
+    | Property|Value|
+    |--|--|
+    |Allowed services|Blob|
+    |Allowed resource types|Service, Container, Object|
+    |Allowed permissions|Read, write, delete, list, add, create|
+    |Enable deletions of version|Checked|
+    |Start and expiry date/time|Accept the start date/time and set the end date time 24 hours in the future. Your SAS token is only good for 24 hours.|
+    |HTTPS only|Selected|
+    |Preferred routing tier|Basic|
+    |Signing Key|key1 selected|
+
+1.  Select **Generate SAS and connection string**. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
+
+* * *
+
+> [!CAUTION]
+> **SAS Token** value as a string - The value returned from the Azure CLI is returned as a quoted string "value". The value inside the string is your token but when you use it in the Azure CLi or the Azure SDK code, it needs to be in quotes because it contains characters that are not allowed as input unless they are in a string. 
+> **SAS Token** value beginning with `?` - The value returned from the Azure CLI does not begin with a `?` but the Azure portal SAS token does. Remove the beginning `?`, if it is at the beginning of the token string. The `?` is added in code for you before the string interpolation of the variable, when you create the blob service, so you shouldn't keep in the token string:<br>
+```typescript
+  // get BlobService
+  const blobService = new BlobServiceClient(
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
+  );
+``` 
 
 ## Set SAS token in code file
 
@@ -97,7 +123,11 @@ const sasToken = process.env.storagesastoken || "";
 
 ## Configure your Azure Storage resource for CORS with Azure CLI
 
-Configure CORS for your resource with the following [Azure CLI](/cli/azure/storage/cors?view=azure-cli-latest) script. 
+Configure CORS for your resource so the client-side React code can access your storage account. 
+
+#### [Azure CLI](#tab/azureclicors)
+
+You can use the [Azure CLI](/cli/azure/storage/cors?view=azure-cli-latest) script or enter the command into the terminal. 
 
 1. If you some time has passed since you completed the previous section, sign in with the Azure CLI, using the following command at a terminal:
 
@@ -133,6 +163,27 @@ Configure CORS for your resource with the following [Azure CLI](/cli/azure/stora
     > If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
 
     The command doesn't return any results.
+
+#### [Azure portal](#tab/azureportalcors)
+
+1. Open the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll) then select your Storage resource.
+1. In the **Settings** section, select **CORS**. 
+1. Configure CORS as show in the image. The settings are explained below the image. 
+
+    :::image type="content" source="../../media/tutorial-browser-file-upload/azure-portal-storage-blob-cors.png" alt-text="Configure CORS as show in the image. The settings are explained below the image.":::
+
+    | Property|Value|
+    |--|--|
+    |Allowed origins|`*`|
+    |Allowed methods|All except patch.|
+    |Allowed headers|`*`|
+    |Exposed headers|`*`|
+    |Max age|86400|
+
+1. Select **Save** above the settings to save them to the resource.
+* * *
+
+The code doesn't require any changes to work with these CORS settings. 
 
 ## Run project locally to verify connection to Storage account
 
