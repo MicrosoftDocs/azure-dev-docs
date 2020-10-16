@@ -14,7 +14,7 @@ Use the Visual Studio Code explorer extension to create a Static web app resourc
 
 1. Navigate to the Azure Static Web Apps (preview) extension. Right-click on the subscription then select `Create Static Web App...`.
 
-    :::image type="content" source="../../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-static-web-resource.png.png" alt-text="Navigate to the Azure Static Web Apps (preview) extension. Right-click on the subscription then select `Create Static Web App...`.":::
+    :::image type="content" source="../../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Navigate to the Azure Static Web Apps (preview) extension. Right-click on the subscription then select `Create Static Web App...`.":::
 
 1. Follow the prompts using the following table to understand how your values are used.
 

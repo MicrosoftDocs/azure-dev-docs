@@ -10,7 +10,7 @@ In this section of the tutorial, you create the Azure Storage resource with a Vi
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in.md)]
+[!INCLUDE [azure-sign-in](../azure-sign-in.md)]
 
 ## Create Storage resource 
 
