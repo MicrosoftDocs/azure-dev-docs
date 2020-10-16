@@ -44,44 +44,6 @@ const storageAccountName = process.env.storageresourcename || "";
 
 Generate the SAS token before configuring CORS. 
 
-#### [Azure CLI](#tab/azureclisastoken)
-
-1. Sign in with the Azure CLI using the following command at a terminal:
-
-    ```azurecli
-    az login > subscriptions.txt
-    ```
-
-    In the resulting text file, find the **ID**, which is your subscription ID, you will need it later. 
-
-1. Use the following command, or run it as a [bash shell script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/scripts/az-storage-generate-sas.sh), to create as [Azure CLI command to generate your Storage SAS token](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas) set with the [required parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-required-parameters) and [optional parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-optional-parameters). Replace the following values with your own values: 
-
-    | Property|Value|
-    |--|--|
-    |YOUR-EXPIRY-DATE|Expiry date set to the `end` environment variable - a date when the SAS token expires in the format of `YYYY-MM-DDTHH:MMZ`. Enter a date 24 hours from now. You don't need to surround it with quotes to mark it as a string. An example is `2021-12-30T12:00Z`.|
-    |YOUR-RESOURCE-PRIMARY-KEY|Storage Account primary key|
-    |YOUR-RESOURCE-NAME|Storage account name (resource name)|
-    |YOUR-SUBSCRIPTION-ID| Subscription ID|
-
-    ```azurecli
-    az storage account generate-sas --expiry 2021-12-30T12:00Z \
-    --permissions rwdlac \
-    --resource-types sco \
-    --services b \
-    --https-only \
-    --account-key YOUR-RESOURCE-PRIMARY-KEY \
-    --account-name YOUR-RESOURCE-NAME \
-    --subscription YOUR-SUBSCRIPTION-ID > sastoken.txt
-    ```
-
-    In the resulting text file, `sastoken.txt`, the text is your SAS token, you will need it later. 
-
-    > [!CAUTION]
-    > **Line Continuation** - If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
-    ``` 
-
-#### [Azure portal](#tab/azureportalsastoken)
-
 1. Open the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll) then select your Storage resource.
 1. In the **Settings** section, select **Shared access signature**. 
 1. Configure the SAS token as show in the image. The settings are explained below the image. 
@@ -101,11 +63,9 @@ Generate the SAS token before configuring CORS.
 
 1.  Select **Generate SAS and connection string**. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
 
-* * *
-
 > [!CAUTION]
 > **SAS Token** value as a string - The value returned from the Azure CLI is returned as a quoted string "value". The value inside the string is your token but when you use it in the Azure CLi or the Azure SDK code, it needs to be in quotes because it contains characters that are not allowed as input unless they are in a string. 
-> **SAS Token** value beginning with `?` - The value returned from the Azure CLI does not begin with a `?` but the Azure portal SAS token does. Remove the beginning `?`, if it is at the beginning of the token string. The `?` is added in code for you before the string interpolation of the variable, when you create the blob service, so you shouldn't keep in the token string:<br>
+> **SAS Token** value beginning with `?` - Remove the beginning `?`, if it is at the beginning of the token string. The `?` is added in code for you before the string interpolation of the variable, when you create the blob service, so you shouldn't keep in the token string:<br>
 ```typescript
   // get BlobService
   const blobService = new BlobServiceClient(
@@ -125,46 +85,6 @@ const sasToken = process.env.storagesastoken || "";
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 
-#### [Azure CLI](#tab/azureclicors)
-
-You can use the [Azure CLI](/cli/azure/storage/cors?view=azure-cli-latest) script or enter the command into the terminal. 
-
-1. If you some time has passed since you completed the previous section, sign in with the Azure CLI, using the following command at a terminal:
-
-    ```azurecli
-    az login
-    ```
-
-    In the response, find the subscription ID, you will need it later. 
-
-1. Use the following [Azure CLI command to add a CORS rule](/cli/azure/storage/cors?view=azure-cli-latest#az_storage_cors_add) to your Storage resource set with the [required parameters](/cli/azure/storage/cors?view=azure-cli-latest#az_storage_cors_add-required-parameters) and [optional parameters](/cli/azure/storage/cors?view=azure-cli-latest#az_storage_cors_add-optional-parameters). Replace the following values with your own values: 
-
-    | Property|Value|
-    |--|--|
-    |YOUR-RESOURCE-NAME|Storage account name (resource name)|
-    |YOUR-SUBSCRIPTION-ID| Subscription ID|
-    |YOUR-SAS-TOKEN|Your SAS token returned from the previous section. Make sure to have quotes surrounding the token."|
-
-    ```azurecli
-    az storage cors add --methods DELETE GET HEAD MERGE OPTIONS POST PUT \
-        --origins "*" \
-        --allowed-headers "*" \
-        --exposed-headers "*" \
-        --services b \
-        --max-age 86400 \
-        --timeout 86400 \
-        --account-key YOUR-RESOURCE-PRIMARY-KEY \
-        --account-name YOUR-RESOURCE-NAME \
-        --subscription YOUR-SUBSCRIPTION-ID \
-        --sas-token "YOUR-SAS-TOKEN"
-    ```
-
-    > [!CAUTION]
-    > If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
-
-    The command doesn't return any results.
-
-#### [Azure portal](#tab/azureportalcors)
 
 1. Open the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll) then select your Storage resource.
 1. In the **Settings** section, select **CORS**. 
@@ -181,7 +101,6 @@ You can use the [Azure CLI](/cli/azure/storage/cors?view=azure-cli-latest) scrip
     |Max age|86400|
 
 1. Select **Save** above the settings to save them to the resource.
-* * *
 
 The code doesn't require any changes to work with these CORS settings. 
 

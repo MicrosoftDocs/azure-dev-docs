@@ -12,7 +12,6 @@ In this section of the tutorial, you need an Azure subscription and all the soft
 ## Install software
 
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), used to configure the Storage resource after it is created. 
 - [Git](https://git-scm.com/downloads) - used to clone the repo then make changes to fix the GitHub action pipeline to push to the static web app.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
