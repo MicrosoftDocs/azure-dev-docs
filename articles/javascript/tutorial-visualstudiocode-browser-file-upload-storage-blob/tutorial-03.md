@@ -24,7 +24,7 @@ Use the Visual Studio Code extension to create a Storage resource.
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadyourname`, for your Storage resource name. Replace `yourname` with your lowercase name or unique ID. This unique name is also used as part of the URL to access the resource in a browser. Use only characters and numbers, up to 24 in length. You need this **account name** to use the Azure CLI scripts later. |
+    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadyourname`, for your Storage resource name. Replace `yourname` with your lowercase name or unique ID. This unique name is also used as part of the URL to access the resource in a browser. Use only characters and numbers, up to 24 in length. You need this **account name** to use the Azure CLI scripts later.<br>Each Azure resource resides in an Azure resource group. This is a logical group to help you manage resources. That management can be all resources within a project or team, as an example. This resource is created in a resource group with the same name. |
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
@@ -32,13 +32,15 @@ Use the Visual Studio Code extension to create a Storage resource.
 
 1. Right-click on the resource in the Azure Storage extension, select **Copy Primary Key**. You will need this **Storage account key** later.
 
-1. Set the resource name in `src/uploadToBlob.ts` for the storageAccountName value. 
+## Set storage account key in code file
 
-    ```typescript
-    const storageAccountName = ''; // Fill string with your Storage resource name
-    ```
+Set the resource name in `src/uploadToBlob.ts` for the storageAccountName value. 
 
-## Generate your Azure Storage resource's shared access signatures (SAS) with Azure CLI
+```typescript
+const storageAccountName = ''; // Fill string with your Storage resource name
+```
+
+## Generate your shared access signature (SAS) token with Azure CLI
 
 Generate the SAS token before configuring CORS. 
 
@@ -73,6 +75,8 @@ You can configure a SAS Token for your resource with , [Azure CLI](/cli/azure/st
 
     > [!CAUTION]
     > If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
+
+## Set SAS token in code file
 
 1. The response is a quoted string. Copy the string contents into `src/uploadToBlob.ts` for the sasToken value. 
 
@@ -120,6 +124,24 @@ Configure CORS for your resource with the following [Azure CLI](/cli/azure/stora
     > If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
 
     The command doesn't return any results.
+
+## Run project locally to verify connection to Storage account
+
+If you followed these steps, your SAS token and storage account name are set in the `src/uploadToBlob.ts` file, so you are ready to run the application.
+
+1. From the Visual Studio Code terminal, enter the following command:
+
+    ```javascript
+    npm start
+    ```
+
+1. When the terminal displays the URL, such as `http://localhost:3000`, your app is ready. Open a browser and enter that URL. The website connected to Azure Storage blobs should display with a file selection button and a file upload button. 
+
+    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="The React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
+
+1. Select an image from the `images` folder to upload. The `spring-flowers.jpg` are a good visual for this test. The select the **Upload!** button. 
+
+    The React front-end client code calls into the `[src/uploadToBlob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/uploadToBlob.ts)` to authenticate to Azure, then create a Storage Container, the upload the blob to that container. 
 
 ## Want to know more? 
 
