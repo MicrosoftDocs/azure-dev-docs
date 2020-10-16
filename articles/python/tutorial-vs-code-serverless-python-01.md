@@ -75,3 +75,5 @@ The `func` command works through the *func.cmd* file that's installed in the Nod
 
 > [!div class="nextstepaction"]
 > [I signed into Azure - continue to step 2 >>>](tutorial-vs-code-serverless-python-02.md)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)
