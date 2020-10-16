@@ -34,10 +34,10 @@ Use the Visual Studio Code extension to create a Storage resource.
 
 ## Set storage account key in code file
 
-Set the resource name in `src/uploadToBlob.ts` for the storageAccountName value. 
+Set the resource name in `src/uploadToBlob.ts` for the storageAccountName value by adding the storage key name into the empty string. Leave the rest of the code as it is. 
 
 ```typescript
-const storageAccountName = ''; // Fill string with your Storage resource name
+const storageAccountName = process.env.storageresourcename || ""; 
 ```
 
 ## Generate your shared access signature (SAS) token with Azure CLI
@@ -49,12 +49,12 @@ You can configure a SAS Token for your resource with , [Azure CLI](/cli/azure/st
 1. Sign in with the Azure CLI using the following command at a terminal:
 
     ```azurecli
-    az login
+    az login > subscriptions.txt
     ```
 
-    In the response, find the **subscription ID**, you will need it later. 
+    In the resulting text file, find the **ID**, which is your subscription ID, you will need it later. 
 
-1. Use the following command to create as [Azure CLI command to generate your Storage SAS token](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas) set with the [required parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-required-parameters) and [optional parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-optional-parameters). Replace the following values with your own values: 
+1. Use the following command, or run it as a [bash shell script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/scripts/az-storage-generate-sas.sh), to create as [Azure CLI command to generate your Storage SAS token](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas) set with the [required parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-required-parameters) and [optional parameters](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_generate_sas-optional-parameters). Replace the following values with your own values: 
 
     | Property|Value|
     |--|--|
@@ -64,27 +64,36 @@ You can configure a SAS Token for your resource with , [Azure CLI](/cli/azure/st
     |YOUR-SUBSCRIPTION-ID| Subscription ID|
 
     ```azurecli
-    az storage account generate-sas --expiry YOUR-EXPIRY-DATE \
-    --permissions cdlruwap \
+    az storage account generate-sas --expiry 2021-12-30T12:00Z \
+    --permissions rwdlac \
     --resource-types sco \
     --services b \
+    --https-only \
     --account-key YOUR-RESOURCE-PRIMARY-KEY \
     --account-name YOUR-RESOURCE-NAME \
-    --subscription YOUR-SUBSCRIPTION-ID
+    --subscription YOUR-SUBSCRIPTION-ID > sastoken.txt
     ```
 
+    In the resulting text file, `sastoken.txt`, the text is your SAS token, you will need it later. 
+
     > [!CAUTION]
-    > If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
+    > **Line Continuation** - If you are not using a Bash shell, replace the line continuation character, `\`, with the appropriate character for your terminal. 
+    > **SAS Token** value as a string - The value returned from the Azure CLI is returned as a quoted string "value". The value inside the string is your token but when you use it in the Azure CLi or the Azure SDK code, it needs to be in quotes because it contains characters that are not allowed as input unless they are in a string. 
+    > **SAS Token** value beginning with `?` - The value returned from the Azure CLI does not begin with a `?` but the Azure portal SAS token does. Remove the `?`, if you created your token in the Azure portal. The `?` is added in code for you, when you create the blob service:<br>
+    ```typescript
+      // get BlobService
+      const blobService = new BlobServiceClient(
+        `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
+      );
+    ``` 
 
 ## Set SAS token in code file
 
-1. The response is a quoted string. Copy the string contents into `src/uploadToBlob.ts` for the sasToken value. 
+1. Copy the SAS token into `src/uploadToBlob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
 
-    ```typescript
-    const sasToken = ''; // Fill string with your SAS token
-    ```
-
-    You need to use the token value as part of the next Azure CLI command.
+```typescript
+const sasToken = process.env.storagesastoken || "";
+```
 
 ## Configure your Azure Storage resource for CORS with Azure CLI
 
@@ -108,13 +117,13 @@ Configure CORS for your resource with the following [Azure CLI](/cli/azure/stora
 
     ```azurecli
     az storage cors add --methods DELETE GET HEAD MERGE OPTIONS POST PUT \
-        --origins * \
+        --origins "*" \
+        --allowed-headers "*" \
+        --exposed-headers "*" \
         --services b \
-        --allowed-headers * \
-        --exposed-headers * \
         --max-age 86400 \
         --timeout 86400 \
-        --account-key  \
+        --account-key YOUR-RESOURCE-PRIMARY-KEY \
         --account-name YOUR-RESOURCE-NAME \
         --subscription YOUR-SUBSCRIPTION-ID \
         --sas-token "YOUR-SAS-TOKEN"
@@ -141,14 +150,16 @@ If you followed these steps, your SAS token and storage account name are set in 
 
 1. Select an image from the `images` folder to upload. The `spring-flowers.jpg` are a good visual for this test. The select the **Upload!** button. 
 
-    The React front-end client code calls into the `[src/uploadToBlob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/uploadToBlob.ts)` to authenticate to Azure, then create a Storage Container, the upload the blob to that container. 
+    The React front-end client code calls into the `[src/uploadToBlob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/uploadToBlob.ts)` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), the upload the blob to that container. 
 
 ## Want to know more? 
 
 If you want to see your subscription list, use [this link into the Azure portal Subscription list](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) for your account. 
 
-Other configuration options include:
+Other ways to configuration your Storage account include:
 * SAS Token with [PowerShell](/powershell/module/azure.storage/new-azurestorageblobsastoken)
 * SAS Token with Portal
 * CORS with [PowerShell](/powershell/module/azure.storage/set-azurestoragecorsrule)
 * CORS with Portal
+
+Learn more about [Shared Access Signatures](/storage/common/storage-sas-overview.md).
