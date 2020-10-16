@@ -71,3 +71,5 @@ To apply any changes you make through the portal or through the **Azure Explorer
 
 > [!div class="nextstepaction"]
 > [I deployed the functions - continue to step 6 >>>](tutorial-vs-code-serverless-python-06.md)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)
