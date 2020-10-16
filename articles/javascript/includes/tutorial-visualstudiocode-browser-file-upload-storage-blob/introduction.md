@@ -30,7 +30,7 @@ The [sample React app](https://github.com/Azure-Samples/js-e2e-browser-file-uplo
 * **React app** hosted on port 3000
 * Azure SDK client library script to upload to Storage blobs
 
-:::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
+:::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
 ## Want to know more? 
 

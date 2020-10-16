@@ -11,11 +11,14 @@ In this section of the tutorial, you download the sample application to your loc
 
 When using Azure Storage, the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), a separate installable tool is helpful. 
 
-## Download and run the initial React app
+## Close and run the initial React app
 
-The initial React app is provided as a starting point. In this procedure, download the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
+The initial React app is provided as a starting point. In this procedure, clone the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
 
-1. [Download the zipped GitHub repo](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob) to your local computer then expand to a folder. 
+1. Fork the [GitHub repo](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), then clone it to your local computer. 
+
+    In order to create a static web app resource, the local version of the app must have the GitHub resources - if you choose to download the repo, you won't be able to use this tutorial as it is written when you get to the Static web app step. 
+
 1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder:
 
     ```console
@@ -42,7 +45,7 @@ The initial React app is provided as a starting point. In this procedure, downlo
 
     If you see the simple web app in your browser with the text that the Storage isn't configured, you have succeeded with this section of the tutorial.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+    :::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
 ## Want to know more? 
 

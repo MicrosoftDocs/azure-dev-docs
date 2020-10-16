@@ -18,7 +18,7 @@ Use the Visual Studio Code extension to create a Storage resource.
 
 1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
+    :::image type="content" source="../../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
 
 1. Follow the prompts using the following table to understand how your values are used.
 
@@ -28,7 +28,7 @@ Use the Visual Studio Code extension to create a Storage resource.
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="When the app creation process is complete, a notification appears with information about the new resource.":::
+    :::image type="content" source="../../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="When the app creation process is complete, a notification appears with information about the new resource.":::
 
 1. Right-click on the resource in the Azure Storage extension, select **Copy Primary Key**. You will need this **Storage account key** later.
 
@@ -146,7 +146,7 @@ If you followed these steps, your SAS token and storage account name are set in 
 
 1. When the terminal displays the URL, such as `http://localhost:3000`, your app is ready. Open a browser and enter that URL. The website connected to Azure Storage blobs should display with a file selection button and a file upload button. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="The React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
+    :::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="The React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
 
 1. Select an image from the `images` folder to upload. The `spring-flowers.jpg` are a good visual for this test. The select the **Upload!** button. 
 
@@ -157,9 +157,9 @@ If you followed these steps, your SAS token and storage account name are set in 
 If you want to see your subscription list, use [this link into the Azure portal Subscription list](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) for your account. 
 
 Other ways to configuration your Storage account include:
-* SAS Token with [PowerShell](/powershell/module/azure.storage/new-azurestorageblobsastoken)
+* SAS Token with [PowerShell](/azure/powershell/module/azure.storage/new-azurestorageblobsastoken)
 * SAS Token with Portal
-* CORS with [PowerShell](/powershell/module/azure.storage/set-azurestoragecorsrule)
+* CORS with [PowerShell](/azure/powershell/module/azure.storage/set-azurestoragecorsrule)
 * CORS with Portal
 
-Learn more about [Shared Access Signatures](/storage/common/storage-sas-overview.md).
+Learn more about [Shared Access Signatures](/azure/storage/common/storage-sas-overview.md).
