@@ -16,18 +16,18 @@ items:
 - title: Prepare to use this tutorial
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Prepare to use this tutorial](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/tutorial-01.md)]
+    [!INCLUDE [Prepare to use this tutorial](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/install-software.md)]
 - title: Run site locally
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Prepare to use this tutorial](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/tutorial-02.md)]
+    [!INCLUDE [Run site locally](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/run-site-locally.md)]
 - title: Create Storage resource
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Create Storage resource](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/tutorial-03.md)]
-- title: Create Static web app resource
+    [!INCLUDE [Create Storage resource](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/create-storage-resource.md)]
+- title: Clean up resources
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Create Static web app resource](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/tutorial-04.md)]
+    [!INCLUDE [Clean up resources](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/clean-up-resources.md)]
 - content: |
     [!INCLUDE [Completed tutorial](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/completed.md)]
