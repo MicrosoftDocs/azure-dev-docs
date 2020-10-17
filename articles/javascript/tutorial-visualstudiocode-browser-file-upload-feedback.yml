@@ -28,7 +28,7 @@ items:
 - title: Review Storage blob code
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Review Storage blob code](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/review-the-code.md)]
+    [!INCLUDE [Review Storage blob code](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/understand-the-code.md)]
 - title: Clean up resources
   durationInMinutes: 2
   content: |
