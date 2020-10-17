@@ -25,6 +25,10 @@ items:
   durationInMinutes: 2
   content: |
     [!INCLUDE [Create Storage resource](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/create-storage-resource.md)]
+- title: Review Storage blob code
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Review Storage blob code](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/review-the-code.md)]
 - title: Clean up resources
   durationInMinutes: 2
   content: |

@@ -2,6 +2,8 @@
 ms.topic: include
 ms.date: 10/13/2020
 ms.custom: devx-track-javascript
+title: include file run-site-locally.md
+description: include file run-site-locally.md
 ---
 
 In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser.

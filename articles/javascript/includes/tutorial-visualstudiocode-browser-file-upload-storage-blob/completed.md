@@ -1,6 +1,8 @@
 ---
-ms.topic: include
+title: include file completed.md
+description: include file completed.md
 ms.date: 10/13/2020
+ms.topic: include
 ms.custom: devx-track-javascript
 ---
 

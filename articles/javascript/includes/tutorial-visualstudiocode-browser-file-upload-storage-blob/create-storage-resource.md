@@ -1,6 +1,6 @@
 ---
-title: include file tutorial-03.md
-description: include file tutorial-03.md
+title: include file create-storage-resource.md
+description: include file create-storage-resource.md
 ms.date: 10/13/2020
 ms.topic: include
 ms.custom: devx-track-javascript
@@ -63,21 +63,20 @@ Generate the SAS token before configuring CORS.
 
 1.  Select **Generate SAS and connection string**. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
 
-> [!CAUTION]
-> **SAS Token** value as a string - The value returned from the Azure CLI is returned as a quoted string "value". The value inside the string is your token but when you use it in the Azure CLi or the Azure SDK code, it needs to be in quotes because it contains characters that are not allowed as input unless they are in a string. 
-> **SAS Token** value beginning with `?` - Remove the beginning `?`, if it is at the beginning of the token string. The `?` is added in code for you before the string interpolation of the variable, when you create the blob service, so you shouldn't keep in the token string:<br>
-```typescript
-  // get BlobService
-  const blobService = new BlobServiceClient(
-    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
-  );
-``` 
-
 ## Set SAS token in code file
 
-1. Copy the SAS token into `src/uploadToBlob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
+The SAS token value is a partial query string and is used in the URL when queries are made to your cloud-based resource.
+
+The token format depends are which tool you used to create it: 
+* **Azure portal**: If you create your SAS token in the portal, the token includes the `?` as the first character of the string.
+* **Azure CLI**: If you create your SAS token with the Azure CLI, the value returned doesn't include the `?` as the first character of the string. 
+
+1. Remove the `?`, if it is the first character of the token. The code file provides the `?` for you so you don't need it in the token.
+
+1. Set the SAS token into `src/uploadToBlob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
 
 ```typescript
+// remove `?` if it is first character of token
 const sasToken = process.env.storagesastoken || "";
 ```
 
@@ -100,9 +99,7 @@ Configure CORS for your resource so the client-side React code can access your s
     |Exposed headers|`*`|
     |Max age|86400|
 
-1. Select **Save** above the settings to save them to the resource.
-
-The code doesn't require any changes to work with these CORS settings. 
+1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings. 
 
 ## Run project locally to verify connection to Storage account
 
