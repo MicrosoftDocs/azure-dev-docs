@@ -273,10 +273,6 @@
       "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
     },
     {
-      "source_path": "articles/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
-    },
-    {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
       "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
     },
