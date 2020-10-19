@@ -100,6 +100,9 @@ Configure App settings and Connection Strings using the actions:
 - [Setup Helm](https://github.com/Azure/setup-helm)  
 - [Kubernetes bake](https://github.com/Azure/k8s-bake)  
 
+## Create Virtual Machine Images
+- [Build Azure Virtual Machine Images](https://github.com/Azure/build-vm-image)
+
 ## Train and Deploy a machine learning model 
 
 - [Login](https://github.com/Azure/aml-workspace) 
