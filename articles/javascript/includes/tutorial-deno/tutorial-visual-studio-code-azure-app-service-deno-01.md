@@ -32,16 +32,8 @@ After installing the CLI for the first time, check that it's installed and you'v
 
 Before using any CLI commands with a local install, you need to sign in with [az login](/cli/azure/reference-index#az-login).
 
-[!INCLUDE [interactive-login](../azure-cli/includes/interactive-login.md)]
+[!INCLUDE [interactive-login](/cli/azure/includes/interactive-login)]
 
 After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-> [!div class="nextstepaction"]
-> [I installed and logged in with Azure CLI](tutorial-visual-studio-code-azure-app-service-deno-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=getting-started)
 
-## Next steps
-
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
-
-> [!div class="nextstepaction"]
-> [I'm done](node-howto-deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=clean-up-resources)

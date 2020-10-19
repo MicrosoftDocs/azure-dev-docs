@@ -34,18 +34,8 @@ In this step, you create a simple Deno api using Deno's built-in webserver. You 
 
 1. Test the app by opening a browser to `http://localhost:80`. The site should appear as follows:
 
-    ![Running the demo server](media/deploy-azure/deno-hello-world.png)
+    ![Running the demo server](../../media/deploy-azure/deno-hello-world.png)
 
     You can also run this code by typing `deno run --allow-net https://gist.githubusercontent.com/khaosdoctor/cd2bbb28e682feb8d20a7aba47fc1e17/raw/92de998fd11f2a24ae40bbcb84f5262cfe9389b2/deno-demo.ts`
 
 1. Press **Ctrl**+**C** in the terminal to stop the server.
-
-> [!div class="nextstepaction"]
-> [I created the Deno app](tutorial-visual-studio-code-azure-app-service-deno-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=create-app)
-
-## Next steps
-
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
-
-> [!div class="nextstepaction"]
-> [I'm done](node-howto-deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=clean-up-resources)
