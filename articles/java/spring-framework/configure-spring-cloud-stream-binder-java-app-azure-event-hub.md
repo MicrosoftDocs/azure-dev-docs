@@ -3,7 +3,7 @@ title: How to create a Spring Cloud Stream Binder application with Azure Event H
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 09/11/2020
+ms.date: 10/13/2020
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -16,16 +16,12 @@ This article demonstrates how to configure a Java-based Spring Cloud Stream Bind
 
 ## Prerequisites
 
-The following prerequisites are required in order to follow the steps in this article:
-
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
->
-> Spring Boot version 2.0 or greater is required to complete the steps in this article.
->
+> Spring Boot version 2.2 or greater is required to complete the steps in this article.
 
 ## Create an Azure Event Hub using the Azure portal
 
@@ -85,7 +81,7 @@ The following procedure creates a storage account for event hub checkpoints.
    * Specify whether to create a new **Resource group** for your storage account, or choose an existing resource group.
    * Enter a unique **Name** for the storage account.
    * Specify the **Location** for your storage account.
-   
+
    >[!div class="mx-imgBorder"]
    >![Specify Azure Storage Account options][IMG08]
 
@@ -104,17 +100,16 @@ The following procedure creates a Spring boot application.
    * Generate a **Maven** project with **Java**.
    * Specify a **Spring Boot** version that is equal to or greater than 2.2.
    * Specify the **Group** and **Artifact** names for your application.
+   * Select **8** for the Java version.
    * Add the *Web* dependency.
 
    >[!div class="mx-imgBorder"]
    >![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
-   >
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.contoso.eventhubs.sample*.
-   >
 
-1. When you have specified the options listed above, select **GENERATE CTRL +**.
+1. When you have specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -427,5 +422,4 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [IMG02]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-02.png
 [IMG05]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-05.png
 [IMG08]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-event-hub-08.png
-
 [SI01]: media/configure-spring-cloud-stream-binder-java-app-azure-event-hub/create-project-01.png

@@ -341,7 +341,59 @@
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
-      "source_path": "articles/developer/python/how-to-assign-role-permissions.md",
+      "source_path": "articles/java/sdk/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-configure-webapp-sources.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-storage-accounts.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-machines.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-networks.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-vm-scalesets.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    }, 
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/hello-world-web-app-linux.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/installation.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/python/how-to-assign-role-permissions.md",
       "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
     },
     {
