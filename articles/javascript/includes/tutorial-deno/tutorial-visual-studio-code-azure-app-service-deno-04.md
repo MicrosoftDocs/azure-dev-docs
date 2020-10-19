@@ -1,14 +1,10 @@
 ---
-title: Clean up resources after deploying to Azure App Service
-description: Deno Tutorial part 4, clean up resources
+title: include file 4
+description: include file 4
 ms.topic: tutorial
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---
-
-# Clean up
-
-[Previous step: Deploy the app](tutorial-visual-studio-code-azure-app-service-deno-03.md)
 
 In this section, we'll remove and cleanup all the created resources.
 

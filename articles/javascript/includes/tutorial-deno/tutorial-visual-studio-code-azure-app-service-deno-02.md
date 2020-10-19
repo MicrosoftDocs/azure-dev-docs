@@ -1,14 +1,10 @@
 ---
-title: Create the Deno Azure App Service from Visual Studio Code
-description: Deno Tutorial part 2, create the Deno app and run it locally
-ms.topic: tutorial
+title: include file 2
+description: include file 2
+ms.topic: include
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---
-
-# Test local Deno apps
-
-[Previous step: Introduction and prerequisites](tutorial-visual-studio-code-azure-app-service-deno-01.md)
 
 In this step, you create a simple Deno api using Deno's built-in webserver. You then run the app locally.
 

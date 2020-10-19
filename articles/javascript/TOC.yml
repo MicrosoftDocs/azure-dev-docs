@@ -21,7 +21,7 @@
       - name: Node.js web apps and APIs
         href: tutorial-vscode-azure-app-service-node-01.md
       - name: Deno APIs
-        href: tutorial-visual-studio-code-azure-app-service-deno-01.md
+        href: tutorial-visual-studio-code-azure-app-service-deno-feedback.yml?&preview=tutorialFeedback
       - name: Serverless
         href: tutorial-vscode-serverless-node-01.md
       - name: Docker

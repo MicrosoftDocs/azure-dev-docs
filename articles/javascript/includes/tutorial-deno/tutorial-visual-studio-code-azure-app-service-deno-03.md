@@ -1,14 +1,10 @@
 ---
-title: Deploy Deno apps to Azure App Service from Visual Studio Code
-description: Deno Tutorial part 3, deploy the website
+title: include file 3
+description: include file 3
 ms.topic: tutorial
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---
-
-# Deploy Deno apps to Azure
-
-[Previous step: Create the app](tutorial-visual-studio-code-azure-app-service-deno-02.md)
 
 In this step, you deploy your Deno app to Azure using Azure CLI.
 
