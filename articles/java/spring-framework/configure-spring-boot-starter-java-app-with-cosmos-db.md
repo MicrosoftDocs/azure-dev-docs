@@ -21,8 +21,6 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 ## Prerequisites
 
-The following prerequisites are required in order to follow the steps in this article:
-
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
@@ -58,17 +56,26 @@ Use the following steps to create a new Spring Boot application project with Azu
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven Project** with **Java**, specify your **Spring Boot** version, enter the **Group** and **Artifact** names for your application, select **8** Java version, add **Azure Support** in the dependencies, and then click the button to **Generate Project**.
+1. Specify the following options:
 
-    ![Basic Spring Initializr options][SI01]
+   * Generate a **Maven** project with **Java**.
+   * Specify your **Spring Boot** version.
+   * Specify the **Group** and **Artifact** names for your application.
+   * Select **8** for the Java version.
+   * Add **Azure Support** in the dependencies.
 
-    > [!NOTE]
-    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
+   >[!div class="mx-imgBorder"]
+   >![Basic Spring Initializr options][SI01]
+
+   > [!NOTE]
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
+
+1. When you have specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer and extract the files.
 
 Your simple Spring Boot application is now ready for editing.
-    
+
 ## Configure your Spring Boot application to use the Azure Spring Boot Starter
 
 1. Locate the *pom.xml* file in the directory of your app; for example:
