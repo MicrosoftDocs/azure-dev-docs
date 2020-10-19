@@ -131,15 +131,7 @@
       - name: Express.js with MongoDB
         href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml?tabs=bash
       - name: Deploy Deno to App Service with VS Code
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-visual-studio-code-azure-app-service-deno-01.md
-          - name: Create the app
-            href: tutorial-visual-studio-code-azure-app-service-deno-02.md
-          - name: Deploy the app to Azure
-            href: tutorial-visual-studio-code-azure-app-service-deno-03.md
-          - name: Clean up resources
-            href: tutorial-visual-studio-code-azure-app-service-deno-04.md
+        href: tutorial-visual-studio-code-azure-app-service-deno-feedback.yml?&preview=tutorialFeedback
       - name: Deploy containers with VS Code
         items:
           - name: Introduction and prerequisites
