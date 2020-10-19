@@ -2,7 +2,7 @@
 title: Authenticate with the Azure management modules for Node.js
 description: Authenticate with a service principal into the Azure management modules for Node.js
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 010/19/2020
 ms.custom: devx-track-js
 ---
 
@@ -12,14 +12,24 @@ All [SDK client libraries](azure-sdk-library-package-index.md) require authentic
 instantiated. There are multiple ways of authenticating and creating the required
 credentials.
 
-Common methods to create the required credentials are:
+## Authentication  with Azure services while developing
 
-- **Service principal** authentication is the _recommended method_. Learn how to 
-[create an Azure service principal](node-sdk-azure-authenticate-principal.md). 
-- **Interactive login** which is the easiest way to authenticate, but requires logging in with a user account and browser.
-- **Basic** authentication with your  username and password. This is the least secure method. 
+Common methods to create the required credentials while you are developing:
 
-## Samples
+| Login type|Purpose|
+|--|--|
+|**Service principal**|This authentication is the _recommended method_. Learn how to [create an Azure service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to have a connection to Azure that is separate from your personal Azure account. It can be a temporary account or it can be a longer living account to act in place of your personal account.|
+| **Interactive login**| This is the easiest way to authenticate when you are trying Azure services. It requires logging in with your personal account with a browser. |
+|**Basic**|This authentication requires you to enter your personal username and password. This is the least secure method and is not recommended.| 
+
+## Authentication with Azure services and production code
+
+| Login type|Purpose|
+|--|--|
+|**Managed Service Identity (MSI)**|[MSI authentication](/azure/active-directory/managed-identities-azure-resources/overview) is best for production scenarios. Your aren't going to use it in your local development environment.|
+|**Certificates**|[Certificates](/azure/cloud-services/cloud-services-certs-create) need to be uploaded to Azure either using the [Portal](/azure/cloud-services/cloud-services-configure-ssl-certificate-portal).|
+
+## JavaScript authentication samples for Azure
 
 |Authentication package|Sample authentication scripts|
 |--|--|
