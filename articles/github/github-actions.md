@@ -113,7 +113,8 @@ Configure App settings and Connection Strings using the actions:
 
 ## Azure Policy Integrations
 
-- [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan) 
+- [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan)
+- [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
 
 ## Trigger a run in Azure Pipelines
 
