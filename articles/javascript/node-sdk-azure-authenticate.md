@@ -12,21 +12,48 @@ All [SDK client libraries](azure-sdk-library-package-index.md) require authentic
 instantiated. There are multiple ways of authenticating and creating the required
 credentials.
 
-## Authentication  with Azure services while developing
+## Modern Azure SDK client authentication 
+
+With the `@azure` scoped client libraries, you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
+
+```javascript
+const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
+msRestNodeAuth.interactiveLogin().then((credential) => {
+}).catch((err) => {
+    // service code goes here
+    console.error(err);
+});
+```
+
+You pass that credential to an Azure service client library. The client library takes the credential, and generates a token for you. The service uses the token to validate your requests. 
+
+```javascript
+// service code - this is an example only and not best practices for code flow
+const { BlobServiceClient } = require('@azure/storage-blob');
+const billingManagementClient = new billing.BillingManagementClient(credential, subscriptionId);
+billingManagementClient.enrollmentAccounts.list().then((enrollmentList) => {
+    console.log("The result is:");
+    console.log(result);
+})
+```
+
+The client library manages the current token, manages the cached token, and knows when to refresh the token. You as the developer don't have to manage this.
+
+## Authentication with Azure services while developing
 
 Common methods to create the required credentials while you are developing:
 
-| Login type|Purpose|
+| Azure authentication type|Purpose|
 |--|--|
 |**Service principal**|This authentication is the _recommended method_. Learn how to [create an Azure service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to have a connection to Azure that is separate from your personal Azure account. It can be a temporary account or it can be a longer living account to act in place of your personal account.|
-| **Interactive login**| This is the easiest way to authenticate when you are trying Azure services. It requires logging in with your personal account with a browser. |
+| **Interactive**| This is the easiest way to authenticate when you are trying Azure services. It requires logging in with your personal account with a browser. |
 |**Basic**|This authentication requires you to enter your personal username and password. This is the least secure method and is not recommended.| 
 
 ## Authentication with Azure services and production code
 
-| Login type|Purpose|
+|Azure authentication type|Purpose|
 |--|--|
-|**Managed Service Identity (MSI)**|[MSI authentication](/azure/active-directory/managed-identities-azure-resources/overview) is best for production scenarios. Your aren't going to use it in your local development environment.|
+|**Managed Service Identity (MSI)**|[MSI authentication](/azure/active-directory/managed-identities-azure-resources/overview) is best for production scenarios. You aren't going to use it in your local development environment. [Services](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) that support MSI.|
 |**Certificates**|[Certificates](/azure/cloud-services/cloud-services-certs-create) need to be uploaded to Azure either using the [Portal](/azure/cloud-services/cloud-services-configure-ssl-certificate-portal).|
 
 ## JavaScript authentication samples for Azure
