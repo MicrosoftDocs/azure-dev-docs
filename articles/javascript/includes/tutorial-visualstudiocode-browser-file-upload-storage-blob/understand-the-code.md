@@ -29,7 +29,7 @@ The code connecting to the Azure blob storage code is highlighted. The call to `
 
 ## Upload file to Azure Storage blob with Azure SDK client library
 
-The code to upload the file to the Azure Storage is framework-agnostic and could be used on either the client or server. As the code is built for a tutorial, choices were made for simplicity and comprehension. These choices are explained; you should review your own project for intentional use, security, and efficiency. 
+The code to upload the file to the Azure Storage is framework-agnostic. As the code is built for a tutorial, choices were made for simplicity and comprehension. These choices are explained; you should review your own project for intentional use, security, and efficiency. 
 
 The sample creates and uses a publicly accessible container and files. If you want to secure your files in your own project, you have many layers where you can control that from requiring overall authentication to your resource to very specific permissions on each blob object. 
 
@@ -45,6 +45,10 @@ The `uploadToBlob.ts` loads the dependencies, and pulls in the required variable
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="2,5,16" id="snippet_package":::
 
+### Security for Azure credentials
+
+In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an Azure Function instead of on the client, then call the Azure Function from the react app.  
+
 ### Create Storage client and manage steps
 
 The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container. 
@@ -53,7 +57,7 @@ The `uploadFileToBlob` function is the main function of the file. It creates the
 
 ### Upload file to blob
 
-The `createBlobInContainer` function uploads the file to the container. The content type must be sent with the request if you intend to use the browser functionality, which depends on the file type, such as displaying a picture. 
+The `createBlobInContainer` function uploads the file to the container with the `uploadBrowserData` client library method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="10" id="snippet_createBlobInContainer":::
 
