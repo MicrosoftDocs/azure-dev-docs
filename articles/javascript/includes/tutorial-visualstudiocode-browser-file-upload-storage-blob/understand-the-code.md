@@ -9,7 +9,7 @@ In this section of the tutorial, understand the code in the sample to make the w
 
 ## Sample created with create-react-app
 
-The sample is a basic React app created with [create-react-app](https://create-react-app.dev/docs/adding-typescript/) with the TypeScript template.
+The [sample](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob) is a basic React app created with [create-react-app](https://create-react-app.dev/docs/adding-typescript/) with the TypeScript template.
 
 ```typescript
 npx create-react-app my-app --template typescript
