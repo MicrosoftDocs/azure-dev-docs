@@ -23,18 +23,31 @@ The authentication libraries include the following:
 
 Older authentication packages are in use. If you are using those packages, you should consider migrating off the older authentication methods for a more security and robust experience. 
 
-## Best practices with client authentication
+## Best practices with Azure SDK client library authentication
 
-Each npm package will show authentication for that exact client library. Do not mix and match authentication code between packages unless all packages concerned show the same npm package in the sample code on the npm package page. 
+Each npm package will show authentication for that exact client library. Do not mix and match authentication packages and code unless all packages use the same authentication package on the npm package page. 
 
-## Azure Identity
+## Azure Identity SDK client library
+
+The Azure Identity library is the newest authentication package for Azure. Review the [list of supported libraries](https://www.npmjs.com/package/@azure/identity#client-libraries-supporting-authentication-with-azure-identity) using Azure Identity.
 
 The [@azure/identity](https://www.npmjs.com/package/@azure/identity) library simplifies authentication against Azure Active Directory for Azure SDK libraries. It provides a set of TokenCredential implementations which can be passed into SDK libraries to authenticate API requests. It supports token authentication using an Azure Active Directory service principal or managed identity.
 
-Review the [list of supported libraries](https://www.npmjs.com/package/@azure/identity#client-libraries-supporting-authentication-with-azure-identity) using Azure Identity.
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+ 
+// Enter your storage account name
+const account = "<account>";
+const defaultAzureCredential = new DefaultAzureCredential();
+ 
+const blobServiceClient = new BlobServiceClient(
+  `https://${account}.blob.core.windows.net`,
+  defaultAzureCredential
+);
+```
 
-## Modern Azure SDK client authentication 
-
+## Azure ms-rest-* SDK client libraries
 With the `@azure` scoped [client libraries](azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
 
 ```javascript
