@@ -5,10 +5,60 @@ ms.custom: devx-track-javascript
 title: include file understand-the-code.md
 description: include file understand-the-code.md
 ---
-In this section of the tutorial, the Azure SDK client library code for Storage blobs is explained. It is written in TypeScript but doesn't depend on the types for understanding. The code is framework-agnostic and could be used on either the client or server. As the code is built for a tutorial, choices were made for simplicity and comprehension. These choices are explained; you should review your own project for intentional use, security, and efficiency. 
+In this section of the tutorial, understand the code in the sample to make the web app upload a file.
+
+## Sample created with create-react-app
+
+The sample is a basic React app created with [create-react-app](https://create-react-app.dev/docs/adding-typescript/) with the TypeScript template.
+
+```typescript
+npx create-react-app my-app --template typescript
+```
+
+The create-react-app framework is useful to:
+* provide file bundling automatically, which is a requirement for using the Azure client libraries in the browser
+* provide transpilation and build scripts 
+
+## Upload button functionality
+
+The `src/app` file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
+
+The code connecting to the Azure blob storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="3,28":::
 
 ## Upload file to Azure Storage blob with Azure SDK client library
 
-The `uploadToBlob.ts` loads the dependencies, authenticates to Azure, and connects to your specific Storage resource using the SAS token.
+The code to upload the file to the Azure Storage is framework-agnostic and could be used on either the client or server. As the code is built for a tutorial, choices were made for simplicity and comprehension. These choices are explained; you should review your own project for intentional use, security, and efficiency. 
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts":::
+The sample creates and uses a publicly accessible container and files. If you want to secure your files in your own project, you have many layers where you can control that from requiring overall authentication to your resource to very specific permissions on each blob object. 
+
+### Dependencies and variables
+
+The `uploadToBlob.ts` loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+
+| Variable | Description |
+|--|--|
+|`sasToken`|The SAS token created with the Azure portal is prepended with a `?`. Remove it before setting it in your `sasToken` variable.| 
+|`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
+|`storageAccountName`|Your resource name.|
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="2,5,16" id="snippet_package":::
+
+### Create Storage client and manage steps
+
+The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container. 
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="5,6,7" id="snippet_uploadFileToBlob":::
+
+### Upload file to blob
+
+The `createBlobInContainer` function uploads the file to the container. The content type must be sent with the request if you intend to use the browser functionality, which depends on the file type, such as displaying a picture. 
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="10" id="snippet_createBlobInContainer":::
+
+### Get list of blobs
+
+The `getBlobsInContainer` function gets a list of URLs for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
+
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="10" id="snippet_getBlobsInContainer":::
