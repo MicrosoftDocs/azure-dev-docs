@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.custom: devx-track-javascript
 ---
-In this section of the tutorial, you need an Azure subscription and all the software to use this tutorial.
+In this section of the tutorial, you need an Azure subscription and the listed software to use this tutorial.
 
 ## Create or use existing Azure Subscription 
 
@@ -17,7 +17,5 @@ In this section of the tutorial, you need an Azure subscription and all the soft
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
-
-## Want to know more? 
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is commonly used to manage Azure Storage but isn't necessary to complete this tutorial.

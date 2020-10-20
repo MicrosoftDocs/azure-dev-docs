@@ -35,7 +35,7 @@ The sample creates and uses a publicly accessible container and files. If you wa
 
 ### Dependencies and variables
 
-The `uploadToBlob.ts` loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+The `uploadToBlob.ts` file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
 
 | Variable | Description |
 |--|--|
@@ -47,7 +47,7 @@ The `uploadToBlob.ts` loads the dependencies, and pulls in the required variable
 
 ### Security for Azure credentials
 
-In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an Azure Function instead of on the client, then call the Azure Function from the react app.  
+In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an [Azure Function](/azure/azure-functions/) instead of on the client, then call the Azure Function from the react app.  
 
 ### Create Storage client and manage steps
 

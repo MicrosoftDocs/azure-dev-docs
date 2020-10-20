@@ -6,13 +6,14 @@ title: include file run-site-locally.md
 description: include file run-site-locally.md
 ---
 
-In this section of the tutorial, you download the sample application to your local computer and runs it from the Visual Studio Code terminal. Then you can view the locally running app in your browser.
+In this section of the tutorial, you download the sample application to your local computer and run it from the Visual Studio Code terminal. Then view the locally running app in your browser.
 
 ## Clone and run the initial React app
 
-The initial React app is provided as a starting point. In this procedure, clone the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
+The complete React app is provided for you. In this procedure, clone the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
 
-1. Download the sample code to your local computer. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process require you to login to GitHub. Use the repository URL of `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`, then select a folder on your local computer to clone the sample to. 
+1. Open Visual Studio Code.
+1. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process requires you to login to GitHub. Use the repository URL of `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`, then select a folder on your local computer to clone the sample to. When prompted, open the cloned repository. 
 
     :::image type="content" source="../../media/tutorial-browser-file-upload/vscode-git-clone-repository.png" alt-text="Clone the GitHub repo by selecting the Git icon then selecting `Clone Repository`.":::
 
@@ -38,4 +39,4 @@ The initial React app is provided as a starting point. In this procedure, clone 
 
     :::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
-
+1. Stop the code with Control+C in the Visual Studio Code terminal.
