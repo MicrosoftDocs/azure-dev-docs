@@ -12,13 +12,9 @@ In this section of the tutorial, you download the sample application to your loc
 
 The initial React app is provided as a starting point. In this procedure, clone the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
 
-1. Fork the [GitHub repo](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), then clone it to your local computer. 
+1. Download the sample code to your local computer. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process require you to login to GitHub. Use the repository URL of `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`, then select a folder on your local computer to clone the sample to. 
 
-1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder:
-
-    ```console
-    code .
-    ```
+    :::image type="content" source="../../media/tutorial-browser-file-upload/vscode-git-clone-repository.png" alt-text="Clone the GitHub repo by selecting the Git icon then selecting `Clone Repository`.":::
 
 1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
 
