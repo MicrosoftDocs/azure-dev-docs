@@ -14,23 +14,23 @@ items:
   content: |
     [!INCLUDE [Tutorial introduction](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/introduction.md)]
 - title: Prepare to use this tutorial
-  durationInMinutes: 2
+  durationInMinutes: 5
   content: |
     [!INCLUDE [Prepare to use this tutorial](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/install-software.md)]
 - title: Run site locally
-  durationInMinutes: 2
+  durationInMinutes: 4
   content: |
     [!INCLUDE [Run site locally](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/run-site-locally.md)]
 - title: Create Storage resource
-  durationInMinutes: 2
+  durationInMinutes: 5
   content: |
     [!INCLUDE [Create Storage resource](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/create-storage-resource.md)]
-- title: Review Storage blob code
-  durationInMinutes: 2
+- title: Review sample code
+  durationInMinutes: 3
   content: |
     [!INCLUDE [Review Storage blob code](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/understand-the-code.md)]
 - title: Clean up resources
-  durationInMinutes: 2
+  durationInMinutes: 1
   content: |
     [!INCLUDE [Clean up resources](includes/tutorial-visualstudiocode-browser-file-upload-storage-blob/clean-up-resources.md)]
 - content: |

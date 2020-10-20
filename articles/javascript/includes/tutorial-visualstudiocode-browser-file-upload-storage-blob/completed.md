@@ -6,4 +6,4 @@ ms.topic: include
 ms.custom: devx-track-javascript
 ---
 
-You've completed the tutorial. Now that you have a deployed file upload app to Azure Storage Blobs, you can experiment and add new features. 
+You've completed the tutorial. You now have a client-side application which uploads a file to Azure Storage Blobs. You can experiment and add new features. 

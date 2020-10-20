@@ -42,20 +42,4 @@ The initial React app is provided as a starting point. In this procedure, clone 
 
     :::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
-## Want to know more? 
 
-The sample app is made with [create-react-app](https://www.npmjs.com/package/create-react-app) with TypeScript. The structural changes to the boilerplate are in the following files:
-*
-* [src/App.tsx](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx) - this file is the user interface for the app including:
-    * Message if Storage isn't configured
-    * Form to select and upload file
-    * List of current files in Storage container
-* [src/uploadToBlob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/uploadToBlob.ts) - this the all of the code interacting with Azure Storage including:
-    * Creating a container if it doesn't exist
-    * Uploading a file
-    * Get a flat listing of the blobs (files) in the Storage container
-
-These files have not been developed for a production environment. They are only to be used as code that works for a learning experience. When you plan to develop a client application to directly connect to Azure Storage, you need to use cloud-based best practices. For more information, use the following resources: 
-* [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-
-When using Azure Storage, the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), a separate installable tool is helpful.

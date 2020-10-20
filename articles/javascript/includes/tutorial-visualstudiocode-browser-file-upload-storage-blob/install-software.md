@@ -20,5 +20,4 @@ In this section of the tutorial, you need an Azure subscription and all the soft
 
 ## Want to know more? 
 
-Optional software:
-* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is commonly used to manage Azure Storage but isn't necessary to complete this tutorial.
