@@ -11,4 +11,4 @@ In this section of the tutorial, the Azure SDK client library code for Storage b
 
 The `uploadToBlob.ts` loads the dependencies, authenticates to Azure, and connects to your specific Storage resource using the SAS token.
 
-:::code language="typescript" source="~/js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts":::
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts":::
