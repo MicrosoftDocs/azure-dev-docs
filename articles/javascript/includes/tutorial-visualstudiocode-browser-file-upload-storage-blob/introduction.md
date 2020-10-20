@@ -32,6 +32,8 @@ The [sample React app](https://github.com/Azure-Samples/js-e2e-browser-file-uplo
 
 :::image type="content" source="../../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
+The [sample code is explained](tutorial-visualstudiocode-browser-file-upload-feedback?tutorial-step=4) later in the tutorial. 
+
 ## Want to know more? 
 
 Each step of the tutorial includes a **Want to know more?** section. This is _optional information_ to allow you to explore in depth. You can read as you go through the tutorial, or return to the tutorial later. 

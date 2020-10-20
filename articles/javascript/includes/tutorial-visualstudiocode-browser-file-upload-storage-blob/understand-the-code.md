@@ -66,3 +66,4 @@ The `createBlobInContainer` function uploads the file to the container with the 
 The `getBlobsInContainer` function gets a list of URLs for the blobs in the container. The URLs are constructed to be used as the `src` of an image display in HTML: `<img src={item} alt={item} height="200" />`. 
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/uploadToBlob.ts" highlight="10" id="snippet_getBlobsInContainer":::
+
