@@ -112,4 +112,5 @@ Common methods to create the required credential in your production code:
 
 ## Next steps	
 
-* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
+* [Azure npm packages](azure-sdk-library-package-index.md)
+* [Azure npm package documentation](/javascript/api/overview/azure/?view=azure-node-latest)
