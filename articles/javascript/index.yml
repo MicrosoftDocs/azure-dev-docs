@@ -26,9 +26,9 @@ landingContent:
           - text: Azure Fundamentals
             url: /learn/paths/azure-fundamentals/
           - text: Set up development environment
-            url: configure-local-development-environment.md
+            url: core/configure-local-development-environment.md
           - text: Authenticate to client library
-            url: node-sdk-azure-authenticate.md
+            url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
   - title: Hosting

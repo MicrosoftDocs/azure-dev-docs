@@ -1,6 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate-principal.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate-principal"
+    },
+    {
+      "source_path": "articles/javascript/configure-local-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"
+    },
+    {
       "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
       "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
     },
