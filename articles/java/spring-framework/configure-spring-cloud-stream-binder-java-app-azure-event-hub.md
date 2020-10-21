@@ -135,6 +135,22 @@ The following procedure creates a Spring boot application.
    </dependency>
    ```
 
+1. If you're using JDK version 9 or greater, add the following dependencies:
+
+   ```xml
+   <dependency>
+       <groupId>javax.xml.bind</groupId>
+       <artifactId>jaxb-api</artifactId>
+       <version>2.3.1</version>
+   </dependency>
+   <dependency>
+       <groupId>org.glassfish.jaxb</groupId>
+       <artifactId>jaxb-runtime</artifactId>
+       <version>2.3.1</version>
+       <scope>runtime</scope>
+   </dependency>
+   ```
+
 1. Save and close the *pom.xml* file.
 
 ## Create an Azure Credential File
