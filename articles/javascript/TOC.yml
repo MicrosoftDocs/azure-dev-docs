@@ -203,7 +203,7 @@
     - name: Deploy through continuous delivery
       href: /azure/devops/pipelines/languages/javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Integrate with databases
-      href: how-to/develop-with-database-on-azure.md
+      href: how-to/integrate-database.md
     - name: Write serverless code
       href: how-to/develop-serverless-apps.md
     - name: Create a static (JAMstack) site

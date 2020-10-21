@@ -46,7 +46,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Full-stack (serverless APIs & front-end)
-            url: how-to/create-static-site-jamstack.md
+            url: how-to/create-static-site.md
   - title: Serverless functions
     linkLists:
       - linkListType: tutorial
