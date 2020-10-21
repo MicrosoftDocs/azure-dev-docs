@@ -4,11 +4,11 @@
   - name: Get started on Azure with JavaScript
     items:
     - name: Set up your dev environment
-      href: configure-local-development-environment.md
+      href: core/configure-local-development-environment.md
     - name: Set up service principal
-      href: node-sdk-azure-authenticate-principal.md
+      href: core/node-sdk-azure-authenticate-principal.md
     - name: Authenticate to Azure
-      href: node-sdk-azure-authenticate.md
+      href: core/node-sdk-azure-authenticate.md
   - name: Quickstarts
     expanded: false
     items:
