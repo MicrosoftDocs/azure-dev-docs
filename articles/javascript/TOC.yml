@@ -104,6 +104,10 @@
         href: node-sdk-logging.md
   - name: Tutorials
     items:
+      - name: Upload image to Storage Blobs
+        href: tutorial/browser-file-upload.yml?preview=tutorialFeedback
+      - name: Express.js with MongoDB
+        href: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
       - name: Deploy Azure Functions with VS Code
         items:
           - name: Introduction and prerequisites
@@ -128,10 +132,6 @@
             href: tutorial-vscode-azure-app-service-node-04.md
           - name: Clean up resources
             href: tutorial-vscode-azure-app-service-node-05.md
-      - name: Upload image to Storage Blobs
-        href: tutorial-visualstudiocode-browser-file-upload-feedback.yml?preview=tutorialFeedback
-      - name: Express.js with MongoDB
-        href: tutorial-visualstudiocode-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml?tabs=bash&preview=tutorialFeedback
       - name: Deploy Deno to App Service with VS Code
         items:
           - name: Introduction and prerequisites

@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+    },
+    {
       "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
       "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
     },
