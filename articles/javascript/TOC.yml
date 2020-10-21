@@ -195,19 +195,19 @@
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
-      href: node-howto-e2e.md
+      href: how-to/develop-nodejs-on-azure.md
     - name: Deploy a web app
-      href: node-howto-deploy-web-app.md
+      href: how-to/deploy-web-app.md
     - name: Deploy containers
-      href: node-howto-deploy-containers.md
+      href: how-to/deploy-containers.md
     - name: Deploy through continuous delivery
       href: /azure/devops/pipelines/languages/javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Integrate with databases
-      href: node-howto-integrate-databases.md
+      href: how-to/integrate-database.md
     - name: Write serverless code
-      href: node-howto-write-serverless-code.md
+      href: how-to/develop-serverless-apps.md
     - name: Create a static (JAMstack) site
-      href: node-howto-create-static-site-jamstack.md
+      href: how-to/create-static-site.md
     - name: Automate monitoring
       href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Create a REST API

@@ -34,7 +34,7 @@ From here, you can enjoy a number other resources that help you explore serverle
   - [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
   - [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
 
-- [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](node-howto-integrate-databases.md)
+- [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript). For information on other databases, see [How to integrate Azure databases in Node.js code](integrate-database.md)
 
 - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)
 

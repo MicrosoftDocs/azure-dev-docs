@@ -46,7 +46,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Full-stack (serverless APIs & front-end)
-            url: node-howto-create-static-site-jamstack.md
+            url: how-to/create-static-site.md
   - title: Serverless functions
     linkLists:
       - linkListType: tutorial
@@ -56,7 +56,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Write serverless code
-            url: node-howto-write-serverless-code.md
+            url: how-to/develop-serverless-apps.md
   - title: Data
     linkLists:
       - linkListType: quickstart
