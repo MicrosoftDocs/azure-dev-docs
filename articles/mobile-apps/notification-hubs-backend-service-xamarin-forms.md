@@ -38,8 +38,9 @@ This tutorial takes you through the following steps:
 
 To follow along, you require:
 
-* An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
-* A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed (or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Mobile Development with .NET** workload).
+* An [Azure subscription](https://azure.microsoft.com/free/dotnet) where you can create and manage resources.
+* A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs) users must also have **Mobile development with .NET** and **ASP.NET and web development** workloads installed.
 * The ability to run the app on either **Android** (physical or emulator devices) or **iOS** (physical devices only).
 
 For Android, you must have:
