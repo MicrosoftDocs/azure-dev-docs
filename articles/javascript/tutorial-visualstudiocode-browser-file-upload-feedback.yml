@@ -8,7 +8,7 @@ metadata:
   displayType: one-column
   ms.date: 10/13/2020
   ms.topic: tutorial
-  ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
+  ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
 items:
 - durationInMinutes: 2
   content: |
