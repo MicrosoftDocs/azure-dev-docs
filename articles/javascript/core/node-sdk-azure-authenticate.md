@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Authenticate with the Azure management modules for JavaScript
 
-All [SDK client libraries](azure-sdk-library-package-index.md) require authentication via a `credentials` object when being
+All [SDK client libraries](../azure-sdk-library-package-index.md) require authentication via a `credentials` object when being
 instantiated. There are multiple ways of authenticating and creating the required
 credentials.
 
@@ -27,8 +27,8 @@ Common methods to create the required credentials are:
 |[@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth)<br>(recommended)|[Authentication with popup (create-react-app)](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/authentication-with-popup)<br>[React without pop-up](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/react-app)<br>[HTML with Login button](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/vanilla)|
 |[ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure)|[Service principal](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#service-principal-authentication)<br>[Interactive](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#interactive-login)<br>[Basic](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#basic-authentication)|
 
-[!INCLUDE [chrome-note](includes/chrome-note.md)]
+[!INCLUDE [chrome-note](../includes/chrome-note.md)]
 
 ## Next steps	
 
-* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
+* [Deploy a static website to Azure from Visual Studio Code](../tutorial-vscode-static-website-node-01.md)

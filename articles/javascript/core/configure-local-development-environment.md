@@ -65,7 +65,7 @@ Learn [how to create a service principal](node-sdk-azure-authenticate-principal.
 
 ## Steps for each new development project setup
 
-The [Azure SDK libraries](azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
+The [Azure SDK libraries](../azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
 
 Each new project using Azure should:
 - Create Azure resources and save associated keys or configuration to a [secure location]().
@@ -152,4 +152,4 @@ You can also use any other source control tool of your choice; Git is simply one
 
 * [Create and use a service principal](node-sdk-azure-authenticate-principal.md)
 * [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
-* [Deploy a static website to Azure from Visual Studio Code](tutorial-vscode-static-website-node-01.md)
+* [Deploy a static website to Azure from Visual Studio Code](../tutorial-vscode-static-website-node-01.md)
