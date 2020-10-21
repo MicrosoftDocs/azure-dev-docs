@@ -10,7 +10,7 @@
     - name: Authenticate to Azure
       href: node-sdk-azure-authenticate.md
   - name: Quickstarts
-    expanded: true
+    expanded: false
     items:
     - name: App hosting
       items:

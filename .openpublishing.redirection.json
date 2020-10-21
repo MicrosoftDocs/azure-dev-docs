@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+    },
+    {
       "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
       "redirect_url": "/azure/developer/javascript/how-to/create-static-site"
     },
