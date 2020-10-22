@@ -14,5 +14,5 @@ ms.date: 10/19/2020
 Review the following articles to learn how to manage azure policies as code from GitHub
 
 - [Export Azure Policies from Azure](azure/governance/policy/how-to/export-resources)   
-- [Manage Azure Policies as code from Github](https://github.com/Azure/manage-azure-policy)
+- [Manage Azure Policies as code from Github](azure/governance/policy/tutorials/policy-as-code-github)
 - [Trigger Azure compliance scans](azure/governance/policy/how-to/get-compliance-data#on-demand-evaluation-scan)  
