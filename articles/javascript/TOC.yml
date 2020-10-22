@@ -50,8 +50,6 @@
         href: https://code.visualstudio.com/docs/azure/remote-debugging
       - name: Debug local Node.js apps in VS Code
         href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
-    - name: Tools and extensions
-      href: node-azure-tools.md
     - name: Store data
       items:
       - name: Blob storage
@@ -190,6 +188,8 @@
             href: tutorial-vscode-static-website-node-06.md
   - name: Learn
     href: learn-azure-javascript.md
+  - name: Azure tools
+    href: node-azure-tools.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
