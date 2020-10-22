@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging.md"
+    },
+    {
       "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
       "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
     },

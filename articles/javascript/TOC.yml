@@ -94,10 +94,6 @@
         href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Speech recognition
         href: /azure/cognitive-services/speech-service/get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Logging and metrics
-      items:
-      - name: Logging with the Azure SDK
-        href: node-sdk-logging.md
   - name: Tutorials
     items:
       - name: Upload image to Storage Blobs
@@ -206,10 +202,10 @@
       href: how-to/develop-serverless-apps.md
     - name: Create a static (JAMstack) site
       href: how-to/create-static-site.md
-    - name: Automate monitoring
-      href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Create a REST API
       href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Logging and metrics
+      href: how-to/node-sdk-logging.md
   - name: Samples
     items:
     - name: Web apps & serverless
