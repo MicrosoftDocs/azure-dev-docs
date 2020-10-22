@@ -2,9 +2,7 @@
 title: "What's new for JavaScript docs: "
 description: "What's new in JavaScript docs for October 2020"
 ms.topic: conceptual
-ms.author: erhopf
-ms.service: cognitive-services
-ms.date: 10/02/2020
+ms.date: 10/22/2020
 ---
 
 # JavaScript docs: What's new for October 2020
