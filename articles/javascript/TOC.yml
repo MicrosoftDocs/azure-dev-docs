@@ -1,5 +1,7 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
+- name: What's new in docs
+  href: whats-new-docs.md
   items:
   - name: Get started on Azure with JavaScript
     items:
