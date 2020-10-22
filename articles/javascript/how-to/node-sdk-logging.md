@@ -10,9 +10,9 @@ ms.custom: devx-track-js
 
 There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
 
-* [Resource metrics](#resource-metrics-provided-by-Azure-services) - when you use Azure services, Azure monitors your individual resources and collects metrics.  
+* [Resource metrics](#resource-metrics-provided-by-azure-services) - when you use Azure services, Azure monitors your individual resources and collects metrics.  
 * [Custom metrics](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
-* [Azure SDK client libraries](#azure-sdl-client-library-logging) - when you need to view logging already built into Azure client libraries
+* [Azure SDK client libraries](#azure-sdk-client-library-logging) - when you need to view logging already built into Azure client libraries
 
 ## Resource metrics provided by Azure services
 
@@ -26,7 +26,7 @@ Once data is monitored, use either the Azure portal to query the data with commo
 
 ## Custom logging to Azure
 
-Use Azure Monitor's [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
+Use Azure Monitor's [Application Insights](/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
 
 * Server - log from Node.js with [Application Insights](/azure/azure-monitor/app/app-insights-overview) - [npm package](https://www.npmjs.com/package/applicationinsights)
 * Client - log from your client code - [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web)
