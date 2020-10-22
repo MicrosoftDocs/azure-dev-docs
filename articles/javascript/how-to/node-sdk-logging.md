@@ -10,21 +10,28 @@ ms.custom: devx-track-js
 
 There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
 
-* [Resource metrics](#resource-metrics-provided-by-Azure-services) - when you use Azure services, your individual resources collect usage metrics.  
-* [Your code](#your-code-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
+* [Resource metrics](#resource-metrics-provided-by-Azure-services) - when you use Azure services, Azure monitors your individual resources and collects metrics.  
+* [Custom metrics](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
 * [Azure SDK client libraries](#azure-sdl-client-library-logging) - when you need to view logging already built into Azure client libraries
-
-
 
 ## Resource metrics provided by Azure services
 
-## Your code logging to Azure
+[Azure Monitor](/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-Use Azure Monitor's [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios
+The metrics are available inside your resource in the Azure portal. 
+
+:::image type="content" source="../media/logging-metrics/azure-resource-metrics-portal.png" alt-text="Simple Node.js app connected to MongoDB database.":::
+
+Once data is monitored, use either the Azure portal to query the data with common queries, or build your [Kusto queries](/azure/data-explorer/kusto/query/). 
+
+## Custom logging to Azure
+
+Use Azure Monitor's [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
 
 * Server - log from Node.js with [Application Insights](/azure/azure-monitor/app/app-insights-overview) - [npm package](https://www.npmjs.com/package/applicationinsights)
 * Client - log from your client code - [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web)
-
+* Containers and VMs - log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure Virtual machines](/azure/azure-monitor/insights/vminsights-overview)
+ 
 ## Azure SDK client library logging
 
 Generally, you shouldn't need to access internal Azure SDK client library logging. The Azure client core library for logging is built for Azure services to use. 
