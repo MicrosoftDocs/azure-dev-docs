@@ -513,6 +513,10 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. In **Startup.cs**, update the **ConfigureServices** method to add the **NotificationHubsService** as a singleton implementation of **INotificationService**.
 
     ```csharp
+    
+    using PushDemoApi.Models;
+    using PushDemoApi.Services;
+
     public void ConfigureServices(IServiceCollection services)
     {
         ...
