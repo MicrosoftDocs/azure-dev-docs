@@ -1,6 +1,50 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate-principal.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate-principal"
+    },
+    {
+      "source_path": "articles/javascript/configure-local-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-site"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-containers"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-web-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-e2e.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-nodejs-on-azure"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-integrate-databases.md",
+      "redirect_url": "/azure/developer/javascript/how-to/integrate-database"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-write-serverless-code.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-serverless-apps"
+    },
+    {
       "source_path": "articles/javascript/node-sdk-azure-install.md",
       "redirect_url": "/javascript/api/?view=azure-node-latest"
     },

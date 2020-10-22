@@ -19,7 +19,7 @@ This topic shows you three techniques for creating a service principal.
 - Azure portal
 - Azure CLI 2.0
 
-[!INCLUDE [chrome-note](includes/chrome-note.md)]
+[!INCLUDE [chrome-note](../includes/chrome-note.md)]
 
 ## Create a service principal using the Azure portal
 
