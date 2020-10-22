@@ -1,6 +1,8 @@
 - name: Azure for JavaScript & Node.js developers
   href: index.yml
   items:
+  - name: What's new in docs
+    href: whats-new-docs.md
   - name: Get started on Azure with JavaScript
     items:
     - name: Set up your dev environment
