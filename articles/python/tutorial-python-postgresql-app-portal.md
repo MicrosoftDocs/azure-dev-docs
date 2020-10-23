@@ -114,7 +114,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
     psql --host=<server-name>.postgres.database.azure.com --port=5432 --username=<user-name>@<server-name> --dbname=postgres
     ```
 
-    Replace `<server-name>` and `<user-name>` with the names used in the previous section when configuring the server. Note that the full username value is `<user-name>@<server-name>`.
+    Replace `<server-name>` and `<user-name>` with the names used in the previous section when configuring the server. Note that the full username value for this command is `<user-name>@<server-name>`.
 
     You can copy the command above and paste into the Cloud Shell by using a right-click and then selecting **Paste**.
 
