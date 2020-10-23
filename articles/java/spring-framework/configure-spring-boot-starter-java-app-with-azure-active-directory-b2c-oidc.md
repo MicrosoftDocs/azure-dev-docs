@@ -6,7 +6,7 @@ documentationcenter: java
 author: panli
 manager: kevinzha
 ms.author: edburns
-ms.date: 10/10/2020
+ms.date: 10/23/2020
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -111,7 +111,7 @@ In this tutorial, you learn how to:
 
 2. In the **Name** field, enter the value for **Group** from above, then set **Redirect URI (recommended)**  to **http://localhost:8080/home** and click **Register**.
 
-   ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
+   ![configure a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
 3. Back to **Manage** pane , select **Applications (Legacy)** , click the application Name you created.
 
@@ -123,7 +123,7 @@ In this tutorial, you learn how to:
     
 6. Click **Save**. It may take a short while before the application ready.
     
-   ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c6-n.png)
+   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c6-n.png)
 
 7. In the **General** pane select Keys, then select **Generate Key**.
 
