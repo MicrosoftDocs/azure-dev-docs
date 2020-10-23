@@ -105,29 +105,31 @@ In this tutorial, you learn how to:
 
 ### Add an application registration for your Spring Boot app
 
-1. In the **Manage** pane on the left, select **Applications**, and then select **Add**.
+1. In the **Manage** pane on the left, select **App registrations**, and then select **New registration**.
 
-    ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
+   ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. In the **Name** field, enter the value for **Group** from above, then set **include web app/web API** control to **Yes**.
+2. In the **Name** field, enter the value for **Group** from above, then set **Redirect URI (recommended)**  to **http://localhost:8080/home** and click **Register**.
 
-3. Set **Reply URL** to `http://localhost:8080/home`.
+   ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
-4. Leave the other fields with their default values.
+3. Back to **Manage** pane , select **Applications (Legacy)** , click the application Name you created.
 
-5. Select **Create**. It may take a short while before the application appears.
+   ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
 
-    ![Add Application Redirect URI](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c2-n.png)
+4. Select **Properties** then set **Allow implicit flow** control to **Yes**.
+   
+5. Leave the other fields with their default values.
+    
+6. Click **Save**. It may take a short while before the application ready.
+    
+   ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c6-n.png)
 
-6. Select **Overview**, then **Applications**.
+7. In the **General** pane select Keys, then select **Generate Key**.
 
-7. In the table of applications, select the row with name of your project.
+8. Set **App key** to `yourGroupIdkey`, replacing `yourGroupId` with the value you entered above for **Group**.
 
-8. In the **General** pane select Keys, then select **Generate Key**.
-
-9. Set **App key** to `yourGroupIdkey`, replacing `yourGroupId` with the value you entered above for **Group**.
-
-10. Select **Save**. Wait for the key to appear in the app key section, then copy it for use later in this article.
+9. Select **Save**. Wait for the key to appear in the app key section, then copy it for use later in this article.
 
     > [!NOTE]
     > If you leave the **Keys** section and come back, you will not be able to see the key value. In that case, you must create another key and copy it for future use.
@@ -135,11 +137,11 @@ In this tutorial, you learn how to:
 
     ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
-11. Select **Overview**.
+10. Select **Overview**.
 
-12. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
+11. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
 
-13. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
+12. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
 
     * Start with the step that requests you to select **New User flow**.
     * When this tutorial refers to `webapp1`, use the value you entered for **Group** instead.
