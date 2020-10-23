@@ -2,7 +2,7 @@
 title: Use Spring Data R2DBC with Azure Database for MySQL
 description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
 documentationcenter: java
-ms.date: 03/18/2020
+ms.date: 10/10/2020
 ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
@@ -31,8 +31,11 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
+
+> [!NOTE]
+> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 ### Add the reactive MySQL driver implementation
 

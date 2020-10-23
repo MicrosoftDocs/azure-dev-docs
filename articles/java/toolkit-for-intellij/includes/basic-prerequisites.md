@@ -1,6 +1,6 @@
 ## Prerequisites
 
-To complete the steps in his article, you will need to install the Azure Toolkit for IntelliJ, which requires the following software components:
+To complete the steps in this article, you will need to install the Azure Toolkit for IntelliJ, which requires the following software components:
 
 * An [Azure supported Java Development Kit (JDK)](../../fundamentals/java-jdk-long-term-support.md)
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed

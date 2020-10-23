@@ -3,7 +3,7 @@ title: How to use Spring Data MongoDB API with Azure Cosmos DB
 description: Learn how to use Spring Data MongoDB API with Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: java
-ms.date: 12/19/2018
+ms.date: 10/10/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -11,8 +11,6 @@ ms.custom: devx-track-java
 ---
 
 # How to use Spring Data MongoDB API with Azure Cosmos DB
-
-## Overview
 
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB MongoDB API](/azure/cosmos-db/mongodb-introduction).
 
@@ -22,7 +20,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 * A [Git](https://git-scm.com/downloads) client.
 
 ## Create an Azure Cosmos DB account
@@ -127,6 +125,10 @@ To build the application, browse to the directory */gs-accessing-data-mongodb/co
 
 In this tutorial, you created a sample Java application that uses Spring Data to store and retrieve information using the Azure Cosmos DB MongoDB API.
 
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
@@ -146,7 +148,6 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Data]: https://spring.io/projects/spring-data
-[Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 
 <!-- IMG List -->
