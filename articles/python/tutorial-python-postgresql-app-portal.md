@@ -145,9 +145,9 @@ In this section, you create settings for the web app that it needs to connect to
     | Setting name | Value |
     | --- | --- |
     | DJANGO_ENV | `production` (This value tells the app to use a production configuration as described earlier in the [sample overview](#fork-the-sample-repository).) |
-    | DBHOST | The URL of the database server from the previous section, in the form `<server-name>.postgres.database.azure.com`. You can copy the whole URL from the database server's Overview page. |
+    | DBHOST | The name of the database server from the previous section. The app code automatically appends `.postgres.database.azure.com` to create the server URL. |
     | DBNAME | `pollsdb` |
-    | DBUSER | The full administrator username as used in the previous section. The full username is again `<user-name>@<server-name>`. |
+    | DBUSER | The administrator username. The code will add `@<DBHOST>` automatically using the server name in `DBHOST`. |
     | DBPASS | The administrator password you created earlier. |
 
     As noted earlier, you should not use the `$` character in the username or password because that character is escaped within environment variables on the Linux container that hosts Python apps.
