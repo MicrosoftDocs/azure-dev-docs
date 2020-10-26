@@ -46,6 +46,15 @@ The following procedure creates an Azure storage account and container.
    * Specify the **Location** for your storage account.
 1. When you have specified the options listed above, click **Review + create**. 
 1. Review the specification, then click **Create** to create your storage account.
+
+   You can also use the CLI commands to create the storage account as below:
+   ```Azure CLI
+   az storage account create \
+       --name mystorageaccount \
+       --resource-group MyResourceGroup \
+       --location westus 
+   ```
+   Create a storage account 'mystorageaccount' in resource group 'MyResourceGroup' in the West US region. 
 1. When the deployment is complete, click **Go to resource**.
 1. Click **Containers**.
 1. Click **+ Container**.
