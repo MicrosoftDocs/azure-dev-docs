@@ -202,6 +202,7 @@ Run this command if you don't need to keep the resources provisioned in this exa
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)

@@ -52,7 +52,7 @@ cd spring-framework-petclinic
 
 ## Build and run the HSQLDB sample locally
 
-First, we'll test the sample locally using using HSQLDB as the database.
+First, we'll test the sample locally by using HSQLDB as the database.
 
 Build the HSQLDB version of the sample app.
 

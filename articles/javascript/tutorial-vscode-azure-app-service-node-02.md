@@ -17,7 +17,7 @@ In this step, you create a simple Node.js app using the Express application gene
 1. Run the following command to create a new Express app named *expressApp1* using the Express Generator. (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
 
     ```bash
-    npx express-generator expressApp1 --view pug -–git
+    npx express-generator expressApp1 -–git --view pug 
     ```
 
 1. Navigate into the app folder:

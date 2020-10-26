@@ -33,107 +33,107 @@ productDirectory:
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       links:
-        - url: https://docs.microsoft.com/en-us/azure/developer/python/tutorial-vs-code-serverless-python-01
+        - url: ./python/tutorial-vs-code-serverless-python-01.md
           text: Deploy serverless Python apps to Azure Functions
-        - url: https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-01
+        - url: ./python/tutorial-deploy-app-service-on-linux-01.md
           text: Deploy Python apps to Azure App Service
-        - url: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python
+        - url: /azure/storage/blobs/storage-quickstart-blobs-python
           text: Manage storage blobs with the Azure SDK for Python
-        - url: https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python
+        - url: /azure/sql-database/sql-database-connect-query-python
           text: Use Python to query Azure SQL Database
-        - url: https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-python
+        - url: /azure/data-factory/quickstart-create-data-factory-python
           text: Create an Azure Data Factory using Python
-        - url: https://docs.microsoft.com/azure/developer/python/
+        - url: ./python/index.yml
           text: See more in the Python developer center
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
-        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-static-website-node-01?tabs=bash
+        - url: ./javascript/tutorial-vscode-static-website-node-01.md?tabs=bash
           text: Develop a static website
-        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-azure-app-service-node-01?tabs=bash
+        - url: ./javascript/tutorial-vscode-azure-app-service-node-01.md?tabs=bash
           text: Deploy to Azure App Service
-        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01?tabs=bash
+        - url: ./javascript/tutorial-vscode-serverless-node-01.md?tabs=bash
           text: Deploy a serverless application
-        - url: https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01?tabs=bash
+        - url: ./javascript/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
-        - url: https://docs.microsoft.com/azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - url: /azure/cosmos-db/create-mongodb-nodejs?bc=%252fazure%252fdeveloper%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fdeveloper%252fjavascript%252ftoc.json
           text: Migrate a MongoDB app to Azure Cosmos DB
-        - url: https://docs.microsoft.com/azure/developer/javascript/
+        - url: ./javascript/index.yml
           text: See more in the dev center
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       links:
-        - url: https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install
+        - url: ./java/fundamentals/java-jdk-install.md
           text: Install the JDK for Azure and Azure Stack
-        - url: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+        - url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
           text: Deploy an Azure Spring Cloud app using the Azure portal
-        - url: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+        - url: /azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
-        - url: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+        - url: ./java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
           text: Use Spring Boot Starter for Azure Active Directory
-        - url: https://docs.microsoft.com/azure/developer/java/migration/migration-overview
+        - url: ./java/migration/migration-overview.md
           text: Migrate Java Applications to Azure
-        - url: https://docs.microsoft.com/azure/developer/java/
+        - url: ./java/index.yml
           text: See more in the Java developer center
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
       links:
-        - url: https://docs.microsoft.com/dotnet/azure/sdk/
+        - url: /dotnet/azure/sdk/
           text: Azure SDK for .NET
-        - url: https://docs.microsoft.com/dotnet/azure/intro
+        - url: /dotnet/azure/intro
           text: Introduction to Azure and .NET
-        - url: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
+        - url: /azure/app-service/app-service-web-get-started-dotnet
           text: Deploy an ASP.NET web app
-        - url: https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio
+        - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
           text: Build a serverless function
-        - url: https://docs.microsoft.com/visualstudio/containers/container-tools?view=vs-2019
+        - url: /visualstudio/containers/container-tools?view=vs-2019
           text: ASP.NET Core and Docker
-        - url: https://docs.microsoft.com/dotnet/azure/
+        - url: /dotnet/azure/
           text: See more in the .NET developer center
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
       links:
-        - url: https://docs.microsoft.com/powershell/azure/new-azureps-module-az
+        - url: /powershell/azure/new-azureps-module-az
           text: What is the new Az module?
-        - url: https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az
+        - url: /powershell/azure/migrate-from-azurerm-to-az
           text: Migrate from AzureRM to Az
-        - url: https://docs.microsoft.com/powershell/azure/install-az-ps
+        - url: /powershell/azure/install-az-ps
           text: Install
-        - url: https://docs.microsoft.com/powershell/azure/authenticate-azureps
+        - url: /powershell/azure/authenticate-azureps
           text: Sign in
-        - url: https://docs.microsoft.com/powershell/azure/context-persistence
+        - url: /powershell/azure/context-persistence
           text: Persist credential contexts
-        - url: https://docs.microsoft.com/powershell/azure/
+        - url: /powershell/azure/
           text: See more in the Azure PowerShell developer center
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       links:
-        - url: https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/get-started-with-azure-cli?view=azure-cli-latest
           text: Get started
-        - url: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/install-azure-cli?view=azure-cli-latest
           text: Install
-        - url: https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/authenticate-azure-cli?view=azure-cli-latest
           text: Sign-in
-        - url: https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/query-azure-cli?view=azure-cli-latest
           text: Run a query on the output of a CLI command
-        - url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest
+        - url: /cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest
           text: Create a virtual machine
-        - url: https://docs.microsoft.com/cli/azure/
+        - url: /cli/azure/
           text: See more in the Azure CLI developer center
     - title: Mobile
       imageSrc: https://static.docs.com/ui/media/product/azure/devices.svg
       links:
-        - url: https://docs.microsoft.com/azure/developer/mobile-apps/serverless-compute
+        - url: ./mobile-apps/serverless-compute.md
           text: Build a serverless mobile app
-        - url: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-xamarin-dotnet
+        - url: /azure/cosmos-db/create-sql-api-xamarin-dotnet
           text: Save data with Azure Cosmos DB
-        - url: https://docs.microsoft.com/azure/developer/mobile-apps/push-notifications
+        - url: ./mobile-apps/push-notifications.md
           text: Send push notifications to engage users
-        - url: https://docs.microsoft.com/azure/developer/mobile-apps/authentication
+        - url: ./mobile-apps/authentication.md
           text: Add authentication and manage user identities
-        - url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+        - url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
           text: Key concepts for new Azure Pipelines users
-        - url: https://docs.microsoft.com/azure/developer/mobile-apps
+        - url: ./mobile-apps/index.yml
           text: See more in the Mobile app developer center
 #tools:
 #conceptualContent:
@@ -150,42 +150,41 @@ additionalContent:
         # Card
         - title: REST API
           summary: Use REST APIs to access your service's resources through HTTP operations.
-          url: https://docs.microsoft.com/rest/api/
+          url: /rest/api/
         # Card
         - title: ARM Templates
           summary: Use Azure Resource Manager templates to define and configure your project with JSON files.
-          url: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/
+          url: /azure/azure-resource-manager/templates/
         # Card
         - title: Azure DevOps
           summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
-          url: https://docs.microsoft.com/azure/devops/?view=azure-devops
+          url: /azure/devops/?view=azure-devops
         # Card
         - title: Azure and GitHub integration
           summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: https://docs.microsoft.com/azure/developer/github
+          url: ./github/index.yml
         # Card
         - title: Jenkins
           summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
-          url: https://docs.microsoft.com/azure/jenkins/
+          url: /azure/jenkins/
         # Card
         - title: Terraform
           summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
-          url: https://docs.microsoft.com/azure/terraform/
+          url: /azure/terraform/
         # Card
         - title: Ansible
           summary: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
-          url: https://docs.microsoft.com/azure/developer/ansible/
+          url: ./ansible/index.yml
         # Card
         - title: Chef
           summary: Use Chef to transform your virtual machine infrastructure on Azure into code.
-          url: https://docs.microsoft.com/azure/developer/chef/
+          url: ./chef/index.yml
         - title: Maven
           summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
           url: https://github.com/Microsoft/azure-maven-plugins#readme
         - title: Azure Toolkit for IntelliJ
           summary: Use Azure Toolkit for IntelliJ to create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
-          url: https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/
+          url: ./java/toolkit-for-intellij/index.yml
         - title: Azure Toolkit for Eclipse
           summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
-          url: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/
-
+          url: ./java/toolkit-for-eclipse/index.yml

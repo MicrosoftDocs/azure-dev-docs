@@ -158,7 +158,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. From the **Overview** page of your Active Directory, click **Groups**, then **New group** that you will use for authorization in your application.
 
-1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
+1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *Users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
    
    >[!div class="mx-imgBorder"]
    >![Select the user for group][create-user-03]
