@@ -122,7 +122,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
-    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID if you're using an Azure Service Bus topic with a durable subscription. You obtained it in your Service Bus Subscription ID |
+    | `spring.jms.servicebus.topic-client-id`   | JMS client ID is your Service Bus Subscription ID in the Azure portal. JMS client ID is your Service Bus Subscription ID in the Azure portal.| 
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
 1. Save and close the *application.properties* file.
@@ -348,3 +348,29 @@ When no longer needed, use the [Azure portal](https://portal.azure.com/) to dele
 
 > [!div class="nextstepaction"]
 > [How to use JMS API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp)
+
+
+
+
+
+
+
+
+I think it's unreasonable to handle these error pages directly in the azure-active-directory-b2c-spring-boot-starter library,
+
+
+It can cause authentication failure for many reasons,
+
+
+maybe customize different URLs according to different errors
+
+So I suggest to deal with these errors in your project 
+Not only set all errors into one error page.
+
+It may be a good idea to customize different URLs based on different errors
+
+About s
+
+AuthenticationFailureHandler
+ 
+The AuthenticationFailureHandler in the spring Security library can help us do moreInterface 
