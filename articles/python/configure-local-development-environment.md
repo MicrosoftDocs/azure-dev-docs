@@ -89,7 +89,7 @@ Each developer in your organization should perform these steps individually.
     az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
     ```
 
-    This command saves it output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
+    This command saves its output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
