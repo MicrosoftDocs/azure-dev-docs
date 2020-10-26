@@ -348,29 +348,3 @@ When no longer needed, use the [Azure portal](https://portal.azure.com/) to dele
 
 > [!div class="nextstepaction"]
 > [How to use JMS API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp)
-
-
-
-
-
-
-
-
-I think it's unreasonable to handle these error pages directly in the azure-active-directory-b2c-spring-boot-starter library,
-
-
-It can cause authentication failure for many reasons,
-
-
-maybe customize different URLs according to different errors
-
-So I suggest to deal with these errors in your project 
-Not only set all errors into one error page.
-
-It may be a good idea to customize different URLs based on different errors
-
-About s
-
-AuthenticationFailureHandler
- 
-The AuthenticationFailureHandler in the spring Security library can help us do moreInterface 
