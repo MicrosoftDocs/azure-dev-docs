@@ -54,7 +54,7 @@ The following procedure creates an Azure storage account and container.
        --resource-group MyResourceGroup \
        --location westus 
    ```
-   Create a storage account 'mystorageaccount' in resource group 'MyResourceGroup' in the West US region. 
+    The above means to Create a storage account 'mystorageaccount' in resource group 'MyResourceGroup' in the West US region. 
 1. When the deployment is complete, click **Go to resource**.
 1. Click **Containers**.
 1. Click **+ Container**.
