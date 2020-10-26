@@ -183,7 +183,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.11.0</version>
+    <version>1.12.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
@@ -391,7 +391,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.11.0</version>
+    <version>1.12.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
