@@ -1,16 +1,16 @@
 ---
 title: Create the Azure Functions application from Visual Studio Code
-description: Tutorial part 2, create the Azure Functions app
-ms.topic: conceptual
+description: Serverless Tutorial part 2, create the Azure Functions app
+ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Create the local Functions app
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-01.md)
 
-In this step, you create a local Azure Functions application that contains a function that uses an [HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-reference-node#http-triggers-and-bindings). An Azure Functions app can contain many Functions with [different triggers](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings). The HTTP trigger specifically handles incoming HTTP traffic.
+In this step, you create a local Azure Functions application that contains a function that uses an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings). An Azure Functions app can contain many Functions with [different triggers](/azure/azure-functions/functions-triggers-bindings). The HTTP trigger specifically handles incoming HTTP traffic.
 
 1. From a terminal or command prompt, run Visual Studio Code from within a suitable folder for the project:
 
@@ -37,7 +37,7 @@ In this step, you create a local Azure Functions application that contains a fun
 
 1. At the prompt, **Authorization Level**, select **Anonymous**:
 
-    ![Entering a function name](media/functions-extension/create-function-anonymous-auth.png)
+    ![ At the prompt, `Authorization Level`, select `Anonymous`](media/functions-extension/create-function-anonymous-auth.png)
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
 

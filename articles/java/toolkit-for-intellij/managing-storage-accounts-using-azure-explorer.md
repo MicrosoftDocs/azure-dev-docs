@@ -2,7 +2,7 @@
 title: Manage storage accounts with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for IntelliJ.
 documentationcenter: java
-ms.date: 02/01/2018
+ms.date: 09/09/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -11,13 +11,16 @@ ms.custom: devx-track-java
 
 # Manage storage accounts by using the Azure Explorer for IntelliJ
 
+> [!NOTE]
+> The Storage Accounts feature in Azure Explorer is deprecated. You can utilize the Azure portal to create and manage storage accounts and containers. See the [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) documentation for quickstarts on how to manage storage accounts.
+
 The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
 [!INCLUDE [prerequisites](includes/prerequisites.md)]
 
 [!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
-## Create a storage account in IntelliJ
+## Create a storage account
 
 To create a storage account by using the Azure Explorer, do the following:
 
@@ -25,11 +28,7 @@ To create a storage account by using the Azure Explorer, do the following:
 
 2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
 
-   ![Create Storage Account command][CS01]
-
 3. In the **Create Storage Account** dialog box, specify the following options:
-
-   ![Create New Storage Account dialog box][CS02]
 
    * **Name**: Specifies the name for the new storage account.
 
@@ -49,17 +48,14 @@ To create a storage account by using the Azure Explorer, do the following:
 
 4. When you have specified all of the preceding options, click **OK**.
 
-## Delete a storage account in IntelliJ
+## Delete a storage account
 
 To delete a storage account by using the Azure Explorer, do the following:
 
 1. In the **Azure Explorer** view, right-click the storage account, and then select **Delete**.
 
-   ![Delete storage account menu][DS01]
-
 2. In the confirmation window, click **Yes**.
 
-   ![Delete storage account confirmation window][DS02]
 
 ## Next steps
 
@@ -83,10 +79,10 @@ For more information about Azure storage accounts, sizes, and pricing, see the f
 [About Azure storage accounts]: /azure/storage/storage-create-storage-account
 [Azure storage replication]: /azure/storage/storage-redundancy
 [Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets
-[Naming and referencing containers, blobs, and metadata]: https://go.microsoft.com/fwlink/?LinkId=255555
+[Naming and referencing containers, blobs, and metadata]: /rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata
 
-[Sizes for Windows storage accounts in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
-[Sizes for Linux storage accounts in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[Sizes for Windows storage accounts in Azure]: /azure/virtual-machines/sizes
+[Sizes for Linux storage accounts in Azure]: /azure/virtual-machines/sizes
 [Windows storage-account pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Linux storage-account pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 

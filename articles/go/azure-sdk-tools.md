@@ -11,7 +11,7 @@ To be effective at writing Go code and have it work seamlessly with Azure servic
 
 ## Azure CLI
 
-The Azure CLI provides a command-line interface to create and configure Azure resources in your subscriptions. The CLI can help you get started building common and shared Azure resources quickly, so that you can focus on more complex usage of services. The CLI has query and filtering features so you can pipe output directly to your favorite command-line tools. The CLI is available for installation on your local system, as a Docker image, or through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+The Azure CLI provides a command-line interface to create and configure Azure resources in your subscriptions. The CLI can help you get started building common and shared Azure resources quickly, so that you can focus on more complex usage of services. The CLI has query and filtering features so you can pipe output directly to your favorite command-line tools. The CLI is available for installation on your local system, as a Docker image, or through [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 > [!div class="nextstepaction"]
 > [Install the Azure CLI](/cli/azure/install-azure-cli)

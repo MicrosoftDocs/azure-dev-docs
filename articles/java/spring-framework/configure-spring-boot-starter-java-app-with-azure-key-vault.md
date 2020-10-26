@@ -29,7 +29,7 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).
@@ -165,7 +165,7 @@ The following procedure creates and initializes the Key Vault.
    "https://contosokv.vault.azure.net/"
    ```
 
-1. Configure the Key Vault allows `get` and `list` operations from that Managed identity.  The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
+1. Configure the Key Vault to allow `get` and `list` operations from that Managed identity.  The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
    az keyvault set-policy --name contosokv --spn http://ejbcontososp --secret-permissions get list
@@ -180,6 +180,9 @@ The following procedure creates and initializes the Key Vault.
    | name | The name of the Key Vault. |
    | spn | The `name` from the output of `az ad sp create-for-rbac` command above. |
    | secret-permissions | The list of operations to allow from the named principal. |
+
+    > [!NOTE]
+    > While the principle of least privilege recommends granting the smallest possible set of privileges to a resource, the design of the Key Vault integration requires at least `get` and `list`.
 
 1. Store a secret in your new Key Vault.  A common use case is to store a JDBC connection string.  For example:
 
@@ -390,7 +393,7 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
     <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.9.1</version>
+     <version>1.12.0</version>
     </plugin>
    ```
 
@@ -404,7 +407,9 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
    mvn azure-webapp:config
    ```
 
-1. For the OS, ensure `linux` is selected.
+1. For the `Subscription`, ensure you have select the same subscription id with the Key Vault you created.
+1. For the `Web App`, you can either select an existing Web App or select `<create>` to create a new one, if you select an existing Web App, it will jump directly to the last **confirm** step.
+1. For the `OS`, ensure `linux` is selected.
 1. For the `javaVersion`, ensure the Java version you chose in Spring Initializr is chosen.  We chose `11` above, so we choose 11 here.
 1. Accept the defaults for the remaining questions.
 1. When asked to confirm, answer Y to continue or N to start answering the questions again.  When the plugin completes running, you're ready to edit the POM.
@@ -429,17 +434,18 @@ Follow these steps to make further necessary edits to the POM.
      <plugin> 
        <groupId>com.microsoft.azure</groupId>  
        <artifactId>azure-webapp-maven-plugin</artifactId>  
-       <version>1.9.1</version>  
+       <version>1.12.0</version>  
        <configuration>
          <schemaVersion>V2</schemaVersion>
+         *<subscriptionId>********-****-****-****-************</subscriptionId>
          *<resourceGroup>contosorg</resourceGroup>
          *<appName>contosokeyvault</appName>
          <pricingTier>P1v2</pricingTier>
          *<region>eastus</region>
          <runtime>
            <os>linux</os>
-           <javaVersion>java11</javaVersion>
-           <webContainer>java11</webContainer>
+           <javaVersion>java 11</javaVersion>
+           <webContainer>Java SE</webContainer>
          </runtime>
          *<!-- Begin of App Settings  -->
          *<appSettings>

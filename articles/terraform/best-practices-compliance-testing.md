@@ -16,8 +16,6 @@ In this article, you learn how to do the following tasks:
 > * Understand when to use compliance testing
 > * Learn how to do a compliance check
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -191,6 +189,8 @@ In this section, you'll download and test the example.
     ```
 
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

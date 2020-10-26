@@ -11,5 +11,5 @@ ms.custom: devx-track-java
 The following articles help you get started with various options for secrets and configuration on Azure:
 
 - [Key Vault](/azure/key-vault/quick-create-java)
-- [Key Vault - Spring Boot Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault)
+- [Key Vault - Spring Boot Starter](../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md)
 - [App Configuration - Spring Cloud Config](/azure/azure-app-configuration/quickstart-java-spring-app)

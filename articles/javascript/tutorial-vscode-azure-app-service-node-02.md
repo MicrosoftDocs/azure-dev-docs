@@ -1,9 +1,9 @@
 ---
 title: Create the Node.js Azure App Service from Visual Studio Code
-description: Tutorial part 2, create the Node.js app and run it locally
-ms.topic: conceptual
+description: Node.js Tutorial part 2, create the Node.js app and run it locally
+ms.topic: tutorial
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Create and run a local Node.js app
@@ -17,7 +17,7 @@ In this step, you create a simple Node.js app using the Express application gene
 1. Run the following command to create a new Express app named *expressApp1* using the Express Generator. (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
 
     ```bash
-    npx express-generator expressApp1 --view pug -–git
+    npx express-generator expressApp1 -–git --view pug 
     ```
 
 1. Navigate into the app folder:

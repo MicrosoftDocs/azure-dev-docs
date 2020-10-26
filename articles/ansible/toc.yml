@@ -16,10 +16,8 @@
       items:
       - name: Configure Linux virtual machines
         href: vm-configure.md
-        maintainContext: true
       - name: Manage Linux virtual machines
         href: vm-manage.md
-        maintainContext: true
 - name: Tutorials
   items:
   - name: Azure Application Gateway
@@ -111,7 +109,7 @@
   - name: Releases and features
     href: module-version-matrix.md
   - name: All modules for Azure
-    href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+    href: https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure
 - name: Resources
   items:
   - name: Visual Studio Code extension for Ansible

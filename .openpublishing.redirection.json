@@ -1,6 +1,54 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging.md"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate-principal.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate-principal"
+    },
+    {
+      "source_path": "articles/javascript/configure-local-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-site"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-containers"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-web-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-e2e.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-nodejs-on-azure"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-integrate-databases.md",
+      "redirect_url": "/azure/developer/javascript/how-to/integrate-database"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-write-serverless-code.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-serverless-apps"
+    },
+    {
       "source_path": "articles/javascript/node-sdk-azure-install.md",
       "redirect_url": "/javascript/api/?view=azure-node-latest"
     },
@@ -67,6 +115,10 @@
     {
       "source_path": "articles/java/eclipse-microprofile/cicd-microprofile-vsts.md",
       "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
+    },
+    {
+      "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux"
     },
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin.md",
@@ -222,7 +274,11 @@
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version"
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app.md",
@@ -262,7 +318,7 @@
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app-legacy-version.md",
-      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version"
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-create-hello-world-web-app.md",
@@ -327,6 +383,62 @@
     {
       "source_path": "articles/java/toolkit-for-eclipse/displaying-javadoc-content-for-azure-libraries.md",
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-configure-webapp-sources.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-storage-accounts.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-machines.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-networks.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-vm-scalesets.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    }, 
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-eclipse/hello-world-web-app-linux.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/whats-new.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/create-hello-world-web-app-legacy-version.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/java/toolkit-for-intellij/installation.md",
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+    },
+    {
+      "source_path": "articles/python/how-to-assign-role-permissions.md",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
     },
     {
       "source_path": "articles/python/sdk.md",
@@ -463,6 +575,14 @@
     {
       "source_path": "articles/terraform/getting-started-cloud-shell.md",
       "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
+      "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
     }
   ]
 }

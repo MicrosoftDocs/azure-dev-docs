@@ -19,8 +19,6 @@ This tutorial covers the following tasks:
 > * Verify the connectivity between different networks
 > * Use Terraform to destroy all the resources
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
@@ -139,6 +137,8 @@ When no longer needed, delete the resources created in the tutorial series.
     ```bash
     rm -r hub-spoke
     ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

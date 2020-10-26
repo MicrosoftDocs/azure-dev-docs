@@ -48,7 +48,7 @@ In this section, you use Ansible to deallocate (stop) an Azure virtual machine.
 
 1. Save the file and exit the editor.
 
-1. Run the playbook using the `ansible-playbook` command:
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
     ```bash
     ansible-playbook azure-vm-stop.yml
@@ -100,7 +100,7 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
 
 1. Save the file and exit the editor.
 
-1. Run the playbook using the `ansible-playbook` command:
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 
     ```bash
     ansible-playbook azure-vm-start.yml

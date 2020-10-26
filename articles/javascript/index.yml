@@ -11,14 +11,26 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 07/23/2020
+  ms.date: 09/21/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
   ms.service: multiple
   ms.devlang: javascript
-  ms.custom: 2020Aug21Redesign
+  ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
+  - title: New to Azure?
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure Fundamentals
+            url: /learn/paths/azure-fundamentals/
+          - text: Set up development environment
+            url: core/configure-local-development-environment.md
+          - text: Authenticate to client library
+            url: core/node-sdk-azure-authenticate.md
+          - text: Azure SDK Blog
+            url: https://devblogs.microsoft.com/azure-sdk/
   - title: Hosting
     linkLists:
       - linkListType: tutorial
@@ -34,7 +46,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Full-stack (serverless APIs & front-end)
-            url: node-howto-create-static-site-jamstack.md
+            url: how-to/create-static-site.md
   - title: Serverless functions
     linkLists:
       - linkListType: tutorial
@@ -44,7 +56,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Write serverless code
-            url: node-howto-write-serverless-code.md
+            url: how-to/develop-serverless-apps.md
   - title: Data
     linkLists:
       - linkListType: quickstart
@@ -68,7 +80,7 @@ landingContent:
           - text: Speech to text
             url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
           - text: Translate text
-            url: /azure/cognitive-services/translator/quickstart-translate?pivots=programming-language-javascript
+            url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
   - title: Security, Messaging, and Logs
@@ -88,9 +100,9 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/?view=azure-node-latest
           - text: JS/TS samples
-            url: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+            url: /samples/browse/?languages=javascript%252cnodejs%252ctypescript
   - title: Explore developer tools
     linkLists:
       - linkListType: get-started
@@ -103,4 +115,3 @@ landingContent:
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
             url: /windows/wsl/install-win10#install-your-linux-distribution-of-choice
-

@@ -26,5 +26,3 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 > [!div class="nextstepaction"]
 > [I made changes and redeployed - continue to step 4 >>>](tutorial-deploy-containers-04.md)
-
-Issues? Submit a GitHub issue using the "This page" feedback at the bottom of the page.

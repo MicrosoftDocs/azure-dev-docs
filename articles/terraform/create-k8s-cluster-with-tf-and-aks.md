@@ -18,15 +18,13 @@ In this article, you learn how to do the following tasks:
 > * Use Terraform and AKS to create a Kubernetes cluster
 > * Use the kubectl tool to test the availability of a Kubernetes cluster
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
 
-- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the `appId`, `displayName`, `password`, and `tenant`.
+- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). Take note of the values for the `appId`, `displayName`, `password`, and `tenant`.
 
 ## Create the directory structure
 
@@ -397,6 +395,8 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
 When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
 see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

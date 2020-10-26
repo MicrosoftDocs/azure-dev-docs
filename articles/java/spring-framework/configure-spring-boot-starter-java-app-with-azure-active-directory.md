@@ -158,7 +158,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. From the **Overview** page of your Active Directory, click **Groups**, then **New group** that you will use for authorization in your application.
 
-1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
+1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *Users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
    
    >[!div class="mx-imgBorder"]
    >![Select the user for group][create-user-03]
@@ -357,14 +357,14 @@ In this tutorial, you created a new Java web application using the Azure Active 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
    >[!div class="nextstepaction"]
-   >[Spring on Azure](/azure/developer/java/spring-framework)
+   >[Spring on Azure](./index.yml)
 
 <!-- URL List -->
 
 [Azure Active Directory Documentation]: /azure/active-directory/
 [AAD app manifest]: /azure/active-directory/develop/active-directory-application-manifest
 [Get started with Azure AD]: /azure/active-directory/get-started-azure-ad
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -403,5 +403,3 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
 [hello-world]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-world.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
-
-

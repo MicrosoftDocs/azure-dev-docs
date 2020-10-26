@@ -5,7 +5,7 @@ services: Application-Insights
 documentationcenter: java
 author: dhaval24
 ms.author: dhdoshi
-ms.date: 11/29/2019
+ms.date: 10/06/2020
 ms.service: azure-monitor
 ms.tgt_pltfrm: application-insights
 ms.topic: article
@@ -62,7 +62,7 @@ Create an application insights resource using the following procedure.
 
    When you have specified these options, click **Review and create**.
 
-   ![Azure][AZ03]
+   ![Review and Create, Application Insights][AZ03]
 
 * Review the specifications, and click **Create**.
 
@@ -70,7 +70,7 @@ After your resource has been created, you will see it listed on your Azure **Das
 
 From the overview page copy the **instrumentation key**.
 
-   ![Azure][AZ04]
+   ![Copy the instrumentation key][AZ04]
 
 ## Configure your downloaded Spring Boot Application to use Application Insights
 
@@ -97,7 +97,7 @@ Configure the application using the following procedure.
    spring.application.name=[your app name]
    ```
 
-   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+   For more ways to fine-tune Application Insights,  refer to [Application Insights Springboot starter readme](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
    > [!NOTE]
    > 
@@ -175,11 +175,11 @@ Configure the application using the following procedure.
 
    After a few seconds you should see the data on Azure. 
 
-   ![Azure][AZ05]
+   ![Data display on the Azure portal.][AZ05]
 
 Click on the **Application Map** tile to view high-level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Remember to set it.
 
-   ![Azure][AZ08] 
+   ![Application map display.][AZ08] 
 
 ## Configure Springboot Application to send log4j logs to Application Insights
 
@@ -257,20 +257,20 @@ Configure the application to send logs using the following procedure.
 
 Within a few seconds, you should see all the spring logs being available on Azure. You can look at the detailed log messages and do analysis on Analytics Portal.
 
-![Azure][AZ07]
+![Log messages in the Analytics Portal.][AZ07]
 
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/developer/java/spring-framework)
+> [Spring on Azure](./index.yml)
 
 ### Additional Resources
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 
@@ -278,7 +278,7 @@ Application Insights supports automatic collection of external dependencies and 
 
 For more information about Azure Application Insights, and its monitoring capabilities, see the **[Application Insights]** home page.
 
-For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+For more information about additional configuration details of Application Insights Spring Boot Starter, please refer to this [link](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/spring-boot-starters-for-azure.md).
 
 For feature requests and potential bugs, please open issues on our [GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) repository.
 
@@ -288,7 +288,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- URL List -->
 
-[Azure for Java Developers]: /azure/developer/java/
+[Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

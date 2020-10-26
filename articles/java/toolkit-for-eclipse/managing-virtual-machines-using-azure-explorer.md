@@ -2,7 +2,7 @@
 title: Manage virtual machines with Azure Explorer for Eclipse
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for Eclipse.
 documentationcenter: java
-ms.date: 11/13/2018
+ms.date: 08/25/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -17,26 +17,19 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
 
 [!INCLUDE [show-azure-explorer](includes/show-azure-explorer.md)]
 
-## Create a virtual machine in Eclipse
+## Create a virtual machine
 
-To create a virtual machine by using the Azure Explorer, do the following:
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](./sign-in-instructions.md).
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/sign-in-instructions).
+1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**.
 
-2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**.
+   :::image type="content" source="media/managing-virtual-machines-using-azure-explorer/CR01.png" alt-text="Create VM option in Azure Explorer.":::
 
-   ![The Create VM command][CR01]  
+1. In the **Choose a Subscription** window, select your subscription, and then click **Next**.
 
-   The **Create new Virtual Machine** wizard opens.
+1. In the **Select a Virtual Machine Image** window, select your **Location** (e.g. *West US*). You'll have the option to proceed with a recommended image or select a custom image. For this quickstart, we will proceed with the recommended image. 
 
-3. In the **Choose a Subscription** window, select your subscription, and then click **Next**.
-
-   ![The Choose a Subscription window][CR02]
-
-4. In the **Select a Virtual Machine Image** window, enter the following information:
-
-   * **Location**: Specifies where your virtual machine will be created (for example, *West US*).
-
+   If you choose to select a custom image, enter the following information:
    * **Publisher**: Specifies the publisher that created the image you'll use to create your virtual machine (for example, *Microsoft*).
 
    * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
@@ -45,11 +38,9 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Version #**: Specifies which version of the selected SKU to use.
 
-   ![The Select a Virtual Machine Image window][CR03]
+1. Click **Next**.
 
-5. Click **Next**.
-
-6. In the **Virtual Machine Basic Settings** window, enter the following information:
+1. In the **Virtual Machine Basic Settings** window, enter the following information:
 
    * **Virtual Machine Name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
 
@@ -57,27 +48,18 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **User name**: Specifies the administrator account to create for managing your virtual machine.
 
-   * **Password** and **Confirm**: Specifies the password for your administrator account.
+   * **Password** : Specifies the password for your administrator account. Re-enter your password in the **Confirm** box to validate the credential.
 
-   ![The Virtual Machine Basic Settings window][CR04]
+1. Click **Next**.
 
-7. Click **Next**.
-
-8. In the **Create New Storage Account** window, enter the following information:
-
+1. In the **Associated Resources** window, enter the following information:
    * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
-     * **Create new**: Specifies that you want to create a new resource group.
-     * **Use existing**: Specifies that you want to select a resource group that is already associated with your Azure account.
-
-       ![The Create New Storage Account dialog box][CR05]
+      * **Create new**: Specifies that you want to create a new resource group.
+      * **Use existing**: Specifies that you want to select a resource group that is already associated with your Azure account.
 
    * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can use an existing storage account or create a new account.
 
    * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box is displayed:
-
-      ![The Create New Virtual Network dialog box][CR06]
-
-9. In the **Associated Resources** window, enter the following information:
 
    * **Public IP address**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**.
 
@@ -85,49 +67,40 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Availability set**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set or create a new availability set or, if your virtual machine will not belong to an availability set, you can select **(None)**.
 
-   ![The Associated Resources window][CR07]
-
 10. Click **Finish**.  
 
-    Your new virtual machine is displayed in the Azure Explorer tool window.
+      > [!NOTE]
+      > You can check the creation progress on the lower-right corner of your Eclipse workspace.
 
-    ![New Virtual Machine][CR08]
-
-## Restart a virtual machine in Eclipse
+## Restart a virtual machine
 
 To restart a virtual machine by using the Azure Explorer in Eclipse, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Restart**.
 
-   ![The virtual-machine Restart command][RE01]
+1. In the confirmation window, click **OK**.
 
-1. In the confirmation window, click **Yes**.
+   ![The virtual-machine restart confirmation window](media/managing-virtual-machines-using-azure-explorer/RE02.png)
 
-   ![The Restart confirmation window][RE02]
-
-## Shut down a virtual machine in Eclipse
+## Shut down a virtual machine
 
 To shut down a running virtual machine by using the Azure Explorer in Eclipse, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Shutdown**.
 
-   ![The virtual-machine Shutdown command][SH01]
+1. In the confirmation window, click **OK**.
 
-1. In the confirmation window, click **Yes**.
+   ![The virtual-machine shutdown confirmation window](media/managing-virtual-machines-using-azure-explorer/SH02.png)
 
-   ![The virtual-machine shutdown confirmation window][SH02]
-
-## Delete a virtual machine in Eclipse
+## Delete a virtual machine
 
 To delete a virtual machine by using the Azure Explorer in Eclipse, do the following:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Delete**.
 
-   ![The virtual-machine Delete command][DE01]
+1. In the confirmation window, click **ok**.
 
-1. In the confirmation window, click **Yes**.
-
-   ![The virtual-machine deletion confirmation window][DE02]
+   ![The virtual-machine delete confirmation window](media/managing-virtual-machines-using-azure-explorer/DE02.png)
 
 ## Next steps
 
@@ -144,8 +117,8 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 
 <!-- URL List -->
 
-[Sizes for Windows virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
-[Sizes for Linux virtual machines in Azure]: https://docs.microsoft.com/azure/virtual-machines/sizes
+[Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/sizes
+[Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/sizes
 [Windows virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
 [Linux virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 

@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 This example demonstrated how to use the Azure client libraries in Python application code to upload a file to that Blob storage container. The example assumes you have provisioned the resources shown in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
+All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
@@ -110,8 +110,8 @@ For these reasons, we recommend using the authentication method in production co
     ```
 
     Reference links:
-      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python)
-      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)
+      - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
+      - [BlobClient (azure.storage.blob)](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
 
 1. Attempt to run the code (which fails intentionally):
 
@@ -121,7 +121,7 @@ For these reasons, we recommend using the authentication method in production co
 
     Because the local service principal that you're using does not have permission to access the blob container, you see the error: "This request is not authorized to perform this operation using this permission."
 
-1. Grant container permissions fto the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) (it's a long one!):
+1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) (it's a long one!):
 
     # [cmd](#tab/cmd)
 
@@ -149,7 +149,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. After waiting a minute or two for the permissions to propagate, run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
-For more information on scopes and role assignments, see [How to assign role permissions](how-to-assign-role-permissions.md).
+For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 ### 4b: Use blob storage with a connection string
 
@@ -192,16 +192,17 @@ After running the code of either method, go to the [Azure portal](https://portal
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-Storage-rg
+az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
 
 ## See also
 
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)

@@ -74,6 +74,6 @@ After you have successfully added the root certificate to your JDK, you can zip 
 
 For more information about the keytool utility, see <https://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
-For more information about Java, see [Azure for Java developers](/azure/developer/java).
+For more information about Java, see [Azure for Java developers](../index.yml).
 
 For more information about the supported JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.

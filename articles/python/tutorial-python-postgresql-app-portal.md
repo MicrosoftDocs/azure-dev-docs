@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
 description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/23/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-python
 ---
 
@@ -42,9 +42,9 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Open the [Azure portal](https://portal.azure.com)
 
-1. Select **Create a resource**.
+1. Select **Create a resource**, which opens the **New** page.
 
-1. On the **New** page, select **Web App** in the **Popular** column. (If you don't see **Web App** immediately, select **Web** under **Azure Marketplace**, then select **Web App** under **Featured**.) 
+1. Search for and select **Web App**.
 
 1. On the **Create Web App** page, enter the following information:
 
@@ -52,7 +52,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
     | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
-    | App name | A name for your web app that's unique across all Azure (the app's URL is `https://\<app-name>.azurewebsites.net`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier. |
+    | App name | A name for your web app that's unique across all Azure (the app's URL is `https://<app-name>.azurewebsites.net`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier. |
     | Publish | Select **Code**. |
     | Runtime stack | Select **Python 3.8** from the drop-down list. |
     | Region | Select a location near you. |
@@ -69,9 +69,9 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Open a new browser window or tab with the [Azure portal](https://portal.azure.com). You use a new tab for provisioning the database because you'll need to transfer some information from the database page to the web app page still open from the previous section.
 
-1. Select **Create a resource**.
+1. Select **Create a resource**, which opens the **New** page.
 
-1. On the **New** page, select **Database** under **Azure Marketplace**, then select **Azure Database for PostgreSQL** under **Featured**.)
+1. Search for and select **Azure Database for PostgreSQL**.
 
 1. On the next page, select **Create** under **Single server**.
 
@@ -81,12 +81,12 @@ You create a fork of this repository so you can make changes and redeploy the co
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
     | Resource group | Select the "DjangoPostgres-Tutorial-rg" group you created in the previous section. |
-    | Server name | A name for the database server that's unique across all Azure (the app's URL is `https://\<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
+    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
     | Data source | **None** |
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
-    | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. |
-    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. |
+    | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. You might also have credit in your Azure account that covers the cost of the server. |
+    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. Note: do not use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps. |
 
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
 
@@ -114,7 +114,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
     psql --host=<server-name>.postgres.database.azure.com --port=5432 --username=<user-name>@<server-name> --dbname=postgres
     ```
 
-    Replace `<server-name>` and `<user-name>` with the names used in the previous section when configuring the server. Note that the full username value is `<user-name>@<server-name>`.
+    Replace `<server-name>` and `<user-name>` with the names used in the previous section when configuring the server. Note that the full username value that's required by Postgres is `<user-name>@<server-name>`.
 
     You can copy the command above and paste into the Cloud Shell by using a right-click and then selecting **Paste**.
 
@@ -140,15 +140,17 @@ In this section, you create settings for the web app that it needs to connect to
 
     ![Portal settings configuration for web apps](media/tutorial-python-postgresql-app-portal/web-app-settings.png)
 
-1. Use the **New application setting** button to create settings for each of the following values:
+1. Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
 
     | Setting name | Value |
     | --- | --- |
     | DJANGO_ENV | `production` (This value tells the app to use a production configuration as described earlier in the [sample overview](#fork-the-sample-repository).) |
-    | DBHOST | The URL of the database server from the previous section, in the form `<server-name>.postgres.database.azure.com`. You can copy the whole URL from the database server's Overview page. |
+    | DBHOST | The name of the database server from the previous section; that is, the `<server-name>` portion of the server's URL that precedes `.postgres.database.azure.com`. (The code in *azuresite/production.py* constructs the full URL automatically.) |
     | DBNAME | `pollsdb` |
-    | DBUSER | The full administrator username as used in the previous section. The full username is again `<user-name>@<server-name>`. |
+    | DBUSER | The administrator user name used when you provisioned the database. (The sample code automatically adds the `@<server-name>` portion; see *azuresite/production.py*.) |
     | DBPASS | The administrator password you created earlier. |
+
+    As noted earlier, you should not use the `$` character in the username or password because that character is escaped within environment variables on the Linux container that hosts Python apps.
 
 1. Select **Save** and then **Continue** to apply the settings.
 
@@ -163,7 +165,7 @@ With the database and connection settings in place, you can now configure the we
 
 1. In the browser window or tab for the web app, select **Deployment Center** (under **Deployment** on the left side).
 
-1. In the **Source Control** step, select **GitHub**, then select follow sign-in prompts or select **Continue** to use your current GitHub login.
+1. In the **Source Control** step, select **GitHub** and then **Authorize** (if necessary). Then follow the sign-in prompts or select **Continue** to use your current GitHub login.
 
 1. In the **Build Provider** step, select **App Service build service**, then select **Continue**.
 
@@ -225,15 +227,15 @@ With the code deployed and the database in place, the app is almost ready to use
 
 You're now ready to run a quick test of the app to demonstrate that it is working with the PostgreSQL database.
 
-1. In the browser window or tab for the web app, return to the **Overview** page, then select the **URL** for the web app (of the form `http:\//\<app-name>.azurewebsites.net`).
+1. In the browser window or tab for the web app, return to the **Overview** page, then select the **URL** for the web app (of the form `http://<app-name>.azurewebsites.net`).
 
 1. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-1. Browse to `http:\//\<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the superuser credentials from the previous section (`root` and `Pollsdb1`).
+1. Browse to `http://<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the superuser credentials from the previous section (`root` and `Pollsdb1`).
 
 1. Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-1. Browse again to `http:\//\<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+1. Browse again to `http://<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active PostgreSQL database.
 
