@@ -122,7 +122,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
-    | `spring.jms.servicebus.topic-client-id`   | JMS client ID is your Service Bus Subscription ID in the Azure portal. JMS client ID is your Service Bus Subscription ID in the Azure portal.| 
+    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID is your Service Bus Subscription ID in the Azure portal.| 
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
 1. Save and close the *application.properties* file.
