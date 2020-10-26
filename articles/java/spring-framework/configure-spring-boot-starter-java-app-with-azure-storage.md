@@ -30,7 +30,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Create an Azure Storage Account and blob container for your application
 
-The following procedure creates an Azure storage account and container.
+The following procedure creates an Azure storage account and container in the portal.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -46,15 +46,6 @@ The following procedure creates an Azure storage account and container.
    * Specify the **Location** for your storage account.
 1. When you have specified the options listed above, click **Review + create**. 
 1. Review the specification, then click **Create** to create your storage account.
-
-   You can also use the CLI commands to create the storage account as below:
-   ```Azure CLI
-   az storage account create \
-       --name mystorageaccount \
-       --resource-group MyResourceGroup \
-       --location westus 
-   ```
-    The above means to Create a storage account 'mystorageaccount' in resource group 'MyResourceGroup' in the West US region. 
 1. When the deployment is complete, click **Go to resource**.
 1. Click **Containers**.
 1. Click **+ Container**.
@@ -64,6 +55,45 @@ The following procedure creates an Azure storage account and container.
    ![Create blob container][IMG02]
 
 1. The Azure portal will list your blob container after is has been created.
+
+You can also create an Azure storage account and container in CLI commands.
+
+Remember to replace placeholder values in angle brackets with your own values:
+1. Open a command prompt.
+1. Sign in to your Azure account:
+
+   ```Azure CLI
+   az login
+   ```
+   
+1. If you don't have a resource group,create a new resource group with Azure CLI using the `az group create` command.
+   
+   ```Azure CLI
+   az group create \
+      --name <resource-group> \
+      --location <location>
+   ```
+   
+1. Create storage account by using the `az storage account create` command.
+  
+   ```Azure CLI
+    az storage account create \
+      --name <storage-account> \
+      --resource-group <resource-group> \
+      --location <location> 
+   ```
+
+1. You can use `az storage container create` command to create a container.
+   
+   ```Azure CLI
+    az storage container create \
+      --account-name <storage-account-name> \
+      --name <container-name> \
+      --auth-mode login
+   ```
+   
+1. Wait for a while, this container will be created.
+
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
