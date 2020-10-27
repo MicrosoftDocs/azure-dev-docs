@@ -6,7 +6,7 @@ ms.author: ushan
 ms.topic: reference
 ms.service: azure 
 ms.date: 08/31/2020
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Use GitHub Actions to connect to Azure

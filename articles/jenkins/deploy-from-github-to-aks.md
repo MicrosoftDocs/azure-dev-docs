@@ -4,7 +4,7 @@ description: Learn how to configure Jenkins for continuous integration (CI) from
 keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
 ms.date: 01/09/2019
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy from GitHub to Azure Kubernetes Service using Jenkins

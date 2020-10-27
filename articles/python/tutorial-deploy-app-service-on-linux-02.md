@@ -18,7 +18,7 @@ If you don't already have an app, use one of the options below. Be sure to verif
 
 ## Option 1: VS Code Flask tutorial sample
 
-Download or clone [https://github.com/Microsoft/python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](https://code.visualstudio.com/docs/python/tutorial-flask).
+Download or clone [https://github.com/Microsoft/python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](https://code.visualstudio.com/docs/python/tutorial-flask). Note that the app code is in the *hello_app* folder, specifically. Review the sample's *readme.md* file for instructions on running the app locally.
 
 ## Option 2: VS Code Django tutorial sample
 

@@ -50,6 +50,6 @@ Use the Visual Studio Code extension to create an App service resource and deplo
 The initial web service is configured to run on port 8080 and is publicly available. These types of web site settings are configurable.
 * [App settings](/azure/app-service/configure-common)
 * [Authentication](/azure/app-service/configure-authentication-provider-microsoft)
-* [Restrict access by network](/azure/azure/app-service/app-service-ip-restrictions)
+* [Restrict access by network](/azure/app-service/app-service-ip-restrictions)
 
 When using this App service extension to deploy your web site to the Azure cloud, you may want to know more about how to [configure that deployment](https://github.com/microsoft/vscode-azureappservice/wiki/Configuring-Zip-Deployment#additional-zip-deploy-configuration-settings)
