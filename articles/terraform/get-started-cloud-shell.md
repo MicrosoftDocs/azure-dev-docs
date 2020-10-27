@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to install and configure Terrafor
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
 ms.date: 09/27/2020
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 

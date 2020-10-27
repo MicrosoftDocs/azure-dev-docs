@@ -3,7 +3,7 @@ title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
 ms.date: 05/29/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Configure your local Python dev environment for Azure
