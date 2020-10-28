@@ -9,4 +9,4 @@ ms.custom: devx-track-chef
 
 # Install the Chef client from the Azure portal
 
-[!INCLUDE [chef-software-redirect.md](chef-software-redirect.md)]
+[!INCLUDE [chef-software-redirect.md](includes/chef-software-redirect.md)]
