@@ -7,6 +7,4 @@ ms.topic: article
 ms.custom: devx-track-chef
 ---
 
-# Use Habitat to deploy your application to Azure
-
 [!INCLUDE [chef-software-redirect.md](includes/chef-software-redirect.md)]

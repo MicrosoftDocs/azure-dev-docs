@@ -7,6 +7,4 @@ ms.topic: article
 ms.custom: devx-track-chef
 ---
 
-# Use InSpec for compliance automation of your Azure infrastructure
-
 [!INCLUDE [chef-software-redirect.md](includes/chef-software-redirect.md)]
