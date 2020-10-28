@@ -86,7 +86,7 @@ export default httpTrigger;
 
 ## Configuring the function
 
-The function is configured with the **function.json**. This configuration allows you to configure how the function is triggered ("direction": in) and what the function returns ("direction": out). It also allows you to set environment variables, and other necessary information for the function to work. Learn more about the [trigger and binding](/azure/azure-functions/functions-triggers-bindings?tabs=javascript). 
+The function is configured with the **function.json**. This configuration allows you to configure how the function is triggered ("direction": in) and what the function returns ("direction": out). It also allows you to set environment variables, and other necessary information for the function to work. Learn more about the [trigger and binding](/azure/azure-functions/functions-triggers-bindings?tabs=javascript.md). 
 
 ```json
 {
