@@ -113,4 +113,4 @@ Common methods to create the required credential in your production code:
 ## Next steps	
 
 * [Azure npm packages](../azure-sdk-library-package-index.md)
-* [Azure npm package documentation](../javascript/api/overview/azure/?view=azure-node-latest)
+* [Azure npm package documentation](/javascript/api/overview/azure/?view=azure-node-latest)
