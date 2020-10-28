@@ -20,7 +20,7 @@ An Azure Function resource is a logical unit for all related functions in a sing
 
 The function resource settings include typical serverless configurations including configuration, authentication, logging, CORS.  
 
-When developing functions, advanced scenarios involved [triggers and bindings]((/azure/azure-functions/functions-triggers-bindings)). Triggers allow you to initiate one function from another. Bindings allow you to control meta data flow with the function
+When developing functions, advanced scenarios involved [triggers and bindings](/azure/azure-functions/functions-triggers-bindings.md). Triggers allow you to initiate one function from another. Bindings allow you to control meta data flow with the function
 
 The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
 
