@@ -7,6 +7,4 @@ ms.topic: article
 ms.custom: devx-track-chef
 ---
 
-# Using Chef with Azure
-
 [!INCLUDE [chef-software-redirect.md](includes/chef-software-redirect.md)]
