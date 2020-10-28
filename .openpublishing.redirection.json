@@ -583,6 +583,30 @@
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/chef/client-install-from-azure-portal.md",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
+    },
+    {
+      "source_path": "articles/chef/habitat.md",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
+    },
+    {
+      "source_path": "articles/chef/index.yml",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
+    },
+    {
+      "source_path": "articles/chef/inspec-overview.md",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
+    },
+    {
+      "source_path": "articles/chef/overview.md",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
+    },
+    {
+      "source_path": "articles/chef/windows-vm-configure.md",
+      "redirect_url": "/azure/developer/chef/chef-software-redirect"
     }
   ]
 }
