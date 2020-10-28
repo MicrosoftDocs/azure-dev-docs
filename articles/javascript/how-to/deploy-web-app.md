@@ -2,7 +2,7 @@
 title: Deploy Node.js web apps to Azure
 description: Getting started with Azure App Service and other hosting options for web apps, including progressive web apps (PWA)
 ms.topic: how-to
-ms.date: 08/20/2019
+ms.date: 10/28/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
