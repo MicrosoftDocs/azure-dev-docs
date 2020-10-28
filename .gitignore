@@ -7,3 +7,4 @@ _repo.*/
 .vs/
 .vscode/
 .openpublishing.buildcore.ps1.vscode/
+*.DS_Store

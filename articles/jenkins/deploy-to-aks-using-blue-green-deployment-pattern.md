@@ -4,7 +4,7 @@ description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenk
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy to Azure Kubernetes Service (AKS) using the blue/green deployment pattern

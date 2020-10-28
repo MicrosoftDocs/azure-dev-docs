@@ -4,7 +4,7 @@ description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Tutorial: Configure dynamic inventories of your Azure resources using Ansible
