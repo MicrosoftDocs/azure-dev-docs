@@ -18,11 +18,7 @@ An Azure Function resource is a logical unit for all related functions in a sing
 
 :::image type="content" source="../media/howto-serverless/portal-screenshot-new-azure-function-type.png" alt-text="You can select from many common functions or create your own..":::
 
-The function resource settings include typical serverless configurations including configuration, authentication, logging, CORS.  
-
-When developing functions, advanced scenarios involve [triggers and bindings](/azure/azure-functions/functions-triggers-bindings.md). Triggers allow you to initiate one function from another. Bindings allow you to control meta data flow with the function
-
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
+The function resource settings include typical serverless configurations including environment variables, authentication, logging, and CORS.  
 
 ## Durable, stateful functions 
 
@@ -30,7 +26,7 @@ The [Azure Functions developer guide for JavaScript](/azure/azure-functions/func
 
 ## Static web apps include functions 
 
-When developing a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with [an API](/azure/static-web-apps/add-api) to bundle both together. 
+When developing a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
 
 ## A simple JavaScript function for HTTP requests
 
@@ -86,7 +82,7 @@ export default httpTrigger;
 
 ## Configuring the function
 
-The function is configured with the **function.json**. This configuration allows you to configure how the function is triggered ("direction": in) and what the function returns ("direction": out). It also allows you to set environment variables, and other necessary information for the function to work. Learn more about the [trigger and binding](/azure/azure-functions/functions-triggers-bindings?tabs=javascript.md). 
+The function is configured with the **function.json** file. This configuration allows you to configure how the function is triggered ("direction": in) and what the function returns ("direction": out). It also allows you to set environment variables, and other necessary information for the function to work. Learn more about the [trigger and binding](/azure/azure-functions/functions-triggers-bindings?tabs=javascript.md). 
 
 ```json
 {
@@ -117,6 +113,8 @@ When you [create an Azure function using the Azure portal](https://ms.portal.azu
 The portal creates JavaScript functions only, not TypeScript. If you want to develop with TypeScript, either download the function or create the function locally in Visual Studio Code with the Function extension. 
 
 ## Next steps
+
+The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
 
 Use the Microsoft Learn Module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
 
