@@ -408,7 +408,8 @@ public static void main(String[] args) {
 
         StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-        BlobServiceClient storageClient = new BlobServiceClientBuilder().endpoint(endpoint).credential(credential).buildClient();
+        BlobServiceClient storageClient =
+            new BlobServiceClientBuilder().endpoint(endpoint).credential(credential).buildClient();
 
         // Container name must be lower case
         BlobContainerClient blobContainerClient = storageClient.getBlobContainerClient("helloazure");
