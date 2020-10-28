@@ -130,9 +130,9 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 1. When running the preceding command, you could receive an error. The error would be due  indicating a failure to connect to the host due to a 
 
-    **
+    ```output
     Failed to connect to the host via ssh: Host key verification failed.
-    **
+    ```
     
     If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`.
 
