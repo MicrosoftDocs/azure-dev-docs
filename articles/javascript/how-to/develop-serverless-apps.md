@@ -8,7 +8,7 @@ ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-
 
 # Use Azure Functions to develop Node.js serverless code
 
-Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless code is composed of JavaScript or TypeScript ode that  runs in response to various events. 
+Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless code is composed of JavaScript or TypeScript code that  runs in response to various events. 
 
 Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint. Functions also allow you to trigger another function so that a function work stream can replace existing hosted backend server functionality and remove the need to manage that server. 
 
@@ -20,7 +20,7 @@ An Azure Function resource is a logical unit for all related functions in a sing
 
 The function resource settings include typical serverless configurations including configuration, authentication, logging, CORS.  
 
-When developing functions, advanced scenarios involved [triggers and bindings](/azure/azure-functions/functions-triggers-bindings.md). Triggers allow you to initiate one function from another. Bindings allow you to control meta data flow with the function
+When developing functions, advanced scenarios involve [triggers and bindings](/azure/azure-functions/functions-triggers-bindings.md). Triggers allow you to initiate one function from another. Bindings allow you to control meta data flow with the function
 
 The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
 
