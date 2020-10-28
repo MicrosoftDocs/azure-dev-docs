@@ -48,7 +48,7 @@ const blobServiceClient = new BlobServiceClient(
 ```
 
 ## Azure ms-rest-* libraries
-With the `@azure` scoped [client libraries](azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
+With the `@azure` scoped [client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
 
 ```javascript
 const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
@@ -112,5 +112,5 @@ Common methods to create the required credential in your production code:
 
 ## Next steps	
 
-* [Azure npm packages](azure-sdk-library-package-index.md)
-* [Azure npm package documentation](/javascript/api/overview/azure/?view=azure-node-latest)
+* [Azure npm packages](../azure-sdk-library-package-index.md)
+* [Azure npm package documentation](../javascript/api/overview/azure/?view=azure-node-latest)
