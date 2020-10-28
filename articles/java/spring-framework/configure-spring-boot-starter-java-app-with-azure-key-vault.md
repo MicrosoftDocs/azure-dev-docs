@@ -31,7 +31,7 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).
 * The `jq` command. Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official jq website](https://stedolan.github.io/jq/).
 
@@ -318,7 +318,7 @@ The next section will show how to add Key Vault integration to your locally runn
 
 The following steps will show the necessary modifications to the Spring Boot application `KeyvaultApplication`.
 
-Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code.  The simplest form of Spring configuration is the *application.properties* file.  In a Maven project, this file is located at *src/main/resources/application.properties*.  Spring Initializer helpfully includes a zero length file at this location.
+Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code.  The simplest form of Spring configuration is the *application.properties* file.  In a Maven project, this file is located at *src/main/resources/application.properties*.  Spring Initializr helpfully includes a zero length file at this location.
 
 Follow these steps to add the necessary configuration to this file.
 

@@ -21,7 +21,7 @@ The following prerequisites are required in order to follow the steps in this ar
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 * The [Azure Command-Line Interface (CLI)](/cli/azure/index).
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
 >
@@ -130,13 +130,13 @@ The following procedure creates the Azure credential file.
 
 1. Navigate to the *resources* directory of your Spring Boot app; for example:
 
-   ```shell
+   ```cmd
    cd C:\SpringBoot\storage\src\main\resources
    ```
 
    -or-
 
-   ```shell
+   ```bash
    cd /users/example/home/storage/src/main/resources
    ```
 
@@ -317,13 +317,13 @@ In this section, you create the necessary Java classes for storing a blob in you
 
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
-   ```shell
+   ```cmd
    cd C:\SpringBoot\storage
    ```
 
    -or-
    
-   ```shell
+   ```bash
    cd /users/example/home/storage
    ```
 
