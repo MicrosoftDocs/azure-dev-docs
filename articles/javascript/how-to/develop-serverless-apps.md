@@ -34,7 +34,7 @@ When developing a static front-end client application (such as Angular, React, o
 
 ## A simple JavaScript function for HTTP requests
 
-A function is an exported asynchronous function with request and context information. 
+A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. 
 
 :::image type="content" source="../media/howto-serverless/portal-screenshot-azure-function-http.png" alt-text="Partial screenshot of Azure Function in Azure portal.":::
 
@@ -43,6 +43,72 @@ A function is an exported asynchronous function with request and context informa
 Create your [first function](/azure/azure-functions/functions-create-first-function-vs-code) using Visual Studio Code. Visual Studio Code, simplifies many of the details with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
 This extension helps you create JavaScript and TypeScript functions with common templates. 
+
+A JavaScript example of an HTTP function for Azure is: 
+
+```nodejs
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+}
+```
+
+A TypeScript example of an HTTP function for Azure is: 
+
+```typescript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log('HTTP trigger function processed a request.');
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+
+};
+
+export default httpTrigger;
+```
+
+## Configuring the function
+
+The function is configured with the **function.json**. This configuration allows you to configure how the function is triggered ("direction": in) and what the function returns ("direction": out). It also allows you to set environment variables, and other necessary information for the function to work. Learn more about the [trigger and binding](/azure/azure-functions/functions-triggers-bindings?tabs=javascript). 
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
 
 ## Develop functions remotely using the Azure portal
 
