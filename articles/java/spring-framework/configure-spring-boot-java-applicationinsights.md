@@ -22,7 +22,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * Web Flux and Netty APIs are **not currently supported** with the Application Insights Spring Boot starter.
 
 ## Create a custom application using Spring Initializr

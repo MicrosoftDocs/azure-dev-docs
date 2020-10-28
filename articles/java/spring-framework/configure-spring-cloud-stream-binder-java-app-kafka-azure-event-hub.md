@@ -19,7 +19,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!NOTE]
 > 1. Spring Boot version 2.0 or greater is required to complete the steps in this article.
@@ -117,13 +117,13 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
 1. Navigate to the *resources* directory of your Spring Boot app; for example:
 
-   ```shell
+   ```cmd
    cd C:\SpringBoot\kafka\src\main\resources
    ```
 
    -or-
 
-   ```shell
+   ```bash
    cd /users/example/home/kafka/src/main/resources
    ```
 
@@ -318,13 +318,13 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
-   ```shell
+   ```cmd
    cd C:\SpringBoot\kafka
    ```
    
    -or-
 
-   ```shell
+   ```bash
    cd /users/example/home/kafka
    ```
    
@@ -342,7 +342,7 @@ In this section, you create the necessary Java classes for sending events to you
    ```
    You should see "hello" posted to your application's logs. For example:
 
-   ```shell
+   ```output
    2020-10-12 16:56:19.827  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.5.1
    2020-10-12 16:56:19.828  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 0efa8fb0f4c73d92
    2020-10-12 16:56:19.830  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1602492979827

@@ -20,7 +20,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
 * A [Git](https://git-scm.com/downloads) client.
 
@@ -46,7 +46,7 @@ The following procedure creates and configures a Cosmos account in the Azure por
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
    - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
-   - **API**: Specify `Cassandra` for this tutorial.
+   - **API**: Specify *Cassandra* for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
    
    >[!div class="mx-imgBorder"]
@@ -79,7 +79,7 @@ It will take a few minutes to deploy the database.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Select **All Resources**, then click the Azure Cosmos DB account you just created.
+1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
 
 1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
    
