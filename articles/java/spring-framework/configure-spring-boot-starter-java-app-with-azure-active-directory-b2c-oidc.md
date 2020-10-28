@@ -181,7 +181,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
     For the `azure-active-directory-b2c-spring-boot-starter`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this updating the latest version is `2.3.5`.
 
-    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELASE`.
+    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELEASE`.
 
     For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
 
@@ -198,7 +198,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
       activedirectory:
         b2c:
           tenant: ejb0518domain
-          client-id: ejb0518
+          client-id: 11111111-1111-1111-1111-1111111111111111
           client-secret: '<yourAppKey>'
           reply-url: http://localhost:8080/home
           logout-success-url: http://localhost:8080/home
