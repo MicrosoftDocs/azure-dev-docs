@@ -65,7 +65,7 @@ The following procedure creates the Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project.
-   * Specify **Java 8** better.
+   * Specify **Java 8**.
    * Specify a **Spring Boot** version that is equal to or greater than 2.3.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Spring Web** dependency.
