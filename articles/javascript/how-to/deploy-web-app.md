@@ -29,11 +29,7 @@ For a complete overview of different hosting options, see [Decision tree for Azu
 
 ## Choose your deployment process for Azure
 
-Once you have selected a service to host your application, select a deployment process and tool. Verify your deployment method for that service.
-
-### Deployment tools
-
-Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
+Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
 
 Common methods of moving files to the Azure cloud are listed in the following table.
 
