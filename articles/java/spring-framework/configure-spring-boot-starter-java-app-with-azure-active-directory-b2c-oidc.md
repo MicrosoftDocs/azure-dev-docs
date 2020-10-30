@@ -107,13 +107,13 @@ In this tutorial, you learn how to:
 
 1. In the **Manage** pane on the left, select **App registrations**, and then select **New registration**.
 
-   ![Add a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
+   ![Screenshot of the Azure portal showing the Azure AD B2C App registrations screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. In the **Name** field, enter the value for **Group** from above, then set **Redirect URI (recommended)**  to **http://localhost:8080/home** and click **Register**.
+2. In the **Name** field, enter the value for **Group** from above, then set **Redirect URI (recommended)**  to *http://localhost:8080/home* and select **Register**.
 
    ![configure a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
-3. Back to **Manage** pane , select **Applications (Legacy)** , click the application Name you created.
+3. Back on the **Manage** pane , select **Applications (Legacy)** , then select the application name you created.
 
    ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
 
@@ -121,13 +121,13 @@ In this tutorial, you learn how to:
    
 5. Leave the other fields with their default values.
     
-6. Click **Save**. It may take a short while before the application ready.
+6. Select **Save**. It may take a short while before the application is ready.
     
    ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c6-n.png)
 
-7. In the **General** pane select Keys, then select **Generate Key**.
+7. In the **General** pane select **Keys**, then select **Generate Key**.
 
-8. Set **App key** to `yourGroupIdkey`, replacing `yourGroupId` with the value you entered above for **Group**.
+8. Set **App key** to the value you entered above for **Group**.
 
 9. Select **Save**. Wait for the key to appear in the app key section, then copy it for use later in this article.
 
