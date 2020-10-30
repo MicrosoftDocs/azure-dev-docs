@@ -2,7 +2,7 @@
 title: Tools for JavaScript developers on Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: reference
-ms.date: 10/22/2020
+ms.date: 10/30/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
