@@ -3,7 +3,7 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service using Jenkins
 description: Learn how to configure Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 10/29/2019
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -116,7 +116,7 @@ To deploy the sample application to your AKS cluster, you can use the Kubernetes
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: azuredocs/azure-vote-front
 ```
 
 Next, use the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command to deploy the application to your AKS cluster:
