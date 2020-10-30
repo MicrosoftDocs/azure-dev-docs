@@ -7,7 +7,7 @@ ms.date: 10/13/2020
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # How to create a Spring Cloud Stream Binder application with Azure Event Hubs

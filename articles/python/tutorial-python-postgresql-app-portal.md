@@ -86,7 +86,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
     | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. You might also have credit in your Azure account that covers the cost of the server. |
-    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. |
+    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. Note: do not use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps. |
 
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
 
@@ -149,6 +149,8 @@ In this section, you create settings for the web app that it needs to connect to
     | DBNAME | `pollsdb` |
     | DBUSER | The administrator user name used when you provisioned the database. (The sample code automatically adds the `@<server-name>` portion; see *azuresite/production.py*.) |
     | DBPASS | The administrator password you created earlier. |
+
+    As noted earlier, you should not use the `$` character in the username or password because that character is escaped within environment variables on the Linux container that hosts Python apps.
 
 1. Select **Save** and then **Continue** to apply the settings.
 

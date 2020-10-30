@@ -4,7 +4,7 @@ description: Learn how to use Ansible to configure VM security using Azure Key V
 keywords: ansible, azure, devops, key vault, security, credentials, secrets, keys, certificates, ansible modules for azure, resource group, azure_rm_resourcegroup, 
 ms.topic: tutorial
 ms.date: 04/20/2020
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Tutorial: Use Azure Key Vault with a Linux virtual machine in Ansible
