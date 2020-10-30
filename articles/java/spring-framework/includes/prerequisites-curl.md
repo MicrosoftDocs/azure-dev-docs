@@ -1,0 +1,1 @@
+- The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).

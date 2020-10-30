@@ -22,8 +22,10 @@ landingContent:
         links:
           - text: Azure Storage
             url: configure-spring-boot-starter-java-app-with-azure-storage.md
-          - text: Key Vault
+          - text: Key Vault Secrets
             url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
+          - text: Key Vault Certificates
+            url: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
           - text: Kafka and Event Hubs
             url: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
   - title: Step-by-step tutorials

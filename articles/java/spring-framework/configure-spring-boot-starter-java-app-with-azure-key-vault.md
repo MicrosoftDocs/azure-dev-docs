@@ -27,13 +27,12 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
 
 ## Prerequisites
 
-* An active Azure subscription.
-  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
-* The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).
-* The `jq` command. Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official jq website](https://stedolan.github.io/jq/).
+- [!INCLUDE [free subscription](includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [curl](includes/prerequisites-curl.md)]
+[!INCLUDE [jq](includes/prerequisites-jq.md)]
+[!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
+- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+- [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create a new Azure Key Vault
 
@@ -141,7 +140,7 @@ The following procedure creates and initializes the Key Vault.
        --enabled-for-template-deployment true \
        --location eastus
        --query properties.vaultUri \
-       --sku standard 
+       --sku standard
    ```
 
     > [!NOTE]
@@ -305,7 +304,7 @@ Follow these steps to examine the application and run it locally.
 1. The message **Completed initialization** in the command output means the server is ready.  In a separate shell window, enter this command.
 
    ```bash
-   $ curl http://localhost:8080/get
+   curl http://localhost:8080/get
    ```
 
    The output will show `defaultValue`.
@@ -368,13 +367,12 @@ Make one simple changes to the *KeyvaultApplication.java* file (or whatever the 
 1. The message **initialization completed** in the command output means the server is ready.  In a separate shell window, enter this command.
 
    ```bash
-   $ curl http://localhost:8080/get
+   curl http://localhost:8080/get
    ```
 
    The output will show `jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE` instead of `defaultValue`.
 
 1. Kill the process that is running from `mvn spring-boot:run`.  You can type Ctrl-C or you can use the `jps` command to get the pid of the `Launcher` process and kill it.
-
 
 The next section will show you how to deploy this app to Azure App Service.
 
@@ -426,15 +424,15 @@ Follow these steps to make further necessary edits to the POM.
 1. The complete modified `<plugin>` for `azure-webapp-maven-plugin` is shown next.  The values you must modify are indicated with `*`.
 
    ```xml
-   <plugins> 
-     <plugin> 
-       <groupId>org.springframework.boot</groupId>  
-       <artifactId>spring-boot-maven-plugin</artifactId> 
-     </plugin>  
-     <plugin> 
-       <groupId>com.microsoft.azure</groupId>  
-       <artifactId>azure-webapp-maven-plugin</artifactId>  
-       <version>1.12.0</version>  
+   <plugins>
+     <plugin>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-maven-plugin</artifactId>
+     </plugin>
+     <plugin>
+       <groupId>com.microsoft.azure</groupId>
+       <artifactId>azure-webapp-maven-plugin</artifactId>
+       <version>1.12.0</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          *<subscriptionId>********-****-****-****-************</subscriptionId>
@@ -454,7 +452,7 @@ Follow these steps to make further necessary edits to the POM.
          *    <value>-Dserver.port=80</value>
          *  </property>
          *</appSettings>
-         *<!-- End of App Settings  -->          
+         *<!-- End of App Settings  -->
          <deployment>
            <resources>
              <resource>
@@ -466,7 +464,7 @@ Follow these steps to make further necessary edits to the POM.
            </resources>
          </deployment>
        </configuration>
-     </plugin> 
+     </plugin>
    </plugins>
    ```
 
@@ -534,7 +532,7 @@ Follow these steps to create the Managed identity for the Azure App Service app 
    azure.keyvault.client-id=56rqs994-0o66-43o3-9roo-8e3534d0cb23
    azure.keyvault.enabled=true
    azure.keyvault.tenant-id=72s988os-86s1-41ns-91ab-2q7pq011qo47
-   azure.keyvault.uri=https://contosokv.vault.azure.net/    
+   azure.keyvault.uri=https://contosokv.vault.azure.net/
    ```
 
 1. Configure the Key Vault allows `get` and `list` operations from that Managed identity.  The value of the `object-id` is the `principalId` from the preceding output.
@@ -550,7 +548,7 @@ Follow these steps to create the Managed identity for the Azure App Service app 
 
    | Parameter | Description |
    |---|---|
-   | name | The name of the Key Vault. | 
+   | name | The name of the Key Vault. |
    | object-id | The `principalId` from the preceding command. |
    | secret-permissions | The list of operations to allow from the named principal. |
 
@@ -578,10 +576,10 @@ This section will use the existing Spring Boot app and Key Vault created previou
 
 The following steps will show how to create an Azure Spring Cloud resource and deploy the app to it.  Make sure you installed the Azure CLI extension for Azure Spring Cloud as shown in the [Prerequisites](#prerequisites).
 
-1. Decide on a name for the service instance.  To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud.  As with all other Azure resources, the service instance must stay within a resource group.  Use the resource group you already created to hold the service instance.  Create the service instance with this command. 
+1. Decide on a name for the service instance.  To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud.  As with all other Azure resources, the service instance must stay within a resource group.  Use the resource group you already created to hold the service instance.  Create the service instance with this command.
 
    ```bash
-   az spring-cloud create --resource-group "contosorg" --name "contososvc" 
+   az spring-cloud create --resource-group "contosorg" --name "contososvc"
    ```
 
    This command takes several minutes to complete.
