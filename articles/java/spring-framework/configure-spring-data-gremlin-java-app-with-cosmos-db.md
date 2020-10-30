@@ -3,7 +3,7 @@ title: How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL A
 description: Learn how to configure an application created with the Spring Boot Initializr with the Azure Cosmos DB SQL API.
 services: cosmos-db
 documentationcenter: java
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,11 +13,9 @@ ms.custom: devx-track-java
 
 # How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API
 
-## Overview
+This article shows how to use the Azure portal to create an Azure Cosmos DB resource for use with the Gremlin API. It then shows how to use [Spring Initializr] to create a custom Java application, and then add the Spring Data Gremlin Starter functionality to access your data using Gremlin.
 
 The Spring Data Gremlin Starter provides Spring Data support for the Gremlin query language from Apache, which developers can use with any Gremlin-compatible data store.
-
-This article demonstrates creating an Azure Cosmos DB by using the Azure portal for use with Gremlin API, then using the **[Spring Initializr]** to create a custom java application, and then add the Spring Data Gremlin Starter functionality to your custom application to store data in and retrieve data from your Azure Cosmos DB by using Gremlin.
 
 ## Prerequisites
 
@@ -91,15 +89,14 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, specify your **Spring Boot** version with version 2.3.1, and then select **GENERATE**.
-
-> [!NOTE]
->
-> The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: `com.example.wintiptoysdata`.
-
+1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, specify your **Spring Boot** version with version 2.3.4, and then select **GENERATE**.
 
    >[!div class="mx-imgBorder"]
    >![spring-initializr][spring-initializr-01]
+   
+   > [!NOTE]
+   > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: `com.example.wintiptoysdata`.
+   > 2. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -160,6 +157,10 @@ We'll be replicating the configurations of the existing [Azure Spring Data Greml
    >[!div class="mx-imgBorder"]
    >![execute-result][execute-result-01]
 
+
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
