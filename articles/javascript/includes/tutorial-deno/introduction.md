@@ -7,3 +7,5 @@ ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 In this tutorial, you deploy a Deno application to Azure App Service (on Linux or Windows) using the Azure CLI.
+
+![Running the demo server](../../media/deploy-azure/deno-hello-world.png)
