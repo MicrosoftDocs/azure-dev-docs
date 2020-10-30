@@ -10,11 +10,11 @@ metadata:
   ms.topic: tutorial
   ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 items:
-  - durationInMinutes: 1
+- durationInMinutes: 1
   content: |
     [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/introduction.md)]
 - title: Configure your environment
-- durationInMinutes: 2
+  durationInMinutes: 2
   content: |
     [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/configure-your-environment.md)]
 - title: Create local Deno app
