@@ -4,7 +4,7 @@ description: In this quickstart, learn how to install and configure Ansible for 
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.custom: devx-track-ansible,devx-track-cli, devx-track-azurecli
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Quickstart: Configure Ansible using Azure CLI
