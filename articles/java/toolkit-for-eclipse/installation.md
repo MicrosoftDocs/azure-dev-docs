@@ -43,8 +43,7 @@ The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Ec
    |---|---| 
    | **Application Insights Plugin for Java** | Allows you to use Azure's telemetry logging and analysis services for your applications and server instances. | 
    | **Azure Common Plugin** | Provides the common functionality needed by other toolkit components. | 
-   | **Azure Container Tools for Eclipse** | Enables you to build and deploy a .WAR as a Docker container to a docker machine. | 
-   | **Azure Containers for Eclipse** | Enables you to deploy a .WAR or .JAR artifact as a Docker container to an Azure virtual machine. | 
+   | **Azure Container Tools for Eclipse** | Enables you to build and deploy a .WAR as a Docker container to a docker machine. |
    | **Azure Explorer for Eclipse** | Provides an explorer-style interface for managing your Azure resources. | 
    | **Azure HDInsight plugin for Java** | Enables Apache Spark application development in Scala. |
    | **Microsoft JDBC Driver 6.1 for SQL Server** | Provides JDBC API for SQL Server and Microsoft Azure SQL Database for Java Platform Enterprise Edition 8. | 
@@ -78,8 +77,7 @@ You can install the Azure Toolkit for Eclipse directly from the *Help* menu in t
    |---|---| 
    | **Application Insights Plugin for Java** | Allows you to use Azure's telemetry logging and analysis services for your applications and server instances. | 
    | **Azure Common Plugin** | Provides the common functionality needed by other toolkit components. | 
-   | **Azure Container Tools for Eclipse** | Enables you to build and deploy a .WAR as a Docker container to a docker machine. | 
-   | **Azure Containers for Eclipse** | Enables you to deploy a .WAR or .JAR artifact as a Docker container to an Azure virtual machine. | 
+   | **Azure Container Tools for Eclipse** | Enables you to build and deploy a .WAR as a Docker container to a docker machine. |
    | **Azure Explorer for Eclipse** | Provides an explorer-style interface for managing your Azure resources. | 
    | **Azure HDInsight plugin for Java** | Enables Apache Spark application development in Scala. |
    | **Microsoft JDBC Driver 6.1 for SQL Server** | Provides JDBC API for SQL Server and Microsoft Azure SQL Database for Java Platform Enterprise Edition 8. | 

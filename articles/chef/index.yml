@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Chef Software on Azure documentation
-summary: Learn how to use Chef Software products to deploy and manage Azure resources.
+summary: (October 28, 2020) Documentation for using Chef on Azure is now located on the Chef Software website - https://docs.chef.io/azure_portal
 
 metadata:
   title: Chef Software on Azure documentation
@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/17/2019
+  ms.date: 10/28/2020
 
 landingContent:
   # Card

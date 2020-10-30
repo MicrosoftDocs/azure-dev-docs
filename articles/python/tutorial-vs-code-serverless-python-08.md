@@ -41,3 +41,5 @@ Some popular extensions are:
 
 > [!div class="nextstepaction"]
 > [I'm done!](/python/azure/?preserve-view=true&view=azure-python)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)
