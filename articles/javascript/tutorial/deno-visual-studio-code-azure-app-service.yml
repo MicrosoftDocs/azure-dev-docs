@@ -10,20 +10,24 @@ metadata:
   ms.topic: tutorial
   ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 items:
+  - durationInMinutes: 1
+  content: |
+    [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/introduction.md)]
+- title: Configure your environment
 - durationInMinutes: 2
   content: |
-    [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-01.md)]
-- title: Test local Deno apps
+    [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/configure-your-environment.md)]
+- title: Create local Deno app
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Test local Deno apps](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-02.md)]
-- title: Deploy Deno apps to Azure
+    [!INCLUDE [Test local Deno apps](../includes/tutorial-deno/create-local-deno-app.md)]
+- title: Deploy Deno app to Azure
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Deploy Deno apps to Azure](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-03.md)]
+    [!INCLUDE [Deploy Deno apps to Azure](../includes/tutorial-deno/deploy-to-azure.md)]
 - title: Clean up
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Clean up](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-04.md)]
+    [!INCLUDE [Clean up](../includes/tutorial-deno/cleanup.md)]
 - content: |
     [!INCLUDE [Completed tutorial](../includes/tutorial-deno/completed.md)]

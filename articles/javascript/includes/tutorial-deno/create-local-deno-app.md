@@ -8,8 +8,6 @@ ms.custom: devx-track-js
 
 In this step, you create a simple Deno api using Deno's built-in webserver. You then run the app locally.
 
-## Create and run a local Deno app
-
 1. In a terminal or command prompt, navigate to a location where you want to create the app folder and create a new folder called `deno-demo`.
 
 1. Create a new file called `demo.ts`.

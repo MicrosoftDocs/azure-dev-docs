@@ -8,8 +8,6 @@ ms.custom: devx-track-js
 
 In this step, you deploy your Deno app to Azure using Azure CLI.
 
-## Deploy the app to Azure
-
 1. Create a resource group named `deno-quickstart` with the following command:
 
     ```bash

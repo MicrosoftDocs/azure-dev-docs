@@ -42,7 +42,7 @@
           - name: Clean up resources
             href: tutorial-vscode-azure-app-service-node-05.md
       - name: Deploy Deno to App Service
-        href: tutorial/deno-visual-studio-code-azure-app-service.yml.yml?&preview=tutorialFeedback
+        href: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
       - name: Deploy containers with VS Code
         items:
           - name: Introduction and prerequisites
