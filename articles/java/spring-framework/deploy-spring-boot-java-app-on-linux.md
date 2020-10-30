@@ -88,7 +88,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    Once you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
-1. Click the menu icon for **+ New**, select **Containers**, and then select **Azure Container Registry**.
+1. Click the menu icon for **New**, select **Containers**, and then select **Azure Container Registry**.
 
    ![Create a new Azure Container Registry][AR01]
 
@@ -147,7 +147,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, select **Compute**, and then select **Web App for Containers**.
+2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App for Containers**.
    
    ![Create a new web app in the Azure portal][LX01]
 

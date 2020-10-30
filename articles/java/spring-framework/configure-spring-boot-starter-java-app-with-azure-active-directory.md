@@ -37,7 +37,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
-1. At the bottom of the page and select the **GENERATE CTRL +** button.
+1. At the bottom of the page and select the **GENERATE** button.
    
    >[!div class="mx-imgBorder"]
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
@@ -53,7 +53,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Log into <https://portal.azure.com>.
 
-1. Select **+Create a resource**, then **Identity**, and then **Azure Active Directory**.
+1. Select **Create a resource**, then **Identity**, and then **Azure Active Directory**.
    
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance][create-directory-01]
@@ -127,7 +127,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Edit Reply URLs][create-app-registration-09]
 
-1. Enter 'http://localhost:8080/login/oauth2/code/azure' as a new **Redirect URI**, and then select **Configure**.
+1. Enter *http://localhost:8080/login/oauth2/code/azure* as a new **Redirect URI**, and then select **Configure**.
    
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]

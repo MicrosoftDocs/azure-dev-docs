@@ -34,7 +34,7 @@ The following procedure creates an Azure storage account and container.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Select **+Create a resource**, then **Get started**, and then select **Storage Account**.
+1. Select **Create a resource**, then **Get started**, and then select **Storage Account**.
 
    ![Create Azure Storage Account][IMG01]
 
@@ -48,7 +48,7 @@ The following procedure creates an Azure storage account and container.
 1. Review the specification, then select **Create** to create your storage account.
 1. When the deployment is complete, select **Go to resource**.
 1. Select **Containers**.
-1. Select **+ Container**.
+1. Select **Container**.
    * Name the container.
    * Select *Blob* from the drop-down list.
 
@@ -76,7 +76,7 @@ The following procedure creates the Spring boot application.
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
    > 2. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
-1. When you have specified the options listed above, select **GENERATE CTRL +**.
+1. When you have specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer.
 
