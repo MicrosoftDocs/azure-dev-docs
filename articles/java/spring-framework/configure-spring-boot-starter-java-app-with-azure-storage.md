@@ -30,7 +30,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 ## Create an Azure Storage Account and blob container for your application
 
-The following procedure creates an Azure storage account and container.
+The following procedure creates an Azure storage account and container in the portal.
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -56,6 +56,40 @@ The following procedure creates an Azure storage account and container.
 
 1. The Azure portal will list your blob container after is has been created.
 
+You can also use Azure CLI to create an Azure storage account and container using the following steps. Remember to replace the placeholder values (in angle brackets) with your own values.
+
+1. Open a command prompt.
+1. Sign in to your Azure account:
+
+   ```azurecli
+   az login
+   ```
+   
+1. If you don't have a resource group, create one using the following command:
+   
+   ```azurecli
+   az group create \
+      --name <resource-group> \
+      --location <location>
+   ```
+   
+1. Create a storage account by using the following command:
+  
+   ```azurecli
+    az storage account create \
+      --name <storage-account> \
+      --resource-group <resource-group> \
+      --location <location> 
+   ```
+
+1. To create a container, use the following command:
+   
+   ```azurecli
+    az storage container create \
+      --account-name <storage-account-name> \
+      --name <container-name> \
+      --auth-mode login
+   ```
 ## Create a simple Spring Boot application with the Spring Initializr
 
 The following procedure creates the Spring boot application.
