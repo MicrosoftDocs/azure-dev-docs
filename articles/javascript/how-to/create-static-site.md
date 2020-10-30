@@ -21,18 +21,18 @@ You can watch a demonstration of the process with the //build 2019 session, [Pro
 
 > [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
 
-A step-by-step tutorial can be found on [Deploy a static website to Azure](tutorial-vscode-static-website-node-01.md).
+A step-by-step tutorial can be found on [Deploy a static website to Azure](../tutorial-vscode-static-website-node-01.md).
 
 The following articles also explain further details:
 
-- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](node-howto-integrate-databases.md).
+- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](integrate-database.md).
   
 - **Serverless APIs**:
 
-  - Start with [Deploy Azure Functions from Visual Studio Code](tutorial-vscode-serverless-node-01.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+  - Start with [Deploy Azure Functions from Visual Studio Code](../tutorial-vscode-serverless-node-01.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
   - When you complete the article, you have an Azure Functions project (a folder) that contains a subfolder named for the function, which is the same as its HTTP endpoint. That function folder contains an *index.js* file with the code.
   - You can modify that function as needed, and also add more functions to the project, then deploy them again to Azure where they are publicly available.
-  - For additional resources on serverless development, see [How to write serverless Node.js code on Azure](node-howto-write-serverless-code.md)
+  - For additional resources on serverless development, see [How to write serverless Node.js code on Azure](develop-serverless-apps.md)
 
 - **Deploy your front-end to Azure Storage**: with your APIs in hand, you can now write your front-end code to use those APIs, using whatever framework you like. When you're ready, follow the article, [Tutorial: Host a static website on Blob Storage](/azure/storage/blobs/storage-blob-static-website-host), to upload those files to Azure and turn on static website hosting.
 

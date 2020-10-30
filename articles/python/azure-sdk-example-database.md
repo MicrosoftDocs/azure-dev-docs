@@ -3,7 +3,7 @@ title: Provision an Azure MySQL database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision an Azure MySQL, PostgresSQL, or MariaDB database.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Example: Use the Azure libraries to provision a database

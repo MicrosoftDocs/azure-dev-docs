@@ -12,18 +12,18 @@ metadata:
 items:
 - durationInMinutes: 2
   content: |
-    [!INCLUDE [Tutorial introduction](includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-01.md)]
+    [!INCLUDE [Tutorial introduction](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-01.md)]
 - title: Test local Deno apps
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Test local Deno apps](includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-02.md)]
+    [!INCLUDE [Test local Deno apps](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-02.md)]
 - title: Deploy Deno apps to Azure
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Deploy Deno apps to Azure](includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-03.md)]
+    [!INCLUDE [Deploy Deno apps to Azure](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-03.md)]
 - title: Clean up
   durationInMinutes: 2
   content: |
-    [!INCLUDE [Clean up](includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-04.md)]
+    [!INCLUDE [Clean up](../includes/tutorial-deno/tutorial-visual-studio-code-azure-app-service-deno-04.md)]
 - content: |
-    [!INCLUDE [Completed tutorial](includes/tutorial-deno/completed.md)]
+    [!INCLUDE [Completed tutorial](../includes/tutorial-deno/completed.md)]

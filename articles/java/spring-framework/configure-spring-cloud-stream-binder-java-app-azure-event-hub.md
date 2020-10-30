@@ -7,7 +7,7 @@ ms.date: 10/13/2020
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # How to create a Spring Cloud Stream Binder application with Azure Event Hubs
@@ -132,6 +132,22 @@ The following procedure creates a Spring boot application.
       <groupId>com.microsoft.azure</groupId>
       <artifactId>spring-cloud-azure-eventhubs-stream-binder</artifactId>
       <version>1.2.7</version>
+   </dependency>
+   ```
+
+1. If you're using JDK version 9 or greater, add the following dependencies:
+
+   ```xml
+   <dependency>
+       <groupId>javax.xml.bind</groupId>
+       <artifactId>jaxb-api</artifactId>
+       <version>2.3.1</version>
+   </dependency>
+   <dependency>
+       <groupId>org.glassfish.jaxb</groupId>
+       <artifactId>jaxb-runtime</artifactId>
+       <version>2.3.1</version>
+       <scope>runtime</scope>
    </dependency>
    ```
 

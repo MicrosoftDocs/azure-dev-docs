@@ -3,7 +3,7 @@ title: include file 1
 description: include file 1
 ms.topic: include
 ms.date: 06/01/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Deploy Deno to Azure App Service using Visual Studio Code
