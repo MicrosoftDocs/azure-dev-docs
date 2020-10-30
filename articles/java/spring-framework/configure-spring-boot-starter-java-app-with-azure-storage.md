@@ -56,45 +56,40 @@ The following procedure creates an Azure storage account and container in the po
 
 1. The Azure portal will list your blob container after is has been created.
 
-You can also create an Azure storage account and container in CLI commands.
+You can also use Azure CLI to create an Azure storage account and container using the following steps. Remember to replace the placeholder values (in angle brackets) with your own values.
 
-Remember to replace placeholder values in angle brackets with your own values:
 1. Open a command prompt.
 1. Sign in to your Azure account:
 
-   ```Azure CLI
+   ```azurecli
    az login
    ```
    
-1. If you don't have a resource group,create a new resource group with Azure CLI using the `az group create` command.
+1. If you don't have a resource group, create one using the following command:
    
-   ```Azure CLI
+   ```azurecli
    az group create \
       --name <resource-group> \
       --location <location>
    ```
    
-1. Create storage account by using the `az storage account create` command.
+1. Create a storage account by using the following command:
   
-   ```Azure CLI
+   ```azurecli
     az storage account create \
       --name <storage-account> \
       --resource-group <resource-group> \
       --location <location> 
    ```
 
-1. You can use `az storage container create` command to create a container.
+1. To create a container, use the following command:
    
-   ```Azure CLI
+   ```azurecli
     az storage container create \
       --account-name <storage-account-name> \
       --name <container-name> \
       --auth-mode login
    ```
-   
-1. Wait for a while, this container will be created.
-
-
 ## Create a simple Spring Boot application with the Spring Initializr
 
 The following procedure creates the Spring boot application.
