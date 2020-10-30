@@ -116,7 +116,7 @@ class AddressService {
     @Autowired
     AddressRepository repository;
 
-    final Address newAddress = new Address("12345", "city");
+    final Address newAddress = new Address("12345", "Seattle");
 
     // There's no need to specify a partition key in the save operation.
     repository.save(updatedAddress);

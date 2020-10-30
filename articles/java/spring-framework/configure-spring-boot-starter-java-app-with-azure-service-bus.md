@@ -81,7 +81,7 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Open the *application.properties* file in a text editor.
 
-1. Append the following code to the end of the *application.properties* file. Replace the sample values with the appropriate values for your service bus:
+1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and do not put quotes around the values.
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -109,7 +109,7 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Open the *application.properties* file in a text editor.
 
-1. Append the following code to the end of the *application.properties* file. Replace the sample values with the appropriate values for your service bus:
+1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and do not put quotes around the values.
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
