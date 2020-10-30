@@ -3,7 +3,7 @@ title: Tutorial on reading a secret from Azure Key Vault in a Spring Boot applic
 description: Tutorial on reading a secret from Azure Key Vault in a Spring Boot application
 services: key-vault
 documentationcenter: java
-ms.date: 08/15/2020
+ms.date: 10/14/2020
 ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
@@ -31,7 +31,7 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 * The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).
 * The `jq` command. Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official jq website](https://stedolan.github.io/jq/).
 
@@ -103,11 +103,11 @@ The value of the `name` option must be unique within your subscription.  Save as
 
 ```json
 {
-  "appId": "8r7o486s-o5q9-450s-8457-pr26p86n0497",
+  "appId": "sample-app-id",
   "displayName": "ejbcontososp",
   "name": "http://ejbcontososp",
-  "password": "4bt.lCKJKlbYLn_3XF~wWtUwyHU0jKggu2",
-  "tenant": "72s988os-86s1-41ns-91no-2d7cd011db47"
+  "password": "sample-password",
+  "tenant": "sample-tenant"
 }
 ```
 
@@ -213,7 +213,7 @@ The following procedure creates and initializes the Key Vault.
        "updated": "2020-08-24T21:48:09+00:00"
      },
      "contentType": null,
-     "id": "https://contosokv.vault.azure.net/secrets/connectionString/123456789abcdef123456789abcdef",
+     "id": "https://contosokv.vault.azure.net/secrets/connectionString/sample-id",
      "kid": null,
      "managed": null,
      "tags": {
@@ -635,6 +635,10 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 ## Summary
 
 You created a new Java web application using the **Spring Initializr**.  You created an Azure Key Vault to store sensitive information, and then configured your application to retrieve information from your Key Vault.  After testing it locally, you deployed the app to Azure App Service and Azure Spring Cloud.
+
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 
