@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
 description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom: devx-track-python
 ---
 
@@ -33,8 +33,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 **(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
-
-- The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
+- The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
@@ -144,7 +143,6 @@ In this section, you create settings for the web app that it needs to connect to
 
     | Setting name | Value |
     | --- | --- |
-    | DJANGO_ENV | `production` (This value tells the app to use a production configuration as described earlier in the [sample overview](#fork-the-sample-repository).) |
     | DBHOST | The name of the database server from the previous section; that is, the `<server-name>` portion of the server's URL that precedes `.postgres.database.azure.com`. (The code in *azuresite/production.py* constructs the full URL automatically.) |
     | DBNAME | `pollsdb` |
     | DBUSER | The administrator user name used when you provisioned the database. (The sample code automatically adds the `@<server-name>` portion; see *azuresite/production.py*.) |
