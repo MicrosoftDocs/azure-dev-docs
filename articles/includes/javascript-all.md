@@ -53,7 +53,7 @@
 | @azure/arm-analysisservices | npm [2.3.1](https://www.npmjs.com/package/@azure/arm-analysisservices/v/2.3.1) | [docs](/javascript/api/overview/azure/analysis-services) | GitHub [2.3.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/analysisservices/arm-analysisservices) |
 | @azure/arm-apimanagement | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-apimanagement/v/6.0.0) |  | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/apimanagement/arm-apimanagement) |
 | @azure/arm-appconfiguration | npm [1.3.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/1.3.0) |  | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/appconfiguration/arm-appconfiguration) |
-| @azure/arm-appinsights | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-appinsights/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/applicationinsights/arm-appinsights) |
+| @azure/arm-appinsights | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appinsights/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/applicationinsights/arm-appinsights) |
 | @azure/arm-appplatform | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/1.0.0) |  |  |
 | @azure/arm-appservice | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-appservice/v/6.1.0) | [docs](/javascript/api/overview/azure/appservice) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/appservice/arm-appservice) |
 | @azure/arm-appservice-profile-2019-03-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2019-03-01-hybrid/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/appservice/arm-appservice-profile-2019-03-01-hybrid) |
@@ -99,7 +99,7 @@
 | @azure/arm-features | npm [1.0.3](https://www.npmjs.com/package/@azure/arm-features/v/1.0.3) |  | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/features/arm-features) |
 | @azure/arm-frontdoor | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-frontdoor/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/frontdoor/arm-frontdoor) |
 | @azure/arm-hanaonazure | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-hanaonazure/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/hanaonazure/arm-hanaonazure) |
-| @azure/arm-hdinsight | npm [0.19.0](https://www.npmjs.com/package/@azure/arm-hdinsight/v/0.19.0) | [docs](/javascript/api/overview/azure/hdinsight) | GitHub [0.19.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/hdinsight/arm-hdinsight) |
+| @azure/arm-hdinsight | npm [0.20.0](https://www.npmjs.com/package/@azure/arm-hdinsight/v/0.20.0) | [docs](/javascript/api/overview/azure/hdinsight) | GitHub [0.20.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/hdinsight/arm-hdinsight) |
 | @azure/arm-hybridcompute | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-hybridcompute/v/2.0.0) |  |  |
 | @azure/arm-iotcentral | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/3.1.0) |  | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/iotcentral/arm-iotcentral) |
 | @azure/arm-iothub | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-iothub/v/4.0.0) | [docs](/javascript/api/overview/azure/iot-hub) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/iothub/arm-iothub) |
@@ -173,7 +173,7 @@
 | @azure/arm-subscriptions | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-subscriptions/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/subscription/arm-subscriptions) |
 | @azure/arm-subscriptions-profile-hybrid-2019-03-01 | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-subscriptions-profile-hybrid-2019-03-01/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/subscription/arm-subscriptions-profile-hybrid-2019-03-01) |
 | @azure/arm-support | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-support/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/support/arm-support) |
-| @azure/arm-synapse | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-synapse/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/synapse/arm-synapse) |
+| @azure/arm-synapse | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-synapse/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/synapse/arm-synapse) |
 | @azure/arm-timeseriesinsights | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-timeseriesinsights/v/1.2.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/timeseriesinsights/arm-timeseriesinsights) |
 | @azure/arm-trafficmanager | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-trafficmanager/v/5.0.0) | [docs](/javascript/api/overview/azure/traffic-manager) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/trafficmanager/arm-trafficmanager) |
 | @azure/arm-visualstudio | npm [2.2.0](https://www.npmjs.com/package/@azure/arm-visualstudio/v/2.2.0) |  | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/visualstudio/arm-visualstudio) |
@@ -503,7 +503,7 @@
 | @azure/connectors-xpertdoc | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-xpertdoc/v/0.0.1-alpha) |  |  |
 | @azure/connectors-zendesk | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-zendesk/v/0.0.1-alpha) |  |  |
 | @azure/connectors-zenkraft | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-zenkraft/v/0.0.1-alpha) |  |  |
-| @azure/core-amqp | npm [1.1.6](https://www.npmjs.com/package/@azure/core-amqp/v/1.1.6) | [docs](/javascript/api/overview/azure/core-amqp-readme/) | GitHub [1.1.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_1.1.6/sdk/core/core-amqp/) |
+| @azure/core-amqp | npm [1.1.7](https://www.npmjs.com/package/@azure/core-amqp/v/1.1.7) | [docs](/javascript/api/overview/azure/core-amqp-readme/) | GitHub [1.1.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_1.1.7/sdk/core/core-amqp/) |
 | @azure/core-arm | npm [1.0.0-preview.7](https://www.npmjs.com/package/@azure/core-arm/v/1.0.0-preview.7) |  | GitHub [1.0.0-preview.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-arm_1.0.0-preview.7/sdk/core/core-arm/) |
 | @azure/core-asynciterator-polyfill | npm [1.0.0](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.0/sdk/core/core-asynciterator-polyfill/) |
 | @azure/core-auth | npm [1.1.3](https://www.npmjs.com/package/@azure/core-auth/v/1.1.3) | [docs](/javascript/api/overview/azure/core-auth-readme/) | GitHub [1.1.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.1.3/sdk/core/core-auth/) |

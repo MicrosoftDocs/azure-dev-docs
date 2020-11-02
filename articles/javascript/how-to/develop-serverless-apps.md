@@ -3,7 +3,7 @@ title: Serverless Node.js code with Azure Functions
 description: Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints.
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
 ---
 
 # Use Azure Functions to develop Node.js serverless code

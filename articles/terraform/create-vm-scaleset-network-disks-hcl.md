@@ -318,11 +318,7 @@ In Cloud Shell, do the following steps:
    }
    ```
 
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set.
 
@@ -338,11 +334,7 @@ In Cloud Shell, do the following steps:
     - nginx
    ```
 
-1. Save the file and exit the vi editor by entering the following command:
-
-     ```bash
-     :wq
-     ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Open the `variables.tf` configuration file.
 
@@ -350,7 +342,7 @@ In Cloud Shell, do the following steps:
     code variables.tf
     ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Customize the deployment by pasting the following code to the end of the file:
 
@@ -405,7 +397,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    code vmss.tf
    ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Paste the following code to the end of the file:
 
@@ -468,6 +460,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
     tags = var.tags
    }
    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Open the `output.tf` configuration file.
 
@@ -475,7 +468,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    code output.tf
    ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Paste the following code to the end of the file to display the hostname of the jumpbox when the deployment is complete:
 
