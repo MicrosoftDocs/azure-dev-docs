@@ -40,7 +40,7 @@ landingContent:
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
-            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
+            url: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
           - text: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
