@@ -107,11 +107,11 @@ Configure the application using the following procedure.
 
 1. Create a folder named *controller* under the source folder for your package; for example:
 
-   `D:\Microsoft\demo\src\main\java\com\example\demo\controller`
+   *D:\Microsoft\demo\src\main\java\com\example\demo\controller*
 
    -or-
 
-   `/users/example/home/demo/src/main/java/com/example/demo/controller`
+   */users/example/home/demo/src/main/java/com/example/demo/controller*
 
 1. Create a new file named *TestController.java* in the *controller* folder. Open the file in a text editor and add the following code to it:
 

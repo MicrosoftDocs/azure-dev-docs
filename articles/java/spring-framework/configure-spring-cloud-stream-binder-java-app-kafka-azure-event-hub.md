@@ -31,7 +31,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Select **+ Create a resource**, then **Search the Marketplace**, then search for *Event Hubs**.
+1. Select **Create a resource**, then **Search the Marketplace**, then search for *Event Hubs*.
 
 1. Select **Create**.
 
@@ -43,7 +43,7 @@ The following prerequisites are required in order to follow the steps in this ar
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
    * Enter a unique **Namespace name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Name**, the URI would be `wingtiptoys-space.servicebus.windows.net`.
    * Specify the **Location** for your event hub namespace.
-   * Pricing tier.
+   * Specify the **Pricing tier**, which will limit your usage scenarios .
    * You can also specify the **Throughput units** for the namespace.
 
    ![Specify Azure Event Hub Namespace options][IMG02]
@@ -58,7 +58,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
 1. Navigate to the namespace created in the previous step.
 
-1. Select **+ Event Hub** in top menu bar.
+1. Select **Event Hub** in top menu bar.
 
 1. Name the event hub.
 
@@ -93,11 +93,11 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
-   `C:\SpringBoot\kafka\pom.xml`
+   *C:\SpringBoot\kafka\pom.xml*
 
    -or-
 
-   `/users/example/home/kafka/pom.xml`
+   */users/example/home/kafka/pom.xml*
 
 1. Open the *pom.xml* file in a text editor, and add the Event Hubs Kafka starters to the list of `<dependencies>`:
 
@@ -190,11 +190,11 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\kafka\src\main\resources\application.properties`
+   *C:\SpringBoot\kafka\src\main\resources\application.properties*
 
    -or-
 
-   `/users/example/home/kafka/src/main/resources/application.properties`
+   */users/example/home/kafka/src/main/resources/application.properties*
 
 2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
@@ -231,11 +231,11 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Locate the main application Java file in the package directory of your app; for example:
 
-   `C:\SpringBoot\kafka\src\main\java\com\wingtiptoys\kafka\EventhubApplication.java`
+   *C:\SpringBoot\kafka\src\main\java\com\wingtiptoys\kafka\EventhubApplication.java*
    
    -or-
 
-   `/users/example/home/kafka/src/main/java/com/wingtiptoys/kafka/EventhubApplication.java`
+   */users/example/home/kafka/src/main/java/com/wingtiptoys/kafka/EventhubApplication.java*
 
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 

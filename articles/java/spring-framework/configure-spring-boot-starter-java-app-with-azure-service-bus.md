@@ -46,11 +46,11 @@ The following prerequisites are required for this article:
 
 1. Locate the *pom.xml* file in the parent directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\pom.xml`
+    *C:\SpringBoot\servicebus\pom.xml*
 
     -or-
 
-    `/users/example/home/servicebus/pom.xml`
+    */users/example/home/servicebus/pom.xml*
 
 1. Open the *pom.xml* file in a text editor.
 
@@ -76,11 +76,11 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\application.properties`
+    *C:\SpringBoot\servicebus\application.properties*
 
     -or-
 
-    `/users/example/home/servicebus/application.properties`
+    */users/example/home/servicebus/application.properties*
 
 1. Open the *application.properties* file in a text editor.
 
@@ -104,11 +104,11 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\application.properties`
+    *C:\SpringBoot\servicebus\application.properties*
 
     -or-
 
-    `/users/example/home/servicebus/application.properties`
+    */users/example/home/servicebus/application.properties*
 
 1. Open the *application.properties* file in a text editor.
 
@@ -138,11 +138,11 @@ In this section, you create the necessary Java classes for sending messages to y
 
 1. Locate the main application Java file in the package directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\src\main\java\com\wingtiptoys\servicebus\ServiceBusJmsStarterApplication.java`
+    *C:\SpringBoot\servicebus\src\main\java\com\wingtiptoys\servicebus\ServiceBusJmsStarterApplication.java*
 
     -or-
 
-    `/users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java`
+    */users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java*
 
 1. Open the main application Java file in a text editor.
 
