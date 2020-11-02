@@ -18,7 +18,7 @@ In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-ac
 
 Each workflow is made up of individual [actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
-With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure support Azure services, including Azure App Service, Azure Functions, and Azure key vault.
+With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure support Azure services, including Azure App Service, Azure Functions, and Azure Key Vault.
 
 GitHub Actions also includes support for utilities, including Azure Resource Manager templates, Azure CLI, and Azure Policy.
 
