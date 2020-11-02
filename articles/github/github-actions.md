@@ -1,6 +1,6 @@
 ---
 title: What is GitHub Actions for Azure?
-description: Create workflows within your repository to build, test, package, release and deploy to Azure. 
+description: Create workflows within your repository to build, test, package, release, and deploy to Azure. 
 author: N-Usha 
 ms.author: ushan 
 ms.topic: conceptual
@@ -18,25 +18,9 @@ In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-ac
 
 Each workflow is made up of individual [actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
-With GitHub Actions for Azure you can create workflows that you can set up in your repository to build, test, package, release and deploy to Azure. GitHub Actions for Azure support Azure services, including:
+With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure support Azure services, including Azure App Service, Azure Functions, and Azure key vault.
 
-* Azure App Service
-* Azure Static Web App
-* Azure App Service for Containers
-* Azure Functions
-* Azure Container Instances
-* Azure Kubernetes Service
-* Azure SQL, Azure MySQl, and Azure Postgres
-* Azure Machine Learning
-* Azure Key Vault
-* Azure Pipelines
-
-GitHub Actions also includes support for utilities, including:
-* Azure Resource Manager templates
-* Variable substitution
-* Azure Policy
-* Azure CLI
-* PowerShell
+GitHub Actions also includes support for utilities, including Azure Resource Manager templates, Azure CLI, and Azure Policy.
 
 ## Why should I use GitHub Actions for Azure
 
@@ -62,7 +46,7 @@ You can use the Azure login action in combination with both the [Azure CLI](http
 
 ## What is included in a GitHub Actions workflow
 
-Workflows are made up of one or more job. Within a job, there are steps made up of individual actions. See [Introduction to GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) to learn more about GitHub Actions concepts.  
+Workflows are made up of one or more jobs. Within a job, there are steps made up of individual actions. See [Introduction to GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) to learn more about GitHub Actions concepts.  
 
 ## Where can I see complete workflow examples
 
