@@ -76,7 +76,7 @@ Each new project using Azure should:
 
 You have several options to store configuration information:
 - [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
-- Azure [Key Vault](https://docs.microsoft.com/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
+- Azure [Key Vault](/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
 
 ### Create environment variables for the Azure libraries
 
