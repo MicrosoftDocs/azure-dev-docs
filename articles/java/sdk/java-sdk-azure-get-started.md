@@ -20,7 +20,7 @@ This guide walks you through setting up a development environment for Azure deve
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
-- [Java 8](https://www.azul.com/downloads/zulu/) (included in Azure Cloud Shell)
+- [Java 8](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-long-term-support) (included in Azure Cloud Shell)
 - [Maven 3](https://maven.apache.org/download.cgi) (included in Azure Cloud Shell)
 
 ## Set up authentication
@@ -100,11 +100,6 @@ This creates a basic Maven project under the `testAzureApp` folder. Add the foll
 
 ```XML
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure</artifactId>
-    <version>1.3.0</version>
-</dependency>
-<dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-blob</artifactId>
       <version>12.8.0</version>
@@ -154,7 +149,7 @@ The [Azure toolkit](../toolkit-for-eclipse/index.yml) is necessary if you're goi
 
 ## Create a Linux virtual machine
 
-Create a new file named `AzureApp.java` in the project's `src/main/java/com/fabirkam` directory and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux VM with name `testLinuxVM` in a resource group `sampleResourceGroup` running in the US East Azure region.
+Create a new file named `AzureApp.java` in the project's `src/main/java/com/fabrikam` directory and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux VM with name `testLinuxVM` in a resource group `sampleResourceGroup` running in the US East Azure region.
 
 ```java
 package com.fabrikam;
@@ -408,8 +403,10 @@ public static void main(String[] args) {
 
         StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-        BlobServiceClient storageClient =
-            new BlobServiceClientBuilder().endpoint(endpoint).credential(credential).buildClient();
+        BlobServiceClient storageClient =new BlobServiceClientBuilder()
+                                    .endpoint(endpoint)
+                                    .credential(credential)
+                                    .buildClient();
 
         // Container name must be lower case
         BlobContainerClient blobContainerClient = storageClient.getBlobContainerClient("helloazure");
