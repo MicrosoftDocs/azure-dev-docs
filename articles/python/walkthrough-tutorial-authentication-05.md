@@ -14,7 +14,7 @@ This part examines the Python libraries brought into the main app and the enviro
 
 ## Dependencies and import statements
 
-The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme?view=azure-python)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme?view=azure-python)). These libraries are included in the app's *requirements.txt* file:
+The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme)). These libraries are included in the app's *requirements.txt* file:
 
 ```txt
 flask
@@ -52,7 +52,7 @@ When running the locally, you create these variables within whatever command she
 
 When deploying to Azure App Service, however, you don't have access to the server itself. In this case, you create *application settings* with the same names, which then appear to the app as environment variables. 
 
-The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). All four variables are set with a single command.
+The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). All four variables are set with a single command.
 
 To create settings through the Azure portal, see [Configure an App Service app in the Azure portal](/azure/app-service/configure-common).
 

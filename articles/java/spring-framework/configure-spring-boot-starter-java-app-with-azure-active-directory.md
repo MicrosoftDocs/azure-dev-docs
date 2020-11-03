@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Active Directory
 description: Learn how to configure a Spring Boot Initializer app with the Azure Active Directory starter.
 services: active-directory
 documentationcenter: java
-ms.date: 03/05/2020
+ms.date: 10/14/2020
 ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -12,8 +12,6 @@ ms.custom: devx-track-java
 ---
 
 # Tutorial: Secure a Java web app using the Spring Boot Starter for Azure Active Directory
-
-## Overview
 
 This article demonstrates creating a Java app with the **[Spring Initializr]** that uses the Spring Boot Starter for Azure Active Directory (Azure AD).
 
@@ -39,10 +37,13 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
-1. At the bottom of the page and click the **Generate** button.
+1. At the bottom of the page and select the **GENERATE** button.
    
    >[!div class="mx-imgBorder"]
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
+
+   > [!NOTE]
+   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -52,7 +53,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Log into <https://portal.azure.com>.
 
-1. Click **+Create a resource**, then **Identity**, and then **Azure Active Directory**.
+1. Select **Create a resource**, then **Identity**, and then **Azure Active Directory**.
    
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance][create-directory-01]
@@ -62,12 +63,12 @@ The following prerequisites are required in order to complete the steps in this 
 
     Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: azuresampledirectory.onmicrosoft.com.).
 
-    When you have finished, click **Create**. It will take a few minutes to create the new resource.
+    When you have finished, select **Create**. It will take a few minutes to create the new resource.
    
    >[!div class="mx-imgBorder"]
    >![Specify Azure Active Directory names][create-directory-02]
 
-1. When complete, click to access the new directory.
+1. When complete, select to access the new directory.
    
    >[!div class="mx-imgBorder"]
    >![Select your Azure account name][create-directory-03]
@@ -79,12 +80,12 @@ The following prerequisites are required in order to complete the steps in this 
 
 ### Add an application registration for your Spring Boot app
 
-1. From the portal menu, click **App registrations**, and then click **Register an application**.
+1. From the portal menu, select **App registrations**, and then select **Register an application**.
    
    >[!div class="mx-imgBorder"]
    >![Add a new app registration][create-app-registration-01]
 
-1. Specify your application, and then click **Register**.
+1. Specify your application, and then select **Register**.
    
    >[!div class="mx-imgBorder"]
    >![Create new app registration][create-app-registration-02]
@@ -94,7 +95,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Copy app registration keys][create-app-registration-03]
 
-1. Click **Certificates & secrets** in the left navigation pane.  Then click **New client secret**.
+1. Click **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
    
    >[!div class="mx-imgBorder"]
    >![Create app registration keys][create-app-registration-03-5]
@@ -116,22 +117,22 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Add access permissions][create-app-registration-08]
    
-1. Click **Grant admin consent for Azure Sample** and click **Yes**.
+1. Click **Grant admin consent for Azure Sample** and select **Yes**.
    
    >[!div class="mx-imgBorder"]
    >![Grant access permissions][create-app-registration-05]
 
-1. From the main page for your app registration, click **Authentication**, and click **Add a platform**.  Then click **Web applications**.
+1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
    
    >[!div class="mx-imgBorder"]
    >![Edit Reply URLs][create-app-registration-09]
 
-1. Enter 'http://localhost:8080/login/oauth2/code/azure' as a new **Redirect URI**, and then click **Configure**.
+1. Enter *http://localhost:8080/login/oauth2/code/azure* as a new **Redirect URI**, and then select **Configure**.
    
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
-1. From the main page for your app registration, click **Manifest**, then set the value of the `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow` parameters to `true`, and then click **Save**.
+1. From the main page for your app registration, select **Manifest**, then set the value of the `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow` parameters to `true`, and then select **Save**.
    
    >[!div class="mx-imgBorder"]
    >![Configure app manifest][create-app-registration-11]
@@ -141,12 +142,12 @@ The following prerequisites are required in order to complete the steps in this 
 
 ### Add a user account to your directory, and add that account to a group
 
-1. From the **Overview** page of your Active Directory, click **Users**, and then click **New user**.
+1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
    
    >[!div class="mx-imgBorder"]
    >![Add a new user account][create-user-01]
 
-1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then click **Create**.
+1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
    
    >[!div class="mx-imgBorder"]
    >![Enter user account information][create-user-02]
@@ -156,15 +157,15 @@ The following prerequisites are required in order to complete the steps in this 
    >
    > `test-user@azuresampledirectory.onmicrosoft.com`
 
-1. From the **Overview** page of your Active Directory, click **Groups**, then **New group** that you will use for authorization in your application.
+1. From the **Overview** page of your Active Directory, select **Groups**, then **New group** that you will use for authorization in your application.
 
-1. Then click **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Click **Select** to add the user to the group.  Then Click **Create** to create the new group.
-   
+1. Select **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Select **Select** to add the user to the group.  Then select **Create** to create the new group.
+
    >[!div class="mx-imgBorder"]
    >![Select the user for group][create-user-03]
 
-1. Go back to the **Users** panel, select your test user, and click **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial.
-   
+1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password; you will use this when you log into your application later in this tutorial.
+
    >[!div class="mx-imgBorder"]
    >![Show the password][create-user-04]
 

@@ -1,7 +1,7 @@
 ---
 title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 05/29/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,13 +10,13 @@ ms.custom: devx-track-python
 
 This example demonstrates how to use the Azure SDK management libraries in a Python script to provision a resource group. (The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article. If you prefer to use the Azure portal, see [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).)
 
-All the commands in this article work the same in Linux/Mac OS bash and Windows command shells unless noted.
+All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
 If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
-Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
+Be sure to create and activate a virtual environment for this project.
 
 ## 2: Install the Azure library packages
 
@@ -24,7 +24,7 @@ Create a file named *requirements.txt* with the following contents:
 
 ```text
 azure-mgmt-resource
-azure-cli-core
+azure-identity
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
@@ -38,17 +38,23 @@ pip install -r requirements.txt
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 
 ```python
-# Import the needed management objects from the libraries. The azure.common library
-# is installed automatically with the other libraries.
-from azure.common.client_factory import get_client_from_cli_profile
+# Import the needed credential and management objects from the libraries.
 from azure.mgmt.resource import ResourceManagementClient
+from azure.identity import AzureCliCredential
+import os
 
-# Obtain the management object for resources, using the credentials from the CLI login.
-resource_client = get_client_from_cli_profile(ResourceManagementClient)
+# Acquire a credential object using CLI-based authentication.
+credential = AzureCliCredential()
+
+# Retrieve subscription ID from environment variable.
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+# Obtain the management object for resources.
+resource_client = ResourceManagementClient(credential, subscription_id)
 
 # Provision the resource group.
 rg_result = resource_client.resource_groups.create_or_update(
-    "PythonAzureExample-ResourceGroup-rg",
+    "PythonAzureExample-rg",
     {
         "location": "centralus"
     }
@@ -70,17 +76,17 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 # new group. In this case the call is synchronous: the resource group has been
 # provisioned by the time the call returns.
 
-# Optional line to delete the resource group
-#resource_client.resource_groups.delete("PythonAzureExample-ResourceGroup-rg")
+# Optional lines to delete the resource group. begin_delete is asynchronous.
+# poller = resource_client.resource_groups.begin_delete(rg_result.name)
+# result = poller.result()
 ```
 
-This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
-
-To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient?view=azure-python)
+- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
+- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 
 ## 4: Run the script
 
@@ -97,29 +103,30 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 - Azure CLI: run the following command:
 
     ```azurecli
-    az group show -n PythonAzureExample-ResourceGroup-rg
+    az group show -n PythonAzureExample-rg
     ```
 
 ## 6: Clean up resources
 
 ```azurecli
-az group delete -n PythonAzureExample-ResourceGroup-rg  --no-wait
+az group delete -n PythonAzureExample-rg  --no-wait
 ```
 
-Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using.
+Run this command if you don't need to keep the resource group provisioned in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations?view=azure-python#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
+You can also use the [`ResourceManagementClient.resource_groups.delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#delete-resource-group-name--custom-headers-none--raw-false--polling-true----operation-config-) method to delete a resource group from code.
 
 ### For reference: equivalent Azure CLI commands
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
 ```azurecli
-az group create -n PythonAzureExample-ResourceGroup-rg -l centralus
+az group create -n PythonAzureExample-rg -l centralus
 ```
 
 ## See also
 
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)

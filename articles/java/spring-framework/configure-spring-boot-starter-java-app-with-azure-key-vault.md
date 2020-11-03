@@ -3,12 +3,12 @@ title: Tutorial on reading a secret from Azure Key Vault in a Spring Boot applic
 description: Tutorial on reading a secret from Azure Key Vault in a Spring Boot application
 services: key-vault
 documentationcenter: java
-ms.date: 08/15/2020
+ms.date: 10/14/2020
 ms.service: key-vault
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: identity
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Tutorial: Reading a secret from Azure Key Vault in a Spring Boot application
@@ -103,11 +103,11 @@ The value of the `name` option must be unique within your subscription.  Save as
 
 ```json
 {
-  "appId": "8r7o486s-o5q9-450s-8457-pr26p86n0497",
+  "appId": "sample-app-id",
   "displayName": "ejbcontososp",
   "name": "http://ejbcontososp",
-  "password": "4bt.lCKJKlbYLn_3XF~wWtUwyHU0jKggu2",
-  "tenant": "72s988os-86s1-41ns-91no-2d7cd011db47"
+  "password": "sample-password",
+  "tenant": "sample-tenant"
 }
 ```
 
@@ -213,7 +213,7 @@ The following procedure creates and initializes the Key Vault.
        "updated": "2020-08-24T21:48:09+00:00"
      },
      "contentType": null,
-     "id": "https://contosokv.vault.azure.net/secrets/connectionString/123456789abcdef123456789abcdef",
+     "id": "https://contosokv.vault.azure.net/secrets/connectionString/sample-id",
      "kid": null,
      "managed": null,
      "tags": {
@@ -318,7 +318,7 @@ The next section will show how to add Key Vault integration to your locally runn
 
 The following steps will show the necessary modifications to the Spring Boot application `KeyvaultApplication`.
 
-Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code.  The simplest form of Spring configuration is the *application.properties* file.  In a Maven project, this file is located at *src/main/resources/application.properties*.  Spring Initializer helpfully includes a zero length file at this location.
+Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code.  The simplest form of Spring configuration is the *application.properties* file.  In a Maven project, this file is located at *src/main/resources/application.properties*.  Spring Initializr helpfully includes a zero length file at this location.
 
 Follow these steps to add the necessary configuration to this file.
 
@@ -393,7 +393,7 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
     <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.9.1</version>
+     <version>1.12.0</version>
     </plugin>
    ```
 
@@ -407,7 +407,9 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
    mvn azure-webapp:config
    ```
 
-1. For the OS, ensure `linux` is selected.
+1. For the `Subscription`, ensure you have select the same subscription id with the Key Vault you created.
+1. For the `Web App`, you can either select an existing Web App or select `<create>` to create a new one, if you select an existing Web App, it will jump directly to the last **confirm** step.
+1. For the `OS`, ensure `linux` is selected.
 1. For the `javaVersion`, ensure the Java version you chose in Spring Initializr is chosen.  We chose `11` above, so we choose 11 here.
 1. Accept the defaults for the remaining questions.
 1. When asked to confirm, answer Y to continue or N to start answering the questions again.  When the plugin completes running, you're ready to edit the POM.
@@ -432,17 +434,18 @@ Follow these steps to make further necessary edits to the POM.
      <plugin> 
        <groupId>com.microsoft.azure</groupId>  
        <artifactId>azure-webapp-maven-plugin</artifactId>  
-       <version>1.9.1</version>  
+       <version>1.12.0</version>  
        <configuration>
          <schemaVersion>V2</schemaVersion>
+         *<subscriptionId>********-****-****-****-************</subscriptionId>
          *<resourceGroup>contosorg</resourceGroup>
          *<appName>contosokeyvault</appName>
          <pricingTier>P1v2</pricingTier>
          *<region>eastus</region>
          <runtime>
            <os>linux</os>
-           <javaVersion>java11</javaVersion>
-           <webContainer>java11</webContainer>
+           <javaVersion>java 11</javaVersion>
+           <webContainer>Java SE</webContainer>
          </runtime>
          *<!-- Begin of App Settings  -->
          *<appSettings>
@@ -632,6 +635,10 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 ## Summary
 
 You created a new Java web application using the **Spring Initializr**.  You created an Azure Key Vault to store sensitive information, and then configured your application to retrieve information from your Key Vault.  After testing it locally, you deployed the app to Azure App Service and Azure Spring Cloud.
+
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
 
 ## Next steps
 

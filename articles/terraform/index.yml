@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 07/31/2020
+  ms.date: 09/27/2020
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -77,7 +77,7 @@ landingContent:
             url: create-linux-virtual-machine-with-infrastructure.md
       - linkListType: how-to-guide
         links:
-          - text: Create a VM cluster with Terraform modules
+          - text: Configure a VM cluster
             url: create-vm-cluster-module.md
           - text: Create a VM cluster with Terraform and HCL
             url: create-vm-cluster-with-infrastructure.md

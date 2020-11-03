@@ -12,8 +12,6 @@ ms.custom: devx-track-terraform
 
 Terraform is an Infrastructure as Code (IaC) tool. This category of tool refers to the fact that you treat your Terraform files as you would the project's source code. Part of that process includes versioning and source code control. Also, testing should also be a part of your process. This article gives an overview of the different types of tests that can be run against a Terraform project.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Integration Testing
 
 Integration tests validate that a newly introduced code change doesn't break existing code. In DevOps, continuous integration (CI) refers to a process that builds the entire system whenever the code base is changed - such as someone wanting to merge a PR into a Git repo. The following list contains common examples of integration tests:
@@ -54,3 +52,5 @@ E2E testing is typically a three-step process. First, the configuration is appli
 
 > [!div class="nextstepaction"]
 > [Learn more about End-to-end Testing](best-practices-end-to-end-testing.md)
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]

@@ -48,7 +48,7 @@ The following steps walk you through the Azure sign in process in your Eclipse d
 
 1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
 
-1. Once signed in, close your browser and switch back to your Eclipse IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
+1. Once signed in, close your browser and switch back to your Eclipse IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select**.
 
 ### Install required software *(optional)*
 
@@ -149,7 +149,6 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [Web Apps Overview]: /azure/app-service/app-service-web-overview
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
-[Legacy Version]: create-hello-world-web-app-legacy-version.md
 
 <!-- IMG List -->
 

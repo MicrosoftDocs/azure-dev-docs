@@ -17,8 +17,6 @@ In this article, you learn how to do the following tasks:
 > * Learn how to write end-to-end test using Golang
 > * Learn how to use Azure DevOps to automatically trigger end-to-end tests when code is committed to your repo
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -150,6 +148,8 @@ The test will display results similar to the following output:
 PASS
 ok      test    391.052s
 ```
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

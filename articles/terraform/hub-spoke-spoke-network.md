@@ -17,8 +17,6 @@ This tutorial covers the following tasks:
 > * Use Terraform to create Virtual machines in the spoke networks
 > * Use Terraform to establish virtual network peerings with the hub networks
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
@@ -298,6 +296,8 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
      
 1. Save the file and exit the editor.
   
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"] 

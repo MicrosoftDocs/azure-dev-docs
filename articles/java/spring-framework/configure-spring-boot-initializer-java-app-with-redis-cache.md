@@ -3,7 +3,7 @@ title: Create a Spring Boot Initializer app - Azure Redis Cache
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Redis Cache.
 services: redis-cache
 documentationcenter: java
-ms.date: 02/06/2020
+ms.date: 10/13/2020
 ms.service: cache
 ms.tgt_pltfrm: cache-redis
 ms.topic: conceptual
@@ -26,7 +26,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
+1. Specify that you want to generate a **Maven** project with **Java**, select Java version **8**, and enter the **Group** and **Artifact** names for your application.
 
 1. Add dependencies for **Spring Web** section and check the box for **Web**, then scroll down to the **NoSQL** section and check the box for **Spring Data Reactive Redis**. 
 1. Scroll to the bottom of the page and click the button to **Generate Project**.
@@ -52,7 +52,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Database**, and then click **Redis Cache**.
 
-   ![Azure portal][AZ02]
+   ![Selecting Redis Cache in the Azure portal.][AZ02]
 
 1. On the **New Redis Cache** page, specify the following information:
 
@@ -67,15 +67,15 @@ The following prerequisites are required in order to complete the steps in this 
 
    When you have specified these options, click **Create** to create your cache.
 
-   ![Azure portal][AZ03]
+   ![Create the cache in the Azure portal.][AZ03]
 
 1. Once your cache has been completed, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources**, and **Redis Caches** pages. You can click on your cache on any of those locations to open the properties page for your cache.
 
-   ![Azure portal][AZ04]
+   ![Resource provisioned in the Azure portal.][AZ04]
 
 1. When the page that contains the list of properties for your cache is displayed, click **Access keys** and copy your access keys for your cache.
 
-   ![Azure portal][AZ05]
+   ![Copy the access keys under the Access keys section.][AZ05]
 
 ## Configure your custom Spring Boot to use your Redis Cache
 
@@ -193,7 +193,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 

@@ -1,9 +1,9 @@
 ---
 title: Clean up resources after deploying a Node.js app to Azure using the Azure CLI
-description: Tutorial part 7, clean up resources
-ms.topic: conceptual
+description: Tutorial part 7, Azure CLI clean up resources
+ms.topic: tutorial
 ms.date: 09/24/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Part 7: Clean up resources

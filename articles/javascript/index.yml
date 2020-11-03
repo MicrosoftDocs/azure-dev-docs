@@ -17,7 +17,7 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: javascript
-  ms.custom: 2020Aug21Redesign
+  ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
   - title: New to Azure?
     linkLists:
@@ -26,9 +26,9 @@ landingContent:
           - text: Azure Fundamentals
             url: /learn/paths/azure-fundamentals/
           - text: Set up development environment
-            url: configure-local-development-environment.md
+            url: core/configure-local-development-environment.md
           - text: Authenticate to client library
-            url: node-sdk-azure-authenticate.md
+            url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
   - title: Hosting
@@ -40,13 +40,13 @@ landingContent:
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
-            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
+            url: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
           - text: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
           - text: Full-stack (serverless APIs & front-end)
-            url: node-howto-create-static-site-jamstack.md
+            url: how-to/create-static-site.md
   - title: Serverless functions
     linkLists:
       - linkListType: tutorial
@@ -56,7 +56,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Write serverless code
-            url: node-howto-write-serverless-code.md
+            url: how-to/develop-serverless-apps.md
   - title: Data
     linkLists:
       - linkListType: quickstart
@@ -80,7 +80,7 @@ landingContent:
           - text: Speech to text
             url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
           - text: Translate text
-            url: /azure/cognitive-services/translator/quickstart-translate?pivots=programming-language-javascript
+            url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
   - title: Security, Messaging, and Logs

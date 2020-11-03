@@ -1,9 +1,9 @@
 ---
 title: Make changes to the app code and redeploy to Azure
-description: Tutorial part 6, make changes and redeploy
-ms.topic: conceptual
+description: Tutorial part 6, Azure CLI make changes and redeploy
+ms.topic: tutorial
 ms.date: 09/24/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Part 6 Make changes and redeploy

@@ -1,7 +1,7 @@
 ---
 title: Deploy apps to Azure App Service from Visual Studio Code
-description: Tutorial part 3, deploy the website
-ms.topic: conceptual
+description: Node.js Tutorial part 3, deploy the website
+ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: devx-track-js
 ---
@@ -18,7 +18,7 @@ In this step, you deploy your Node.js app to Azure using Git deploy through the 
     code .
     ```
 
-1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **+** to initialize a local Git repository:
+1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **Initialize Repository** to initialize a local Git repository:
 
     ![Initialize git repository](media/deploy-azure/git-init.png)
 

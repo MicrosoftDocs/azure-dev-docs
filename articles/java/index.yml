@@ -181,6 +181,9 @@ tools:
     - title: Maven
       imageSrc: https://docs.microsoft.com/media/logos/logo_maven.svg
       url: https://github.com/Microsoft/azure-maven-plugins#readme
+    - title: Gradle
+      imageSrc: https://docs.microsoft.com/media/logos/logo-gradle-elephant-icon-gradient-primary.svg
+      url: https://github.com/Microsoft/azure-gradle-plugins#readme
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       url: /cli/azure

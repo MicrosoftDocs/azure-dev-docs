@@ -22,8 +22,6 @@ In this article, you learn how to:
 > [!NOTE]
 > The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -320,11 +318,7 @@ In Cloud Shell, do the following steps:
    }
    ```
 
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set.
 
@@ -340,11 +334,7 @@ In Cloud Shell, do the following steps:
     - nginx
    ```
 
-1. Save the file and exit the vi editor by entering the following command:
-
-     ```bash
-     :wq
-     ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Open the `variables.tf` configuration file.
 
@@ -352,7 +342,7 @@ In Cloud Shell, do the following steps:
     code variables.tf
     ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Customize the deployment by pasting the following code to the end of the file:
 
@@ -390,10 +380,6 @@ In Cloud Shell, do the following steps:
     terraform apply
     ```
 
-    The output of the command should be similar to the following screenshot:
-
-    ![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
-
 1. Open a browser and connect to the FQDN that was returned by the command.
 
     ![Results of browsing to FQDN](./media/create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
@@ -411,7 +397,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    code vmss.tf
    ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Paste the following code to the end of the file:
 
@@ -474,6 +460,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
     tags = var.tags
    }
    ```
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 1. Open the `output.tf` configuration file.
 
@@ -481,7 +468,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    code output.tf
    ```
 
-1. Go to the end of the file and enter append mode by selecting the A key.
+1. Go to the end of the file.
 
 1. Paste the following code to the end of the file to display the hostname of the jumpbox when the deployment is complete:
 
@@ -499,12 +486,9 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    terraform apply
    ```
 
-Once the deployment has completed, the content of the resource group resembles that shown in the following screenshot:
+**Notes**:
 
-![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
-
-> [!NOTE]
-> The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
+- The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 
 ## Environment cleanup
 
@@ -515,6 +499,8 @@ terraform destroy
 ```
 
 The destruction process can take several minutes to complete.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

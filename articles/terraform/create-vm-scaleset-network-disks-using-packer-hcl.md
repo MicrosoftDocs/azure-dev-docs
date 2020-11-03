@@ -20,8 +20,6 @@ In this article, you learn how to:
 > * Create and deploy a virtual machine scale set by using the custom image.
 > * Create and deploy a jumpbox.
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
-
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -324,12 +322,7 @@ Deploy the additional resources in Azure:
 terraform apply 
 ```
 
-The content of the resource group looks like the following image:
-
-![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
-
-Open a browser and connect to the fully qualified domain name that was returned by the command. 
-
+Open a browser and connect to the fully qualified domain name that was returned by the command.
 
 ## Add a jumpbox to the existing network 
 
@@ -429,12 +422,9 @@ Deploy the jumpbox.
 terraform apply 
 ```
 
-After the deployment has completed, the content of the resource group looks like the following image:
+**Notes**:
 
-![Terraform virtual machine scale set resource group](./media/create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
-
-> [!NOTE]
-> Sign-in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Sign in with SSH to access the VMs.
+- Log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the VMs.
 
 ## Clean up the environment
 
@@ -445,6 +435,8 @@ terraform destroy
 ```
 
 Enter *yes* when you're asked to confirm the deletion of the resources. The destruction process can take a few minutes to complete.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

@@ -1,0 +1,60 @@
+---
+title: Deploy JavaScript apps to Azure
+description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
+ms.topic: how-to
+ms.date: 10/28/2020
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
+---
+
+# Deploy and host your Node.js apps on Azure
+
+Hosting options and deployment scenarios include several services and tools for Azure. Azure has many options for hosting and many tools to help you move your app from a local or cloud repository to Azure. 
+
+## Choose a hosting provider from Azure
+
+Hosting your client, server, or background task app on Azure comes in a variety of solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview.md). 
+
+| Service | Suggested for |
+|--|--|
+|[App service](/azure/app-service/overview.md) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
+|[Static Web apps](/azure/static-web-apps/)|Host your static client app (such as Angular, Vue, React). Optionally add serverless functions endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
+|[Functions](/azure/azure-functions/)|Host your serverless application endpoints.|
+|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
+|[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
+|[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
+|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage.md) Linux VM images in the Azure Marketplace.|
+|[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
+
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute.md) module on Microsoft Learn.
+
+## Choose your deployment process for Azure
+
+Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
+
+Common methods of moving files to the Azure cloud are listed in the following table.
+
+| Method | Details |
+|--|--|
+|[GitHub Actions](/azure/app-service/deploy-github-actions.md?tabs=applevel)|Use this for automated or triggered continuous deployments.|
+|[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Use this for manual, testing, or seldom deployments. Requires that you have the extension for the service installed locally.|
+|[Azure CLI](../tutorial-vscode-azure-cli-node-04.md)|Use this for manual or seldom deployments. Requires that you have the extension for the service installed locally.|
+
+Other deployment methods may exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
+* [From ZIP file](/azure/app-service/deploy-zip.md)
+* [With FTP](/azure/app-service/deploy-ftp.md)
+* [Dropbox or OneDrive](/app-service/deploy-content-sync.md)
+* [Local Git](/azure/app-service/deploy-local-git.md)
+
+## Verify your deployment with your HTTP endpoint
+
+To verify your deployment, access your HTTP endpoint. The HTTP endpoint is visible on all services on the **Overview** page. 
+
+### View HTTP endpoint in Azure portal
+
+View your HTTP endpoint from the service's Overview page on the Azure portal. 
+
+:::image type="content" source="../media/howto-deploy/azure-portal-hosting-url.png" alt-text="View your HTTP endpoint from the service's Overview page on the Azure portal.":::
+
+## Next steps
+
+* [Deploy with containers](deploy-containers.md)
