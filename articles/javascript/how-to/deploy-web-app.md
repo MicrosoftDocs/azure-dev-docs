@@ -12,20 +12,20 @@ Hosting options and deployment scenarios include several services and tools for 
 
 ## Choose a hosting provider from Azure
 
-Hosting your client, server, or background task app on Azure comes in a variety of solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview.md). 
+Hosting your client, server, or background task app on Azure comes in a variety of solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview). 
 
 | Service | Suggested for |
 |--|--|
-|[App service](/azure/app-service/overview.md) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
+|[App service](/azure/app-service/overview) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
 |[Static Web apps](/azure/static-web-apps/)|Host your static client app (such as Angular, Vue, React). Optionally add serverless functions endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
 |[Functions](/azure/azure-functions/)|Host your serverless application endpoints.|
-|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
+|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
 |[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
-|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage.md) Linux VM images in the Azure Marketplace.|
+|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
 |[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
 
-For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute.md) module on Microsoft Learn.
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
 
 ## Choose your deployment process for Azure
 
@@ -35,15 +35,15 @@ Common methods of moving files to the Azure cloud are listed in the following ta
 
 | Method | Details |
 |--|--|
-|[GitHub Actions](/azure/app-service/deploy-github-actions.md?tabs=applevel)|Use this for automated or triggered continuous deployments.|
+|[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)|Use this for automated or triggered continuous deployments.|
 |[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Use this for manual, testing, or seldom deployments. Requires that you have the extension for the service installed locally.|
 |[Azure CLI](../tutorial-vscode-azure-cli-node-04.md)|Use this for manual or seldom deployments. Requires that you have the extension for the service installed locally.|
 
 Other deployment methods may exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
-* [From ZIP file](/azure/app-service/deploy-zip.md)
-* [With FTP](/azure/app-service/deploy-ftp.md)
-* [Dropbox or OneDrive](/app-service/deploy-content-sync.md)
-* [Local Git](/azure/app-service/deploy-local-git.md)
+* [From ZIP file](/azure/app-service/deploy-zip)
+* [With FTP](/azure/app-service/deploy-ftp)
+* [Dropbox or OneDrive](/app-service/deploy-content-sync)
+* [Local Git](/azure/app-service/deploy-local-git)
 
 ## Verify your deployment with your HTTP endpoint
 
