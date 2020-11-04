@@ -14,7 +14,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](/app-s
 > [!TIP]
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
-## Set up your initial environment
+## 1. Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
@@ -60,7 +60,7 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Clone the sample
+## 2. Clone the sample
 
 Clone the sample repository using the following command and navigate into the sample folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
@@ -78,7 +78,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Run the sample
+## 3. Run the sample
 
 1. Make sure you're in the *python-docs-hello-world* folder. 
 
@@ -105,7 +105,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Deploy the sample
+## 4. Deploy the sample
 
 Deploy the code in your local folder (*python-docs-hello-world*) using the `az webapp up` command:
 
@@ -128,7 +128,7 @@ The command may take a few minutes to complete. While running, it provides messa
 
 [!include [az webapp up command note](includes/app-service-web-az-webapp-up-note.md)]
 
-## Browse to the app
+## 5. Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It takes a few moments to start the app initially.
 
@@ -140,7 +140,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Redeploy updates
+## 6. Redeploy updates
 
 In this section, you make a small code change and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
 
@@ -170,7 +170,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 > [!TIP]
 > Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## Stream logs
+## 7. Stream logs
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
@@ -190,7 +190,7 @@ To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Manage the Azure app
+## 8. Manage the Azure app
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
 
@@ -208,7 +208,7 @@ The App Service menu provides different pages for configuring your app.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Clean up resources
+## 9. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location. If you use an App Service SKU other than the free F1 tier, these resources incur ongoing costs (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
