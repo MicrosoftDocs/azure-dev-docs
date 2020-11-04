@@ -85,7 +85,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 
 1. Create a virtual environment and install dependencies:
 
-    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
+    [!include [virtual environment setup](includes/app-service-quickstart-python-venv.md)]
 
     If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder.
 
@@ -127,7 +127,7 @@ The command may take a few minutes to complete. While running, it provides messa
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+[!include [az webapp up command note](includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
