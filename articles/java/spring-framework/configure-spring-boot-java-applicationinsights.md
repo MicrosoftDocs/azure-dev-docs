@@ -312,7 +312,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ07]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/traces_details.png
 [AZ08]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/AppMap.png
 
-[SI01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.png
+[SI01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/spring_start.PNG
 [SI02]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/After_extract.png
 
 [RE01]: media/configure-spring-boot-starter-java-app-with-azure-application-insights/applicationproperties_loc.png
