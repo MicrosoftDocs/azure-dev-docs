@@ -1,0 +1,25 @@
+### YamlMime:Landing
+
+# On-page H1/lede
+title: Developer Experience Labs
+summary: |
+  Explore the power of Azure through Quickstarts, How-To Guides, codes samples and more.
+
+# Search & metrics meta
+metadata:
+  title: Developer Experience Labs
+  description: ...
+  author: diberry
+  ms.author: diberry
+  ms.date: 09/21/2020
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.technology: azure
+  ms.service: multiple
+landingContent:
+  - title: Tutorial lab
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Python flask single page
+            url: quickstart-python-flask.md

@@ -1,0 +1,7 @@
+- name: Developer Experience Labs
+  href: index.yml
+  items:
+  - name: Tutorial format labs
+    items:
+    - name: Python flask single page
+      href: quickstart-python-flask.md
