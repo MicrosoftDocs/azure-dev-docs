@@ -6,6 +6,8 @@ ms.topic: include
 ms.custom: devx-track-javascript
 ---
 
+You've completed the tutorial. Learn more about programming with Python on Azure.
+
 > [!div class="nextstepaction"]
 > [Configure Python app](/app-service/configure-language-python)
 
