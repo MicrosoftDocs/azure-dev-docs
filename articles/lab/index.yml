@@ -22,4 +22,6 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Python flask single page
-            url: quickstart-python-flask.md
+            url: quickstart-python-flask.md?preview=tutorialFeedback
+          - text: Python flask multi-page
+            url: quickstart-python-flask-multipage.yml?preview=tutorialFeedback
