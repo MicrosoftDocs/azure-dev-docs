@@ -135,6 +135,9 @@
         ],
         "javascript/tutorial/**/*": [
           "enable_tutorial_feedback"
+        ],
+        "lab/**/*": [
+          "enable_tutorial_feedback"
         ]
       },
       "ms.topic": {

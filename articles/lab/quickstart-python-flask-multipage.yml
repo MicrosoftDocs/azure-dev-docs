@@ -1,0 +1,52 @@
+### YamlMime:Tutorial
+title:  Quickstart: Create a Python app in Azure App Service on Linux
+metadata:
+  title:  Quickstart: Create a Python app
+  description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
+  audience: Developer
+  level: Beginner
+  displayType: one-column
+  ms.date: 09/22/2020
+  ms.topic: tutorial
+items:
+- durationInMinutes: 2
+  content: |
+    [!INCLUDE [Tutorial introduction](includes/python-tutorial-multipage/intro.md)]
+- title: Set up your initial environment
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Set up your initial environment](includes/python-tutorial-multipage/set-up-environment.md)]
+- title: Clone the sample
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Clone the sample](includes/python-tutorial-multipage/clone-sample.md)]
+- title: Run the sample
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Run the sample](includes/python-tutorial-multipage/run-sample.md)]
+- title: Deploy the sample
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Deploy the sample](includes/python-tutorial-multipage/deploy-sample.md)]
+- title: Browse to the app
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Browse to the app](includes/python-tutorial-multipage/browse-app.md)]
+- title:  Redeploy updates
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [ Redeploy updates](includes/python-tutorial-multipage/redeploy-updates.md)]
+- title:  Stream logs
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Stream logs](includes/python-tutorial-multipage/stream-logs.md)]
+- title:  Manage the Azure app
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Manage the Azure app](includes/python-tutorial-multipage/manage-app.md)]
+- title: Clean up resources
+  durationInMinutes: 2
+  content: |
+    [!INCLUDE [Clean up resources](includes/python-tutorial-multipage/clean-up-resources.md)]
+- content: |
+    [!INCLUDE [Completed tutorial](includes/python-tutorial-multipage/next-steps.md)]
