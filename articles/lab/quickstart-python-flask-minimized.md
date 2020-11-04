@@ -6,6 +6,27 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 robots: noindex
 ---
+<style>
+details > summary {
+  
+  position: relative;
+  line-height: 1.3;
+  padding-left: 1.875rem;
+  margin-left: -1.875rem;
+  font-size: calc(1.325rem + .9vw);
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: var(--theme-text);
+}
+</style>
 
 # Quickstart: Create a Python app in Azure App Service on Linux
 
