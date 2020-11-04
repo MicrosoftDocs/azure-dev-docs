@@ -15,7 +15,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](/app-s
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 <details>
-<summary style="font-size: calc(1.325rem + .9vw);font-weight: 600;margin-top: 32px;margin-bottom: 12px;margin: 0;padding:0;display: block;margin-block-start: 0.83em;margin-block-end: 0.83em;margin-inline-start: 0px;margin-inline-end: 0px;color: var(--theme-text);">Set up your initial environment</summary>
+<summary >## Set up your initial environment</summary>
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
