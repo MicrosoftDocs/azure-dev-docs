@@ -1,7 +1,7 @@
 ### YamlMime:Tutorial
-title:  Quickstart: Create a Python app in Azure App Service on Linux
+title: "Quickstart: Create a Python app in Azure App Service on Linux"
 metadata:
-  title:  Quickstart: Create a Python app
+  title: "Quickstart: Create a Python app"
   description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
   audience: Developer
   level: Beginner

@@ -6,4 +6,4 @@
     - name: Python flask single page
       href: quickstart-python-flask.md?preview=tutorialFeedback
     - name: Python flask multi-page
-      href: quickstart-python-flask-multipage.md?preview=tutorialFeedback
+      href: quickstart-python-flask-multipage.yml?preview=tutorialFeedback
