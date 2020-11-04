@@ -13,39 +13,39 @@ items:
 - durationInMinutes: 2
   content: |
     [!INCLUDE [Tutorial introduction](includes/python-tutorial-multipage/intro.md)]
-- title: Set up your initial environment
+- title: 1. Set up your initial environment
   durationInMinutes: 2
   content: |
     [!INCLUDE [Set up your initial environment](includes/python-tutorial-multipage/set-up-environment.md)]
-- title: Clone the sample
+- title: 2. Clone the sample
   durationInMinutes: 2
   content: |
     [!INCLUDE [Clone the sample](includes/python-tutorial-multipage/clone-sample.md)]
-- title: Run the sample
+- title: 3. Run the sample
   durationInMinutes: 2
   content: |
     [!INCLUDE [Run the sample](includes/python-tutorial-multipage/run-sample.md)]
-- title: Deploy the sample
+- title: 4. Deploy the sample
   durationInMinutes: 2
   content: |
     [!INCLUDE [Deploy the sample](includes/python-tutorial-multipage/deploy-sample.md)]
-- title: Browse to the app
+- title: 5. Browse to the app
   durationInMinutes: 2
   content: |
     [!INCLUDE [Browse to the app](includes/python-tutorial-multipage/browse-app.md)]
-- title:  Redeploy updates
+- title:  6. Redeploy updates
   durationInMinutes: 2
   content: |
     [!INCLUDE [ Redeploy updates](includes/python-tutorial-multipage/redeploy-updates.md)]
-- title:  Stream logs
+- title:  7. Stream logs
   durationInMinutes: 2
   content: |
     [!INCLUDE [Stream logs](includes/python-tutorial-multipage/stream-logs.md)]
-- title:  Manage the Azure app
+- title:  8. Manage the Azure app
   durationInMinutes: 2
   content: |
     [!INCLUDE [Manage the Azure app](includes/python-tutorial-multipage/manage-app.md)]
-- title: Clean up resources
+- title: 9. Clean up resources
   durationInMinutes: 2
   content: |
     [!INCLUDE [Clean up resources](includes/python-tutorial-multipage/clean-up-resources.md)]

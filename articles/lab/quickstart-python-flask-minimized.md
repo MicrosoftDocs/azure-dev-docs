@@ -15,7 +15,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](/app-s
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 <details>
-<summary >Set up your initial environment</summary>
+<summary >1. Set up your initial environment</summary>
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
@@ -64,7 +64,7 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 </details>
 
 <details>
-<summary>Clone the sample</summary>
+<summary>2. Clone the sample</summary>
 
 Clone the sample repository using the following command and navigate into the sample folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
@@ -85,7 +85,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 </details>
 
 <details>
-<summary>Run the sample</summary>
+<summary>3. Run the sample</summary>
 
 1. Make sure you're in the *python-docs-hello-world* folder. 
 
@@ -115,7 +115,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 </details>
 
 <details>
-<summary>Deploy the sample</summary>
+<summary>4. Deploy the sample</summary>
 
 Deploy the code in your local folder (*python-docs-hello-world*) using the `az webapp up` command:
 
@@ -140,7 +140,7 @@ The command may take a few minutes to complete. While running, it provides messa
 </details>
 
 <details>
-<summary>Browse to the app</summary>
+<summary>5. Browse to the app</summary>
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It takes a few moments to start the app initially.
 
@@ -154,7 +154,7 @@ The Python sample code is running a Linux container in App Service using a built
 </details>
 
 <details>
-<summary>Redeploy updates</summary>
+<summary>6. Redeploy updates</summary>
 
 In this section, you make a small code change and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
 
@@ -186,7 +186,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 </details>
 
 <details>
-<summary>Stream logs</summary>
+<summary>7. Stream logs</summary>
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
@@ -208,7 +208,7 @@ To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 </details>
 
 <details>
-<summary>Manage the Azure app</summary>
+<summary>8. Manage the Azure app</summary>
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
 
@@ -228,7 +228,7 @@ The App Service menu provides different pages for configuring your app.
 </details>
 
 <details>
-<summary>Clean up resources</summary>
+<summary>9. Clean up resources</summary>
 
 In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location. If you use an App Service SKU other than the free F1 tier, these resources incur ongoing costs (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
