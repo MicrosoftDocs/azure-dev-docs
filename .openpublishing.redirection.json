@@ -2,19 +2,19 @@
   "redirections": [
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-03.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/node-sdk-logging.md",
@@ -34,11 +34,11 @@
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
