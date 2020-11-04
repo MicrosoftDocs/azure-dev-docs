@@ -84,7 +84,8 @@
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
-        "javascript/**/*.md": "diberry"
+        "javascript/**/*.md": "diberry",
+        "lab/**/*.md": "diberry"
       },
       "manager": {
         "**/*.md": "barbkess",
@@ -101,7 +102,8 @@
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
-        "javascript/**/*.md": "diberry"
+        "javascript/**/*.md": "diberry",
+        "lab/**/*.md": "diberry"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -116,14 +118,16 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform"
+        "terraform/**/*.md": "terraform",
+        "lab/**/*.md": "azure"
       },
       
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
-        "terraform/**/*.yml" : "Terraform"
+        "terraform/**/*.yml" : "Terraform",
+        "lab/**/*.md": "Dev Experience Lab"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
