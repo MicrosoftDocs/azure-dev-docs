@@ -3,10 +3,10 @@ title: Create the Azure Functions application from Visual Studio Code
 description: Serverless Tutorial part 2, create the Azure Functions app
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Create the local Functions app
+# 2. Create the local Functions app
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-01.md)
 

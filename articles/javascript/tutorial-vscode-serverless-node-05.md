@@ -3,10 +3,10 @@ title: Clean up resource after deploying the Azure Functions application
 description: "Serverless - To clean up the resources, right-click the Function App in the Azure: Functions explorer and select Delete Function App."
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Tutorial for Azure Functions: Clean up resources
+# 5. Tutorial for Azure Functions: Clean up resources
 
 [Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-04.md)
 

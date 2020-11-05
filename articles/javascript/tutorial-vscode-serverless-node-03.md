@@ -3,10 +3,10 @@ title: Run the Azure Functions application locally in Visual Studio Code
 description: Serverless Tutorial part 3, run the app locally to test it.
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Test the function locally
+# 3. Test the function locally
 
 [Previous step: Create the Functions app](tutorial-vscode-serverless-node-02.md)
 

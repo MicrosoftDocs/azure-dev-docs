@@ -3,10 +3,10 @@ title: Deploy the Azure Functions application from Visual Studio Code
 description: Serverless Tutorial part 4, deploy the Functions app to the cloud.
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Deploy the Functions app
+# 4. Deploy the Functions app
 
 [Previous step: Test the function locally](tutorial-vscode-serverless-node-03.md)
 

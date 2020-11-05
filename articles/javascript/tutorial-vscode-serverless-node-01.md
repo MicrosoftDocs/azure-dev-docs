@@ -2,13 +2,18 @@
 title: Deploy Azure Functions in Node.js from Visual Studio Code
 description: Serverless Tutorial part 1, introduction and prerequisites.
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.custom: devx-track-js
+ms.date: 11/05/2020
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Deploy Azure Functions from Visual Studio Code
+# 1. Deploy Azure Functions from Visual Studio Code
 
-In this tutorial, you use Visual Studio Code and the Azure Functions extension to create and deploy an Azure Functions application written with JavaScript.
+In this tutorial, you use Visual Studio Code and the Azure Functions extension to create a JavaScript-based Functions app locally, then deploy the application to a remote Azure Functions resource:
+
+Tasks include:
+* Install required software
+* Sign in to Azure with Azure CLI
+
 
 ## Walkthrough video
 
@@ -16,7 +21,11 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-Visual-Studio-Code/player]
 
-## Prerequisites
+## Create or use existing Azure Subscription 
+
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-browser-upload-storage-blob&mktingSource=vscode-tutorial-storage-extension).
+
+## Set up development environment
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
