@@ -20,9 +20,9 @@ Azure resources are created within a subscription, which is the billing unit for
 |--|--|
 |Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
 |Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](), or JavaScript.|
-|[Across multiple subscriptions](/azure/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
+|Across multiple subscriptions|If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.|
 
-## One-time installation
+## One-time software installation
 
 To develop using an Azure resource with JavaScript on your local workstation, you need the following installed once:
 
@@ -48,21 +48,6 @@ The following common local workstation installations are recommended to help wit
 ## One-time configuration of service principal
 
 Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a [service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to concretely define the access scope to the immediate development need.
-
-Steps to **create service principal**: 
-
-1. Sign in to Azure with your individual user account.
-1. Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
-1. Log off Azure with your individual user account.
-
-Steps to **use service principal**:
-
-1. Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
-1. Create Azure resources with service principal and use the service.
-
-Learn [how to create a service principal](node-sdk-azure-authenticate-principal.md). Remember to save the response from the creation step. You will need the response's `appId`, `tenant`, and `password` values to use the service principal.
-
-[Create Azure resources with your service principal](/cli/azure/create-an-azure-service-principal-azure-cli#create-a-resource-using-service-principal).
 
 ## Working with Azure and the Azure SDK client libraries
 
