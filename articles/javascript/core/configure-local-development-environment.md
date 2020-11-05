@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -18,57 +18,43 @@ Azure resources are created within a subscription, which is the billing unit for
 
 |Type|Description|
 |--|--|
-|[Trial subscription](https://azure.microsoft.com/free/cognitive-services)|Create a _free_ trial subscription.|
-|[Existing subscription](https://portal.azure.com)|If you already have a subscription, access your existing subscription in the Azure portal, the Azure CLI, or JavaScript.|
-|[Across multiple subscriptions](/azure/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
+|Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
+|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](), or JavaScript.|
+|Across multiple subscriptions|If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.|
 
-## One-time installation
+## One-time software installation
 
 To develop using an Azure resource with JavaScript on your local workstation, you need the following installed once:
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
+|[Node.js 8.x](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully. |
 | NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
-|[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
 
 > [!CAUTION]
 > If you plan to use an Azure resource as the runtime environment for your code, such as an Azure web app or an Azure Container Instance, you should verify your local Node.js development environment matches the Azure resource runtime you plan to use.
 
-### Optional local installations
+### Recommended local installations
 
-The following common local workstation installations are optional to help with your local development tasks.
+The following common local workstation installations are recommended to help with your local development tasks.
 
 |Name/Installer|Description|
 |--|--|
+|[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on an extension-per-service basis.|
 | [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use a different source control tool if you prefer. |
+
 
 ## One-time configuration of service principal
 
 Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a [service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to concretely define the access scope to the immediate development need.
 
-Steps to **create service principal**: 
-
-1. Sign in to Azure with your individual user account.
-1. Create a _named_ service principal with specific scope. Because most quickstarts ask you to create an Azure resource, the service principal needs to have the ability to create resources.
-1. Log off Azure with your individual user account.
-
-Steps to **use service principal**:
-
-1. Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
-1. Create Azure resources with service principal and use the service.
-
-Learn [how to create a service principal](node-sdk-azure-authenticate-principal.md). Remember to save the response from the creation step. You will need the response's `appId`, `tenant`, and `password` values to use the service principal.
-
-[Create Azure resources with your service principal](/cli/azure/create-an-azure-service-principal-azure-cli#create-a-resource-using-service-principal).
-
-## Steps for each new development project setup
+## Working with Azure and the Azure SDK client libraries
 
 The [Azure SDK libraries](../azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
 
 Each new project using Azure should:
-- Create Azure resources and save associated keys or configuration to a [secure location]().
+- Create Azure resources and save associated keys or configuration to a [secure location](#securing-configuration-information).
 - Install Azure SDK libraries from NPM or Yarn. 
 - Use Service Principal to authenticate to Azure SDKs, then use configuration information to access specific services.
 
