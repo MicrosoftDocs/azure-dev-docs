@@ -16,11 +16,11 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-Visual-Studio-Code/player]
 
-[!INCLUDE [azure subscription](includes/environment-subscription-h2.md)]
+[!INCLUDE [azure subscription](../includes/environment-subscription-h2.md)]
 
 ## Install software to local workstation
 
-[!INCLUDE [Node.js version text as bullet list](includes/environment-nodejs-bullet-list.md)]
+[!INCLUDE [Node.js version text as bullet list](../includes/environment-nodejs-bullet-list.md)]
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
@@ -28,9 +28,9 @@ Watch this video for a complete walkthrough of the content in this article.
 
 ## Sign in to Azure in Visual Studio Code
 
-[!INCLUDE [azure-sign-in](includes/azure-sign-in-vscode.md)]
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in-vscode.md)]
 
-[!INCLUDE [Install Azure Functions core tools](includes/environment-functions-core-tools.md)]
+[!INCLUDE [Install Azure Functions core tools](../includes/environment-functions-core-tools.md)]
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

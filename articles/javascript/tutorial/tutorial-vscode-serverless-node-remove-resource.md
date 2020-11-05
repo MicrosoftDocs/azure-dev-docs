@@ -16,9 +16,9 @@ The Functions App you created includes resources that can incur minimal costs (r
 
 You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
-[!INCLUDE [Next steps for using VSCode extensions](includes/tutorial-next-steps-vscode-extensions.md)]
+[!INCLUDE [Next steps for using VSCode extensions](../includes/tutorial-next-steps-vscode-extensions.md)]
 
-[!INCLUDE [Next steps for using JavaScript on Azure](includes/tutorial-next-steps-js-azure.md)]
+[!INCLUDE [Next steps for using JavaScript on Azure](../includes/tutorial-next-steps-js-azure.md)]
 
 ## Learn more about Azure Functions
 

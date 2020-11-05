@@ -23,21 +23,21 @@ In this step, you create a local Azure Functions (serverless) application that c
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Functions** explorer, then select the **Create Project** command:
 
-    ![Create a local Function app in VS Code](media/functions-extension/create-function-app-project.png)
+    ![Create a local Function app in VS Code](../media/functions-extension/create-function-app-project.png)
 
 1. At the first two prompts, select the current folder, then select **JavaScript** for the language.
 
 1. At the prompt, **Select a template for your project's first function**, select **HTTP Trigger**:
 
-    ![Select the trigger for the Function](media/functions-extension/create-function-choose-template.png)
+    ![Select the trigger for the Function](../media/functions-extension/create-function-choose-template.png)
 
 1. At the prompt, **Provide a function name**, enter **HttpExample**. (Avoid using the default "HttpTrigger" name because it's the same as the trigger, which can be confusing.)
 
-    ![Entering a function name](media/functions-extension/create-function-name.png)
+    ![Entering a function name](../media/functions-extension/create-function-name.png)
 
 1. At the prompt, **Authorization Level**, select **Anonymous**:
 
-    ![ At the prompt, `Authorization Level`, select `Anonymous`](media/functions-extension/create-function-anonymous-auth.png)
+    ![ At the prompt, `Authorization Level`, select `Anonymous`](../media/functions-extension/create-function-anonymous-auth.png)
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
 
@@ -47,7 +47,7 @@ In this step, you create a local Azure Functions (serverless) application that c
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-    ![Result of creating a function app](media/functions-extension/create-function-app-results.png)
+    ![Result of creating a function app](../media/functions-extension/create-function-app-results.png)
 
 ## HTTP function JavaScript template code
 
