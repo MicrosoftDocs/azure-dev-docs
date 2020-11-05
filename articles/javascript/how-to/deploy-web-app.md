@@ -42,7 +42,7 @@ Common methods of moving files to the Azure cloud are listed in the following ta
 Other deployment methods may exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
 * [From ZIP file](/azure/app-service/deploy-zip)
 * [With FTP](/azure/app-service/deploy-ftp)
-* [Dropbox or OneDrive](/azure/app-service/deploy-content-sync)
+* [Dropbox or OneDrive](https://docs.microsoft.com/azure/app-service/deploy-content-sync)
 * [Local Git](/azure/app-service/deploy-local-git)
 
 ## Verify your deployment with your HTTP endpoint
