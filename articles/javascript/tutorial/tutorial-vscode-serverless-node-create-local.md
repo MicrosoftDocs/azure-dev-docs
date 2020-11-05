@@ -8,7 +8,7 @@ ms.custom: devx-track-js, contperfq2
 
 # Create the local Functions app with the Visual Studio Code _Functions_ extension
 
-[Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-01.md)
+[Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-install.md)
 
 In this step, you create a local Azure Functions (serverless) application that contains a function that uses an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings). An Azure Functions app can contain many Functions with [different triggers](/azure/azure-functions/functions-triggers-bindings). The HTTP trigger specifically handles incoming HTTP traffic.
 
@@ -72,4 +72,4 @@ module.exports = async function (context, req) {
 Each Function [trigger](/azure-functions/functions-triggers-bindings?tabs=csharp) type provides a template function for you, to allow you to immediately focus on the code for your application. When moving from Express.js to Azure Functions, [review the necessary changes](/azure-functions/shift-expressjs?tabs=javascript) for your application. 
 
 > [!div class="nextstepaction"]
-> [I created the Functions app](tutorial-vscode-serverless-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)
+> [I created the Functions app](tutorial-vscode-serverless-node-test-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)

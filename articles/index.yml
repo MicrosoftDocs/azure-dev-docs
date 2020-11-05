@@ -52,7 +52,7 @@ productDirectory:
           text: Develop a static website
         - url: ./javascript/tutorial-vscode-azure-app-service-node-01.md?tabs=bash
           text: Deploy to Azure App Service
-        - url: ./javascript/tutorial-vscode-serverless-node-01.md?tabs=bash
+        - url: ./javascript/tutorial-vscode-serverless-node-install.md?tabs=bash
           text: Deploy a serverless application
         - url: ./javascript/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers

@@ -33,4 +33,4 @@ Watch this video for a complete walkthrough of the content in this article.
 [!INCLUDE [Install Azure Functions core tools](../includes/environment-functions-core-tools.md)]
 
 > [!div class="nextstepaction"]
-> [I installed the prerequisites](tutorial-vscode-serverless-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
+> [I installed the prerequisites](tutorial-vscode-serverless-node-create-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

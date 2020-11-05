@@ -8,7 +8,7 @@ ms.custom: devx-track-js, contperfq2
 
 # Clean up Azure resources for Azure Functions tutorial
 
-[Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-04.md)
+[Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-deploy-hosting.md)
 
 ## Remove remote Azure resources
 

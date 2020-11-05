@@ -52,7 +52,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Develop and deploy
-            url: tutorial-vscode-serverless-node-01.md
+            url: tutorial-vscode-serverless-node-install.md
       - linkListType: how-to-guide
         links:
           - text: Write serverless code

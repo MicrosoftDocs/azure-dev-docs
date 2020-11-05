@@ -39,4 +39,4 @@ When you created the Functions app, the Azure Functions extension automatically 
 > If you encounter an execution policy error in this process, try uninstalling `azure-functions-core-tools@3` with npm, then reinstall the package in the terminal with elevated permissions.
 
 > [!div class="nextstepaction"]
-> [I ran the Function app locally](tutorial-vscode-serverless-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
+> [I ran the Function app locally](tutorial-vscode-serverless-node-deploy-hosting.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
