@@ -727,7 +727,7 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
 Next, you deploy the app to the API App to make it accessible from all devices.  
 
 >[!NOTE]
-> The following steps are specific to [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) on Windows, the publishing flow will be different. See [Publish to Azure App Service on Windows](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019#publish-to-azure-app-service-on-windows).
+> The following steps are specific to [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) on Windows, the publishing flow will be different. See [Publish to Azure App Service on Windows](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019#publish-to-azure-app-service-on-windows).
 
 1. Change your configuration from **Debug** to **Release** if you haven't already done so.
 

@@ -386,7 +386,7 @@ When using CLI-based authentication, the application is authorized for any and a
 
 #### CLI-based authentication with azure.core libraries
 
-When using [Azure libraries that are updated for azure.core](/azure/developer/python/azure-sdk-library-package-index#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
+When using [Azure libraries that are updated for azure.core](./azure-sdk-library-package-index.md#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
 
 ```python
 from azure.identity import AzureCliCredential

@@ -7,5 +7,5 @@
 
 [1]: https://github.com/Azure-Samples/sql-database-java-manage-db/
 [2]: https://github.com/Azure-Samples/sql-database-java-manage-sql-databases-across-regions
-[3]: ../java-sdk-manage-sql-elastic-pools.md
+[3]: ../index.yml
 [4]: /azure/sql-database/sql-database-connect-query-java
