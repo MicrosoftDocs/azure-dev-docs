@@ -18,8 +18,8 @@ Azure resources are created within a subscription, which is the billing unit for
 
 |Type|Description|
 |--|--|
-|[Trial subscription](https://azure.microsoft.com/free/cognitive-services)|Create a _free_ trial subscription.|
-|[Existing subscription](https://portal.azure.com)|If you already have a subscription, access your existing subscription in the Azure portal, the Azure CLI, or JavaScript.|
+|Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
+|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](), or JavaScript.|
 |[Across multiple subscriptions](/azure/governance/management-groups/create-management-group-javascript)|If you need to manage multiple subscriptions, learn how to create a management group with JavaScript.|
 
 ## One-time installation
@@ -28,7 +28,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
+|[Node.js 8.x](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. The Azure SDK generally requires a minimum version of Node.js of 8.x.|
 | NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 
@@ -41,7 +41,7 @@ The following common local workstation installations are recommended to help wit
 
 |Name/Installer|Description|
 |--|--|
-|[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on a extension-per-service basis.|
+|[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on an extension-per-service basis.|
 | [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use a different source control tool if you prefer. |
 
 
