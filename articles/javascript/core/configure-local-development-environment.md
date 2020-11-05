@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -28,8 +28,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. |
-| NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
+[!INCLUDE [Node.js](../includes/environment-nodejs-table-row-2-columns.md)]
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 |[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)|You can use the Azure CLI to recreate and manage Azure resources from a command line, terminal, or bash shell.|
 

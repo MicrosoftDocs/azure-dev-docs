@@ -1,14 +1,18 @@
 ---
-title: Deploy the Azure Functions application from Visual Studio Code
-description: Serverless Tutorial part 4, deploy the Functions app to the cloud.
+title: Deploy the Functions app to Azure cloud
+description: Use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-js
+ms.custom: devx-track-js, contperfq2
 ---
 
-# Deploy the Functions app
+# Deploy the Functions app to Azure cloud
 
 [Previous step: Test the function locally](tutorial-vscode-serverless-node-03.md)
+
+In this step, use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
+
+## Use Visual Studio Code extension to deploy to hosting environment
 
 1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the blue up arrow to deploy your app:
 
@@ -29,6 +33,8 @@ ms.custom: devx-track-js
 1. The VS Code **Output** panel for **Azure Functions** shows progress:
 
     ![VS Code output panel showing deployment progres](media/functions-extension/deploy-progress.png)
+
+## Verify Functions app is publicly available with browser
 
 1. Once deployment is completed, go to the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
 
