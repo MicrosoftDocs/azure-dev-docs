@@ -27,7 +27,7 @@ The following table links to Java source you can use to create and configure web
 | [Connect a web app to a storage account][5] | Create an Azure storage account and add the storage account connection string to the app settings. |
 | [Connect a web app to a SQL database][6] | Create a web app and SQL database, and then add the SQL database connection string to the app settings. |
 
-[1]: java-sdk-configure-webapp-sources.md
+[1]: ./index.yml
 [2]: https://github.com/Azure-Samples/app-service-java-manage-staging-and-production-slots-for-web-apps/
 [3]: https://github.com/Azure-Samples/app-service-java-manage-web-apps-with-custom-domains/
 [4]: https://github.com/Azure-Samples/app-service-java-scale-web-apps-on-linux

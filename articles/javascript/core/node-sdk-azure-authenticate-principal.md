@@ -2,7 +2,7 @@
 title: Create an Azure service principal with Node.js
 description: Learn how to use service principal authentication on Azure with Node.js and JavaScript
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-js
 ---
 
@@ -61,4 +61,9 @@ You'll then be able to access your account via the CLI.
 
 ## Using the service principal
 
-Once you have a service principal, follow the [Authenticate with the Azure management modules for JavaScript](./node-sdk-azure-authenticate.md) topic for how to a create credentials object which you can use to authenticate your client with Azure Active Directory.
+Once you have a service principal, you can:
+
+1. Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
+1. Create Azure resources with service principal and use the service.
+
+Follow the [Authenticate with the Azure management modules for JavaScript](./node-sdk-azure-authenticate.md) topic for how to a create credentials object which you can use to authenticate your client with Azure Active Directory.

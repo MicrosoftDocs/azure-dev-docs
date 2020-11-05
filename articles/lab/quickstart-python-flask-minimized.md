@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Python app'
+title: 'Quickstart: Create a Python app on Linux'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
@@ -7,7 +7,7 @@ ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-a
 robots: noindex
 ---
 
-# Quickstart: Create a Python app in Azure App Service on Linux
+# Quickstart: Create a Python app in Azure App Service 
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](/app-service/overview#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
@@ -16,6 +16,8 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](/app-s
 
 <details>
 <summary >1. Set up your initial environment</summary>
+
+<a name="set-up"></a>
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
@@ -123,7 +125,7 @@ Deploy the code in your local folder (*python-docs-hello-world*) using the `az w
 az webapp up --sku F1 --name <app-name>
 ```
 
-- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up).
 - If the `webapp` command isn't recognized, because that your Azure CLI version is 2.0.80 or higher. If not, [install the latest version](/cli/azure/install-azure-cli).
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
