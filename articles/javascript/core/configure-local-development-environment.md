@@ -28,7 +28,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js 8.x](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. The Azure SDK generally requires a minimum version of Node.js of 8.x.|
+|[Node.js 8.x](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully. |
 | NPM (installed with modern versions of Node.js) or [Yarn](https://yarnpkg.com/)|Package manager to install Azure SDK libraries.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 
