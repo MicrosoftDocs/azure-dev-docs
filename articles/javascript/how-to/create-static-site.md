@@ -29,7 +29,7 @@ The following articles also explain further details:
   
 - **Serverless APIs**:
 
-  - Start with [Deploy Azure Functions from Visual Studio Code](../tutorial-vscode-serverless-node-01.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
+  - Start with [Deploy Azure Functions from Visual Studio Code](../tutorial/tutorial-vscode-serverless-node-install.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
   - When you complete the article, you have an Azure Functions project (a folder) that contains a subfolder named for the function, which is the same as its HTTP endpoint. That function folder contains an *index.js* file with the code.
   - You can modify that function as needed, and also add more functions to the project, then deploy them again to Azure where they are publicly available.
   - For additional resources on serverless development, see [How to write serverless Node.js code on Azure](develop-serverless-apps.md)
