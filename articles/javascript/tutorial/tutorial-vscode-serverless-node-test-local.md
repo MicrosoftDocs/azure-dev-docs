@@ -6,7 +6,7 @@ ms.date: 09/23/2019
 ms.custom: devx-track-js, contperfq2
 ---
 
-# Test the function locally
+# 3. Test the function locally
 
 [Previous step: Create the Functions app](tutorial-vscode-serverless-node-create-local.md)
 

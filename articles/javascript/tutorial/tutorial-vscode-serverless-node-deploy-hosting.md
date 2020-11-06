@@ -6,7 +6,7 @@ ms.date: 09/23/2019
 ms.custom: devx-track-js, contperfq2
 ---
 
-# Deploy the Functions app to Azure cloud
+# 4. Deploy the Functions app to Azure cloud
 
 [Previous step: Test the function locally](tutorial-vscode-serverless-node-test-local.md)
 

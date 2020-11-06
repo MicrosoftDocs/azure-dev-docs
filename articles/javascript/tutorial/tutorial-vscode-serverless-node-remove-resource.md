@@ -6,7 +6,7 @@ ms.date: 08/31/2020
 ms.custom: devx-track-js, contperfq2
 ---
 
-# Clean up Azure resources for Azure Functions tutorial
+# 5. Clean up Azure resources for Azure Functions tutorial
 
 [Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-deploy-hosting.md)
 

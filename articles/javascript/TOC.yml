@@ -19,15 +19,15 @@
         href: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
       - name: Create and deploy serverless Functions
         items:
-          - name: Introduction and prerequisites
+          - name: 1. Introduction and prerequisites
             href: tutorial/tutorial-vscode-serverless-node-install.md
-          - name: Create the Functions app
+          - name: 2. Create the Functions app
             href: tutorial/tutorial-vscode-serverless-node-create-local.md
-          - name: Test the function locally
+          - name: 3. Test the function locally
             href: tutorial/tutorial-vscode-serverless-node-test-local.md
-          - name: Deploy the Functions app
+          - name: 4. Deploy the Functions app
             href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
-          - name: Clean up resources
+          - name: 5. Clean up resources
             href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
       - name: Deploy Node.js to App Service with VS Code
         items:

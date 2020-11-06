@@ -6,7 +6,7 @@ ms.date: 11/05/2020
 ms.custom: devx-track-js, contperfq2
 ---
 
-# Create the local Functions app with the Visual Studio Code _Functions_ extension
+# 2. Create the local Functions app with the Visual Studio Code _Functions_ extension
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-install.md)
 
