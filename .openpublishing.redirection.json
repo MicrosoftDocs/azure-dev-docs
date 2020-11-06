@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-install"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-create-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-test-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource"
+    },
+    {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
