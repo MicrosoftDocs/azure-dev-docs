@@ -26,18 +26,17 @@ This topic shows you three techniques for creating a service principal.
 Follow the steps outlined in the topic,
 [Use portal to create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), to generate the service principal.
 
+[!INCLUDE [Install Azure CLI as H2](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
+
+## Sign in to Azure with Azure CLI
+
+[!INCLUDE [Sign in ](../../azure-cli/includes/interactive-login.md)]
+
 ## Create a service principal using the Azure CLI 2.0
 
 Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli2) can be accomplished with the following steps:
 
-1. Download the [Azure CLI 2.0](/cli/azure/install-az-cli2).
-
-2. Open a terminal window and type the command `az login` to start the login process.
-
-3. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in). 
-You'll then be able to access your account via the CLI.
-
-4. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
+1. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
 
 	```shell
 	{
@@ -55,9 +54,8 @@ You'll then be able to access your account via the CLI.
 	}
     ```
 
-5. Follow the steps outlined in the topic,
+1. Follow the steps outlined in the topic,
 [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), to generate the service principal. The JSON object in the output will contain the information you would need to authenticate with Azure.
-
 
 ## Using the service principal
 
