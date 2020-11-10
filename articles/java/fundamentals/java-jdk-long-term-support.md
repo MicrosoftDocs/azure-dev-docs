@@ -25,8 +25,8 @@ For those releases designated as medium-term support (MTS), we provide Productio
 
 ## Medium-term support (MTS)
 
-* [Java 13](https://www.azul.com/downloads/azure-only/zulu/?version=java-13)
 * [Java 15](https://www.azul.com/downloads/azure-only/zulu/?version=java-15)
+* [Java 13](https://www.azul.com/downloads/azure-only/zulu/?version=java-13)
 
 ## What is the Zulu OpenJDK for Azure?
 
