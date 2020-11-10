@@ -36,3 +36,6 @@ In this tutorial, create a Linux virtual machine (VM) from a cloud-init configur
 
 
 [!INCLUDE [Azure CLI](azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
+
+
+[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
