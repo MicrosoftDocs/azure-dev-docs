@@ -23,7 +23,7 @@ This topic shows you three techniques for creating a service principal.
 
 ## Create a service principal using the Azure CLI 2.0
 
-[!INCLUDE [## Prerequisite: Install the Azure CLI](~/../azure-docs/includes/azure-cli-prerequisites-include.md)]
+To perform the following steps, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli). 
 
 1. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
 
