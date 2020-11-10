@@ -17,6 +17,12 @@
         href: tutorial/browser-file-upload.yml?preview=tutorialFeedback
       - name: Express.js with MongoDB
         href: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
+      - name: Deploy app to Linux virtual machine
+        items: 
+          - name: 1. Introduction and prerequisites
+            href: tutorial/nodejs-virtual-machine-vm/introduction.md
+          - name: 2. Create virtual machine
+            href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
       - name: Create and deploy serverless Functions
         items:
           - name: 1. Introduction and prerequisites
