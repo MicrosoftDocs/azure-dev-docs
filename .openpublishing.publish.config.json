@@ -43,6 +43,12 @@
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
       "branch": "main"
+    },
+    {
+      "path_to_root": "azure-docs",
+      "url": "https://github.com/MicrosoftDocs/azure-docs",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {},
