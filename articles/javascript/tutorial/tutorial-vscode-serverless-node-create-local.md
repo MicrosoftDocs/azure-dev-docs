@@ -69,7 +69,7 @@ module.exports = async function (context, req) {
 }
 ```
 
-Each Function [trigger](/azure-functions/functions-triggers-bindings?tabs=csharp) type provides a template function for you, to allow you to immediately focus on the code for your application. When moving from Express.js to Azure Functions, [review the necessary changes](/azure-functions/shift-expressjs?tabs=javascript) for your application. 
+Each Function [trigger](/azure/azure-functions/functions-triggers-bindings?tabs=csharp) type provides a template function for you, to allow you to immediately focus on the code for your application. When moving from Express.js to Azure Functions, [review the necessary changes](/azure/azure-functions/shift-expressjs?tabs=javascript) for your application. 
 
 > [!div class="nextstepaction"]
 > [I created the Functions app](tutorial-vscode-serverless-node-test-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)

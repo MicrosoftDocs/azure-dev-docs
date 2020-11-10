@@ -9,10 +9,10 @@ ms.custom: devx-track-javascript
 You've completed the tutorial. Learn more about programming with Python on Azure.
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/app-service/configure-language-python)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/active-directory/develop/quickstart-v2-python-webapp)
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/app-service/tutorial-custom-container)
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
