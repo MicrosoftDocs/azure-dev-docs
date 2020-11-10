@@ -21,12 +21,8 @@ This topic shows you three techniques for creating a service principal.
 
 [!INCLUDE [chrome-note](../includes/chrome-note.md)]
 
-## Create a service principal using the Azure portal
 
-Follow the steps outlined in the topic,
-[Use portal to create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), to generate the service principal.
-
-[!INCLUDE [Install Azure CLI as H2](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [## Prerequisite: Install the Azure CLI](~/../azure-docs/includes/azure-cli-prerequisites-include.md)]
 
 ## Sign in to Azure with Azure CLI
 
