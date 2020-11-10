@@ -45,8 +45,8 @@
       "branch": "main"
     },
     {
-      "path_to_root": "azure-docs-pr",
-      "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
+      "path_to_root": "azure-docs",
+      "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "master"
     },
     {
