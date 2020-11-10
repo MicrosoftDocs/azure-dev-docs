@@ -21,15 +21,9 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 
 If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-node-git&mktingSource=vscode-tutorial-node-git) for a free account with $200 in Azure credits to try out any combination of services.
 
-### Sign in to the Azure CLI
+### Sign in to Azure with Azure CLI
 
-Once the Azure CLI is installed, run the following command from a terminal or command prompt:
-
-```azurecli
-az login
-```
-
-The command opens a browser window in which you're asked to log into Azure. Once you're logged in, the terminal window shows JSON output with details of your subscription.
+[!INCLUDE [Sign in ](../../azure-cli/includes/interactive-login.md)]
 
 ## Check npm version
 
