@@ -15,11 +15,7 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 - An [Azure subscription](#azure-subscription).
 - [Node.js and npm 6.x or higher](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
-- The [Azure CLI](/cli/azure/install-azure-cli).
-
-You can alternately use the [Azure CLI extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli), which provides syntax colorization, IntelliSense (completions) and snippets when writing Azure CLI scripts.
-
-A second alternative is the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can use from within Visual Studio Code using the the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Azure subscription
 
