@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ### Sign in to Azure with Azure CLI
 
-[!INCLUDE [Sign in ](../../azure-cli/includes/interactive-login.md)]
+[!INCLUDE [Sign in ](../azure-cli/includes/interactive-login.md)]
 
 ## Check npm version
 
