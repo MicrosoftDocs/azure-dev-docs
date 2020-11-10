@@ -14,28 +14,10 @@ In this tutorial, create a Linux virtual machine (VM) from a cloud-init configur
 
 ## Install software
 
-[!INCLUDE [Azure CLI](~/azure-docs/../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-
-
-
+[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
 - Terminal with SSH
-
-
-
-[!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 
 ## Sign in to Azure CLI
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../../azure-cli/includes/interactive-login.md)]
 
-
-
-[!INCLUDE [Azure CLI](~/azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
-
-
-
-[!INCLUDE [Azure CLI](azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
-
-
-[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
