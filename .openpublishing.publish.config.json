@@ -48,6 +48,11 @@
       "path_to_root": "azure-docs-pr",
       "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
       "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {},
