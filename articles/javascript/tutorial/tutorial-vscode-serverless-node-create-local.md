@@ -51,7 +51,7 @@ In this step, you create a local Azure Functions (serverless) application that c
 
 ## HTTP function JavaScript template code
 
-The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parmeter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
+The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parmaeter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
 
 ```javascript
 module.exports = async function (context, req) {
