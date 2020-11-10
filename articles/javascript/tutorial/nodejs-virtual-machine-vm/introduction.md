@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Linux virtual machines with Express.js app using Azure CLI
 
-In this tutorial, create a Linux virtual machine (VM) from a cloud-init configuration. The cloud-init configuration includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can view the public Express.js server app in a web browser.
+In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can view the public Express.js server app in a web browser.
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
 
@@ -19,5 +19,5 @@ In this tutorial, create a Linux virtual machine (VM) from a cloud-init configur
 
 ## Sign in to Azure CLI
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../../azure-cli/includes/interactive-login.md)]
+[!INCLUDE [Sign in to Azure CLI](../../../azure-cli/includes/interactive-login.md)]
 
