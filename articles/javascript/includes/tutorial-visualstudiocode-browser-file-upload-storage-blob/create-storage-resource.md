@@ -118,9 +118,9 @@ Your SAS token and storage account name are set in the `src/uploadToBlob.ts` fil
 ## Want to know more? 
 
 Other ways to configuration your Storage account include:
-* SAS Token with [PowerShell](/azure/powershell/module/azure.storage/new-azurestorageblobsastoken)
+* SAS Token with [PowerShell](/powershell/module/azure.storage/new-azurestorageblobsastoken)
 * SAS Token with Portal
-* CORS with [PowerShell](/azure/powershell/module/azure.storage/set-azurestoragecorsrule)
+* CORS with [PowerShell](/powershell/module/azure.storage/set-azurestoragecorsrule)
 * CORS with Portal
 
-Learn more about [Shared Access Signatures](/azure/storage/common/storage-sas-overview.md).
+Learn more about [Shared Access Signatures](/azure/storage/common/storage-sas-overview).

@@ -4,7 +4,7 @@ description: Learn how to create a Jenkins virtual machine in Azure that pulls f
 keywords: jenkins, azure, devops, pipeline, cicd, docker
 ms.topic: tutorial
 ms.date: 03/27/2017
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Create a Jenkins pipeline using GitHub and Docker

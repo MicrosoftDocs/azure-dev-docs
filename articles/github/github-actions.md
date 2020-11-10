@@ -6,6 +6,7 @@ ms.author: ushan
 ms.topic: conceptual
 ms.service: azure 
 ms.date: 05/05/2020
+ms.custom: github-actions-azure
 ---
 
 
@@ -100,6 +101,9 @@ Configure App settings and Connection Strings using the actions:
 - [Setup Helm](https://github.com/Azure/setup-helm)  
 - [Kubernetes bake](https://github.com/Azure/k8s-bake)  
 
+## Create Virtual Machine Images
+- [Build Azure Virtual Machine Images](https://github.com/Azure/build-vm-image)
+
 ## Train and Deploy a machine learning model 
 
 - [Login](https://github.com/Azure/aml-workspace) 
@@ -114,6 +118,7 @@ Configure App settings and Connection Strings using the actions:
 ## Azure Policy Integrations
 
 - [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan) 
+- [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
 
 ## Trigger a run in Azure Pipelines
 

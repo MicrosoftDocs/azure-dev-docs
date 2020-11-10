@@ -1,18 +1,12 @@
 ---
-title: Deploy Deno apps to Azure App Service from Visual Studio Code
-description: Deno Tutorial part 3, deploy the website
+title: include file 3
+description: include file 3
 ms.topic: tutorial
 ms.date: 06/01/2020
 ms.custom: devx-track-js
 ---
 
-# Deploy Deno apps to Azure
-
-[Previous step: Create the app](tutorial-visual-studio-code-azure-app-service-deno-02.md)
-
 In this step, you deploy your Deno app to Azure using Azure CLI.
-
-## Deploy the app to Azure
 
 1. Create a resource group named `deno-quickstart` with the following command:
 
@@ -68,13 +62,3 @@ Now the AppService is configured and it's waiting to receive the app from the pr
     ```
 
 1. Test the application by going to `https://<your-app-name>.azurewebsites.net`
-
-> [!div class="nextstepaction"]
-> [My site is on Azure](tutorial-visual-studio-code-azure-app-service-deno-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=deploy-app)
-
-## Next steps
-
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
-
-> [!div class="nextstepaction"]
-> [I'm done](node-howto-deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=deno-deployment-azureappservice&step=clean-up-resources)
