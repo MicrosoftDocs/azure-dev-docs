@@ -9,7 +9,7 @@ robots: noindex
 
 # Quickstart: Create a Python app in Azure App Service 
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](/app-service/overview#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+In this quickstart, you deploy a Python web app to [App Service on Linux](/azure/app-service/overview#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 > [!TIP]
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
@@ -80,7 +80,7 @@ Then navigate into that folder:
 cd python-docs-hello-world
 ```
 
-The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](/app-service/configure-language-python#container-startup-process).
+The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](/azure/app-service/configure-language-python#container-startup-process).
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -251,11 +251,11 @@ The `--no-wait` argument allows the command to return before the operation is co
 <summary>Next steps</summary>
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/app-service/configure-language-python)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/active-directory/develop/quickstart-v2-python-webapp)
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/app-service/tutorial-custom-container)
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
 </details>
