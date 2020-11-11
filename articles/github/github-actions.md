@@ -10,7 +10,7 @@ ms.custom: github-actions-azure
 ---
 
 
-# What is GitHub Actions for Azure?
+# What is GitHub Actions for Azure
 
 [GitHub Actions](https://help.github.com/articles/about-github-actions) helps you automate your software development workflows from within GitHub. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues.
 
@@ -60,3 +60,71 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 > [!div class="nextstepaction"]
 > [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
   
+
+## See more GitHub Actions
+
+### Deploy a Static Web app:
+- [Azure/static-web-apps-deploy](/azure/static-web-apps/getting-started?tabs=angular)
+
+
+Configure App settings and Connection Strings using the actions:
+
+- [Azure/appservice-settings](https://github.com/Azure/appservice-settings) 
+- [Azure App Service settings](https://github.com/Azure/appservice-settings)  
+
+### Deploy a serverless app
+
+- [Azure Functions](https://github.com/Azure/functions-action)  
+- [Azure Functions for Containers](https://github.com/Azure/webapps-container-deploy)  
+ 
+### Build and Deploy containerized apps
+
+- [Docker login](https://github.com/Azure/docker-login)  
+- [Deploy to Azure Container Instances](https://github.com/Azure/aci-deploy)
+- [Container scanning action](https://github.com/Azure/container-scan)
+
+### Deploy to Kubernetes
+
+- [Kubectl tool installer](https://github.com/Azure/setup-kubectl)  
+- [Kubernetes set context](https://github.com/Azure/k8s-set-context)  
+- [AKS set context](https://github.com/Azure/aks-set-context)  
+- [Kubernetes create secret](https://github.com/Azure/k8s-create-secret)  
+- [Kubernetes deploy](https://github.com/Azure/k8s-deploy)  
+- [Setup Helm](https://github.com/Azure/setup-helm)  
+- [Kubernetes bake](https://github.com/Azure/k8s-bake)  
+
+### Create Virtual Machine Images
+- [Build Azure Virtual Machine Images](https://github.com/Azure/build-vm-image)
+
+### Train and Deploy a machine learning model 
+
+- [Login](https://github.com/Azure/aml-workspace) 
+- [Train](https://github.com/Azure/aml-run)
+- [Deploy Model](https://github.com/Azure/aml-deploy)
+
+### Deploy to databases
+
+- [Azure SQL database](https://github.com/Azure/sql-action)  
+- [Azure MySQL action](https://github.com/Azure/mysql-action)  
+
+### Azure Policy Integrations
+
+- [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan) 
+- [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
+
+### Trigger a run in Azure Pipelines
+
+- [Azure Pipelines](https://github.com/Azure/pipelines)  
+ 
+### Utility actions
+
+- [Variable substitution](https://github.com/Microsoft/variable-substitution) 
+
+
+### Additional resources
+
+The following GitHub resources are available to support using GitHub to deploy your apps to Azure.  
+
+- [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions)
+- [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
+- [Starter Action Workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)

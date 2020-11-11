@@ -2,7 +2,7 @@
 title: Create an Azure service principal with Node.js
 description: Learn how to use service principal authentication on Azure with Node.js and JavaScript
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-js
 ---
 
@@ -21,23 +21,11 @@ This topic shows you three techniques for creating a service principal.
 
 [!INCLUDE [chrome-note](../includes/chrome-note.md)]
 
-## Create a service principal using the Azure portal
-
-Follow the steps outlined in the topic,
-[Use portal to create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), to generate the service principal.
-
 ## Create a service principal using the Azure CLI 2.0
 
-Creating a service principal using the [Azure CLI 2.0](/cli/azure/install-az-cli2) can be accomplished with the following steps:
+To perform the following steps, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli). 
 
-1. Download the [Azure CLI 2.0](/cli/azure/install-az-cli2).
-
-2. Open a terminal window and type the command `az login` to start the login process.
-
-3. Calling `az login` results in a URL and a code. Browse to the specified URL, enter the code, and login with your Azure identity (this may happen automatically if you're already logged in). 
-You'll then be able to access your account via the CLI.
-
-4. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
+1. Get your subscription and tenant ID using the `az account list` command. You will need these when working with any of the Azure packages. The following shows an example of the output of this command:
 
 	```shell
 	{
@@ -55,10 +43,14 @@ You'll then be able to access your account via the CLI.
 	}
     ```
 
-5. Follow the steps outlined in the topic,
+1. Follow the steps outlined in the topic,
 [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), to generate the service principal. The JSON object in the output will contain the information you would need to authenticate with Azure.
-
 
 ## Using the service principal
 
-Once you have a service principal, follow the [Authenticate with the Azure management modules for JavaScript](./node-sdk-azure-authenticate.md) topic for how to a create credentials object which you can use to authenticate your client with Azure Active Directory.
+Once you have a service principal, you can:
+
+1. Authenticate to Azure programmatically with the service principal with a certificate, environment variables, or a `.json` file. 
+1. Create Azure resources with service principal and use the service.
+
+Follow the [Authenticate with the Azure management modules for JavaScript](./node-sdk-azure-authenticate.md) topic for how to a create credentials object which you can use to authenticate your client with Azure Active Directory.
