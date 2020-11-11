@@ -63,8 +63,8 @@ The `runcmd` has several tasks:
 
     ```azurecli
     az vm open-port \
-      --port 80 
-      --resource-group rg-demo-vm-eastus 
+      --port 80 \
+      --resource-group rg-demo-vm-eastus \
       --name demo-vm
     ```
 
