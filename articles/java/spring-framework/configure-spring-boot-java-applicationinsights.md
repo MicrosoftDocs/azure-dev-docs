@@ -36,8 +36,8 @@ Create an application with the following procedure.
    ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
-   > 1. Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*. 
-   > 1. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+   > * Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.vged.appinsights*. 
+   > * Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 1. Click the **Generate** button.
 
@@ -77,13 +77,13 @@ Configure the application using the following procedure.
 
 1. Locate the *POM.xml* file in the root directory of your app, and add the following dependency in its dependencies section.
 
-```XML
- <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-spring-boot-starter</artifactId>
-    <version>2.6.2</version>
-</dependency>
-```
+   ```XML
+    <dependency>
+       <groupId>com.microsoft.azure</groupId>
+       <artifactId>applicationinsights-spring-boot-starter</artifactId>
+       <version>2.6.2</version>
+   </dependency>
+   ```
 
 1. Locate the *application.properties* file in the *resources* directory of your app, or create the file if it does not already exist.
 
@@ -176,7 +176,7 @@ Configure the application using the following procedure.
 
    ![Data display on the Azure portal.][AZ05]
 
-Click on the **Application Map** tile to view high-level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Remember to set it.
+1. Click on the **Application Map** tile to view high-level components and their interaction with each other. This is a recommended place to get a high level overview of entire application. Each Spring Boot Microservice is recognized by the spring application name. Remember to set it.
 
    ![Application map display.][AZ08] 
 

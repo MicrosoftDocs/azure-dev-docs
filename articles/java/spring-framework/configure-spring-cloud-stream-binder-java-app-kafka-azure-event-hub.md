@@ -22,8 +22,8 @@ The following prerequisites are required in order to follow the steps in this ar
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!NOTE]
-> 1. Spring Boot version 2.0 or greater is required to complete the steps in this article.
-> 1. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+> * Spring Boot version 2.0 or greater is required to complete the steps in this article.
+> * Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 ## Create an Azure Event Hub using the Azure portal
 
