@@ -1,6 +1,6 @@
 ---
-title: Create Linux virtual machine
-description: Create an Azure Linux virtual machine with Azure CLI 
+title: Connect to virtual machine
+description: Use SSH to connect to your Linux virtual machine. 
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.custom: devx-track-js

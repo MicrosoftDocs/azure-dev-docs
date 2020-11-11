@@ -1,6 +1,6 @@
 ---
 title: Remove Linux virtual machine resource
-description: Create an Azure Linux virtual machine with Azure CLI 
+description: Clean up Azure resources by removing the resource group with an Azure CLI command. 
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.custom: devx-track-js
@@ -9,6 +9,8 @@ ms.custom: devx-track-js
 # 5. Clean up resources
 
 Once you have completed this tutorial, you need to remove the resource group, which includes all its resources to make sure you are not billed for any more usage. 
+
+## Remove all the resources by removing resource group
 
 In the same terminal, use the Azure CLI command to delete the resource group:
 

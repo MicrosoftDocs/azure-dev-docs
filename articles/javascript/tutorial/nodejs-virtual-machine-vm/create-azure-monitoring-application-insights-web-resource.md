@@ -1,6 +1,6 @@
 ---
 title: Create Azure Monitor resource
-description: 
+description: Create an Azure resource to collect your web app's log files to the Azure cloud. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses.
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.custom: devx-track-js
@@ -37,4 +37,4 @@ In this step of the tutorial, create an Azure resource to collect your web app's
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to virtual machine with SSH](connect-linux-virtual-ssh.md) 
+> [Connect to virtual machine with SSH](connect-linux-virtual-ssh-machine-ssh.md) 
