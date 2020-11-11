@@ -159,7 +159,7 @@ The following procedure creates a Spring boot application.
 
 1. Navigate to the *resources* directory of your Spring Boot app; for example:
 
-   ```bash
+   ```cmd
    cd C:\SpringBoot\eventhubs-sample\src\main\resources
    ```
 
@@ -373,7 +373,7 @@ Use the following procedures to build and test your application.
 
 1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
 
-   ```bash
+   ```cmd
     cd C:\SpringBoot\eventhubs-sample
    ```
    -or-
@@ -396,7 +396,7 @@ Use the following procedures to build and test your application.
    ```
    You should see "hello" posted to your application's logs. For example:
 
-   ```text
+   ```output
    2020-09-11 15:11:12.138  INFO 7616 --- [      elastic-4] c.contoso.eventhubs.sample.EventhubSink  : New message received: 'hello'
    2020-09-11 15:11:12.406  INFO 7616 --- [ctor-http-nio-1] c.contoso.eventhubs.sample.EventhubSink  : Message 'hello' successfully checkpointed
    ```
