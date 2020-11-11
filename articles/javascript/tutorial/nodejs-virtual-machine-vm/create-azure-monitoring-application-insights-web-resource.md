@@ -37,4 +37,4 @@ In this step of the tutorial, create an Azure resource to collect your web app's
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Install Application Insights client library and change code](connect-linux-virtual-ssh-install-client-library.md) 
+> [Connect to virtual machine with SSH](connect-linux-virtual-ssh.md) 

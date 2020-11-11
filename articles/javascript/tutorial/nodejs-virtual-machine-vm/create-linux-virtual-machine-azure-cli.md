@@ -40,8 +40,7 @@ The `runcmd` has several tasks:
 
     The cloud-init file is optional. You can accomplish all these commands from the SSH terminal if you would rather, further in the tutorial. 
 
-    :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" highlight="3,28":::
-
+    :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
 
 1. Create an Azure resource of a Linux virtual machine with the following Azure CLI command. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
 
@@ -84,4 +83,4 @@ The `runcmd` has several tasks:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to virtual machine with SSH](connect-linux-virtual-ssh.md) 
+> [Install Application Insights client library and change code](connect-linux-virtual-ssh-install-client-library.md) 
