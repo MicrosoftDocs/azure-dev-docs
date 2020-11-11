@@ -642,7 +642,7 @@ When no longer needed, use the [Azure portal](https://portal.azure.com/) to dele
 
 ## Next steps
 
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
+To learn more about Spring and Azure, continue to the next topic on the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Configure a Spring Boot Initializer app to use Application Insights](configure-spring-boot-java-applicationinsights.md)
+> [How to use the Spring Boot Starter for Azure Service Bus JMS](configure-spring-boot-starter-java-app-with-azure-service-bus.md)
