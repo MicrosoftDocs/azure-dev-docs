@@ -207,14 +207,14 @@ For every project, we recommend that you always create and activate a *virtual e
 
     # [cmd](#tab/cmd)
 
-    ```bash
+    ```cmd
     .venv\scripts\activate
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    source .venv/scripts/activate
+    source .venv/bin/activate
     ```
 
     ---
