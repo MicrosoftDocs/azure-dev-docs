@@ -73,12 +73,11 @@ The `runcmd` has several tasks:
     http://YOUR-PUBLIC-IP-ADDRESS
     ```
 
-    While you can and should eventually add a domain name to represent the public Ip address, that isn't part of this tutorial. The following image represents the web app, but your app will use a different Ip address.
-
+    While you can and should eventually add HTTPS and a domain name to represent the public Ip address, that isn't part of this tutorial. The following image represents the web app, but your app will use a different Ip address.
 
     :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
 
-1. Leave the terminal open, you will use it in the next step.
+1. Leave the terminal open, you will use it through out the tutorial.
 
 ## Next step
 

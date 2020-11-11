@@ -25,9 +25,7 @@ In this step of the tutorial, create an Azure resource to collect your web app's
     az monitor app-insights component create \
       --app demoWebAppMonitor \
       --location eastus \
-      --resource-group rg-demo-vm-eastus \
-      --kind web \
-      --application-type web
+      --resource-group rg-demo-vm-eastus
     ```
 
     In the results, find and copy the `instrumentationKey`. You will need that later. 
