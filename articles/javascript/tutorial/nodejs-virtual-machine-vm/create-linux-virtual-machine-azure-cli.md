@@ -22,7 +22,7 @@ If you can create resources on more than one subscription, use the `--subscripti
 
     ```azurecli
     az group create \
-        --location eastus 
+        --location eastus \
         --name rg-demo-vm-eastus 
     ```
 
@@ -31,49 +31,19 @@ If you can create resources on more than one subscription, use the `--subscripti
 This tutorial uses a cloud-init configuration file to create both the NGINX proxy server and the Express.js server. NGINX is used to forward the Express.js 3000 to the public port 80. 
 
 The `runcmd` has several tasks:
-* downloads Node.js, and installs it
-* clones a sample Express.js repository
-* installs the Express.js dependencies
-* starts the Express.js app
+* download Node.js, and install it
+* clone the sample Express.js repository
+* install the Express.js dependencies
+* start the Express.js app
 
-1. Create a local file named `cloud-init-github.txt` to define the cloud-init definition and save the following contents to the file or you can [save the sample file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The file needs to exist in the same folder as the terminal path for your Azure CLI commands.
+1. Create a local file named `cloud-init-github.txt` and save the following contents to the file or you can [save the repository's file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The file needs to exist in the same folder as the terminal path for your Azure CLI commands.
 
     The cloud-init file is optional. You can accomplish all these commands from the SSH terminal if you would rather, further in the tutorial. 
 
-    ```yml
-    #cloud-config
-    package_upgrade: true
-    packages:
-      - nginx
-    write_files:
-      - owner: www-data:www-data
-        path: /etc/nginx/sites-available/default
-        content: |
-          server {
-            listen 80;
-            location / {
-              proxy_pass http://localhost:3000;
-              proxy_http_version 1.1;
-              proxy_set_header Upgrade $http_upgrade;
-              proxy_set_header Connection keep-alive;
-              proxy_set_header Host $host;
-              proxy_cache_bypass $http_upgrade;
-            }
-          }
-    runcmd:
-      #install Node.js
-      - curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -;sudo apt-get install 
-      - service nginx restart
-      - cd "/home"
-      #clone GitHub Repo
-      - git clone https://github.com/Azure-Samples/js-e2e-vm
-      - cd "js-e2e-vm"
-      #Start app
-      - npm init
-      - npm start
-    ```
+    :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" highlight="3,28":::
 
-1. Create an Azure resource of a Linux virtual machine with the following Azure CLI command. The command adds the local cloud-init and generates the SSH keys for you. 
+
+1. Create an Azure resource of a Linux virtual machine with the following Azure CLI command. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \
@@ -87,8 +57,9 @@ The `runcmd` has several tasks:
     ```
 
     The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is used later. 
+     
 
-1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command:
+1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command so the web app is publicly available:
 
     ```azurecli
     az vm open-port --port 80 --resource-group rg-demo-vm-eastus --name demo-vm
