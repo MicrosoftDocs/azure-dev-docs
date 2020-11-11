@@ -8,13 +8,13 @@ ms.custom: devx-track-js
 
 # 4. Connect to Linux virtual machine using SSH
 
-In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells today. If you are using a modern Mac, Windows, or Linux operating system, the terminal-based client SSH should already be installed. 
+In this section of the tutorial, use SSH in a terminal to connect to your virtual machine. [SSH](https://www.ssh.com/ssh/) is a common tool provided with many modern shells, including the Azure Cloud Shell. 
 
 ## Connect with SSH and change web app
 
-Use the same terminal or shell window on your local computer as with previous steps. 
+Use the same terminal or shell window as with previous steps. 
 
-1. Connect to your remote virtual machine with the following command. This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. 
+1. Connect to your remote virtual machine with the following command. This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. If you are asked if you want to continue connecting, answer `yes`. When the connection is complete, the terminal prompt should change to indicate the remote virtual machine. 
 
     Replace `YOUR-PUBLIC-IP-ADDRESS` with your own virtual machine's public Ip. 
 
@@ -22,21 +22,13 @@ Use the same terminal or shell window on your local computer as with previous st
     ssh azureuser@YOUR-PUBLIC-IP-ADDRESS
     ``` 
 
-    If you are asked if you want to continue connecting, answer `yes`.
-
-    When the connection is complete, the terminal prompt should change to indicate the remote virtual machine. 
-
-1. Use the following command to understand where you are on the virtual machine:
+1. Use the following command to understand where you are on the virtual machine. You should be at the azureuser root: `/home/azureuser`. 
 
     ```bash
     pwd
     ```
 
-    You should be at the azureuser root: `/home/azureuser`.
-
-    Your web app is in the subdirectory, `myapp`. 
-
-1. Change to the `myapp` directory and list the contents:
+1. Your web app is in the subdirectory, `myapp`. Change to the `myapp` directory and list the contents:
 
     ```bash
     cd myapp && ls -l

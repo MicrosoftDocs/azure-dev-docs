@@ -8,28 +8,31 @@ ms.custom: devx-track-js
 
 # 1. Create Linux virtual machine with Express.js app using Azure CLI
 
-In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can view the public Express.js server app in a web browser.
+In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.
 
 This tutorial includes the following tasks:
 
 * Sign in to Azure with Azure CLI
-* Create Azure Linux VM with Azure CLi
+* Create Azure Linux VM resource with Azure CLi
     * Open public port 80
-    * Install Express.js web app from a GitHub repository
+    * Install demo Express.js web app from a GitHub repository
     * Install web app dependencies
     * Start web app
-* Verify web app is publicly available in browser
+* Create Azure Monitoring resource with Azure CLi
+    * Connect to VM with SSH
+    * Install Azure SDK client library with npm
+    * Add Application Insights client library code to create custom tracing
+* View web app from browser
+    * Request `/trace` route to generate custom tracing in Application Insights log
+    * View count of traces collect in log with Azure CLI
+    * View list of traces with Azure portal
+* Review resources with Azure CLI
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
 
-## Install software
+## Prerequisites
 
 [!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
-- Terminal with SSH
-
-## Sign in to Azure CLI
-
-[!INCLUDE [Sign in to Azure CLI](../../../azure-cli/includes/interactive-login.md)]
 
 ## Next step
 

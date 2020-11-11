@@ -35,4 +35,4 @@ In this step of the tutorial, create an Azure resource to collect your web app's
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to virtual machine with SSH](connect-linux-virtual-ssh-machine-ssh.md) 
+> [Connect to virtual machine with SSH](connect-linux-virtual-machine-ssh.md) 
