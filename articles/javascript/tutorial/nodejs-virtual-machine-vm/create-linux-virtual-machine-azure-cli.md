@@ -62,7 +62,10 @@ The `runcmd` has several tasks:
 1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command so the web app is publicly available:
 
     ```azurecli
-    az vm open-port --port 80 --resource-group rg-demo-vm-eastus --name demo-vm
+    az vm open-port \
+      --port 80 
+      --resource-group rg-demo-vm-eastus 
+      --name demo-vm
     ```
 
 1. Use the public IP address in a web browser to make sure the virtual machine is available and running. Change the URL to use the value from `publicIpAddress`.
@@ -75,6 +78,8 @@ The `runcmd` has several tasks:
 
 
     :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
+
+1. Leave the terminal open, you will use it in the next step.
 
 ## Next step
 

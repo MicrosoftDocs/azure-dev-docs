@@ -13,7 +13,7 @@ Once you have completed this tutorial, you need to remove the resource group, wh
 In the same terminal, use the Azure CLI command to delete the resource group:
 
 ```azurecli
-az group delete --name rg-demo-vm-eastus
+az group delete --name rg-demo-vm-eastus -y
 ```
 
 This command takes a few minutes. 
