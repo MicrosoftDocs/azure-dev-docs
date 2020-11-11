@@ -55,28 +55,13 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
 
-### Deploy a Static Web app
-
-* [Azure/static-web-apps-deploy](/azure/static-web-apps/getting-started?tabs=angular)
-
-### Configure app settings and connection strings
-
-* [Azure/appservice-settings](https://github.com/Azure/appservice-settings)
+* [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
-
-### Deploy a serverless app
-
-* [Azure Functions](https://github.com/Azure/functions-action)  
-* [Azure Functions for Containers](https://github.com/Azure/webapps-container-deploy)  
-
-### Build and Deploy containerized apps
-
+* [Deploy to Azure Functions](https://github.com/Azure/functions-action)  
+* [Deploy to Azure Functions for Containers](https://github.com/Azure/webapps-container-deploy)  
 * [Docker login](https://github.com/Azure/docker-login)  
 * [Deploy to Azure Container Instances](https://github.com/Azure/aci-deploy)
 * [Container scanning action](https://github.com/Azure/container-scan)
-
-### Deploy to Kubernetes
-
 * [Kubectl tool installer](https://github.com/Azure/setup-kubectl)  
 * [Kubernetes set context](https://github.com/Azure/k8s-set-context)  
 * [AKS set context](https://github.com/Azure/aks-set-context)  
@@ -84,33 +69,15 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 * [Kubernetes deploy](https://github.com/Azure/k8s-deploy)  
 * [Setup Helm](https://github.com/Azure/setup-helm)  
 * [Kubernetes bake](https://github.com/Azure/k8s-bake)  
-
-### Create Virtual Machine Images
-
-* [Build Azure Virtual Machine Images](https://github.com/Azure/build-vm-image)
-
-### Train and Deploy a machine learning model
-
-* [Login](https://github.com/Azure/aml-workspace)
-* [Train](https://github.com/Azure/aml-run)
-* [Deploy Model](https://github.com/Azure/aml-deploy)
-
-### Deploy to databases
-
-* [Azure SQL database](https://github.com/Azure/sql-action)  
-* [Azure MySQL action](https://github.com/Azure/mysql-action)  
-
-### Azure Policy Integrations
-
+* [Build Azure virtual machine images](https://github.com/Azure/build-vm-image)
+* [Machine learning login](https://github.com/Azure/aml-workspace)
+* [Machine learning training](https://github.com/Azure/aml-run)
+* [Machine learning - deploy model](https://github.com/Azure/aml-deploy)
+* [Deploy to Azure SQL database](https://github.com/Azure/sql-action)  
+* [Deploy to Azure MySQL action](https://github.com/Azure/mysql-action)  
 * [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan)
 * [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
-
-### Trigger a run in Azure Pipelines
-
-* [Azure Pipelines](https://github.com/Azure/pipelines)  
-
-### Utility actions
-
+* [Trigger an Azure Pipelines run](https://github.com/Azure/pipelines)  
 * [Variable substitution](https://github.com/Microsoft/variable-substitution)
 
 ## Next Steps
