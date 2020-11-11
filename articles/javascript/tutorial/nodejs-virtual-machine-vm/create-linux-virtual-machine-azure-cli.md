@@ -38,6 +38,8 @@ The `runcmd` has several tasks:
 
 1. Create a local file named `cloud-init-github.txt` to define the cloud-init definition and save the following contents to the file or you can [save the sample file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The file needs to exist in the same folder as the terminal path for your Azure CLI commands.
 
+    The cloud-init file is optional. You can accomplish all these commands from the SSH terminal if you would rather, further in the tutorial. 
+
     ```yml
     #cloud-config
     package_upgrade: true
@@ -106,4 +108,4 @@ The `runcmd` has several tasks:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create Linux virtual machine](create-linux-virtual-machine-azure-cli.md) 
+> [Connect to virtual machine with SSH](connect-linux-virtual-ssh.md) 
