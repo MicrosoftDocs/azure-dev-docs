@@ -165,6 +165,10 @@
       "redirect_url": "/azure/developer/java/spring-framework"
     },
     {
+      "source_path": "articles/java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
+    },
+    {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
       "redirect_url": "/azure/developer/java/tookit-for-intellij"
     },
