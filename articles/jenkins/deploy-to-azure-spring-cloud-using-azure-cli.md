@@ -33,9 +33,9 @@ We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sam
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
 
 * [Git](https://git-scm.com/)
-* [JDK 8](/java/azure/jdk/?view=azure-java-stable)
+* [JDK 8](/java/azure/jdk)
 * [Maven 3.0 or above](https://maven.apache.org/download.cgi)
-* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 or higher
+* [Azure CLI installed](/cli/azure/install-azure-cli), version 2.0.67 or higher
 
 1. Install the Azure Spring Cloud extension:
 
