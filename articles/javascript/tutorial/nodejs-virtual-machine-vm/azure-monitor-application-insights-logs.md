@@ -23,7 +23,7 @@ az monitor app-insights metrics show \
     --metric traces/count
 ```
 
-The response looks something like the following, with this example have a total count of 2 traces: 
+The response looks something like the following, with this example having a total count of 2 traces: 
 
 ```console
 {

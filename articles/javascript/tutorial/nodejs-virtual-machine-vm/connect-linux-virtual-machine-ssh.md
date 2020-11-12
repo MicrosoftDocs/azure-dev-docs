@@ -1,5 +1,5 @@
 ---
-title: Connect to virtual machine
+title: SSH to virtual machine
 description: Use SSH to connect to your Linux virtual machine.  If you are using a modern Mac, Windows, or Linux operating system, the terminal-based client SSH should already be installed.
 ms.topic: tutorial
 ms.date: 11/09/2020
@@ -52,13 +52,34 @@ Use the same terminal or shell window as with previous steps.
     sudo npm install --save applicationinsights
     ```
 
-1. Set Azure Monitor instrumentation key for Application Insights into an environment variable.
+1. Use nano editor to add the environment variable to the `start` script in `package.json`. Replace REPLACE-WITH-YOUR-KEY`` with your instrumentation key value. This change sends the Application Insights instrumentation key through PM2 to your web app. 
 
-    ```bash
-    export APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY
+    ```json
+    {
+        "name": "js-e2e-vm",
+        "version": "1.0.0",
+        "description": "JavaScript server written with Express.js",
+        "main": "index.js",
+        "scripts": {
+            "kill": "pm2 kill",
+            "start": "APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY pm2 start index.js --watch --log /var/log/pm2.log"
+        },
+        "license": "MIT",
+        "dependencies": {
+            "applicationinsights": "^1.8.8",
+            "express": "^4.17.1",
+            "pm2": "^4.5.0"
+        }
+    }
     ```
 
-    You can check the key is set with the `env` command at the bash terminal.
+1. Kill and restart PM2 with the following commands:
+
+    ```bash
+    sudo npm run-script kill && sudo npm start
+    ```
+
+    The Azure client library is now in your _node_modules_ directory and the key is passed into the app as an environment variable. The next step is to add the required code to `index.js`. 
 
 1. Leave the terminal open and connected to your VM, you will use it in the next step.
 

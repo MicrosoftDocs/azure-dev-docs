@@ -38,4 +38,4 @@ This tutorial includes the following tasks:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create Linux virtual machine](create-linux-virtual-machine-azure-cli.md) 
+> [Create resource group for Azure resources](create-azure-monitoring-application-insights-web-resource.md) 

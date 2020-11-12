@@ -6,13 +6,13 @@ ms.date: 11/09/2020
 ms.custom: devx-track-js
 ---
 
-# 2. Create Linux virtual machine using Azure CLI
+# 3. Create Linux virtual machine using Azure CLI
 
 In this section of the tutorial, use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud on the subscription where you intend to create the virtual machine. 
 
 All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud shell and your local terminal, you will need to [sign in](./introduction.md#sign-in-to-azure-cli) again. 
 
-## Create a linux virtual machine from a GitHub repository
+## Create a cloud-init file to expedite linux virtual machine creation
 
 This tutorial uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
 
@@ -26,22 +26,9 @@ The `runcmd` has several tasks:
 
     :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
 
-
-## Create a resource group for your virtual machine resources
-
-A linux virtual machine includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
-
-1. Create an Azure resource group with the following Azure CLI command:
-
-    ```azurecli
-    az group create \
-        --location eastus \
-        --name rg-demo-vm-eastus 
-    ```
-
 ## Create a virtual machine resource 
 
-1. Create an Azure resource of a Linux virtual machine with the following Azure CLI command. The Azure Cloud Shell provides [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) as a text editor. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the Azure CLI command at a terminal to create an Azure resource of a Linux virtual machine. The Azure Cloud Shell provides [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) as a text editor. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \
@@ -54,7 +41,7 @@ A linux virtual machine includes several Azure resources. Creating a resource gr
       --custom-data cloud-init-github.txt
     ```
 
-    The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is used later. 
+    The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is needed to view the web app in a browser and to connect to the VM. 
      
 
 1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command so the web app is publicly available:
@@ -72,15 +59,17 @@ A linux virtual machine includes several Azure resources. Creating a resource gr
     http://YOUR-PUBLIC-IP-ADDRESS
     ```
 
-    If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
-
-    While you can and should eventually add HTTPS and a domain name to represent the public Ip address, that isn't part of this tutorial. The following image represents the web app, but your app will use a different Ip address.
+    The following image represents the web app, but your app will use a different Ip address. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start. 
 
     :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
+
+    The initial code file for the web app has a single route displaying your client Ip address, passed through the NGINX proxy. 
+
+    :::code language="javascript" source="~/../js-e2e-vm/index.js" :::
 
 1. Leave the terminal open, you will use it through out the tutorial.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Install Application Insights client library and change code](create-azure-monitoring-application-insights-web-resource.md) 
+> [Connect to VM with SSH](connect-linux-virtual-machine-ssh.md) 
