@@ -51,7 +51,7 @@ A linux virtual machine includes several Azure resources. Creating a resource gr
       --image UbuntuLTS \
       --admin-username azureuser \
       --generate-ssh-keys \
-      --custom-data ./cloud-init-github.txt
+      --custom-data "./cloud-init-github.txt"
     ```
 
     The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is used later. 
