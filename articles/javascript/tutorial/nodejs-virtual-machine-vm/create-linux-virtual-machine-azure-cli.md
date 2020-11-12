@@ -28,7 +28,7 @@ The `runcmd` has several tasks:
 
 ## Create a virtual machine resource 
 
-1. Enter the Azure CLI command at a terminal to create an Azure resource of a Linux virtual machine. The Azure Cloud Shell provides [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) as a text editor. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the Azure CLI command at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \

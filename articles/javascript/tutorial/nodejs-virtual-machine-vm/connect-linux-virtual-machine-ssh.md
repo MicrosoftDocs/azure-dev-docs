@@ -54,24 +54,7 @@ Use the same terminal or shell window as with previous steps.
 
 1. Use [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to add the environment variable to the `start` script in `package.json`. Replace REPLACE-WITH-YOUR-KEY`` with your instrumentation key value. This change sends the Application Insights instrumentation key through PM2 to your web app. 
 
-    ```json
-    {
-        "name": "js-e2e-vm",
-        "version": "1.0.0",
-        "description": "JavaScript server written with Express.js",
-        "main": "index.js",
-        "scripts": {
-            "kill": "pm2 kill",
-            "start": "APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY pm2 start index.js --watch --log /var/log/pm2.log"
-        },
-        "license": "MIT",
-        "dependencies": {
-            "applicationinsights": "^1.8.8",
-            "express": "^4.17.1",
-            "pm2": "^4.5.0"
-        }
-    }
-    ```
+    :::code language="json" source="~/../js-e2e-vm/package.json" highlight="8":::
 
 1. Kill and restart PM2 with the following commands:
 
