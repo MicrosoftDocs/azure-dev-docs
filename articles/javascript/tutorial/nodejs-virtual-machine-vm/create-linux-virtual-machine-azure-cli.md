@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this section of the tutorial, use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud on the subscription where you intend to create the virtual machine. 
 
-All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud shell and your local terminal, you will need to [sign in](./introduction.md#sign-in-to-azure-cli) again. 
+All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud Shell and your local terminal, you will need to sign in again. 
 
 ## Create a cloud-init file to expedite linux virtual machine creation
 
@@ -65,9 +65,9 @@ The `runcmd` has several tasks:
 
     The initial code file for the web app has a single route displaying your client Ip address, passed through the NGINX proxy. 
 
-    :::code language="javascript" source="~/../js-e2e-vm/index.js" :::
+    :::code language="JavaScript" source="~/../js-e2e-vm/index.js" :::
 
-1. Leave the terminal open, you will use it through out the tutorial.
+1. Leave the terminal open, you will use it throughout the tutorial.
 
 ## Next step
 

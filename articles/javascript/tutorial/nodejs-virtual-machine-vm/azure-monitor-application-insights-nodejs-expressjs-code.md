@@ -20,9 +20,9 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 1. Edit the to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into nano. 
 
-    :::code language="javascript" source="~/../js-e2e-vm/index-logging.js" highlight="5-28" :::
+    :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" highlight="5-28" :::
 
-1. When you are done, use `Control+x` to quit, then `y` to save the changes. The Node.js app is started and watched by PM2 so this cause a restart of the app, without having to restart the VM. 
+1. When you are done, use `Control+x` to quit, then `y` to save the changes. The Node.js app is started and watched by PM2 so this causes a restart of the app, without having to restart the VM. 
 
 1. In a web browser, test the app with the new `trace` route:
 

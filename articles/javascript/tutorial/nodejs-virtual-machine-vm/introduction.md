@@ -13,18 +13,18 @@ In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The
 This tutorial includes the following tasks:
 
 * Sign in to Azure with Azure CLI
-* Create Azure Linux VM resource with Azure CLi
+* Create Azure Linux VM resource with Azure CLI
     * Open public port 80
     * Install demo Express.js web app from a GitHub repository
     * Install web app dependencies
     * Start web app
-* Create Azure Monitoring resource with Azure CLi
+* Create Azure Monitoring resource with Azure CLI
     * Connect to VM with SSH
     * Install Azure SDK client library with npm
     * Add Application Insights client library code to create custom tracing
 * View web app from browser
     * Request `/trace` route to generate custom tracing in Application Insights log
-    * View count of traces collect in log with Azure CLI
+    * View count of traces collected in log with Azure CLI
     * View list of traces with Azure portal
 * Review resources with Azure CLI
 
