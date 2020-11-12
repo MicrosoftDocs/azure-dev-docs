@@ -76,9 +76,7 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 # new group. In this case the call is synchronous: the resource group has been
 # provisioned by the time the call returns.
 
-# To update the resource group, repeat the call with different properties, such
-# as tags:
-
+# Update the resource group with tags
 rg_result = resource_client.resource_groups.create_or_update(
     "PythonAzureExample-rg",
     {

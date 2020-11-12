@@ -302,7 +302,7 @@ You can also store values in Azure Key Vault and retrieve them at run time rathe
 
 You can authenticate with the Azure libraries using explicit subscription, tenant, and client identifiers along with a client secret.
 
-When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#using-clientsecret-credential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#using-serviceprincipalcredentials-azurecommon).
+When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#using-clientsecretcredential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#using-serviceprincipalcredentials-azurecommon).
 
 To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
 
@@ -327,7 +327,7 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential?view=azure-python) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
+In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
 #### Using ServicePrincipalCredentials (azure.common)
 
