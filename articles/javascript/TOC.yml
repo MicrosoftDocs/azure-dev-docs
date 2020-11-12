@@ -21,10 +21,10 @@
         items: 
           - name: 1. Introduction and prerequisites
             href: tutorial/nodejs-virtual-machine-vm/introduction.md
-          - name: 2. Create virtual machine
-            href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-          - name: 3. Create Application Insights resource
+          - name: 2. Create Application Insights resource
             href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
+          - name: 3. Create virtual machine
+            href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
           - name: 4. Connect to Linux virtual machine
             href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
           - name: 5. Add cloud logging to app
