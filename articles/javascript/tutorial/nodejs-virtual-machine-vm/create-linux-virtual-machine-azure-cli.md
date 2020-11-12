@@ -12,18 +12,6 @@ In this section of the tutorial, use the Azure CLI to create and configure your 
 
 All of the Azure CLI steps can be completed from a single instance of the Azure CLI. If you close the window or switch where you are using Azure CLI, such as between the Cloud shell and your local terminal, you will need to [sign in](./introduction.md#sign-in-to-azure-cli) again. 
 
-## Create a resource group for your virtual machine resources
-
-A linux virtual machine includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
-
-1. Create an Azure resource group with the following Azure CLI command:
-
-    ```azurecli
-    az group create \
-        --location eastus \
-        --name rg-demo-vm-eastus 
-    ```
-
 ## Create a linux virtual machine from a GitHub repository
 
 This tutorial uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
@@ -38,6 +26,20 @@ The `runcmd` has several tasks:
 
     :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
 
+## Create a resource group for your virtual machine resources
+
+A linux virtual machine includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
+
+1. Create an Azure resource group with the following Azure CLI command:
+
+    ```azurecli
+    az group create \
+        --location eastus \
+        --name rg-demo-vm-eastus 
+    ```
+
+## Create a virtual machine resource 
+
 1. Create an Azure resource of a Linux virtual machine with the following Azure CLI command. The Azure Cloud Shell provides [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) as a text editor. The command adds the local cloud-init and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
@@ -48,7 +50,7 @@ The `runcmd` has several tasks:
       --image UbuntuLTS \
       --admin-username azureuser \
       --generate-ssh-keys \
-      --custom-data cloud-init-github.txt
+      --custom-data ./cloud-init-github.txt
     ```
 
     The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is used later. 
