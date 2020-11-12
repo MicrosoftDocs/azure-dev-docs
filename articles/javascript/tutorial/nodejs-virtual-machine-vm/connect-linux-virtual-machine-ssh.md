@@ -52,7 +52,7 @@ Use the same terminal or shell window as with previous steps.
     sudo npm install --save applicationinsights
     ```
 
-1. Use nano editor to add the environment variable to the `start` script in `package.json`. Replace REPLACE-WITH-YOUR-KEY`` with your instrumentation key value. This change sends the Application Insights instrumentation key through PM2 to your web app. 
+1. Use [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to add the environment variable to the `start` script in `package.json`. Replace REPLACE-WITH-YOUR-KEY`` with your instrumentation key value. This change sends the Application Insights instrumentation key through PM2 to your web app. 
 
     ```json
     {

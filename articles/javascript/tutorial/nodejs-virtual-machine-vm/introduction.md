@@ -26,7 +26,7 @@ This tutorial includes the following tasks:
     * Request `/trace` route to generate custom tracing in Application Insights log
     * View count of traces collected in log with Azure CLI
     * View list of traces with Azure portal
-* Review resources with Azure CLI
+* Remove resources with Azure CLI
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
 

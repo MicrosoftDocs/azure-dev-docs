@@ -12,17 +12,17 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 ## Edit index.js for logging with Azure Monitor Application Insights
 
-1. Use the nano text editor provided in the virtual machine to edit the `index.js`. 
+1. Use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) text editor provided in the virtual machine to edit the `index.js`. 
 
     ```bash
     sudo nano index.js -l
     ```
 
-1. Edit the to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into nano. 
+1. Edit the `index.js` file to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into nano. 
 
     :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" highlight="5-28" :::
 
-1. When you are done, use `Control+x` to quit, then `y` to save the changes. The Node.js app is started and watched by PM2 so this causes a restart of the app, without having to restart the VM. 
+1. When you are done, use `Control+x` to quit, then `y` to save the changes. Changes to the web app are watched by PM2; this change caused a restart of the app, without having to restart the VM. 
 
 1. In a web browser, test the app with the new `trace` route:
 
