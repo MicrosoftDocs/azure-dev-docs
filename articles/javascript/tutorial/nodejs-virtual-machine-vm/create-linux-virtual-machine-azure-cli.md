@@ -26,6 +26,7 @@ The `runcmd` has several tasks:
 
     :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
 
+
 ## Create a resource group for your virtual machine resources
 
 A linux virtual machine includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.

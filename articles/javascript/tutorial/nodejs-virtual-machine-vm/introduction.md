@@ -32,7 +32,8 @@ This tutorial includes the following tasks:
 
 ## Prerequisites
 
-[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
+* Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands
+* SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
 
 ## Next step
 
