@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins
 
 # Jenkins plug-ins for Azure
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 Many Azure services and features are accessible via Jenkins plug-ins. These services support an array of possibilities regarding continuous integration and continuous deployment (CI/CD) for your DevOps environment. Click on any of the Jenkins plug-ins to learn more about that plug-in.
 
 | Jenkins plug-in | Description                                   |

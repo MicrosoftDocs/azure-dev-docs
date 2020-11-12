@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Deploy to Azure Kubernetes Service (AKS) using the blue/green deployment pattern
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications. You don't need expertise in container orchestration. AKS also eliminates the burden of ongoing operations and maintenance, by provisioning, upgrading, and scaling resources on demand. You don't need to take your applications offline. For more information about AKS, see the [AKS documentation](/azure/aks/).
 
 Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment, which is still running. For more information about Continuous Delivery, see [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).

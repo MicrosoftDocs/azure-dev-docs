@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins,devx-track-azurecli
 
 # Tutorial: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 [Azure Spring Cloud](/azure/spring-cloud/spring-cloud-overview) is a fully managed microservice development with built-in service discovery and configuration management. The service makes it easy to deploy Spring Boot-based microservice applications to Azure. This tutorial demonstrates how you can use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
 
 In this tutorial, you'll complete these tasks:

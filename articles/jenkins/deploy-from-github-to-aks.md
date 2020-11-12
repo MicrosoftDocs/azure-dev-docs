@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Deploy from GitHub to Azure Kubernetes Service using Jenkins
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 This tutorial deploys a sample app from GitHub to an 
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) 
 cluster by setting up continuous integration (CI) and 

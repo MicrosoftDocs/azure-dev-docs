@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins
 
 # Tutorial: Deploy to Azure Functions using Jenkins
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 [Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plug-in.
 
 ## Prerequisites

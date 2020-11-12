@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Quickstart: Configure Jenkins using Azure CLI
 
+[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+
 This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
 
 In this quickstart, you'll complete these tasks:
