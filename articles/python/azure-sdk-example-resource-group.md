@@ -1,7 +1,7 @@
 ---
 title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 10/05/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -75,6 +75,19 @@ print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} 
 # The return value is another ResourceGroup object with all the details of the
 # new group. In this case the call is synchronous: the resource group has been
 # provisioned by the time the call returns.
+
+# To update the resource group, repeat the call with different properties, such
+# as tags:
+
+rg_result = resource_client.resource_groups.create_or_update(
+    "PythonAzureExample-rg",
+    {
+        "location": "centralus",
+        "tags": { "environment":"test", "department":"tech" }
+    }
+)
+
+print(f"Updated resource group {rg_result.name} with tags")
 
 # Optional lines to delete the resource group. begin_delete is asynchronous.
 # poller = resource_client.resource_groups.begin_delete(rg_result.name)
