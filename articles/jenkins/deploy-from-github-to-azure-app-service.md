@@ -329,11 +329,11 @@ Make sure your web app has a unique name.
 
    For more information about these Azure CLI commands, see these pages:
 
-   * [**`az group create`**](/cli/azure/group?view=azure-cli-latest#az-group-create)
+   * [**`az group create`**](/cli/azure/group#az-group-create)
 
-   * [**`az appservice plan create`**](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
+   * [**`az appservice plan create`**](/cli/azure/appservice/plan#az-appservice-plan-create)
 
-   * [**`az webapp create`**](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+   * [**`az webapp create`**](/cli/azure/webapp#az-webapp-create)
 
 1. In Jenkins, select your pipeline job, and select **Build Now**.
 

@@ -23,7 +23,7 @@ ms.custom: devx-track-jenkins
 
 ## Create a Java function
 
-To create a Java function with the Java runtime stack, use either the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/?view=azure-cli-latest).
+To create a Java function with the Java runtime stack, use either the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/).
 
 The following steps show how to create a Java function using the Azure CLI:
 
