@@ -6,7 +6,7 @@ ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
-# View logs in Azure portal
+# 6. View logs in Azure portal
 
 In this section of the tutorial, learn how to see your logging with Azure Monitor and Application Insights. 
 

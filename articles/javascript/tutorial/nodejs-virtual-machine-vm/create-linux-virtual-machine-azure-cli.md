@@ -22,13 +22,13 @@ The `runcmd` has several tasks:
 * install the Express.js dependencies
 * start the Express.js app with PM2
 
-1. Create a local file named `cloud-init-github.txt` and save the following contents to the file or you can [save the repository's file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The file needs to exist in the same folder as the terminal path for your Azure CLI commands.
+1. Create a local file named `cloud-init-github.txt` and save the following contents to the file or you can [save the repository's file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The [cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples) formatted file needs to exist in the same folder as the terminal path for your Azure CLI commands.
 
     :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
 
 ## Create a virtual machine resource 
 
-1. Enter the Azure CLI command at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \
@@ -44,7 +44,7 @@ The `runcmd` has several tasks:
     The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is needed to view the web app in a browser and to connect to the VM. 
      
 
-1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command so the web app is publicly available:
+1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) so the web app is publicly available:
 
     ```azurecli
     az vm open-port \
