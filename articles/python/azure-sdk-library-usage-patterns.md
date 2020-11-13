@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns with the Azure SDK libraries for Python
-ms.date: 09/21/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -32,9 +32,11 @@ You can also use `pip` to uninstall libraries and install specific versions, inc
 
 ## Asynchronous operations
 
-Many operations that you invoke through client and management client objects (such as [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
+Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
 
-An [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the actual result of the operation to become available.
+Both of these methods are asynchronous. The different in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+
+In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
