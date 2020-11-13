@@ -2,7 +2,7 @@
 title: Install Application Insights client library
 description: Add the Azure SDK client library to the code on the virtual machine to begin collecting app logs in the Azure cloud. 
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
