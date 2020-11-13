@@ -52,7 +52,13 @@ Use the same terminal or shell window as with previous steps.
     sudo npm install --save applicationinsights
     ```
 
-1. Use [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to change the `package.json` file's `start` script to include an environment variable. Replace `REPLACE-WITH-YOUR-KEY` with your instrumentation key value.
+1. Use [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to change the `package.json` file.
+
+    ```bash
+    sudo nano package.json
+    ```
+
+1. Edit the file's start script to include an environment variable. Replace `REPLACE-WITH-YOUR-KEY` with your instrumentation key value.
 
     ```json
     "start": "APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY pm2 start index.js --watch --log /var/log/pm2.log"
@@ -61,7 +67,7 @@ Use the same terminal or shell window as with previous steps.
 1. Kill and restart PM2 with the following commands:
 
     ```bash
-    sudo npm run-script kill && sudo npm start
+    sudo npm run-script stop && sudo npm start
     ```
 
     The Azure client library is now in your _node_modules_ directory and the key is passed into the app as an environment variable. The next step is to add the required code to `index.js`. 
