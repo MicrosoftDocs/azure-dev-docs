@@ -2,7 +2,7 @@
 title: SSH to virtual machine
 description: Use SSH to connect to your Linux virtual machine.  If you are using a modern Mac, Windows, or Linux operating system, the terminal-based client SSH should already be installed.
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 

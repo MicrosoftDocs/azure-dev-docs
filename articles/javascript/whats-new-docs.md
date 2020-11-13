@@ -2,12 +2,23 @@
 title: "What's new for JavaScript docs: "
 description: "What's new in JavaScript docs for October 2020"
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/13/2020
 ---
 
 # JavaScript docs: What's new for October 2020
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+
+## 2020 November
+
+Welcome to what's new in the JavaScript docs from November 2020. This article lists some of the major changes to docs during this period.
+
+### What's new
+
+|Name|Notes|
+|---------------------------------------|--|
+|[Tutorial: Deploy app to Linux virtual machine](./tutorial/nodejs-virtual-machine-vm/introduction.md)|In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.|
 
 ## 2020 October
 

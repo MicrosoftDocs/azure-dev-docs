@@ -2,7 +2,7 @@
 title: Azure CLI Linux virtual machine
 description: Create an Azure Linux virtual machine, with a clone of an Express.js-based app from a GitHub repository.  
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
