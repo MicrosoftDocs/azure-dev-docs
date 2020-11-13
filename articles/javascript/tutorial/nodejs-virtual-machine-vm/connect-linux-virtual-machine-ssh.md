@@ -46,7 +46,7 @@ Use the same terminal or shell window as with previous steps.
     -rw-r--r--   1 root root   697 Nov 11 20:23 readme.md
     ```
 
-1. Install the Azure SDK client library for Application Insights.
+1. Install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
 
     ```bash
     sudo npm install --save applicationinsights

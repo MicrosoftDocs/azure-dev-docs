@@ -14,7 +14,7 @@ In this step of the tutorial, create an Azure resource group for all your Azure 
 
 This tutorial includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
 
-1. At a terminal or bash shell, enter the Azure CLI command to create an Azure resource group, with the name `rg-demo-vm-eastus`:
+1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo-vm-eastus`:
 
     ```azurecli
     az group create \
@@ -30,7 +30,7 @@ This tutorial includes several Azure resources. Creating a resource group allows
     az extension add -n application-insights
     ```
 
-1. Use the following command to create a monitoring resource:
+1. Use the following command to [create a monitoring resource](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext_application_insights_az_monitor_app_insights_component_create):
 
 
     ```azurecli
