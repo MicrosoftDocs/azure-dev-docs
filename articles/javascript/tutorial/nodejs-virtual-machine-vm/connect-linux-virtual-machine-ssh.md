@@ -64,7 +64,7 @@ Use the same terminal or shell window as with previous steps.
     "start": "APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY pm2 start index.js --watch --log /var/log/pm2.log"
     ```
 
-1. Kill and restart PM2 with the following commands:
+1. Stop and restart PM2 with the following commands:
 
     ```bash
     sudo npm run-script stop && sudo npm start
