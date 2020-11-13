@@ -363,7 +363,7 @@ This commit in the `master` branch starts a build in Jenkins.
 1. After the build finishes, and Jenkins redeploys to Azure, 
 refresh your app, which now shows your update.
 
-   ![View your deployed app on Azure](media/deploy-from-github-to-azure-app-service/greetings-edited.png)
+   ![View your updated app on Azure](media/deploy-from-github-to-azure-app-service/greetings-edited.png)
 
 ## Troubleshooting the Jenkins plug-in
 

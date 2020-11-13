@@ -221,7 +221,7 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 
      The following screenshot shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of `CounterServiceApplication`.
 
-      ![Service Fabric Jenkins Build action](./media/deploy-to-service-fabric-cluster/build-step-dotnet.png)
+      ![Example of commands used to build the service](./media/deploy-to-service-fabric-cluster/build-step-dotnet.png)
 
 1. To configure Jenkins to deploy your app to a Service Fabric cluster in the post-build actions, you need the location of that cluster's certificate in your Jenkins container. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster and note the location of the cluster certificate:
 
