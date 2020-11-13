@@ -9,7 +9,7 @@ ms.custom: devx-track-jenkins
 
 # Tutorial: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services
 
-[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code. Azure DevOps Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular third-party CI/CD server-based tool that also provides CI/CD automation. You can use Azure DevOps Services and Jenkins together to customize how you deliver your cloud app or service.
 

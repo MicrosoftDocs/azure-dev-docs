@@ -9,7 +9,7 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Create a Jenkins pipeline using GitHub and Docker
 
-[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 

@@ -7,4 +7,4 @@
 ---
 
 > [!Important]
-> Azure CLI is the current recommended way to integrate Jenkins with Azure services.
+> Azure CLI is the currently recommended way to integrate Jenkins with Azure services.

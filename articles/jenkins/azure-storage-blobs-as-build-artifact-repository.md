@@ -9,7 +9,7 @@ ms.custom: devx-track-jenkins
 
 # Tutorial: Use Azure Storage for build artifacts
 
-[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 This article illustrates how to use Blob storage as a repository of build artifacts created by a Jenkins continuous integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this solution useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 

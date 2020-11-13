@@ -9,7 +9,7 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Deploy from GitHub to Azure App Service using Jenkins
 
-[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 This tutorial deploys a sample Java web app from GitHub to 
 [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro) 

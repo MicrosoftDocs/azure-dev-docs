@@ -9,7 +9,7 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service
 
-[!INCLUDE [solution-template-retirement.md](includes/solution-template-retirement.md)]
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
