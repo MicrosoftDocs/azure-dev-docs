@@ -15,7 +15,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 1. Use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) text editor provided in the virtual machine to edit the `index.js`. 
 
     ```bash
-    sudo nano index.js -l
+    sudo nano index.js
     ```
 
 1. Edit the `index.js` file to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into nano. 
@@ -56,7 +56,7 @@ The VM collects logs for NGINX and PM2, they are available to view.
 1. View VM log for the PM2 service. In the same bash shell, use the following command to view the log:
 
     ```bash
-     cat /var/log/nginx/access.log
+     cat /var/log/pm2.log
     ```
 
     The log includes the call from your local computer. 
