@@ -10,6 +10,8 @@
       href: connect-from-azure.md
     - name: Deploy apps to Azure 
       href: deploy-to-azure.md 
+    - name: Deploy databases to Azure
+      href: database-actions-deploy.md
     - name: Manage Azure Policy
       href: manage-azure-policy.md
   - name: Azure DevOps & GitHub integration 

@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -13,10 +13,12 @@ ms.custom: github-actions-azure, devx-track-azurecli
 
 Learn how to use [Azure login](https://github.com/Azure/login) with either [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) to interact with your Azure resources.
 
-To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action. 
+To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 The Azure login action allows you to execute commands in a workflow in the context of an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-Once you have set up the login action, you can then use Azure CLI or Azure PowerShell. By default, the action logs in with the Azure CLI, setting up the GitHub action runner environment for Azure CLI. By using the enable-AzPSSession property of the Azure login action, you can use Azure PowerShell.  This sets up the GitHub action runner environment with the Azure PowerShell module.
+Once you have set up the login action, you can then use Azure CLI or Azure PowerShell.
+
+By default, the action logs in with the Azure CLI, setting up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
 ## Create a service principal and add it to GitHub secret
 
