@@ -52,7 +52,7 @@ Next, configure the environment variables with the following:
 - <code>AZURE_CLIENT_SECRET</code>: use the *password* value from the service principal output.
 - <code>AZURE_TENANT_ID</code>: use the *tenant* value from the service principal output.
 
-For more approaches of authentication support, please refer to [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
+For more options of authentication, please refer to [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
 
 ## Tooling
 
@@ -236,7 +236,7 @@ Replace the main method in `AzureApp.java` with the one below, updating the `app
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
             
             AzureResourceManager azureResourceManager = AzureResourceManager.configure()
-                    .withLogLevel(HttpLogDetailLevel.BASIC.BASIC)
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
                     .authenticate(credential, profile)
                     .withDefaultSubscription();
 
@@ -295,7 +295,7 @@ This code creates a new SQL database with a firewall rule allowing remote access
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
             SqlServerManager sqlServerManager = SqlServerManager.configure()
-                    .withLogLevel(HttpLogDetailLevel.BASIC.BASIC)
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
                     .authenticate(credential, profile);
 
             final String adminUser = "YOUR_USERNAME_HERE";
@@ -379,7 +379,7 @@ Replace the current main method in `AzureApp.java` with the code below. This cod
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
             AzureResourceManager azureResourceManager = AzureResourceManager.configure()
-                    .withLogLevel(HttpLogDetailLevel.BASIC.BASIC)
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
                     .authenticate(tokenCredential, profile)
                     .withDefaultSubscription();
 
