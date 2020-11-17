@@ -84,6 +84,12 @@ In Visual Studio Code, select the **Azure** icon in the far right menu, then sel
 
 :::image type="content" source="../../media/static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
 
+You can also find the URL for the site at:
+* the Azure portal for your resource, on the **Overview** page.
+* the GitHub action's build-and-deploy output has the site URL at the very end of the script 
+
+:::image type="content" source="../../media/static-web-app/github-action-build-pipeline-success-site-url.png" alt-text="Partial screenshot of GitHub action's build-and-deploy output has the site URL at the very end of the script":::
+
 ## Next step
 
 > [!div class="nextstepaction"]
