@@ -86,6 +86,7 @@
         "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
+        "javascript/**/*.yml": "diberry",
         "lab/**/*.md": "diberry"
       },
       "manager": {
@@ -104,6 +105,7 @@
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
         "javascript/**/*.md": "diberry",
+        "javascript/**/*.yml": "diberry",
         "lab/**/*.md": "diberry"
       },
       "ms.devlang": {
