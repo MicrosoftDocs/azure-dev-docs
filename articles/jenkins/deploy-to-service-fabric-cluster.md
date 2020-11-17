@@ -9,8 +9,6 @@ ms.custom: devx-track-jenkins
 
 # Tutorial: Deploy to a Service Fabric cluster
 
-[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
-
 This tutorial covers several possible ways of setting up your Jenkins environment as well as different ways to deploy your application to a Service Fabric cluster after it has been built. Follow these general steps to successfully configure Jenkins, pull changes from GitHub, build your application, and deploy it to your cluster:
 
 1. Ensure that you install the [Prerequisites](#prerequisites).

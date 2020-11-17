@@ -9,11 +9,9 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service
 
-[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
-
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
-This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server. 
+This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server.
 
 In this tutorial, you'll complete these tasks:
 

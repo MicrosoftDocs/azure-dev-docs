@@ -9,8 +9,6 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Deploy to Azure App Service with Jenkins and the Azure CLI
 
-[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
-
 To deploy a Java web app to Azure, you can use Azure CLI in a [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In this tutorial, you do the following tasks:
 
 > [!div class="checklist"]
