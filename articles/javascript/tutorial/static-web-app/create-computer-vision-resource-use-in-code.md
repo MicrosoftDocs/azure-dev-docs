@@ -94,11 +94,11 @@ The GitHub action to build the react app needs secure access to the Computer Vis
 
 1. In a web browser, on your GitHub repository, select **Settings**, then **Secrets**, then **New repository secret**..
 
-    :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-github-create-new-repository-secret.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-create-new-repository-secret.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::
 
 1. Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key. 
     
-    :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
 ## Run react app with ComputerVision resource
 
@@ -106,11 +106,11 @@ This React app watches for changes to rebuild and rerun the app.
 
 1. **Enter a new line** in `./src/VisualAi.js` just after the two console.log lines to cause a rebuild of the site.
 
-    :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
 
 1. Leave the text field empty and **select the Analyze button**. 
 
-    :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
 
     The image is selected randomly. 
 

@@ -24,7 +24,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 1. On the top-right section of the page, select **Fork**. 
 1. Select **Code** then copy the location URL for your fork. 
 
-    :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
 
 ## Create local development environment
 
@@ -48,7 +48,7 @@ Run the sample.
 npm start
 ```
 
-:::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
+:::image type="content" source="../../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
 
     
 ## Next step

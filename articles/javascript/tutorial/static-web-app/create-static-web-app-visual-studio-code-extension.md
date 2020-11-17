@@ -30,11 +30,11 @@ git push origin live
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static web app...**. 
 
-    :::image type="content" source="../../media/tutorial-cog-serv/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
+    :::image type="content" source="../../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
 
 1. Authorize GitHub to have access to Visual Studio Code. This is necessary because the extension is going to make changes to your GitHub repo for you.  
 
-    :::image type="content" source="../../media/tutorial-cog-serv/authorize-github-access-visual-studio-code-github-action-pipeline.png" alt-text="Authorize GitHub to have access to Visual Studio Code. This is necessary because the extension is going to make changes to your GitHub repo for you.":::
+    :::image type="content" source="../../media/static-web-app/authorize-github-access-visual-studio-code-github-action-pipeline.png" alt-text="Authorize GitHub to have access to Visual Studio Code. This is necessary because the extension is going to make changes to your GitHub repo for you.":::
 
 1. Enter a name for your static web app, `Demo-ComputerVisionAnalyzer`.  
 1. Select `live` as the branch name. 
@@ -130,7 +130,7 @@ The ComputerVision key and endpoint are in the repository's secrets collection b
 
 In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
-:::image type="content" source="../../media/tutorial-cog-serv/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
+:::image type="content" source="../../media/static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
 
 ## Next step
 
