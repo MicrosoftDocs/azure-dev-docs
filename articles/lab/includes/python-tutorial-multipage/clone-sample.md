@@ -18,4 +18,4 @@ Then navigate into that folder:
 cd python-docs-hello-world
 ```
 
-The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](/app-service/configure-language-python#container-startup-process).
+The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](/azure/app-service/configure-language-python#container-startup-process).
