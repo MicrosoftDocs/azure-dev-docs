@@ -1,6 +1,6 @@
 ---
-title: 
-description:   
+title: Create Computer Vision resource
+description: Create your Cognitive Services Computer Vision resource and set to environment variables.
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # 3. Create Computer Vision resource and use in code
 
-In this step, create your Azure resources and use those resources in the code. 
+In this step, create your Computer Vision resource and set to environment variables. 
 
 ## Create Azure resources
 
@@ -18,11 +18,11 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
 
 1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo-eastus`:
 
-```azurecli
-az group create \
-    --location eastus \
-    --name rg-demo 
-```
+    ```azurecli
+    az group create \
+        --location eastus \
+        --name rg-demo 
+    ```
 1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
 
 
@@ -119,4 +119,4 @@ This React app watches for changes to rebuild and rerun the app.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn how this sample added Computer Vision to the React app](add-computer-vision-react-app.md) 
+> [Create Azure Static web app](create-static-web-app-visual-studio-code-extension.md)

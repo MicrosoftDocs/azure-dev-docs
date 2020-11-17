@@ -1,12 +1,12 @@
 ---
-title: 
-description:   
+title: React code using Computer Vision
+description: This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
-# 6. Add Computer Vision to the React app
+# 5. Review how to add Computer Vision to the React app
 
 This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
 
@@ -34,9 +34,9 @@ The app selects a random image from a catalog if the user doesn't enter an image
 
 Add methods to the React `app.js`. The image analysis and display of results are highlighted.
 
-:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/index.js" highlight="20-25, 29-42" :::
+:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/App.js" highlight="20-25, 29-42" :::
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create GitHub secrets for the key and endpoint](add-github-secret-key-endpoint.md) 
+> [Clean up resources](clean-up-resources.md) 

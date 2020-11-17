@@ -1,6 +1,6 @@
 ---
-title: 
-description:   
+title: Download sample React app
+description: The complete sample app is provided in a GitHub repository. Fork the repository, install the dependencies, and run locally.
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # 2. Download and run the React Cognitive Services Image Analyzer app
 
-The sample app is provided in a GitHub repository. Fork the repository, install the dependencies, and run locally.
+The complete sample app is provided in a GitHub repository. Fork the repository, install the dependencies, and run locally.
 
 ## Fork the sample repo
 
@@ -26,7 +26,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
     :::image type="content" source="../../media/tutorial-cog-serv/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
 
-## Set up local development environment
+## Create local development environment
 
 1. In a terminal or bash window, clone your fork to your local computer. 
 
@@ -54,4 +54,4 @@ npm start
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create Computer Vision resource and use in code](run-the-react-cognitive-services-image-analyzer-app-locally.md) 
+> [Create Computer Vision resource and use in code](create-computer-vision-resource-use-in-code.md) 

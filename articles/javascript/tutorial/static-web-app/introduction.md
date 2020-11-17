@@ -1,6 +1,6 @@
 ---
-title: 
-description:   
+title: Introduction and prerequisites 
+description: Locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: devx-track-js
@@ -41,4 +41,4 @@ When building static web apps, you have several choices on Azure, based on the d
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Download and run the React Cognitive Services Image Analyzer app locally](create-static-web-app-visual-studio-code-extension.md) 
+> [Download and run the React Cognitive Services Image Analyzer app locally](run-the-react-cognitive-services-image-analyzer-app-locally.md) 
