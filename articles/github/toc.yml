@@ -14,7 +14,7 @@
       href: database-actions-deploy.md
     - name: Manage Azure Policy
       href: manage-azure-policy.md
-  - name: Azure DevOps & GitHub integration 
+  - name: Azure DevOps & GitHub 
     href: integrate-azure-devops.md
-  - name: Integrate with Visual Studio and Visual Studio Code  
+  - name: Visual Studio and Visual Studio Code  
     href: deploy-with-visual-studio.md 

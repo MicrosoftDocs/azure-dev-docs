@@ -37,7 +37,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
         --identifier-uris http://localhost/$appName
     ```
 
-1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in the Azure portal for your app. 
+1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true) in the Azure portal for your app. 
 
     ```azurecli-interactive
         az ad sp create-for-rbac --name "myApp" --role contributor \
