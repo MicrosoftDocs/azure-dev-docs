@@ -9,7 +9,7 @@ ms.date: 10/27/2020
 ---
 
 
-# Manage Azure Policies with GitHub
+# s with GitHub
 
 Review the following articles to learn how to manage Azure Policies as code from GitHub
 
