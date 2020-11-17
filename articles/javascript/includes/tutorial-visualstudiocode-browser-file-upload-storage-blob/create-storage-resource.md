@@ -3,7 +3,7 @@ title: include file create-storage-resource.md
 description: include file create-storage-resource.md
 ms.date: 11/13/2020
 ms.topic: include
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-azurecli
 ---
 
 In this section of the tutorial, you create the Azure Storage resource with a Visual Studio extension then configure the resource in the Azure portal. 

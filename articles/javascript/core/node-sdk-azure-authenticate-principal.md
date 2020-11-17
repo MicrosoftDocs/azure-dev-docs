@@ -3,7 +3,7 @@ title: Create an Azure service principal with Node.js
 description: Learn how to use service principal authentication on Azure with Node.js and JavaScript
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Create an Azure service principal for Node.js
