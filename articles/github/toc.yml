@@ -6,7 +6,7 @@
     items:
     - name: Introduction to GitHub Actions for Azure
       href: github-actions.md 
-    - name: Connect from Azure to GitHub  
+    - name: Authenticate from Azure to GitHub  
       href: connect-from-azure.md
     - name: Deploy apps to Azure 
       href: deploy-to-azure.md 
