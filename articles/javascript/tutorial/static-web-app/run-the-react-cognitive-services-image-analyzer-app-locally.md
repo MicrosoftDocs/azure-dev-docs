@@ -28,7 +28,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
 ## Create local development environment
 
-1. In a terminal or bash window, clone your fork to your local computer. 
+1. In a terminal or bash window, clone your fork to your local computer. Replace `YOUR-ACCOUNT-NAME` with your GitHub account name.
 
     ```bash
     git clone https://github.com/YOUR-ACCOUNT-NAME/js-e2e-client-cognitive-services
@@ -50,6 +50,7 @@ npm start
 
 :::image type="content" source="../../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
 
+The sample is working if you see the previous image. 
     
 ## Next step
 

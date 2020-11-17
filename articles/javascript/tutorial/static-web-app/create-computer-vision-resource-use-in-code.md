@@ -16,7 +16,7 @@ Creating a resource group allows you to easily find the resources, and delete th
 
 At the end of this series of steps, you need to have **the key and endpoint** for your resource.
 
-1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo-eastus`:
+1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo`:
 
     ```azurecli
     az group create \
@@ -71,22 +71,22 @@ To use your resource, the code needs to have the key and endpoint available. Thi
 * REACT_APP_COMPUTERVISIONKEY
 * REACT_APP_COMPUTERVISIONENDPOINT 
 
-Run the following command to add these variables to your environment.
+1. Run the following command to add these variables to your environment.
 
-# [bash](#tab/bash)
-
-```bash
-export REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
-export REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
-```
-
-# [cmd](#tab/cmd)
-
-```cmd
-set REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
-set REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
-```
----
+    # [bash](#tab/bash)
+    
+    ```bash
+    export REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
+    export REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    ```
+    
+    # [cmd](#tab/cmd)
+    
+    ```cmd
+    set REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
+    set REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    ```
+    ---
 
 ## Add environment variables to your remote environment
 
@@ -96,7 +96,7 @@ The GitHub action to build the react app needs secure access to the Computer Vis
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-github-create-new-repository-secret.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::
 
-1. Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key. 
+1. Enter the same name and value for the endpoint you used in the previous section. Then create another secret with the same name and value for the key as used in the previous section. 
     
     :::image type="content" source="../../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
@@ -104,7 +104,7 @@ The GitHub action to build the react app needs secure access to the Computer Vis
 
 This React app watches for changes to rebuild and rerun the app. 
 
-1. **Enter a new line** in `./src/VisualAi.js` just after the two console.log lines to cause a rebuild of the site.
+1. **Enter a new line** in `./src/VisualAi.js` just after the first empty line (line 4). This change causes a rebuild of the locally running website.
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
 
@@ -112,7 +112,7 @@ This React app watches for changes to rebuild and rerun the app.
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
 
-    The image is selected randomly. 
+    The image is selected randomly from a catalog of images defined in `./src/DefaultImages.js`. 
 
 1. Continue to select the **Analyze** button to see the other images and results. 
 

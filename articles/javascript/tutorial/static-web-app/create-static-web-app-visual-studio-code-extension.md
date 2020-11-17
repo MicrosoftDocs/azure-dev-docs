@@ -6,13 +6,13 @@ ms.topic: include
 ms.custom: devx-track-javascript
 ---
 
-# 4. Create the Static Web app resource
+# 4. Create Azure Static Web app resource
 
-In this section of the tutorial, create the Static Web app resource with a Visual Studio Code extension for that service.
+In this section of the tutorial, create the Static Web app resource with a Visual Studio Code extension for that service and push local code to your remote repository to build, then deploy the app to Azure.
 
 ## Create a new branch dedicated to deployment
 
-The Azure Static web app receives a build from a specific branch of your GitHub repository. Currently, the tutorial used the `main` branch. Create a `live` branch dedicated for building and deploying the app to Azure.
+The Azure Static web app receives a build from a specific branch of your GitHub repository. Currently, the tutorial used the `main` branch. In a new terminal in Visual Studio Code, create a `live` branch dedicated for building and deploying the app to Azure.
 
 ```bash
 git checkout -b live
@@ -26,7 +26,7 @@ In the Visual Studio Code terminal, push the local branch, `live` to your remote
 git push origin live
 ```
 
-## Create a Static Web app
+## Create a Static Web app resource
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static web app...**. 
 
@@ -43,9 +43,9 @@ git push origin live
 1. Enter `build` for the location of your build output.
 1. Select an Azure location close to you.  
 
-## Update the action with the key and endpoint
+## Update the GitHub action with the key and endpoint
 
-The ComputerVision key and endpoint are in the repository's secrets collection but are not in the GitHub action yet. This step adds the key and endpoint to the action.
+The Computer Vision key and endpoint are in the repository's secrets collection but are not in the GitHub action yet. This step adds the key and endpoint to the action.
 
 1. Pull down the latest changes to your local computer, to get the GitHub action file.
 
@@ -53,60 +53,10 @@ The ComputerVision key and endpoint are in the repository's secrets collection b
     git pull origin live
     ```
 
-1. In the Visual Studio Code editor, edit the GitHub Action file found at `./.github/workflows/` to add the secrets.
+1. In the Visual Studio Code editor, edit the GitHub Action file found at `./.github/workflows/` to add the secrets. 
 
-    :::code language="yml" source="~/../js-e2e-client-cognitive-services/.github/workflows/sample-github-workflow.yml" highlight="20-25, 29-42" :::
+    :::code language="yml" source="~/../js-e2e-client-cognitive-services/.github/workflows/sample-github-workflow.yml" highlight="34-36" :::
 
-    ```yml
-    name: Azure Static Web Apps CI/CD
-    
-    on:
-      push:
-        branches:
-          - from-local
-      pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-          - from-local
-    
-    jobs:
-      build_and_deploy_job:
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-        runs-on: ubuntu-latest
-        name: Build and Deploy Job
-        steps:
-          - uses: actions/checkout@v2
-            with:
-              submodules: true
-          - name: Build And Deploy
-            id: builddeploy
-            uses: Azure/static-web-apps-deploy@v0.0.1-preview
-            with:
-              azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RANDOM_NAME_HERE }}
-              repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-              action: "upload"
-              ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-              # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-              app_location: "/" # App source code path
-              api_location: "api" # Api source code path - optional
-              app_artifact_location: "build" # Built app content directory - optional
-              ###### End of Repository/Build Configurations ######
-            env:
-              REACT_APP_COMPUTERVISIONENDPOINT: ${{secrets.REACT_APP_COMPUTERVISIONENDPOINT}}
-              REACT_APP_COMPUTERVISIONKEY:  ${{secrets.REACT_APP_COMPUTERVISIONKEY}}
-    
-      close_pull_request_job:
-        if: github.event_name == 'pull_request' && github.event.action == 'closed'
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-          - name: Close Pull Request
-            id: closepullrequest
-            uses: Azure/static-web-apps-deploy@v0.0.1-preview
-            with:
-              azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RANDOM_NAME_HERE }}
-              action: "close"
-    ```
     
 1. Add and commit the change to the local `live` branch.
 
@@ -125,6 +75,8 @@ The ComputerVision key and endpoint are in the repository's secrets collection b
 1. In a web browser, open your GitHub repository for this tutorial, and select **Actions**. 
 
 1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the build successfully finishes.
+
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
 
 ## View web site
 

@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # 5. Review how to add Computer Vision to the React app
 
-This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
+This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. You do not need to take these steps for this tutorial. 
 
 ## Add Computer Vision to React with NPM
 
