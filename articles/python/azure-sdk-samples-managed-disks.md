@@ -1,27 +1,27 @@
 ---
-title: Managed Disks
-description: Create, resizing, and updating a managed disk.
+title: Use Azure Managed Disks through the Azure Libraries for Python
+description: Use the Azure SDK to create, resize, and update managed disks.
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python
 ---
 
-# Managed Disks
+# Use Azure Managed Disks with the Azure libraries (SDK) for Python
 
-Azure Managed Disks provide a simplified disk Management, enhanced Scalability, better Security, and Scale. It takes away the notion of storage account for disks, enabling customers to scale without worrying about the limitations associated with storage accounts. This post provides a quick introduction and reference on consuming the service from Python.
+Azure Managed Disks provide a simplified disk management, enhanced scalability, better security, and better scaling without having to work directly with storage accounts.
 
-From a developer perspective, the Managed Disks experience in Azure CLI is idiomatic to the CLI experience in other cross-platform tools. You can use the [azure-mgmt-compute package](/python/api/overview/azure/virtualmachines) to administer Managed Disks. For an example of provisioning a virtual machine with the azure-mgmt-compute library, see [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md).
+You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks. (For an example of provisioning a virtual machine with the `azure-mgmt-compute` library, see [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md).)
 
 ## Standalone Managed Disks
 
-You can easily create standalone Managed Disks in a variety of ways.
+You can create standalone Managed Disks in a number of ways as illustrated in the following sections.
 
 ### Create an empty Managed Disk
 
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.disks.begin_create_or_update(
+poller = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -32,7 +32,7 @@ async_creation = compute_client.disks.begin_create_or_update(
         }
     }
 )
-disk_resource = async_creation.result()
+disk_resource = poller.result()
 ```
 
 ### Create a Managed Disk from blob storage
@@ -40,7 +40,7 @@ disk_resource = async_creation.result()
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.disks.begin_create_or_update(
+poller = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -51,7 +51,7 @@ async_creation = compute_client.disks.begin_create_or_update(
         }
     }
 )
-disk_resource = async_creation.result()
+disk_resource = poller.result()
 ```
 
 ### Create a Managed Disk image from blob storage
@@ -59,7 +59,7 @@ disk_resource = async_creation.result()
 ```python
 from azure.mgmt.compute.models import DiskCreateOption
 
-async_creation = compute_client.images.begin_create_or_update(
+poller = compute_client.images.begin_create_or_update(
     'my_resource_group',
     'my_image_name',
     {
@@ -74,7 +74,7 @@ async_creation = compute_client.images.begin_create_or_update(
         }
     }
 )
-image_resource = async_creation.result()
+image_resource = poller.result()
 ```
 
 ### Create a Managed Disk from your own image
@@ -85,7 +85,7 @@ from azure.mgmt.compute.models import DiskCreateOption
 # If you don't know the id, do a 'get' like this to obtain it
 managed_disk = compute_client.disks.get(self.group_name, 'myImageDisk')
 
-async_creation = compute_client.disks.begin_create_or_update(
+poller = compute_client.disks.begin_create_or_update(
     'my_resource_group',
     'my_disk_name',
     {
@@ -97,14 +97,14 @@ async_creation = compute_client.disks.begin_create_or_update(
     }
 )
 
-disk_resource = async_creation.result()
+disk_resource = poller.result()
 ```
 
 ## Virtual machine with Managed Disks
 
-You can create a Virtual Machine with an implicit Managed Disk for a specific disk image. Creation is simplified with implicit creation of managed disks without specifying all the disk details. You do not have to worry about creating and managing Storage Accounts.
+You can create a Virtual Machine with an implicit Managed Disk for a specific disk image, which relieves you from specifying all the details.
 
-A Managed Disk is created implicitly when creating VM from an OS image in Azure. In the `storage_profile` parameter, `os_disk` is now optional and you don't have to create a storage account as required precondition to create a Virtual Machine.
+A Managed Disk is created implicitly when creating VM from an OS image in Azure. In the `storage_profile` parameter, the `os_disk` is optional and you don't have to create a storage account as required precondition to create a Virtual Machine.
 
 ```python
 storage_profile = azure.mgmt.compute.models.StorageProfile(
@@ -117,7 +117,7 @@ storage_profile = azure.mgmt.compute.models.StorageProfile(
 )
 ```
 
-This `storage_profile` parameter is now valid. To get a complete example on how to create a VM in Python (including network, etc.), check the full [VM tutorial in Python](https://github.com/Azure-Samples/virtual-machines-python-manage).
+For a complete example on how to create a virtual machine using the Azure management libraries, for Python, see [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md).
 
 You can also create a `storage_profile` from your own image:
 
@@ -132,7 +132,7 @@ storage_profile = azure.mgmt.compute.models.StorageProfile(
 )
 ```
 
-You can easily attach a previously provisioned Managed Disk.
+You can easily attach a previously provisioned Managed Disk.:
 
 ```python
 vm = compute.virtual_machines.get(
@@ -160,9 +160,9 @@ async_update.wait()
 
 ## Virtual machine scale sets with Managed Disks
 
-Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter `vhd_containers` to provide all the storage account name to the Scale Set RestAPI. The official transition guide is available in the article [Convert a scale set template to a manage disk scale set template](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md).
+Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter `vhd_containers` to provide all the storage account name to the Scale Set RestAPI. (For a migration guide, see [Convert a scale set template to a manage disk scale set template](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md).)
 
-Now with Managed Disk, you don't have to manage any storage account at all. If you're used to the virtual machine scale set Python SDK, your `storage_profile` can now be exactly the same as the one used in VM creation:
+Because you don't need to manage storage accounts with Azure Managed Disks, your `storage_profile` can now be exactly the same as the one used in VM creation:
 
 ```python
 'storage_profile': {
@@ -175,7 +175,7 @@ Now with Managed Disk, you don't have to manage any storage account at all. If y
 },
 ```
 
-The full sample being:
+The full sample is as follows:
 
 ```python
 naming_infix = "PyTestInfix"
@@ -300,3 +300,7 @@ async_snapshot_creation = self.compute_client.snapshots.begin_create_or_update(
     )
 snapshot = async_snapshot_creation.result()
 ```
+
+## See also
+
+- [Example - Provision a virtual machine](azure-sdk-example-virtual-machines.md)
