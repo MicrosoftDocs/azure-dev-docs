@@ -94,7 +94,7 @@ Static code analysis can be done directly on the Terraform configuration code, w
 The following tools provide static analysis for Terraform files:
 
 - [Checkov](https://github.com/bridgecrewio/checkov/)
-- [Terrascan](https://github.com/cesar-rodriguez/terrascan)
+- [Terrascan](https://github.com/accurics/terrascan)
 - [tfsec](https://github.com/liamg/tfsec) 
 - [Deepsource](https://deepsource.io/blog/release-terraform-static-analysis/) 
 
