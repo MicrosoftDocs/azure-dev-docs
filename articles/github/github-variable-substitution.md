@@ -13,9 +13,9 @@ ms.custom: github-actions-azure
 
 Learn how to use [variable substitution action](https://github.com/marketplace/actions/variable-substitution) to replace values in XML, JSON and YAML based configuration and parameter files.
 
-Variable substitution lets you insert [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) into files in your repository during the workflow run. For example, you could insert an API login and password into a JSON file during the workflow run. Those values would need to already exist as GitHub secrets.  
+Variable substitution lets you insert values, including [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets), into files in your repository during the workflow run. For example, you could insert an API login and password into a JSON file during the workflow run.
 
-Variable substitution only works for JSON keys predefined in the object hierarchy. You cannot create new keys with variable substitution. In addition, only variables defined as [environment variables](https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables) in the workflow or system variables that are already available can be used for substitution.
+Variable substitution only works for keys predefined in the object hierarchy. You cannot create new keys with variable substitution. In addition, only variables defined as [environment variables](https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables) in the workflow or system variables that are already available can be used for substitution.
 
 ## Prerequisites
 
