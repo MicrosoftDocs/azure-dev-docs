@@ -28,7 +28,7 @@ To apply a constant within specific operations, import the desired constant from
 ```python
 import os
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD as cloud
-from azure.mgmt.resource import ResourceManagementClient
+from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 
 # Assumes the subscription ID to use is in the AZURE_SUBSCRIPTION_ID environment variable
@@ -39,6 +39,10 @@ credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
 
 resource_client = ResourceManagementClient(credential,
     subscription_id, base_url=cloud.endpoints.resource_manager)
+
+subscription_client = SubscriptionClient(credential,
+    base_url=stack_cloud.endpoints.resource_manager,
+    credential_scopes=[cloud.endpoints.resource_manager + ".default'"])
 ```
   
 ## Using your own cloud definition
@@ -48,7 +52,7 @@ The following code uses `get_cloud_from_metadata_endpoint` with the Azure Resour
 ```python
 import os
 from msrestazure.azure_cloud import get_cloud_from_metadata_endpoint
-from azure.mgmt.resource import ResourceManagementClient
+from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential
 
 # Assumes the subscription ID to use is in the AZURE_SUBSCRIPTION_ID environment variable
