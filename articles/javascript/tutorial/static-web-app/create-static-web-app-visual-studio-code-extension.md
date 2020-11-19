@@ -32,16 +32,16 @@ git push origin live
 
     :::image type="content" source="../../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
 
-1. Authorize GitHub to have access to Visual Studio Code. This is necessary because the extension is going to make changes to your GitHub repo for you.  
+1. Enter the following information in the subsequent fields, presented one at a time. 
 
-    :::image type="content" source="../../media/static-web-app/authorize-github-access-visual-studio-code-github-action-pipeline.png" alt-text="Authorize GitHub to have access to Visual Studio Code. This is necessary because the extension is going to make changes to your GitHub repo for you.":::
-
-1. Enter a name for your static web app, `Demo-ComputerVisionAnalyzer`.  
-1. Select `live` as the branch name. 
-1. Select `/`, the root, as the location of the application code.
-1. Select **Skip for now** for the location of the Azure Functions code.
-1. Enter `build` for the location of your build output.
-1. Select an Azure location close to you.  
+    |Field name| value|
+    |--|--|
+    |A name for your static web app.|`Demo-ComputerVisionAnalyzer`|
+    |Choose branch for repository|`live`| 
+    |Select the location of your application code.|`/`|
+    |Select the location of your Azure Functions code.|Select **Skip for now**|
+    |Enter the path of your build output relative to your app's location.|`build`|
+    |Select a location for new resources|Select an Azure location close to you.|
 
 ## Update the GitHub action with secret environment variables
 
@@ -78,7 +78,7 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
 
-## View web site
+## View Azure static web site in browser
 
 1. In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
