@@ -68,6 +68,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
 ## Add environment variables to your local environment
 
 To use your resource, the local code needs to have the key and endpoint available. This code base stores those in environment variables:
+
 * REACT_APP_COMPUTERVISIONKEY
 * REACT_APP_COMPUTERVISIONENDPOINT 
 

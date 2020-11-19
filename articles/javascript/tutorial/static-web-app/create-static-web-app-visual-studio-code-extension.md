@@ -12,7 +12,7 @@ In this section of the tutorial, create the Static Web app resource with a Visua
 
 ## Create a new branch dedicated to deployment
 
-The Azure Static web app receives a build from a specific branch of your GitHub repository. Currently, the tutorial used the `main` branch. In a new terminal in Visual Studio Code, create a `live` branch dedicated for building and deploying the app to Azure.
+The Azure Static web app receives a build from a specific branch of your GitHub repository. Currently, the tutorial used the `main` branch. In a new terminal in Visual Studio Code, create a `live` branch used only for building and deploying the app.
 
 ```bash
 git checkout -b live
@@ -87,8 +87,6 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 You can also find the URL for the site at:
 * the Azure portal for your resource, on the **Overview** page.
 * the GitHub action's build-and-deploy output has the site URL at the very end of the script 
-
-:::image type="content" source="../../media/static-web-app/github-action-build-pipeline-success-site-url.png" alt-text="Partial screenshot of GitHub action's build-and-deploy output has the site URL at the very end of the script":::
 
 ## Next step
 

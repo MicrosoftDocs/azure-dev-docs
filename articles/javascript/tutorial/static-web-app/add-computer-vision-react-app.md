@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. You do not need to take these steps for this tutorial. 
 
-## Add Computer Vision to React with NPM
+## Add Computer Vision to local React app
 
 Use npm to add Computer Vision to the package.json file. 
 
@@ -30,7 +30,7 @@ The app selects a random image from a catalog if the user doesn't enter an image
 
 :::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/DefaultImages.js" highlight="33-35" :::
 
-## Add Computer Vision to React app
+## Add custom Computer Vision module to React app
 
 Add methods to the React `app.js`. The image analysis and display of results are highlighted.
 
