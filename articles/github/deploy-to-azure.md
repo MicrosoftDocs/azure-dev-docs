@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 05/05/2020
+ms.date: 11/19/2020
 ms.custom: github-actions-azure
 ---
 
@@ -23,6 +23,10 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 - [Deploy a function app continuously from GitHub](/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous)  
 - [Deploy to Azure Functions using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions)   
+
+## Azure App Configuration
+
+- [Sync your GitHub repository to App Configuration](/azure/azure-app-configuration/concept-github-action)
 
 ## Azure Kubernetes Service
 
