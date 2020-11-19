@@ -34,11 +34,13 @@ from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 # Assumes the subscription ID to use is in the AZURE_SUBSCRIPTION_ID environment variable
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
-# When using sovereign domains, you must use an authority with DefaultAzureCredential.
+# When using sovereign domains (that is, any cloud other than AZURE_PUBLIC_CLOUD),
+# you must use an authority with DefaultAzureCredential.
 credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
 
 resource_client = ResourceManagementClient(credential,
-    subscription_id, base_url=cloud.endpoints.resource_manager)
+    subscription_id, base_url=cloud.endpoints.resource_manager,
+    credential_scopes=[cloud.endpoints.resource_manager + ".default'"])
 
 subscription_client = SubscriptionClient(credential,
     base_url=stack_cloud.endpoints.resource_manager,
@@ -59,10 +61,15 @@ from azure.identity import DefaultAzureCredential
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 stack_cloud = get_cloud_from_metadata_endpoint("https://contoso-azurestack-arm-endpoint.com")
-credential = DefaultAzureCredential()
 
-client = ResourceManagementClient(credential, subscription_id,
-    base_url=stack_cloud.endpoints.resource_manager)
+# When using a private, you must use an authority with DefaultAzureCredential.
+# The active_directory endpoint should be a URL like https://login.microsoftonline.com.
+# https:// is optional in the URL but required on the endpoint.
+credential = DefaultAzureCredential(authority=stack_cloud.endpoints.active_directory)
+
+resource_client = ResourceManagementClient(credential, subscription_id,
+    base_url=stack_cloud.endpoints.resource_manager,
+    credential_scopes=[cloud.endpoints.resource_manager + ".default'"])
 
 subscription_client = SubscriptionClient(credential,
     base_url=stack_cloud.endpoints.resource_manager,
