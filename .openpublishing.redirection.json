@@ -499,7 +499,7 @@
     {
       "source_path": "articles/python/python-sdk-azure-release-notes.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
-    },
+    },    
     {
       "source_path": "articles/python/python-sdk-azure-tools.md",
       "redirect_url": "/azure/developer/python/azure-tools"
@@ -563,6 +563,10 @@
     {
       "source_path": "articles/python/quickstarts-security-integration.md",
       "redirect_url": "/azure/developer/python/quickstarts-identity-security"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
