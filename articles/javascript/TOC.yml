@@ -107,7 +107,7 @@
             href: tutorial-vscode-azure-cli-node-06.md
           - name: Clean up resources
             href: tutorial-vscode-azure-cli-node-07.md
-      - name: Create a static website from Azure Strorage
+      - name: Create a static website from Azure Storage
         items:
           - name: Introduction and prerequisites
             href: tutorial-vscode-static-website-node-01.md
