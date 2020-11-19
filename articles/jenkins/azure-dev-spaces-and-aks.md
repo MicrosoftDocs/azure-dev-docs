@@ -33,7 +33,7 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 * [Azure CLI installed](/cli/azure/install-azure-cli), version 2.0.43 or higher.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure by following the steps in this [quickstart](/azure/jenkins/install-jenkins-solution-template). 
+* A Jenkins server. If you don't already have a Jenkins, deploy [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure by following the steps in this [quickstart](/azure/jenkins/install-jenkins-solution-template). 
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
