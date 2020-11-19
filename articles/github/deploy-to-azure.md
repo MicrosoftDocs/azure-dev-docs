@@ -41,7 +41,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 - [Use GitHub Actions to deploy to Kubernetes](/azure/aks/kubernetes-action)  
 - [Deploy to Azure Dev Spaces using GitHub Actions](/azure/dev-spaces/how-to/github-actions)
 
-## Azure DevOps Pipelines
+## Azure Pipelines
 
 - [Trigger a Pipeline run from GitHub Actions](/azure/devops/pipelines/ecosystems/github-actions)
 
