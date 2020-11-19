@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this tutorial, locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
 
-The React (create-create-app) provides the following functionality: 
+The React (create-react-app) provides the following functionality: 
 * Display message if Azure key and endpoint for Cognitive Services Computer Vision isn't found
 * Allows you to analyze an image with Cognitive Services Computer Vision
     * Enter a public image URL or analyze image from collection

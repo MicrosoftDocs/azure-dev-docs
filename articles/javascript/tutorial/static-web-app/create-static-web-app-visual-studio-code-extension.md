@@ -43,11 +43,11 @@ git push origin live
 1. Enter `build` for the location of your build output.
 1. Select an Azure location close to you.  
 
-## Update the GitHub action with the key and endpoint
+## Update the GitHub action with secret environment variables
 
 The Computer Vision key and endpoint are in the repository's secrets collection but are not in the GitHub action yet. This step adds the key and endpoint to the action.
 
-1. Pull down the latest changes to your local computer, to get the GitHub action file.
+1. Pull down the changes made from creating the Azure resource, to get the GitHub action file.
 
     ```bash
     git pull origin live
@@ -74,7 +74,7 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 
 1. In a web browser, open your GitHub repository for this tutorial, and select **Actions**. 
 
-1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the build successfully finishes.
+1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the **Build And Deploy** successfully finishes.
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
 

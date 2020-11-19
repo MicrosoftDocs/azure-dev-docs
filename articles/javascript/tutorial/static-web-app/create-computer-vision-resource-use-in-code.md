@@ -52,7 +52,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
 
     ```azurecli
     az cognitiveservices account keys list \
-    --name ComputerVision \
+    --name demo-ComputerVision \
     --resource-group rg-demo
     ```
 
@@ -67,7 +67,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
 
 ## Add environment variables to your local environment
 
-To use your resource, the code needs to have the key and endpoint available. This code base stores those in environment variables:
+To use your resource, the local code needs to have the key and endpoint available. This code base stores those in environment variables:
 * REACT_APP_COMPUTERVISIONKEY
 * REACT_APP_COMPUTERVISIONENDPOINT 
 
@@ -90,7 +90,7 @@ To use your resource, the code needs to have the key and endpoint available. Thi
 
 ## Add environment variables to your remote environment
 
-The GitHub action to build the react app needs secure access to the Computer Vision key and endpoint. 
+When using Azure Static web apps, environment variables such as secrets, need to be passed from the GitHub action to the Static web app. The GitHub action builds the app, including the Computer Vision key and endpoint passed in from the GitHub secrets for that repository, then pushes the code with the environment variables to the static web app.
 
 1. In a web browser, on your GitHub repository, select **Settings**, then **Secrets**, then **New repository secret**..
 
@@ -102,7 +102,7 @@ The GitHub action to build the react app needs secure access to the Computer Vis
 
 ## Run react app with ComputerVision resource
 
-This React app watches for changes to rebuild and rerun the app. 
+This React app watches for changes to rebuild and rerun the app. Make a change in order to force a rebuild.
 
 1. **Enter a new line** in `./src/VisualAi.js` just after the first empty line (line 4). This change causes a rebuild of the locally running website.
 
