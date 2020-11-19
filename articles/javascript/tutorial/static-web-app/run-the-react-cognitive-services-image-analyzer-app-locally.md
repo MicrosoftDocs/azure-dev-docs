@@ -42,15 +42,15 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
 ## Run sample
 
-Run the sample.
+1. Run the sample. 
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
-:::image type="content" source="../../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
-
-The sample is working if you see the previous image. 
+    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
+    
+1. Stop the app. Either close the terminal window or use `control+c` at the terminal. 
     
 ## Next step
 

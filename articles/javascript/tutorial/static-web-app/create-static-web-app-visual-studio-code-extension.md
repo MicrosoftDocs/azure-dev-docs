@@ -80,7 +80,7 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 
 ## View web site
 
-In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
+1. In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
 :::image type="content" source="../../media/static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
 
