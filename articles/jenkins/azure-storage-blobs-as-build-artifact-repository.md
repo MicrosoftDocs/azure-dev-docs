@@ -136,9 +136,15 @@ This section provides an overview of the Blob service components.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (The format above applies to the global Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure portal](https://portal.azure.com) to determine your URL endpoint.)
-  
-    In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name used for this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
+**Notes**:
+
+- The format above applies to the global Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure portal](https://portal.azure.com) to determine your URL endpoint.
+- The placeholder `storageaccount` represents the name of your storage account.
+- The placeholder `container_name` represents the name of your container.
+- The placeholder `blob_name` represents the name of your blob.
+- Within the container name, you can have multiple paths. These paths are separated by a forward slash. 
+- The example container name used for this tutorial is **MyJob**.
+- The common virtual path is defined as **${BUILD\_ID}/${BUILD\_NUMBER}**. This value results in the blob having a URL of the following form:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
