@@ -10,7 +10,7 @@ ms.custom: github-actions-azure
 ---
 
 
-# Deploy apps from GitHub to Azure 
+# Deploy apps from GitHub to Azure
 
 The following articles provide support to deploy apps from GitHub to Azure.  
 
