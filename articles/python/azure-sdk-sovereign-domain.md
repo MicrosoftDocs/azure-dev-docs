@@ -21,9 +21,9 @@ Pre-defined sovereign cloud constants are provided by the `azure_cloud` module o
 - `AZURE_US_GOV_CLOUD`
 - `AZURE_GERMAN_CLOUD`
 
-To apply a constant across all your code, define an environment variable named `AZURE_CLOUD` using one of the values in the previous list. (`AZURE_PUBLIC_CLOUD` is the default value.)
+To use a definition, import the appropriate constant from `msrestazure.azure_cloud` and apply it when creating client objects. 
 
-To apply a constant within specific operations, import the desired constant from `msrestazure.azure_cloud` and use it when creating client objects. With `DefaultAzureCredential`, you also need to use the appropriate value from `azure.identity.AzureAuthorityHosts`:
+When using `DefaultAzureCredential`, as shown in the following example, you also need to use the appropriate value from `azure.identity.AzureAuthorityHosts`.
 
 ```python
 import os
