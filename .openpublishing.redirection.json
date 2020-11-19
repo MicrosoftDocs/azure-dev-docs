@@ -627,6 +627,18 @@
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/developer/jenkins/azure-dev-spaces-and-aks.md",
+      "redirect_url": "/azure/developer/jenkins"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-from-github-to-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
     }
   ]
 }
