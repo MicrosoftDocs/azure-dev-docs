@@ -36,7 +36,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 # When using sovereign domains (that is, any cloud other than AZURE_PUBLIC_CLOUD),
 # you must use an authority with DefaultAzureCredential.
-credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
+credential = DefaultAzureCredential(authority=cloud.endpoints.active_directory)
 
 resource_client = ResourceManagementClient(credential,
     subscription_id, base_url=cloud.endpoints.resource_manager,
