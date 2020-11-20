@@ -12,16 +12,12 @@ ms.custom: devx-track-python, seo-python-october2019
 
 In this article, you prepare an app to deploy to the Azure App Service for this tutorial. You can use an existing app or create or download an app.
 
----
-
 ## If you already have an app
 
 If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file in your project root that lists your dependencies, including frameworks like Flask or Django. You can use any framework of your choosing.
 
 > [!div class="nextstepaction"]
 > [I have my own app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)
-
----
 
 ## If you don't already have an app
 

@@ -26,8 +26,6 @@ You need custom startup file in the following cases:
 
 For more information, see [Configure Python Apps - Container startup process](/azure/app-service/configure-language-python#container-startup-process).
 
----
-
 ## Create a startup file
 
 When you need a custom startup file, use the following steps:
@@ -53,8 +51,6 @@ When you need a custom startup file, use the following steps:
 
     Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
 
----
-
 ## Django startup commands
 
 By default, App Service automatically locates the folder that contains your *wsgi.py* file and starts Gunicorn with the following command:
@@ -66,8 +62,6 @@ gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
 If you want to change any of the Gunicorn arguments, such as using `--timeout 1200`, then create a command file with those modifications.
-
----
 
 ## Flask startup commands
 
@@ -104,7 +98,6 @@ If you use any of the following variations, then your custom startup command mus
     gunicorn --bind=0.0.0.0 --timeout 600 startup:app
     ```
 
----
 
 ## Startup commands for other frameworks and web servers
 

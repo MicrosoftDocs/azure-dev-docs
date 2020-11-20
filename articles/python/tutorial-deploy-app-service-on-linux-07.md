@@ -14,8 +14,6 @@ The Azure App Service you created includes a backing App Service Plan that can i
 
 [!INCLUDE [delete-resource-group](includes/delete-resource-group.md)]
 
----
-
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying Python code to App Service on Linux!

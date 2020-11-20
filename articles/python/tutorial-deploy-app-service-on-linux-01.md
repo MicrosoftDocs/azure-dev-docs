@@ -20,8 +20,6 @@ For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc
 > [!TIP]
 > [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.6+ using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described on [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definitionw are on [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/).
 
----
-
 ## Configure your environment
 
 - If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
@@ -36,8 +34,6 @@ For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc
   - [Visual Studio Code](https://code.visualstudio.com/).
   - Python and the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [VS Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
   - The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, which provides interaction with Azure App Service from within VS Code. For general information, explore the [App Service extension tutorial](https://code.visualstudio.com/tutorials/app-service-extension/getting-started) and visit the [vscode-azureappservice GitHub repository](https://github.com/Microsoft/vscode-azureappservice).
-
----
 
 ## Sign in to Azure
 
