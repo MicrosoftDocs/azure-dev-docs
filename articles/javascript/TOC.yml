@@ -13,7 +13,7 @@
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Create a static React app
+      - name: Create a static web app
         items: 
           - name: 1. Introduction and prerequisites
             href: tutorial/static-web-app/introduction.md
@@ -21,9 +21,9 @@
             href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
           - name: 3. Create Computer Vision resource
             href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-          - name: 4. Create Static web app resource
+          - name: 4. Build and deploy Static web app
             href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-          - name: 5. Review Computer Vision code
+          - name: 5. Review Computer Vision React code
             href: tutorial/static-web-app/add-computer-vision-react-app.md
           - name: 6. Clean up resources
             href: tutorial/static-web-app/clean-up-resources.md
