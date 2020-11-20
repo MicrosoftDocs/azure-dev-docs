@@ -29,7 +29,7 @@ When using `DefaultAzureCredential`, as shown in the following example, you also
 import os
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD as cloud
 from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
-from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
+from azure.identity import DefaultAzureCredential
 
 # Assumes the subscription ID to use is in the AZURE_SUBSCRIPTION_ID environment variable
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
