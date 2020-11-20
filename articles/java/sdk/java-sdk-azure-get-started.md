@@ -2,8 +2,9 @@
 title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
-author: rloutlaw
-ms.date: 04/16/2017
+author: bmitchell287
+ms.author: brendm
+ms.date: 11/20/2020
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
@@ -45,40 +46,14 @@ Which gives you a reply in the following format:
 }
 ```
 
-Next, copy the following into a text file on your system:
+Next, configure the environment variables with the following:
 
-```text
-# sample management library properties file
-subscription=ssssssss-ssss-ssss-ssss-ssssssssssss
-client=cccccccc-cccc-cccc-cccc-cccccccccccc
-key=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
-tenant=tttttttt-tttt-tttt-tttt-tttttttttttt
-managementURI=https\://management.core.windows.net/
-baseURL=https\://management.azure.com/
-authURL=https\://login.windows.net/
-graphURL=https\://graph.windows.net/
-```
+- `AZURE_SUBSCRIPTION_ID`: use the *id* value from `az account show` in the Azure CLI 2.0.
+- `AZURE_CLIENT_ID`: use the *appId* value from the output taken from a service principal output.
+- `AZURE_CLIENT_SECRET`: use the *password* value from the service principal output.
+- `AZURE_TENANT_ID`: use the *tenant* value from the service principal output.
 
-Replace the top four values with the following:
-
-- subscription: use the *id* value from `az account show` in the Azure CLI 2.0.
-- client: use the *appId* value from the output taken from a service principal output.
-- key: use the *password* value from the service principal output.
-- tenant: use the *tenant* value from the service principal output.
-
-Save this file in a secure location on your system where your code can read it. You may use this file for future code so it's recommended to store it somewhere external to the application in this article.
-
-Set an environment variable `AZURE_AUTH_LOCATION` with the full path to the authentication file in your shell.
-
-```bash
-export AZURE_AUTH_LOCATION=/Users/raisa/azureauth.properties
-```
-
-If you're working in a windows environment, add the variable to your system properties. Open a PowerShell window with administrator privleges and, after replacing the second variable with the path to your file, enter the following command:
-
-```powershell
-setx AZURE_AUTH_LOCATION "C:\<fullpath>\azureauth.properties" /m
-```
+For more options of authentication, please refer to [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
 
 ## Tooling
 
@@ -100,14 +75,30 @@ This creates a basic Maven project under the `testAzureApp` folder. Add the foll
 
 ```XML
 <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-storage-blob</artifactId>
-      <version>12.8.0</version>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.2.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager</artifactId>
+    <version>2.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+    <version>12.8.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>mssql-jdbc</artifactId>
     <version>6.2.1.jre8</version>
+</dependency>
+<!-- Only for SQL sample as it's still in preview -->
+<dependency>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager-sql</artifactId>
+    <version>2.0.0-beta.5</version>
 </dependency>
 ```
 
@@ -154,34 +145,17 @@ Create a new file named `AzureApp.java` in the project's `src/main/java/com/fabr
 ```java
 package com.fabrikam;
 
-import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.compute.VirtualMachine;
-import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
-import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-import com.microsoft.azure.management.appservice.WebApp;
-import com.microsoft.azure.management.storage.StorageAccount;
-import com.microsoft.azure.management.storage.SkuName;
-import com.microsoft.azure.management.storage.StorageAccountKey;
-import com.microsoft.azure.management.sql.SqlDatabase;
-import com.microsoft.azure.management.sql.SqlServer;
-import com.microsoft.azure.management.resources.fluentcore.arm.Region;
-import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
-
-import com.microsoft.rest.LogLevel;
-
-import com.azure.storage.blob.BlobClient;
-import com.azure.storage.blob.BlobContainerClient;
-import com.azure.storage.blob.BlobServiceClient;
-import com.azure.storage.blob.BlobServiceClientBuilder;
-import com.azure.storage.blob.models.PublicAccessType;
-import com.azure.storage.common.StorageSharedKeyCredential;
-
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.List;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.http.policy.HttpLogDetailLevel;
+import com.azure.core.management.AzureEnvironment;
+import com.azure.core.management.Region;
+import com.azure.core.management.profile.AzureProfile;
+import com.azure.identity.AzureAuthorityHosts;
+import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.resourcemanager.AzureResourceManager;
+import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
+import com.azure.resourcemanager.compute.models.VirtualMachine;
+import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
 
 public class AzureApp {
 
@@ -191,17 +165,21 @@ public class AzureApp {
         final String sshKey = "YOUR_PUBLIC_SSH_KEY";
 
         try {
+            TokenCredential credential = new EnvironmentCredentialBuilder()
+                    .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                    .build();
 
-            // use the properties file with the service principal information to authenticate
-            // change the name of the environment variable if you used a different name in the previous step
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-            Azure azure = Azure.configure()
-                    .withLogLevel(LogLevel.BASIC)
-                    .authenticate(credFile)
+            // if you do not set tenant ID and subscription ID via environment variables
+            // change to create azure profile with tenantId, subscriptionId and azure environment
+            AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+
+            AzureResourceManager azureResourceManager = AzureResourceManager.configure()
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
+                    .authenticate(credential, profile)
                     .withDefaultSubscription();
 
             // create a Ubuntu virtual machine in a new resource group
-            VirtualMachine linuxVM = azure.virtualMachines().define("testLinuxVM")
+            VirtualMachine linuxVM = azureResourceManager.virtualMachines().define("testLinuxVM")
                     .withRegion(Region.US_EAST)
                     .withNewResourceGroup("sampleVmResourceGroup")
                     .withNewPrimaryNetwork("10.0.0.0/24")
@@ -248,15 +226,22 @@ Replace the main method in `AzureApp.java` with the one below, updating the `app
     public static void main(String[] args) {
         try {
 
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
             final String appName = "YOUR_APP_NAME";
 
-            Azure azure = Azure.configure()
-                    .withLogLevel(LogLevel.BASIC)
-                    .authenticate(credFile)
+            TokenCredential credential = new EnvironmentCredentialBuilder()
+                    .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                    .build();
+
+            // if you do not set tenant ID and subscription ID via environment variables
+            // change to create azure profile with tenantId, subscriptionId and azure environment
+            AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+            
+            AzureResourceManager azureResourceManager = AzureResourceManager.configure()
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
+                    .authenticate(credential, profile)
                     .withDefaultSubscription();
 
-            WebApp app = azure.webApps().define(appName)
+            WebApp app = azureResourceManager.webApps().define(appName)
                     .withRegion(Region.US_WEST2)
                     .withNewResourceGroup("sampleWebResourceGroup")
                     .withNewWindowsPlan(PricingTier.FREE_F1)
@@ -294,7 +279,7 @@ az group delete --name sampleWebResourceGroup
 
 ## Connect to an Azure SQL database
 
-Replace the current main method in `AzureApp.java` with the code below, setting a real value for the `dbPassword` variable.
+Replace the current main method in `AzureApp.java` with the code below, setting real values for the variables.
 This code creates a new SQL database with a firewall rule allowing remote access,  and then connects to it using the SQL Database JBDC driver.
 
 ```java
@@ -302,25 +287,33 @@ This code creates a new SQL database with a firewall rule allowing remote access
     {
         // create the db using the management libraries
         try {
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-            Azure azure = Azure.configure()
-                    .withLogLevel(LogLevel.BASIC)
-                    .authenticate(credFile)
-                    .withDefaultSubscription();
+            TokenCredential credential = new EnvironmentCredentialBuilder()
+                    .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                    .build();
 
-            final String adminUser = SdkContext.randomResourceName("db",8);
-            final String sqlServerName = SdkContext.randomResourceName("sql",10);
-            final String sqlDbName = SdkContext.randomResourceName("dbname",8);
+            // if you do not set tenant ID and subscription ID via environment variables
+            // change to create azure profile with tenantId, subscriptionId and azure environment
+            AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+
+            SqlServerManager sqlServerManager = SqlServerManager.configure()
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
+                    .authenticate(credential, profile);
+
+            final String adminUser = "YOUR_USERNAME_HERE";
+            final String sqlServerName = "YOUR_SERVER_NAME_HERE";
+            final String sqlDbName = "YOUR_DB_NAME_HERE";
             final String dbPassword = "YOUR_PASSWORD_HERE";
+            final String firewallRuleName = "YOUR_RULE_NAME_HERE";
 
-
-            SqlServer sampleSQLServer = azure.sqlServers().define(sqlServerName)
-                            .withRegion(Region.US_EAST)
-                            .withNewResourceGroup("sampleSqlResourceGroup")
-                            .withAdministratorLogin(adminUser)
-                            .withAdministratorPassword(dbPassword)
-                            .withNewFirewallRule("0.0.0.0","255.255.255.255")
-                            .create();
+            SqlServer sampleSQLServer = sqlServerManager.sqlServers().define(sqlServerName)
+                    .withRegion(Region.US_EAST)
+                    .withNewResourceGroup("sampleSqlResourceGroup")
+                    .withAdministratorLogin(adminUser)
+                    .withAdministratorPassword(dbPassword)
+                    .defineFirewallRule(firewallRuleName)
+                        .withIpAddressRange("0.0.0.0","255.255.255.255")
+                        .attach()
+                    .create();
 
             SqlDatabase sampleSQLDb = sampleSQLServer.databases().define(sqlDbName).create();
 
@@ -375,60 +368,63 @@ az group delete --name sampleSqlResourceGroup
 Replace the current main method in `AzureApp.java` with the code below. This code creates an [Azure storage account](/azure/storage/common/storage-introduction) and then uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    try {
+        try {
+            TokenCredential tokenCredential = new EnvironmentCredentialBuilder()
+                    .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                    .build();
 
-        // use the properties file with the service principal information to authenticate
-        // change the name of the environment variable if you used a different name in the previous step
-        final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-        Azure azure = Azure.configure()
-                .withLogLevel(LogLevel.BASIC)
-                .authenticate(credFile)
-                .withDefaultSubscription();
+            // if you do not set tenant ID and subscription ID via environment variables
+            // change to create azure profile with tenantId, subscriptionId and azure environment
+            AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
-        // create a new storage account
-        String storageAccountName = SdkContext.randomResourceName("st",8);
-        StorageAccount storage = azure.storageAccounts().define(storageAccountName)
+            AzureResourceManager azureResourceManager = AzureResourceManager.configure()
+                    .withLogLevel(HttpLogDetailLevel.BASIC)
+                    .authenticate(tokenCredential, profile)
+                    .withDefaultSubscription();
+
+            // create a new storage account
+            String storageAccountName = "YOUR_STORAGE_ACCOUNT_NAME_HERE";
+            StorageAccount storage = azureResourceManager.storageAccounts().define(storageAccountName)
                     .withRegion(Region.US_WEST2)
                     .withNewResourceGroup("sampleStorageResourceGroup")
                     .create();
 
-        // create a storage container to hold the file
-        List<StorageAccountKey> keys = storage.getKeys();
-        PublicEndpoints endpoints = storage.endPoints();
-        String accountName = storage.name();
-        String accountKey = keys.get(0).value();
-        String endpoint = endpoints.primary().blob();
+            // create a storage container to hold the file
+            List<StorageAccountKey> keys = storage.getKeys();
+            PublicEndpoints endpoints = storage.endPoints();
+            String accountName = storage.name();
+            String accountKey = keys.get(0).value();
+            String endpoint = endpoints.primary().blob();
 
-        StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
+            StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-        BlobServiceClient storageClient =new BlobServiceClientBuilder()
-                                    .endpoint(endpoint)
-                                    .credential(credential)
-                                    .buildClient();
+            BlobServiceClient storageClient =new BlobServiceClientBuilder()
+                    .endpoint(endpoint)
+                    .credential(credential)
+                    .buildClient();
 
-        // Container name must be lower case
-        BlobContainerClient blobContainerClient = storageClient.getBlobContainerClient("helloazure");
-        blobContainerClient.create();
+            // Container name must be lower case
+            BlobContainerClient blobContainerClient = storageClient.getBlobContainerClient("helloazure");
+            blobContainerClient.create();
 
-        // Make the container public
-        blobContainerClient.setAccessPolicy(PublicAccessType.CONTAINER, null);
+            // Make the container public
+            blobContainerClient.setAccessPolicy(PublicAccessType.CONTAINER, null);
 
-        // write a blob to the container
-        String fileName = "helloazure.txt";
-        String textNew = "Hello Azure";
+            // write a blob to the container
+            String fileName = "helloazure.txt";
+            String textNew = "Hello Azure";
 
-        BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
-        InputStream is = new ByteArrayInputStream(textNew.getBytes());
-        blobClient.upload(is, textNew.length());
+            BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
+            InputStream is = new ByteArrayInputStream(textNew.getBytes());
+            blobClient.upload(is, textNew.length());
 
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
-    }
-}
 ```
 
 Run the sample from the command line:

@@ -13,6 +13,20 @@
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials
     items:
+      - name: Create a static web app
+        items: 
+          - name: 1. Introduction and prerequisites
+            href: tutorial/static-web-app/introduction.md
+          - name: 2. Download and run app locally
+            href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
+          - name: 3. Create Computer Vision resource
+            href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
+          - name: 4. Build and deploy Static web app
+            href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
+          - name: 5. Review Computer Vision React code
+            href: tutorial/static-web-app/add-computer-vision-react-app.md
+          - name: 6. Clean up resources
+            href: tutorial/static-web-app/clean-up-resources.md
       - name: Upload image to Storage Blobs
         href: tutorial/browser-file-upload.yml?preview=tutorialFeedback
       - name: Express.js with MongoDB
@@ -93,7 +107,7 @@
             href: tutorial-vscode-azure-cli-node-06.md
           - name: Clean up resources
             href: tutorial-vscode-azure-cli-node-07.md
-      - name: Create a static website with VS Code
+      - name: Create a static website from Azure Storage
         items:
           - name: Introduction and prerequisites
             href: tutorial-vscode-static-website-node-01.md
