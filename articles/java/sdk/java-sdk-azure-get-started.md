@@ -2,8 +2,9 @@
 title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
-author: rloutlaw
-ms.date: 04/16/2017
+author: bmitchell287
+ms.author: brendm
+ms.date: 11/20/2020
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
@@ -47,10 +48,10 @@ Which gives you a reply in the following format:
 
 Next, configure the environment variables with the following:
 
-- <code>AZURE_SUBSCRIPTION_ID</code>: use the *id* value from `az account show` in the Azure CLI 2.0.
-- <code>AZURE_CLIENT_ID</code>: use the *appId* value from the output taken from a service principal output.
-- <code>AZURE_CLIENT_SECRET</code>: use the *password* value from the service principal output.
-- <code>AZURE_TENANT_ID</code>: use the *tenant* value from the service principal output.
+- `AZURE_SUBSCRIPTION_ID`: use the *id* value from `az account show` in the Azure CLI 2.0.
+- `AZURE_CLIENT_ID`: use the *appId* value from the output taken from a service principal output.
+- `AZURE_CLIENT_SECRET`: use the *password* value from the service principal output.
+- `AZURE_TENANT_ID`: use the *tenant* value from the service principal output.
 
 For more options of authentication, please refer to [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
 
