@@ -22,7 +22,7 @@ You do this step before deploying your code so you can configure a custom startu
 
 1. In the prompts that follow:
 
-    - **Enter a name for your app**, which must be globally unique across all of Azure. To ensure uniquness, you typically use your name or company name followed by the app name.
+    - **Enter a name for your app**, which must be globally unique across all of Azure. To ensure uniqueness, you typically use your name or company name followed by the app name.
     - **Select Python 3.7** as the runtime.
 
 1. When a message appears indicating that the new App Service was created, select **View Output** to switch to the **Output** window in VS Code:
