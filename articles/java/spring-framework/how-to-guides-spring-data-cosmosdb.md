@@ -66,10 +66,10 @@ There are two ways to map a field in a domain class to the `id` field of an Azur
 - Annotate the field with `@Id`.
 - Set the name of the field to `id`.
 
-The following example shows the use of the `@Document` and `@Id` annotations.
+The following example shows the use of the `@Container` and `@Id` annotations.
 
 ```java
-@Document(collection = "myCollection")
+@Container(containerName = "myContainer")
 class MyDocument {
 
     @Id
@@ -97,7 +97,7 @@ The SDK also supports partitioning. For more information, see [Partitioning and 
 The following example shows how to use the `@PartitionKey` annotation when performing CRUD operations.
 
 ```java
-@Document(ru = "400")
+@Container(ru = "400")
 public class Address {
     @Id
     String postalCode;
@@ -297,9 +297,20 @@ The `CosmosKeyCredential` should be a singleton object because the Cosmos DB SDK
 
 ### Custom query execution
 
-The query annotation feature is not yet supported by the Spring Data Cosmos DB SDK. Until then, you can execute custom and complex queries directly on the `cosmosClient` bean exposed by the Spring application context.
+Spring Data Cosmos DB SDK 3.x.x supports `@query` annotation for defining customer queries!
 
-The following code shows a simple example of how to execute offset and limit queries using the `cosmosClient` bean.
+The following code shows a simple example of how to execute offset and limit queries using `@query` annotation:
+
+```java
+@Repository
+public interface SampleRepository extends CosmosRepository<SampleEntity, String> {
+
+    ...
+
+    @Query(value = "SELECT * from c OFFSET @skipCount LIMIT @takeCount")
+    List<SampleEntity> findByName(@Param("skipCount") int skipCount, @Param("takeCount") int takeCount);
+}
+```
 
 ```java
 final FeedOptions feedOptions = new FeedOptions();
