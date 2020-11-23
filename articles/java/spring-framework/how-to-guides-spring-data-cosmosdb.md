@@ -138,48 +138,151 @@ The SDK also supports Spring Data custom query find operations, such as `findByA
 
 The following sections describe best practices when using the SDK.
 
-### Configuring the application
+### Pulling configuration properties into the application
 
-Use the following steps to configure the application:
+You can create a properties class which exposes **application.properties** settings as Java access methods. The structure of **application.properties** may be
+
+```xml
+cosmos.uri=${ACCOUNT_HOST}
+cosmos.key=${ACCOUNT_KEY}
+cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
+
+# Populate query metrics
+cosmos.queryMetricsEnabled=true
+```
+
+Mirroring this structure, create a Java class `CosmosProperties` structured as follows.
+
+```java
+@ConfigurationProperties(prefix = "cosmos")
+public class CosmosProperties {
+
+    private String uri;
+
+    private String key;
+
+    private String secondaryKey;
+
+    private boolean queryMetricsEnabled;
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getSecondaryKey() {
+        return secondaryKey;
+    }
+
+    public void setSecondaryKey(String secondaryKey) {
+        this.secondaryKey = secondaryKey;
+    }
+
+    public boolean isQueryMetricsEnabled() {
+        return queryMetricsEnabled;
+    }
+
+    public void setQueryMetricsEnabled(boolean enableQueryMetrics) {
+        this.queryMetricsEnabled = enableQueryMetrics;
+    }
+}
+```
+
+Notice this class has a member corresponding to each **application.properties** configuration property, and that for each member `CosmosProperties` exposes *get* and *set* methods. The `@ConfigurationProperties` annotation identifies the class as representing configuration properties, and the `prefix = "cosmos"` argument indicates that a given *member* of `CosmosProperties` maps to the `cosmos.member` property in **application.properties**.
+
+In the next section, we will show how to incorporate your `CosmosProperties` class into the automated configuration flow. At configuration time, a `CosmosProperties` instance will be created and its instance methods will be populated with the configuration settings in **application.properties**. This properties instance allows your application to read and modify configuration properties at runtime.
+
+### Configuring the application based on properties
+
+Your next step is to create a configuration class which automates configuration of the application. To create the structure of your configuration class:
 
 1. Extend the `AbstractCosmosConfiguration` class to set up the application's configuration (Cosmos DB key, URL, database name, and so on).
 1. Add the `@Configuration` annotation.
 1. Depending on your repository usage, add one or both of the `@EnableCosmosRepositories` and `@EnableReactiveCosmosRepositories` annotations.
+1. Add the `@PropertySource("classpath:application.properties")` annotation, which signals to extract key/value pairs of properties from **application.properties**
+1. Add the `@EnableConfigurationProperties` annotation, which points Spring Data to a class which can store key/value pairs from **application.properties**. This annotation takes the class definition as an argument; you should pass `CosmosProperties.class`.
 
-The `CosmosKeyCredential` feature enables you to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
+The configuration class will utilize the following members:
 
-The following example code shows an application configuration and demonstrates the use of `switchToSecondaryKey`.
+1. Declare and define a log4j2 `logger` member which Spring Data will utilize for all log outputs
+1. Declare an `@Autowired` `CosmosProperties` member, **this is where application.properties settings will be deposited**
+
+The `AzureKeyCredential` feature enables you to rotate keys on the fly. To enable this, define an `AzureKeyCredential` member. You can switch keys by adding a `switchToSecondaryKey` method, as shown in the example below.
+
+Next, you need to define how automated configuration should be carried out.
+1. Define an `@Bean` `cosmosClientBuilder` method to handle client initialization using `CosmosClientBuilder`. The purpose of this method is to perform fundamental client setup i.e. specifying account endpoint URI and access key. Typically account endpoint URI and access key are defined in **application.properties**, which in turn will be populated into `properties`. You can initialize the `azureKeyCredential` member with `properties.getKey()`, and then feed `properties.getUri()` and `this.azureKeyCredential` to the `endpoint` and `key` builder methods respectively. 
+
+Notice that in the example below, `cosmosClientBuilder` does not call `build()` on the client builder - it returns the unfinalized builder structure. Spring Data allows us to perform configuration in two stages - first  `cosmosClientBuilder` can apply basic configuration and return the configuration structure, then Spring Data will call a `cosmosConfig` method which allows you to define more advanced configuration such as metrics and diagnostics. Next we will walk through this advanced configuration in the `cosmosConfig` method:
+1. Create an `@Bean` `cosmosConfig` method as shown below.
+1. Azure Cosmos DB can return server-side diagnostics associated with each request. Spring Data allows you to transform the raw diagnostics output before it is logged, by defining a customer diagnostics processor. As shown below, define a class which implements `ResponseDiagnosticsProcessor` and overrides the `processResponseDiagnostics` method. You can define `processResponseDiagnostics` in order to control how diagnostics output is handled. The example below simply logs the raw diagnostics.
+1. To enable diagnostics, and initialize the diagnostics processor, call the `responseDiagnosticsProcessor` builder method, passing a new instance of your customer processor class:
+
+    ```java
+    return CosmosConfig.builder()
+                       .responseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation())
+    ```
+1. Azure Cosmos DB also has a more specific performance metrics functionality for queries, called query metrics. As shown in the previous section, the best practice is to have an **application.properties** setting which enables/disables query metrics. Apply this configuration setting by tacking on the `.enableQueryMetrics(properties.isQueryMetricsEnabled())` builder method in `cosmosConfig`.
+1. Direct mode connectivity is recommended for minimum latency and maximum throughput so you can configure that in the client builder as well.
+
+Once the advanced configuration in `cosmosConfig` is complete, we must trigger client creation by calling `build()` on the configuration structure; this generates an Azure Cosmos DB client instance based on your configuration settings.
+
+The last step in defining the configuration process is to add an `@Override` method `getDatabaseName()` which return the name of your Azure Cosmos DB database as a string.
 
 ```java
 @Configuration
+@EnableConfigurationProperties(CosmosProperties.class)
 @EnableCosmosRepositories
+@EnableReactiveCosmosRepositories
+@PropertySource("classpath:application.properties")
 public class AppConfiguration extends AbstractCosmosConfiguration {
 
-    @Value("${azure.cosmosdb.uri}")
-    private String uri;
+    private static final Logger logger = LoggerFactory.getLogger(QuickstartSampleConfiguration.class);
 
-    @Value("${azure.cosmosdb.key}")
-    private String key;
+    @Autowired
+    private CosmosProperties properties;
 
-    @Value("${azure.cosmosdb.secondaryKey}")
-    private String secondaryKey;
-
-    @Value("${azure.cosmosdb.database}")
-    private String dbName;
-
-    @Value("${azure.cosmosdb.populateQueryMetrics}")
-    private boolean populateQueryMetrics;
-
-    private CosmosKeyCredential cosmosKeyCredential;
+    private AzureKeyCredential azureKeyCredential;
 
     @Bean
-    public CosmosDBConfig getConfig() {
-        this.cosmosKeyCredential = new CosmosKeyCredential(key);
-        CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri,
-            this.cosmosKeyCredential, dbName).build();
-        cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-        cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
-        return cosmosdbConfig;
+    public CosmosClientBuilder cosmosClientBuilder() {
+        this.azureKeyCredential = new AzureKeyCredential(properties.getKey());
+        return new CosmosClientBuilder()
+            .endpoint(properties.getUri())
+            .key(this.azureKeyCredential)
+    }
+
+    @Bean
+    public CosmosConfig cosmosConfig() {
+        DirectConnectionConfig directConnectionConfig = DirectConnectionConfig.getDefaultConfig();        
+        return CosmosConfig.builder()
+                           .responseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation())
+                           .enableQueryMetrics(properties.isQueryMetricsEnabled())
+                           .directMode(directConnectionConfig);                           
+                           .build();
+    }
+
+    @Override
+    protected String getDatabaseName() {
+        return "testdb";
+    }
+
+    private static class ResponseDiagnosticsProcessorImplementation implements ResponseDiagnosticsProcessor {
+
+        @Override
+        public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
+            logger.info("Response Diagnostics {}", responseDiagnostics);
+        }
     }
 
     public void switchToSecondaryKey() {
@@ -191,63 +294,36 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
 You can also customize the configuration to change the connection mode, maximum connection pool size, request timeout, and so on, as shown in the following example.
 
 ```java
-public CosmosDBConfig getConfig() {
+    @Bean
+    public CosmosConfig cosmosConfig() {
 
-    this.cosmosKeyCredential = new CosmosKeyCredential(key);
-    ConnectionPolicy customizedConnectionPolicy = new ConnectionPolicy();
+        // Set the connection mode to Direct (TCP) which applies to data plane operations
+        DirectConnectionConfig directConnectionConfig = DirectConnectionConfig.getDefaultConfig(); 
 
-    // Set the connection mode to Direct (TCP).
-    customizedConnectionPolicy.setConnectionMode(ConnectionMode.DIRECT);
+        // Even in Direct mode, some control plane operations always pass through the gateway as HTTP requests (i.e. container/database CRUD.)
+        // Optionally, you can customize connection properties for these specific operations which are
+        // always Gateway mode
+        GatewayConnectionConfig gatewayConnectionConfig = GatewayConnectionConfig.getDefaultConfig(); 
 
-    // Set the maximum number of HTTP/TCP connections to 1000 per application.
-    customizedConnectionPolicy.setMaxPoolSize(1000);
+        // Set the maximum number of HTTP connections to 1000 per application.
+        gatewayConnectionConfig.setMaxConnectionPoolSize(1000);
 
-    // Set the request timeout to 10 seconds.
-    customizedConnectionPolicy.requestTimeoutInMillis(10000);
+        // Set the request timeout to 10 seconds.
+        gatewayConnectionConfig.setIdleConnectionTimeout(Duration.ofMillis(10000));
 
-    // Set the idle connection timeout to two minutes.
-    customizedConnectionPolicy.idleConnectionTimeoutInMillis(120000);
-    CosmosDBConfig cosmosDbConfig = CosmosDBConfig.builder(uri,   this.cosmosKeyCredential, dbName)
-                                                  .connectionPolicy  (customizedConnectionPolic  y)
-                                                  .build();
-    return cosmosDbConfig;
-}
+        return CosmosConfig.builder()
+                           .responseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation())
+                           .enableQueryMetrics(properties.isQueryMetricsEnabled())
+                           .directMode(directConnectionConfig, gatewayConnectionConfig); // directMode() has an override which accepts Gateway config                        
+                           .build();
+    }
 ```
 
 ### Response diagnostics and query metrics
 
-Version 2.2.x of the Spring Data Cosmos DB SDK supports response diagnostics string and query metrics.
+Spring Data Cosmos DB SDK supports response diagnostics string and query metrics since version 2.
 
-To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
-
-```java
-@Configuration
-@EnableCosmosRepositories
-public class AppConfiguration extends AbstractCosmosConfiguration {
-
-    ...
-
-    @Value("${azure.cosmosdb.populateQueryMetrics}")
-    private boolean populateQueryMetrics;
-
-    private static class ResponseDiagnosticsProcessorImplementation implements ResponseDiagnosticsProcessor {
-
-        @Override
-        public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
-            log.info("Response Diagnostics {}", responseDiagnostics);
-        }
-    }
-
-    @Bean
-    public CosmosDBConfig getConfig() {
-        this.cosmosKeyCredential = new CosmosKeyCredential(key);
-        CosmosDbConfig cosmosdbConfig = CosmosDBConfig.builder(uri, this.cosmosKeyCredential, dbName).build();
-        cosmosdbConfig.setPopulateQueryMetrics(populateQueryMetrics);
-        cosmosdbConfig.setResponseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation());
-        return cosmosdbConfig;
-    }
-}
-```
+To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
 
 ### Pagination and sorting
 
