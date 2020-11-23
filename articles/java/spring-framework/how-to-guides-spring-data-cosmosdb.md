@@ -18,7 +18,7 @@ This topic describes the features of [Spring Data Cosmos DB](https://github.com/
 - [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
 - [How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](./configure-spring-data-gremlin-java-app-with-cosmos-db.md)
 
-The Spring Data Cosmos DB SDK is available as open source on GitHub in the [spring-data-cosmosdb](https://github.com/microsoft/spring-data-cosmosdb) repository. This repo has an active [Issues](https://github.com/microsoft/spring-data-cosmosdb/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/microsoft/spring-data-cosmosdb/releases) list to see if an issue has been fixed in a more recent version. The Spring Data Cosmos DB SDK version 2.2.x release train supports spring-data-commons version 2.2.0.RELEASE, whereas the version 2.1.x release train of the SDK supports spring-data-common version 2.1.0.RELEASE.
+The Spring Data Cosmos DB SDK is available as open source on GitHub in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) repository. This repo has an active [Issues](https://github.com/Azure/azure-sdk-for-java/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) list to see if an issue has been fixed in a more recent version. 
 
 ## Available features
 
@@ -46,9 +46,10 @@ Depending upon the usage, you need to enable both of the repositories separately
 
 ```java
 @Configuration
-@PropertySource(value = {"classpath:application.properties"})
+@EnableConfigurationProperties(CosmosProperties.class)
 @EnableCosmosRepositories
 @EnableReactiveCosmosRepositories
+@PropertySource("classpath:application.properties")
 public class TestRepositoryConfig extends AbstractCosmosConfiguration {
     ...
 }
@@ -56,9 +57,9 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 
 ### Define a simple entity
 
-You can define entities by adding the `@Document` annotation and specifying properties related to the collection, such as the collection name, request units (RUs), time to live, and auto-create collection flag.
+You can define entities by adding the `@Container` annotation and specifying properties related to the collection, such as the collection name, request units (RUs), time to live, and auto-create collection flag.
 
-By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Document(collection="myCustomCollectionName")` annotation to the domain class. The collection field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `collection = "${dynamic.collection.name}"` and `collection = "#{@someBean.getCollectionName()}"`.
+By default, the collection name will be the class name of the user-domain class. To customize it, add the `@Container(containerName="myCustomCollectionName")` annotation to the domain class. The `containerName` field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `containerName = "${dynamic.container.name}"` and `containerName = "#{@someBean.getContainerName()}"`.
 
 There are two ways to map a field in a domain class to the `id` field of an Azure Cosmos DB document:
 
