@@ -6,6 +6,7 @@ ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
+
 # 1. Build and deploy a Static Web app to Azure
 
 In this tutorial, locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
