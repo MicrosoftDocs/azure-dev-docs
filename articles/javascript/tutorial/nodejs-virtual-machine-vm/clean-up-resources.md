@@ -22,4 +22,4 @@ This command takes a few minutes.
 
 ## Next step
 
-* Learn more about [Azure Linux VMs](/virtual-machines)
+* Learn more about [Azure Linux VMs](/azure/virtual-machines)

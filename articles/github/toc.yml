@@ -1,14 +1,20 @@
 - name: Azure and GitHub integration
   href: index.yml  
   items:
-  - name: GitHub Actions for Azure 
-    href: github-actions.md 
-  - name: Deploy apps from GitHub to Azure  
-    href: deploy-to-azure.md   
-  - name: Tool integrations for GitHub Actions  
-    href: deploy-with-visual-studio.md 
-  - name: Azure DevOps & GitHub integration 
+  - name: GitHub Actions for Azure
+    expanded: true
+    items:
+    - name: Introduction to GitHub Actions for Azure
+      href: github-actions.md 
+    - name: Authenticate from Azure to GitHub  
+      href: connect-from-azure.md
+    - name: Deploy apps to Azure 
+      href: deploy-to-azure.md 
+    - name: Deploy databases to Azure
+      href: database-actions-deploy.md
+    - name: Manage Azure Policy
+      href: manage-azure-policy.md
+  - name: Azure DevOps & GitHub 
     href: integrate-azure-devops.md
-  - name: Connect from Azure to GitHub  
-    href: connect-from-azure.md  
-
+  - name: Visual Studio and Visual Studio Code  
+    href: deploy-with-visual-studio.md 
