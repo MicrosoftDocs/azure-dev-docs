@@ -23,15 +23,20 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy to Azure using GitHub Actions
+          - text: What is GitHub Actions for Azure
             url: github-actions.md
   # Card (optional)
   - title: Deploy to Azure
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Deploy apps from GitHub to Azure
             url: deploy-to-azure.md   
+          - text: Authenticate from Azure to GitHub
+            url: connect-from-azure.md 
+          - text: Deploy databases from GitHub to Azure
+            url: database-actions-deploy.md 
+
   # Card (optional)
   - title: Visual Studio and Visual Studio Code
     linkLists:
