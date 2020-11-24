@@ -323,7 +323,7 @@ You can also customize the configuration to change the connection mode, maximum 
 
 Spring Data Cosmos DB SDK supports response diagnostics string and query metrics since version 2.
 
-To enable query metrics, set the `populateQueryMetrics` flag to **true** in the `application.properties` file. Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
+To enable query metrics, set the `queryMetricsEnabled` flag to **true** in the `application.properties` file. Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
 
 ### Pagination and sorting
 
@@ -357,23 +357,24 @@ If the repositories extend `CosmosRepository`, be sure to add the annotation `@E
 
 ```java
 @Configuration
-@PropertySource(value = {"classpath:application.properties"})
+@EnableConfigurationProperties(CosmosProperties.class)
 @EnableCosmosRepositories
 @EnableReactiveCosmosRepositories
+@PropertySource("classpath:application.properties")
 public class TestRepositoryConfig extends AbstractCosmosConfiguration {
     ...
 }
 ```
 
-While creating or customizing a `CosmosDBConfig` bean, be sure to use the `CosmosKeyCredential` object instead of using the key directly.
+While creating or customizing a `CosmosDBConfig` bean, be sure to use the `AzureKeyCredential` object instead of using the key directly.
 
-The `CosmosKeyCredential` feature enables you to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
+The `AzureKeyCredential` feature enables you to rotate keys on the fly. You can switch keys using the `switchToSecondaryKey` method.
 
-The `CosmosKeyCredential` should be a singleton object because the Cosmos DB SDK uses the same object internally to detect changes in the key value inside this object.
+The `AzureKeyCredential` should be a singleton object because the Cosmos DB SDK uses the same object internally to detect changes in the key value inside this object.
 
 ### Custom query execution
 
-Spring Data Cosmos DB SDK 3.x.x supports `@query` annotation for defining customer queries!
+Spring Data Cosmos DB SDK 3.x.x supports `@query` annotation for defining custom queries!
 
 The following code shows a simple example of how to execute offset and limit queries using `@query` annotation:
 
@@ -386,39 +387,6 @@ public interface SampleRepository extends CosmosRepository<SampleEntity, String>
     @Query(value = "SELECT * from c OFFSET @skipCount LIMIT @takeCount")
     List<SampleEntity> findByName(@Param("skipCount") int skipCount, @Param("takeCount") int takeCount);
 }
-```
-
-```java
-final FeedOptions feedOptions = new FeedOptions();
-
-// Enable cross-partition queries.
-feedOptions.enableCrossPartitionQuery(true);
-
-// Set the page size.
-feedOptions.maxItemCount(20);
-
-// Set the number of parallel operations on the client-side SDK when executing parallel queries.
-feedOptions.maxDegreeOfParallelism(2);
-
-// Populate query metrics from Cosmos DB.
-feedOptions.populateQueryMetrics(true);
-
-final String query = "SELECT * from c OFFSET " + skipCount + " LIMIT " + takeCount;
-
-final CosmosClient cosmosClient = applicationContext.getBean(CosmosClient.class);
-
-Flux<FeedResponse<CosmosItemProperties>> feedResponseFlux =
-    cosmosClient.getDatabase(databaseId)
-                .getContainer(collectionId)
-                .queryItems(query, feedOptions);
-    feedResponseFlux.subscribeOn(Schedulers.parallel())
-                    .flatMap(feedResponse -> {
-                        List<CosmosItemProperties> results =
-                        feedResponseFlux.results();
-                        log.info("Results are {}", results);
-                        return feedResponse;
-                    })
-                    .subscribe();
 ```
 
 ### Enable diagnostics and query metrics
@@ -470,13 +438,32 @@ The following sections describe ways of troubleshooting common issues.
 
 If you experience connection issues, be sure all the required annotations in the configuration class are present and correct, as described in the [Getting the correct Cosmos DB configuration](#getting-the-correct-cosmos-db-configuration) section.
 
-### API exceptions
+### Naming changes
 
-Version 2.2.1 of the Spring Data Cosmos DB SDK provides the following improvements to exception handling:
+Version 3.1.0+ of the Spring Data Azure Cosmos DB SDK has the following notable changes to the names/interfaces of classes, methods, annotations, and Maven artifacts:
+* Updated group id to `com.azure`.
+* Updated artifact id to `azure-spring-data-cosmos`.
+* Updated sync APIs return types to `Iterable` types instead of `List`.
+* `CosmosDbFactory` to `CosmosFactory`.
+* `CosmosDBConfig` to `CosmosConfig`.
+* `CosmosDBAccessException` to `CosmosAccessException`.
+* `Document` annotation to `Container` annotation.
+* `DocumentIndexingPolicy` annotation to `CosmosIndexingPolicy` annotation.
+* `DocumentQuery` to `CosmosQuery`.
+* **application.properties** flag `populateQueryMetrics` to `queryMetricsEnabled`.
 
-- All the APIs throw `CosmosDBAccessException`, which exposes a `cosmosClientException` field through a getter.
-- The Cosmos DB SDK throws `CosmosClientException`, which you can use to implement any retry logic on the client-side.
-- Common exceptions to retry are ones with the messages `Resource already exists`, `Request rate too large`, `Request timeout exception`, and so on.
+### Key bug fixes
+
+Version 3.1.0+ of the Spring Data Azure Cosmos DB SDK has the following key bug fixes
+* Fixed an issue where annotated queries do not pick the annotated container name.
+* Scheduling diagnostics logging task to Parallel threads to avoid blocking Netty I/O threads.
+* Fixed optimistic locking on delete operation.
+* Fixed issue with escaping queries for IN clause.
+* Fixed issue by allowing long data type for @Id.
+* Fixed issue by allowing boolean, long, int, double as data types for @PartitionKey annotation.
+* Fixed IgnoreCase & AllIgnoreCase keywords for ignore case queries.
+* Removed default request unit value of 4000 when creating containers automatically.
+* Fixed nested partition key bug when used with @GeneratedValue annotation.
 
 ### API or query slowness
 
