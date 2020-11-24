@@ -6,6 +6,7 @@ ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
+
 # 1. Build and deploy a Static Web app to Azure
 
 In this tutorial, locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
@@ -31,7 +32,7 @@ When building static web apps, you have several choices on Azure, based on the d
 
 ## Prerequisites
 
-[!INCLUDE [Azure CLI](~/../azure-docs/includes/azure-cli-prepare-your-environment-no-header.md)]
+- [Install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com.)
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
