@@ -10,15 +10,15 @@ ms.custom: devx-track-java
 
 # Spring Data Azure Cosmos DB developer's guide
 
-This topic describes the features of [Spring Data Cosmos DB](https://github.com/microsoft/spring-data-cosmosdb) using the SQL API. This topic also includes guidance on common issues, workarounds, and diagnostic steps.
+This topic describes the features of [Spring Data Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) using the SQL API. This topic also includes guidance on common issues, workarounds, and diagnostic steps.
 
-[Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs. The Spring Data Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration with Azure Cosmos DB using the SQL API. You can find information on the support for other APIs in the following topics:
+[Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs. The Spring Data Azure Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework and provides integration with Azure Cosmos DB using the SQL API. You can find information on the support for other APIs in the following topics:
 
 - [How to use Spring Data MongoDB API with Azure Cosmos DB](./configure-spring-data-mongodb-with-cosmos-db.md)
 - [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
 - [How to use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](./configure-spring-data-gremlin-java-app-with-cosmos-db.md)
 
-The Spring Data Cosmos DB SDK is available as open source on GitHub in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) repository. This repo has an active [Issues](https://github.com/Azure/azure-sdk-for-java/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) list to see if an issue has been fixed in a more recent version. 
+The Spring Data Azure Cosmos DB SDK is available as open source on GitHub in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) repository. This repo has an active [Issues](https://github.com/Azure/azure-sdk-for-java/issues) list where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [Releases](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) list to see if an issue has been fixed in a more recent version. 
 
 ## Available features
 
@@ -26,7 +26,7 @@ The following sections describe the features currently available.
 
 ### CrudRepository and ReactiveCrudRepository support
 
-The Spring Data Cosmos DB SDK provides the `CosmosRepository` and `ReactiveCosmosRepository` interfaces, which extend the Spring Data `CrudRepository` and `ReactiveCrudRepository` interfaces.
+The Spring Data Azure Cosmos DB SDK provides the `CosmosRepository` and `ReactiveCosmosRepository` interfaces, which extend the Spring Data `CrudRepository` and `ReactiveCrudRepository` interfaces.
 
 The following example shows how to extend these interfaces.
 
@@ -321,13 +321,13 @@ You can also customize the configuration to change the connection mode, maximum 
 
 ### Response diagnostics and query metrics
 
-Spring Data Cosmos DB SDK supports response diagnostics string and query metrics since version 2.
+Spring Data Azure Cosmos DB SDK supports response diagnostics string and query metrics since version 2.
 
 To enable query metrics, set the `queryMetricsEnabled` flag to **true** in the `application.properties` file. Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method. The following code shows an example implementation.
 
 ### Pagination and sorting
 
-The Spring Data Cosmos DB SDK supports Spring Data paging and sorting. For more information, see [Special parameter handling](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters) in the Spring documentation.
+The Spring Data Azure Cosmos DB SDK supports Spring Data paging and sorting. For more information, see [Special parameter handling](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters) in the Spring documentation.
 
 Based on the available request units (RUs) on the database account, Cosmos DB can return documents less than or equal to the requested size. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
 
@@ -347,7 +347,7 @@ while(page.hasNext()) {
 
 ## Common issues and workarounds
 
-The following sections describe issues you should be aware of when using the Spring Data Cosmos DB SDK.
+The following sections describe issues you should be aware of when using the Spring Data Azure Cosmos DB SDK.
 
 ### Getting the correct Cosmos DB configuration
 
@@ -374,7 +374,7 @@ The `AzureKeyCredential` should be a singleton object because the Cosmos DB SDK 
 
 ### Custom query execution
 
-Spring Data Cosmos DB SDK 3.x.x supports `@query` annotation for defining custom queries!
+Spring Data Azure Cosmos DB SDK 3.x.x supports `@query` annotation for defining custom queries!
 
 The following code shows a simple example of how to execute offset and limit queries using `@query` annotation:
 
@@ -393,7 +393,7 @@ public interface SampleRepository extends CosmosRepository<SampleEntity, String>
 
 When debugging, it's helpful to have the response diagnostics string and query metrics from the Cosmos DB SDK. The Cosmos DB SDK logs the response diagnostics string on the client side. The back end logs the query metrics and provides them to the Cosmos DB SDK.
 
-The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Cosmos DB SDK. Therefore, it's important that your implementation ensures high performance by being bug-free and avoiding complexity. For example, you shouldn't log the complete set of diagnostics information in this method because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
+The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Azure Cosmos DB SDK. Therefore, it's important that your implementation ensures high performance by being bug-free and avoiding complexity. For example, you shouldn't log the complete set of diagnostics information in this method because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
 
 The following code shows an example of how to implement the `ResponseDiagnosticsProcessor` interface.
 
