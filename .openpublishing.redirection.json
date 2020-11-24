@@ -499,7 +499,7 @@
     {
       "source_path": "articles/python/python-sdk-azure-release-notes.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
-    },
+    },    
     {
       "source_path": "articles/python/python-sdk-azure-tools.md",
       "redirect_url": "/azure/developer/python/azure-tools"
@@ -565,6 +565,10 @@
       "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
+      "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },
@@ -623,6 +627,18 @@
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/developer/jenkins/azure-dev-spaces-and-aks.md",
+      "redirect_url": "/azure/developer/jenkins"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-from-github-to-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
     }
   ]
 }

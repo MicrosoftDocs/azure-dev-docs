@@ -2,7 +2,7 @@
 title: "Step 2: Prepare an app for deployment to Azure App Service on Linux from Visual Studio Code"
 description: Tutorial step 2, set up your application
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 11/20/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -12,23 +12,32 @@ ms.custom: devx-track-python, seo-python-october2019
 
 In this article, you prepare an app to deploy to the Azure App Service for this tutorial. You can use an existing app or create or download an app.
 
-If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file that describes your dependencies, including frameworks like Flask or Django. You can use any framework of your choosing.
+## If you already have an app
 
-If you don't already have an app, use one of the options below. Be sure to verify that the app runs locally.
+If you already have an app that you'd like to work with, make sure you have a *requirements.txt* file in your project root that lists your dependencies, including frameworks like Flask or Django. You can use any framework of your choosing.
 
-## Option 1: VS Code Flask tutorial sample
+> [!div class="nextstepaction"]
+> [I have my own app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)
+
+## If you don't already have an app
+
+If you don't already have an app, use *one* of the options below. Be sure to verify that the app runs locally.
+
+The remainder of this tutorial uses the code shown in [Option 3](#option-3-create-a-minimal-flask-app).
+
+### Option 1: Use the VS Code Flask tutorial sample
 
 Download or clone [https://github.com/Microsoft/python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](https://code.visualstudio.com/docs/python/tutorial-flask). Note that the app code is in the *hello_app* folder, specifically. Review the sample's *readme.md* file for instructions on running the app locally.
 
-## Option 2: VS Code Django tutorial sample
+### Option 2: Use the VS Code Django tutorial sample
 
 Download or clone [https://github.com/Microsoft/python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](https://code.visualstudio.com/docs/python/tutorial-django).
 
-If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. The reason for this is that, at present, App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors.
+Ideally, Django apps deployed to the cloud also use a cloud-based database, such as PostgreSQL for Azure. For more information, see [Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal](tutorial-python-postgresql-app-portal.md).
 
-The best option in any case is to use a separate database that's deployed and initialized independently from the app code.
+If your Django app uses a local SQLite database like this sample, it's easiest for this tutorial to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. Otherwise, you need to configure a post-build command to run Django's `migrate` command in the container to which the app is deployed. For more information, see [App Service configuration - Customize build automation](/app-service/configure-language-python#customize-build-automation).
 
-## Option 3: Create a minimal Flask app
+### Option 3: Create a minimal Flask app
 
 This section describes the minimal Flask app used in this walkthrough.
 
@@ -46,12 +55,12 @@ This section describes the minimal Flask app used in this walkthrough.
 1. Create a file named *requirements.txt* with the following contents:
 
     ```text
-    Flask==1.1.2
+    Flask
     ```
 
 1. Open a terminal using the menu command **Terminal** > **New Terminal**.
 
-1. In the terminal, create and activate a virtual environment named `env`:
+1. In the terminal, create and activate a virtual environment named `.venv`. 
 
     # [macOS/Linux](#tab/linux)
 
@@ -69,6 +78,8 @@ This section describes the minimal Flask app used in this walkthrough.
     ```
 
     ---
+
+1. When VS Code prompts you to activate the newly-created environment, answer **Yes**.
 
 1. Install the app's dependencies:
 
@@ -104,7 +115,9 @@ This section describes the minimal Flask app used in this walkthrough.
     flask run
     ```
 
-1. You can then open the app in a browser using the URL `http://127.0.0.1:5000/`.
+1. Open the app in a browser using the URL `http://127.0.0.1:5000/`. You should see the message "Hello Flask, on Azure App Service for Linux."
+
+1. Stop the Flask server by pressing **Ctrl**+**C** in the terminal.
 
 > [!div class="nextstepaction"]
 > [I have my app ready - continue to step 3 >>>](tutorial-deploy-app-service-on-linux-03.md)

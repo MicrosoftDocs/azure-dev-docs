@@ -94,8 +94,8 @@ Static code analysis can be done directly on the Terraform configuration code, w
 The following tools provide static analysis for Terraform files:
 
 - [Checkov](https://github.com/bridgecrewio/checkov/)
-- [Terrascan](https://github.com/cesar-rodriguez/terrascan)
-- [tfsec](https://github.com/liamg/tfsec) 
+- [Terrascan](https://github.com/accurics/terrascan)
+- [tfsec](https://github.com/tfsec/tfsec)
 - [Deepsource](https://deepsource.io/blog/release-terraform-static-analysis/) 
 
 Static analysis is often executed part of a continuous integration pipeline. These tests don't require the creation of an execution plan or deployment. As a result, they run faster than other tests and are generally run first in the continuous integration process.
