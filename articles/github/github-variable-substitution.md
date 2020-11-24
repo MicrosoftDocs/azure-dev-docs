@@ -1,5 +1,5 @@
 --- 
-title: Use fictitious user names with GitHub Actions
+title: Use variable substitution with GitHub Actions for Azure
 description: GitHub Action for substituting variables in parameterized files
 author: juliakm
 ms.author: jukullam 
