@@ -12,7 +12,7 @@ Once you have completed this tutorial, you need to remove the Storage resource c
 
 If you would like to continue with this app, learn how to deploy the app to Azure for hosting with one of the following choices:
 
-* [Upload as a static web app](/static-web-apps/getting-started?tabs=vanilla-javascript)
+* [Upload as a static web app](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * Upload to a web app resource using the [Visual Studio code extension for the App service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 * [Upload an app to an Azure VM](../../tutorial/nodejs-virtual-machine-vm/introduction.md)
 
