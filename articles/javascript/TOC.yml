@@ -11,109 +11,54 @@
       href: core/node-sdk-azure-authenticate-principal.md
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
-  - name: Quickstarts
-    expanded: false
-    items:
-    - name: App hosting
-      items:
-      - name: Azure Static Web apps
-        href: /azure/static-web-apps/getting-started
-      - name: Static sites from Storage
-        href: tutorial-vscode-static-website-node-01.md
-      - name: Node.js web apps and APIs
-        href: tutorial-vscode-azure-app-service-node-01.md
-      - name: Deno APIs
-        href: tutorial-visual-studio-code-azure-app-service-deno-01.md
-      - name: Serverless
-        href: tutorial-vscode-serverless-node-01.md
-      - name: Docker
-        href: tutorial-vscode-docker-node-01.md
-      - name: Kubernetes
-        href: /azure/aks/kubernetes-walkthrough?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Linux VMs
-        href: /azure/virtual-machines/linux/quick-create-cli?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: DevOps
-      items:
-      - name: Azure Repos
-        href: /azure/devops/repos/get-started/index?view=azure-devops&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: CI/CD with Azure Pipelines
-        href: /azure/devops/pipelines/languages/javascript?view=azure-devops&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: CI/CD with Azure DevOps Projects
-        href: /azure/devops-project/azure-devops-project-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Application Insights with Azure Monitor
-        href: /azure/azure-monitor/learn/nodejs-quick-start?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Log Analytics with Azure Monitor
-        href: /azure/azure-monitor/learn/quick-collect-linux-computer?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: GitHub Actions
-        href: https://azure.microsoft.com/resources/videos/azure-friday-deploy-to-azure-using-github-actions
-    - name: Debugging and diagnostics
-      items:
-      - name: Remote debugging for Azure App Service
-        href: https://code.visualstudio.com/docs/azure/remote-debugging
-      - name: Debug local Node.js apps in VS Code
-        href: https://code.visualstudio.com/docs/nodejs/nodejs-debugging
-    - name: Store data
-      items:
-      - name: Blob storage
-        href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: SQL Database
-        href: /azure/sql-database/sql-database-connect-query-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Cosmos DB
-        href: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Redis Cache
-        href: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/developer/javascript/toc.json&bc=/
-      - name: PostgreSQL
-        href: /azure/postgresql/connect-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: MySQL
-        href: /azure/mysql/connect-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Security and authentication
-      items:
-      - name: Azure Active Directory
-        href: /azure/active-directory/develop/quickstart-v1-nodejs-webapi?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Azure AD B2C
-        href: /azure/active-directory-b2c/active-directory-b2c-tutorials-spa?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Key Vault
-        href: /azure/key-vault/quick-create-cli?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Messaging and integration
-      items:
-      - name: Event Grid
-        href: /azure/event-grid/custom-event-quickstart?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Service Bus
-        href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Queue storage
-        href: /azure/storage/queues/storage-nodejs-how-to-use-queues?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: IoT
-      items:
-      - name: IoT Hub
-        href: /azure/iot-hub/quickstart-control-device-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Big data streaming
-        href: /azure/iot-hub/quickstart-send-telemetry-node?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Cognitive Services
-      items:
-      - name: Text Analytics
-        href: /azure/cognitive-services/text-analytics/quickstarts/nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Computer Vision
-        href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: Speech recognition
-        href: /azure/cognitive-services/speech-service/get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Tutorials
     items:
+      - name: Create a static web app
+        items: 
+          - name: 1. Introduction and prerequisites
+            href: tutorial/static-web-app/introduction.md
+          - name: 2. Download and run app locally
+            href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
+          - name: 3. Create Computer Vision resource
+            href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
+          - name: 4. Build and deploy Static web app
+            href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
+          - name: 5. Review Computer Vision React code
+            href: tutorial/static-web-app/add-computer-vision-react-app.md
+          - name: 6. Clean up resources
+            href: tutorial/static-web-app/clean-up-resources.md
       - name: Upload image to Storage Blobs
         href: tutorial/browser-file-upload.yml?preview=tutorialFeedback
       - name: Express.js with MongoDB
         href: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
-      - name: Deploy Azure Functions with VS Code
+      - name: Deploy app to Linux virtual machine
+        items: 
+          - name: 1. Introduction and prerequisites
+            href: tutorial/nodejs-virtual-machine-vm/introduction.md
+          - name: 2. Create Application Insights resource
+            href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
+          - name: 3. Create virtual machine
+            href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
+          - name: 4. Connect to Linux virtual machine
+            href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
+          - name: 5. Add cloud logging to app
+            href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
+          - name: 6. View logs
+            href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
+          - name: 7. Clean up resources
+            href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
+      - name: Create and deploy serverless Functions
         items:
-          - name: Introduction and prerequisites
-            href: tutorial-vscode-serverless-node-01.md
-          - name: Create the Functions app
-            href: tutorial-vscode-serverless-node-02.md
-          - name: Test the function locally
-            href: tutorial-vscode-serverless-node-03.md
-          - name: Deploy the Functions app
-            href: tutorial-vscode-serverless-node-04.md
-          - name: Clean up resources
-            href: tutorial-vscode-serverless-node-05.md
+          - name: 1. Introduction and prerequisites
+            href: tutorial/tutorial-vscode-serverless-node-install.md
+          - name: 2. Create the Functions app
+            href: tutorial/tutorial-vscode-serverless-node-create-local.md
+          - name: 3. Test the function locally
+            href: tutorial/tutorial-vscode-serverless-node-test-local.md
+          - name: 4. Deploy the Functions app
+            href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
+          - name: 5. Clean up resources
+            href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
       - name: Deploy Node.js to App Service with VS Code
         items:
           - name: Introduction and prerequisites
@@ -126,16 +71,8 @@
             href: tutorial-vscode-azure-app-service-node-04.md
           - name: Clean up resources
             href: tutorial-vscode-azure-app-service-node-05.md
-      - name: Deploy Deno to App Service with VS Code
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-visual-studio-code-azure-app-service-deno-01.md
-          - name: Create the app
-            href: tutorial-visual-studio-code-azure-app-service-deno-02.md
-          - name: Deploy the app to Azure
-            href: tutorial-visual-studio-code-azure-app-service-deno-03.md
-          - name: Clean up resources
-            href: tutorial-visual-studio-code-azure-app-service-deno-04.md
+      - name: Deploy Deno to App Service
+        href: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
       - name: Deploy containers with VS Code
         items:
           - name: Introduction and prerequisites
@@ -170,7 +107,7 @@
             href: tutorial-vscode-azure-cli-node-06.md
           - name: Clean up resources
             href: tutorial-vscode-azure-cli-node-07.md
-      - name: Create a static website with VS Code
+      - name: Create a static website from Azure Storage
         items:
           - name: Introduction and prerequisites
             href: tutorial-vscode-static-website-node-01.md
@@ -196,16 +133,12 @@
       href: how-to/deploy-web-app.md
     - name: Deploy containers
       href: how-to/deploy-containers.md
-    - name: Deploy through continuous delivery
-      href: /azure/devops/pipelines/languages/javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Integrate with databases
       href: how-to/integrate-database.md
     - name: Write serverless code
       href: how-to/develop-serverless-apps.md
     - name: Create a static (JAMstack) site
       href: how-to/create-static-site.md
-    - name: Create a REST API
-      href: /azure/app-service/app-service-web-tutorial-rest-api?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
   - name: Samples
@@ -234,7 +167,6 @@
       href: /samples/browse/?languages=javascript%252cnodejs&products=azure-search
     - name: All Samples
       href: /samples/browse/?languages=javascript%252cnodejs
-
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

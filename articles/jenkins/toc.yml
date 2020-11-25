@@ -31,14 +31,10 @@
         maintainContext: true
       - name: Deploy to AKS using blue/green pattern
         href: deploy-to-aks-using-blue-green-deployment-pattern.md
-      - name: CI/CD with Azure Dev Spaces
-        href: azure-dev-spaces-and-aks.md
     - name: App Service
       items:
       - name: Create Azure resources in a pipeline job
         href: deploy-to-azure-app-service-using-azure-cli.md
-      - name: Deploy an app from GitHub to App Service
-        href: deploy-from-github-to-azure-app-service.md
     - name: Use Jenkins with Azure DevOps
       href: deploy-to-linux-vm-using-azure-devops-services.md
       maintainContext: true
@@ -53,10 +49,6 @@
     - name: CI/CD to Service Fabric
       href: deploy-to-service-fabric-cluster.md
       maintainContext: true
-- name: How-to
-  items: 
-    - name: Use the App Service plug-in
-      href: deploy-to-azure-app-service-using-plugin.md
 - name: Samples
   items:
     - name: Sample jobs and scripts

@@ -23,7 +23,8 @@
     "brendm@microsoft.com",
     "karler@microsoft.com",
     "kraigb@microsoft.com",
-    "barbkess@microsoft.com"
+    "barbkess@microsoft.com",
+    "diberry@microsoft.com"
   ],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
@@ -43,6 +44,22 @@
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
       "branch": "main"
+    },
+    {
+      "path_to_root": "js-e2e-vm",
+      "url": "https://github.com/Azure-Samples/js-e2e-vm",
+      "branch": "main"
+    },    
+    {
+      "path_to_root": "js-e2e-client-cognitive-services",
+      "url": "https://github.com/Azure-Samples/js-e2e-client-cognitive-services",
+      "branch": "main"
+    },
+    
+    {
+      "path_to_root": "azure-docs",
+      "url": "https://github.com/MicrosoftDocs/azure-docs",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {},

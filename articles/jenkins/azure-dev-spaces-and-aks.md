@@ -4,14 +4,14 @@ description: Learn how to use the Azure Dev Spaces plug-in in a continuous integ
 keywords: jenkins, azure, devops, azure dev spaces, aks, azure kubernetes service
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Use Azure Dev Spaces with Azure Kubernetes Service
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
-This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server. 
+This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server.
 
 In this tutorial, you'll complete these tasks:
 
@@ -31,9 +31,9 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 * [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension installed.
 
-* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.43 or higher.
+* [Azure CLI installed](/cli/azure/install-azure-cli), version 2.0.43 or higher.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure by following the steps in this [quickstart](/azure/jenkins/install-jenkins-solution-template). 
+* A Jenkins server. If you don't already have a Jenkins, deploy [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) on Azure by following the steps in this [quickstart](/azure/jenkins/install-jenkins-solution-template). 
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 

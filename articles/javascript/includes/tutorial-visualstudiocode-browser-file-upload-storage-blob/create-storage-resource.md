@@ -1,9 +1,9 @@
 ---
 title: include file create-storage-resource.md
 description: include file create-storage-resource.md
-ms.date: 10/13/2020
+ms.date: 11/13/2020
 ms.topic: include
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-azurecli
 ---
 
 In this section of the tutorial, you create the Azure Storage resource with a Visual Studio extension then configure the resource in the Azure portal. 
@@ -82,7 +82,7 @@ const sasToken = process.env.storagesastoken || "";
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 
-1. While still in the Azure portal, in the **Settings** section, select **CORS**. 
+1. While still in the Azure portals, in the Settings section, select **CORS**. 
 1. Configure CORS as show in the image. The settings are explained below the image. 
 
     | Property|Value|
@@ -113,14 +113,22 @@ Your SAS token and storage account name are set in the `src/uploadToBlob.ts` fil
 
 1. Select an image from the `images` folder to upload. The `spring-flowers.jpg` are a good visual for this test. The select the **Upload!** button. 
 
-    The React front-end client code calls into the `src/uploadToBlob.ts` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), the upload the blob to that container. 
+    The React front-end client code calls into the `src/uploadToBlob.ts` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+
+## Troubleshooting
+
+If you received an error or your file doesn't upload to the container, check the following:
+
+* Recreate your SAS token, making sure that your token is created at the Storage resource level and not the container level. Copy the new token into the code at the correct location.
+* Check that the token string you copied into the code doesn't contain the `?` (question mark) at the beginning of the string.
+* Verify your CORS setting for your Storage resource.
 
 ## Want to know more? 
 
 Other ways to configuration your Storage account include:
-* SAS Token with [PowerShell](/azure/powershell/module/azure.storage/new-azurestorageblobsastoken)
+* SAS Token with [PowerShell](/powershell/module/azure.storage/new-azurestorageblobsastoken)
 * SAS Token with Portal
-* CORS with [PowerShell](/azure/powershell/module/azure.storage/set-azurestoragecorsrule)
+* CORS with [PowerShell](/powershell/module/azure.storage/set-azurestoragecorsrule)
 * CORS with Portal
 
-Learn more about [Shared Access Signatures](/azure/storage/common/storage-sas-overview.md).
+Learn more about [Shared Access Signatures](/azure/storage/common/storage-sas-overview).

@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 10/05/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -141,7 +141,7 @@ In both cases, the identity involved must be assigned permissions for the approp
 
 ### Using DefaultAzureCredential with SDK management libraries
 
-`DefaultAzureCredential` works with versions of the Azure SDK management libraries (those with "mgmt" in their named) that appear on the [Libraries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. (Also, the pypi pages for updated libraries include the line, "Credential system has been completely revamped" to indicate the change.)
+`DefaultAzureCredential` works with newer versions of the Azure SDK management libraries, that is, those "Resource Management" libraries with "mgmt" in their names that also appear on the [Libraries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. (Also, the pypi page for an updated library usually includes the line, "Credential system has been completely revamped" to indicate the change.)
 
 For example, you can use `DefaultAzureCredential` with version 15.0.0 or higher of azure-mgmt-resource:
 
@@ -155,6 +155,8 @@ subscription_client = SubscriptionClient(credential)
 sub_list = subscription_client.subscriptions.list()
 print(list(sub_list))
 ```
+
+If the library has not been updated, code using `DefaultAzureCredential` will given the "object has no attribute 'signed-session'" as described in the next section.
 
 ### "'DefaultAzureCredential' object has no attribute 'signed-session'"
 
@@ -298,6 +300,37 @@ You can also store values in Azure Key Vault and retrieve them at run time rathe
 
 ### Authenticate with token credentials
 
+You can authenticate with the Azure libraries using explicit subscription, tenant, and client identifiers along with a client secret.
+
+When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#using-clientsecretcredential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#using-serviceprincipalcredentials-azurecommon).
+
+To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
+
+#### Using ClientSecretCredential (azure.identity)
+
+```python
+import os
+from azure.mgmt.resource import SubscriptionClient
+from azure.identity import ClientSecretCredential
+
+# Retrieve the IDs and secret to use with ClientSecretCredential
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+tenant_id = os.environ["AZURE_TENANT_ID"]
+client_id = os.environ["AZURE_CLIENT_ID"]
+client_secret = os.environ["AZURE_CLIENT_SECRET"]
+
+credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
+
+#### Using ServicePrincipalCredentials (azure.common)
+
 ```python
 import os
 from azure.mgmt.resource import SubscriptionClient
@@ -317,9 +350,11 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-In this method, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
+In this method, which is again used with older libraries not based on azure.core, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
-With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
+#### Use an Azure sovereign national cloud
+
+With either of these token credential methodsthis method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -386,7 +421,7 @@ When using CLI-based authentication, the application is authorized for any and a
 
 #### CLI-based authentication with azure.core libraries
 
-When using [Azure libraries that are updated for azure.core](/azure/developer/python/azure-sdk-library-package-index#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
+When using [Azure libraries that are updated for azure.core](./azure-sdk-library-package-index.md#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
 
 ```python
 from azure.identity import AzureCliCredential

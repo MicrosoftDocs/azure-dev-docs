@@ -36,11 +36,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Front-end apps
-            url: /azure/static-web-apps/getting-started
+            url: tutorial/static-web-app/introduction.md
           - text: Node.js with App service
             url: tutorial-vscode-azure-app-service-node-01.md
           - text: Deno with App Service
-            url: tutorial-visual-studio-code-azure-app-service-deno-01.md
+            url: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
+          - text: Deploy app to Linux virtual machine
+            url: tutorial/nodejs-virtual-machine-vm/introduction.md
           - text: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
@@ -52,7 +54,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Develop and deploy
-            url: tutorial-vscode-serverless-node-01.md
+            url: tutorial/tutorial-vscode-serverless-node-install.md
       - linkListType: how-to-guide
         links:
           - text: Write serverless code
@@ -62,7 +64,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: MongoDB
-            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+            url: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
           - text: MySql
             url: /azure/mysql/connect-nodejs
           - text: PostgreSQL
@@ -82,7 +84,7 @@ landingContent:
           - text: Translate text
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
-            url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
+            url: tutorial/static-web-app/introduction.md
   - title: Security, Messaging, and Logs
     linkLists:
       - linkListType: quickstart

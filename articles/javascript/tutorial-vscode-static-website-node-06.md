@@ -17,4 +17,4 @@ The storage you created incurs minimal ongoing costs (which for storage are very
 [!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I'm done](node-howto-create-static-site-jamstack.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)
+> [I'm done](./how-to/create-static-site.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)

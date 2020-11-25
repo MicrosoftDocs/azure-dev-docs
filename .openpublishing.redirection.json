@@ -1,6 +1,42 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-install"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-create-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-test-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
       "source_path": "articles/javascript/node-sdk-logging.md",
       "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging.md"
     },
@@ -18,11 +54,11 @@
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
@@ -127,6 +163,10 @@
     {
       "source_path": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
       "redirect_url": "/azure/developer/java/spring-framework"
+    },
+    {
+      "source_path": "articles/java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
@@ -415,7 +455,7 @@
     {
       "source_path": "articles/java/sdk/java-sdk-manage-vm-scalesets.md",
       "redirect_url": "/azure/developer/java/sdk"
-    }, 
+    },
     {
       "source_path": "articles/java/toolkit-for-eclipse/whats-new.md",
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
@@ -459,7 +499,7 @@
     {
       "source_path": "articles/python/python-sdk-azure-release-notes.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
-    },
+    },    
     {
       "source_path": "articles/python/python-sdk-azure-tools.md",
       "redirect_url": "/azure/developer/python/azure-tools"
@@ -525,6 +565,10 @@
       "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
+      "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },
@@ -583,6 +627,18 @@
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/developer/jenkins/azure-dev-spaces-and-aks.md",
+      "redirect_url": "/azure/developer/jenkins"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-from-github-to-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/developer/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
     }
   ]
 }

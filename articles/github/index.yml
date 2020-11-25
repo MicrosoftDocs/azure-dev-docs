@@ -11,6 +11,7 @@ metadata:
   author: N-Usha 
   ms.author: ushan 
   ms.date: 05/05/2020
+  ms.custom: github-actions-azure
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -52,3 +53,11 @@ landingContent:
         links:
           - text: Connect to GitHub from Azure and other services
             url: connect-from-azure.md  
+            
+    # Card (optional)
+  - title: Manage Azure Policies with GitHub
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Manage Azure Policies as code with GitHub
+            url: manage-azure-policy.md  

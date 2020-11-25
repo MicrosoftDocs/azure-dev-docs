@@ -2,7 +2,7 @@
 title: Tutorial - Integration testing with Terraform and Azure
 description: Learn about integration tests and how to use Azure DevOps to configure continuous integration for Terraform projects.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 10/08/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -94,8 +94,8 @@ Static code analysis can be done directly on the Terraform configuration code, w
 The following tools provide static analysis for Terraform files:
 
 - [Checkov](https://github.com/bridgecrewio/checkov/)
-- [Terrascan](https://github.com/cesar-rodriguez/terrascan)
-- [tfsec](https://github.com/liamg/tfsec) 
+- [Terrascan](https://github.com/accurics/terrascan)
+- [tfsec](https://github.com/tfsec/tfsec)
 - [Deepsource](https://deepsource.io/blog/release-terraform-static-analysis/) 
 
 Static analysis is often executed part of a continuous integration pipeline. These tests don't require the creation of an execution plan or deployment. As a result, they run faster than other tests and are generally run first in the continuous integration process.

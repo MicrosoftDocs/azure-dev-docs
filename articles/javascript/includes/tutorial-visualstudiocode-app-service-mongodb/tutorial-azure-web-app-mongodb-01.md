@@ -13,7 +13,7 @@ In this section of the tutorial, you need an Azure subscription and all the soft
 
 ## Install software
 
-- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [Node.js 8.x+ and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Docker](https://docs.docker.com/get-docker/) - Docker is used to provide a local MongoDB database without having to install MongoDB. 
     - If you need to use Docker to get a local MongoDB database, you also need to use:
         -  Visual Studio [Dev Containers](https://code.visualstudio.com/docs/remote/containers) provide several common containers for JavaScript development. 
