@@ -81,7 +81,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.kafka*.
-   > 2. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+   > 2. Spring Initializr uses Java 11 as the default version.
 
 1. When you have specified the options listed above, click **Generate Project**.
 

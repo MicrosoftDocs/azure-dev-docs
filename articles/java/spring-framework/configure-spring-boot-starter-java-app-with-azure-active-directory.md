@@ -43,7 +43,7 @@ The following prerequisites are required in order to complete the steps in this 
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
 
    > [!NOTE]
-   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+   > Spring Initializr uses Java 11 as the default version.
 
 1. When prompted, download the project to a path on your local computer.
 

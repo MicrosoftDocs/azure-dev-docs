@@ -96,7 +96,7 @@ The following prerequisites are required in order to follow the steps in this ar
    
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: `com.example.wintiptoysdata`.
-   > 2. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+   > 2. Spring Initializr uses Java 11 as the default version.
 
 1. When prompted, download the project to a path on your local computer.
 
