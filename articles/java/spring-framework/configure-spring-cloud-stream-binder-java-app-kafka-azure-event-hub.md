@@ -23,7 +23,6 @@ The following prerequisites are required in order to follow the steps in this ar
 
 > [!NOTE]
 > * Spring Boot version 2.0 or greater is required to complete the steps in this article.
-> * Spring Initializr uses Java 11 as the default version. 
 
 ## Create an Azure Event Hub using the Azure portal
 

@@ -37,8 +37,6 @@ The following prerequisites are required for this article:
 
 1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, select **8** Java version.
 
-    > [!NOTE]
-    > Spring Initializr uses Java 11 as the default version.
 
 ## Use the Spring Cloud Stream Binder starter
 

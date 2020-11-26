@@ -107,8 +107,7 @@ The following procedure creates the Spring boot application.
       ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
-   > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
-   > 2. Spring Initializr uses Java 11 as the default version.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
 
 1. When you have specified the options listed above, select **GENERATE**.
 

@@ -34,8 +34,6 @@ Generate the application on the command line by using the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
-> [!NOTE]
-> Spring Initializr uses Java 11 as the default version.
 
 ### Add the reactive PostgreSQL driver implementation
 
