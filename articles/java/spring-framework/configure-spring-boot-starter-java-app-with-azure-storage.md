@@ -99,7 +99,7 @@ The following procedure creates the Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project.
-   * Specify **Java 8**.
+   * Specify **Java 11**.
    * Specify a **Spring Boot** version that is equal to or greater than 2.3.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Spring Web** dependency.
@@ -107,8 +107,7 @@ The following procedure creates the Spring boot application.
       ![Basic Spring Initializr options][SI01]
 
    > [!NOTE]
-   > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
-   > 2. Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
 
 1. When you have specified the options listed above, select **GENERATE**.
 

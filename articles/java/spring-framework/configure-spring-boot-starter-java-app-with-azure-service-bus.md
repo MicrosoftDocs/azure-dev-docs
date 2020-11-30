@@ -39,8 +39,6 @@ The following prerequisites are required for this article:
 
 1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
 
-   > [!NOTE]
-   > Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
 
 ## Use the Azure Service Bus JMS starter
 
