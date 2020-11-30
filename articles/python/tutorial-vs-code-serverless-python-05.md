@@ -1,8 +1,8 @@
 ---
-title: "Step 5: Deploy Azure Functions in Python with VS Code"
-description: Tutorial step 5, deploying Python function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
+title: "Step 5: Deploy serverless Azure Functions in Python with VS Code"
+description: Tutorial step 5, deploying Python serverless function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: debug locally](tutorial-vs-code-serverless-python-04.md)
 
-In this article, you use the Azure Functions extension to create a function app in Azure, along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
+Deploying a function to Azure means creating a Functions app in Azure along with other required Azure resources. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
 
 A function app requires an Azure Storage account for data and a [hosting plan](/azure/azure-functions/functions-scale#hosting-plan-support). All of these resources are organized within a single resource group.
 
@@ -18,16 +18,16 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 
     ![Deploy your Python function to an Azure Function App](media/tutorial-vs-code-serverless-python/deploy-a-python-fuction-to-azure-function-app.png)
 
-1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens).
+1. When prompted (**Select function app in Azure**), select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens).
 
     If you previously created a Function App, its name appears in this list of options.
 
-1. When prompted, select a Python version and Azure location.
+1. At the next two prompts, select a Python version and Azure location.
 
 1. The extension performs the following actions, which you can observe in Visual Studio Code popup messages and the **Output** window (the process takes a few minutes):
 
     - Create a resource group using the name you gave (removing hyphens) in the location you selected.
-    - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](/azure/azure-functions/functions-scale#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](/azure/azure-functions/functions-develop-vs-code).
+    - In that resource group, create the storage account, hosting plan, and function app. Azure Functions uses a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan) by default. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](/azure/azure-functions/functions-develop-vs-code).
     - Deploy your code to the function app.
 
     The **Azure: Functions** explorer also shows progress:
@@ -43,23 +43,15 @@ A function app requires an Azure Storage account for data and a [hosting plan](/
 1. Select **View output** to switch to the **Output** window. The output shows the public endpoint on Azure (the URL of your specific endpoint will match the name you specified for the function app):
 
     <pre>
-    HTTP Trigger Urls:
-
-          HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
+    1:38:04 PM vscode-azure-functions: HTTP Trigger Urls:
+      HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
     </pre>
 
     Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match the results of the local endpoint you tested previously in [part 4](tutorial-vs-code-serverless-python-04.md).
 
-## Stream logs
+## Examine logs (Live Metrics)
 
-Support for log streaming is currently in development, as described on [Issue 589](https://github.com/microsoft/vscode-azurefunctions/issues/589) for the Azure Functions extension. The **Stream logs** button in the deployment message popup will eventually connect the log output on Azure to Visual Studio Code. You will also be able to start and stop the log stream on the **Azure Functions** explorer by right-clicking the Functions project and selecting **Start streaming logs** or **Stop streaming logs**.
-
-At present, however, these commands aren't yet operational. Log streaming is instead available in a browser by running the following command, replacing `<app_name>` with the name of your Functions app on Azure:
-
-```
-# Replace <app_name> with the name of your Functions app on Azure
-func azure functionapp logstream <app_name> --browser
-```
+The **Stream logs** button in the deployment message popup opens a browser to the Azure portal's **Live Metrics** section for your function. You can also connect to metrics using in the **Azure Functions** explorer by right-clicking the functions project name and selecting **Start streaming logs**.
 
 ## Sync local settings to Azure
 
