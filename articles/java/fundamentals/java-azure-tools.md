@@ -1,11 +1,12 @@
 ---
 title: Azure tools for Java developers
 description: IDE integrations, emulators, resource explorers, and command-line interfaces for Java developers working on Azure.
-author: rloutlaw
+author: bmitchell287
+ms.author: brendm
 ms.assetid: b55923b7-d60a-460d-b77c-af5fac67f1cc
 ms.topic: article
 ms.date: 11/13/2018
-ms.custom: seo-java-july2019, devx-track-java
+ms.custom: seo-java-july2019, devx-track-java, devx-track-azurecli
 ---
 
 # Azure tools for Java developers

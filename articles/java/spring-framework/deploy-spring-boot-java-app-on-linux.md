@@ -3,7 +3,7 @@ title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: azure app service
 documentationcenter: java
-ms.date: 12/31/2019
+ms.date: 10/14/2020
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -22,7 +22,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
-* Apache's [Maven] build tool (Version 3).
+* [Apache Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
 
@@ -88,11 +88,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    Once you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
-1. Click the menu icon for **+ New**, click **Containers**, and then click **Azure Container Registry**.
+1. Click the menu icon for **New**, select **Containers**, and then select **Azure Container Registry**.
 
    ![Create a new Azure Container Registry][AR01]
 
-1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then click **Create**.
+1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then select **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
@@ -147,7 +147,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **+ Create a resource**, click **Compute**, and then click **Web App for Containers**.
+2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App for Containers**.
    
    ![Create a new web app in the Azure portal][LX01]
 
@@ -165,11 +165,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * Select **Region**.
 
-   * Accept **Linux Plan** and choose an existing **App Service Plan**, or click **Create new** to create a new app service plan.
+   * Accept **Linux Plan** and choose an existing **App Service Plan**, or select **Create new** to create a new app service plan.
 
    * Click **Next: Docker**.
 
-   ![Configure web app settings][LX02]
+   ![Click the Next: Docker button to proceed.][LX02]
 
       On the **Web App** page select **Docker**, and enter the following information:
 
@@ -183,15 +183,15 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * **Startup Command**: Keep it blank since the image already has the start up command
 
-   After you have entered all of the above information, click **Review + create**.
+   After you have entered all of the above information, select **Review + create**.
 
-   ![Configure web app settings][LX02-A]
+   ![Finish by selecting Review + Create.][LX02-A]
 
    * Click **Review + create**.
 
-Review the information and click **Create**.
+Review the information and select **Create**.
 
-When the deployment is complete, click **Go to resource**.  The deployment page displays the URL to access the application.
+When the deployment is complete, select **Go to resource**.  The deployment page displays the URL to access the application.
 
    ![Get URL of deployment][LX02-B]
 
@@ -201,13 +201,13 @@ When the deployment is complete, click **Go to resource**.  The deployment page 
 >
 > 1. Browse to the [Azure portal] and sign in.
 >
-> 2. Click the icon for **Web Apps**, and select your app from the **App Services** page.
+> 2. Select the icon for **Web Apps**, and select your app from the **App Services** page.
 >
-> 3. Click **Configuration** in the left navigation pane.
+> 3. Select **Configuration** in the left navigation pane.
 >
 > 4. In the **Application settings** section, add a new setting named **WEBSITES_PORT** and enter your custom port number for the value.
 >
-> 5. Click **OK**. Then click **Save**.
+> 5. Select **OK**. Then select **Save**.
 >
 > ![Saving a custom port number in the Azure portal][LX03]
 
@@ -232,6 +232,10 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 1. Save and close the *application.yml* file.
 -->
 
+## Clean up resources
+
+When no longer needed, use the [Azure portal](https://portal.azure.com/) to delete the resources created in this article to avoid unexpected charges.
+
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
@@ -243,7 +247,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
 * [Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].

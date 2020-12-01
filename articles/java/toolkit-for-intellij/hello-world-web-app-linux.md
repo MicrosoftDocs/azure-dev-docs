@@ -31,7 +31,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 The following steps walk you through the Azure sign in process in your IntelliJ development environment.
 
-1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](installation.md).
+1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](./index.yml).
 
 1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 
@@ -45,7 +45,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
 
-1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
+1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select**.
 
 ## Creating a new web app project
 
@@ -63,7 +63,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
-1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/WEB-INF/index.jsp**. Replace the code with the following and **save the changes**:
+1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/index.jsp**. Replace the code with the following and **save the changes**:
 
    ```html
    <html>
@@ -107,7 +107,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 ## Deploy your web app in a Docker container
 
-The following steps walk you through configuring Docker support for your web app and deploying the web app to .
+The following steps walk you through configuring Docker support for your web app and deploying the web app to a docker container.
 
 1. Navigate to your project on the left-hand **Project** tab and right-click your project. Expand **Azure** and click **Add Docker Support**.
 

@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
 documentationcenter: java
-ms.date: 06/19/2020
+ms.date: 10/12/2020
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
@@ -29,7 +29,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
@@ -65,11 +65,11 @@ Here's a screenshot of the application running for the first time:
 Next, add the Java code that will use JPA to store and retrieve data from your PostgreSQL server.
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
-
+    
 Here's a screenshot of these cURL requests:
 
 [![Test with cURL](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png)](media/configure-spring-data-jpa-with-azure-postgresql/create-postgresql-02.png#lightbox)
-
+    
 Congratulations! You've created a Spring Boot application that uses JPA to store and retrieve data from Azure Database for PostgreSQL.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]

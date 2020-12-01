@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Spring JMS Starter to send
 author: seanli1988
 manager: kyliel
 ms.author: seal
-ms.date: 08/21/2019
+ms.date: 10/13/2019
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -23,11 +23,11 @@ This article demonstrates how to use Spring Boot Starter for Azure Service Bus J
 
 The following prerequisites are required for this article:
 
-1. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
+1. An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 
 1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
-1. Apache's [Maven](http://maven.apache.org/), version 3.2 or later.
+1. [Apache Maven](http://maven.apache.org/), version 3.2 or later.
 
 1. If you already have a configured Service Bus queue or topic, ensure that the Service Bus namespace meets the following requirements:
 
@@ -37,17 +37,18 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a Spring Boot application, [create a **Maven** project with the Spring Initializer](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+
 
 ## Use the Azure Service Bus JMS starter
 
 1. Locate the *pom.xml* file in the parent directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\pom.xml`
+    *C:\SpringBoot\servicebus\pom.xml*
 
     -or-
 
-    `/users/example/home/servicebus/pom.xml`
+    */users/example/home/servicebus/pom.xml*
 
 1. Open the *pom.xml* file in a text editor.
 
@@ -57,7 +58,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
-        <version>2.1.7</version>
+        <version>2.3.5</version>
     </dependency>
     ```
 
@@ -73,15 +74,15 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\application.properties`
+    *C:\SpringBoot\servicebus\application.properties*
 
     -or-
 
-    `/users/example/home/servicebus/application.properties`
+    */users/example/home/servicebus/application.properties*
 
 1. Open the *application.properties* file in a text editor.
 
-1. Append the following code to the end of the *application.properties* file. Replace the sample values with the appropriate values for your service bus:
+1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and do not put quotes around the values.
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
@@ -101,19 +102,19 @@ In this section, you see how to configure your app to use either a Service Bus q
 
 1. Locate the *application.properties* in the *resources* directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\application.properties`
+    *C:\SpringBoot\servicebus\application.properties*
 
     -or-
 
-    `/users/example/home/servicebus/application.properties`
+    */users/example/home/servicebus/application.properties*
 
 1. Open the *application.properties* file in a text editor.
 
-1. Append the following code to the end of the *application.properties* file. Replace the sample values with the appropriate values for your service bus:
+1. Append the following code to the end of the *application.properties* file. Replace the placeholder values with the appropriate values for your service bus, and do not put quotes around the values.
 
     ```yml
     spring.jms.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-    spring.jms.servicebus.topic-client-id=<ServiceBusTopicClientId>
+    spring.jms.servicebus.topic-client-id=<ServiceBusSubscriptionID>
     spring.jms.servicebus.idle-timeout=<IdleTimeout>
     ```
 
@@ -122,7 +123,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | Field                                     | Description                                                                                       |
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
-    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID if you're using an Azure Service Bus topic with a durable subscription. |
+    | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.                | 
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
 
 1. Save and close the *application.properties* file.
@@ -135,11 +136,11 @@ In this section, you create the necessary Java classes for sending messages to y
 
 1. Locate the main application Java file in the package directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\src\main\java\com\wingtiptoys\servicebus\ServiceBusJmsStarterApplication.java`
+    *C:\SpringBoot\servicebus\src\main\java\com\wingtiptoys\servicebus\ServiceBusJmsStarterApplication.java*
 
     -or-
 
-    `/users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java`
+    */users/example/home/servicebus/src/main/java/com/wingtiptoys/servicebus/ServiceBusJmsStarterApplication.java*
 
 1. Open the main application Java file in a text editor.
 
@@ -315,11 +316,15 @@ In this section, you create the necessary Java classes for sending messages to y
 
 1. Open a command prompt and change directory to the location of your *pom.xml*; for example:
 
-    `cd C:\SpringBoot\servicebus`
+    ```cmd
+    cd C:\SpringBoot\servicebus 
+    ```
 
     -or-
 
-    `cd cd /users/example/home/servicebus`
+    ```bash
+    cd /users/example/home/servicebus 
+    ```
 
 1. Build your Spring Boot application with Maven and run it:
 

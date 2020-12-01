@@ -3,7 +3,7 @@ title: Provision Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to provision a blob container in an Azure Storage account and then upload a file to that container.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Example: Provision Azure Storage using the Azure libraries for Python
@@ -138,6 +138,7 @@ print(f"Provisioned blob container {container.name}")
 
 ### Reference links for classes used in the code
 
+- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 - [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient)
 
@@ -233,6 +234,7 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)

@@ -3,7 +3,7 @@ title: Tutorial - Deploy to Azure App Service with Jenkins and the Azure CLI
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
 keywords: jenkins, azure, devops, app service, cli
 ms.topic: tutorial
-ms.date: 08/08/2020 
+ms.date: 11/10/2020 
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -77,7 +77,7 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
 ### Create an Azure web app
 
- Use the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
+ Use the [az webapp create](/cli/azure/webapp#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli-interactive
 az webapp create \

@@ -1,8 +1,8 @@
 ---
-title: "Step 7: Add a storage binding for Azure Functions in Python with VS Code"
-description: Tutorial step 7, adding a binding in Python to write messages to Azure storage.
+title: "Step 7: Add a storage binding for serverless Azure Functions in Python with VS Code"
+description: Tutorial step 7, adding a binding in serverless Python code to write messages to Azure storage.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -10,17 +10,17 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: deploy a second function](tutorial-vs-code-serverless-python-06.md)
 
-You can add a storage binding for Azure Functions. A _binding_ lets you connect your function code to resources, such as Azure storage, without writing any data access code.
+A _binding_ lets you connect your function code to resources, such as Azure storage, without writing any data access code.
 
 A binding is defined in the *function.json* file and can represent both input and output. A function can use multiple input and output bindings, but only one trigger. To learn more, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings).
 
-In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request. The storage in question uses the same default storage account used by the function app. If you plan on making heavy use of storage, however, you would want to consider creating a separate account.
+In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request. (The storage in question uses the same default storage account used by the function app. If you plan on making heavy use of storage, however, you would want to consider creating a separate account.)
 
 1. Sync the remote settings for your Azure Functions project into your *local.settings.json* file by opening the Command Palette and selecting **Azure Functions: Download Remote Settings**.
- 
+
     Open *local.settings.json* and check that it contains a value for `AzureWebJobsStorage`. That value is the connection string for the storage account.
 
-1. In the `HttpExample` folder, right-click the *function.json*, select **Add binding**:
+1. Under **Local Project** in the Azure Functions explorer, right-click the `HttpExample` function and select **Add binding**:
 
     ![Add binding command in the Visual Studio Code explorer](media/tutorial-vs-code-serverless-python/add-binding-command-to-azure-functions-in-visual-studio-code.png)
 
@@ -28,8 +28,8 @@ In this section, you add a storage binding to the HttpExample function created e
 
     | Prompt | Value to provide |
     | --- | --- |
-    | Set binding direction | out |
-    | Select binding with direction out | Azure Queue Storage |
+    | Select binding direction | out |
+    | Select binding with direction "out" | Azure Queue Storage |
     | The name used to identify this binding in your code | msg |
     | The queue to which the message will be sent | outqueue |
     | Select setting from *local.settings.json* (asking for the storage connection) | AzureWebJobsStorage |
@@ -73,7 +73,7 @@ In this section, you add a storage binding to the HttpExample function created e
             # MODIFICATION: write the a message to the message queue, using msg.set
             msg.set(f"Request made for {name} at {datetime.datetime.now()}")
 
-            return func.HttpResponse(f"Hello {name}!")
+            return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
         else:
             return func.HttpResponse(
                  "Please pass a name on the query string or in the request body",
@@ -81,7 +81,7 @@ In this section, you add a storage binding to the HttpExample function created e
             )
     ```
 
-1. To test these changes locally, start the debugger again in Visual Studio Code by pressing F5 or selecting the **Debug** > **Start Debugging** menu command.
+1. To test these changes locally, start the debugger again in Visual Studio Code by pressing F5 or selecting the **Run** > **Start Debugging** menu command.
 
     As before the **Output** window should show the endpoints in your project.
 
@@ -100,3 +100,4 @@ In this section, you add a storage binding to the HttpExample function created e
 > [!div class="nextstepaction"]
 > [I added a storage binding - continue to step 8 >>>](tutorial-vs-code-serverless-python-08.md)
 
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)

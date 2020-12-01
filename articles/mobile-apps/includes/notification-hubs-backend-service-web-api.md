@@ -175,7 +175,9 @@ API keys aren't as secure as tokens, but will suffice for the purposes of this t
 
     ```csharp
     using PushDemoApi.Authentication;
-    
+    using PushDemoApi.Models;
+    using PushDemoApi.Services;
+
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
@@ -511,6 +513,10 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. In **Startup.cs**, update the **ConfigureServices** method to add the **NotificationHubsService** as a singleton implementation of **INotificationService**.
 
     ```csharp
+    
+    using PushDemoApi.Models;
+    using PushDemoApi.Services;
+
     public void ConfigureServices(IServiceCollection services)
     {
         ...
@@ -528,6 +534,9 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. **Control** + **Click** on the **Controllers** folder, then choose **New File...** from the **Add** menu.
 
 1. Select **ASP.NET Core** > **Web API Controller Class**, enter *NotificationsController* for the **Name**, then click **New**.
+
+    > [!NOTE]
+    > If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), choose the **API Controller with read/write actions** template.
 
 1. Add the following namespaces to the top of the file.
 
@@ -554,7 +563,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > The **Controller** base class provides support support for views but this is not needed in this case and so **ControllerBase** can be used instead.
+    > The **Controller** base class provides support support for views but this is not needed in this case and so **ControllerBase** can be used instead. If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), you can skip this step.
 
 1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, you should decorate the **NotificationsController** with the **Authorize** attribute as well.
 
@@ -580,16 +589,16 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     > [!NOTE]
     > Visual Studio may not automatically launch the app in the browser. You will use [Postman](https://www.postman.com/downloads) to test the API from this point on.
 
-1. On a new **[Postman](https://www.postman.com/downloads)** tab, set the request to **GET** and enter the address below.
+1. On a new **[Postman](https://www.postman.com/downloads)** tab, set the request to **GET**. Enter the address below replacing the placeholder **&lt;applicationUrl>** with the https **applicationUrl** found in **Properties** > **launchSettings.json**.
 
     ```bash
-    https://localhost:5001/api/notifications
+    <applicationUrl>/api/notifications
     ```
 
     > [!NOTE]
-    > The localhost address should match the **applicationUrl** value found in **Properties** > **launchSettings.json**. The default should be `https://localhost:5001;http://localhost:5000` however this is something to verify if you receive a 404 response.
+    > The **applicationUrl** should be 'https://localhost:5001' for the default profile. If you're using **IIS** (default in [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) on Windows), you should use the **applicationUrl** specified in the **iisSettings** item instead. You will receive a 404 response if the address is incorrect.
 
-1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers  to include your **apikey** value.
+1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers to include your **apikey** value.
 
    | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |
@@ -717,6 +726,9 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
 
 Next, you deploy the app to the API App to make it accessible from all devices.  
 
+>[!NOTE]
+> The following steps are specific to [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). If you're following with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) on Windows, the publishing flow will be different. See [Publish to Azure App Service on Windows](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019#publish-to-azure-app-service-on-windows).
+
 1. Change your configuration from **Debug** to **Release** if you haven't already done so.
 
 1. **Control** + **Click** the **PushDemoApi** project, and then choose **Publish to Azure...** from the **Publish** menu.
@@ -729,7 +741,7 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
 
 ### Validating the published API
 
-1. In **[Postman](https://www.postman.com/downloads)** open a new tab, set the request to **POST** and enter the address below. Replace the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
+1. In **[Postman](https://www.postman.com/downloads)** open a new tab, set the request to **PUT** and enter the address below. Replace the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
 
     ```csharp
     https://<app_name>.azurewebsites.net/api/notifications/installations
@@ -753,9 +765,9 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
 1. Click **Send**.
 
     > [!NOTE]
-    > You should receive a **400 Bad Request** status from the service.
+    > You should receive a **422 UnprocessableEntity** status from the service.
 
-1. Do steps 1-4 again but this time specifying the requests endpoint to validate you receive the same **400 Bad Request** response.
+1. Do steps 1-4 again but this time specifying the requests endpoint to validate you receive a **400 Bad Request** response.
 
     ```bash
     https://<app_name>.azurewebsites.net/api/notifications/requests

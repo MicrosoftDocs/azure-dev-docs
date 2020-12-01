@@ -18,7 +18,7 @@ In this step, you deploy your Node.js app to Azure using Git deploy through the 
     code .
     ```
 
-1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **+** to initialize a local Git repository:
+1. In VS Code, select the source control icon to open the **Source Control** explorer, then select **Initialize Repository** to initialize a local Git repository:
 
     ![Initialize git repository](media/deploy-azure/git-init.png)
 

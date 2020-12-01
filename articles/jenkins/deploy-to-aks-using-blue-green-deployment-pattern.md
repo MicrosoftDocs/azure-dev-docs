@@ -4,7 +4,7 @@ description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenk
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy to Azure Kubernetes Service (AKS) using the blue/green deployment pattern
@@ -24,7 +24,7 @@ In this tutorial, you learn how to perform the following tasks:
 
 ## Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
-- [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
+- [Azure CLI 2.0](/cli/azure/install-azure-cli) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
 - [Chocolatey](https://chocolatey.org): A package manager you use to install kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): A command-line interface you use for running commands against Kubernetes clusters.
 - [jq](https://stedolan.github.io/jq/download/): A lightweight, command-line JSON processor.
@@ -76,7 +76,7 @@ In this section, you perform the following steps:
 - Create an instance of the Azure Container Registry service.
 
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
-In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using the Azure CLI version 2.0.25 or later.
+In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](/cli/azure/install-azure-cli), ensure that you are using the Azure CLI version 2.0.25 or later.
 
 1. Sign in to your Azure account. After you enter the following command, you  receive instructions that explain how to complete the sign-in. 
     

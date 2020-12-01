@@ -1,16 +1,16 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
-ms.date: 05/27/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Provisioning, accessing, and managing resources on Azure
 
 [Previous article: overview](cloud-development-overview.md)
 
-As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data.
+As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with building what is essentially the target cloud computer to which you deploy your application. (To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).)
 
 How is this provisioning done, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
 
@@ -33,7 +33,7 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 **Pros**: The user interface makes it easy to explore services and all their various configuration options. Setting configuration values is secure because no information is stored on the local workstation.
 
-**Cons**: Working with the portal is a manual process and cannot be automated. To remember what you did to change a configuration, for example, means recording your steps in a separate document.
+**Cons**: Working with the portal is a manual process and cannot be easily automated. To remember what you did to change a configuration, for example, you generally record your steps in a separate document.
 
 ## Azure CLI
 
@@ -45,15 +45,17 @@ The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/a
 
 You can also use [Azure PowerShell](/powershell/) in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
 
-In place of the local CLI or PowerShell, you can use the Azure Cloud Shell directly via [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. However, because Cloud Shell isn't a local environment, it's more suitable for singular operations like you'd do through the portal rather than scripted automation.
+In place of the local CLI or PowerShell, you can use the Azure Cloud Shell directly via [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. The Cloud Shell also comes pre-configured with many different tools that would be inconvenient to install locally, especially if you need to run only one or two commands.
+
+Because Cloud Shell isn't a local environment, it's more suitable for singular operations like you'd do through the portal rather than scripted automation. Nevertheless, you can clone source repositories (for example, GitHub repositories) in the Cloud Shell. As a result, you can develop automation scripts locally, store them in a repository, clone the repository in Cloud Shell, and then run them there.
 
 ## Azure REST API and Azure libraries
 
 The [Azure REST API](/rest/api/?view=Azure&preserve-view=true) is Azure's programmatic interface, provided via secure REST over HTTP because Azure's data centers are all inherently connected to the Internet. Every resource is assigned a unique URL that supports a resource-specific API, subject to stringent authentication protocols and access policies. (The Azure portal and the Azure CLI, in fact, ultimately do their work through the REST API.)
 
-For developers, the Azure libraries provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
+For developers, the Azure libraries (sometimes referred to as the Azure SDKs) provide language-specific libraries that translate the capabilities of the REST API into much more convenient programming paradigms such as classes and objects. For Python, you always install individual libraries with `pip install` rather than installing a standalone SDK as a whole. (For other languages, see [Azure SDK downloads](https://azure.microsoft.com/downloads/).)
 
-**Pros**: Precise control over all operations, including a much more direct means of using output from one operation as input to another. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate management scenarios.
+**Pros**: Precise control over all operations, including a much more direct means of using output from one operation as input to another as compared to the Azure CLI. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate detailed management scenarios.
   
 **Cons**: Operations that can be done with one CLI command typically require multiple lines of code, all of which is subject to bugs. Does not provide higher-level operations like the Azure CLI.
 

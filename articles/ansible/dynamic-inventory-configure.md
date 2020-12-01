@@ -3,8 +3,8 @@ title: Tutorial - Configure dynamic inventories of your Azure resources using An
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.date: 10/23/2019
-ms.custom: devx-track-ansible
+ms.date: 10/30/2020
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Tutorial: Configure dynamic inventories of your Azure resources using Ansible
@@ -37,7 +37,7 @@ Ansible can be used to pull inventory information from various sources (includin
     > [!IMPORTANT]
     > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --resource-group ansible-inventory-test-rg --location eastus
     ```
 
@@ -47,13 +47,13 @@ Ansible can be used to pull inventory information from various sources (includin
 
     - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
-        ```azurecli-interactive
+        ```azurecli
         az vm create --resource-group ansible-inventory-test-rg \
                      --name ansible-inventory-test-vm1 \
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-        ```azurecli-interactive
+        ```azurecli
         az vm create --resource-group ansible-inventory-test-rg \
                      --name ansible-inventory-test-vm2 \
                      --image UbuntuLTS --generate-ssh-keys
@@ -66,14 +66,14 @@ You can [use tags to organize your Azure resources](/azure/azure-resource-manage
 ### Using Ansible version < 2.8
 Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
 
-```azurecli-interactive
+```azurecli
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ### Using Ansible version >= 2.8
 Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
 
-```azurecli-interactive
+```azurecli
 az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
@@ -87,36 +87,23 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible-
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
-    ```python
-    wget https://raw.githubusercontent.com/ansible-collections/community.general/main/scripts/inventory/azure_rm.py
+    ```bash
+    wget https://raw.githubusercontent.com/ansible-collections/azure/dev/plugins/inventory/azure_rm.py
     ```
 
 1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
-    ```python
+    ```bash
     chmod +x azure_rm.py
     ```
 
-1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your resource group: 
+1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your resource group:
 
-    ```python
-    ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
+    ```bash
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
     ```
 
-1. Once connected, you see results similar to the following output:
-
-    ```output
-    ansible-inventory-test-vm1 | SUCCESS => {
-        "changed": false,
-        "failed": false,
-        "ping": "pong"
-    }
-    ansible-inventory-test-vm2 | SUCCESS => {
-        "changed": false,
-        "failed": false,
-        "ping": "pong"
-    }
-    ```
+1. Once connected, you see results indicating the results of the virtual machines being created.
 
 ### Ansible version >= 2.8
 
@@ -141,7 +128,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
     ansible all -m ping -i ./myazure_rm.yml
     ```
 
-1. When running the preceding command, you could receive the following error:
+1. When running the preceding command, you could receive an error. The error would be due  indicating a failure to connect to the host due to a 
 
     ```output
     Failed to connect to the host via ssh: Host key verification failed.
@@ -273,7 +260,7 @@ This section illustrates one technique to test that Nginx is installed on your v
 
 1. Use the [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
-    ```azurecli-interactive
+    ```azurecli
     ssh `az vm list-ip-addresses \
     -n ansible-inventory-test-vm1 \
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`

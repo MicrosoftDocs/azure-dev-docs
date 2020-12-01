@@ -4,7 +4,7 @@ description: Learn how to configure Jenkins for continuous integration (CI) from
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 08/10/2020
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service using Jenkins
@@ -327,11 +327,11 @@ Make sure your web app has a unique name.
 
    For more information about these Azure CLI commands, see these pages:
 
-   * [**`az group create`**](/cli/azure/group?view=azure-cli-latest#az-group-create)
+   * [**`az group create`**](/cli/azure/group#az-group-create)
 
-   * [**`az appservice plan create`**](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
+   * [**`az appservice plan create`**](/cli/azure/appservice/plan#az-appservice-plan-create)
 
-   * [**`az webapp create`**](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+   * [**`az webapp create`**](/cli/azure/webapp#az-webapp-create)
 
 1. In Jenkins, select your pipeline job, and select **Build Now**.
 
@@ -361,7 +361,7 @@ This commit in the `master` branch starts a build in Jenkins.
 1. After the build finishes, and Jenkins redeploys to Azure, 
 refresh your app, which now shows your update.
 
-   ![View your deployed app on Azure](media/deploy-from-github-to-azure-app-service/greetings-edited.png)
+   ![View your updated app on Azure](media/deploy-from-github-to-azure-app-service/greetings-edited.png)
 
 ## Troubleshooting the Jenkins plug-in
 

@@ -6,7 +6,7 @@ ms.author: karler
 ms.date: 11/12/2019
 ms.service: app-service
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Deploy a Spring app to App Service with MySQL
@@ -52,7 +52,7 @@ cd spring-framework-petclinic
 
 ## Build and run the HSQLDB sample locally
 
-First, we'll test the sample locally using using HSQLDB as the database.
+First, we'll test the sample locally by using HSQLDB as the database.
 
 Build the HSQLDB version of the sample app.
 
@@ -183,7 +183,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.11.0</version>
+    <version>1.12.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
@@ -391,7 +391,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.11.0</version>
+    <version>1.12.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>

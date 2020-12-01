@@ -3,7 +3,7 @@ title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
 ms.date: 05/29/2020
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Configure your local Python dev environment for Azure
@@ -89,7 +89,7 @@ Each developer in your organization should perform these steps individually.
     az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
     ```
 
-    This command saves it output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
+    This command saves its output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
@@ -188,13 +188,15 @@ For every project, we recommend that you always create and activate a *virtual e
     # [cmd](#tab/cmd)
 
     ```bash
-    python -m venv .venv
+    # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+    py -3 -m venv .venv
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    python -m venv .venv
+    # On Windows, use py -3 -m venv .venv
+    python3 -m venv .venv
     ```
 
     ---
@@ -205,14 +207,14 @@ For every project, we recommend that you always create and activate a *virtual e
 
     # [cmd](#tab/cmd)
 
-    ```bash
+    ```cmd
     .venv\scripts\activate
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    source .venv/scripts/activate
+    source .venv/bin/activate
     ```
 
     ---

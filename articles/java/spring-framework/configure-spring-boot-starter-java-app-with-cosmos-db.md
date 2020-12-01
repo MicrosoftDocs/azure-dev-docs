@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: karler
-ms.date: 10/02/2019
+ms.date: 10/13/2020
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -21,8 +21,6 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 ## Prerequisites
 
-The following prerequisites are required in order to follow the steps in this article:
-
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 
@@ -32,7 +30,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Click **Databases**, and then click **Azure Cosmos DB**.
 
-    ![Azure portal][AZ02]
+    ![Selecting Azure Cosmos DB in the Azure portal.][AZ02]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
@@ -44,13 +42,13 @@ The following prerequisites are required in order to follow the steps in this ar
 
     When you have specified these options, click **Review + create**, review your specifications, and click **Create**.
 
-    ![Azure portal][AZ03]
+    ![Select Review + Create to proceed.][AZ03]
 
 1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
-    ![Azure portal][AZ05]
+    ![Copy the URI and access keys in the Keys section.][AZ05]
 
 ## Create a simple Spring Boot application with the Spring Initializr
 
@@ -58,12 +56,21 @@ Use the following steps to create a new Spring Boot application project with Azu
 
 1. Browse to <https://start.spring.io/>.
 
-1. Specify that you want to generate a **Maven Project** with **Java**, specify your **Spring Boot** version, enter the **Group** and **Artifact** names for your application, add **Azure Support** in the dependencies, and then click the button to **Generate Project**.
+1. Specify the following options:
 
-    ![Basic Spring Initializr options][SI01]
+   * Generate a **Maven** project with **Java**.
+   * Specify your **Spring Boot** version.
+   * Specify the **Group** and **Artifact** names for your application.
+   * Select **8** for the Java version.
+   * Add **Azure Support** in the dependencies.
 
-    > [!NOTE]
-    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
+   >[!div class="mx-imgBorder"]
+   >![Basic Spring Initializr options][SI01]
+
+   > [!NOTE]
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
+
+1. When you have specified the options listed above, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer and extract the files.
 
@@ -416,7 +423,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 * [Spring Boot Cosmos DB Starter for Azure]
 
-* [Deploy a Spring Boot Application to the Azure App Service](deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md)
+* [Deploy a Spring Boot application to Linux on Azure App Service](deploy-spring-boot-java-app-on-linux.md)
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](deploy-spring-boot-java-app-on-kubernetes.md)
 

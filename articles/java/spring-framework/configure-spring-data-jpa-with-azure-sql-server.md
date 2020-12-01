@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL Database.
 documentationcenter: java
-ms.date: 06/19/2020
+ms.date: 10/14/2020
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.author: judubois
@@ -31,6 +31,7 @@ Generate the application on the command line by entering:
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
+
 
 ### Configure Spring Boot to use Azure SQL Database
 

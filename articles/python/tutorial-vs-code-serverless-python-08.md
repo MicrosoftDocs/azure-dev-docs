@@ -1,8 +1,8 @@
 ---
-title: "Step 8: Clean up resources used with Python code in Azure Functions"
-description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing changes.
+title: "Step 8: Clean up resources used with serverless Python code in Azure Functions"
+description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing charges.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: add a storage binding](tutorial-vs-code-serverless-python-07.md)
 
-This article shows you how to remove Azure resources created in this tutorial. The Azure Function App you created with Visual Studio Code includes resources that can incur minimal costs. (For more information, see [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/).)
+The Azure Function App you created with Visual Studio Code in the course of this tutorial includes resources that can incur minimal costs. (For more information, see [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/).)
 
 The best way to clean up resources is to delete the resource group that contains all the individual resources used in this tutorial. Resources include the function app, the storage account, and the backing App Service plan.
 
@@ -41,3 +41,5 @@ Some popular extensions are:
 
 > [!div class="nextstepaction"]
 > [I'm done!](/python/azure/?preserve-view=true&view=azure-python)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-ms-survey)

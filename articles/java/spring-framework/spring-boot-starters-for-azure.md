@@ -2,7 +2,7 @@
 title: Spring Boot Starters for Azure
 description: This article describes the various Spring Boot Starters that are available for Azure.
 documentationcenter: java
-ms.date: 12/19/2018
+ms.date: 09/29/2020
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,7 +13,13 @@ ms.custom: devx-track-java
 
 This article describes the various Spring Boot Starters for the [Spring Initializr] that provide Java developers with integration features for working with Microsoft Azure.
 
-![Azure Spring Boot Starters][spring-boot-starters]
+>[!div class="mx-imgBorder"]
+![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
+
+> [!NOTE]
+>
+> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
+> 
 
 The following Spring Boot Starters are currently available for Azure:
 
@@ -32,6 +38,11 @@ The following Spring Boot Starters are currently available for Azure:
 * **[Azure Storage](#azure-storage)**
 
    Provides Spring Boot support for Azure Storage services.
+   
+   > [!NOTE]
+   >
+   > The new version of the Spring Boot Starter for Azure Storage doesn't currently support adding an Azure storage dependency from within Spring Initializr. However, you can add the dependency by modifying the *pom.xml* file after the project is generated.
+   > 
 
 <a name="azure-support"></a>
 ## Azure Support
@@ -49,18 +60,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-spring-boot</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -85,7 +111,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -94,18 +120,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-active-directory-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -139,18 +180,33 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -176,7 +232,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-storage-blob>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-cloud-sample-storage-queue-operation>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -185,18 +241,32 @@ When you add this starter to a Spring Boot project, the following changes are ma
    ```xml
    <properties>
       <!-- Other properties will be listed here -->
-      <azure.version>0.2.0</azure.version>
+      <java.version>1.8</java.version>
+      <azure.version>2.3.5</azure.version>
    </properties>
    ```
 
 * The default `spring-boot-starter` dependency is replaced with the following:
 
-   ```xml
-   <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-storage-spring-boot-starter</artifactId>
-   </dependency>
-   ```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>spring-starter-azure-storage</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    ```
 
 * The following section is added to the file:
 
@@ -240,4 +310,4 @@ For help with getting started with your own Spring Boot applications, see the **
 
 <!-- IMG List -->
 
-[spring-boot-starters]: media/spring-boot-starters-for-azure/spring-boot-starters-cropped.png
+[configure-azure-spring-boot-starters-with-initializr]: media/spring-boot-starters-for-azure/configure-azure-spring-boot-starters-with-initializr.png

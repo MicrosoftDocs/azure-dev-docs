@@ -45,7 +45,7 @@ To sign in Azure by device login, do the following:
 
 ## Sign in to your Azure account by Service Principal
 
-This section walks you through creating a credentials file that contains your service principal data. After you have completed this process, IntelliJ uses the credentials file to automatically sign you in to Azure when open your project.
+This section walks you through creating a credentials file that contains your service principal data. After you have completed this process, IntelliJ uses the credentials file to automatically sign you into Azure when opening your project.
 
 1. Open your project with IntelliJ IDEA.
 

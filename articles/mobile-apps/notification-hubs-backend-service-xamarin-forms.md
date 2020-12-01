@@ -38,8 +38,9 @@ This tutorial takes you through the following steps:
 
 To follow along, you require:
 
-* An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
-* A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed (or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Mobile Development with .NET** workload).
+* An [Azure subscription](https://azure.microsoft.com/free/dotnet) where you can create and manage resources.
+* A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs) users must also have **Mobile development with .NET** and **ASP.NET and web development** workloads installed.
 * The ability to run the app on either **Android** (physical or emulator devices) or **iOS** (physical devices only).
 
 For Android, you must have:
@@ -58,12 +59,13 @@ For iOS, you must have:
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
 * [Apple Developer Portal](https://developer.apple.com)
-* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1) and [web API](https://dotnet.microsoft.com/apps/aspnet/apis)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started).
 * [Xamarin](https://dotnet.microsoft.com/apps/xamarin) and [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms).
 
-The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
+> [!IMPORTANT]
+> The steps provided are specific to [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). It's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs) but there may be some differences to reconcile. For example, descriptions of user interface and workflows, template names, environment configuration, and so on.
 
 ## Set up Push Notification Services and Azure Notification Hub
 
