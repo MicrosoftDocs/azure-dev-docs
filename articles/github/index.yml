@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is GitHub Actions for Azure
+          - text: What is GitHub Actions for Azure?
             url: github-actions.md
   # Card (optional)
   - title: Deploy to Azure
@@ -36,7 +36,7 @@ landingContent:
             url: database-actions-deploy.md 
 
   # Card
-  - title: Tools for Interacting with GitHub Actions 
+  - title: Tools for interacting with GitHub Actions 
     linkLists:
       - linkListType: get-started
         links:
