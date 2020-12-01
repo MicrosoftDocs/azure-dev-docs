@@ -82,7 +82,7 @@ This step creates a basic Maven project under the `testAzureApp` folder. Add the
 <dependency>
     <groupId>com.azure.resourcemanager</groupId>
     <artifactId>azure-resourcemanager</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -93,12 +93,6 @@ This step creates a basic Maven project under the `testAzureApp` folder. Add the
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>mssql-jdbc</artifactId>
     <version>6.2.1.jre8</version>
-</dependency>
-<!-- Only for SQL sample as it's still in preview -->
-<dependency>
-    <groupId>com.azure.resourcemanager</groupId>
-    <artifactId>azure-resourcemanager-sql</artifactId>
-    <version>2.0.0-beta.5</version>
 </dependency>
 ```
 
@@ -291,7 +285,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
-            SqlServerManager sqlServerManager = SqlServerManager.configure()
+            AzureResourceManager azureResourceManager = AzureResourceManager.configure()
                     .withLogLevel(HttpLogDetailLevel.BASIC)
                     .authenticate(credential, profile);
 
@@ -301,7 +295,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
             final String dbPassword = "YOUR_PASSWORD_HERE";
             final String firewallRuleName = "YOUR_RULE_NAME_HERE";
 
-            SqlServer sampleSQLServer = sqlServerManager.sqlServers().define(sqlServerName)
+            SqlServer sampleSQLServer = azureResourceManager.sqlServers().define(sqlServerName)
                     .withRegion(Region.US_EAST)
                     .withNewResourceGroup("sampleSqlResourceGroup")
                     .withAdministratorLogin(adminUser)
