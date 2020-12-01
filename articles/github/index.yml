@@ -37,6 +37,16 @@ landingContent:
           - text: Deploy databases from GitHub to Azure
             url: database-actions-deploy.md 
 
+  # Card
+  - title: Tools for Interacting with GitHub Actions 
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to GitHub from Azure and other services
+            url: connect-from-azure.md  
+          - text: Use variable substitution
+            url: github-variable-substitution.md
+
   # Card (optional)
   - title: Visual Studio and Visual Studio Code
     linkLists:
@@ -44,6 +54,7 @@ landingContent:
         links:
           - text: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
             url: deploy-with-visual-studio.md 
+
   # Card (optional)
   - title: Azure DevOps and GitHub integration
     linkLists:
@@ -51,14 +62,7 @@ landingContent:
         links:
           - text: Work with Azure DevOps and GitHub 
             url: integrate-azure-devops.md
-  # Card
-  - title: Connect from Azure to GitHub 
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Connect to GitHub from Azure and other services
-            url: connect-from-azure.md  
-            
+
     # Card (optional)
   - title: Manage Azure Policies with GitHub
     linkLists:
