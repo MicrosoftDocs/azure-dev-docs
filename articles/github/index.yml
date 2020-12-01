@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Connect to GitHub from Azure and other services
+          - text: Authenticate with Azure
             url: connect-from-azure.md  
           - text: Use variable substitution
             url: github-variable-substitution.md
@@ -56,7 +56,7 @@ landingContent:
             url: deploy-with-visual-studio.md 
 
   # Card (optional)
-  - title: Azure DevOps and GitHub integration
+  - title: Azure DevOps Pipelines and GitHub integration
     linkLists:
       - linkListType: how-to-guide
         links:
