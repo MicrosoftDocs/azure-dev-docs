@@ -32,8 +32,6 @@ landingContent:
         links:
           - text: Deploy apps from GitHub to Azure
             url: deploy-to-azure.md   
-          - text: Authenticate from Azure to GitHub
-            url: connect-from-azure.md 
           - text: Deploy databases from GitHub to Azure
             url: database-actions-deploy.md 
 
@@ -42,7 +40,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Authenticate with Azure
+          - text: Authenticate from Azure to GitHub
             url: connect-from-azure.md  
           - text: Use variable substitution
             url: github-variable-substitution.md
