@@ -56,7 +56,7 @@ landingContent:
             url: deploy-with-visual-studio.md 
 
   # Card (optional)
-  - title: Azure DevOps Pipelines and GitHub integration
+  - title: Azure Pipelines and GitHub integration
     linkLists:
       - linkListType: how-to-guide
         links:
