@@ -22,7 +22,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - You install the library packages you need with `pip install <library_name>`, using the library names on the [Python SDK package index](azure-sdk-library-package-index.md). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
-- There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
+- There are distinct **management** and **client** libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
   - [Connect to and use Azure resources with client libraries](#connect-to-and-use-azure-resources-with-client-libraries)
 
@@ -60,11 +60,37 @@ The SDK's *management* (or "management plane") libraries, the names of which all
 
 With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in Python and uses the management libraries to implement its various commands.)
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
+The following examples illustrate how to use some of the primary management libraries:
+
+- [Provision a resource group](azure-sdk-example-resource-group.md)
+- [List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
+- [Provision Azure Storage](azure-sdk-example-storage.md)
+- [Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Provision and query a database](azure-sdk-example-database.md)
+- [Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+
+For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&term=Getting%20started%20-%20Managing).
+
+If you are migrating code from older versions of the management libraries, see the following details:
+
+- If you use the `ServicePrincipalCredentials` class, see [How to authenticate - use token credentials](azure-sdk-authenticate.md#authenticate-with-token-credentials).
+- The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). Simply said, the names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
 
 ## Connect to and use Azure resources with client libraries
 
 The SDK's *client* (or "data plane") libraries help you write Python application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API.
+
+The article, [Example: Use Azure Storage](azure-sdk-example-storage-use.md), provides a basic illustration of using client library.
+
+Different Azure services also provide examples using these libraries. See the following index pages for additional links:
+
+- [App hosting](quickstarts-app-hosting.md)
+- [Cognitive Services](quickstarts-cognitive-services.md)
+- [Data solutions](quickstarts-data-solutions.md)
+- [Identity and security](quickstarts-identity-security.md)
+- [Machine learning](quickstarts-machine-learning.md)
+- [Messaging and IoT](quickstarts-messaging-iot.md)
+- [Other services](quickstarts-other-services.md)
 
 For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
 

@@ -32,9 +32,6 @@ Generate the application on the command line by running the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
-> [!NOTE]
-> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-
 ### Configure Spring Boot to use Azure SQL Database
 
 Open the *src/main/resources/application.properties* file, and add the following text:

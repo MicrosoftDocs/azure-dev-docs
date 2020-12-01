@@ -155,6 +155,8 @@
         href: azure-sdk-example-database.md
       - name: "Provision a virtual machine"
         href: azure-sdk-example-virtual-machines.md
+      - name: "Use Azure Managed Disks with a VM"
+        href: azure-sdk-samples-managed-disks.md
     - name: Configure logging
       href: azure-sdk-logging.md
     - name: Configure proxies
