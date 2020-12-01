@@ -1,8 +1,8 @@
 ---
-title: "Step 4: Debug the Azure Functions Python code locally with VS Code"
-description: Tutorial step 4, running the VS Code debugger locally to check your Python code.
+title: "Step 4: Debug the serverless Azure Functions Python code locally with VS Code"
+description: Tutorial step 4, running the VS Code debugger locally to check your serverless Python code.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -10,9 +10,7 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: examine the code files](tutorial-vs-code-serverless-python-03.md)
 
-You can debug your Azure Functions Python code locally in Visual Studio Code.
-
-1. When you create the Functions project, the Visual Studio Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
+1. When you create the Functions project, the Azure Functions extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
 
     ![Configuration for Debug explorer to start a Python project](media/tutorial-vs-code-serverless-python/configuration-to-start-a-python-project-for-debugging.png)
 
@@ -31,7 +29,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
     > [!TIP]
     > If you're unable to access the URL and are running behind a corporate proxy (and thus likely have `HTTP_PROXY` and `HTTPS_PROXY` environment variables set), set an environment variable named `NO_PROXY` to `localhost,127.0.0.1` and try again.
 
-1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=Visual%20Studio%20Code`, and the browser window should display the message, "Hello Visual Studio Code!", demonstrating that you've run that code path.
+1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=Visual%20Studio%20Code`, and the browser window should display the message, "Hello Visual Studio Code. This HTTP triggered function executed successfully.", demonstrating that you've run that code path.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
@@ -64,7 +62,7 @@ You can debug your Azure Functions Python code locally in Visual Studio Code.
 
     (For a short walkthrough of basic debugging, see [Visual Studio Code Tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial#configure-and-run-the-debugger).)
 
-1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
+1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Run** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
 > [!NOTE]
 > If you encounter the error, "Failed to verify 'AzureWebJobsStorage' connection specified in 'local.settings.json'.", the *local.settings.json* file in your project contains the line, `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`. This line indicates that the debugger expects to use the Azure Storage Emulator locally, but it's not installed. In this case, you can [install the Azure Storage Emulator](/azure/storage/common/storage-use-emulator#get-the-storage-emulator), [start and initialize the emulator](/azure/storage/common/storage-use-emulator#start-and-initialize-the-storage-emulator), and restart the debugger.

@@ -1,8 +1,8 @@
 ---
-title: "Step 6: Add a second Python function to Azure Functions with VS Code"
-description: Tutorial step 6, expanding an Azure Functions project by adding a second function.
+title: "Step 6: Add a second Python serverless function to Azure Functions with VS Code"
+description: Tutorial step 6, expanding an Azure Functions project by adding a second serverless function.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: deploy to Azure](tutorial-vs-code-serverless-python-05.md)
 
-After your first deployment, you can make changes to your code, such as adding additional Python functions, and redeploy to the same Azure Functions app.
+After your first deployment, you can make changes to your code, such as adding additional Python functions, and then redeploy to the same Azure Functions app.
 
 1. In the **Azure: Functions** explorer, select the **Create Function** command or use **Azure Functions: Create Function** from the Command Palette. Specify the following details for the function:
 
@@ -18,9 +18,9 @@ After your first deployment, you can make changes to your code, such as adding a
     - Name: "DigitsOfPi"
     - Authorization level: Anonymous
 
-1. In the Visual Studio Code file explorer is a subfolder with your function name that again contains files named *\_\_init\_\_.py*, *function.json*, and *sample.dat*.
+    The **Local Project** section in the Azure Functions explorer now shows a "*DigitsOfPi* function. In the editor you can switch between the function's *\_\_init\_\_.py*, *function.json*, and *sample.dat* files.
 
-1. Replace the contents of *\_\_init\_\_.py* to match the following code, which generates a string containing the value of PI to a number of digits specified in the URL (this code uses only a URL parameter)
+1. Replace the contents of *\_\_init\_\_.py* to match the following code, which generates a string containing the value of PI to a number of digits specified in the URL (this code uses only a URL parameter):
 
     ```python
     import logging
@@ -97,7 +97,7 @@ After your first deployment, you can make changes to your code, such as adding a
     }
     ```
 
-1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
+1. Start the local debugger by pressing F5 or selecting the **Run** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
     <pre>
     Http Functions:
@@ -105,11 +105,11 @@ After your first deployment, you can make changes to your code, such as adding a
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     </pre>
 
-1. In a browser, or from curl, make a request to `http://localhost:7071/api/DigitsOfPi?digits=125` and observe the output. (You might notice that the code algorithm isn't entirely accurate, but we'll leave the improvements to you!) Stop the debugger when you're finished.
+1. In a browser, or from curl, make a request to `http://localhost:7071/api/DigitsOfPi?digits=125` and observe the output. (You might notice that the code's algorithm isn't entirely accurate, but we'll leave the improvements to you!) Stop the debugger when you're finished.
 
 1. Redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously.
 
-1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
+1. After a few minutes, deployment completes and the **Output** window shows the public endpoints with which you can repeat your tests.
 
 > [!div class="nextstepaction"]
 > [I added a second function - continue to step 7 >>>](tutorial-vs-code-serverless-python-07.md)
