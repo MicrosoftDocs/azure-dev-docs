@@ -38,7 +38,7 @@ Verify the following is installed on your local computer.
 
 ## 2. Keep values for environment variables
 
-Set aside a place to copy the app client ID values. 
+Set aside a place to copy the app client ID value. 
 
 ## 3. Create App registration for authentication
 
@@ -46,12 +46,12 @@ Set aside a place to copy the app client ID values.
 1. Select **+ New Registration**.
 1. **Enter your app registration data** using the following table:
 
-   | Field                   | Value                                                                                                                                                                      |
-   | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | Name                    | `Simple Auth Tutorial` - this is the app name user's will see on the permission form when they sign in to your app.                                                 |
-   | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts** - this will cover most account types. |
-   | Redirect URI type           | **Single Page Application (SPA)**                                                                                        |
-   | Redirect URI value           | `https://localhost:3000` - notice this requires `HTTPS`.                                                                                        |
+   | Field                   | Value                                                                                                                                                                      |Description|
+   | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |--|
+   | Name                    | `Simple Auth Tutorial`|This is the app name user's will see on the permission form when they sign in to your app.                                                 |
+   | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**|This will cover most account types. |
+   | Redirect URI type           | **Single Page Application (SPA)**                                                                                        | |
+   | Redirect URI value           | `https://localhost:3000` | Notice this requires `HTTPS`.                                                                                        |
 
 1. Select **Register**. Wait for the app registration process to complete.
 1. **Copy the Application (client) ID** from the Overview section of the app registration. You will add this value to your environment variable for the client app later.
@@ -64,7 +64,7 @@ Set aside a place to copy the app client ID values.
    npx create-react-app tutorial-demo-login-button --template typescript
    ```
 
-1. Change into the new directory and install Azure SDK client libraries:
+1. Change into the new directory and install the `@azure/msal-browser` package:
 
    ```bash
    cd tutorial-demo-login-button && npm install @azure/msal-browser
@@ -80,25 +80,27 @@ Set aside a place to copy the app client ID values.
 
 ## 5. Add logon and logoff buttons
 
-1. Create a subfolder for the Azure-specific files named `azure` within the `./src` folder. 
+1. Create a subfolder named `azure`, for the Azure-specific files, within the `./src` folder. 
 
-1. Create a new configuration file for authentication in the `azure` folder, named `azure-authentication-config.ts` and copy in the following TypeScript code:
+1. Create a new file for authentication configuration in the `azure` folder, named `azure-authentication-config.ts` and copy in the following code:
 
     :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-config.ts"  highlight="3-4,, 11-12":::
 
     This file reads your application ID in from the `.env` file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personally identifying information (PII).
 
-1. Create a new file for the Azure authentication middleware in the `azure` folder, named `azure-authentication-context.ts` and copy in the following TypeScript code:
+1. Create a new file for the Azure authentication middleware in the `azure` folder, named `azure-authentication-context.ts` and copy in the following code:
 
     :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-context.ts"  highlight="43, 58, 65":::
 
-1. Create a new file for the user interface button component file in the `azure` folder, named `azure-authentication-component.tsx` and copy in the following TypeScript code:
+    This file provides the authentication to Azure for a user with the `login` and `logout` functions.
+
+1. Create a new file for the user interface button component file in the `azure` folder, named `azure-authentication-component.tsx` and copy in the following code:
 
    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-component.tsx"  highlight="3, 11, 23, 29, 36":::
 
    This button component logs in a user, and passes back the user account to the calling/parent component.
 
-   The button text and functionality is toggled based on if the user is currently logged in, captured with the `onAuthenticated` function as property passed into the component.
+   The button text and functionality is toggled based on if the user is currently logged in, captured with the `onAuthenticated` function as a property passed into the component.
 
    When a user logs in, the button calls Azure authentication library method, `authenticationModule.login` with `returnedAccountInfo` as the callback function. The returned user account is then passed back to the parent component with the `onAuthenticated` function.
 
@@ -106,6 +108,8 @@ Set aside a place to copy the app client ID values.
 1. Open the `./src/App.tsx` file and replace the code with the following code to incorporate the Login/Logout button component:
 
    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/App.tsx"  highlight="10, 38-44":::
+
+    After a user logs on, and the the authentication redirects back to this app, the user's `AccountInfo` is displayed. 
 
 ## 6. Run React SPA app with login button
 
