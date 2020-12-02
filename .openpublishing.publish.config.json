@@ -55,7 +55,11 @@
       "url": "https://github.com/Azure-Samples/js-e2e-client-cognitive-services",
       "branch": "main"
     },
-    
+    {
+      "path_to_root": "js-e2e-client-azure-login-button",
+      "url": "https://github.com/Azure-Samples/js-e2e-client-azure-login-button",
+      "branch": "main"
+    },
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
