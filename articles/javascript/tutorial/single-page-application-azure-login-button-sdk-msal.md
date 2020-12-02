@@ -48,7 +48,7 @@ Set aside a place to copy the app client ID value.
    | Name                    | `Simple Auth Tutorial`|This is the app name user's will see on the permission form when they sign in to your app.                                                 |
    | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**|This will cover most account types. |
    | Redirect URI type           | **Single Page Application (SPA)**                                                                                        | |
-   | Redirect URI value           | `https://localhost:3000` | Notice this requires `HTTPS`.                                                                                        |
+   | Redirect URI value           | `http://localhost:3000` | The url to return to after authentication succeeds or fails.                                                                                        |
 
     :::image type="content" source="../media/tutorial-login-button/azure-active-directory-create-new-app-registration.png" alt-text="Azure new app registration.":::  
 
@@ -139,6 +139,11 @@ Set aside a place to copy the app client ID value.
 ## 7. Clean up resources
 
 When you are done using this tutorial, delete the application from the Azure portal [App registration list](https://portal.azure.com/?quickstart=True#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+
+If you want to keep the app but revoke the permission given to the app by your specific user account, use one of the following links:
+
+* [Revoke AAD permission](https://myapps.microsoft.com/)
+* [Revoke Consumer permission](https://account.live.com/consent/manage)
 
 ## Next step
 
