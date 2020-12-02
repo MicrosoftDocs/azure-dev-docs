@@ -30,12 +30,6 @@ Azure authentication is used to authenticate a user and provide the username for
 
 This authentication code is kept in the sample application in the `azure/azure-authentication-*` files.
 
-### Simple Azure Blob Storage
-
-Azure Storage is used to contain the personal storage images and photos. The personal storage can't be accessed anonymously but each image can be shared with friends with a URL with anonymous access. The user can also delete images or the entire personal storage.
-
-This storage code is kept in the sample application in the `azure/azure-storage-blob.ts` files
-
 ### Create-react-app with TypeScript
 
 To provide a quick and simple single page application, the sample uses create-react-app. This frontend framework provides several shortcuts in typical client development with Azure SDKs and TypeScript:
@@ -81,7 +75,7 @@ Environment variable for Upload Photo storage
 1. Select **Register**. Wait for the app registration process to complete.
 1. **Copy the Application (client) ID** from the Overview section of the app registration. You will add this value to your environment variable for the client app later.
 
-## Create React single page application for TypeScript
+## 4. Create React single page application for TypeScript
 
 1. In a Bash shell, **create a create-react-app** using TypeScript as the language:
 
@@ -112,7 +106,7 @@ Environment variable for Upload Photo storage
 
 1. Copy your Azure App (client) ID into the second value.
 
-## Add logon and logoff buttons
+## 5. Add logon and logoff buttons
 
 1. Create a `src` subfolder for the Azure-specific files named `azure`.
 
@@ -387,7 +381,7 @@ Environment variable for Upload Photo storage
    export default App;
    ```
 
-## Run React SPA app with login button
+## 6. Run React SPA app with login button
 
 1. At the Visual Studio Code terminal, start the app:
 
@@ -432,75 +426,8 @@ Environment variable for Upload Photo storage
 
 1. Start debugging by selecting F5, or **Run -> Start Debugging**.
 
-    In the browser, select the **Login** button at the top right. 
+1. In the browser, select the **Login** button at the top right. 
 
-
-## X. Create Storage resource for images
-
-1. **Create a new Azure Storage resource** in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) using the following table:
-
-   | Field                | Value                                                                                                                                                                                      |
-   | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | Subscription         | Select your subscription.                                                                                                                                                                  |
-   | Resource group       | Create a new resource group named `rg-tutorial-demo`. A resource group allows you to easily delete all resources created within the group.                                                 |
-   | Storage account name | `tutorialdemo<YOUR-ID>`, replace `<YOUR-ID>` with your email or name. This account name is used as part of the web URL for the resource so it must be unique across all storage resources. |
-   | Location             | Select a regional location close to you.                                                                                                                                                   |
-   | Performance          | Standard                                                                                                                                                                                   |
-   | Account kind         | StorageV2                                                                                                                                                                                  |
-   | Replication          | Locally-redundant storage (LRS)                                                                                                                                                            |
-
-   Any fields not specifically listed above should not be changed from the default value.
-
-1. **Copy the Storage account name** . You will add this value to your environment variable for the client app later.
-
-## 5. Generate your shared access signature (SAS) token
-
-Generate the SAS token before configuring CORS so the client application has specific access to the storage resource.
-
-1. While still in the Azure portals, in the Settings section, select **Shared access signature**.
-1. Configure the SAS token with the following settings.
-
-   | Property                    | Value                                                                      |
-   | --------------------------- | -------------------------------------------------------------------------- |
-   | Allowed services            | Blob                                                                       |
-   | Allowed resource types      | Service, Container, Object                                                 |
-   | Allowed permissions         | Read, write, delete, list, add, create                                     |
-   | Enable deletions of version | Checked                                                                    |
-   | Start and expiry date/time  | Accept the start date/time and set the end date time 1 year in the future. |
-   | HTTPS only                  | Selected                                                                   |
-   | Preferred routing tier      | Basic                                                                      |
-   | Signing Key                 | key1 selected                                                              |
-
-1. Select **Generate SAS and connection string**. Immediately copy the SAS token, without the `?` at the beginning. You will add this value to your environment variable for the client app later.
-
-   The SAS token value is a partial query string and is used in the URL when queries are made to your cloud-based resource. The token format depends are which tool you used to create it:
-
-   - **Azure portal**: If you create your SAS token in the portal, the token includes the `?` as the first character of the string.
-   - **Azure CLI**: If you create your SAS token with the Azure CLI, the value returned doesn't include the `?` as the first character of the string.
-
-## 6. Configure CORS for Azure Storage resource
-
-Configure CORS for your resource so the client-side React code can access your storage account.
-
-1. While still in the Azure portals, in the Settings section, select **CORS**.
-1. **Configure CORS** as shown in the image.
-
-   | Property        | Value             |
-   | --------------- | ----------------- |
-   | Allowed origins | `*`               |
-   | Allowed methods | All except patch. |
-   | Allowed headers | `*`               |
-   | Exposed headers | `*`               |
-   | Max age         | 86400             |
-
-1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings.
-
-## Add Azure Storage for uploaded files
-
-## Run React SPA app with file upload
-
-## User revoke application permissions
+## 7. Clean up resources
 
 ## Next step
-
-> [!div class="nextstepaction"] > []()
