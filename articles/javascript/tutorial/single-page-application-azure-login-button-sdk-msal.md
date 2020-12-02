@@ -131,7 +131,7 @@ Set aside a place to copy the app client ID value.
 
 1. Review the user account information. 
 
-    :::image type="content" source="../media/tutorial-login-button/create-react-app-after-authentication-login-button-succeeds.png" alt-text="Select the **Login** button.":::  
+    :::image type="content" source="../media/tutorial-login-button/create-react-app-after-authentication-login-button-succeeds.png" alt-text="Review the user account information.":::  
 
 1. Select the **Logout** button from the app. The app also provides convenient links to the Microsoft user apps to revoke permissions. 
 
@@ -147,5 +147,5 @@ User management can be stored in an Azure Active Directory or your own database,
 
 User authorization can be provided by Azure, or you can develop authorization without Azure, or you can combine the two for a custom experience of authorization, roles, and app features. 
 
-* Continuing using the [MSAL library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
-* Add [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
+* Continuing using the [MSAL library](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
+* Add [Microsoft Graph](https://docs.microsoft.com/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
