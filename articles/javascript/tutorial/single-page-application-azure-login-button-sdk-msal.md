@@ -31,10 +31,9 @@ Verify the following is installed on your local computer.
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-    - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Visual Studio Code](https://code.visualstudio.com/) or an equivalent IDE with Bash shell or terminal - installed to your local machine. 
 
-## 2. Keep values for environment variables
+## 2. Keep value for environment variable
 
 Set aside a place to copy the app client ID value. 
 
@@ -50,6 +49,8 @@ Set aside a place to copy the app client ID value.
    | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**|This will cover most account types. |
    | Redirect URI type           | **Single Page Application (SPA)**                                                                                        | |
    | Redirect URI value           | `https://localhost:3000` | Notice this requires `HTTPS`.                                                                                        |
+
+    :::image type="content" source="../media/tutorial-login-button/azure-active-directory-create-new-app-registration.png" alt-text="Azure new app registration.":::  
 
 1. Select **Register**. Wait for the app registration process to complete.
 1. **Copy the Application (client) ID** from the Overview section of the app registration. You will add this value to your environment variable for the client app later.
