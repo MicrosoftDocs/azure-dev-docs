@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add Microsoft logon button to React SPA"
-description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the application with a Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Add Microsoft logon button to a single page application for authentication
 
-Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). The username is used as part of the user-specific image container. Develop the application with a Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). The username is used as part of the user-specific image container. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 
 The full source code for this tutorial is available as a GitHub repository:
 
@@ -19,33 +19,26 @@ The full source code for this tutorial is available as a GitHub repository:
 The SPA built in this tutorial is a React app (create-react-app) with the following tasks:
 
 - Login using a Microsoft-supported login such as Office 365 or Outlook.com
-- Logoff the application
+- Log off the application
 
-### Azure SDK front-end development
-
-To provide a quick and simple single page application, the sample uses create-react-app with TypeScript. This front-end framework provides several shortcuts in typical client development with Azure SDKs:
+To provide a quick and simple single page application, the sample uses **create-react-app** with TypeScript. This front-end framework provides several shortcuts in typical client development with Azure SDKs:
 
 - Bundling, required for Azure SDKs used in a client-application
 - Environment variables in the `.env` file
 - HTTPS, required for Azure authentication
 
-[!INCLUDE [azure subscription](../includes/environment-subscription-h2.md)]
-
 ## 1. Set up development environment
 
 Verify the following is installed on your local computer.
 
+- An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 
 ## 2. Keep values for environment variables
 
-**Set aside a place to copy values** from the Azure portal. The values are necessary to connect to Azure resources. Values will eventually be moved to the `.env` file for the React app.
-
-Environment variable for Login button:
-
-* Register Azure application - copy and save the Client ID to your environment file, `.env`, as `REACT_APP_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID`
+Set aside a place to copy the app client ID values. 
 
 ## 3. Create App registration for authentication
 
@@ -56,7 +49,7 @@ Environment variable for Login button:
    | Field                   | Value                                                                                                                                                                      |
    | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | Name                    | `Simple Auth Tutorial` - this is the app name user's will see on the permission form when they sign in to your app.                                                 |
-   | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** - this will cover most account types. |
+   | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts** - this will cover most account types. |
    | Redirect URI type           | **Single Page Application (SPA)**                                                                                        |
    | Redirect URI value           | `https://localhost:3000` - notice this requires `HTTPS`.                                                                                        |
 
@@ -91,9 +84,9 @@ Environment variable for Login button:
 
 1. Create a new configuration file for authentication in the `azure` folder, named `azure-authentication-config.ts` and copy in the following TypeScript code:
 
-    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-config.ts"  highlight="3-4,8":::
+    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-config.ts"  highlight="3-4,, 11-12":::
 
-    This file reads your application ID in from the `.env file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personally identifying information (PII).
+    This file reads your application ID in from the `.env` file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personally identifying information (PII).
 
 1. Create a new file for the Azure authentication middleware in the `azure` folder, named `azure-authentication-context.ts` and copy in the following TypeScript code:
 
@@ -101,7 +94,7 @@ Environment variable for Login button:
 
 1. Create a new file for the user interface button component file in the `azure` folder, named `azure-authentication-component.tsx` and copy in the following TypeScript code:
 
-   :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-component.tsx"  highlight="3, 11, 23, 29, 33-38":::
+   :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-component.tsx"  highlight="3, 11, 23, 29, 36":::
 
    This button component logs in a user, and passes back the user account to the calling/parent component.
 
