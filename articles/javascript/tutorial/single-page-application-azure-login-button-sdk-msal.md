@@ -1,18 +1,16 @@
 ---
-title: "Tutorial: Add Microsoft logon button to React SPA"
+title: "Tutorial: Add Microsoft login button to React SPA"
 description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.custom: devx-track-js
 ---
 
-# Add Microsoft logon button to a single page application for authentication
+# Add Microsoft login button to a single page application for authentication
 
-Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). The username is used as part of the user-specific image container. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 
-The full source code for this tutorial is available as a GitHub repository:
-
-- [js-e2e-client-azure-login-button](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
+* [Source code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
 
 ## Application architecture and functionality
 
@@ -78,7 +76,7 @@ Set aside a place to copy the app client ID value.
 
 1. Copy your Azure App (client) ID into the second value.
 
-## 5. Add logon and logoff buttons
+## 5. Add login and logoff buttons
 
 1. Create a subfolder named `azure`, for the Azure-specific files, within the `./src` folder. 
 
@@ -109,7 +107,7 @@ Set aside a place to copy the app client ID value.
 
    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/App.tsx"  highlight="10, 37-42":::
 
-    After a user logs on, and the the authentication redirects back to this app, the user's `AccountInfo` is displayed. 
+    After a user logs on, and the authentication redirects back to this app, the currentUser object is displayed. 
 
 ## 6. Run React SPA app with login button
 
@@ -119,54 +117,35 @@ Set aside a place to copy the app client ID value.
     npm run start
     ```
 
-    If a browser window opens to the app, close it. 
+1. Select the **Login** button in the web browser. 
 
-1. In the `azure-authentication-context.ts` file, set a break point at the first line of the handleResponse method:
+    :::image type="content" source="../media/tutorial-login-button/create-react-app-before-authentication-login-button-display.png" alt-text="Select the **Login** button.":::  
 
-    ```typescript
-    handleResponse(response: AuthenticationResult, incomingFunction: any) {
-        if (response !== null) {
-         this.account = response.account;
-        } else {
-         this.account = this.getAccount();
-        }
-        
-        if (this.account) {
-         incomingFunction(this.account);
-        }
-    }
-    ```
+1. Select a user account. It doesn't have to be the same account you used to access the Azure portal, but it should be an account that provides Microsoft authentication.
 
-1. In Visual Studio Code, select the **Run** menu, then the **Add Configuration...* menu to configure the `launch.json` file configuration for debugging. Copy and add the following entry: 
-
-    ```json
-    {
-        "name": "Chrome",
-        "type": "chrome",
-        "request": "launch",
-        "url": "https://localhost:3000",
-        "webRoot": "${workspaceFolder}/src",
-        "sourceMapPathOverrides": {
-            "webpack:///src/*": "${webRoot}/*"
-        }
-    }
-    ```
-
-    Make sure the `url` property does use `https` as the protocol. 
-
-1. Start debugging by selecting F5, or **Run -> Start Debugging**.
-
-1. In the browser, select the **Login** button at the top right. 
-
-1. Select the user account 
-    authentication-popup-select-user-account
+    :::image type="content" source="../media/tutorial-login-button/authentication-popup-select-user-account.png" alt-text="Select a user account. It doesn't have to be the same account you used to access the Azure portal, but it should be an account that provides Microsoft authentication.":::
 
 1. Review the pop-up showing the 1) user name, 2) app name, 3) permissions you are agreeing to, and then select **Yes**.
 
-    authentication-popup-let-this-app-access-your-info.png
+    :::image type="content" source="../media/tutorial-login-button/authentication-popup-let-this-app-access-your-info.png" alt-text="Review the pop-up showing the 1) user name, 2) app name, 3) permissions you are agreeing to, and then select `Yes`.":::
 
-create-react-app-after-authentication-login-button-succeeds
+1. Review the user account information. 
+
+    :::image type="content" source="../media/tutorial-login-button/create-react-app-after-authentication-login-button-succeeds.png" alt-text="Select the **Login** button.":::  
+
+1. Select the **Logout** button from the app. The app also provides convenient links to the Microsoft user apps to revoke permissions. 
 
 ## 7. Clean up resources
 
+When you are done using this tutorial, delete the application from the Azure portal [App registration list](https://portal.azure.com/?quickstart=True#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+
 ## Next step
+
+This app provides user authentication for your app, and returns user information. The authentication functionality can stop here for a simple version of an app or you can add functionality to manage the app's user management and user authorization to app features. 
+
+User management can be stored in an Azure Active Directory or your own database, depending on the functionality and tools you select. 
+
+User authorization can be provided by Azure, or you can develop authorization without Azure, or you can combine the two for a custom experience of authorization, roles, and app features. 
+
+* Continuing using the [MSAL library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
+* Add [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments

@@ -9,6 +9,13 @@ ms.date: 11/13/2020
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2020 December
+
+### What's new
+
+|Name|Notes|
+|---------------------------------------|--|
+|[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
 
 ## 2020 November
 
