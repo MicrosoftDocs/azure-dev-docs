@@ -107,7 +107,7 @@ Set aside a place to copy the app client ID value.
 
 1. Open the `./src/App.tsx` file and replace the code with the following code to incorporate the Login/Logout button component:
 
-   :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/App.tsx"  highlight="10, 38-44":::
+   :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/App.tsx"  highlight="10, 37-42":::
 
     After a user logs on, and the the authentication redirects back to this app, the user's `AccountInfo` is displayed. 
 
