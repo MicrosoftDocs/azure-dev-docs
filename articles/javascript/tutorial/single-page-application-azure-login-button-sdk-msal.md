@@ -23,7 +23,6 @@ To provide a quick and simple single page application, the sample uses **create-
 
 - Bundling, required for Azure SDKs used in a client-application
 - Environment variables in the `.env` file
-- HTTPS, required for Azure authentication
 
 ## 1. Set up development environment
 
@@ -75,7 +74,7 @@ Set aside a place to copy the app client ID value.
 
     The `.env` file is read as part of the create-react-app framework.
 
-1. Copy your Azure App (client) ID into the second value.
+1. Copy your Application (client) ID into the second value.
 
 ## 5. Add login and logoff buttons
 
@@ -104,7 +103,7 @@ Set aside a place to copy the app client ID value.
    When a user logs in, the button calls Azure authentication library method, `authenticationModule.login` with `returnedAccountInfo` as the callback function. The returned user account is then passed back to the parent component with the `onAuthenticated` function.
 
 
-1. Open the `./src/App.tsx` file and replace the code with the following code to incorporate the Login/Logout button component:
+1. Open the `./src/App.tsx` file and replace all the code with the following code to incorporate the Login/Logout button component:
 
    :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/App.tsx"  highlight="10, 37-42":::
 
