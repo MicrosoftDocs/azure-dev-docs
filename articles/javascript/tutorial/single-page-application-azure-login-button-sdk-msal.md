@@ -49,7 +49,7 @@ Make sure you have the following software locally installed:
 
 ## 2. Keep values for environment variables
 
-**Set aside a place to copy values** from the Azure portal. The values are necessary to connect to Azure resources. The value will eventually be moved to the `.env` file for the React app.
+**Set aside a place to copy values** from the Azure portal. The values are necessary to connect to Azure resources. Values will eventually be moved to the `.env` file for the React app.
 
 Environment variable for Login button:
 
@@ -68,9 +68,10 @@ Environment variable for Upload Photo storage
 
    | Field                   | Value                                                                                                                                                                      |
    | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | Name                    | `JohnSmithSimpleAuthTutorial` - this is the app name user's will see on the permission form when they sign in to your app.                                                 |
-   | Supported account types | `Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)` - this will cover most account types. |
-   | Redirect URI            | `Single Page Application`, `https://localhost;3000` - notice this requires `HTTPS`.                                                                                        |
+   | Name                    | `Simple Auth Tutorial` - this is the app name user's will see on the permission form when they sign in to your app.                                                 |
+   | Supported account types | **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** - this will cover most account types. |
+   | Redirect URI type           | **Single Page Application (SPA)**                                                                                        |
+   | Redirect URI value           | `https://localhost:3000` - notice this requires `HTTPS`.                                                                                        |
 
 1. Select **Register**. Wait for the app registration process to complete.
 1. **Copy the Application (client) ID** from the Overview section of the app registration. You will add this value to your environment variable for the client app later.
@@ -83,19 +84,13 @@ Environment variable for Upload Photo storage
    npx create-react-app tutorial-demo-login-button --template typescript
    ```
 
-1. Change into the new directory and install dependencies:
+1. Change into the new directory and install Azure SDK client libraries:
 
    ```bash
-   cd tutorial-demo-login-button && npm install
+   cd tutorial-demo-login-button && npm install @azure/msal-browser
    ```
 
-1. Add Azure SDK client libraries for Login button:
-
-   ```bash
-   npm install @azure/msal-browser
-   ```
-
-1. Create a root level file, `.env` and add the following lines:
+1. Create a `.env` at the root level file and add the following lines:
 
    ```text
    HTTPS=true
@@ -108,9 +103,9 @@ Environment variable for Upload Photo storage
 
 ## 5. Add logon and logoff buttons
 
-1. Create a `src` subfolder for the Azure-specific files named `azure`.
+1. Create a subfolder for the Azure-specific files named `azure` within the `./src` folder. 
 
-1. Create a new configuration file for authentication, named `azure-authentication-config.ts` and copy in the following TypeScript code:
+1. Create a new configuration file for authentication in the `azure` folder, named `azure-authentication-config.ts` and copy in the following TypeScript code:
 
    ```typescript
    import { Configuration, LogLevel } from "@azure/msal-browser";
@@ -152,7 +147,9 @@ Environment variable for Upload Photo storage
    };
    ```
 
-1. Create a new file for the user interface button component file, named `azure-authentication-component.tsx` and copy in the following TypeScript code:
+    This file reads your application ID in from the `.env file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personally identifying information (PII).
+
+1. Create a new file for the user interface button component file in the `azure` folder, named `azure-authentication-component.tsx` and copy in the following TypeScript code:
 
    ```typescript
    import React, { useState } from "react";
@@ -243,7 +240,7 @@ Environment variable for Upload Photo storage
 
    When a user logs in, the button calls Azure authentication library method, `authenticationModule.login` with `returnedAccountInfo` as the callback function. The returned user account is then passed back to the parent component with the `onAuthenticated` function.
 
-1. Create a new file for the Azure authentication middleware, named `azure-authentication-context.ts` and copy in the following TypeScript code:
+1. Create a new file for the Azure authentication middleware in the `azure` folder, named `azure-authentication-context.ts` and copy in the following TypeScript code:
 
    ```typescript
    import {
@@ -427,6 +424,15 @@ Environment variable for Upload Photo storage
 1. Start debugging by selecting F5, or **Run -> Start Debugging**.
 
 1. In the browser, select the **Login** button at the top right. 
+
+1. Select the user account 
+    authentication-popup-select-user-account
+
+1. Review the pop-up showing the 1) user name, 2) app name, 3) permissions you are agreeing to, and then select **Yes**.
+
+    authentication-popup-let-this-app-access-your-info.png
+
+create-react-app-after-authentication-login-button-succeeds
 
 ## 7. Clean up resources
 
