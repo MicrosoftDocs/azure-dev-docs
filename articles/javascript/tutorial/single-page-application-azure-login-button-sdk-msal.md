@@ -84,7 +84,7 @@ Set aside a place to copy the app client ID value.
 
     :::code language="typescript" source="~/../js-e2e-client-azure-login-button/src/azure/azure-authentication-config.ts"  highlight="3-4,, 11-12":::
 
-    This file reads your application ID in from the `.env` file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personally identifying information (PII).
+    This file reads your application ID in from the `.env` file, sets session as the browser storage instead of cookies, and provides logging that is considerate of personal information.
 
 1. Create a new file for the Azure authentication middleware in the `azure` folder, named `azure-authentication-context.ts` and copy in the following code:
 
@@ -144,7 +144,7 @@ If you want to keep the app but revoke the permission given to the app by your s
 * [Revoke AAD permission](https://myapps.microsoft.com/)
 * [Revoke Consumer permission](https://account.live.com/consent/manage)
 
-## Next step
+## Next steps
 
 This app provides user authentication for your app, and returns user information. The authentication functionality can stop here for a simple version of an app or you can add functionality to manage the app's user management and user authorization to app features. 
 
