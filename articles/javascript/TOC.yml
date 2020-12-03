@@ -32,7 +32,7 @@
       - name: Add a Login button 
         href: tutorial/single-page-application-azure-login-button-sdk-msal.md
       - name: Express.js with MongoDB
-        href: tutorial/web-app-mongodb.yml?preview=tutorialFeedback
+        href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
       - name: Deploy app to Linux virtual machine
         items: 
           - name: 1. Introduction and prerequisites
