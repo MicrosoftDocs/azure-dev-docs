@@ -78,7 +78,7 @@ The token format depends are which tool you used to create it:
 const sasToken = process.env.storagesastoken || "";
 ```
 
-## Configure your Azure Storage resource for CORS with Azure CLI
+## Configure CORS for Azure Storage resource
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 

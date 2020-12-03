@@ -41,6 +41,11 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master"
+    },
+    {
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
       "branch": "main"
@@ -55,14 +60,31 @@
       "url": "https://github.com/Azure-Samples/js-e2e-client-cognitive-services",
       "branch": "main"
     },
-    
+    {
+      "path_to_root": "js-e2e-client-azure-login-button",
+      "url": "https://github.com/Azure-Samples/js-e2e-client-azure-login-button",
+      "branch": "main"
+    },
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "master"
     }
   ],
-  "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false,
-  "targets": {}
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "PDF"
+    ],
+    "master": [
+      "Publish",
+      "PDF"
+    ]
+  },
+  "need_generate_pdf_url_template": true,
+  "targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  }
 }
