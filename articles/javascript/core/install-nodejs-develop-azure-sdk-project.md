@@ -56,7 +56,7 @@ Azure SDK libraries, TypeScript, linting (ESLint), and formatting (Prettier),  s
 
 ## Don't check in the dependency lock file
 
-Node.js installs different internal libraries based on the operating system or virtual environment it is installed on. The lock file, created when installing dependencies, may have dependencies specific to that operating system. Do not check-in your lock file to your source repository or use the lock file in a CI/CD pipeline unless you know the lock file will work for all operating systems or the development and production environments are the same. 
+Node.js installs different internal libraries based on the operating system or virtual environment it is installed on. The lock file, created when installing dependencies, may have dependencies specific to that operating system. Do not check in your lock file to your source repository or use the lock file in a CI/CD pipeline unless you know the lock file will work for all operating systems or the development and production environments are the same. 
 
 ## Troubleshooting
 
