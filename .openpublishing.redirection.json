@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
-      "redirect_url": "articles/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
