@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: Get started on Azure with JavaScript
     items:
+    - name: Install Node.js
+      href: core/install-nodejs-develop-azure-sdk-project.md
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
     - name: Set up service principal
