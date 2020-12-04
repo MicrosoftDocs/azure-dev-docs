@@ -1,5 +1,5 @@
 ---
-title: Deploy Node.js MongoDB app with VSCode - App Service
+title: Deploy Node.js MongoDB app with VSCode - App Service/CosmosDB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
 ms.date: 12/03/2020
