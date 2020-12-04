@@ -64,7 +64,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: MongoDB
-            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code
+            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: MySql
             url: /azure/mysql/connect-nodejs
           - text: PostgreSQL
