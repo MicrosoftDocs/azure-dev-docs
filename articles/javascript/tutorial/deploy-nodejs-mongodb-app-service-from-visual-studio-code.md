@@ -2,7 +2,7 @@
 title: Deploy Node.js MongoDB app with VSCode - App Service
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 12/03/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ---
 
@@ -134,6 +134,7 @@ Use the Visual Studio Code extension for App Service to create an App service re
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-app-service-stream-logs.png" alt-text="When the deployment is complete, a notification appears allowing you to select `Stream logs`.":::    
 
 1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
+1. Use the web app, adding and deleting items. 
 
 ## Clean up resources 
 
