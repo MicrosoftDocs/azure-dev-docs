@@ -3,7 +3,7 @@ title: "Step 7: Add a storage binding for serverless Azure Functions in Python w
 description: Tutorial step 7, adding a binding in serverless Python code to write messages to Azure storage.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019, contperfq2
 ---
 
 # 7: Add a storage binding for Azure Functions in Python
