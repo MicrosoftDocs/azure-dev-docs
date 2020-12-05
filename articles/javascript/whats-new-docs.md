@@ -42,7 +42,7 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 
 |Name|Notes|
 |---------------------------------------|--|
-|[Tutorial: Upload image to Blob Storage](./tutorial/browser-file-upload.yml?preview=tutorialFeedback)|In this tutorial, use a **React app** to upload a file to an **Azure Storage** blob. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
+|[Tutorial: Upload image to Blob Storage](./tutorial/browser-file-upload-azure-storage-blob.md)|In this tutorial, use a **React app** to upload a file to an **Azure Storage** blob. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
 |[Tutorial: Deploy Node.js with database app to App Service from Visual Studio Code](./tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|In this tutorial, use a **Express.js** Node.js app with a **MongoDB** database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. The programming work is done for you, this tutorial focuses on creating the Azure resources and deploying to Azure from inside Visual Studio Code with Azure extensions.|
 
 ### What's updated
