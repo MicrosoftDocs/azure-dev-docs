@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial/deno-visual-studio-code-azure-app-service.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli"
+    },
+    {
       "source_path": "articles/javascript/tutorial/browser-file-upload.yml",
       "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob"
     },    
