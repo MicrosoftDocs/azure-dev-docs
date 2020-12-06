@@ -28,7 +28,7 @@
           - name: 6. Clean up resources
             href: tutorial/static-web-app/clean-up-resources.md
       - name: Upload image to Storage Blobs
-        href: tutorial/browser-file-upload.yml?preview=tutorialFeedback
+        href: tutorial/browser-file-upload-azure-storage-blob.md
       - name: Add a Login button 
         href: tutorial/single-page-application-azure-login-button-sdk-msal.md
       - name: Express.js with MongoDB
