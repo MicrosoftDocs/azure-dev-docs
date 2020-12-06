@@ -147,3 +147,4 @@ When you want to clean up the resources, visit the [Azure portal](https://portal
 Learn more about:
 * [Deploy to App service](../tutorial-vscode-azure-app-service-node-01.md) with Visual Studio Code extensions
 * [Deploy to a Virtual Machine](./nodejs-virtual-machine-vm/introduction.md)
+* [Deploy Deno function](https://github.com/anthonychu/azure-functions-deno-worker) deploy as a [custom handler](/azure/azure-functions/functions-custom-handlers)
