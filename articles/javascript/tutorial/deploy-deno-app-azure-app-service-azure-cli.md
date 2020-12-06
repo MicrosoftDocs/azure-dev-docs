@@ -39,7 +39,7 @@ Before using any CLI commands with a local install, you need to sign in with [az
 
 After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-# 4. Create local Deno API app
+## 4. Create local Deno API app
 
 Create a simple Deno api using Deno's built-in webserver. You then run the app locally.
 
