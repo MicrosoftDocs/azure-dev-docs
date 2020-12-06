@@ -113,7 +113,7 @@ Deploy your Deno app to Azure using Azure CLI.
     az webapp config appsettings set --name <your-app-name> --resource-group deno-quickstart --settings WEBSITE_RUN_FROM_PACKAGE=1 WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
     ```
 
-## 7. Configure Deno app deployment to web app 
+## 6. Configure Deno app deployment to web app 
 
 The Azure Web app is configured and ready to use but doesn't have the Deno package yet. Package the app in a `.zip` package, tell the web app that the file is on your local computer, then set the startup file, which is within the zip file. 
 
@@ -145,7 +145,7 @@ The Azure Web app is configured and ready to use but doesn't have the Deno packa
 
 1. Test the application by going to `https://<your-app-name>.azurewebsites.net`. 
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 Delete your resource group, which also deletes the web app resources, with the following command:
 
