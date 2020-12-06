@@ -16,7 +16,13 @@ Deploy a Deno application to Azure App Service (on Linux or Windows) using the A
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-deno&mktingSource=vscode-tutorial-appservice-deno)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
 - Install [Deno](https://deno.land/#installation)
-[!INCLUDE [Azure CLI include from DevEx](/cli/azure/azure-cli-prepare-your-environment-no-header.)]
+- Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) using the bash environment.
+
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## 2. Sign in to Azure CLI
 
