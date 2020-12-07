@@ -13,7 +13,7 @@
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Deployment and hosting
+      - name: Deploy and host
         items: 
         - name: "Client app: Cognitive Services"
           items: 

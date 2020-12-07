@@ -10,28 +10,39 @@ ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-
 
 Hosting options and deployment scenarios include several services and tools for Azure. Azure has many options for hosting and many tools to help you move your app from a local or cloud repository to Azure. 
 
-## Choose a hosting provider from Azure
+## Choose a recommended Azure host provider
 
 Hosting your client, server, or background task app on Azure comes in a variety of solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview). 
 
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
+
+
 | Service | Suggested for |
 |--|--|
-|[App service](/azure/app-service/overview) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
+|[*App service](/azure/app-service/overview) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
 |[Static Web apps](/azure/static-web-apps/)|Host your static client app (such as Angular, Vue, React). Optionally add serverless functions endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
 |[Functions](/azure/azure-functions/)|Host your serverless application endpoints.|
-|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
+
+## Hosting with more control
+
+The following choices give you more control of you application environment. 
+
+|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
 |[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
-|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
-|[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
 
-For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
+## Alternative hosting choices for Azure
+
+These choices are tailored to specific use cases. 
+
+|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
+|[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
 
 ## Choose your deployment process for Azure
 
 Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
 
-Common methods of moving files to the Azure cloud are listed in the following table.
+Common methods of moving files to the Azure cloud include:
 
 | Method | Details |
 |--|--|
