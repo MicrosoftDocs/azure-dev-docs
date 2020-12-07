@@ -49,6 +49,18 @@ landingContent:
             url: tutorial/tutorial-vscode-serverless-node-install.md
           - text: "Azure Virtual Machine: NGINX/Express.js containers"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
+  - title: Azure SDK client library tutorials
+    linkLists: 
+      - linkListType: tutorial
+        links: 
+          - text: "Static web app: Analyze image with Computer Vision"
+            url: /tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+          - text: "Static web app: Upload file to Storage Blob"
+            url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
+          - text: "Static web app: Login/Logoff button"
+            url: tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons"
+          - text: "Express.js: Add Application Insights logging"
+            url: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights
   - title: Data
     linkLists:
       - linkListType: quickstart
