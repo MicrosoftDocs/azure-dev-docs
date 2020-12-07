@@ -31,19 +31,21 @@ landingContent:
             url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
-  - title: Hosting
+  - title: Deploy & Host
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Front-end apps
+          - text: "Static web app: with Cognitive Services"
             url: tutorial/static-web-app/introduction.md
-          - text: Node.js with App service
-            url: tutorial-vscode-azure-app-service-node-01.md
-          - text: Deno with App Service
-            url: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-          - text: Deploy app to Linux virtual machine
+          - text: "App service: React upload to Storage"
+            url: tutorial/tutorial-vscode-azure-app-service-node-01.md
+          - text: "App service: Express.js"
+            url: tutorial/tutorial-vscode-azure-app-service-node-01
+          - text: "App service: Express.js with MongoDB"
+            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+          - text: "Virtual Machine: Deploy NGINX/Express.js containers"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
-          - text: Containers
+          - text: "App service: Containers
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
