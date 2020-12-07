@@ -35,32 +35,20 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: "Static web app: with Cognitive Services"
+          - text: "Static web app: React with Cognitive Services"
             url: tutorial/static-web-app/introduction.md
-          - text: "App service: React upload to Storage"
-            url: tutorial/tutorial-vscode-azure-app-service-node-01.md
+          - text: "App service: React upload to Storage Blobs"
+            url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "App service: Express.js"
-            url: tutorial/tutorial-vscode-azure-app-service-node-01
+            url: tutorial/tutorial-vscode-azure-app-service-node-01.md
           - text: "App service: Express.js with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
-          - text: "Virtual Machine: Deploy NGINX/Express.js containers"
-            url: tutorial/nodejs-virtual-machine-vm/introduction.md
           - text: "App service: Express.js container"
             url: tutorial-vscode-docker-node-01.md
-      - linkListType: how-to-guide
-        links:
-          - text: Full-stack (serverless APIs & front-end)
-            url: how-to/create-static-site.md
-  - title: Serverless functions
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Develop and deploy
+          - text: "Azure Functions: HTTP serverless trigger"
             url: tutorial/tutorial-vscode-serverless-node-install.md
-      - linkListType: how-to-guide
-        links:
-          - text: Write serverless code
-            url: how-to/develop-serverless-apps.md
+          - text: "Azure Virtual Machine: NGINX/Express.js containers"
+            url: tutorial/nodejs-virtual-machine-vm/introduction.md
   - title: Data
     linkLists:
       - linkListType: quickstart
