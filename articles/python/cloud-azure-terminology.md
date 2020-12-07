@@ -12,7 +12,7 @@ When you begin to work with Azure, there are a number of core terms and concepts
 
 | Term | Short description |
 | --- | --- |
-| [Account and Subscriptions](#account-and-subscriptions) | The billing information and basic organizational structure for managing resources on Azure. [More...](#acount-and-subscriptions)
+| [Account and Subscriptions](#account-and-subscriptions) | The billing information and basic organizational structure for managing resources on Azure. [More...](#account-and-subscriptions)
 | [Resource](#resource) | The general name of any specific allocation of capabilities within an Azure data center. [More...](#resource) |
 | [Resource group](#resource-group) | A logical container for other resources that you can then manage as a unit. [More...](#resource-group) |
 | [Region](#region) | A reference to a specific Azure data center in which resources are allocated. [More...](#region) |
@@ -66,7 +66,7 @@ The [Azure portal](https://portal.azure.com) is the web-based user interface thr
 
 ## Azure command-line interface (CLI)
 
-The [Azure CLI](azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all platforms and works across all Azure services.
+The [Azure CLI](/azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all platforms and works across all Azure services.
 
 If you prefer using PowerShell, you can alternately use the [Azure PowerShell module](/powershell/azure).
 
