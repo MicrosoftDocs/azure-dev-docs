@@ -27,7 +27,7 @@ Azure CLI provides the following use scenarios:
 
 If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.
 
-:::image type="content" source="../media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
+:::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
 
 ## TypeScript
 
