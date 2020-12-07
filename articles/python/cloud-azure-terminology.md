@@ -54,6 +54,8 @@ Applications that serve global customers can have Azure automatically replicate 
 
 With App Service, you provision the host, called an App Service **web app**, and upload your code. Azure manages all the underlying hardware and server infrastructure. You can configure various characteristics of the host, such as load balancing, scaling, server-side environment variables, and more.
 
+The direct URL for an App Service web app is always `<web-app-name>.azurewebsites.net`. You can also configure the web app to use a custom domain.
+
 ## App Service Plan
 
 An **App Service Plan** is a resource that defines the virtual machine used by Azure App Service, which then determines the core cost of hosting your application. You define an App Service Plan as part of provisioning App Service prior to deploying your code.
