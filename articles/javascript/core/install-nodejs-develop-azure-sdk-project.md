@@ -21,7 +21,7 @@ You can download and install Node.js based on your requirements.
 * [Bash](https://github.com/nodesource/distributions/blob/master/README.md#debinstall) 
 
 > [!CAUTION] 
-> Do not install Node.js using the apt or apt-get packages because Node.js is locked into Node.js 8+. Instead, the recommended installation is the [Bash script](https://github.com/nodesource/distributions/blob/master/README.md#debinstall). 
+> Do not install Node.js using the apt or apt-get packages because Node.js is locked into Node.js 8+. Instead, the recommended installation is this [Bash script](https://github.com/nodesource/distributions/blob/master/README.md#debinstall). 
 
 ## Create a package.json file to define your project
 
