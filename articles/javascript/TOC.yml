@@ -13,116 +13,118 @@
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Create a static web app
+      - name: Deploy and host
         items: 
-          - name: 1. Introduction and prerequisites
-            href: tutorial/static-web-app/introduction.md
-          - name: 2. Download and run app locally
-            href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-          - name: 3. Create Computer Vision resource
-            href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-          - name: 4. Build and deploy Static web app
-            href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-          - name: 5. Review Computer Vision React code
-            href: tutorial/static-web-app/add-computer-vision-react-app.md
-          - name: 6. Clean up resources
-            href: tutorial/static-web-app/clean-up-resources.md
-      - name: Upload image to Storage Blobs
-        href: tutorial/browser-file-upload-azure-storage-blob.md
-      - name: Add a Login button 
-        href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-      - name: Express.js with MongoDB
-        href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
-      - name: Deploy app to Linux virtual machine
-        items: 
-          - name: 1. Introduction and prerequisites
-            href: tutorial/nodejs-virtual-machine-vm/introduction.md
-          - name: 2. Create Application Insights resource
-            href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
-          - name: 3. Create virtual machine
-            href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-          - name: 4. Connect to Linux virtual machine
-            href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
-          - name: 5. Add cloud logging to app
-            href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
-          - name: 6. View logs
-            href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
-          - name: 7. Clean up resources
-            href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
-      - name: Create and deploy serverless Functions
-        items:
-          - name: 1. Introduction and prerequisites
-            href: tutorial/tutorial-vscode-serverless-node-install.md
-          - name: 2. Create the Functions app
-            href: tutorial/tutorial-vscode-serverless-node-create-local.md
-          - name: 3. Test the function locally
-            href: tutorial/tutorial-vscode-serverless-node-test-local.md
-          - name: 4. Deploy the Functions app
-            href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
-          - name: 5. Clean up resources
-            href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
-      - name: Deploy Node.js to App Service with VS Code
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-vscode-azure-app-service-node-01.md
-          - name: Create the app
-            href: tutorial-vscode-azure-app-service-node-02.md
-          - name: Deploy the website
-            href: tutorial-vscode-azure-app-service-node-03.md
-          - name: Stream logs
-            href: tutorial-vscode-azure-app-service-node-04.md
-          - name: Clean up resources
-            href: tutorial-vscode-azure-app-service-node-05.md
-      - name: Deploy Deno to App Service
-        href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-      - name: Deploy containers with VS Code
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-vscode-docker-node-01.md
-          - name: Use a container registry
-            href: tutorial-vscode-docker-node-02.md
-          - name: Create a local Node.js app
-            href: tutorial-vscode-docker-node-03.md
-          - name: Create the app image
-            href: tutorial-vscode-docker-node-04.md
-          - name: Deploy the app image
-            href: tutorial-vscode-docker-node-05.md
-          - name: Make changes and redeploy
-            href: tutorial-vscode-docker-node-06.md
-          - name: Stream logs
-            href: tutorial-vscode-docker-node-07.md
-          - name: Clean up resources
-            href: tutorial-vscode-docker-node-08.md
-      - name: Deploy to App Service with the Azure CLI
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-vscode-azure-cli-node-01.md
-          - name: Create the app
-            href: tutorial-vscode-azure-cli-node-02.md
-          - name: Create the App Service
-            href: tutorial-vscode-azure-cli-node-03.md
-          - name: Deploy the app
-            href: tutorial-vscode-azure-cli-node-04.md
-          - name: Stream logs
-            href: tutorial-vscode-azure-cli-node-05.md
-          - name: Make changes and redeploy
-            href: tutorial-vscode-azure-cli-node-06.md
-          - name: Clean up resources
-            href: tutorial-vscode-azure-cli-node-07.md
-      - name: Create a static website from Azure Storage
-        items:
-          - name: Introduction and prerequisites
-            href: tutorial-vscode-static-website-node-01.md
-          - name: Create the app code
-            href: tutorial-vscode-static-website-node-02.md
-          - name: Create a Storage account
-            href: tutorial-vscode-static-website-node-03.md
-          - name: Deploy to Azure Storage
-            href: tutorial-vscode-static-website-node-04.md
-          - name: Make changes and redeploy
-            href: tutorial-vscode-static-website-node-05.md
-          - name: Clean up resources
-            href: tutorial-vscode-static-website-node-06.md
+        - name: "Client app: Cognitive Services"
+          items: 
+            - name: 1. Introduction and prerequisites
+              href: tutorial/static-web-app/introduction.md
+            - name: 2. Download and run app locally
+              href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
+            - name: 3. Create Computer Vision resource
+              href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
+            - name: 4. Build and deploy Static web app
+              href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
+            - name: 5. Review Computer Vision React code
+              href: tutorial/static-web-app/add-computer-vision-react-app.md
+            - name: 6. Clean up resources
+              href: tutorial/static-web-app/clean-up-resources.md
+        - name: "Client app: upload to Storage"
+          href: tutorial/browser-file-upload-azure-storage-blob.md
+        - name: "Client app: Add a Login button" 
+          href: tutorial/single-page-application-azure-login-button-sdk-msal.md
+        - name: "Client app: Host from Azure Storage"
+          items:
+            - name: Introduction and prerequisites
+              href: tutorial-vscode-static-website-node-01.md
+            - name: Create the app code
+              href: tutorial-vscode-static-website-node-02.md
+            - name: Create a Storage account
+              href: tutorial-vscode-static-website-node-03.md
+            - name: Deploy to Azure Storage
+              href: tutorial-vscode-static-website-node-04.md
+            - name: Make changes and redeploy
+              href: tutorial-vscode-static-website-node-05.md
+            - name: Clean up resources
+              href: tutorial-vscode-static-website-node-06.md
+        - name: "Serverless: Create and deploy"
+          items:
+            - name: 1. Introduction and prerequisites
+              href: tutorial/tutorial-vscode-serverless-node-install.md
+            - name: 2. Create the Functions app
+              href: tutorial/tutorial-vscode-serverless-node-create-local.md
+            - name: 3. Test the function locally
+              href: tutorial/tutorial-vscode-serverless-node-test-local.md
+            - name: 4. Deploy the Functions app
+              href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
+            - name: 5. Clean up resources
+              href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
+        - name: "Server: Express.js/MongoDB"
+          href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+        - name: "Server: Deploy Express.js with VS Code"
+          items:
+            - name: Introduction and prerequisites
+              href: tutorial-vscode-azure-app-service-node-01.md
+            - name: Create the app
+              href: tutorial-vscode-azure-app-service-node-02.md
+            - name: Deploy the website
+              href: tutorial-vscode-azure-app-service-node-03.md
+            - name: Stream logs
+              href: tutorial-vscode-azure-app-service-node-04.md
+            - name: Clean up resources
+              href: tutorial-vscode-azure-app-service-node-05.md
+        - name: "Server: Deploy with the Azure CLI"
+          items:
+            - name: Introduction and prerequisites
+              href: tutorial-vscode-azure-cli-node-01.md
+            - name: Create the app
+              href: tutorial-vscode-azure-cli-node-02.md
+            - name: Create the App Service
+              href: tutorial-vscode-azure-cli-node-03.md
+            - name: Deploy the app
+              href: tutorial-vscode-azure-cli-node-04.md
+            - name: Stream logs
+              href: tutorial-vscode-azure-cli-node-05.md
+            - name: Make changes and redeploy
+              href: tutorial-vscode-azure-cli-node-06.md
+            - name: Clean up resources
+              href: tutorial-vscode-azure-cli-node-07.md
+        - name: "Server: Deploy Deno with Azure CLI"
+          href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
+        - name: "Container: Deploy Express.js with VS Code"
+          items:
+            - name: Introduction and prerequisites
+              href: tutorial-vscode-docker-node-01.md
+            - name: Use a container registry
+              href: tutorial-vscode-docker-node-02.md
+            - name: Create a local Node.js app
+              href: tutorial-vscode-docker-node-03.md
+            - name: Create the app image
+              href: tutorial-vscode-docker-node-04.md
+            - name: Deploy the app image
+              href: tutorial-vscode-docker-node-05.md
+            - name: Make changes and redeploy
+              href: tutorial-vscode-docker-node-06.md
+            - name: Stream logs
+              href: tutorial-vscode-docker-node-07.md
+            - name: Clean up resources
+              href: tutorial-vscode-docker-node-08.md
+        - name: "VM: Deploy container with logging"
+          items: 
+            - name: 1. Introduction and prerequisites
+              href: tutorial/nodejs-virtual-machine-vm/introduction.md
+            - name: 2. Create Application Insights resource
+              href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
+            - name: 3. Create virtual machine
+              href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
+            - name: 4. Connect to Linux virtual machine
+              href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
+            - name: 5. Add cloud logging to app
+              href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
+            - name: 6. View logs
+              href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
+            - name: 7. Clean up resources
+              href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
   - name: Learn
     href: learn-azure-javascript.md
   - name: Azure tools
