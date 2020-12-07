@@ -246,11 +246,14 @@ The following table shows the allowed values for this environment variable.
 |ERROR    |"err", "error"  |
 
 ## Setting an HttpLogDetailLevel
-Regardless of the logging mechanism used, if a client builder offers the ability to set [HttpLogOptions](https://docs.microsoft.com/en-us/java/api/com.azure.core.http.policy.httplogoptions?view=azure-java-stable), an [HttpLogDetailLevel](https://docs.microsoft.com/en-us/java/api/com.azure.core.http.policy.httplogdetaillevel?view=azure-java-stable) must also be specifed. This value defaults to `NONE`, so if it is not specified, no logs will be output even if the logging framework or default logging is properly configured. This value may be configured as follows.
+Regardless of the logging mechanism used, if a client builder offers the ability to set [HttpLogOptions](https://docs.microsoft.com/en-us/java/api/com.azure.core.http.policy.httplogoptions?view=azure-java-stable), these options must additionally be configured to output any logs. An [HttpLogDetailLevel](https://docs.microsoft.com/en-us/java/api/com.azure.core.http.policy.httplogdetaillevel?view=azure-java-stable) must be specifed to indicate what information should be logged.  This value defaults to `NONE`, so if it is not specified, no logs will be output even if the logging framework or fallback logging is properly configured. For security reasons, headers and query parameters are redacted by default, so the log options must also be provided with a `Set<String>` indicating which headers and query parameters are safe to print. These value may be configured as shown below. The logging is set to print both body content and header values, all header values will be redacted except the value for the user specified metadata corresponding to the key `"foo"`, and all query parameters will be redacted except for the sas token query parameter `"sv"` indicating the signed version of any sas which may be present. 
 
 ```
 new BlobClientBuilder().endpoint(<endpoint>)
-            .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS))
+            .httpLogOptions(new HttpLogOptions()
+                .setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS)
+                .setAllowedHeaderNames(Set.of("x-ms-meta-foo"))
+                .setAllowedQueryParamNames(Set.of("sv")))
             .buildClient();
 ```
 Note that this example uses a Storage client builder, but the principle applies for any builder which accepts `HttpLogOptions`. Furthermore, this example does not demonstrate complete configuration of a client and is only intended to illustrate configuration of logging. For more information on configuring clients, please see the docs on the respective builders.
