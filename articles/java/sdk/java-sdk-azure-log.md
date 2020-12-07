@@ -256,7 +256,8 @@ new BlobClientBuilder().endpoint(<endpoint>)
                 .setAllowedQueryParamNames(Set.of("sv")))
             .buildClient();
 ```
-Note that this example uses a Storage client builder, but the principle applies for any builder which accepts `HttpLogOptions`. Furthermore, this example does not demonstrate complete configuration of a client and is only intended to illustrate configuration of logging. For more information on configuring clients, please see the docs on the respective builders.
+> [!NOTE]
+> This example uses a Storage client builder, but the principle applies for any builder which accepts `HttpLogOptions`. Furthermore, this example does not demonstrate complete configuration of a client and is only intended to illustrate configuration of logging. For more information on configuring clients, see the documentation on the respective builders.
 
 ## Next steps
 
