@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 12/07/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
 ---
 
@@ -27,6 +27,8 @@ For a complete overview of different hosting options, see [Decision tree for Azu
 
 The following choices give you more control of you application environment. 
 
+| Service | Suggested for |
+|--|--|
 |[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
 |[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
@@ -35,6 +37,8 @@ The following choices give you more control of you application environment.
 
 These choices are tailored to specific use cases. 
 
+| Service | Suggested for |
+|--|--|
 |[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
 |[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
 
@@ -55,6 +59,7 @@ Other deployment methods may exist, based on the specific service. For example, 
 * [With FTP](/azure/app-service/deploy-ftp)
 * [Dropbox or OneDrive](/azure/app-service/deploy-content-sync)
 * [Local Git](/azure/app-service/deploy-local-git)
+* [cURL](/azure/app-service/deploy-zip#with-curl)
 
 ## Verify your deployment with your HTTP endpoint
 
