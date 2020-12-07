@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 | [Account and Subscriptions](#account-and-subscriptions) | The billing information and basic organizational structure for managing resources on Azure. [More...](#account-and-subscriptions)
 | [Resource](#resource) | The general name of any specific allocation of capabilities within an Azure data center. [More...](#resource) |
 | [Resource group](#resource-group) | A logical container for other resources that you can then manage as a unit. [More...](#resource-group) |
-| [Region](#region) | A reference to a specific Azure data center in which resources are allocated. [More...](#region) |
+| [Region](#region-location) | A reference to a specific Azure data center in which resources are allocated. [More...](#region-location) |
 | [Azure App Service](#azure-app-service) | Azure's managed hosting service for web applications. [More...](#azure-app-service) |
 | [App Service Plan](#app-service-plan) | A resource that defines the virtual machine used by Azure App Service. [More...](#app-service-plan) |
 | [Azure portal](#azure-portal) | The web-based UI for creating and managing Azure resources. [More...](#azure-portal) |
@@ -30,7 +30,7 @@ Creating any resource on Azure is always done within the context of a subscripti
 
 ## Resource
 
-A **resource** is the general name of any specific allocation of capabilities within an Azure data center. A resource could be a virtual machine, a virtual network, various levels of storage, a machine learning model, an IoT ingestion hub, and so on.
+A **resource** is the general name of any specific allocation of capabilities within an Azure data center. A resource could be a virtual machine, a virtual network, various levels of storage, a database, a machine learning model, an IoT ingestion hub, and so on.
 
 Because a resource allocates real computing capabilities, each resource potentially has an ongoing cost depending on the level of performance you need. For development and testing, many resource can be created with a free cost tier. For more information, see the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -40,7 +40,7 @@ Within a subscription, a *resource group* is a logical container for other resou
 
 A resource group typically relates to a specific project, and you must always specify a resource group when provisioning a resource. The first step with a new project is usually to create an appropriate resource group. By deleting the resource group you de-allocate all of its contained resources rather than having to delete each resource individually.
 
-## Region
+## Region (location)
 
 A **region** identifies the specific location of the Azure data center in which a resource is provisioned.
 
