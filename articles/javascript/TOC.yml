@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: Get started on Azure with JavaScript
     items:
+    - name: Azure tools for JavaScript developers
+      href: node-azure-tools.md
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
     - name: Set up service principal
@@ -125,8 +127,6 @@
             href: tutorial-vscode-static-website-node-06.md
   - name: Learn
     href: learn-azure-javascript.md
-  - name: Azure tools
-    href: node-azure-tools.md
   - name: How-To guides
     items:
     - name: End to end Node.js with VS Code
