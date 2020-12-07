@@ -60,6 +60,7 @@ Other deployment methods may exist, based on the specific service. For example, 
 * [Dropbox or OneDrive](/azure/app-service/deploy-content-sync)
 * [Local Git](/azure/app-service/deploy-local-git)
 * [cURL](/azure/app-service/deploy-zip#with-curl)
+* [SSH](/azure/app-service/configure-linux-open-ssh-session)
 
 ## Verify your deployment with your HTTP endpoint
 
