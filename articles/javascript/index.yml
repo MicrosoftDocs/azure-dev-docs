@@ -45,7 +45,7 @@ landingContent:
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "Virtual Machine: Deploy NGINX/Express.js containers"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
-          - text: "App service: Containers
+          - text: "App service: Express.js container"
             url: tutorial-vscode-docker-node-01.md
       - linkListType: how-to-guide
         links:
