@@ -31,7 +31,7 @@ landingContent:
             url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
-  - title: Deploy & Host
+  - title: Deploy and host
     linkLists:
       - linkListType: tutorial
         links:
@@ -87,7 +87,7 @@ landingContent:
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: tutorial/static-web-app/introduction.md
-  - title: Security, Messaging, and Logs
+  - title: Security, messaging, and logs
     linkLists:
       - linkListType: quickstart
         links:
