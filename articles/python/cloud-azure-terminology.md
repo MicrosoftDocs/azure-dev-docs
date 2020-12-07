@@ -64,7 +64,7 @@ The [Azure portal](https://portal.azure.com) is the web-based user interface thr
 
 ## Azure command-line interface (CLI)
 
-The [Azure CLI](/azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all platforms and works across all Azure services.
+The [Azure CLI](/azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all operating systems and works across most Azure services.
 
 If you prefer using PowerShell, you can alternately use the [Azure PowerShell module](/powershell/azure).
 
@@ -72,7 +72,7 @@ If you prefer using PowerShell, you can alternately use the [Azure PowerShell mo
 
 The **az webapp** command is how you interact with all aspects of Azure App Service through the Azure CLI.
 
-The **az webapp up** command, specifically, simplifies deployment of web applications. With az webapp up, a single command can provision a resource group, an App Service Plan, and the App Service web app in one pass, and then upload your code.
+The **az webapp up** command, specifically, simplifies deployment of web applications. This single command can provision a resource group, an App Service Plan, and the App Service web app, and then upload your code, all in one pass.
 
 ## Next step
 
