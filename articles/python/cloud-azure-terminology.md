@@ -6,9 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Azure Terminology in Brief
-
-When you begin to work with Azure, there are a number of core terms and concepts that you should know.
+# Azure Terminology In Brief
 
 | Term | Short description |
 | --- | --- |
@@ -48,7 +46,7 @@ A **region** identifies the specific location of the Azure data center in which 
 
 Different resources can always communicate across regions, but do so more efficiently when resources are located in the same region.
 
-Applications that serve global customers can replicate resources in multiple regions for greater efficiency.
+Applications that serve global customers can have Azure automatically replicate resources across multiple regions to improve overall application responsiveness and performance.
 
 ## Azure App Service
 
