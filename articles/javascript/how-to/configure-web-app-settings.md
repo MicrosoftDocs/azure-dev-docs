@@ -1,6 +1,6 @@
 ---
-title: Host web apps on Azure with common configuration settings
-description: 
+title: Host web apps - configuration settings
+description: Learn how to set common configurations for your web app.
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.custom: devx-track-js
@@ -11,6 +11,18 @@ ms.custom: devx-track-js
 Learn how to set common configurations for your web app. If a common setting is missing, [open an issue](#feedback) and tell us about it. 
 
 Any **required settings** are requested with you create the resource. If a setting isn't requested at that time, it has a default value, which you can change after resource creation. 
+
+## What is a web app?
+
+A web app is anything that is reached with an Internet URL. There are many Azure services that can be considered as a web app. The top services typically used for a web app are:
+
+* App service, which also includes
+    * [Static web apps](/azure/static-web-apps/)
+    * [Functions](/azure/azure-functions/)
+    * [Web apps](/azure/app-service/)
+    * [Containers](/azure/app-service/configure-custom-container?pivots=container-linux)
+* Containers - [Kubernetes](/azure/aks/) and single [containers](/azure/container-instances/)
+* Virtual Machines - [Windows](/azure/virtual-machines/windows) and [Linux](/azure/virtual-machines/linux)
 
 ## How to configure web app settings
 
