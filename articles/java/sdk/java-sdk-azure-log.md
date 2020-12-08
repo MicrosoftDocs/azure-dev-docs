@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 This article gives example logging configurations for the [Azure SDK](https://azure.microsoft.com/downloads/) for Java. For more detail on configuration options, such as setting log levels or custom logging by class, refer to the documentation for your chosen logging framework.
 
-The Azure SDK for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment.
+The Azure SDK for Java client libraries use the [Simple Logging Facade for Java](https://www.slf4j.org/) (SLF4J). SLF4J allows you to use your preferred logging framework, which is called at the time of application deployment. If a client builder offers the ability to set [HttpLogOptions](/java/api/com.azure.core.http.policy.httplogoptions?view=azure-java-stable), an [HttpLogDetailLevel](/java/api/com.azure.core.http.policy.httplogdetaillevel?view=azure-java-stable) and any permissible headers and query parameters must also be specifed in order for any logs to be output.
 
 > [!NOTE]
 > This article applies to the most recent versions of the Azure SDK client libraries. To see if a library is supported, refer to the list of [Azure SDK latest releases](https://azure.github.io/azure-sdk/releases/latest/java.html). If your application is using an older version of the Azure SDK client libraries, refer to specific instructions in the applicable service documentation.
@@ -244,6 +244,20 @@ The following table shows the allowed values for this environment variable.
 |INFORMATIONAL|"info", "information", "informational"  |
 |WARNING     |"warn", "warning"       |
 |ERROR    |"err", "error"  |
+
+## Setting an HttpLogDetailLevel
+Regardless of the logging mechanism used, if a client builder offers the ability to set [HttpLogOptions](/java/api/com.azure.core.http.policy.httplogoptions?view=azure-java-stable), these options must additionally be configured to output any logs. An [HttpLogDetailLevel](/java/api/com.azure.core.http.policy.httplogdetaillevel?view=azure-java-stable) must be specifed to indicate what information should be logged.  This value defaults to `NONE`, so if it is not specified, no logs will be output even if the logging framework or fallback logging is properly configured. For security reasons, headers and query parameters are redacted by default, so the log options must also be provided with a `Set<String>` indicating which headers and query parameters are safe to print. These value may be configured as shown below. The logging is set to print both body content and header values, all header values will be redacted except the value for the user specified metadata corresponding to the key `"foo"`, and all query parameters will be redacted except for the sas token query parameter `"sv"` indicating the signed version of any sas which may be present. 
+
+```
+new BlobClientBuilder().endpoint(<endpoint>)
+            .httpLogOptions(new HttpLogOptions()
+                .setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS)
+                .setAllowedHeaderNames(Set.of("x-ms-meta-foo"))
+                .setAllowedQueryParamNames(Set.of("sv")))
+            .buildClient();
+```
+> [!NOTE]
+> This example uses a Storage client builder, but the principle applies for any builder which accepts `HttpLogOptions`. Furthermore, this example does not demonstrate complete configuration of a client and is only intended to illustrate configuration of logging. For more information on configuring clients, see the documentation on the respective builders.
 
 ## Next steps
 
