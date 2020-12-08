@@ -25,6 +25,41 @@ The following table links to a variety of articles for connecting to and using A
 | **MySQL** | [Use Node.js to connect and query data](/azure/mysql/connect-nodejs) | [npm mysql](https://www.npmjs.com/package/mysql)|
 | **PostgreSQL** | [Use Node.js to connect and query data](/azure/postgresql/connect-nodejs) |[npm pg](https://www.npmjs.com/package/pg) |
 
+## Cosmos DB connection strings with Azure CLI
+
+Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings):
+
+```azurecli-interactive
+az cosmosdb keys list \<br>
+    -n $accountName \
+    -g $resourceGroupName \
+    --type connection-strings
+```
+
+## SQL connection strings with Azure CLI
+
+Use the following command, [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string):
+
+```azurecli-interactive
+az sql db show-connection-string \
+    --client {ado.net, jdbc, odbc, php, php_pdo, sqlcmd} \
+     [--auth-type {ADIntegrated, ADPassword, SqlPassword}] \
+     [--ids] \
+     [--name] \
+     [--server] \
+     [--subscription]
+```
+
+## MySQL username and password with Azure CLI
+
+These are set at [resource creation time](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create). 
+
+## PostgreSQL username and password with Azure CLI
+
+These are set at [resource creation time](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create). 
+
+## Azure Storage solutions for files and data
+
 You can also use Azure Storage for file (blob), table, and queue (message) storage:
 
 | Service | Quickstart |Recommended SDK |
