@@ -20,7 +20,7 @@ ms.custom: devx-track-python
 | [Azure CLI](#azure-command-line-interface-cli) | A set of text-based commands used to create and manage Azure resources. [More...](#azure-command-line-interface-cli) |
 | [az webapp, az webapp up](#az-webapp-az-webapp-up) | The Azure CLI commands to work with Azure App Service. [More....](#az-webapp-az-webapp-up) |
 
----
+<hr/>
 
 ## Account and Subscriptions
 
