@@ -30,7 +30,7 @@ The following table links to a variety of articles for connecting to and using A
 Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings):
 
 ```azurecli-interactive
-az cosmosdb keys list \<br>
+az cosmosdb keys list \
     -n $accountName \
     -g $resourceGroupName \
     --type connection-strings
@@ -64,7 +64,7 @@ You can also use Azure Storage for file (blob), table, and queue (message) stora
 
 | Service | Quickstart |Recommended SDK |
 | --- | --- |--- |
-| **Blobs** | [Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript](/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) |[@azure/storage-blob](https://www.npmjs.com/package/npm @azure/storage-blob)|
+| **Blobs** | [Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript](/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) |[@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob)|
 | **Queues** | [How to use Queue storage from Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |[npm @azure/storage-queue](https://www.npmjs.com/package/@azure/storage-queue)|
 | **Tables** | [How to use Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs) |[npm azure-storage](https://www.npmjs.com/package/azure-storage)|
 
