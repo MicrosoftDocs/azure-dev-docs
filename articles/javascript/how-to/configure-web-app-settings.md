@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Hosting web apps on Azure
 
-Learn how to set common configurations for your web app. If a common setting is missing, [open an issue](#feedback) and tell us about it. 
+Learn how to set common configurations for your web app. If a common setting is missing, open an issue in the feedback and tell us about it. 
 
 Any **required settings** are requested with you create the resource. If a setting isn't requested at that time, it has a default value, which you can change after resource creation. 
 
@@ -97,11 +97,11 @@ Typically, a connection to a database or data storage begins with a connection s
 
 Considerations for data connections:
 * Bring your current connection
-* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](../how-to/integrate-database) choices. The connection does need to be securely stored. 
+* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](integrate-database.md) choices. The connection does need to be securely stored. 
 
 ## Missing something? 
 
-If something is missing from this list, please fill out the [feedback](#feedback) to tell us about it. 
+If something is missing from this list, please fill out the feedback to tell us about it. 
 
 ## Next steps
 
