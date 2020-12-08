@@ -18,7 +18,7 @@ The following hosting choices allow you to deploy your containered applications.
 |--|--|
 |[App service](/azure/app-service/quickstart-custom-container?pivots=container-linux)|Deploy and run a custom container on Azure App service.|
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
-|[Container Registry](container-registry/)|Build, store, and manage custom or private container images.|
+|[Container Registry](/azure/container-registry/)|Build, store, and manage custom or private container images.|
 |[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
 |[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
 
