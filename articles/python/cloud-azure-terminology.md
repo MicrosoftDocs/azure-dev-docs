@@ -38,7 +38,9 @@ Because a resource allocates real computing capabilities, each resource potentia
 
 Within a subscription, a *resource group* is a logical container for other resources that you can then manage as a unit.
 
-A resource group typically relates to a specific project, and you must always specify a resource group when provisioning a resource. The first step with a new project is usually to create an appropriate resource group. By deleting the resource group you de-allocate all of its contained resources rather than having to delete each resource individually.
+A resource group typically relates to a specific project, and you must always specify a resource group when provisioning a resource. The first step with a new project is usually to create an appropriate resource group.
+
+Deleting a resource group de-allocates and deletes all of its contained resources, which is more convenient than deleting each resource individually.
 
 ## Region (location)
 
@@ -50,9 +52,9 @@ Applications that serve global customers can have Azure automatically replicate 
 
 ## Azure App Service
 
-**App Service** is Azure's managed hosting service for web applications.
+**App Service** is Azure's managed hosting service for web applications. Azure manages all the underlying hardware and server infrastructure; you provide the code and configuration.
 
-With App Service, you provision the host, called an App Service **web app**, and upload your code. Azure manages all the underlying hardware and server infrastructure. You can configure various characteristics of the host, such as load balancing, scaling, server-side environment variables, and more.
+With App Service, you provision the host, called an App Service **web app**, and upload your code. You also configure various characteristics of the host, such as load balancing, scaling, server-side environment variables, and more.
 
 The direct URL for an App Service web app is always `<web-app-name>.azurewebsites.net`. You can also configure the web app to use a custom domain.
 
