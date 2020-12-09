@@ -8,24 +8,33 @@ ms.custom:  devx-track-js
 
 # Identity, authentication, and users
 
-Authentication and authorization are broad subjects for a web application that can be reduced to specific programmatic tasks, DevOps tasks, and user interactions with an application. This article focuses on the top tasks a JavaScript developer commonly has to design for or complete for a web application. 
+Authentication and authorization are broad subjects for a web application that can be reduced to specific programmatic tasks and user interactions with an application. This article focuses on the top concepts a JavaScript developer commonly has to understand. 
 
 ## Authentication with Azure
 
-Authentication is the ability to allow a programmer or user to access a service or app.
+Authentication is the ability to:
+
+* allow your program to access your Azure resources
+* allow a user to access your app
 
 |Required|Perspective|Description|
 |--|--|--|
-|Yes|Developer|Application code must pass required credentials to Azure to access Azure services.|
+|Yes|Developer|Application code must pass required credentials to Azure to access Azure resources.|
 |No|User|For a user of an application, authentication can be anonymous or require a user account. This restricted access can use any common authentication provider, including Microsoft, or your can build your own authentication layer for your users.|
 
 ## Authentication for developers to Azure services
 
 Programmatic authentication to Azure requires a valid credential for the exact service the code uses. You need to read the Quickstart documentation for the service, and understand what type of credentials the service expects. 
 
+### Local developer environment for authenticating to Azure
+
 Once you understand how to connect to a service, you should create a service principal and set the service principal to an environment variable on your development machine. That step removes your personal account for direct interaction with Azure, and the risk of your personal account being compromised by checking in credentials with the source code. 
 
-## Programmatic use of modern Azure with @azure/identity npm package
+### Remote apps authenticating to Azure
+
+For apps hosted on Azure, the Azure hosting services provide access to the [Application settings](../how-to/configure-web-app-settings.md), including environment variables and secrets. To add another layer of security to your web app, store secrets in Azure [Key vault](/azure/key-vault), and access those secrets programmatically from your hosted app. 
+
+## Modern programmatic authentication with @azure/identity
 
 The current Azure SDK library uses that service principal for programmatic authentication to Azure services with the [@azure/identity](https://www.npmjs.com/package/@azure/identity) npm package. This authentication simplifies the process and is available on the [modern Azure SDK packages](https://www.npmjs.com/package/@azure/identity#client-libraries-supporting-authentication-with-azure-identity). 
 
@@ -49,7 +58,7 @@ const client = new KeyClient(vaultUrl, credential);
 const getResult = await client.getKey("MyKeyName");
 ```
 
-## Programmatic use with @azure/ms-rest-js npm package
+## Classic programmatic authentication with @azure/ms-rest-* packages
 
 For most other maintained Azure SDK libraries, use one of the following packages: 
 
