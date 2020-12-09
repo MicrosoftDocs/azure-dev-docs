@@ -64,9 +64,7 @@
         - name: "Server: Express.js/MongoDB"
           href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
         - name: "Server: Deploy Express.js with VS Code"
-          items:
-            - name: Introduction and prerequisites
-              href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
+          href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
         - name: "Server: Deploy with the Azure CLI"
           items:
             - name: Introduction and prerequisites
