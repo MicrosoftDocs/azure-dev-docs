@@ -58,7 +58,7 @@ const client = new KeyClient(vaultUrl, credential);
 const getResult = await client.getKey("MyKeyName");
 ```
 
-## Classic programmatic authentication with @azure/ms-rest-* packages
+## Classic programmatic authentication
 
 For most other maintained Azure SDK libraries, use one of the following packages: 
 
