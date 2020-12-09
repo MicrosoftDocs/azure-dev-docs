@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 12/09/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
 ---
 
@@ -17,13 +17,13 @@ Hosting your client, server, or background task app on Azure comes in a variety 
 For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
 
 
-| Service | Suggested for |
-|--|--|
-|[*App service](/azure/app-service/overview) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
-|[Static Web apps](/azure/static-web-apps/)|Host your static client app (such as Angular, Vue, React). Optionally add serverless functions endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
-|[Functions](/azure/azure-functions/)|Host your serverless application endpoints.|
+ Service |App type supported| Suggested for |
+|--|--|--|
+|[*App service](/azure/app-service/overview) - **recommended**|Client, Server, Client/Server, API, Server-render|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
+|[(Preview) Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, Static front-end with server APIs|Host your static client app (such as Angular, Vue, React). Optionally add serverless function endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
+|[Functions](/azure/azure-functions/)|Server API|Host your serverless API endpoints. Azure provides many templates known as triggers to bootstrap common scenarios.|
 
-## Hosting with more control
+## Host web apps with more control
 
 The following choices give you more control of you application environment. 
 
@@ -33,16 +33,16 @@ The following choices give you more control of you application environment.
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
 |[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
 
-## Alternative hosting choices for Azure
+## Alternative choices for web app hosting on Azure
 
 These choices are tailored to specific use cases. 
 
 | Service | Suggested for |
 |--|--|
 |[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
-|[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
+|[Content Delivery Network ](/azure/cdn/) (CDN)|Deliver pre-rendered websites. Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
 
-## Choose your deployment process for Azure
+## Deploy your web app to Azure
 
 Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
 
