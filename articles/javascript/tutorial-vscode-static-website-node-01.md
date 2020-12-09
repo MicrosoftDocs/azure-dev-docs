@@ -36,4 +36,5 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 [!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
 
-> [!div class="nextstepaction"] > [I installed the prerequisites](tutorial-vscode-static-website-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=getting-started)
+> [!div class="nextstepaction"] 
+> [I installed the prerequisites](tutorial-vscode-static-website-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=getting-started)
