@@ -40,7 +40,7 @@ landingContent:
           - text: "App service: React upload to Storage Blobs"
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "App service: Express.js"
-            url: tutorial-vscode-azure-app-service-node-01.md
+            url: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
           - text: "App service: Express.js with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "App service: Express.js container"

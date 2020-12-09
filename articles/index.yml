@@ -50,7 +50,7 @@ productDirectory:
       links:
         - url: ./javascript/tutorial-vscode-static-website-node-01.md?tabs=bash
           text: Develop a static website
-        - url: ./javascript/tutorial-vscode-azure-app-service-node-01.md?tabs=bash
+        - url: ./javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
           text: Deploy to Azure App Service
         - url: ./javascript/tutorial/tutorial-vscode-serverless-node-install.md?tabs=bash
           text: Deploy a serverless application
