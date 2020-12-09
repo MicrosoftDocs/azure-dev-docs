@@ -10,9 +10,9 @@ ms.custom: devx-track-java
 
 # Spring Data Azure Cosmos DB developer's guide
 
-This article describes the features of [Spring Data Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) using the SQL API. This article also includes guidance on common issues, workarounds, and diagnostic steps.
+This article describes the features of [Spring Data Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) when it uses the SQL API. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
-With the [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) globally distributed database service, developers can work with data by using a variety of standard APIs. The Spring Data Azure Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework, and it provides integration with Azure Cosmos DB by using the SQL API. For information about support for other APIs, see:
+With [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction), a globally distributed database service, developers can work with data by using a variety of standard APIs. The Spring Data Azure Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework, and it provides integration with Azure Cosmos DB by using the SQL API. For information about support for other APIs, see:
 
 - [Use the Spring Data MongoDB API with Azure Cosmos DB](./configure-spring-data-mongodb-with-cosmos-db.md)
 - [Use the Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
@@ -22,7 +22,7 @@ The Spring Data Azure Cosmos DB SDK is available as open source on GitHub in the
 
 ## Available features
 
-The following sections describe the features currently available.
+The following sections describe the features that are currently available in the Spring Data Azure Cosmos DB SDK.
 
 ### CrudRepository and ReactiveCrudRepository support
 
@@ -42,7 +42,7 @@ public interface ReactiveSampleRepository extends ReactiveCosmosRepository<Sampl
 }
 ```
 
-Depending upon the usage, you need to enable each repository separately in the `Configuration` class. For example:
+Depending upon their intended usage, you need to enable each repository separately in the `Configuration` class. For example:
 
 ```java
 @Configuration
@@ -87,12 +87,12 @@ By default, `IndexingPolicy` is set by the Azure service. To customize it, add t
 
 ```java
 boolean automatic;     // Indicates whether the indexing policy is automatic.
-IndexingMode mode;     // The indexing policy mode; the options are Consistent, Lazy, or None.
-String[] includePaths; // Included paths for indexing.
-String[] excludePaths; // Excluded paths for indexing.
+IndexingMode mode;     // The indexing policy mode. The options are Consistent, Lazy, or None.
+String[] includePaths; // The included paths for indexing.
+String[] excludePaths; // The excluded paths for indexing.
 ```
 
-The SDK also supports partitioning. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#:~:text=%20Partitioning%20and%20horizontal%20scaling%20in%20Azure%20Cosmos,partitions.%20Azure%20Cosmos%20DB%20transparently%20and...%20More%20). To specify a field of a domain class as a partition key field, annotate it with `@PartitionKey`. Then, when you perform CRUD operations, specify your partition value.
+The SDK supports partitioning. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview). To specify a field of a domain class as a partition key field, annotate it with `@PartitionKey`. Then, when you perform CRUD operations, specify your partition value.
 
 The following example shows how to use the `@PartitionKey` annotation when you perform CRUD operations.
 
@@ -151,7 +151,7 @@ cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
 cosmos.queryMetricsEnabled=true
 ```
 
-Mirroring this structure, create a Java class `CosmosProperties` structured as follows.
+Mirroring this structure, create a Java class `CosmosProperties` structured as follows:
 
 ```java
 @ConfigurationProperties(prefix = "cosmos")
@@ -199,13 +199,13 @@ public class CosmosProperties {
 }
 ```
 
-Note that this class has a member that corresponds to each **application.properties** configuration property and that, for each member, `CosmosProperties` exposes *get* and *set* methods. The `@ConfigurationProperties` annotation identifies the class as representing configuration properties, and the `prefix = "cosmos"` argument indicates that a specified *member* of `CosmosProperties` maps to the `cosmos.member` property in **application.properties**.
+Note that this class has a member that corresponds to each **application.properties** configuration property and that, for each member, `CosmosProperties` exposes the `get` and `set` methods. The `@ConfigurationProperties` annotation identifies the class as representing configuration properties, and the `prefix = "cosmos"` argument indicates that a specified *member* of `CosmosProperties` maps to the `cosmos.member` property in **application.properties**.
 
-In the next section, we show how to incorporate your `CosmosProperties` class into the automated configuration flow. At configuration time, a `CosmosProperties` instance is created and its instance methods are populated with the configuration settings in **application.properties**. This properties instance allows your application to read and modify configuration properties at runtime.
+The next section shows how to incorporate your `CosmosProperties` class into the automated configuration flow. At configuration time, a `CosmosProperties` instance is created and its instance methods are populated with the configuration settings in **application.properties**. This properties instance allows your application to read and modify configuration properties at runtime.
 
 ### Configure the application based on properties
 
-Your next step is to create a configuration class that automates the configuration of the application. After we present the following example, we'll walk through how it's created.
+Your next step is to create a configuration class that automates the configuration of the application, as shown here:
 
 ```java
 @Configuration
@@ -259,35 +259,36 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
 }
 ```
 
-To create the structure of your configuration class, do the following:
+Let's walk through how the preceding example is created. To create the structure of your configuration class, do the following:
 
-1. Extend the `AbstractCosmosConfiguration` class to set up the application's configuration (Azure Cosmos DB key, URL, database name, and so on).
+1. Extend the `AbstractCosmosConfiguration` class to set up the application's configuration (the Azure Cosmos DB key, URL, database name, and so on).
 1. Add the `@Configuration` annotation.
 1. Depending on your repository usage, add one or both of the `@EnableCosmosRepositories` and `@EnableReactiveCosmosRepositories` annotations.
-1. Add the `@PropertySource("classpath:application.properties")` annotation, which signals to extract key/value pairs of properties from **application.properties**.
-1. Add the `@EnableConfigurationProperties` annotation, which points Spring Data to a class that can store key/value pairs from **application.properties**. This annotation takes the class definition as an argument. You should pass `CosmosProperties.class`.
+1. Add the `@PropertySource("classpath:application.properties")` annotation, which signals to extract key-value pairs of properties from **application.properties**.
+1. Add the `@EnableConfigurationProperties` annotation, which points Spring Data to a class that can store key-value pairs from **application.properties**. This annotation takes the class definition as an argument. You should pass `CosmosProperties.class`.
 
 The configuration class utilizes the following members:
 
 * Declare and define a log4j2 `logger` member, which Spring Data will utilize for all log outputs.
-* Declare an `@Autowired` `CosmosProperties` member. This is where **application.properties** settings will be deposited.
+* Declare an `@Autowired` `CosmosProperties` member, which is where **application.properties** settings will be deposited.
 
 By using the `AzureKeyCredential` feature, you can rotate keys on the fly. To enable the feature, define an `AzureKeyCredential` member. You can switch keys by adding a `switchToSecondaryKey` method, as shown in the preceding example code.
 
-Next, you need to define how automated configuration should be carried out.
-1. Define an `@Bean` `cosmosClientBuilder` method to handle client initialization by using `CosmosClientBuilder`. The purpose of this method is to perform a fundamental client setup (that is, specify an account endpoint URI and access key). The account endpoint URI and access key are ordinarily defined in **application.properties**, which in turn is populated into `properties`. 
+Next, you need to define how the automated configuration should be carried out.
+1. Define an `@Bean` `cosmosClientBuilder` method to handle the client initialization by using `CosmosClientBuilder`. The purpose of this method is to perform a fundamental client setup (that is, specify an account endpoint URI and access key). The account endpoint URI and access key are ordinarily defined in **application.properties**, which in turn is populated into `properties`. 
 1. You can initialize the `azureKeyCredential` member by using `properties.getKey()`. 
 1. You can then feed `properties.getUri()` to the `endpoint` builder method and `this.azureKeyCredential` to the `key` builder method. 
 
 In the preceding example, note that `cosmosClientBuilder` doesn't call `build()` on the client builder. It returns the unfinalized builder structure. With Spring Data, you can perform the configuration in two stages: First  `cosmosClientBuilder` can apply the basic configuration and return the configuration structure, and then Spring Data calls a `cosmosConfig` method, with which you can define a more advanced configuration, such as metrics and diagnostics. 
 
 Next, let's walk through this advanced configuration in the `cosmosConfig` method:
-1. Create an `@Bean` `cosmosConfig` method as previously discussed.
+1. Create an `@Bean` `cosmosConfig` method, as discussed earlier.
    
    Azure Cosmos DB can return server-side diagnostics that are associated with each request. With Spring Data, you can transform the raw diagnostics output before it's logged, by defining a customer diagnostics processor. 
+
 1. As shown earlier, define a class that implements `ResponseDiagnosticsProcessor` and overrides the `processResponseDiagnostics` method. You can define `processResponseDiagnostics` to control how diagnostics output is handled. The preceding example simply logs the raw diagnostics.
 
-1. To enable diagnostics and initialize the diagnostics processor, call the `responseDiagnosticsProcessor` builder method, passing a new instance of your customer processor class, as shown here:
+1. To enable diagnostics and initialize the diagnostics processor, call the `responseDiagnosticsProcessor` builder method, which passes a new instance of your customer processor class, as shown here:
 
     ```java
     return CosmosConfig.builder()
@@ -298,13 +299,13 @@ Next, let's walk through this advanced configuration in the `cosmosConfig` metho
    
 1. Apply this configuration setting by tacking on the `.enableQueryMetrics(properties.isQueryMetricsEnabled())` builder method in `cosmosConfig`.
 
-1. Direct mode connectivity is recommended for minimum latency and maximum throughput, so you can configure that in the client builder as well.
+1. We recommend Direct mode connectivity for minimum latency and maximum throughput, so you can configure that in the client builder as well.
 
 1. After the advanced configuration in `cosmosConfig` is complete, trigger client creation by calling `build()` on the configuration structure. This generates an Azure Cosmos DB client instance that's based on your configuration settings.
 
-1. The last step in defining the configuration process is to add an `@Override` method `getDatabaseName()`, which returns the name of your Azure Cosmos DB database as a string.
+1. The last step in defining the configuration process is to add an `@Override` method,  `getDatabaseName()`, which returns the name of your Azure Cosmos DB database as a string.
 
-### Customizing the configuration
+### Customize the configuration
 
 You can also customize the configuration to change the connection mode, maximum connection pool size, request timeout, and so on, as shown in the following example:
 
@@ -337,7 +338,11 @@ You can also customize the configuration to change the connection mode, maximum 
 
 As of version 2, the Spring Data Azure Cosmos DB SDK supports response diagnostics string and query metrics.
 
-To enable query metrics, set the `queryMetricsEnabled` flag to **true** in the `application.properties` file. Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method.
+To enable query metrics, set the `queryMetricsEnabled` flag to **true** in the `application.properties` file. 
+
+Then, follow the process described in the previous section to extend the `ResponseDiagnosticsProcessor` interface and implement the `processResponseDiagnostics` method to log the diagnostics information. 
+
+Finally, pass an instance of your implementation to the `CosmosDbConfig.setResponseDiagnosticsProcessor` method.
 
 ### Pagination and sorting
 
@@ -361,13 +366,13 @@ while(page.hasNext()) {
 
 ## Common issues and workarounds
 
-The following sections describe issues you should be aware of when you use the Spring Data Azure Cosmos DB SDK.
+The following sections describe issues to be aware of when you use the Spring Data Azure Cosmos DB SDK.
 
 ### Get the correct Azure Cosmos DB configuration
 
 Extending the `AbstractCosmosConfiguration` interface can be tricky because of various annotations and configurations that are present in the class. The most common issue is with the `Enable Repositories` annotation.
 
-If the repositories extend `CosmosRepository`, be sure to add the annotation `@EnableCosmosRepositories`. If the repositories extend `ReactiveCosmosRepository`, be sure to add the annotation `@EnableReactiveCosmosRepositories`. The following example demonstrates the use of these annotations:
+If the repositories extend `CosmosRepository`, add the `@EnableCosmosRepositories` annotation. If the repositories extend `ReactiveCosmosRepository`, add the `@EnableReactiveCosmosRepositories` annotation. The use of these annotations is demonstrated in the following example:
 
 ```java
 @Configuration
@@ -390,7 +395,7 @@ The `AzureKeyCredential` should be a singleton object, because the Azure Cosmos 
 
 Spring Data Azure Cosmos DB SDK 3.x.x supports `@query` annotation for defining custom queries.
 
-The following code shows a simple example of how to define offset and limit queries by using `@query` annotation:
+A simple example of how to define offset and limit queries by using `@query` annotation is shown in the following code:
 
 ```java
 @Repository
@@ -407,7 +412,7 @@ public interface SampleRepository extends CosmosRepository<SampleEntity, String>
 
 When you're debugging, it's helpful to have the response diagnostics string and query metrics from the Azure Cosmos DB SDK. The Azure Cosmos DB SDK logs the response diagnostics string on the client side. The back end logs the query metrics and provides them to the Azure Cosmos DB SDK.
 
-The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Azure Cosmos DB SDK. Therefore, it's important to have your implementation ensure high performance by being bug-free and avoiding complexity. For example, you shouldn't log the complete set of diagnostics information in this method, because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting the application performance.
+The `ResponseDiagnosticsProcessor.processResponseDiagnostics` method gets called after every API call in the Spring Data Azure Cosmos DB SDK. Therefore, it's important to have your implementation ensure high performance by being bug-free and avoiding complexity. For example, you shouldn't log the complete set of diagnostics information in this method, because the amount of information involved would create a significant performance cost. You should also use the `Debug` logging level to avoid affecting application performance.
 
 An example of how to implement the `ResponseDiagnosticsProcessor` interface is shown in the following code:
 
@@ -469,10 +474,10 @@ Version 3.1.0+ of the Spring Data Azure Cosmos DB SDK has the following notable 
 ### Key bug fixes
 
 Version 3.1.0+ of the Spring Data Azure Cosmos DB SDK has the following key bug fixes:
-* Fixed an issue where annotated queries do not pick the annotated container name.
+* Fixed an issue where annotated queries don't pick the annotated container name.
 * Scheduling diagnostics logging task to parallel threads to avoid blocking Netty input/output (I/O) threads.
 * Fixed optimistic locking on delete operation.
-* Fixed issue with escaping queries for IN clause.
+* Fixed issue with escaping queries for the IN clause.
 * Fixed issue by allowing long data type for @Id.
 * Fixed issue by allowing Boolean, long, int, and double as data types for @PartitionKey annotation.
 * Fixed IgnoreCase and AllIgnoreCase keywords for ignore case queries.
