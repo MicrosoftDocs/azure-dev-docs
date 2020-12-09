@@ -10,6 +10,14 @@ ms.custom: devx-track-js
 
 Deploy a Node.js application to Azure App Service (on Linux or Windows) using the Visual Studio Code [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
+Deploy your Node.js app to Azure using Git and the Azure App Service extension. To accomplish this goal:
+
+* Create Express.js app
+* Initialize a local Git repository
+* Create a web app resource to host app
+* Deploy app to resource
+* View remote logs locally
+
 ## Walkthrough video
 
 Watch this video for a complete walkthrough of the content in this article.
@@ -65,13 +73,7 @@ Create a Node.js app using the Express.js application generator.
 
 1. Press **Ctrl**+**C** in the terminal to stop the server.
 
-## 5. Deploy the Express.js app to Azure
-
-Deploy your Node.js app to Azure using Git and the Azure App Service extension. To accomplish this goal:
-
-* Initialize a local Git repository
-* Create a web app on Azure
-* Configure Visual Studio Code to use Git deploy
+## 5. Initialize Git in Visual Studio Code for current app
 
 1. In the terminal, make sure you're in the *expressApp1* folder, then start Visual Studio Code with the following command:
 
@@ -88,6 +90,8 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 1. After the repository is initialized, enter the message "Initial commit" and select the checkmark to create the initial commit of your source files.
 
     ![Complete an initial commit to the repository](../media/deploy-azure/initial-commit.png)
+
+## 6. Create App service resource in Visual Studio Code
 
 1. From the command palette (**Ctrl**+**Shift**+**P**), type "create web" and select **Azure App Service: Create New Web App...Advanced**. You use the advanced command to have full control over the deployment including resource group, App Service Plan, and operating system rather than use Linux defaults.
 
@@ -138,7 +142,7 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 
 1. (Optional): You can make changes to your code files, then use the deploy button again to update the web app.
 
-## 6. Stream logs from Azure App Service
+## 7. Stream remote service logs in Visual Studio Code
 
 View (tail) any output that the running app generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
 
@@ -160,7 +164,7 @@ View (tail) any output that the running app generates through calls to `console.
 
 1. Refresh the web page a few times in the browser to see additional log output.
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 The App Service you created includes a backing App Service Plan running on a free pricing tier, so you won't incur any ongoing costs.
 
