@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
       "source_path": "articles/javascript/tutorial/deno-visual-studio-code-azure-app-service.yml",
       "redirect_url": "/azure/developer/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli"
     },

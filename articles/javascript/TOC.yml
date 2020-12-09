@@ -66,7 +66,7 @@
         - name: "Server: Deploy Express.js with VS Code"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-azure-app-service-node-01.md
+              href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
             - name: Create the app
               href: tutorial-vscode-azure-app-service-node-02.md
             - name: Deploy the website
