@@ -1,6 +1,6 @@
 ---
 title: Authentication and Authorization - JavaScript - Azure
-description: Understand how to developer with Identity, authentication, and users with Azure.  
+description: Understand how to develop JavaScript apps with Identity, authentication, and users with Azure.  
 ms.topic: reference
 ms.date: 12/09/2020
 ms.custom:  devx-track-js
