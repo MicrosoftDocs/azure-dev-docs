@@ -117,5 +117,19 @@ client.runtime.generateAnswer(
 
 ```
 
-## User Authentication with Azure Active Directory
+## User Authentication with an App registration
 
+Microsoft Authentication Library (MSAL) is the recommended library for web development. The library is available in several [languages and frameworks](/azure/active-directory/develop/msal-overview#languages-and-frameworks).
+
+In order to use MSAL, your web app needs an [App registration](/azure/active-directory/develop/quickstart-register-app) with Microsoft. The app registration includes common authentication information such as user scope permissions, and the redirect URL. 
+
+Learn more with the sample project in this [MSAL quickstart](/azure/active-directory/develop/quickstart-v2-javascript).
+
+A user grants permission to your app when they log in to your app. This permission is stored with their user, which they can manage:
+
+* Consumer app permissions management - [https://account.live.com/consent/manage](https://account.live.com/consent/manage)
+* Active Directory app permissions management - [https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)
+
+## Next steps
+
+* [Configure your Azure App service](../how-to/configure-web-app-settings.md)
