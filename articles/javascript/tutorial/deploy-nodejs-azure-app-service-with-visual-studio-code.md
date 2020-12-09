@@ -166,9 +166,9 @@ View (tail) any output that the running app generates through calls to `console.
 
 ## 8. Clean up resources
 
-The App Service you created includes a backing App Service Plan running on a free pricing tier, so you won't incur any ongoing costs.
+When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.
 
-When you want to clean up the resources, visit the [Azure portal](https://portal.azure.com), select **Resource groups**, locate and select the resource group that was created in the process of this tutorial (such as `AppServiceTutorial-rg`), and then use the **Delete resource group** command.
+:::image type="content" source="../media/deploy-azure/delete-azure-app-service-with-visual-studio-code-extension.png" alt-text="When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.":::
 
 ## Next steps
 
