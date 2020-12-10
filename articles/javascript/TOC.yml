@@ -138,7 +138,7 @@
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
   - name: Samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+    href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
