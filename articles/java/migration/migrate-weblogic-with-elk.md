@@ -30,18 +30,62 @@ In this tutorial, you learn how to:
 
 ## Create an Elastic on Azure instance
 
-Elastic on Azure is a managed service you can get from the Azure Marketplace and deploy with the Azure portal. Elastic on Azure uses a Bring Your Own License (BYOL) model. The BYOL model gives users the option to add additional Elastic Stack features through an Elastic subscription purchased directly from Elastic.  Follow the steps in the Elastic documentation to deploy Elastic on Azure.  For this tutorial, see [Getting started with the Azure Marketplace](https://aka.ms/elastic-on-azure). Complete this other tutorial and return here after you have successfully deployed Elastic on Azure. Capture the following information from executing the other tutorial:
+Elastic on Azure is a service you can get from the Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add additional Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS.  The steps in the next sections will show how to provision Elastic on Azure with either option.
+
+### Elasticsearch managed service
+
+Follow these steps to get access to Elasticsearch managed service.
+
+1. Visit the main page for [Elasticsearch managed service on Azure](https://www.elastic.co/azure).
+
+1. Enter your email address.
+
+1. Wait for the email.
+
+1. Click on the **Verify and Accept** button in the email.
+
+1. Create a password and login. The email address and this password are for you Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
+
+Follow these steps after you have logged in to create Elasticsearch managed service on Azure.
+
+1. Select **Elastic Stack**.
+
+1. Accept the default hardware profile.
+
+1. Select **Azure** as the **Cloud provider**.
+
+1. Select a **Region**.
+
+1. Leave the **Version** at its default.
+
+1. Name your deployment. Note down the name of the deployment in case you need it later.
+
+1. Select **Create deployment**.
+
+1. Note down your Elastic deplyopment credentials, they are for your Elasticsearch and Kibana endpoints.
+
+1. Select **Continue without downloading**.
+
+1. Wait for the deployment to complete. You'll see **Your deployment has been created.**
+
+Proceed to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls). Alternatively, the steps in the next section show you how to do the same process with Elasticsearch (Self-managed).
+
+### Elasticsearch (Self-Managed)
+
+Follow the steps in the Elastic documentation to deploy Elastic on Azure. For this tutorial, see [Getting started with the Azure Marketplace](https://aka.ms/elastic-on-azure). Complete this other tutorial and return here after you have successfully deployed Elastic on Azure. Note down the Elastic credentials required by WLS. Once you've deployed your chosen Elastic on Azure offer, note down the following information from the deployed offer:
 
 * The username and password of the Elastic on Azure service.
 * The username and password of the Elasticsearch and Kibana endpoints.
 
-Once the service has deployed, save aside the Elasticsearch endpoint URI and Kibana launch URL for use in the following sections, by following these steps.
+### Note down the Elasticsearch and Kibana URLs
 
-1. Log in to Elastic on Azure using the username and password.
-1. In the **Applications** section in the middle of the page, select the link **Copy endpoint** next to **Elasticsearch**. Paste the result into a file. For discussion, let's call the pasted value the Elasticsearch endpoint URL.
-1. In the **Applications** section in the middle of the page, copy the value of the **Launch** hyperlink next to **Kibana**. Paste the result into a file. For discussion, let's call the pasted value the Kibana launch URL.
+Now that you've deployed Elastic on Azure, save aside the Elasticsearch endpoint URI and Kibana launch URL for use in the following sections, by following these steps.
 
-:::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-endpoint.png" alt-text="The Elasticsearch endpoint URL and Kibana launch URL":::
+   1. Log in to Elastic on Azure using the username and password.
+   1. In the **Applications** section in the middle of the page, select the link **Copy endpoint** next to **Elasticsearch**. Paste the result into a file. For discussion, let's call the pasted value the Elasticsearch endpoint URL.
+   1. In the **Applications** section in the middle of the page, copy the value of the **Launch** hyperlink next to **Kibana**. Paste the result into a file. For discussion, let's call the pasted value the Kibana launch URL.
+
+   :::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-endpoint.png" alt-text="The Elasticsearch endpoint URL and Kibana launch URL":::
 
 ## Deploy WLS with integration to Elastic on Azure
 
