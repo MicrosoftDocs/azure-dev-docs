@@ -138,31 +138,7 @@
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
   - name: Samples
-    items:
-    - name: Web apps & serverless
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-functions%252cazure-app-service%252cazure-logic-apps
-    - name: Databases
-      items:
-        - name: Cosmos DB
-          href: /samples/browse/?languages=javascript%252cnodejs&products=azure-cosmos-db
-        - name: SQL DB
-          href: /samples/browse/?languages=javascript%252cnodejs&products=azure-sql-database
-        - name: Mongo DB
-          href: /samples/browse/?languages=javascript%252cnodejs&term=Mongo%2bDB
-    - name: Storage
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-storage
-    - name: Identity &  Security
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-active-directory%252cazure-key-vault
-    - name: IoT
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-iot-hub%252cazure-iot-edge%252cazure-iot-central
-    - name: Microservices
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-event-grid
-    - name: AI with Cognitive Services
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-cognitive-services
-    - name: Search
-      href: /samples/browse/?languages=javascript%252cnodejs&products=azure-search
-    - name: All Samples
-      href: /samples/browse/?languages=javascript%252cnodejs
+    href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
