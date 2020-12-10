@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 12/09/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
 ---
 
@@ -10,28 +10,43 @@ ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-
 
 Hosting options and deployment scenarios include several services and tools for Azure. Azure has many options for hosting and many tools to help you move your app from a local or cloud repository to Azure. 
 
-## Choose a hosting provider from Azure
+## Choose a recommended Azure host provider
 
 Hosting your client, server, or background task app on Azure comes in a variety of solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview). 
 
-| Service | Suggested for |
-|--|--|
-|[App service](/azure/app-service/overview) - **recommended**|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
-|[Static Web apps](/azure/static-web-apps/)|Host your static client app (such as Angular, Vue, React). Optionally add serverless functions endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
-|[Functions](/azure/azure-functions/)|Host your serverless application endpoints.|
-|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
-|[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
-|[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
-|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
-|[Content Delivery Network ](/azure/cdn/) (CDN)|Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
-
 For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) as well as the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
 
-## Choose your deployment process for Azure
+
+ Service |App type supported| Suggested for |
+|--|--|--|
+|[*App service](/azure/app-service/overview) - **recommended**|Client, Server, Client/Server, API, Server-render|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
+|[(Preview) Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, Static front-end with server APIs|Host your static client app (such as Angular, Vue, React). Optionally add serverless function endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
+|[Functions](/azure/azure-functions/)|Server API|Host your serverless API endpoints. Azure provides many templates known as triggers to bootstrap common scenarios.|
+
+## Host web apps with more control
+
+The following choices give you more control of you application environment. 
+
+| Service | Suggested for |
+|--|--|
+|[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
+|[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
+|[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
+
+## Alternative choices for web app hosting on Azure
+
+These choices are tailored to specific use cases. 
+
+| Service | Suggested for |
+|--|--|
+|[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
+|[Content Delivery Network ](/azure/cdn/) (CDN)|Deliver pre-rendered websites. Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.|
+
+## Deploy your web app to Azure
 
 Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
 
-Common methods of moving files to the Azure cloud are listed in the following table.
+Common methods of moving files to the Azure cloud include:
 
 | Method | Details |
 |--|--|
@@ -44,6 +59,8 @@ Other deployment methods may exist, based on the specific service. For example, 
 * [With FTP](/azure/app-service/deploy-ftp)
 * [Dropbox or OneDrive](/azure/app-service/deploy-content-sync)
 * [Local Git](/azure/app-service/deploy-local-git)
+* [cURL](/azure/app-service/deploy-zip#with-curl)
+* [SSH](/azure/app-service/configure-linux-open-ssh-session)
 
 ## Verify your deployment with your HTTP endpoint
 
