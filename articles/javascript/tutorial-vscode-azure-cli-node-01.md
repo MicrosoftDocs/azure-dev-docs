@@ -16,7 +16,7 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 - An [Azure subscription](#azure-subscription).
 - [Node.js and npm 6.x or higher](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
-- Use [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) using the bash environment.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) using the bash environment.
 
    [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
