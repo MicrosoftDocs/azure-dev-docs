@@ -151,7 +151,7 @@ cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
 cosmos.queryMetricsEnabled=true
 ```
 
-Mirroring this structure, create a Java class `CosmosProperties` structured as follows:
+Mirroring this structure, create a Java class `CosmosProperties` that's structured as follows:
 
 ```java
 @ConfigurationProperties(prefix = "cosmos")
@@ -279,14 +279,14 @@ Next, you need to define how the automated configuration should be carried out.
 1. You can initialize the `azureKeyCredential` member by using `properties.getKey()`. 
 1. You can then feed `properties.getUri()` to the `endpoint` builder method and `this.azureKeyCredential` to the `key` builder method. 
 
-In the preceding example, note that `cosmosClientBuilder` doesn't call `build()` on the client builder. It returns the unfinalized builder structure. With Spring Data, you can perform the configuration in two stages: First  `cosmosClientBuilder` can apply the basic configuration and return the configuration structure, and then Spring Data calls a `cosmosConfig` method, with which you can define a more advanced configuration, such as metrics and diagnostics. 
+In the preceding example, note that `cosmosClientBuilder` doesn't call `build()` on the client builder. It returns the unfinalized builder structure. With Spring Data, you can perform the configuration in two stages: First, `cosmosClientBuilder` applies the basic configuration and returns the configuration structure, and then Spring Data calls a `cosmosConfig` method, with which you can define a more advanced configuration, such as metrics and diagnostics. 
 
 Next, let's walk through this advanced configuration in the `cosmosConfig` method:
 1. Create an `@Bean` `cosmosConfig` method, as discussed earlier.
    
    Azure Cosmos DB can return server-side diagnostics that are associated with each request. With Spring Data, you can transform the raw diagnostics output before it's logged, by defining a customer diagnostics processor. 
 
-1. As shown earlier, define a class that implements `ResponseDiagnosticsProcessor` and overrides the `processResponseDiagnostics` method. You can define `processResponseDiagnostics` to control how diagnostics output is handled. The preceding example simply logs the raw diagnostics.
+1. Also as discussed earlier, define a class that implements `ResponseDiagnosticsProcessor` and overrides the `processResponseDiagnostics` method. You can define `processResponseDiagnostics` to control how the diagnostics output is handled. The preceding example simply logs the raw diagnostics.
 
 1. To enable diagnostics and initialize the diagnostics processor, call the `responseDiagnosticsProcessor` builder method, which passes a new instance of your customer processor class, as shown here:
 
@@ -295,7 +295,7 @@ Next, let's walk through this advanced configuration in the `cosmosConfig` metho
                        .responseDiagnosticsProcessor(new ResponseDiagnosticsProcessorImplementation())
     ```
 
-   Azure Cosmos DB also has a more specific performance metrics functionality for queries, called query metrics. As shown in the previous section, the best practice is to have an **application.properties** setting that enables and disables query metrics. 
+   Azure Cosmos DB also has a more specific performance metrics functionality for queries, called query metrics. As shown earlier, the best practice is to have an **application.properties** setting that enables and disables query metrics. 
    
 1. Apply this configuration setting by tacking on the `.enableQueryMetrics(properties.isQueryMetricsEnabled())` builder method in `cosmosConfig`.
 
