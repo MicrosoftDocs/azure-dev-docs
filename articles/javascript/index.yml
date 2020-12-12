@@ -106,7 +106,7 @@ landingContent:
           - text: Reference Documentation
             url: /javascript/api/overview/azure/?view=azure-node-latest
           - text: JS/TS samples
-            url: /samples/browse/?languages=javascript%252cnodejs%252ctypescript
+            url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Explore developer tools
     linkLists:
       - linkListType: get-started
