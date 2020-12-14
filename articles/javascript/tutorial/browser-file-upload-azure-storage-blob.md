@@ -1,6 +1,6 @@
 ---
 title: Upload image to Blob Storage with VSCode - App Service/CosmosDB
-description: Use a React app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
@@ -10,7 +10,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascrip
 
 Use a client-side React app to upload an image file to an Azure Storage blob using an Azure Storage npm package. 
 
-The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
+The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
 * [Source code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
 
@@ -18,7 +18,7 @@ The programming work is done for you, this tutorial focuses on using the local a
 
 This tutorial includes several **top Azure tasks** for JavaScript developers:
 
-* Run a React app locally with Visual Studio Code
+* Run a React/TypeScript app locally with Visual Studio Code
 * Create a Storage resource and configure for file uploads
     * Configure CORS
     * Create Shared access signatures (SAS) token
@@ -183,7 +183,7 @@ If you received an error or your file doesn't upload to the container, check the
 
 ## Upload button functionality
 
-The `src/app` file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
+The `src/App.tsx` TypeScript file is provided as part of that app creation with create-react-app. The file has been modified to provide the file selection button and the upload button and the supporting code to provide that functionality. 
 
 The code connecting to the Azure blob storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
 
@@ -197,7 +197,7 @@ The sample creates and uses a publicly accessible container and files. If you wa
 
 ### Dependencies and variables
 
-The `uploadToBlob.ts` file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+The `uploadToBlob.ts` TypeScript file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
 
 | Variable | Description |
 |--|--|
