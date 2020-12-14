@@ -37,7 +37,7 @@ When building static web apps, you have several choices on Azure, based on the d
     - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - [GitHub account](https://github.com/join) - to fork and push to a repo
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) using the bash environment.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.
 
    [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
