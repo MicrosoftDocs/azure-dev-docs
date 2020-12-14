@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add Microsoft login button to React SPA"
-description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the TypeScript application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
@@ -8,7 +8,7 @@ ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
 
 # Add Microsoft login button to a single page application for authentication
 
-Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+Azure authentication presented in this TypeScript tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 
 * [Source code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
 

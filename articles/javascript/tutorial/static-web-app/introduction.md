@@ -1,6 +1,6 @@
 ---
 title: Introduction and prerequisites 
-description: Locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
+description: Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.custom: devx-track-js
@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # 1. Build and deploy a Static Web app to Azure
 
-In this tutorial, locally build and deploy a React client application to an Azure Static Web App with a GitHub action. 
+In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 
 The React (create-react-app) provides the following functionality: 
 * Display message if Azure key and endpoint for Cognitive Services Computer Vision isn't found
