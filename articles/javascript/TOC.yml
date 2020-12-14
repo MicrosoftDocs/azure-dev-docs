@@ -121,8 +121,10 @@
               href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
             - name: 7. Clean up resources
               href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
-  - name: Learn
-    href: learn-azure-javascript.md
+  - name: Concepts
+    items: 
+    - name: Identity, authentication, and users
+      href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
     - name: Configure your app
@@ -141,6 +143,8 @@
       href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
+  - name: Learn
+    href: learn-azure-javascript.md
   - name: Samples
     href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - name: npm Packages
