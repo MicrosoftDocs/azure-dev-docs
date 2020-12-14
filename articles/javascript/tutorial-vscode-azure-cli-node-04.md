@@ -2,7 +2,7 @@
 title: Deploy the app code to Azure App Service using the Azure CLI
 description: Tutorial part 4, Azure CLI deploy the website
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 12/14/2020
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
     git commit -m "Initial Commit"
     ```
 
-1. Run the following commands to set up deployment credentials in Azure, replacing `username` and `pPassword` with your credentials. The command displays JSON output upon success.
+1. Run the following command to [set up user-level deployment credentials with Azure CLI](/azure/app-service/deploy-configure-credentials), replacing `username` and `pPassword` with new credentials specific to deployment only. These credentials are not the same as your Azure subscription credentials. 
 
     ```azurecli
     az webapp deployment user set --user-name <username> --password <password>
