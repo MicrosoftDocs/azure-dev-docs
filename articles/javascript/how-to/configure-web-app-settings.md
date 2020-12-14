@@ -75,7 +75,7 @@ If your app requires certificates immediately, you have several choices about ho
 Secrets are typically provided in the following ways:
 
 * Azure Key Vault  - Create a resource for this service, which provides [app secrets](/azure/app-service/app-service-key-vault-references). 
-* App settings - If you are looking for a lighter weight solution, you can provide secrets as App settings, and reference these using the typical [environment variables](), `process.env.VARNAME`. 
+* App settings - If you are looking for a lighter weight solution, you can provide secrets as App settings, and reference these using the typical [environment variables](/azure/app-service/configure-language-nodejs?pivots=platform-windows), `process.env.VARNAME`. 
 
 ## Configure logging
 
