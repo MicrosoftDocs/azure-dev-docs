@@ -19,8 +19,6 @@ This topic shows you three techniques for creating a service principal.
 - Azure portal
 - Azure CLI 2.0
 
-[!INCLUDE [chrome-note](../includes/chrome-note.md)]
-
 ## Create a service principal using the Azure CLI 2.0
 
 To perform the following steps, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli). 

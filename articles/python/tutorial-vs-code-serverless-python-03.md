@@ -3,7 +3,7 @@ title: "Step 3: Examine the Python code files for serverless Azure Functions in 
 description: Tutorial step 3, understanding the template serverless Python code provided by Azure Functions.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019, contperfq2
 ---
 
 # 3: Examine the Python code files in Visual Studio Code

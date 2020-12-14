@@ -15,8 +15,6 @@ ms.custom: seo-java-september2019, devx-track-java
 
 This article shows how to authenticate with the Azure libraries for Java.
 
-[!INCLUDE [chrome-note](includes/chrome-note.md)]
-
 ## Connect to services with connection strings
 
 Most Azure service libraries use a connection string or secure key for authentication. For example, SQL Database includes username and password information in the JDBC connection string:

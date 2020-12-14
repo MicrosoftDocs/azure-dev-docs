@@ -16,10 +16,6 @@ This article describes the various Spring Boot Starters for the [Spring Initiali
 >[!div class="mx-imgBorder"]
 ![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
 
-> [!NOTE]
->
-> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-> 
 
 The following Spring Boot Starters are currently available for Azure:
 

@@ -35,7 +35,7 @@ Download or clone [https://github.com/Microsoft/python-sample-vscode-django-tuto
 
 Ideally, Django apps deployed to the cloud also use a cloud-based database, such as PostgreSQL for Azure. For more information, see [Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal](tutorial-python-postgresql-app-portal.md).
 
-If your Django app uses a local SQLite database like this sample, it's easiest for this tutorial to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. Otherwise, you need to configure a post-build command to run Django's `migrate` command in the container to which the app is deployed. For more information, see [App Service configuration - Customize build automation](/app-service/configure-language-python#customize-build-automation).
+If your Django app uses a local SQLite database like this sample, it's easiest for this tutorial to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. Otherwise, you need to configure a post-build command to run Django's `migrate` command in the container to which the app is deployed. For more information, see [App Service configuration - Customize build automation](/azure/app-service/configure-language-python#customize-build-automation).
 
 ### Option 3: Create a minimal Flask app
 

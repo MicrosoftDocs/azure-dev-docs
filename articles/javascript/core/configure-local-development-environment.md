@@ -28,7 +28,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-[!INCLUDE [Node.js](../includes/environment-nodejs-table-row-2-columns.md)]
+|[Node.js 8+](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 
 > [!CAUTION]
@@ -60,12 +60,12 @@ Each new project using Azure should:
 ## Securing configuration information
 
 You have several options to store configuration information:
-- [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control.
+- [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control. Learn more about [environment variables](../how-to/configure-web-app-settings.md) in web apps for Azure. 
 - Azure [Key Vault](/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
 
 ### Create environment variables for the Azure libraries
 
-To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
+To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to [environment variables](../how-to/configure-web-app-settings.md). The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
 In the following examples, the client ID is the service principal ID and service principal secret.
 
