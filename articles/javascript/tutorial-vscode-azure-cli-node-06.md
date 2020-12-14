@@ -52,8 +52,7 @@ In this step, you make changes to your app code, commit them to the local Git re
     remote: Using start-up script bin/www from package.json.
     remote: Generated web.config.
     remote: The package.json file does not specify node.js engine version constraints.
-    remote: The node.js application will run with the default node.js version 6.9.5.
-    remote: Selected npm version 3.10.10
+    remote: The node.js application will run with the 
     remote: ..
     remote: Finished successfully.
     remote: Running post deployment command(s)...
