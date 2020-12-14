@@ -8,8 +8,11 @@ ms.custom: devx-track-js
 
 # Install and manage Node.js for common Azure development scenarios
 
-Your installation of Node.js for Azure development should consider both your local development environment and the hosting environment you plan to deploy to. 
-Azure provides hosting for Node.js on both Windows and Linux in the Long Term Support (LTS) version. 
+Your installation of Node.js for Azure development should consider both your local development environment and the hosting environment you plan to deploy to. Azure provides hosting for Node.js on both Windows and Linux in the Long Term Support (LTS) version. 
+
+## Minimum version of Node.js 8+
+
+The Azure SDK supports a minimum version of Node.js 8. 
 
 ## Download and install Node.js based on your intended use
 
