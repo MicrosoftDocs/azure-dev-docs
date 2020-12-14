@@ -71,6 +71,8 @@ The following examples illustrate how to use some of the primary management libr
 
 For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find additional code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&term=Getting%20started%20-%20Managing).
 
+### Migrating from older management libraries
+
 If you are migrating code from older versions of the management libraries, see the following details:
 
 - If you use the `ServicePrincipalCredentials` class, see [How to authenticate - use token credentials](azure-sdk-authenticate.md#authenticate-with-token-credentials).
