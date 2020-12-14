@@ -28,20 +28,6 @@ Use nvm when you need to manage multiple versions of Node.js for your Azure deve
 * OSX, *nix - [nvm](https://github.com/creationix/nvm)
 * Windows - [nvm for Windows](https://github.com/marcelklehr/nodist)
 
-## Troubleshooting
-
-1. When troubleshooting Node.js projects, start with installing the project:
-
-    ```bash
-    npm install
-    ```
-
-1. Verify the version of your local Node.js installation:
-
-    ```bash
-    node --version
-    ```
-
 ## Next steps
 
 * [Configure your local development environment](configure-local-development-environment.md) for Azure SDK usage
