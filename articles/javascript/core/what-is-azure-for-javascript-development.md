@@ -1,7 +1,7 @@
 ---
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 12/14/2020
 ms.custom: devx-track-js
 ---
@@ -92,8 +92,8 @@ Most resources take a few minutes to create but some may take a few minutes. The
 The [**Azure SDKs**](../azure-sdk-library-package-index.md) are the recommended programmatic way to use your resources for JavaScript developers. 
 
 Azure resources are also available from:
-* [Azure CLI](cli/azure/install-azure-cli) and [Azure Cloud Shell](https://shell.azure.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-5.2.0)
+* [Azure CLI](/cli/azure/install-azure-cli) and [Azure Cloud Shell](https://shell.azure.com/)
+* [Azure PowerShell](/powershell/azure/?view=azps-5.2.0&preserve-view=true)
 * [REST APIs](/rest/api/azure/)
 
 ## Deploy web apps to hosting options
@@ -108,7 +108,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
 * Server application 
     * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
 * Container application 
-    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial-vscode-docker-node-01?tabs=bash)
+    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial-vscode-docker-node-01.md?tabs=bash)
 * Virtual machine application
     * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
 
