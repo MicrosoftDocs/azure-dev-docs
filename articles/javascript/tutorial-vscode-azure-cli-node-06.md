@@ -27,7 +27,7 @@ In this step, you make changes to your app code, commit them to the local Git re
 1. Push the changes to the Git remote named Azure that we created earlier:
 
     ```bash
-    git push azure master
+    git push azure <DEFAULT-BRANCH-NAME>
     ```
 
 1. Because the App Service is already connected to the Git repository, the output from the command shows that changes are automatically published to Azure: 
