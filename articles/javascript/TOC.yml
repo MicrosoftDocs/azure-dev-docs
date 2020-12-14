@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: Get started on Azure with JavaScript
     items:
+    - name: What is Azure for JavaScript developers?
+      href: core/what-is-azure-for-javascript-development.md
     - name: Install Node.js
       href: core/install-nodejs-develop-azure-sdk-project.md
     - name: Azure tools for JavaScript developers
