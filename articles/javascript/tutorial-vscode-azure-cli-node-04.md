@@ -20,7 +20,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
     git commit -m "Initial Commit"
     ```
 
-1. Run the following commands to set up deployment credentials in Azure, set `username` and `password` with new credentials to authenticate your deployments. The command displays JSON output upon success.
+1. Run the following commands to set up deployment credentials in Azure, replacing `username` and `pPassword` with your credentials. The command displays JSON output upon success.
 
     ```azurecli
     az webapp deployment user set --user-name <username> --password <password>
@@ -46,10 +46,10 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
     git remote add azure https://msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git
     ```
 
-1. Run the following command to deploy the app code from the Git repository to the App Service. Replace <branch> with your default branch name. The command prompts you for your credentials:
+1. Run the following command to deploy the app code from the Git repository to the App Service. The command prompts you for your credentials:
 
     ```bash
-    git push azure <branch>
+    git push azure master
     ```
 
 1. As the command runs, it displays a series of message from the remote host. When the process is complete, refresh the browser in which you have the app's URL open to see the running code:
