@@ -49,7 +49,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 1. Run the following command to deploy the app code from the Git repository to the App Service. The command prompts you for your credentials:
 
     ```bash
-    git push azure master
+    git push azure <DEFAULT-BRANCH-NAME>
     ```
 
 1. As the command runs, it displays a series of message from the remote host. When the process is complete, refresh the browser in which you have the app's URL open to see the running code:
