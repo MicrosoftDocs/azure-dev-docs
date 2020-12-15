@@ -16,6 +16,8 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
 ## Create an Azure container registry
 
+Create a [free pricing-tier resource](core/what-is-azure-for-javascript-development.md#free-tier-resources).
+
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette.
 
 1. Enter **registry** in the search box. From the results, select **Azure Container Registry: Create Registry**.
