@@ -28,12 +28,12 @@ This tutorial includes the following tasks:
     * View list of traces with Azure portal
 * Remove resources with Azure CLI
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
 - SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
-[!INCLUDE [Azure CLI](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Next step
