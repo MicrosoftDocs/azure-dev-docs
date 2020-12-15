@@ -146,6 +146,7 @@ Once you have completed this tutorial, you need to remove the two resources crea
 ## Next steps
 
 Continue learning about the App Service and CosmosDB:
+* [Learn about how to configure your app settings](../how-to/configure-web-app-settings)
 * [Configure a Node.js app for Azure App Service](/azure/app-service/configure-language-nodejs?pivots=platform-linux)
 * [Connect with SSH](/azure/app-service/configure-linux-open-ssh-session)
 * [Migrate data to CosmosDB](/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json)
