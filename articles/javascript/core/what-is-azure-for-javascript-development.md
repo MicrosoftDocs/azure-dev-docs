@@ -121,7 +121,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
 * Server application 
     * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
 * Container application 
-    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial-vscode-docker-node-01.md?tabs=bash)
+    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial/tutorial-vscode-docker-node-01.md?tabs=bash)
 * Virtual machine application
     * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
 

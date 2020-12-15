@@ -44,7 +44,7 @@ landingContent:
           - text: "App service: Express.js with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "App service: Express.js container"
-            url: tutorial-vscode-docker-node-01.md
+            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
           - text: "Azure Functions: HTTP serverless trigger"
             url: tutorial/tutorial-vscode-serverless-node-install.md
           - text: "Azure Virtual Machine: NGINX/Express.js containers"

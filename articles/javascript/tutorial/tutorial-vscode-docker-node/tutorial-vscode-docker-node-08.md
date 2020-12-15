@@ -18,7 +18,7 @@ You can also visit the [Azure portal](https://portal.azure.com), select **Resour
 
 ### Next steps
 
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
+[!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
 > [I'm done](./how-to/deploy-containers.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=clean-up-resources)
