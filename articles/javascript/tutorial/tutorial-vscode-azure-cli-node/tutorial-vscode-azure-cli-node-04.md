@@ -26,7 +26,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
     az webapp deployment user set --user-name <username> --password <password>
     ```
 
-1. Run the following command to [retrieve the Git endpoint with Azure CLI](/cli/azure/webapp/deployment/source?view=azure-cli-latest) to which we want to push the app code, replacing `<your_app_name>` with the name you used when creating the App Service in the previous step:
+1. Run the following command to [retrieve the Git endpoint with Azure CLI](/cli/azure/webapp/deployment/source?view=azure-cli-latest&preserve-view=false) to which we want to push the app code, replacing `<your_app_name>` with the name you used when creating the App Service in the previous step:
 
     ```azurecli
     az webapp deployment source config-local-git --name <your_app_name>
