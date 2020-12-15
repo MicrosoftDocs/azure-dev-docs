@@ -93,7 +93,7 @@ When selecting the free (F0) pricing tier, it is important to understand limitat
 
 When a free tier is offered:
 
-* A subscription may be limited to one free resource of that service. If can't create a free resource, that indicates the free resource already exists in your subscription.
+* A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
 * When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPS), your application will receive an HTTP error with a message indicating you are out of quota. 
 
 ### Resource creation time
