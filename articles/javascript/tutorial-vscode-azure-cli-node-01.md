@@ -16,7 +16,7 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 - An [Azure subscription](#azure-subscription).
 - [Node.js and npm 6.x or higher](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
-[!INCLUDE [Azure CLI](../include/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI](../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ### Azure subscription
