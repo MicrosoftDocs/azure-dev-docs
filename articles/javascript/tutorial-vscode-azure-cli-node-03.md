@@ -36,8 +36,6 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
     The command above specifies a free hosting plan (`--sku F1`), which uses a shared virtual machine, and names the plan `myPlan`. 
 
-1. 
-
 1. Run the following command to create the App Service, replacing `<your_app_name>` with a unique name that becomes the URL, `http://<your_app_name>.azurewebsites.net`, with the [latest Node.js runtime](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
     ```azurecli
