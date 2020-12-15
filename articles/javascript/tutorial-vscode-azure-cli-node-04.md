@@ -56,12 +56,5 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 
     ![App code running on Azure](media/azure-cli/remote-app.png)
 
-> [!TIP]
-> If you encounter the error `Object #<eventemitter> has no method 'hrtime'`, you probably need to set the node runtime version on the site. The [command](/cli/azure/webapp/config/appsettings?view=azure-cli-latest) below tells the site to use node version `6.9.1`. If your site requires a different or later version of node, specify the full semantic version `major.minor.patch`.
->
-> ```azurecli
-> az webapp config appsettings set --name <your_app_name> --settings
-> ```
-
 > [!div class="nextstepaction"]
 > [I deployed the app](tutorial-vscode-azure-cli-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=deploy-website)
