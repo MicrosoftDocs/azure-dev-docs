@@ -76,7 +76,7 @@
             - name: Create the app
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
             - name: Create the App Service
-              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
             - name: Deploy the app
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
             - name: Stream logs
