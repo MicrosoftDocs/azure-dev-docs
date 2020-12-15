@@ -54,7 +54,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: /tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+            url: /azure/developer/javascript/tutorial/static-web-app/add-computer-vision-react-app#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
           - text: "Static web app: Login/Logoff button"
