@@ -54,7 +54,7 @@ In this step, you deploy your Node.js app code to Azure App Service using a basi
 
 1. As the command runs, it displays a series of message from the remote host. When the process is complete, refresh the browser in which you have the app's URL open to see the running code:
 
-    ![App code running on Azure](media/azure-cli/remote-app.png)
+    ![App code running on Azure](../../media/azure-cli/remote-app.png)
 
 > [!div class="nextstepaction"]
 > [I deployed the app](tutorial-vscode-azure-cli-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=deploy-website)
