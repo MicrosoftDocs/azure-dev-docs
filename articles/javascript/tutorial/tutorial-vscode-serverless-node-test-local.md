@@ -3,7 +3,7 @@ title: Run the Azure Functions application locally in Visual Studio Code
 description: Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response.
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.custom: devx-track-js, contperfq2
+ms.custom: devx-track-js, contperf-fy21q2
 ---
 
 # 3. Test the function locally

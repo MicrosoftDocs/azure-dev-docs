@@ -68,7 +68,7 @@ The [Azure portal](https://portal.azure.com) is the web-based user interface thr
 
 ## Azure command-line interface (CLI)
 
-The [Azure CLI](/azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all operating systems and works across most Azure services.
+The [Azure CLI](/cli/azure/what-is-azure-cli) is a set of commands used to create and manage Azure resources, which is especially helpful for automation. The Azure CLI is available on all operating systems and works across most Azure services.
 
 If you prefer using PowerShell, you can alternately use the [Azure PowerShell module](/powershell/azure).
 

@@ -172,4 +172,6 @@ When you want to clean up the resources, right-click on the App service in the V
 
 ## Next steps
 
+* [Learn about how to configure your app settings](../how-to/configure-web-app-settings.md)
+
 [!INCLUDE [tutorial-next-steps](../includes/tutorial-next-steps.md)]
