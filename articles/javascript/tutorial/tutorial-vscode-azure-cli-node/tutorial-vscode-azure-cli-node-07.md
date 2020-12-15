@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Part 7: Clean up resources
 
-[Previous step: Make changes and redeploy](tutorial-vscode-docker-node-06.md)
+[Previous step: Make changes and redeploy](tutorial-vscode-azure-cli-node-05.md)
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, run the following command at a terminal or command prompt:
 

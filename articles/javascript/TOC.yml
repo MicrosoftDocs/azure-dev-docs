@@ -72,19 +72,19 @@
         - name: "Server: Deploy with the Azure CLI"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-azure-cli-node-01.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md
             - name: Create the app
-              href: tutorial-vscode-azure-cli-node-02.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
             - name: Create the App Service
-              href: tutorial-vscode-azure-cli-node-03.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
             - name: Deploy the app
-              href: tutorial-vscode-azure-cli-node-04.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
             - name: Stream logs
-              href: tutorial-vscode-azure-cli-node-05.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-azure-cli-node-06.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
             - name: Clean up resources
-              href: tutorial-vscode-azure-cli-node-07.md
+              href: tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
         - name: "Server: Deploy Deno with Azure CLI"
           href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
         - name: "Container: Deploy Express.js with VS Code"
