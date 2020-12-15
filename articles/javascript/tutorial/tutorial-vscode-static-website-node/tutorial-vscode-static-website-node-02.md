@@ -40,7 +40,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
 
 1. Open a browser to `http://localhost:4200` to verify that the app is running:
 
-    ![The running sample Angular app](media/static-website/local-app-angular.png)
+    ![The running sample Angular app](../../media/static-website/local-app-angular.png)
 
 1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
@@ -69,7 +69,7 @@ In this step, you use the Command Line Interface (CLI) for [Angular](https://cli
 
 1. Open a browser to `http://localhost:3000` to verify that the app is running:
 
-    ![The running sample React app](media/static-website/local-app-react.png)
+    ![The running sample React app](../../media/static-website/local-app-react.png)
 
 1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
@@ -100,7 +100,7 @@ When the CLI asks any configuration questions, press enter to select the default
 
 1. Open a browser to `http://localhost:8080` to verify that the app is running:
 
-    ![The running sample Vue app](media/static-website/local-app-vue.png)
+    ![The running sample Vue app](../../media/static-website/local-app-vue.png)
 
 1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 
@@ -135,7 +135,7 @@ When the CLI asks any configuration questions, press enter to select the default
 
 1. Open a browser to `http://localhost:5000` to verify that the app is running:
 
-    ![The running sample svelte app](media/static-website/local-app-svelte.png)
+    ![The running sample svelte app](../../media/static-website/local-app-svelte.png)
 
 1. Stop the server by pressing **Ctrl**+**C** in the terminal or command prompt.
 

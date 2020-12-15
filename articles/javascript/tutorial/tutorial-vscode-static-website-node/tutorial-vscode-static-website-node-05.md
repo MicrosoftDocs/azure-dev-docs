@@ -27,7 +27,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Angular - Once your deployment is complete, refresh the site in the browser to observe changes](media/static-website/updated-azure-app-angular.png)
+    ![Angular - Once your deployment is complete, refresh the site in the browser to observe changes](../../media/static-website/updated-azure-app-angular.png)
 
 # [React](#tab/react)
 
@@ -43,7 +43,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![React - Changes in the app after redeployment](media/static-website/updated-azure-app-react.png)
+    ![React - Changes in the app after redeployment](../../media/static-website/updated-azure-app-react.png)
 
 # [Vue](#tab/vue)
 
@@ -59,7 +59,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Vue - Changes in the app after redeployment](media/static-website/updated-azure-app-vue.png)
+    ![Vue - Changes in the app after redeployment](../../media/static-website/updated-azure-app-vue.png)
 
 # [Svelte](#tab/svelte)
 
@@ -90,7 +90,7 @@ In this step, you make a simple change to the app's source code and redeploy the
 
 1. Once your deployment is complete, refresh the site in the browser to observe changes:
 
-    ![Svelte - Changes in the app after redeployment](media/static-website/updated-azure-app-svelte.png)
+    ![Svelte - Changes in the app after redeployment](../../media/static-website/updated-azure-app-svelte.png)
 
 ---
 
