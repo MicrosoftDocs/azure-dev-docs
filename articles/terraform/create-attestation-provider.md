@@ -7,7 +7,7 @@ ms.date: 11/08/2020
 ms.custom: devx-track-terraform
 ---
 
-# Configure an Azure Attestation Policy using Terraform
+# Configure an Azure Attestation policy using Terraform
 
 This article shows example Terraform code for creating an [Attestation Provider](https://docs.microsoft.com/azure/attestation/overview) on Azure.
 
@@ -16,12 +16,9 @@ This article shows example Terraform code for creating an [Attestation Provider]
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 - *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
 
-
 [!INCLUDE [terraform-configure-environment.md](includes/terraform-configure-environment.md)]
 
-[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
-
-## Configure an Azure Attestation Provider
+## Configure an Azure Attestation provider
 
 ```hcl
 resource "azurerm_resource_group" "corpAttestation" {
@@ -37,8 +34,6 @@ resource "azurerm_attestation_provider" "corpAttestation" {
   policy_signing_certificate_data   = file("./certs/cert.pem")
 }
 ```
-
-[!INCLUDE [terraform-create-and-apply-execution-plan.md](includes/terraform-create-and-apply-execution-plan.md)]
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
