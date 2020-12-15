@@ -16,9 +16,6 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player]
 
-> [!NOTE]
-> If you have your own server code, such as a Node.js/Express app, follow the [App Service tutorial](tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md) instead.
-
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
@@ -32,7 +29,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
+[!INCLUDE [azure-sign-in](../../includes/azure-sign-in.md)]
 
 > [!div class="nextstepaction"] 
 > [I installed the prerequisites](tutorial-vscode-static-website-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=getting-started)
