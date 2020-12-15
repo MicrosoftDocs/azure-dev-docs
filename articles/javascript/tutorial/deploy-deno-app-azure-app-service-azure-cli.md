@@ -16,7 +16,7 @@ Deploy a Deno application to Azure App Service (on Linux or Windows) using the A
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-deno&mktingSource=vscode-tutorial-appservice-deno)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
 - Install [Deno](https://deno.land/#installation)
-[!INCLUDE [Azure CLI](../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## 2. Sign in to Azure CLI

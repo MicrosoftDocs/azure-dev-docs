@@ -28,7 +28,7 @@ This tutorial includes the following tasks:
     * View list of traces with Azure portal
 * Remove resources with Azure CLI
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../../../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
