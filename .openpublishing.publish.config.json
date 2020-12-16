@@ -16,9 +16,6 @@
       "template_folder": "_themes"
     }
   ],
-  "docs_build_engine": {
-    "name": "docfx_v3"
-  },
   "notification_subscribers": [
     "brendm@microsoft.com",
     "karler@microsoft.com",
@@ -41,32 +38,60 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
-      "branch": "main"
+      "branch": "main",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "js-e2e-vm",
       "url": "https://github.com/Azure-Samples/js-e2e-vm",
-      "branch": "main"
-    },    
+      "branch": "main",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "js-e2e-client-cognitive-services",
       "url": "https://github.com/Azure-Samples/js-e2e-client-cognitive-services",
-      "branch": "main"
+      "branch": "main",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "js-e2e-client-azure-login-button",
       "url": "https://github.com/Azure-Samples/js-e2e-client-azure-login-button",
-      "branch": "main"
+      "branch": "main",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
-  "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false,
-  "targets": {}
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "PDF",
+      "Pdf"
+    ],
+    "master": [
+      "Publish",
+      "PDF"
+    ]
+  },
+  "need_generate_pdf_url_template": true,
+  "targets": {
+    "pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  },
+  "docs_build_engine": {
+    "name": "docfx_v3"
+  }
 }

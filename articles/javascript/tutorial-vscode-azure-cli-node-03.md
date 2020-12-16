@@ -34,22 +34,14 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
     az appservice plan create --name myPlan --sku F1
     ```
 
-    The command above specifies a free hosting plan (`--sku F1`), which uses a shared virtual machine, and names the plan `myPlan`. Again, the command shows JSON output on success.
+    The command above specifies a [free hosting plan](core/what-is-azure-for-javascript-development.md#free-tier-resources) (`--sku F1`), which uses a shared virtual machine, and names the plan `myPlan`. 
 
-1. Run the following command to create the App Service, replacing `<your_app_name>` with a unique name that becomes the URL, `http://<your_app_name>.azurewebsites.net`. Note that the PowerShell command is slightly different. The `--runtime "node|6.9"` argument tells Azure to use node version 6.9.x on the server.
+1. Run the following command to create the App Service, replacing `<your_app_name>` with a unique name that becomes the URL, `http://<your_app_name>.azurewebsites.net`, with the [latest Node.js runtime](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
     ```azurecli
-    az webapp create --name <your_app_name> --plan myPlan --runtime "node|6.9"
+    az webapp create --name <your_app_name> --plan myPlan --runtime "node|12-lts"
     ```
 
-    > [!TIP]
-    > You can also state the desired node version in your `package.json`. Azure applies this setting during deployment. For example, the following `package.json` entry tells Azure to use at least Node 7.0.0:
-    >
-    > ``` json
-    > "engines": {
-    >     "node": ">7.0.0"
-    > },
-    > ```
 
 1. Run the following command to open a browser to the newly created App Service, again replacing `<your_app_name>` with the name you used:
 

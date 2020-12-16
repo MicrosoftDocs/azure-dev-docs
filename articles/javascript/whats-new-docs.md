@@ -9,6 +9,13 @@ ms.date: 11/13/2020
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2020 December
+
+### What's new
+
+|Name|Notes|
+|---------------------------------------|--|
+|[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
 
 ## 2020 November
 
@@ -35,8 +42,8 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 
 |Name|Notes|
 |---------------------------------------|--|
-|[Tutorial: Upload image to Blob Storage](./tutorial/browser-file-upload.yml?preview=tutorialFeedback)|In this tutorial, use a **React app** to upload a file to an **Azure Storage** blob. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
-|[Tutorial: Deploy Node.js MongoDB app to App Service from Visual Studio Code](./tutorial/web-app-mongodb.yml?preview=tutorialFeedback)|In this tutorial, use a **Express** Node.js app with a **MongoDB** database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
+|[Tutorial: Upload image to Blob Storage](./tutorial/browser-file-upload-azure-storage-blob.md)|In this tutorial, use a **React app** to upload a file to an **Azure Storage** blob. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
+|[Tutorial: Deploy Node.js with database app to App Service from Visual Studio Code](./tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|In this tutorial, use a **Express.js** Node.js app with a **MongoDB** database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. The programming work is done for you, this tutorial focuses on creating the Azure resources and deploying to Azure from inside Visual Studio Code with Azure extensions.|
 
 ### What's updated
 

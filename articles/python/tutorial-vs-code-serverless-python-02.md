@@ -3,7 +3,7 @@ title: "Step 2: Create a serverless Python function for Azure Functions with VS 
 description: Tutorial, step 2, add a serverless Python function using the Azure Functions extension for VS Code.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019
+ms.custom: devx-track-python, seo-python-october2019, contperfq2
 ---
 
 # 2: Create a Python function for Azure Functions

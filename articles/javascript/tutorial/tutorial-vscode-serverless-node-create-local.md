@@ -3,7 +3,7 @@ title: Create the Azure Functions application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 ms.topic: tutorial
 ms.date: 11/05/2020
-ms.custom: devx-track-js, contperfq2
+ms.custom: devx-track-js, contperf-fy21q2
 ---
 
 # 2. Create the local Functions app with the Visual Studio Code _Functions_ extension
@@ -51,7 +51,7 @@ In this step, you create a local Azure Functions (serverless) application that c
 
 ## HTTP function JavaScript template code
 
-The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parmaeter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
+The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parameter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
 
 ```javascript
 module.exports = async function (context, req) {

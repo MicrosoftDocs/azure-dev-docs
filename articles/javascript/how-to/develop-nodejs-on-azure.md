@@ -73,8 +73,6 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
 1. Enter `.js` to display all the JavaScript/JSON files in the project along with each file's parent directory 
 
-    ![Display all .js* files in Visual Studio Code](../media/node-howto-e2e/visual-studio-code-javascript-json-file-list.png)
-
 1. Select *server.js*, which is the startup script for the app.
 
 1. Hover your mouse over the **database** variable (imported on line 6) to see its type. This ability to quickly inspect variables/modules/types within a file is useful during the development of your projects. 

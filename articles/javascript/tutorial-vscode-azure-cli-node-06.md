@@ -27,7 +27,7 @@ In this step, you make changes to your app code, commit them to the local Git re
 1. Push the changes to the Git remote named Azure that we created earlier:
 
     ```bash
-    git push azure master
+    git push azure <DEFAULT-BRANCH-NAME>
     ```
 
 1. Because the App Service is already connected to the Git repository, the output from the command shows that changes are automatically published to Azure: 
@@ -52,8 +52,7 @@ In this step, you make changes to your app code, commit them to the local Git re
     remote: Using start-up script bin/www from package.json.
     remote: Generated web.config.
     remote: The package.json file does not specify node.js engine version constraints.
-    remote: The node.js application will run with the default node.js version 6.9.5.
-    remote: Selected npm version 3.10.10
+    remote: The node.js application will run with the 
     remote: ..
     remote: Finished successfully.
     remote: Running post deployment command(s)...
