@@ -16,6 +16,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Notes|
 |---------------------------------------|--|
 |[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
+|[What is Azure for JavaScript developers?](what-is-azure-for-javascript-development.md)|Azure concepts JavaScript developers need to be successful.|
+|[Install Node.js](core/install-nodejs-develop-azure-sdk-project.md)|Install and manage Node.js for common Azure development scenarios|
+|[Identity, authentication, and users](concepts/identity-authentication-users)|This article focuses on the top concepts a JavaScript developer commonly has to understand.|
 
 ## 2020 November
 
