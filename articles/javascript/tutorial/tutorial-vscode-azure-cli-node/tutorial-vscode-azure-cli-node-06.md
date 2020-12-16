@@ -14,7 +14,7 @@ In this step, you make changes to your app code, commit them to the local Git re
 
 1. In the `myExpressApp` folder, open the *views/index.pug* file and change the message in line 5 to `p Welcome to Azure!`.
 
-    ![Editing the index.pug file](media/azure-cli/editpugfile.png)
+    ![Editing the index.pug file](../../media/azure-cli/editpugfile.png)
 
 1. Save the file.
 
@@ -63,7 +63,7 @@ In this step, you make changes to your app code, commit them to the local Git re
 
 1. Refresh the app in the browser to see those changes:
 
-    ![Published changes visible in the browser](media/azure-cli/remote-app-changes.png)
+    ![Published changes visible in the browser](../../media/azure-cli/remote-app-changes.png)
 
 > [!div class="nextstepaction"]
 > [I see my changes](tutorial-vscode-azure-cli-node-07.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=publishing-changes)
