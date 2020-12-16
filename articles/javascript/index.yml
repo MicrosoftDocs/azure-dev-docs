@@ -91,7 +91,7 @@ landingContent:
             url: tutorial/static-web-app/introduction.md
   - title: Learning paths and modules
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
           - text: Azure Fundamentals
             url: /learn/modules/intro-to-azure-fundamentals/
