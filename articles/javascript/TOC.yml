@@ -17,6 +17,8 @@
       href: core/node-sdk-azure-authenticate-principal.md
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
+    - name: Automate with Azure CLI
+      href: core/automate-tasks-with-azure-cli.md
   - name: Tutorials
     items:
       - name: Deploy and host
