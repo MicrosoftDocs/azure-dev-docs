@@ -36,7 +36,7 @@ Reference documentation: [az login command](/cli/azure/reference-index?view=azur
 az login --identity
 ```
 
-[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), after [the Service Principal is created](../core/node-sdk-azure-authenticate-principal#create-a-service-principal-using-the-azure-cli-20). 
+[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli.md#sign-in-with-a-service-principal), after [the Service Principal is created](../core/node-sdk-azure-authenticate-principal.md#create-a-service-principal-using-the-azure-cli-20). 
 
 ```dotnetcli
 read -sp "Azure password: " AZ_PASS && echo && \ 
@@ -68,7 +68,7 @@ A static web app contains code for:
 
 The app can use Azure functions for serverless APIs, but that isn't a requirement for static web apps. 
 
-Reference documentation: [az staticwebapp](/cli/azure/staticwebapp?view=azure-cli-latest)
+Reference documentation: [az staticwebapp](/cli/azure/staticwebapp.md?view=azure-cli-latest)
 
 ### Create Azure Static web app 
 
