@@ -60,7 +60,7 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. Once completed, expand the **Registries** node in the Docker extension explorer to see your image in the registry.
 
-    ![Pushed image appearing in the Azure Container Registry](If the output displays "Authentication required", run `az acr login --name <your registry name>` in the terminal.media/deploy-containers/image-in-acr.png)
+    ![Pushed image appearing in the Azure Container Registry](../../media/deploy-containers/image-in-acr.png)
 
 > [!div class="nextstepaction"]
 > [I've created an image for my application](tutorial-vscode-docker-node-05.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)
