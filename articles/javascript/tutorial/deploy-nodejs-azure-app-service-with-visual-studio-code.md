@@ -102,7 +102,7 @@ Create a Node.js app using the Express.js application generator.
     - Select **Create new resource group** and provide a name like `AppServiceTutorial-rg`.
     - Select an operating system (Windows or Linux)
     - Linux only: select a Node.js version. (For Windows, you set the version using an app setting later on).
-    - Select **Create a new App Service plan**, provide a name like `AppServiceTutorial-plan`, and select the **F1 Free** pricing tier.
+    - Select **Create a new App Service plan**, provide a name like `AppServiceTutorial-plan`, and select the **F1 Free** [pricing tier](../core/what-is-azure-for-javascript-development.md#free-tier-resources).
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
 

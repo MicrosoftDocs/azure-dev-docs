@@ -10,11 +10,14 @@ ms.custom: devx-track-js
 
 [Previous step: Make changes and redeploy](tutorial-vscode-static-website-node-05.md)
 
+
+## Delete Storage Account
+
 The storage you created incurs minimal ongoing costs (which for storage are very small). To avoid those costs, right-click the storage account in the **Azure: Storage** explorer of Visual Studio Code and select **Delete Storage Account**.
 
 ## Next steps
 
-[!INCLUDE [tutorial-next-steps](includes/tutorial-next-steps.md)]
+[!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I'm done](./how-to/create-static-site.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)
+> [I'm done](../../how-to/create-static-site.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)

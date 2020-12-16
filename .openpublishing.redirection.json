@@ -1,6 +1,62 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-08.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06"
+    },
+    {
       "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
     },

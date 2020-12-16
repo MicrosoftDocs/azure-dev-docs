@@ -17,73 +17,73 @@ In this step, you use Visual Studio Code to deploy the static website files crea
 
 1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
 
-   ![Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
+   ![Azure Storage nodes in the Azure Storage explorer](../../media/static-website/storage-nodes.png)
 
 1. Select the **Files** explorer, right-click on your _dist/my-static-app_ folder, and choose **Deploy to Static Website**:
 
-    ![Angular - Deploy to Static Website command](media/static-website/deploy-build-angular.png)
+    ![Angular - Deploy to Static Website command](../../media/static-website/deploy-build-angular.png)
 
 1. When prompted, choose the Storage account that you created previously.
 
 1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
 
-    ![Angular - Deployment complete message](media/static-website/deployment-complete.png)
+    ![Angular - Deployment complete message](../../media/static-website/deployment-complete.png)
 
-    ![Angular - Static website running in Azure](media/static-website/azure-app-angular.png)
+    ![Angular - Static website running in Azure](../../media/static-website/azure-app-angular.png)
 
 # [React](#tab/react)
 
 1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
 
-   ![React - Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
+   ![React - Azure Storage nodes in the Azure Storage explorer](../../media/static-website/storage-nodes.png)
 
 1. Select the **Files** explorer, right-click on your _build_ folder, and choose **Deploy to Static Website**:
 
-    ![React - Deploy to Static Website command](media/static-website/deploy-build-react.png)
+    ![React - Deploy to Static Website command](../../media/static-website/deploy-build-react.png)
 
 1. When prompted, choose the Storage account that you created previously.
 
 1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
 
-    ![React - Deployment complete message](media/static-website/deployment-complete.png)
+    ![React - Deployment complete message](../../media/static-website/deployment-complete.png)
 
-    ![React - Static website running in Azure](media/static-website/azure-app-react.png)
+    ![React - Static website running in Azure](../../media/static-website/azure-app-react.png)
 
 # [Vue](#tab/vue)
 
 1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
 
-   ![Vue - Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
+   ![Vue - Azure Storage nodes in the Azure Storage explorer](../../media/static-website/storage-nodes.png)
 
 1. Select the **Files** explorer, right-click on your _dist_ folder, and choose **Deploy to Static Website**:
 
-    ![Vue - Deploy to Static Website command](media/static-website/deploy-build-vue.png)
+    ![Vue - Deploy to Static Website command](../../media/static-website/deploy-build-vue.png)
 
 1. When prompted, choose the Storage account that you created previously.
 
 1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
 
-    ![Vue - Deployment complete message](media/static-website/deployment-complete.png)
+    ![Vue - Deployment complete message](../../media/static-website/deployment-complete.png)
 
-    ![Vue - Static website running in Azure](media/static-website/azure-app-vue.png)
+    ![Vue - Static website running in Azure](../../media/static-website/azure-app-vue.png)
 
 # [Svelte](#tab/svelte)
 
 1. In Visual Studio Code, go to the **Azure Storage** explorer, expand your subscription, expand the node for the Azure Storage account that you created in the previous step, then expand the **Blob Containers** node. The `$web` container is where you deploy your app code.
 
-   ![Svelte - Azure Storage nodes in the Azure Storage explorer](media/static-website/storage-nodes.png)
+   ![Svelte - Azure Storage nodes in the Azure Storage explorer](../../media/static-website/storage-nodes.png)
 
 1. Select the **Files** explorer, right-click on your _public_ folder, and choose **Deploy to Static Website**:
 
-    ![Svelte - Deploy to Static Website command](media/static-website/deploy-build-svelte.png)
+    ![Svelte - Deploy to Static Website command](../../media/static-website/deploy-build-svelte.png)
 
 1. When prompted, choose the Storage account that you created previously.
 
 1. When deployment is complete, a message appears with a **Browse to website** button. Select that button to open the primary endpoint of the deployed app code.
 
-    ![Svelte - Deployment complete message](media/static-website/deployment-complete-svelte.png)
+    ![Svelte - Deployment complete message](../../media/static-website/deployment-complete-svelte.png)
 
-    ![Svelte - Static website running in Azure](media/static-website/azure-app-svelte.png)
+    ![Svelte - Static website running in Azure](../../media/static-website/azure-app-svelte.png)
 
 ---
 
