@@ -20,7 +20,7 @@ In this step, you create an Azure Storage account, which serves as a simple file
 
 1. In VS Code, select the Azure logo to open the **Azure** explorer. Under **Azure Storage**, right-click on your Azure subscription and choose **Create Storage Account**:
 
-    ![Create Storage Account in VS Code](media/static-website/create-storage-account.png)
+    ![Create Storage Account in VS Code](../../media/static-website/create-storage-account.png)
 
 1. At the prompt, "Enter the name of the new storage account", enter a globally unique name for your Storage Account and press Enter. Valid characters for an app name are 'a-z' and '0-9'.
 
@@ -29,11 +29,11 @@ In this step, you create an Azure Storage account, which serves as a simple file
 
 1. While the Storage account is created, progress appears in **Output** panel of VS Code:
 
-    ![VS Code output Window ](media/static-website/output-storage.png)
+    ![VS Code output Window ](../../media/static-website/output-storage.png)
 
 1. Once the Storage account is complete, a message appears stating that static website hosting has been enabled for the storage account.
 
-    ![Create Storage Account](media/static-website/static-website-enabled-notification.png)
+    ![Create Storage Account](../../media/static-website/static-website-enabled-notification.png)
 
     > [!IMPORTANT]
     > We use *index.html* for the error document because modern single page apps (SPAs) such as React, Angular, and Vue, handle route errors in the client. For classic static websites, use a custom 404 error page.
