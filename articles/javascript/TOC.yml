@@ -42,17 +42,17 @@
         - name: "Client app: Host from Azure Storage"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-static-website-node-01.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md
             - name: Create the app code
-              href: tutorial-vscode-static-website-node-02.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md
             - name: Create a Storage account
-              href: tutorial-vscode-static-website-node-03.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md
             - name: Deploy to Azure Storage
-              href: tutorial-vscode-static-website-node-04.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-static-website-node-05.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md
             - name: Clean up resources
-              href: tutorial-vscode-static-website-node-06.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md
         - name: "Serverless: Create and deploy"
           items:
             - name: 1. Introduction and prerequisites
@@ -90,21 +90,21 @@
         - name: "Container: Deploy Express.js with VS Code"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-docker-node-01.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
             - name: Use a container registry
-              href: tutorial-vscode-docker-node-02.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
             - name: Create a local Node.js app
-              href: tutorial-vscode-docker-node-03.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
             - name: Create the app image
-              href: tutorial-vscode-docker-node-04.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
             - name: Deploy the app image
-              href: tutorial-vscode-docker-node-05.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-docker-node-06.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
             - name: Stream logs
-              href: tutorial-vscode-docker-node-07.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
             - name: Clean up resources
-              href: tutorial-vscode-docker-node-08.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
         - name: "VM: Deploy container with logging"
           items: 
             - name: 1. Introduction and prerequisites
