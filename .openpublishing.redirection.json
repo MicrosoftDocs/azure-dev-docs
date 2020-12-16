@@ -1,6 +1,34 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07"
+    },
+    {
       "source_path": "articles/javascript/tutorial-vscode-docker-node-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01"
     },
