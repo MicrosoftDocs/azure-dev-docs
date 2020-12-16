@@ -16,13 +16,13 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
 ## Create an Azure container registry
 
-Create a [free pricing-tier resource](core/what-is-azure-for-javascript-development.md#free-tier-resources).
+Create a [free pricing-tier resource](../../core/what-is-azure-for-javascript-development.md#free-tier-resources).
 
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette.
 
 1. Enter **registry** in the search box. From the results, select **Azure Container Registry: Create Registry**.
 
-   ![The Docker explorer in Visual Studio Code](media/deploy-containers/docker-create-registry.jpg)
+   ![The Docker explorer in Visual Studio Code](../../media/deploy-containers/docker-create-registry.jpg)
 
 1. Enter or select the following values:
 
@@ -33,11 +33,11 @@ Create a [free pricing-tier resource](core/what-is-azure-for-javascript-developm
 
     Visual Studio Code begins the process of creating the registry in Azure. After it finishes, you'll see a notification like the following one. This notification confirms the registry was successfully created.
 
-   ![Confirmation in Visual Studio Code that the registry was created](media/deploy-containers/registry-created.jpg)
+   ![Confirmation in Visual Studio Code that the registry was created](../../media/deploy-containers/registry-created.jpg)
 
 1. Open the **Docker** explorer. Ensure that the registry endpoint you just set up is visible under **Registries**.
 
-   ![Verification that the registry appears in the Docker explorer](media/deploy-containers/docker-explorer-registry.jpg)
+   ![Verification that the registry appears in the Docker explorer](../../media/deploy-containers/docker-explorer-registry.jpg)
 
 ## Sign in to Azure Container Registry
 
