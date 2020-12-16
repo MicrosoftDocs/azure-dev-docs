@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs: "
 description: "What's new in JavaScript docs for October 2020"
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 12/16/2020
 ---
 
 # JavaScript docs: What's new for October 2020
@@ -19,6 +19,15 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[What is Azure for JavaScript developers?](core/what-is-azure-for-javascript-development.md)|Azure concepts JavaScript developers need to be successful.|
 |[Install Node.js](core/install-nodejs-develop-azure-sdk-project.md)|Install and manage Node.js for common Azure development scenarios|
 |[Identity, authentication, and users](concepts/identity-authentication-users.md)|This article focuses on the top concepts a JavaScript developer commonly has to understand.|
+
+### What's new in Learn
+
+
+|Name|
+|---------------------------------------|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](https://docs.microsoft.com/learn/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](https://docs.microsoft.com/en-us/learn/modules/build-api-azure-functions)|
 
 ## 2020 November
 
