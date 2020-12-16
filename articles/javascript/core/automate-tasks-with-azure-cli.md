@@ -28,7 +28,7 @@ To automate the Azure CLI, the CLI must be installed in the environment. Common 
 
 Once the Azure CLI is installed, you must log in to continue running Azure CLI commands. For automation, you can authentication to the Azure CLI.
 
-Reference documentation: [az login command](/cli/azure/reference-index?view=azure-cli-latest#az-login)
+**Reference documentation**: [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login)
 
 [Managed identity](/cli/azure/authenticate-azure-cli#sign-in-with-a-managed-identity) is the recommended choice for authentication.
 
@@ -47,11 +47,17 @@ read -sp "Azure password: " AZ_PASS && echo && \
 ```
 
 
-* [With User credentials: username and password](/cli/azure/authenticate-azure-cli#sign-in-with-credentials-on-the-command-line)
+[With User credentials: username and password](/cli/azure/authenticate-azure-cli#sign-in-with-credentials-on-the-command-line)
+
+```dotnetcli
+az login -u <MY_AZURE_USERNAME> -p <MY_AZURE_PASSWORD>
+```    
 
 ## Create resource group for resources
 
 A resource group is a logical collection of your Azure resources. The logical grouping is based on services you need in a specific region for a project. Learn about [naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+
+**Reference documentation**: [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create)
 
 ```azurecli
 az group create \
@@ -68,9 +74,11 @@ A static web app contains code for:
 
 The app can use Azure functions for serverless APIs, but that isn't a requirement for static web apps. 
 
-Reference documentation: [az staticwebapp](/cli/azure/staticwebapp.md?view=azure-cli-latest)
+**Reference documentation**: [az staticwebapp](/cli/azure/staticwebapp.md?view=azure-cli-latest)
 
 ### Create Azure Static web app 
+
+**Reference documentation**: [az staticwebapp create](/cli/azure/staticwebapp?view=azure-cli-latest#az_staticwebapp_create)
 
 ```azurecli
 az staticwebapp create \
@@ -98,6 +106,8 @@ git push origin main
 ```
 
 ### Delete static web app 
+
+**Reference documentation**: [az staticwebapp delete](/cli/azure/staticwebapp?view=azure-cli-latest#az_staticwebapp_delete)
 
 ```azurecli
 az staticwebapp delete && \
