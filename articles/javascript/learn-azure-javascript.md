@@ -34,7 +34,7 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 
 * [Build Serverless APIs with Azure Functions](/learn/modules/build-api-azure-functions/)
 * [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/)
-* [Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js.](https://docs.microsoft.com/en-us/learn/modules/build-api-azure-functions)
+* [Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js.](https://docs.microsoft.com/learn/modules/build-api-azure-functions)
 
 ### DevOps (CI/CD)
 
