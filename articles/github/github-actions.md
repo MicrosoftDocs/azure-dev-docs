@@ -12,9 +12,9 @@ ms.custom: github-actions-azure
 
 # What is GitHub Actions for Azure
 
-[GitHub Actions](https://help.github.com/articles/about-github-actions) helps you automate your software development workflows from within GitHub. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) helps you automate your software development workflows from within GitHub. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues.
 
-In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
+In GitHub Actions, a [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) is an automated process that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
 Each workflow is made up of individual [actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
