@@ -6,7 +6,7 @@ ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
-# 7. Clean up resources
+# 7. Clean up resources for static web app
 
 Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
 

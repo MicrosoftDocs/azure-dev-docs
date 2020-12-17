@@ -1,6 +1,6 @@
 ---
 title: React code using Computer Vision
-description: This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
+description: This section of the tutorial _reviews_ the steps and code. You do not need to take these steps for this tutorial.  
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.custom: devx-track-js

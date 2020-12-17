@@ -1,6 +1,6 @@
 ---
 title: Computer Vision app architecture
-description: This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
+description: This section of the tutorial explains the client app and deployment process. 
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.custom: devx-track-js
