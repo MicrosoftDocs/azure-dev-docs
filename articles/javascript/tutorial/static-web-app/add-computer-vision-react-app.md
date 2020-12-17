@@ -25,9 +25,9 @@ npm install @azure/cognitiveservices-computervision
 
 ## Add Computer Vision code as separate module
 
-The Computer Vision code is contained in a separate file named `./src/VisualAI.js`. The main function of the module is highlighted. 
+The Computer Vision code is contained in a separate file named `./src/azure-cognitiveservices-computervision.js`. The main function of the module is highlighted. 
 
-:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/VisualAI.js" highlight="55-75" :::
+:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/azure-cognitiveservices-computervision.js" highlight="55-75" :::
 
 ## Add catalog of images as separate module
 
