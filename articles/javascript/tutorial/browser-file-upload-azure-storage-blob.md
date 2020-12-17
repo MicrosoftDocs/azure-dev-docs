@@ -80,11 +80,11 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
     :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource.png" alt-text="Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.":::
 
-1. Follow the prompts using the following table to understand how your values are used.
+1. Follow the prompts using the following table to understand how to create your Storage resource.
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploadyourname`, for your Storage resource name. Replace `yourname` with your lowercase name or unique ID. This unique name is also used as part of the URL to access the resource in a browser. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploaddemo`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section.Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 
@@ -92,10 +92,10 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 ## 4. Set storage account name in code file
 
-Set the resource name in `src/azure-storage-blob.ts` for the `storageAccountName` value by adding the storage key name into the empty string. Leave the rest of the code as it is. 
+Set the resource name from the previous step in `src/azure-storage-blob.ts`. 
 
 ```typescript
-const storageAccountName = process.env.storageresourcename || ""; 
+const storageAccountName = process.env.storageresourcename || "fileuploaddemo"; 
 ```
 
 ## 5. Generate your shared access signature (SAS) token 
@@ -112,7 +112,7 @@ Generate the SAS token before configuring CORS.
     |Allowed resource types|Service, Container, Object|
     |Allowed permissions|Read, write, delete, list, add, create|
     |Enable deletions of version|Checked|
-    |Start and expiry date/time|Accept the start date/time and set the end date time 24 hours in the future. Your SAS token is only good for 24 hours.|
+    |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your SAS token is only good for 24 hours.|
     |HTTPS only|Selected|
     |Preferred routing tier|Basic|
     |Signing Key|key1 selected|
@@ -123,13 +123,9 @@ Generate the SAS token before configuring CORS.
 
 ## Set SAS token in code file
 
-The SAS token value is a partial query string and is used in the URL when queries are made to your cloud-based resource.
+The SAS token is used when queries are made to your cloud-based resource.
 
-The token format depends are which tool you used to create it: 
-* **Azure portal**: If you create your SAS token in the portal, the token includes the `?` as the first character of the string.
-* **Azure CLI**: If you create your SAS token with the Azure CLI, the value returned doesn't include the `?` as the first character of the string. 
-
-1. Remove the `?`, if it is the first character of the token. The code file provides the `?` for you so you don't need it in the token.
+1. If the token begins with a question mark, remove the `?`. The code file provides the `?` for you so you don't need it in the token.
 
 1. Set the SAS token into `src/azure-storage-blob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
 
@@ -161,19 +157,23 @@ Configure CORS for your resource so the client-side React code can access your s
 
 Your SAS token and storage account name are set in the `src/azure-storage-blob.ts` file, so you are ready to run the application.
 
-1. From the Visual Studio Code terminal, enter the following command:
+1. If the app isn't running, start it again:
 
     ```javascript
     npm start
     ```
 
-1. When the terminal displays the URL, such as `http://localhost:3000`, your app is ready. Open a browser and enter that URL. The website connected to Azure Storage blobs should display with a file selection button and a file upload button. 
+1. Open the following URL in a browser:
+
+    `http://localhost:3000` 
 
     :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-configured-upload-button-displayed.png" alt-text="The React website connected to Azure Storage blobs should display with a file selection button and a file upload button.":::
 
-1. Select an image from the `images` folder to upload. The `spring-flowers.jpg` are a good visual for this test. The select the **Upload!** button. 
+1. Select an image from the `images` folder to upload then select the **Upload!** button. 
 
     The React front-end client code calls into the `src/azure-storage-blob.ts` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+
+    You have completed the steps of the tutorial. The remaining sections explain the app and help resolve issues.
 
 ## Troubleshoot local connection to Storage account
 
