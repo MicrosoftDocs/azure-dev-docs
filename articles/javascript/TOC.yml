@@ -27,15 +27,17 @@
           items: 
             - name: 1. Introduction and prerequisites
               href: tutorial/static-web-app/introduction.md
-            - name: 2. Download and run app locally
+            - name: 2. Application architecture
+              href: tutorial/static-web-app/application-architecture.md
+            - name: 3. Download and run app locally
               href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-            - name: 3. Create Computer Vision resource
+            - name: 4. Create Computer Vision resource
               href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-            - name: 4. Build and deploy Static web app
+            - name: 5. Build and deploy Static web app
               href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-            - name: 5. Review Computer Vision React code
+            - name: 6. Review Computer Vision React code
               href: tutorial/static-web-app/add-computer-vision-react-app.md
-            - name: 6. Clean up resources
+            - name: 7. Clean up resources
               href: tutorial/static-web-app/clean-up-resources.md
         - name: "Client app: upload to Storage"
           href: tutorial/browser-file-upload-azure-storage-blob.md

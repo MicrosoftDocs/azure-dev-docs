@@ -6,7 +6,7 @@ ms.date: 12/16/2020
 ms.custom: devx-track-js
 ---
 
-# 3. Create Computer Vision resource and use in code
+# 4. Create Computer Vision resource and use in code
 
 In this step, create your Computer Vision resource and set to environment variables. 
 
@@ -102,8 +102,6 @@ When using Azure Static web apps, environment variables such as secrets, need to
     :::image type="content" source="../../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
 ## Run react app with ComputerVision resource
-
-This React app watches for changes to rebuild and rerun the app. Make a change in order to force a rebuild.
 
 1. Start the app again, at the command line:
 
