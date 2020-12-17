@@ -18,7 +18,7 @@ For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc
 > If you prefer to deploy apps through the CLI, see **[Quickstart: Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)**.
 
 > [!TIP]
-> [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.6+ using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described on [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definitionw are on [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/).
+> [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.6+ using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described on [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definitions are on [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/).
 
 ## Configure your environment
 
