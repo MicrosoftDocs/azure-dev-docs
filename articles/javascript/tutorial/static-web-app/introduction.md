@@ -33,4 +33,4 @@ In this tutorial, locally build and deploy a React/TypeScript client application
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Understand client app architecture and deployment process with GitHub action](application-architecture.md) 
+> [Understand client app architecture and deployment process with GitHub action](./application-architecture.md) 
