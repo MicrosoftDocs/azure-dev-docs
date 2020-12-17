@@ -24,6 +24,8 @@ The React (create-react-app) provides the following functionality:
         * Display image
         * Display Computer Vision JSON results 
 
+:::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
+
 ## Deploy to Azure with GitHub action
 
 The GitHub action starts when a push to a specific branch happens:
