@@ -2,7 +2,7 @@
 title: Upload image to Blob Storage with VSCode - App Service/CosmosDB
 description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 12/17/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
@@ -12,14 +12,14 @@ Use a client-side React app to upload an image file to an Azure Storage blob usi
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
-* [Source code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
+* [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
 
 ## Application architecture and functionality
 
-This tutorial includes several **top Azure tasks** for JavaScript developers:
+This tutorial includes several top Azure tasks for JavaScript developers:
 
 * Run a React/TypeScript app locally with Visual Studio Code
-* Create a Storage resource and configure for file uploads
+* Create an **Azure Storage Blob** resource and configure for file uploads
     * Configure CORS
     * Create Shared access signatures (SAS) token
 * Configure code for Azure SDK client library to use SAS token to authenticate to service
@@ -27,24 +27,26 @@ This tutorial includes several **top Azure tasks** for JavaScript developers:
 The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), consists of the following elements:
 
 * **React app** hosted on port 3000
-* Azure SDK client library script to upload to Storage blobs
+* **Azure SDK client library script** to upload to Storage blobs
 
 :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
 ## 1. Set up development environment
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [Node.js 10 and npm ](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
 
 ## 2. Clone and run the initial React app
 
-Clone the app, install the dependencies and run the app. The initial app tries to connect to Azure Storage if it is configured in the code or an message saying `Storage is not configured` if it isn't available. 
-
 1. Open Visual Studio Code.
-1. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process requires you to login to GitHub. Use the repository URL of `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`, then select a folder on your local computer to clone the sample to. When prompted, open the cloned repository. 
+1. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process requires you to log in to GitHub. Use the repository URL: 
+
+    `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`
+
+1. Select a folder on your local computer to clone the sample to. When prompted, open the cloned repository. 
 
     :::image type="content" source="../media/tutorial-browser-file-upload/vscode-git-clone-repository.png" alt-text="Clone the GitHub repo by selecting the Git icon then selecting `Clone Repository`.":::
 
