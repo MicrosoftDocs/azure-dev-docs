@@ -2,13 +2,18 @@
 title: React code using Computer Vision
 description: This sample has all the code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. 
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 12/17/2020
 ms.custom: devx-track-js
 ---
 
-# 5. Review how to add Computer Vision to the React app
+# 6. Review how to add Computer Vision to the React app
 
 This sample has all the TypeScript code necessary to add Computer Vision to the React App. This section of the tutorial _reviews_ the steps and code. You do not need to take these steps for this tutorial. 
+
+* [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)
+* Azure services
+    * [Static web app](https://docs.microsoft.com/azure/static-web-apps)
+    * [Cognitive Services' Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
 
 ## Add Computer Vision to local React app
 

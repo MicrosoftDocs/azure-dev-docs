@@ -2,33 +2,18 @@
 title: Introduction and prerequisites 
 description: Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 12/17/2020
 ms.custom: devx-track-js
 ---
 
 
 # 1. Build and deploy a Static Web app to Azure
 
-In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
+In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. The React app allows you to analyze an image with Cognitive Services Computer Vision.
 
-The React (create-react-app) provides the following functionality: 
-* Display message if Azure key and endpoint for Cognitive Services Computer Vision isn't found
-* Allows you to analyze an image with Cognitive Services Computer Vision
-    * Enter a public image URL or analyze image from collection
-    * When analysis is complete
-        * Display image
-        * Display Computer Vision JSON results 
-
-The GitHub action starts when a push to a specific branch happens:
-* Inserts GitHub secrets for Computer Vision key and endpoint into build
-* Builds the React (create-react-app) client
-* Moves the resulting files to your Azure Static Web app resource
+* [**Sample code**](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
-
-## What is an Azure Static web app
-
-When building static web apps, you have several choices on Azure, based on the degree of functionality and control you are interested in. This tutorial focuses on the easiest service with many of the choices made for you, so you can focus on your front-end code and not the hosting environment.
 
 ## Prerequisites
 
@@ -48,4 +33,4 @@ When building static web apps, you have several choices on Azure, based on the d
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Download and run the React Cognitive Services Image Analyzer app locally](run-the-react-cognitive-services-image-analyzer-app-locally.md) 
+> [Understand client app architecture and deployment process with GitHub action](application-architecture.md) 
