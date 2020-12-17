@@ -131,6 +131,8 @@
     items:
     - name: Configure your app
       href: how-to/configure-web-app-settings.md
+    - name: Common JavaScript tasks
+      href: how-to/common-javascript-tasks.md
     - name: End to end Node.js with VS Code
       href: how-to/develop-nodejs-on-azure.md
     - name: Deploy a web app
