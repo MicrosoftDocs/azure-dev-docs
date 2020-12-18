@@ -12,7 +12,7 @@ Find an example of your current task.
 
 ## Application settings
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Set local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
 |Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
@@ -21,28 +21,28 @@ Find an example of your current task.
 
 ## Azure Resource Groups
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
 |Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md#remove-all-the-resources-by-removing-resource-group)|
 
 ## Static web apps
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Create Static web app|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
 
 ## Storage
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Create resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#3-create-storage-resource-with-visual-studio-extension)|
 |Delete resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#clean-up-resources)|
 
 ### Blobs
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Create container in storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#create-storage-client-and-manage-steps)|
 |Upload file to storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality)|
@@ -50,7 +50,7 @@ Find an example of your current task.
 
 ## Cognitive Services
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Create Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
 |Get Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
@@ -59,14 +59,14 @@ Find an example of your current task.
 
 ## GitHub actions 
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Add secrets|[Visual Studio Code](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
 |View build process|[GitHub website](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-the-github-action-build-process)|
 
 ## Visual Studio Code
 
-|Task|Found as part of doc|
+|Task|using|
 |--|--|
 |Clone GitHub repo|[Visual Studio Code](../tutorial/browser-file-upload-azure-storage-blob.md#2-clone-and-run-the-initial-react-app)|
 
