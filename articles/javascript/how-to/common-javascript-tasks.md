@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Common top tasks for JavaScript developers
 
-Find an example of your current tasks.
+Find an example of your current task.
 
 ## Application settings
 
@@ -44,9 +44,9 @@ Find an example of your current tasks.
 
 |Task|Found as part of doc|
 |--|--|
-|Create container in storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](tutorial/browser-file-upload-azure-storage-blob.md#create-storage-client-and-manage-steps)|
+|Create container in storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#create-storage-client-and-manage-steps)|
 |Upload file to storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality)|
-|List files in Storage container with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](tutorial/browser-file-upload-azure-storage-blob.md#get-list-of-blobs)|
+|List files in Storage container with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#get-list-of-blobs)|
 
 ## Cognitive Services
 
