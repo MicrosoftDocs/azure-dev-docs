@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs: "
 description: "What's new in JavaScript docs for October 2020"
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 12/18/2020
 ---
 
 # JavaScript docs: What's new for October 2020
@@ -16,6 +16,21 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Notes|
 |---------------------------------------|--|
 |[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
+|[What is Azure for JavaScript developers?](core/what-is-azure-for-javascript-development.md)|Azure concepts JavaScript developers need to be successful.|
+|[Install Node.js](core/install-nodejs-develop-azure-sdk-project.md)|Install and manage Node.js for common Azure development scenarios|
+|[Configure web apps on Azure](how-to/configure-web-app-settings.md)|Learn how to set common configurations for your web app.|
+|[Identity, authentication, and users](concepts/identity-authentication-users.md)|This article focuses on the top concepts a JavaScript developer commonly has to understand.|
+|[Common top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|[Automate tasks with Azure CLI](core/automate-tasks-with-azure-cli.md)|Automating Azure tasks is a common requirement for continuous deployment to hosting environments. Azure CLI is the recommended choice for JavaScript developers managing tasks and deploying from any location.|
+
+### What's new in Learn
+
+
+|Name|
+|---------------------------------------|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](https://docs.microsoft.com/learn/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](https://docs.microsoft.com/learn/modules/build-api-azure-functions)|
 
 ## 2020 November
 

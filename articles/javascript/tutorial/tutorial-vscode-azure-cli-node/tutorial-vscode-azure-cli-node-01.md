@@ -9,14 +9,15 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Deploy to Azure App Service using the Azure CLI
 
-In this tutorial, you deploy a Node.js application to Azure App Service using the [Azure Command Line Interface (CLI)](/cli/azure/overview?view=azure-cli-latest), which runs on all operating systems. With the CLI you can create Azure resources, set up a deployment pipeline between a Git repository and Azure, and view the app's `console.log` output.
+In this tutorial, you deploy a Node.js application to Azure App Service using the [Azure Command Line Interface (CLI)](/cli/azure/overview?view=azure-cli-latest&preserve-view=false), which runs on all operating systems. With the CLI you can create Azure resources, set up a deployment pipeline between a Git repository and Azure, and view the app's `console.log` output.
 
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
 - [Node.js and npm 6.x or higher](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
-- [Install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com)
+[!INCLUDE [Azure CLI](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 
 ### Azure subscription
 
@@ -24,7 +25,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ### Sign in to Azure with Azure CLI
 
-[!INCLUDE [Sign in ](../azure-cli/includes/interactive-login.md)]
+[!INCLUDE [Sign in ](../../../azure-cli/includes/interactive-login.md)]
 
 ## Check npm version
 

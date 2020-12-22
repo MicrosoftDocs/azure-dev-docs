@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: Get started on Azure with JavaScript
     items:
+    - name: What is Azure for JavaScript developers?
+      href: core/what-is-azure-for-javascript-development.md
     - name: Install Node.js
       href: core/install-nodejs-develop-azure-sdk-project.md
     - name: Azure tools for JavaScript developers
@@ -15,6 +17,8 @@
       href: core/node-sdk-azure-authenticate-principal.md
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
+    - name: Automate with Azure CLI
+      href: core/automate-tasks-with-azure-cli.md
   - name: Tutorials
     items:
       - name: Deploy and host
@@ -23,15 +27,17 @@
           items: 
             - name: 1. Introduction and prerequisites
               href: tutorial/static-web-app/introduction.md
-            - name: 2. Download and run app locally
+            - name: 2. Application architecture
+              href: tutorial/static-web-app/application-architecture.md
+            - name: 3. Download and run app locally
               href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-            - name: 3. Create Computer Vision resource
+            - name: 4. Create Computer Vision resource
               href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-            - name: 4. Build and deploy Static web app
+            - name: 5. Build and deploy Static web app
               href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-            - name: 5. Review Computer Vision React code
+            - name: 6. Review Computer Vision React code
               href: tutorial/static-web-app/add-computer-vision-react-app.md
-            - name: 6. Clean up resources
+            - name: 7. Clean up resources
               href: tutorial/static-web-app/clean-up-resources.md
         - name: "Client app: upload to Storage"
           href: tutorial/browser-file-upload-azure-storage-blob.md
@@ -40,17 +46,17 @@
         - name: "Client app: Host from Azure Storage"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-static-website-node-01.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md
             - name: Create the app code
-              href: tutorial-vscode-static-website-node-02.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md
             - name: Create a Storage account
-              href: tutorial-vscode-static-website-node-03.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md
             - name: Deploy to Azure Storage
-              href: tutorial-vscode-static-website-node-04.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-static-website-node-05.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md
             - name: Clean up resources
-              href: tutorial-vscode-static-website-node-06.md
+              href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md
         - name: "Serverless: Create and deploy"
           items:
             - name: 1. Introduction and prerequisites
@@ -70,39 +76,39 @@
         - name: "Server: Deploy with the Azure CLI"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-azure-cli-node-01.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md
             - name: Create the app
-              href: tutorial-vscode-azure-cli-node-02.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
             - name: Create the App Service
-              href: tutorial-vscode-azure-cli-node-03.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
             - name: Deploy the app
-              href: tutorial-vscode-azure-cli-node-04.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
             - name: Stream logs
-              href: tutorial-vscode-azure-cli-node-05.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-azure-cli-node-06.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
             - name: Clean up resources
-              href: tutorial-vscode-azure-cli-node-07.md
+              href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
         - name: "Server: Deploy Deno with Azure CLI"
           href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
         - name: "Container: Deploy Express.js with VS Code"
           items:
             - name: Introduction and prerequisites
-              href: tutorial-vscode-docker-node-01.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
             - name: Use a container registry
-              href: tutorial-vscode-docker-node-02.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
             - name: Create a local Node.js app
-              href: tutorial-vscode-docker-node-03.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
             - name: Create the app image
-              href: tutorial-vscode-docker-node-04.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
             - name: Deploy the app image
-              href: tutorial-vscode-docker-node-05.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
             - name: Make changes and redeploy
-              href: tutorial-vscode-docker-node-06.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
             - name: Stream logs
-              href: tutorial-vscode-docker-node-07.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
             - name: Clean up resources
-              href: tutorial-vscode-docker-node-08.md
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
         - name: "VM: Deploy container with logging"
           items: 
             - name: 1. Introduction and prerequisites
@@ -119,12 +125,16 @@
               href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
             - name: 7. Clean up resources
               href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
-  - name: Learn
-    href: learn-azure-javascript.md
+  - name: Concepts
+    items: 
+    - name: Identity, authentication, and users
+      href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
     - name: Configure your app
       href: how-to/configure-web-app-settings.md
+    - name: Common JavaScript tasks
+      href: how-to/common-javascript-tasks.md
     - name: End to end Node.js with VS Code
       href: how-to/develop-nodejs-on-azure.md
     - name: Deploy a web app
@@ -139,6 +149,8 @@
       href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
+  - name: Learn
+    href: learn-azure-javascript.md
   - name: Samples
     href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - name: npm Packages

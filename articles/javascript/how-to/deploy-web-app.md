@@ -3,7 +3,7 @@ title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperfq2
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
 # Deploy and host your Node.js apps on Azure
@@ -52,7 +52,7 @@ Common methods of moving files to the Azure cloud include:
 |--|--|
 |[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)|Use this for automated or triggered continuous deployments.|
 |[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Use this for manual, testing, or seldom deployments. Requires that you have the extension for the service installed locally.|
-|[Azure CLI](../tutorial-vscode-azure-cli-node-04.md)|Use this for manual or seldom deployments. Requires that you have the extension for the service installed locally.|
+|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md)|Use this for manual or seldom deployments. Requires that you have the extension for the service installed locally.|
 
 Other deployment methods may exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
 * [From ZIP file](/azure/app-service/deploy-zip)

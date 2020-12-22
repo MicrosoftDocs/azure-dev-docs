@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 09/21/2020
+  ms.date: 012/16/2020
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -23,8 +23,10 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Azure Fundamentals
-            url: /learn/paths/azure-fundamentals/
+          - text: What is Azure?
+            url: core/what-is-azure-for-javascript-development.md
+          - text: Install Node.js
+            url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
           - text: Authenticate to client library
@@ -44,7 +46,7 @@ landingContent:
           - text: "App service: Express.js with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "App service: Express.js container"
-            url: tutorial-vscode-docker-node-01.md
+            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
           - text: "Azure Functions: HTTP serverless trigger"
             url: tutorial/tutorial-vscode-serverless-node-install.md
           - text: "Azure Virtual Machine: NGINX/Express.js containers"
@@ -54,7 +56,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: /tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+            url: /azure/developer/javascript/tutorial/static-web-app/add-computer-vision-react-app#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
           - text: "Static web app: Login/Logoff button"
@@ -87,16 +89,16 @@ landingContent:
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: tutorial/static-web-app/introduction.md
-  - title: Security, messaging, and logs
+  - title: Learning paths and modules
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
-          - text: Authentication
-            url: /azure/active-directory/develop/quickstart-v2-javascript
-          - text: Message queues
-            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package
-          - text: Logging and analytics
-            url: /azure/azure-monitor/learn/nodejs-quick-start
+          - text: Azure Fundamentals
+            url: /learn/modules/intro-to-azure-fundamentals/
+          - text: Build JavaScript applications with Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
+          - text: Azure Static Web Apps
+            url: /learn/paths/azure-static-web-apps/
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started

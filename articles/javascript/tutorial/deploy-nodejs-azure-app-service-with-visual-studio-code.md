@@ -102,7 +102,7 @@ Create a Node.js app using the Express.js application generator.
     - Select **Create new resource group** and provide a name like `AppServiceTutorial-rg`.
     - Select an operating system (Windows or Linux)
     - Linux only: select a Node.js version. (For Windows, you set the version using an app setting later on).
-    - Select **Create a new App Service plan**, provide a name like `AppServiceTutorial-plan`, and select the **F1 Free** pricing tier.
+    - Select **Create a new App Service plan**, provide a name like `AppServiceTutorial-plan`, and select the **F1 Free** [pricing tier](../core/what-is-azure-for-javascript-development.md#free-tier-resources).
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
 
@@ -171,5 +171,7 @@ When you want to clean up the resources, right-click on the App service in the V
 :::image type="content" source="../media/deploy-azure/delete-azure-app-service-with-visual-studio-code-extension.png" alt-text="When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.":::
 
 ## Next steps
+
+* [Learn about how to configure your app settings](../how-to/configure-web-app-settings.md)
 
 [!INCLUDE [tutorial-next-steps](../includes/tutorial-next-steps.md)]

@@ -16,17 +16,12 @@ Watch this video for a complete walkthrough of the content in this article.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player]
 
-> [!NOTE]
-> If you have your own server code, such as a Node.js/Express app, follow the [App Service tutorial](tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md) instead.
-
 ## Prerequisites
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
+- [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager. (This requirement is used only to generate a sample project. You don't need to install Node.js if you already have app code.)
-
-> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
 
 ### Azure subscription
 
@@ -34,7 +29,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
+[!INCLUDE [azure-sign-in](../../includes/azure-sign-in.md)]
 
 > [!div class="nextstepaction"] 
 > [I installed the prerequisites](tutorial-vscode-static-website-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=getting-started)
