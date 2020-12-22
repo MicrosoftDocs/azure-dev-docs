@@ -41,11 +41,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure App Service
-            url: /java/api/overview/azure/maven/azure-webapp-maven-plugin/readme
+            url: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
           - text: Azure Functions
-            url: /java/api/overview/azure/maven/azure-functions-maven-plugin/readme
+            url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
           - text: Azure Spring Cloud
-            url: /java/api/overview/azure/maven/azure-spring-cloud-maven-plugin/readme
+            url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
   - title: Logging
     linkLists:
       - linkListType: overview
