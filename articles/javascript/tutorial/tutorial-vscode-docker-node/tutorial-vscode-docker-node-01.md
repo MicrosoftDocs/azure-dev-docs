@@ -25,17 +25,13 @@ Watch this video for a complete walkthrough of the content in this article.
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 - [Docker](https://www.docker.com/community-edition).
 
-> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Install the Docker extension</a>
-
-> <a class="tutorial-install-extension-btn" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
-
 ### Azure subscription
 
 If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
 ## Sign in to Azure
 
-[!INCLUDE [azure-sign-in](includes/azure-sign-in.md)]
+[!INCLUDE [azure-sign-in](../../includes/azure-sign-in.md)]
 
 ## Verify Docker install
 

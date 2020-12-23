@@ -6,7 +6,7 @@ ms.date: 11/13/2020
 ms.custom: devx-track-js
 ---
 
-# 2. Download and run the React Cognitive Services Image Analyzer app
+# 3. Download and run the React Cognitive Services Image Analyzer app
 
 The complete sample app is provided in a GitHub repository. Fork the repository, install the dependencies, and run locally.
 

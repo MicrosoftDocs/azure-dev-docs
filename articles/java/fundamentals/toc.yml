@@ -26,14 +26,14 @@
       href: ../toolkit-for-eclipse/index.yml
     - name: Maven plugins
       expanded: true
-      href: /java/api/overview/azure/maven/README
+      href: https://github.com/Microsoft/azure-maven-plugins
       items:
         - name: Azure App Service
-          href: /java/api/overview/azure/maven/azure-webapp-maven-plugin/readme
+          href: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
         - name: Azure Functions
-          href: /java/api/overview/azure/maven/azure-functions-maven-plugin/readme
+          href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
         - name: Azure Spring Cloud
-          href: /java/api/overview/azure/maven/azure-spring-cloud-maven-plugin/readme
+          href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
     - name: Jenkins CI/CD
       href: /azure/jenkins/
     - name: Azure DevOps

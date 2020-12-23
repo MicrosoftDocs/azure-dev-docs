@@ -14,11 +14,11 @@ In this step, you learn how to view or "tail" any output that the running websit
 
 1. In the **Azure App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
 
-    ![View Streaming Logs](media/deploy-containers/stream-logs-command.png)
+    ![View Streaming Logs](../../media/deploy-containers/stream-logs-command.png)
 
 1. When prompted, choose to enable logging and restart the application.
 
-    ![Prompt to enable logging and restart](media/deploy-azure/enable-restart.png)
+    ![Prompt to enable logging and restart](../../media/deploy-azure/enable-restart.png)
 
 1. Once the app is restarted, the **Output** panel in Visual Studio Code opens with a connection to the log stream, starting with the message `Starting Live Log Stream`.
 

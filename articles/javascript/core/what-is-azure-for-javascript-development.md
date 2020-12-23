@@ -2,7 +2,7 @@
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/15/2020
 ms.custom: devx-track-js
 ---
 
@@ -83,7 +83,20 @@ A [systematic naming convention](/azure/cloud-adoption-framework/ready/azure-bes
 
 The most common way to create resources for someone new to Azure, is to use the Azure portal. The creation steps show every choice you need to answer along with the recommended selection.
 
-While most services offer a free-tier (F0), that tier may not be the recommended selection. When a free tier is offered, a subscription may be limited to one free resource of that service. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+### Pricing tiers
+
+Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+
+### Free tier resources
+
+When selecting the free (F0) pricing tier, it is important to understand limitations that come with that plan.
+
+When a free tier is offered:
+
+* A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
+* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPS), your application will receive an HTTP error with a message indicating you are out of quota. 
+
+### Resource creation time
 
 Most resources take a few minutes to create but some may take a few minutes. The Azure portal notifications window lets you know when your resource is available to use along with a link to the resource. 
 
@@ -108,7 +121,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
 * Server application 
     * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
 * Container application 
-    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial-vscode-docker-node-01.md?tabs=bash)
+    * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash)
 * Virtual machine application
     * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
 
