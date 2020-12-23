@@ -22,6 +22,8 @@ With GitHub Actions for Azure, you can create workflows that you can set up in y
 
 GitHub Actions also include support for utilities, including Azure Resource Manager templates, Azure CLI, and Azure Policy.
 
+> [!VIDEO https://www.youtube.com/watch?v=36hY0-O4STg]
+
 ## Why should I use GitHub Actions for Azure
 
 GitHub Actions for Azure are developed by Microsoft and designed to be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
