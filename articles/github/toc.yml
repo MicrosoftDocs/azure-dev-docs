@@ -4,7 +4,7 @@
   - name: GitHub Actions for Azure
     expanded: true
     items:
-    - name: What is GitHub Actions for Azure
+    - name: Introduction to GitHub Actions for Azure
       href: github-actions.md 
     - name: Authenticate from Azure to GitHub  
       href: connect-from-azure.md
