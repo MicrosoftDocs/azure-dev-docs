@@ -4,7 +4,7 @@
   - name: GitHub Actions for Azure
     expanded: true
     items:
-    - name: Introduction to GitHub Actions for Azure
+    - name: What is GitHub Actions for Azure
       href: github-actions.md 
     - name: Authenticate from Azure to GitHub  
       href: connect-from-azure.md
@@ -19,4 +19,4 @@
   - name: Azure DevOps & GitHub 
     href: integrate-azure-devops.md
   - name: Visual Studio and Visual Studio Code  
-    href: deploy-with-visual-studio.md 
+    href: deploy-with-visual-studio.md
