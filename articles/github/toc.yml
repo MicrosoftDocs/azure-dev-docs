@@ -19,4 +19,4 @@
   - name: Azure DevOps & GitHub 
     href: integrate-azure-devops.md
   - name: Visual Studio and Visual Studio Code  
-    href: deploy-with-visual-studio.md
+    href: deploy-with-visual-studio.md 
