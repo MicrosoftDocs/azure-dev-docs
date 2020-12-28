@@ -168,7 +168,7 @@ Agree to the terms at the bottom of the page, and select **Purchase**. Azure wil
 
 You can visit the defined resource group to review the deployed resources.
 
-To learn how to configure logzio-azure-serverless to back up data to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-activity-logs.html).
+To learn how to configure logzio-azure-serverless to back up data to Azure Blob Storage, see [Ship Azure activity logs](https://docs.logz.io/shipping/log-sources/azure-diagnostic-logs.html).
 
 ### Stream Azure logs and metrics to Logz.io
 
