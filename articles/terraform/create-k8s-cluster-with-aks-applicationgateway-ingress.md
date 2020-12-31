@@ -622,7 +622,7 @@ If the Cloud Shell session times out, you can use the following steps to recover
 1. Change to the directory containing your Terraform configuration files.
 
     ```bash
-    cd /clouddrive/terraform-aks-k8s
+    cd /clouddrive/terraform-aks-appgw-ingress
     ```
 
 1. Run the following command:
