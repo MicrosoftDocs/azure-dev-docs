@@ -75,7 +75,7 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetPlayServicesError());
 
-                if (string.isNullOrWhitespace(Token))
+                if (string.IsNullOrWhitespace(Token))
                     throw new Exception("Unable to resolve token for FCM");
 
                 var installation = new DeviceInstallation
