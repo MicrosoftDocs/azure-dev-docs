@@ -3,7 +3,7 @@ title: "Step 4: Debug the serverless Azure Functions Python code locally with VS
 description: Tutorial step 4, running the VS Code debugger locally to check your serverless Python code.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019, contperfq2
+ms.custom: devx-track-python, seo-python-october2019, contperf-fy21q2
 ---
 
 # 4: Debug the Azure Functions Python code locally
