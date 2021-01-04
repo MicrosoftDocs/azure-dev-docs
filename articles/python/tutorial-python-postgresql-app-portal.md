@@ -195,10 +195,10 @@ With the code deployed and the database in place, the app is almost ready to use
     cd $APP_PATH
     ```
 
-1. Install the app's requirements:
+1. Activate the virtual environment
 
     ```bash
-    pip install -r requirements.txt
+    source /antenv/bin/activate
     ```
 
 1. Run database migrations:
@@ -207,7 +207,7 @@ With the code deployed and the database in place, the app is almost ready to use
     python manage.py migrate
     ```
 
-    If you encounter any errors related to connecting to the database, check the values of the applicaton settings created in [Connect the database](#connect-the-database).
+    If you encounter any errors related to connecting to the database, check the values of the application settings created in [Connect the database](#connect-the-database).
 
 1. Create an administrator login for the app:
 
@@ -247,9 +247,9 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Change into the app folder with `cd $APP_PATH`.
 
-1. Run the migrations again with `python manage.py migrate`.
+1. Activate the virtual environment with `source /antenv/bin/activate`.
 
-    If you see error "Could not import django", run `pip install -r requirements.txt` and the run `python manage.py migrate` again.
+1. Run the migrations again with `python manage.py migrate`.
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
