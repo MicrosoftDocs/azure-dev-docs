@@ -2,13 +2,19 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: reference
-ms.date: 12/08/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
 ---
 
 # Common top tasks for JavaScript developers
 
 Find an example of your current task.
+
+## App registration
+
+|Task|using|
+|--|--|
+|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
 
 ## Application settings
 
@@ -18,6 +24,14 @@ Find an example of your current task.
 |Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
 |Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
 |Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
+
+## Authentication
+
+|Task|using|
+|--|--|
+|Microsoft Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
+|Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
+|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)|
 
 ## Azure Resource Groups
 
@@ -30,6 +44,7 @@ Find an example of your current task.
 
 |Task|using|
 |--|--|
+|Create React app targeting TypeScript language|[Bash](../tutorial/single-page-application-azure-login-button-sdk-msal.md#4-create-react-single-page-application-for-typescript)|
 |Create Static web app|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
 
@@ -69,6 +84,14 @@ Find an example of your current task.
 |Task|using|
 |--|--|
 |Clone GitHub repo|[Visual Studio Code](../tutorial/browser-file-upload-azure-storage-blob.md#2-clone-and-run-the-initial-react-app)|
+
+## Samples supporting these tasks
+
+|Name | Description|
+|--|--|
+|Build and deploy a Static Web app to Azure|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services.md)|
+|Upload file to Azure Storage Blobs|This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs.<br>[Tutorial](../tutorial/browser-file-upload-azure-storage-blob.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob.md)|
+|Add login button to client application|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|
 
 ## Next steps
 

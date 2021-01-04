@@ -10,7 +10,7 @@ ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
 
 Azure authentication presented in this TypeScript tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 
-* [Source code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
+* [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
 
 ## Application architecture and functionality
 
@@ -34,7 +34,7 @@ Verify the following is installed on your local computer.
 
 ## 2. Keep value for environment variable
 
-Set aside a place to copy the app client ID value. 
+Set aside a place to copy your App registration's client ID value, such as a text file. You will get this client id in step 5 of the next section. The value will be used as an environment variable for the web app.  
 
 ## 3. Create App registration for authentication
 
@@ -62,17 +62,17 @@ Set aside a place to copy the app client ID value.
    npx create-react-app tutorial-demo-login-button --template typescript
    ```
 
-1. Change into the new directory and install the `@azure/msal-browser` package:
+1. Change into the new directory and install the `@azure/msal-browser` authentication package:
 
    ```bash
    cd tutorial-demo-login-button && npm install @azure/msal-browser
    ```
 
-1. Create a `.env` at the root level file and add the following lines:
+1. Create a `.env` file at the root level and add the following line:
 
     :::code language="env" source="~/../js-e2e-client-azure-login-button/.env"  :::
 
-    The `.env` file is read as part of the create-react-app framework.
+    The `.env` file is read as part of the create-react-app framework. This file is where you can store the client id for local development. 
 
 1. Copy your Application (client) ID into the second value.
 
