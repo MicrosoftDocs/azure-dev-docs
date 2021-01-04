@@ -3,7 +3,7 @@ title: "Step 6: Add a second Python serverless function to Azure Functions with 
 description: Tutorial step 6, expanding an Azure Functions project by adding a second serverless function.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019, contperfq2
+ms.custom: devx-track-python, seo-python-october2019, contperf-fy21q2
 ---
 
 # 6: Add a second Python function to Azure Functions
