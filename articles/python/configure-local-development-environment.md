@@ -172,6 +172,11 @@ The `az ad create-for-rbac` command creates a service principal for "role-based 
 
     In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
 
+    > [!WARNING]
+    >  When you create a service principal using `az ad sp create-for-rbac`, the output includes credentials that you must protect, such as a password, client secret, or certificate. Do not store these credentials in code or any file that's committed to source control.
+    > By default, `az ad sp create-for-rbac assigns` the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
+    > For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a a specific service principal.
+
     > [!IMPORTANT]
     > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
 
