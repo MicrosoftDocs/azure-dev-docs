@@ -69,7 +69,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.9](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.9) |  |  |
 | AutoRest - Modeler Four | npm [4.1.60](https://www.npmjs.com/package/@autorest/modelerfour/v/4.1.60) |  | GitHub [4.1.60](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.406](https://www.npmjs.com/package/@autorest/powershell/v/3.0.406) |  | GitHub [3.0.406](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.406](https://www.npmjs.com/package/@autorest/powershell/v/3.0.406) |  | GitHub [3.0.406](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.5.0](https://www.npmjs.com/package/@autorest/python/v/5.5.0) |  | GitHub [5.5.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -199,7 +199,7 @@
 | Connectors - FTP | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-ftp/v/0.0.1-alpha) |  |  |
 | Connectors - Fulcrum | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-fulcrum/v/0.0.1-alpha) |  |  |
 | Connectors - GetMyInvoices | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-getmyinvoices/v/0.0.1-alpha) |  |  |
-| Connectors - Github | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-github/v/0.0.1-alpha) |  |  |
+| Connectors - GitHub | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-github/v/0.0.1-alpha) |  |  |
 | Connectors - Gmail | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-gmail/v/0.0.1-alpha) |  |  |
 | Connectors - GoFileRoom | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-gofileroom/v/0.0.1-alpha) |  |  |
 | Connectors - Google Calendar | npm [0.0.1-alpha](https://www.npmjs.com/package/@azure/connectors-googlecalendar/v/0.0.1-alpha) |  |  |
@@ -483,7 +483,7 @@
 | Tools - ADL Types ARM | npm [0.1.205](https://www.npmjs.com/package/@azure-tools/adl.types.arm/v/0.1.205) |  | GitHub [0.1.205](https://github.com/Azure/adl/tree/master/adl) |
 | Tools - ADL Types Core | npm [0.1.211](https://www.npmjs.com/package/@azure-tools/adl.types.core/v/0.1.211) |  | GitHub [0.1.211](https://github.com/Azure/adl/tree/master/adl) |
 | Tools - Async IO | npm [3.0.252](https://www.npmjs.com/package/@azure-tools/async-io/v/3.0.252) |  | GitHub [3.0.252](https://github.com/Azure/perks/tree/master/async-io) |
-| Tools - Autorest Extension Base | npm [3.1.266](https://www.npmjs.com/package/@azure-tools/autorest-extension-base/v/3.1.266) |  | GitHub [3.1.266](https://github.com/Azure/perks/tree/master/autorest-extension-base) |
+| Tools - AutoRest Extension Base | npm [3.1.266](https://www.npmjs.com/package/@azure-tools/autorest-extension-base/v/3.1.266) |  | GitHub [3.1.266](https://github.com/Azure/perks/tree/master/autorest-extension-base) |
 | Tools - Azcopy Darwin | npm [10.5.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.5.0) |  | GitHub [10.5.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Linux | npm [10.5.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.5.0) |  | GitHub [10.5.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Node | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-storage-azcopy) |
@@ -546,7 +546,7 @@
 | Resource Management - Databricks | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-databricks/v/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/databricks/arm-databricks) |
 | Resource Management - Deployment Manager | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-deploymentmanager/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/deploymentmanager/arm-deploymentmanager) |
 | Resource Management - Dev Spaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-devspaces/v/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/devspaces/arm-devspaces) |
-| Resource Management - Dev Test Labs | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/3.2.0) | [docs](/javascript/api/overview/azure/devtest-labs) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/devtestlabs/arm-devtestlabs) |
+| Resource Management - DevTest Labs | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/3.2.0) | [docs](/javascript/api/overview/azure/devtest-labs) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/devtestlabs/arm-devtestlabs) |
 | Resource Management - Device Provisioning Services | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/deviceprovisioningservices/arm-deviceprovisioningservices) |
 | Resource Management - Digital Twins | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-digitaltwins/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins) |
 | Resource Management - DNS | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-dns/v/4.0.0) | [docs](/javascript/api/overview/azure/dns) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/dns/arm-dns) |
