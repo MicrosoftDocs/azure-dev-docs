@@ -60,7 +60,7 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetNotificationsSupportError());
 
-                if (string.isNullOrWhitespace(Token))
+                if (string.IsNullOrWhitespace(Token))
                     throw new Exception("Unable to resolve token for APNS");
 
                 var installation = new DeviceInstallation
