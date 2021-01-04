@@ -137,7 +137,7 @@ The `az ad create-for-rbac` command creates a service principal for "role-based 
 
 - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. ForSee [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
+- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
 - The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
 
