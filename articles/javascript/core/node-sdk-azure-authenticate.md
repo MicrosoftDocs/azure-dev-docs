@@ -2,14 +2,13 @@
 title: Authenticate with the Azure management modules for Node.js
 description: Authenticate with a service principal into the Azure management modules for Node.js
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 01/04/2020
 ms.custom: devx-track-js
 ---
 
 # Authenticate with the Azure management modules for JavaScript
 
-All [SDK client libraries](../azure-sdk-library-package-index.md) require authentication via a `credentials` object when being
-instantiated. There are multiple ways of authenticating and creating the required
+All [SDK client libraries](../azure-sdk-library-package-index.md) require authentication via a `credentials` object. There are multiple ways of authenticating and creating the required
 credentials.
 
 Authentication, like all software and services, has been improved over the years. It is important to know which authentication library your service or services 
@@ -21,7 +20,7 @@ The authentication libraries include the following:
 * @azure/ms-rest-nodeauth
 * @azure/ms-rest-browserauth
 
-Older authentication packages are in use. If you are using those packages, you should consider migrating off the older authentication methods for a more security and robust experience. 
+Older authentication packages are in use. If you are using those packages, you should consider migrating off the older authentication methods for a more secure and robust experience. 
 
 ## Best practices with Azure SDK client library authentication
 
@@ -32,6 +31,8 @@ Each npm package will show authentication for that exact client library. Do not 
 The Azure Identity library is the newest authentication package for Azure. Review the [list of supported libraries](https://www.npmjs.com/package/@azure/identity#client-libraries-supporting-authentication-with-azure-identity) using Azure Identity.
 
 The [@azure/identity](https://www.npmjs.com/package/@azure/identity) library simplifies authentication against Azure Active Directory for Azure SDK libraries. It provides a set of TokenCredential implementations, which can be passed into SDK libraries to authenticate API requests. It supports token authentication using an Azure Active Directory service principal or managed identity.
+
+The following JavaScript example code demonstrates how to use the Azure Identity library to create a Default Azure Credential, then use this credential to access an Azure Storage resource.
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -48,18 +49,21 @@ const blobServiceClient = new BlobServiceClient(
 ```
 
 ## Azure ms-rest-* libraries
-With the `@azure` scoped [client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
+With the modern `@azure` scoped [client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
+
+The following JavaScript example code demonstrates how to use the modern Azure authentication library with an interactive login to get a credential.
 
 ```javascript
 const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
 msRestNodeAuth.interactiveLogin().then((credential) => {
-}).catch((err) => {
     // service code goes here
+}).catch((err) => {
+    // error code goes here
     console.error(err);
 });
 ```
 
-You pass that credential to a specific Azure service client library, such as the Storage service used in this next code sample. The client library takes the credential, and generates a token for you. The service uses the token to validate your requests. 
+You pass that credential to a specific Azure service client library, such as the Storage service used in this next code sample. The client library takes the credential, and generates a token for you. The service uses the token to validate service-level authentication for your requests. 
 
 ```javascript
 // service code - this is an example only and not best practices for code flow
@@ -78,8 +82,10 @@ The client library manages the token, and knows when to refresh the token. You, 
 Older Azure SDK clients will eventually migrate to the new modern authentication used above. Until that migration, the older client libraries use different authentication clients or may authentication with an entirely separate mechanism entirely such as resource keys. 
 
 For best results with older client libraries: 
-* Each npm package will show authentication for that exact client library. 
-* If your current code uses the `@azure/ms
+* Each npm package will show authentication for that exact client library.  
+* If your current code uses the modern `@azure/ms-*` libraries and the older authentication libraries in the same code base:
+    * Make sure the older, non-azure scoped library is the most recent for your service. This should be documented on the service's documentation page. 
+    * If you will need to continue to use a mix of modern and older authentication libraries, you may need to provide credential expiration and refreshing for the older library to match any application logic in your code base. 
 
 ## Authentication with Azure services while developing
 
