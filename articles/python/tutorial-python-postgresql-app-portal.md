@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
 description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-python
 ---
 
@@ -190,16 +190,10 @@ With the code deployed and the database in place, the app is almost ready to use
 1. In the console, change into the web app's folder:
 
     ```bash
-    cd site/wwwroot
+    cd $APP_PATH
     ```
 
-1. Activate the container's virtual environment:
-
-    ```bash
-    source /antenv/bin/activate
-    ```
-
-1. Install Python packages:
+1. Install the app's requirements:
 
     ```bash
     pip install -r requirements.txt
@@ -247,11 +241,11 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations).
 
-1. Change into the app folder with `cd site/wwwroot`.
-
-1. Activate the virtual environment with `source /antenv/bin/activate`.
+1. Change into the app folder with `cd $APP_PATH`.
 
 1. Run the migrations again with `python manage.py migrate`.
+
+    If you see an error that the Django modules is not found, run `pip install -r requirements.txt` and the run `python manage.py migrate` again.
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
