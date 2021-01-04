@@ -32,8 +32,6 @@ The Azure Identity library is the newest authentication package for Azure. Revie
 
 The [@azure/identity](https://www.npmjs.com/package/@azure/identity) library simplifies authentication against Azure Active Directory for Azure SDK libraries. It provides a set of TokenCredential implementations, which can be passed into SDK libraries to authenticate API requests. It supports token authentication using an Azure Active Directory service principal or managed identity.
 
-The following JavaScript example code demonstrates how to use the Azure Identity library to create a Default Azure Credential, then use this credential to access an Azure Storage resource.
-
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
 const { BlobServiceClient } = require("@azure/storage-blob");
@@ -48,10 +46,10 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
+The preceding JavaScript example code demonstrates how to use the Azure Identity library to create a Default Azure Credential, then use this credential to access an Azure Storage resource.
+
 ## Azure ms-rest-* libraries
 With the modern `@azure` scoped [client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
-
-The following JavaScript example code demonstrates how to use the modern Azure authentication library with an interactive login to get a credential.
 
 ```javascript
 const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
@@ -63,7 +61,7 @@ msRestNodeAuth.interactiveLogin().then((credential) => {
 });
 ```
 
-You pass that credential to a specific Azure service client library, such as the Storage service used in this next code sample. The client library takes the credential, and generates a token for you. The service uses the token to validate service-level authentication for your requests. 
+The preceding JavaScript example code demonstrates how to use the modern Azure authentication library with an interactive login to get a credential.
 
 ```javascript
 // service code - this is an example only and not best practices for code flow
@@ -74,6 +72,8 @@ billingManagementClient.enrollmentAccounts.list().then((enrollmentList) => {
     console.log(result);
 })
 ```
+
+The preceding JavaScript example code shows how you pass that credential to a specific Azure service client library, such as the Storage service used in this next code sample. The client library takes the credential, and generates a token for you. The service uses the token to validate service-level authentication for your requests. 
 
 The client library manages the token, and knows when to refresh the token. You, as the developer with your code base, don't have to manage this.
 
