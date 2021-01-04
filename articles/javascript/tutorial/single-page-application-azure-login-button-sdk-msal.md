@@ -34,7 +34,7 @@ Verify the following is installed on your local computer.
 
 ## 2. Keep value for environment variable
 
-Set aside a place to copy your App registration's client ID value, such as a text file. You will get this client id in step 5 of the next section. The value will be used as an environment variable for the web app.  
+Set aside a place to copy your App registration's client ID value, such as a text file. You will get this client ID in step 5 of the next section. The value will be used as an environment variable for the web app.  
 
 ## 3. Create App registration for authentication
 
@@ -72,7 +72,7 @@ Set aside a place to copy your App registration's client ID value, such as a tex
 
     :::code language="env" source="~/../js-e2e-client-azure-login-button/.env"  :::
 
-    The `.env` file is read as part of the create-react-app framework. This file is where you can store the client id for local development. 
+    The `.env` file is read as part of the create-react-app framework. This file is where you can store the client ID for local development. 
 
 1. Copy your Application (client) ID into the second value.
 
