@@ -249,7 +249,7 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Run the migrations again with `python manage.py migrate`.
 
-    If you see an error that the Django modules is not found, run `pip install -r requirements.txt` and the run `python manage.py migrate` again.
+    If you see error "Could not import django", run `pip install -r requirements.txt` and the run `python manage.py migrate` again.
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
 
