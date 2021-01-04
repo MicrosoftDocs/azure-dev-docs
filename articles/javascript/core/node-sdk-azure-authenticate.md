@@ -84,7 +84,7 @@ Older Azure SDK clients will eventually migrate to the new modern authentication
 For best results with older client libraries: 
 * Each npm package will show authentication for that exact client library.  
 * If your current code uses the modern `@azure/ms-*` libraries and the older authentication libraries in the same code base:
-    * Make sure the older, non-azure scoped library is the most recent for your service. This should be documented on the service's documentation page. 
+    * Make sure the older, non-azure scoped library is the most recent for your service. This is noted in the service's documentation. 
     * If you will need to continue to use a mix of modern and older authentication libraries, you may need to provide credential expiration and refreshing for the older library to match any application logic in your code base. 
 
 ## Authentication with Azure services while developing
