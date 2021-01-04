@@ -43,7 +43,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Select **Create a resource**, which opens the **New** page.
 
-1. Search for and select **Web App**.
+1. Search for and select **Web App**, then select **Create**.
 
 1. On the **Create Web App** page, enter the following information:
 
@@ -70,7 +70,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Select **Create a resource**, which opens the **New** page.
 
-1. Search for and select **Azure Database for PostgreSQL**.
+1. Search for and select **Azure Database for PostgreSQL**, then select **Create**.
 
 1. On the next page, select **Create** under **Single server**.
 
@@ -165,6 +165,8 @@ With the database and connection settings in place, you can now configure the we
 
 1. In the **Source Control** step, select **GitHub** and then **Authorize** (if necessary). Then follow the sign-in prompts or select **Continue** to use your current GitHub login.
 
+    If you see a popup window that says authentication succeeded, but the portal still shows the Authorize button, refresh the page and your GitHub login should appear in the GitHub box. Select the GitHub box again, then select **Continue**.
+
 1. In the **Build Provider** step, select **App Service build service**, then select **Continue**.
 
 1. In the **Configure** step, select the following values:
@@ -205,6 +207,8 @@ With the code deployed and the database in place, the app is almost ready to use
     python manage.py migrate
     ```
 
+    If you encounter any errors related to connecting to the database, check the values of the applicaton settings created in [Connect the database](#connect-the-database).
+
 1. Create an administrator login for the app:
 
     ```bash
@@ -221,9 +225,9 @@ You're now ready to run a quick test of the app to demonstrate that it is workin
 
 1. In the browser window or tab for the web app, return to the **Overview** page, then select the **URL** for the web app (of the form `http://<app-name>.azurewebsites.net`).
 
-1. The app should display the message "No polls are available" because there are no specific polls yet in the database.
+1. The app should display the message "Polls app" and "No polls are available" because there are no specific polls yet in the database.
 
-1. Browse to `http://<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the superuser credentials from the previous section (`root` and `Pollsdb1`).
+1. Browse to `http://<app-name>.azurewebsites.net/admin` (the "Django Administration" page) and sign in using the Django superuser credentials from the previous section (`root` and `Pollsdb1`).
 
 1. Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
