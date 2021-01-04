@@ -174,7 +174,7 @@ The `az ad create-for-rbac` command creates a service principal for "role-based 
 
     > [!WARNING]
     >  When you create a service principal using `az ad sp create-for-rbac`, the output includes credentials that you must protect, such as a password, client secret, or certificate. Do not store these credentials in code or any file that's committed to source control.
-    > By default, `az ad sp create-for-rbac assigns` the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
+    > By default, `az ad sp create-for-rbac` assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
     > For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a a specific service principal.
 
     > [!IMPORTANT]
