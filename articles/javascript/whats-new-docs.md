@@ -9,6 +9,15 @@ ms.date: 12/18/2020
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 January
+
+### What's updated
+
+Getting started
+|Name|Notes|
+|---------------------------------------|--|
+|[Learn development for beginners](whats-new-docs.md#getting-started)||
+
 ## 2020 December
 
 ### What's new

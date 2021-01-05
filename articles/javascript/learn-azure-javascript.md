@@ -2,7 +2,7 @@
 title: Learn to develop with Azure and JavaScript 
 description: Use the Microsoft Learn platform to expand your understanding of Azure with JavaScript
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 01/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -18,6 +18,13 @@ Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your 
 * [Build a web API with Node.js and Express](/learn/modules/build-web-api-nodejs-express/) 
 * [Work with files and directories in a Node.js app](/learn/modules/nodejs-files/)
 * [Interactively debug Node.js apps with the built-in and Visual Studio Code debuggers](/learn/modules/debug-nodejs/)
+
+## Getting started
+
+* [JavaScript for beginners](https://techcommunity.microsoft.com/t5/apps-on-azure/learn-javascript-with-this-series-of-videos-for-beginners/ba-p/1764635)
+* [Web development for beginners](https://github.com/microsoft/Web-Dev-For-Beginners)
+* [3D apps with Babylon.js](https://techcommunity.microsoft.com/t5/apps-on-azure/a-first-introduction-to-building-3d-applications-with-javascript/ba-p/1877650)
+* [Node.js for beginners](https://techcommunity.microsoft.com/t5/apps-on-azure/learn-node-js-with-this-series-of-short-videos-for-beginners/ba-p/1771830)
 
 ## JavaScript on Azure
 
