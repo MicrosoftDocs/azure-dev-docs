@@ -86,7 +86,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Configure deployment||[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#5-configure-the-azure-app-service-webapp)
 |Deploy app|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md)|
-|View app in browser|[Azure CLI](../tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md#browse-web-app)|
+|View app in browser|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md#browse-web-app)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
@@ -101,14 +101,14 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## Containers
 
-Check [Docker tasks](#Docker) if you didn't find what you were looking for. 
+Check [Docker tasks](#docker) if you didn't find what you were looking for. 
 
 |Task|using|
 |--|--|
 |Create container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md#create-an-azure-container-registry)|
 |Push image to registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#push-the-image-to-a-registry)|
 |Enable admin access to registry|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#enable-admin-access-on-the-registry)|
-|Deploy image to app service|[](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md?branch=main#deploy-image)|
+|Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md?branch=main#deploy-image)|
 
 
 ## Databases
@@ -120,7 +120,7 @@ Check [Docker tasks](#Docker) if you didn't find what you were looking for.
 
 ## Docker
 
-Check [Container tasks](#Container) if you didn't find what you were looking for. 
+Check [Container tasks](#container) if you didn't find what you were looking for. 
 
 |Task|using|
 |--|--|
