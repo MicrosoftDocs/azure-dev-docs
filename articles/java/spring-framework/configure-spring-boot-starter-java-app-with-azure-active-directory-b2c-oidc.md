@@ -233,7 +233,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
 7. Save and close the *application.yml* file.
 
-8. Create a folder named *controller* in *src/main/java/<yourGroupId>/<yourGroupId>*, replacing `<yourGroupId>` with the value you entered for **Group**.
+8. Create a folder named *controller* in *src/main/java/\<yourGroupId\>/\<yourGroupId\>*, replacing `<yourGroupId>` with the value you entered for **Group**.
 
 9. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
 
@@ -285,7 +285,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
     Because every method in the controller calls `initializeModel()`, and that method calls `model.addAllAttributes(user.getAttributes());`, any HTML page in *src/main/resources/templates* is able to access any of those attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`. The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication. The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
-11. Create a folder named *security* in *src/main/java/<yourGroupId>/<yourGroupId>*, replacing `yourGroupId` with the value you entered for **Group**.
+11. Create a folder named *security* in *src/main/java/\<yourGroupId\>/\<yourGroupId\>*, replacing `yourGroupId` with the value you entered for **Group**.
 
 12. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
 
