@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Logging with the logback logging framework
 
-As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [logback](http://logback.qos.ch/) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often times the best choice is the one you probably already have, whether you know it or not, thanks to third party dependencies sometimes being opinionated in this regard.
+As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [logback](http://logback.qos.ch/) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often the best choice is the one you probably already have, whether you know it or not, thanks to third-party dependencies sometimes being opinionated in this regard.
 
 To enable logback logging, developers must do two things:
 
@@ -37,7 +37,7 @@ This file will contain the logging configurations to customize your logging need
 
 ### Console logging
 
-A simple logback configuration to log to console can be configured as shown below. Note that it is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
+A simple logback configuration to log to console can be configured as shown below. It is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +56,7 @@ A simple logback configuration to log to console can be configured as shown belo
 </configuration>
 ```
 
-### Logging azure core errors
+### Logging Azure core errors
 
 The example configuration below is similar to the previous configuration, but it lowers the level at which logging coming from all `com.azure.core` packaged classes (including subpackages), so that everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher will be logged. This can be used by developers who find the code in `com.azure.core` to be too noisy, for example. This kind of configuration can also go both ways - if developers want to get more debug information from classes in `com.azure.core`, they could set this to DEBUG, for example.
 

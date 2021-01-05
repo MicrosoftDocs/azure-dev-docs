@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 ## HTTP clients
 
-The Azure SDK for Java is implemented using an `HttpClient` abstraction, enabling a pluggable architecture that accepts multiple HTTP client libraries, as well as custom implementations when the need arises. However, to make dependency management simpler for most users, all Azure client libraries depend on `azure-core-http-netty`, resulting in the [Netty](https://netty.io) HTTP client being the default client used in all Azure libraries for Java.
+The Azure SDK for Java is implemented using an `HttpClient` abstraction, enabling a pluggable architecture that accepts multiple HTTP client libraries, and custom implementations when the need arises. However, to make dependency management simpler for most users, all Azure client libraries depend on `azure-core-http-netty`, resulting in the [Netty](https://netty.io) HTTP client being the default client used in all Azure libraries for Java.
 
 Despite Netty being the default HTTP client used by all Azure client libraries, there are three implementations available for use by developers, depending on which dependencies they already have in their project. These are implementations for:
 
@@ -20,7 +20,7 @@ Despite Netty being the default HTTP client used by all Azure client libraries, 
 
 ### Replacing the Default HTTP Client
 
-The dependency on Netty is removable if another implementation is preferred. This is done by excluding the Netty dependency in build configuration files. In a Maven pom.xml, you would exclude the Netty dependency, and substitute another dependency. Note that the following example shows how the Netty dependency is excluded from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as such:
+The dependency on Netty is removable if another implementation is preferred. This is done by excluding the Netty dependency in build configuration files. In a Maven pom.xml, you would exclude the Netty dependency, and substitute another dependency. The following example shows how the Netty dependency is excluded from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as such:
 
 ```xml
 <dependency>
@@ -123,7 +123,7 @@ So, when building the HTTP pipeline, it is necessary to understand whether a pol
 
 ### Common HTTP pipeline policies
 
-HTTP pipeline for REST-based services are generally configured with policies for authentication, retries, logging, telemetry and specifying request id in the header. Azure Core is pre-loaded with these commonly required HTTP policies that can be added to the pipeline.
+HTTP pipelines for REST-based services are generally configured with policies for authentication, retries, logging, telemetry and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that can be added to the pipeline.
 
 | Policy                | GitHub link        |
 |-----------------------|--------------------|

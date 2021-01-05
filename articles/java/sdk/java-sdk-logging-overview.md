@@ -13,7 +13,7 @@ The Azure client libraries for Java have two logging options:
 * A built-in logging framework for temporary debugging purposes.
 * Support for logging using the [SLF4J](https://www.slf4j.org/) interface.
 
-It is recommended that developers use the SLF4J functionality, as this is well-known through the Java ecosystem and there exists significant documentation on making use of this. For starters, consider referring to the [SLF4J manual](https://www.slf4j.org/manual.html). Further down this document there are links to configuration examples for many of the popular Java logging frameworks and how they may be used by the Azure client libraries.
+It is recommended that developers use the SLF4J functionality, as this is well known through the Java ecosystem and there exists significant documentation on making use of this. For starters, consider referring to the [SLF4J manual](https://www.slf4j.org/manual.html). Further down this document there are links to configuration examples for many of the popular Java logging frameworks and how they may be used by the Azure client libraries.
 
 Regardless of logging configuration used, the same log output will be available in either case, as all logging output in the Azure client libraries for Java is routed through an azure-core `ClientLogger` abstraction.
 
@@ -30,11 +30,11 @@ As noted, all Azure client libraries use SLF4J for logging, but there is a fallb
 | WARNING                | "warn", "warning"                       |  
 | ERROR                  | "err", "error"                          |
 
-After the environment variable is set, restarting the application will enable the environment variable to take effect. Note that enabling this logger will log to the console and does not provide additional customization capabilities like rollover, logging to file, etc. that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
+After the environment variable is set, restarting the application will enable the environment variable to take effect. Enabling this logger will log to the console and does not provide additional customization capabilities like rollover, logging to file, etc. that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
 
 ## SLF4J logging
 
-By default, logging should be configured using an SLF4J-supported logging framework. This starts by including a [relevant SLF4J logging implementation as a dependency from your project](http://www.slf4j.org/manual.html#projectDep), but then continues onward to configuring your logger to work as necessary in your environment (such as setting log levels, configuring which classes do and do not log, etc). Some examples are provided below, but for more detail, refer to the documentation for your chosen logging framework.
+By default, logging should be configured using an SLF4J-supported logging framework. This starts by including a [relevant SLF4J logging implementation as a dependency from your project](http://www.slf4j.org/manual.html#projectDep), but then continues onward to configuring your logger to work as necessary in your environment (such as setting log levels, configuring which classes do and do not log, etc.). Some examples are provided below, but for more detail, refer to the documentation for your chosen logging framework.
 
 ## Next steps
 

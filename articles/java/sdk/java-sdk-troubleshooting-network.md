@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Troubleshooting networking issues
 
-The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging.md) to enable client side troubleshooting. But, the client libraries make network calls over various protocols which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexity. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
+The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
 
 ## Fiddler
 
@@ -44,14 +44,11 @@ This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-gu
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring
-changes to application code. Wireshark is highly configurable and is able to capture very broad to very specific low level network traffic which allows it to aid
-in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures
-using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, etc. Captures can also be filtered either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture very broad to very specific low-level network traffic which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, etc. Captures can also be filtered either at capture time or during analysis.
 
 ### Configuring a capture filter
 
-Capture filters reduce the amount of network calls that are captured for analysis. Without capture filters Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation.
+Capture filters reduce the number of network calls that are captured for analysis. Without capture filters Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) on configuring traffic capture filters.
 
@@ -59,7 +56,7 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 This example adds a capture filter to capture network sent to or received from a specific host.
 
-In Wireshark navigate to `Capture > Capture Filters...` and add a new filter with the value `host <host IP or hostname>`. This will add a filter to only capture traffic to and from that host. If the application communicates to multiple hosts multiple catpure filters can be added or the host IP/hostname can be `or`'d to provide looser capture filtering.
+In Wireshark navigate to `Capture > Capture Filters...` and add a new filter with the value `host <host IP or hostname>`. This will add a filter to only capture traffic to and from that host. If the application communicates to multiple hosts multiple capture filters can be added or the host IP/hostname can be `or`'d to provide looser capture filtering.
 
 ### Capturing to disk
 
