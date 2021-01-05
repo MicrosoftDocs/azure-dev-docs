@@ -12,6 +12,8 @@ Deploy the Express.js application which connects to MongoDB to Azure App Service
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
+* **[Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)**
+
 ## Top tasks
 
 This tutorial includes several **top Azure tasks** for JavaScript developers:
@@ -22,7 +24,7 @@ This tutorial includes several **top Azure tasks** for JavaScript developers:
 
 ## Sample application
 
-The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mongo)consists of the following elements:
+The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mongo) consists of the following elements:
 
 * **Express.js server** hosted on port 8080
 * Simple **React.js server-side view** engine

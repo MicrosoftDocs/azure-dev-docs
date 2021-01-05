@@ -3,7 +3,7 @@ title: "Step 5: Deploy serverless Azure Functions in Python with VS Code"
 description: Tutorial step 5, deploying Python serverless function code to Azure and learning how to stream logs and sync settings between a local project and Azure.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019, contperfq2
+ms.custom: devx-track-python, seo-python-october2019, contperf-fy21q2
 ---
 
 # 5: Deploy Azure Functions in Python

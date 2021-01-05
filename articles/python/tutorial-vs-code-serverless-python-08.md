@@ -3,7 +3,7 @@ title: "Step 8: Clean up resources used with serverless Python code in Azure Fun
 description: Tutorial step 8, cleaning up Azure resources to avoid incurring ongoing charges.
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.custom: devx-track-python, seo-python-october2019, contperfq2
+ms.custom: devx-track-python, seo-python-october2019, contperf-fy21q2
 ---
 
 # 8: Clean up Azure resources for Azure Functions

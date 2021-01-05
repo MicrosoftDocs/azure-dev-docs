@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
-ms.date: 05/29/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -131,13 +131,13 @@ Each developer in your organization should perform these steps individually.
 
 #### What the create-for-rbac command does
 
-The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC).
+The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
 
 - `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command reference.
 
 - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. Different quickstarts and tutorials provide details for authorizing a service principal for the resources involved.
+- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
 - The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
 
@@ -171,6 +171,11 @@ The `az ad create-for-rbac` command creates a service principal for "role-based 
     </pre>
 
     In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+
+    > [!WARNING]
+    >  When you create a service principal using `az ad sp create-for-rbac`, the output includes credentials that you must protect, such as a password, client secret, or certificate. Do not store these credentials in code or any file that's committed to source control.
+    > By default, `az ad sp create-for-rbac` assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
+    > For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a a specific service principal.
 
     > [!IMPORTANT]
     > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
