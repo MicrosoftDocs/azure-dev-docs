@@ -2,7 +2,7 @@
 title: SSH to virtual machine
 description: Use SSH to connect to your Linux virtual machine.  If you are using a modern Mac, Windows, or Linux operating system, the terminal-based client SSH should already be installed.
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -46,11 +46,15 @@ Use the same terminal or shell window as with previous steps.
     -rw-r--r--   1 root root   697 Nov 11 20:23 readme.md
     ```
 
-1. Install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
+## Install Monitoring SDK
 
-    ```bash
-    sudo npm install --save applicationinsights
-    ```
+Install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
+
+```bash
+sudo npm install --save applicationinsights
+```
+
+## Add Monitoring instrumentation key
 
 1. Use [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to change the `package.json` file.
 
