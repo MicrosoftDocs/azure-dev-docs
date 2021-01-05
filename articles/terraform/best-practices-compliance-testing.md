@@ -138,6 +138,12 @@ In this section, you'll download and test the example.
     terraform plan -out tf.out
     ```
     
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to json for the compliance step.
+
+    ```bash
+    terraform show -json tf.out > tf.out.json
+    ```
+
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```bash
@@ -153,7 +159,7 @@ In this section, you'll download and test the example.
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. The first rule requiring existence of tags succeeds. However, the second rule fails in that the `Role` and `Creator` tags are missing.
 
     ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out.json
     ```
     
     ![Example of a failed test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
@@ -181,11 +187,17 @@ In this section, you'll download and test the example.
     ```bash
     terraform plan -out tf.out
     ```
+
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to json for the compliance step.
+
+    ```bash
+    terraform show -json tf.out > tf.out.json
+    ```
     
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. This time, the test succeeds as the full spec has been implemented.
 
     ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out.json
     ```
 
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
