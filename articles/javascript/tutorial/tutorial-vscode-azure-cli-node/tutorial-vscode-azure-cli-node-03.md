@@ -52,9 +52,9 @@ az webapp create --name <your_app_name> --plan myPlan -g --runtime "node|12-lts"
 
 1. Run the following Azure CLI command, [`az webapp browse`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_browse), to open a browser to the newly created App Service, again replacing `<your_app_name>` with the name you used:
 
-```azurecli
-az webapp browse --name <your_app_name>
-```
+    ```azurecli
+    az webapp browse --name <your_app_name>
+    ```
 
 1. Because you haven't deployed any custom code for the app you, the browser should show a default page:
 
