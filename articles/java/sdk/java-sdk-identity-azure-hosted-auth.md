@@ -1,9 +1,11 @@
 ---
 title: Authenticating Azure Hosted Applications
 description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
+author: g2vinay
 ms.date: 01/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: vigera
 ---
 
 # Authenticating Azure Hosted Applications

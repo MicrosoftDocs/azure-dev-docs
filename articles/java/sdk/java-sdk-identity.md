@@ -1,9 +1,11 @@
 ---
 title: Authenticate with Azure using Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
+author: g2vinay
 ms.date: 01/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: vigera
 ---
 
 # Authenticate with Azure using Azure Identity

@@ -1,9 +1,11 @@
 ---
 title: Use the Azure Libraries for Java
 description: Overview of the features and capabilities of the Azure libraries for Java that helps developers be more productive when provisioning, using, and managing Azure resources.
+author: jonathangiles
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: jogiles
 ---
 
 # Use the Azure Libraries for Java

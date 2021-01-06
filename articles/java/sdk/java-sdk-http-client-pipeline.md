@@ -1,9 +1,11 @@
 ---
 title: HTTP clients & pipeline
 description: An overview of the Azure SDK for Java concepts related to HTTP clients and pipelines
+author: srnagar
 ms.date: 01/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: srnagar
 ---
 
 # HTTP clients & pipeline

@@ -1,9 +1,11 @@
 ---
 title: Long-running operatons
 description: An overview of the Azure SDK for Java concepts related to long-running operatons
+author: anuchandy
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: anuchandy
 ---
 
 # Long-running operations

@@ -1,9 +1,11 @@
 ---
 title: Proxying
 description: An overview of the Azure SDK for Java concepts related to proxying
+author: alzimmermsft
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: alzimmer
 ---
 
 # Proxying

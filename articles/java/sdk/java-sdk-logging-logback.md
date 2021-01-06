@@ -1,9 +1,11 @@
 ---
 title: Logging with the logback logging framework
 description: An overview of the Azure SDK for Java integration with logback
+author: srnagar
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: srnagar
 ---
 
 # Logging with the logback logging framework

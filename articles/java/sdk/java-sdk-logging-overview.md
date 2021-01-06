@@ -1,9 +1,11 @@
 ---
 title: Logging
 description: An overview of the Azure SDK for Java concepts related to logging
+author: srnagar
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
+ms.author: srnagar
 ---
 
 # Logging
