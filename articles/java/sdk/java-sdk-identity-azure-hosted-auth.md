@@ -19,7 +19,7 @@ The Azure Identity library provides Azure Active Directory token authentication 
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
 
-![DefaultAzureCredential authentication flow](https://github.com/Azure/azure-sdk-for-java/raw/master/sdk/identity/azure-identity/images/defaultazurecredential.png)
+![DefaultAzureCredential authentication flow](./media/defaultazurecredential.png)
 
 * Environment - The `DefaultAzureCredential` will read account information specified via [environment variables](#environment-variables) and use it to authenticate.
 * Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` will authenticate with that account.
