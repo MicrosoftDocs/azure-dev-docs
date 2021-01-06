@@ -8,11 +8,11 @@ ms.custom: devx-track-java
 
 # Troubleshooting networking issues
 
-The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
+The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
 
 ## Fiddler
 
-[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. Capturing the raw requests and responses helps aid in troubleshooting scenarios where the service gets an unexpected request or the client receives an unexpected response. To use Fiddler the client library will need to be configured with an HTTP proxy. If HTTPS is being used additional configuration will be needed if the decrypted request and response bodies need to be inspected.
+[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. Capturing the raw requests and responses helps aid in troubleshooting scenarios where the service gets an unexpected request or the client receives an unexpected response. To use Fiddler the client library will need to be configured with an HTTP proxy. If HTTPS is being used, extra configuration will be needed if the decrypted request and response bodies need to be inspected.
 
 ### Adding an HTTP proxy
 
@@ -20,7 +20,7 @@ To add an HTTP proxy, follow the guidance in the [proxy configuration](java-sdk-
 
 ### Enable HTTPS decryption
 
-By default Fiddler is only able to capture HTTP traffic. If your application is using HTTPS, additional steps must be taken to trust Fiddler's certificate to allow it to capture HTTPS traffic.
+By default Fiddler is only able to capture HTTP traffic. If your application is using HTTPS, extra steps must be taken to trust Fiddler's certificate to allow it to capture HTTPS traffic.
 
 This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-guide/settings/https) on trusting Fiddler's certificate. Below will discuss having your JRE trust the certificate. Without trusting the certificate HTTPS request through Fiddler may fail with security warnings.
 
@@ -44,7 +44,7 @@ This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-gu
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture very broad to very specific low-level network traffic which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, etc. Captures can also be filtered either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture broad through to specific low-level network traffic which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, etc. Captures can also be filtered either at capture time or during analysis.
 
 ### Configuring a capture filter
 
@@ -60,7 +60,7 @@ In Wireshark navigate to `Capture > Capture Filters...` and add a new filter wit
 
 ### Capturing to disk
 
-Reproducing unexpected networking exceptions may requiring running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark provides the ability to log the captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
+Reproducing unexpected networking exceptions may requiring running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark is able to log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) on configuring persisting captured traffic to disk.
 

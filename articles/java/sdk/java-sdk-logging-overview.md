@@ -25,12 +25,12 @@ As noted, all Azure client libraries use SLF4J for logging, but there is a fallb
 
 | Log Level              | Allowed Environment Variable Values     |
 |------------------------|-----------------------------------------|
-| VERBOSE                | "verbose", "debug"                      | 
-| INFORMATIONAL          | "info", "information", "informational"  |  
-| WARNING                | "warn", "warning"                       |  
+| VERBOSE                | "verbose", "debug"                      |
+| INFORMATIONAL          | "info", "information", "informational"  |
+| WARNING                | "warn", "warning"                       |
 | ERROR                  | "err", "error"                          |
 
-After the environment variable is set, restarting the application will enable the environment variable to take effect. Enabling this logger will log to the console and does not provide additional customization capabilities like rollover, logging to file, etc. that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
+After the environment variable is set, restarting the application will enable the environment variable to take effect. Enabling this logger will log to the console and does not provide advanced customization capabilities like rollover, logging to file, etc. that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
 
 ## SLF4J logging
 
