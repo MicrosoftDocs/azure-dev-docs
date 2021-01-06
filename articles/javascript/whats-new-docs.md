@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs: "
 description: "What's new in JavaScript docs for October 2020"
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 01/05/2021
 ---
 
 # JavaScript docs: What's new for October 2020
@@ -13,10 +13,10 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ### What's updated
 
-Getting started
 |Name|Notes|
 |---------------------------------------|--|
-|[Learn development for beginners](learn-azure-javascript.md#getting-started)||
+|[**For beginners**](learn-azure-javascript.md#getting-started)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
+|[Common top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
 
 ## 2020 December
 
