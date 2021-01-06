@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Logging with java.util.logging
 
-As mentioned in the [logging overview](logging.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often times the best choice is the one you probably already have, whether you know it or not, thanks to third party dependencies sometimes being opinionated in this regard.
+As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often times the best choice is the one you probably already have, whether you know it or not, thanks to third party dependencies sometimes being opinionated in this regard.
 
 To enable java.util.logging, developers must do two things:
 
@@ -50,7 +50,7 @@ java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$s] %5$s %n
 
 ### Log to a file
 
-In the examples above, logging was to the console, which is not normally the preferred location for logs. To configure logging to a file instead, which will be rolled over after hourly, and archived in gzip format, the following configuration will suffice:
+In the examples above, logging was to the console, which is not normally the preferred location for logs. To configure logging to a file instead, use the following configuration:
 
 ```properties
 handlers = java.util.logging.FileHandler
