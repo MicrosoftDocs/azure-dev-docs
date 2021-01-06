@@ -5,7 +5,7 @@ author: anuchandy
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.author: anuchandy
+ms.author: anuchan
 ---
 
 # Pagination & iteration
