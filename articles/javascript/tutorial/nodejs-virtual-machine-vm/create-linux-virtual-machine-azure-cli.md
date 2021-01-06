@@ -2,7 +2,7 @@
 title: Create Linux virtual machine
 description: Use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud with the Azure CLI on the subscription where you intend to create the virtual machine.
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -28,30 +28,34 @@ The `runcmd` has several tasks:
 
 ## Create a virtual machine resource 
 
-1. Enter the [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
+Enter the [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
-    ```azurecli
-    az vm create \
-      --resource-group rg-demo-vm-eastus \
-      --name demo-vm \
-      --location eastus \
-      --image UbuntuLTS \
-      --admin-username azureuser \
-      --generate-ssh-keys \
-      --custom-data cloud-init-github.txt
-    ```
+```azurecli
+az vm create \
+  --resource-group rg-demo-vm-eastus \
+  --name demo-vm \
+  --location eastus \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --custom-data cloud-init-github.txt
+```
 
-    The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is needed to view the web app in a browser and to connect to the VM. 
+The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is needed to view the web app in a browser and to connect to the VM. 
      
 
-1. When first created, the virtual machine has _no_ open ports. Open port 80 with the following [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) so the web app is publicly available:
+## Open port for virtual machine
 
-    ```azurecli
-    az vm open-port \
-      --port 80 \
-      --resource-group rg-demo-vm-eastus \
-      --name demo-vm
-    ```
+When first created, the virtual machine has _no_ open ports. Open port 80 with the following [Azure CLI command](/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) so the web app is publicly available:
+
+```azurecli
+az vm open-port \
+  --port 80 \
+  --resource-group rg-demo-vm-eastus \
+  --name demo-vm
+```
+
+## Browse to web site
 
 1. Use the public IP address in a web browser to make sure the virtual machine is available and running. Change the URL to use the value from `publicIpAddress`.
 
