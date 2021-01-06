@@ -17,7 +17,7 @@ This document provides guidance to use the Log4J 2.x releases, but Log4J 1.x is 
 
 For more information related to configuring log4j, please refer [here](https://logging.apache.org/log4j/2.x/manual/index.html).
 
-## Adding maven dependencies
+## Adding Maven dependencies
 
 Adding the Maven dependency is simply a matter of including the following XML in the project Maven pom.xml file. Be sure to check online to see what the latest released version is, which at the time of this document being written was 2.14.0.
 
