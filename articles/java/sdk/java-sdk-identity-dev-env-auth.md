@@ -142,7 +142,7 @@ Follow the steps outlined below:
 
 1. In your IntelliJ window, open File -> Settings -> Plugins. Search “Azure Toolkit for IntelliJ” in the marketplace. Install and restart IDE.
 2. Find the new menu item Tools -> Azure -> Azure Sign In…
-3. Device Login will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Please select the appropriate subscription.
+3. Device Login will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Please select the appropriate subscription for which you want to access its resources.
 
 On Windows, you will also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords. Note down the location of the KeePassDatabase path.
 
