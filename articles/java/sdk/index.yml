@@ -10,26 +10,35 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Azure for Java cloud developers
+  - title: Azure for Java developers
     linkLists:
       - linkListType: get-started
         links:
           - text: Azure development using Java
             url: java-sdk-azure-get-started.md
+          - text: Introducing Azure SDK for Java
+            url: java-sdk-overview.md
       - linkListType: reference
         links:
           - text: Java API browser
             url: /java/api/?view=azure-java
       - linkListType: how-to-guide
         links:
-          - text: Add Root Certificate
-            url: java-sdk-add-certificate-ca-store.md
-          - text: Authenticate
-            url: java-sdk-azure-authenticate.md
-          - text: Configure logging
-            url: java-sdk-azure-log.md
+          - text: Identity & Authentication
+            url: java-sdk-identity.md
+          - text: Configuring logging
+            url: java-sdk-logging-overview.md
       - linkListType: learn
         links:
-        - text: Patterns & best practices
-          url: java-sdk-azure-concepts.md
-
+        - text: HTTP clients & pipeline
+          url: java-sdk-http-client-pipeline.md
+        - text: Asynchronous programming
+          url: java-sdk-async-programming.md
+        - text: Pagination & iteration
+          url: java-sdk-pagination.md
+        - text: Long-Running operations
+          url: java-sdk-lro.md
+        - text: Proxying
+          url: java-sdk-proxying.md
+        - text: Tracing
+          url: java-sdk-tracing.md

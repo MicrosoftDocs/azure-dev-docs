@@ -93,4 +93,4 @@ The following sample code using `last()` operator to wait for all polling to com
 
 ## Next steps
 
-Now that you've familiarized yourself with the long-running APIs in the Azure SDK for Java, consider reviewing how [serialization](serialization.md) is exposed to developers. Understanding this will make developing applications where you need to bring your own data models to Azure much easier!
+Now that you've familiarized yourself with the long-running APIs in the Azure SDK for Java, consider reviewing the [proxying](java-sdk-proxying.md) documentation to learn how to further customize the HTTP client being used.

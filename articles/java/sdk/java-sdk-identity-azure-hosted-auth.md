@@ -1,3 +1,11 @@
+---
+title: Authenticating Azure Hosted Applications
+description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
+ms.date: 01/06/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
 # Authenticating Azure Hosted Applications
 
 The Azure Identity library provides Azure Active Directory token authentication support for applications hosted on Azure through a a set of TokenCredential implementations.
@@ -74,7 +82,7 @@ public void createDefaultAzureCredentialForUserAssignedManagedIdentity() {
 
 This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, on a workstation with IntelliJ IDEA installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
-See more about how to configure your IntelliJ IDEA in [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](./java-sdk-identity_dev_env_auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
+See more about how to configure your IntelliJ IDEA in [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](java-sdk-identity-dev-env-auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
 
 ```java
 /**

@@ -1,3 +1,11 @@
+---
+title: Authenticating with User Credentials
+description: An overview of the Azure SDK for Java concepts related to authenticating applications with user credentials
+ms.date: 01/06/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
 # Authenticating with User Credentials
 
 The Azure Identity library provides Azure Active Directory token authentication support for applications running locally on developer machines through a a set of TokenCredential implementations.

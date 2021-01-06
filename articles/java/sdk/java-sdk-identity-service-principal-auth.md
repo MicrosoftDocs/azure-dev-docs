@@ -1,9 +1,19 @@
+---
+title: Authenticating with Service Principal
+description: An overview of the Azure SDK for Java concepts related to authenticating applications via Service Principal
+ms.date: 01/06/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
 # Authenticating with Service Principal
 
 The Azure Identity library provides Azure Active Directory token authentication support via Service Principal through a a set of TokenCredential implementations.
 
-* [Client Secret Credential](#client-secret-credential)
-* [Client Certificate Credential](#client-certificate-credential)
+- [Authenticating with Service Principal](#authenticating-with-service-principal)
+  - [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
+  - [Client Secret Credential](#client-secret-credential)
+  - [Client Certificate Credential](#client-certificate-credential)
 
 More conceptual details can be found here for [Service principal authentication](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 

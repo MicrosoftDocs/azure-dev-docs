@@ -1,7 +1,7 @@
 ---
 title: HTTP clients & pipeline
 description: An overview of the Azure SDK for Java concepts related to HTTP clients and pipelines
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ---
@@ -99,7 +99,7 @@ The HTTP pipeline is one of the key components in achieving consistency and diag
 * HTTP Transport
 * HTTP pipeline policies
 
-Users can provide their own [custom HTTP pipeline](#Custom-HTTP-Pipeline-Policy) when creating a client. If it's not provided, the client library will create one with all of the common policies required for the specific service that the library represents.
+Users can provide their own custom HTTP pipeline when creating a client. If it's not provided, the client library will create one with all of the common policies required for the specific service that the library represents.
 
 ### HTTP Transport
 

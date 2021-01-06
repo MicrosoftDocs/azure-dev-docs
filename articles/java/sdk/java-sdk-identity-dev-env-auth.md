@@ -1,3 +1,11 @@
+---
+title: Azure Authentication in Development Environments
+description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
+ms.date: 01/06/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
 # Azure Authentication in Development Environments
 
 The Azure Identity library provides Azure Active Directory token authentication support for applications running locally on developer machines through a set of TokenCredential implementations.

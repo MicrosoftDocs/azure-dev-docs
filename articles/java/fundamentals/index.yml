@@ -51,7 +51,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Configure logging with the Azure SDK for Java
-            url: ../sdk/java-sdk-azure-log.md
+            url: ../sdk/java-sdk-logging-overview.md
           - text: Monitoring and logging using Logz.io
             url: java-get-started-with-logzio.md
   - title: DevOps

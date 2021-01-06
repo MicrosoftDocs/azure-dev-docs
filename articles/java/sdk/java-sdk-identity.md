@@ -1,3 +1,11 @@
+---
+title: 
+description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
+ms.date: 01/06/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
 # Authenticate with Azure using Azure Identity
 
 The Azure Identity library provides Azure Active Directory token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support AAD token authentication.
@@ -31,7 +39,7 @@ The Maven dependency for Azure Identity Client library can be found [here](https
 
 A credential is a class which contains or can obtain the data needed for a service client to authenticate requests. Service clients across Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service. 
 
-The Azure Identity library focuses on OAuth authentication with Azure Active directory, and it offers a variety of credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used by to construct service clients capable of authenticating with a `TokenCredential`. 
+The Azure Identity library focuses on OAuth authentication with Azure Active directory, and it offers a variety of credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used by to construct service clients capable of authenticating with a `TokenCredential`.
 
 See [Credential Classes](#credential-classes) for a complete list of available credential classes.
 
@@ -46,10 +54,10 @@ Azure Java client libraries support all `TokenCredential` implementations provid
 
 You can find examples of authenticating Azure client libraries with different Token Credential implementations below:
 
-* [Azure Authentication in Development Environments](./java-sdk-identity_dev_env_auth.md)
-* [Authenticate with Service Principal](./java-sdk-identity_service_principal_auth.md)
-* [Authenticate Applications hosted in Azure](./java-sdk-identity_azure_hosted_auth.md)
-* [Authenticate with User Credentials](./java-sdk-identity_user_auth.md)
+* [Azure Authentication in Development Environments](java-sdk-identity_dev_env_auth.md)
+* [Authenticate with Service Principal](java-sdk-identity_service_principal_auth.md)
+* [Authenticate Applications hosted in Azure](java-sdk-identity_azure_hosted_auth.md)
+* [Authenticate with User Credentials](java-sdk-identity_user_auth.md)
 
 ## Authenticating Azure Management Libraries
 
