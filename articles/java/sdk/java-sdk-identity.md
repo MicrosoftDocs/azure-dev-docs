@@ -107,6 +107,15 @@ describes why authentication failed. When this exception is raised by `ChainedTo
 When credentials cannot execute authentication due to one of the underlying resources required by the credential being unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute which
 describes why the credential is unavailable for authentication execution . When this exception is raised by `ChainedTokenCredential`, the message collects error messages from each credential in the chain.
 
+## Next Steps
+
+This document has introduced the Azure Identity functionality available in the Azure SDK for Java. It has spoken about the `DefaultAzureCredential` being commonly-used and appropriate in many cases. In the links below, readers are encouraged to explore other ways of authenticating using the Azure Identity library, and to learn more about the `DefaultAzureCredential`:
+
+* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
+* [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
+* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+
 <!-- LINKS -->
 [azure_cli]: https://docs.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
