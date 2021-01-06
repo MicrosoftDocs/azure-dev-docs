@@ -64,17 +64,11 @@ As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resou
 This example below demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
 
 ```java
-/**
-* The default credential first checks environment variables for configuration.
-* If environment configuration is incomplete, it will try managed identity.
-*/
-public void createDefaultAzureCredential() {
-    // Azure SDK client builders accept the credential as a parameter
-    SecretClient client = new SecretClientBuilder()
-      .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
-      .credential(new DefaultAzureCredentialBuilder().build())
-      .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .credential(new DefaultAzureCredentialBuilder().build())
+  .buildClient();
 ```
 
 ### Authenticating Azure Management Libraries
