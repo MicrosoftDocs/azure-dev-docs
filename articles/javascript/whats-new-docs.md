@@ -16,7 +16,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 Getting started
 |Name|Notes|
 |---------------------------------------|--|
-|[Learn development for beginners](whats-new-docs.md#getting-started)||
+|[Learn development for beginners](learn-azure-javascript.md#getting-started)||
 
 ## 2020 December
 
