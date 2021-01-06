@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ---
 
-# JavaScript docs: What's new for October 2020
+# JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
 
