@@ -63,9 +63,9 @@ conceptualContent:
         - text: Azure development using Java
           itemType: get-started
           url: sdk/java-sdk-azure-get-started.md
-        - text: Patterns & best practices
+        - text: Introducing Azure SDK for Java
           itemType: learn
-          url: sdk/java-sdk-azure-concepts.md
+          url: sdk/java-sdk-overview.md
         - text: Java API browser
           itemType: reference
           url: /java/api/?view=azure-java

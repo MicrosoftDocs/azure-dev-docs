@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Troubleshooting networking issues
 
-The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
+The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
 
 ## Fiddler
 

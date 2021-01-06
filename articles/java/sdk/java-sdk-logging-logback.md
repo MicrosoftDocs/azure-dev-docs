@@ -15,7 +15,7 @@ To enable logback logging, developers must do two things:
 1. Include the logback library as a dependency,
 2. Create a file called `logback.xml` under the `/src/main/resources` project directory. 
 
-For more information related to configuring logback, please refer [here](http://logback.qos.ch/manual/configuration.html)
+For more information related to configuring logback, refer [here](http://logback.qos.ch/manual/configuration.html)
 
 ## Adding maven dependencies
 
@@ -60,7 +60,7 @@ A simple logback configuration to log to console can be configured as shown belo
 
 The example configuration below is similar to the previous configuration, but it lowers the level at which logging coming from all `com.azure.core` packaged classes (including subpackages), so that everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher will be logged. This can be used by developers who find the code in `com.azure.core` to be too noisy, for example. This kind of configuration can also go both ways - if developers want to get more debug information from classes in `com.azure.core`, they could set this to DEBUG, for example.
 
-Note that it is possible to have fine-grained control over the logging of specific classes, or specific packages. As shown below, `com.azure.core` will control the output of all core classes, but this could have equally been `com.azure.security.keyvault` or equivalent, to control the output as appropriate for the circumstances that are most informative in the context of the running application.
+It is possible to have fine-grained control over the logging of specific classes, or specific packages. As shown below, `com.azure.core` will control the output of all core classes, but this could have equally been `com.azure.security.keyvault` or equivalent, to control the output as appropriate for the circumstances that are most informative in the context of the running application.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

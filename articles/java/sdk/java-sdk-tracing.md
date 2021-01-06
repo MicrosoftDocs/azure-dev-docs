@@ -97,4 +97,4 @@ Through the use of a [Java in-process agent](https://docs.microsoft.com/azure/az
 
 ## Next steps
 
-Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, consider reviewing the [identity and authentication](java-sdk-identity-overview.md) overview to familiarize yourself with how developers can create secure applications.
+Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, consider reviewing the [identity and authentication](java-sdk-identity.md) overview to familiarize yourself with how developers can create secure applications.
