@@ -41,21 +41,19 @@ This example demonstrates authenticating the `SecretClient` from the [azure-secu
 
 ```java
 /**
-* Authenticate with device code credential.
-*/
-public void createDeviceCodeCredential() {
-    DeviceCodeCredential deviceCodeCredential = new DeviceCodeCredentialBuilder()
-        .challengeConsumer(challenge -> {
-        // lets user know of the challenge
-        System.out.println(challenge.getMessage());
-        }).build();
+ * Authenticate with device code credential.
+ */
+DeviceCodeCredential deviceCodeCredential = new DeviceCodeCredentialBuilder()
+    .challengeConsumer(challenge -> {
+    // lets user know of the challenge
+    System.out.println(challenge.getMessage());
+    }).build();
 
-    // Azure SDK client builders accept the credential as a parameter
-    SecretClient client = new SecretClientBuilder()
-        .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
-        .credential(deviceCodeCredential)
-        .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .credential(deviceCodeCredential)
+    .buildClient();
 ```
 
 ## Interactive Browser Credential
@@ -74,20 +72,18 @@ This example demonstrates authenticating the `SecretClient` from the [azure-secu
 
 ```java
 /**
-* Authenticate interactively in the browser.
-*/
-public void createInteractiveBrowserCredential() {
-    InteractiveBrowserCredential interactiveBrowserCredential = new InteractiveBrowserCredentialBuilder()
-        .clientId("<YOUR_APP_CLIENT ID>")
-        .redirectUrl("YOUR_APP_REGISTERED_REDIRECT_URL")
-        .build();
+ * Authenticate interactively in the browser.
+ */
+InteractiveBrowserCredential interactiveBrowserCredential = new InteractiveBrowserCredentialBuilder()
+    .clientId("<YOUR_APP_CLIENT ID>")
+    .redirectUrl("YOUR_APP_REGISTERED_REDIRECT_URL")
+    .build();
 
-    // Azure SDK client builders accept the credential as a parameter
-    SecretClient client = new SecretClientBuilder()
-        .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
-        .credential(interactiveBrowserCredential)
-        .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .credential(interactiveBrowserCredential)
+    .buildClient();
 ```
 
 ## Username Password Credential
@@ -98,21 +94,19 @@ More conceptual details can be found here for [Username + password authenticatio
 
 ```java
 /**
-* Authenticate with username, password.
-*/
-public void createUserNamePasswordCredential() {
-    UsernamePasswordCredential usernamePasswordCredential = new UsernamePasswordCredentialBuilder()
-        .clientId("<YOUR_APP_CLIENT_ID>")
-        .username("<YOUR_USERNAME>")
-        .password("<YOUR_PASSWORD>")
-        .build();
+ * Authenticate with username, password.
+ */
+UsernamePasswordCredential usernamePasswordCredential = new UsernamePasswordCredentialBuilder()
+    .clientId("<YOUR_APP_CLIENT_ID>")
+    .username("<YOUR_USERNAME>")
+    .password("<YOUR_PASSWORD>")
+    .build();
 
-    // Azure SDK client builders accept the credential as a parameter
-    SecretClient client = new SecretClientBuilder()
-        .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
-        .credential(usernamePasswordCredential)
-        .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .credential(usernamePasswordCredential)
+    .buildClient();
 ```
 
 <!-- LINKS -->

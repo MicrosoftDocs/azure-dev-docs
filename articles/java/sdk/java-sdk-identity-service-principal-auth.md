@@ -41,7 +41,10 @@ Output:
 
 * Run `az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert` to create a service principal along with a certificate. Note down the path/location of this certificate.
 
-* Use the returned credentials above to note down **AZURE\_CLIENT\_ID**(appId), **AZURE\_CLIENT\_SECRET**(password) and **AZURE\_TENANT\_ID**(tenant).
+* Use the returned credentials above to note down the following:
+  * `AZURE\_CLIENT\_ID` for the appId.
+  * `AZURE\_CLIENT\_SECRET` for the password.
+  * `AZURE\_TENANT\_ID` for the tenant.
 
 ## Client Secret Credential
 
@@ -51,19 +54,17 @@ This credential authenticates the created service principal through its client s
 /**
 *  Authenticate with client secret.
 */
-public void createClientSecretCredential() {
-  ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
-    .clientId("<YOUR_CLIENT_ID>")
-    .clientSecret("<YOUR_CLIENT_SECRET>")
-    .tenantId("<YOUR_TENANT_ID>")
-    .build();
+ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+  .clientId("<YOUR_CLIENT_ID>")
+  .clientSecret("<YOUR_CLIENT_SECRET>")
+  .tenantId("<YOUR_TENANT_ID>")
+  .build();
 
-  // Azure SDK client builders accept the credential as a parameter
-  SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
-    .credential(clientSecretCredential)
-    .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .credential(clientSecretCredential)
+  .buildClient();
 ```
 
 ## Client Certificate Credential
@@ -74,21 +75,19 @@ This credential authenticates the created service principal through its client c
 /**
 *  Authenticate with a client certificate.
 */
-public void createClientCertificateCredential() {
-  ClientCertificateCredential clientCertificateCredential = new ClientCertificateCredentialBuilder()
-    .clientId("<YOUR_CLIENT_ID>")
-    .pemCertificate("<PATH TO PEM CERTIFICATE>")
-    // choose between either a PEM certificate or a PFX certificate
-    //.pfxCertificate("<PATH TO PFX CERTIFICATE>", "PFX CERTIFICATE PASSWORD")
-    .tenantId("<YOUR_TENANT_ID>")
-    .build();
+ClientCertificateCredential clientCertificateCredential = new ClientCertificateCredentialBuilder()
+  .clientId("<YOUR_CLIENT_ID>")
+  .pemCertificate("<PATH TO PEM CERTIFICATE>")
+  // choose between either a PEM certificate or a PFX certificate
+  //.pfxCertificate("<PATH TO PFX CERTIFICATE>", "PFX CERTIFICATE PASSWORD")
+  .tenantId("<YOUR_TENANT_ID>")
+  .build();
 
-  // Azure SDK client builders accept the credential as a parameter
-  SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
-    .credential(clientCertificateCredential)
-    .buildClient();
-}
+// Azure SDK client builders accept the credential as a parameter
+SecretClient client = new SecretClientBuilder()
+  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .credential(clientCertificateCredential)
+  .buildClient();
 ```
 
 <!-- LINKS -->

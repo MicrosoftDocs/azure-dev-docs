@@ -58,7 +58,7 @@ while (it.hasNext()) {
 
 ### Iterating over Pages
 
-When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it is possible to iterate per page.
+When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it is possible to iterate per page. Note that there is no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
 
 #### Using a _for-each_ loop
 
@@ -96,18 +96,18 @@ This section covers the asynchronous APIs. Further up this document is guidance 
 ### Observing individual elements
 
 The code sample below shows how the `PagedFlux` API allows users to observe individual elements asynchronously. There are a variety of [ways to subscribe to a Flux type](https://projectreactor.io/docs/core/release/reference/#_simple_ways_to_create_a_flux_or_mono_and_subscribe_to_it), presented below is one variety where we provide three lambda expressions, for the consumer, error consumer, and the complete consumer. Having all three is good practice, but in some cases a simpler form where only the consumer, and possibly the error consumer, is adequate for the work being performed.
- 
+
  ```java
 asyncClient.listSecrets()
     .subscribe(secret -> System.out.println("Secret value: " + secret),
         ex -> System.out.println("Error listing secrets: " + ex.getMessage()),
         () -> System.out.println("Successfully listed all secrets"));
  ```
- 
+
 ### Observing pages
- 
+
  The code sample below shows how the `PagedFlux` API allows users to observe each page asynchronously, again by using a `byPage()` API and by providing a consumer, error consumer, and a completion consumer.
- 
+
   ```java
 asyncClient.listSecrets().byPage()
     .subscribe(page -> {
@@ -118,7 +118,7 @@ asyncClient.listSecrets().byPage()
         ex -> System.out.println("Error listing pages with secret: " + ex.getMessage()),
         () -> System.out.println("Successfully listed all pages with secret"));
  ```
- 
+
 ## Next steps
 
 Now that you've familiarized yourself with pagination and iteration in the Azure SDK for Java, consider reviewing the guide on [Long-Running operations](java-sdk-lro.md). Long-running operations are, as the name implies, those that run for a longer duration than most normal HTTP requests. This is typically because the operation requires some effort on the server side. Familiarizing yourself with the long-running operation APIs will be of great use for when these APIs appear in your development journey.
