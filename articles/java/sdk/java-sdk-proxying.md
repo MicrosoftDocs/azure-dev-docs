@@ -1,5 +1,5 @@
 ---
-title: How to configure proxies for the Azure libraries
+title: How to configure proxies for use in Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to proxying
 author: alzimmermsft
 ms.date: 11/23/2020
