@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: alzimmer
 ---
 
-# How to configure proxies for the Azure libraries
+# How to configure proxies for use in Azure SDK for Java
 
 ## HTTP proxy configuration
 
