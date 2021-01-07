@@ -58,19 +58,19 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 This example adds a capture filter to capture network sent to or received from a specific host.
 
-In Wireshark navigate to `Capture > Capture Filters...` and add a new filter with the value `host <host IP or hostname>`. This will add a filter to only capture traffic to and from that host. If the application communicates to multiple hosts multiple capture filters can be added or the host IP/hostname can be `or`'d to provide looser capture filtering.
+In Wireshark navigate to `Capture > Capture Filters...` and add a new filter with the value `host <host IP or hostname>`. This will add a filter to only capture traffic to and from that host. If the application communicates to multiple hosts multiple capture filters can be added, or the host IP/hostname can be added with the 'OR' operator to provide looser capture filtering.
 
 ### Capturing to disk
 
-Reproducing unexpected networking exceptions may requiring running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark is able to log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
+Reproducing unexpected networking exceptions may require running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark is able to log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) on configuring persisting captured traffic to disk.
 
 **_Example_**
 
-This example sets up Wireshark to persist captures to disk with multiple file where the files split on either 100k capture or 50MB in size.
+This example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50MB in size.
 
-In Wireshark navigate to `Capture > Options` and navigate to the `Output` tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by checking `Create a new file automatically` and then check `after 100000 packets` and `after 50 megabytes`, this will have Wireshark create a new file after one of the predicates are matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark is able to create check the `Use a ring buffer with X files`, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
+In Wireshark navigate to `Capture > Options` and navigate to the `Output` tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by checking `Create a new file automatically` and then check `after 100000 packets` and `after 50 megabytes`, this will have Wireshark create a new file after one of the predicates is matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark is able to create, check the `Use a ring buffer with X files`, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
 
 ### Filtering captures
 
