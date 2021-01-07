@@ -18,12 +18,9 @@ applications proxying requirements.
 
 The proxy configuration options are:
 
-- [Proxying](#proxying)
-  - [HTTP proxy configuration](#http-proxy-configuration)
-    - [Using an environment proxy](#using-an-environment-proxy)
-    - [Using a Configuration proxy](#using-a-configuration-proxy)
-    - [Using an explicit proxy](#using-an-explicit-proxy)
-  - [Next steps](#next-steps)
+* [Using an environment proxy](#using-an-environment-proxy)
+* [Using a Configuration proxy](#using-a-configuration-proxy)
+* [Using an explicit proxy](#using-an-explicit-proxy)
 
 ### Using an environment proxy
 
