@@ -1,5 +1,5 @@
 ---
-title: Logging
+title: How to configure logging for the Azure libraries
 description: An overview of the Azure SDK for Java concepts related to logging
 author: srnagar
 ms.date: 11/23/2020
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# Logging
+# How to configure logging for the Azure libraries
 
 The Azure client libraries for Java have two logging options:
 

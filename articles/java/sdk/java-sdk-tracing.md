@@ -1,5 +1,5 @@
 ---
-title: Tracing
+title: How to configure tracing for the Azure libraries
 description: An overview of the Azure SDK for Java concepts related to tracing
 author: samvaity
 ms.date: 11/23/2020
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: savaity
 ---
 
-# Tracing
+# How to configure tracing for the Azure libraries
 
 The Azure SDK for Java enables tracing in all client libraries by simply including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based `azure-core-tracing-opentelemetry` [plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
