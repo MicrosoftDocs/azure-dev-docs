@@ -12,10 +12,11 @@ ms.author: vigera
 
 The Azure Identity library provides Azure Active Directory token authentication support via Service Principal through a a set of TokenCredential implementations.
 
-- [Authenticating with Service Principal](#authenticating-with-service-principal)
-  - [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
-  - [Client Secret Credential](#client-secret-credential)
-  - [Client Certificate Credential](#client-certificate-credential)
+Topics covered in this document include:
+
+* [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
+* [Client Secret Credential](#client-secret-credential)
+* [Client Certificate Credential](#client-certificate-credential)
 
 More conceptual details can be found here for [Service principal authentication](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
@@ -42,7 +43,6 @@ Output:
 ```
 
 * Run `az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert` to create a service principal along with a certificate. Note down the path/location of this certificate.
-
 * Use the returned credentials above to note down the following:
   * `AZURE\_CLIENT\_ID` for the appId.
   * `AZURE\_CLIENT\_SECRET` for the password.
@@ -54,8 +54,8 @@ This credential authenticates the created service principal through its client s
 
 ```java
 /**
-*  Authenticate with client secret.
-*/
+ *  Authenticate with client secret.
+ */
 ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
   .clientId("<YOUR_CLIENT_ID>")
   .clientSecret("<YOUR_CLIENT_SECRET>")
@@ -75,8 +75,8 @@ This credential authenticates the created service principal through its client c
 
 ```java
 /**
-*  Authenticate with a client certificate.
-*/
+ *  Authenticate with a client certificate.
+ */
 ClientCertificateCredential clientCertificateCredential = new ClientCertificateCredentialBuilder()
   .clientId("<YOUR_CLIENT_ID>")
   .pemCertificate("<PATH TO PEM CERTIFICATE>")
@@ -91,6 +91,16 @@ SecretClient client = new SecretClientBuilder()
   .credential(clientCertificateCredential)
   .buildClient();
 ```
+
+## Next steps
+
+In this document we have covered authentication via service principal, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+
+* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
+* [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
+* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+
+Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [azure_cli]: https://docs.microsoft.com/cli/azure

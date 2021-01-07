@@ -12,6 +12,8 @@ ms.author: vigera
 
 The Azure Identity library provides Azure Active Directory token authentication support for applications running locally on developer machines through a set of TokenCredential implementations.
 
+Topics covered in this document include:
+
 * [Device Code Credential](#device-code-credential)
 * [Interactive Browser Credential](#interactive-browser-credential)
 * [Username Password Credential](#username-password-credential)
@@ -110,6 +112,16 @@ SecretClient client = new SecretClientBuilder()
     .credential(usernamePasswordCredential)
     .buildClient();
 ```
+
+## Next steps
+
+In this document we have covered authentication with user credentials, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+
+* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
+* [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
+* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
+
+Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

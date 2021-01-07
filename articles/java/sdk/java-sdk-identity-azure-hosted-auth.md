@@ -12,6 +12,8 @@ ms.author: vigera
 
 The Azure Identity library provides Azure Active Directory token authentication support for applications hosted on Azure through a a set of TokenCredential implementations.
 
+Topics covered in this document include:
+
 * [Default Azure Credential](#default-azure-credential)
 * [Managed Identity Credential](#managed-identity-credential)
 
@@ -57,8 +59,8 @@ See more about how to configure a user assigned managed identity for an Azure re
 
 ```java
 /**
-* The default credential will use the user assigned managed identity with the specified client ID.
-*/
+ * The default credential will use the user assigned managed identity with the specified client ID.
+ */
 DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
   .managedIdentityClientId("<MANAGED_IDENTITY_CLIENT_ID>")
   .build();
@@ -78,8 +80,8 @@ See more about how to configure your IntelliJ IDEA in [Sign in Azure Toolkit for
 
 ```java
 /**
-* The default credential will use the KeePass database path to find the user account in IntelliJ on Windows.
-*/
+ * The default credential will use the KeePass database path to find the user account in IntelliJ on Windows.
+ */
 // KeePass configuration required only for Windows. No configuration needed for Linux / Mac
 DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
   .intelliJKeePassDatabasePath("C:\\Users\\user\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
@@ -122,8 +124,8 @@ This examples demonstrates authenticating the `SecretClient` from the [azure-sec
 
 ```java
 /**
-* Authenticate with a managed identity.
-*/
+ * Authenticate with a managed identity.
+ */
 ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
   .clientId("<USER ASSIGNED MANAGED IDENTITY CLIENT ID>") // only required for user assigned
   .build();
@@ -212,6 +214,16 @@ SecretClient client = new SecretClientBuilder()
 </table>
 
 Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
+
+## Next steps
+
+In this document we have covered authentication for applications hosted in Azure, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+
+* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
+* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+
+Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets
