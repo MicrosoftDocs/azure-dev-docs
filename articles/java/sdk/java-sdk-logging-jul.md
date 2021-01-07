@@ -10,14 +10,14 @@ ms.author: srnagar
 
 # Logging with java.util.logging
 
-As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often times the best choice is the one you probably already have, whether you know it or not, thanks to third party dependencies sometimes being opinionated in this regard.
+As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often the best choice is the one you probably already have, whether you know it or not, thanks to third-party dependencies sometimes being opinionated in this regard.
 
 To enable java.util.logging, developers must do two things:
 
 1. Include the SLF4J adapter for java.util.logging as a dependency,
-2. Create a file called `logging.properties` under the `/src/main/resources` project directory. 
+2. Create a file called `logging.properties` under the `/src/main/resources` project directory.
 
-For more information related to configuring your logger, please refer [here](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm)
+For more information related to configuring your logger, refer [here](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm)
 
 ## Add Maven dependency
 
@@ -35,11 +35,11 @@ Adding the Maven dependency is simply a matter of including the following XML in
 
 To log using `java.util.logging`, create a file called `logging.properties` under `./src/main/resources` directory of your project. This file will contain the logging configurations to customize your logging needs. More information on configuring `logging.properties` can be found [here](http://tutorials.jenkov.com/java-logging/configuration.html).
 
-If you would like to use a different filename other than `logging.properties`, you can do so by setting the `java.util.logging.config.file` system property. Note that this property has to be set before the logger instance is created.
+If you would like to use a different filename other than `logging.properties`, you can do so by setting the `java.util.logging.config.file` system property. This property has to be set before the logger instance is created.
 
 ### Console logging
 
-A simple configuration to log to console can be configured as shown below. Note that it is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
+A simple configuration to log to console can be configured as shown below. It is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
 
 ```properties
 handlers = java.util.logging.ConsoleHandler
@@ -63,7 +63,7 @@ java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.level = INFO
 ```
 
-This will create a file called `myapplication.log` in your home directory (`%h`). Note that this logger does not support automatic file rotation after a certain period. So, if you need this functionality, you will have to write a scheduler to manage log file rotation.
+This will create a file called `myapplication.log` in your home directory (`%h`). This logger does not support automatic file rotation after a certain period. If this functionality is required, developers will have to write a scheduler to manage log file rotation.
 
 ## Next steps
 
