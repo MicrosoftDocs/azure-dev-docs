@@ -9,7 +9,7 @@
         - name: Overview
           href: java-sdk-overview.md
         - name: Common Concepts
-          expanded: true
+          expanded: false
           items:
             - name: HTTP clients & pipeline
               href: java-sdk-http-client-pipeline.md
@@ -24,7 +24,7 @@
             - name: Tracing
               href: java-sdk-tracing.md
         - name: Identity & Authentication
-          expanded: true
+          expanded: false
           items:
             - name: Overview
               href: java-sdk-identity.md
@@ -37,7 +37,7 @@
             - name: Auth with User Credentials
               href: java-sdk-identity-user-auth.md
         - name: Logging
-          expanded: true
+          expanded: false
           items:
             - name: Overview
               href: java-sdk-logging-overview.md
@@ -48,14 +48,14 @@
             - name: Log4J
               href: java-sdk-logging-log4j.md
     - name: Integrations
-      expanded: true
+      expanded: false
       items:
         - name: Spring
           href: https://docs.microsoft.com/azure/developer/java/spring-framework/spring-boot-starters-for-azure        
         - name: MicroProfile
           href: https://docs.microsoft.com/azure/developer/java/eclipse-microprofile/
     - name: Troubleshooting
-      expanded: true
+      expanded: false
       items:
         - name: Network issues
           href: java-sdk-troubleshooting-network.md
