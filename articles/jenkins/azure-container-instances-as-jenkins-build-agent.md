@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Use Azure Container Instances as a Jenkins build agent
-description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
+description: Learn how to configure a Jenkins server to run build jobs in Azure Container Instances
 keywords: jenkins, azure, devops, container instances, build agent
 ms.topic: article
-ms.date: 08/31/2018
-ms.custom: devx-track-jenkins
+ms.date: 01/08/2021
+ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
 # Tutorial: Use Azure Container Instances as a Jenkins build agent
@@ -15,74 +15,53 @@ Azure Container Instances (ACI) provides an on-demand, burstable, and isolated e
 
 For more information on Azure Container Instances, see [About Azure Container Instances](/azure/container-instances/container-instances-overview).
 
-## Deploy a Jenkins server
+## Requirement
 
-1. In the Azure portal, select **Create a resource** and search for **Jenkins**. Select the Jenkins offering with a publisher of **Microsoft**, and then select **Create**.
+- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
+- **AZ CLI**: Make sure you have [Az CLI installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), version 2.0.67 or higher installed on your Jenkins server.
+- **SSH tool**: for example OpenSSH etc.
 
-2. Enter the following information on the **Basics** form, and then select **OK**.
+## Prepare Jenkins master
 
-   - **Name**: Enter a name for the Jenkins deployment.
-   - **User name**: Enter a name for the admin user of the Jenkins virtual machine.
-   - **Authentication type**: We recommend an SSH public key for authentication. If you select this option, paste in an SSH public key to be used for logging in to the Jenkins virtual machine.
-   - **Subscription**: Select an Azure subscription.
-   - **Resource group**: Create a resource group or select an existing one.
-   - **Location**: Select a location for the Jenkins server.
+1. Configure Jenkins URL. Navigate to `Configure System` -> Jenkins Location. Update `Jenkins URL` to the HTTP address of your Jenkins installation, such as http://yourhost.yourdomain:8080/.
+1. Open the TCP port for the agents. Navigate to `Manage Jenkins` -> `Configure Global Security` -> `Agents`. Change the `TCP port for inbound agents` option to `Fixed` and set a port number. 
+    Configuration example:
+    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agentPort.png)
 
-   ![Basic settings for Jenkins portal deployment](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-01.png)
+## Create Jenkins work agent
+  Open your Jenkins portal, navigate to `Jenkins -> Manage Jenkins -> Manage Nodes and cloud -> New Node`.
+  - Node Configure
+    - `Name`  Jenkins node name, the `AGENT_NAME` you will used for agent connection.
+    - `Remote root directory` Remote working directory, example: `/home/jenkins/work`
+    - `Labels`: Labels are used to group multiple agents into one logical group. Example : `linux`
+    - `Launch method`: `Launch agent by connecting to the master`
+    Configuration example:   
+     ![Agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agentconfig.png)
 
-3. On the **Additional Settings** form, complete the following items:
+    Click the `Save` button save the agent configuration. Go to the agent status page, you will find the `JENKINS_SECRET` ,`AGENT_NAME` in the status page.
+    ![Build agent secret](./media/azure-container-instances-as-jenkins-build-agent/jenkins_secret.png)
 
-   - **Size**: Select the appropriate sizing option for your Jenkins virtual machine.
-   - **VM disk type**: Specify either **HDD** (hard-disk drive) or **SSD** (solid-state drive) for the Jenkins server.
-   - **Virtual network**: Select the arrow if you want to modify the default settings.
-   - **Subnets**: Select the arrow, verify the information, and select **OK**.
-   - **Public IP address**: Select the arrow to give the public IP address a custom name, configure the SKU, and set the assignment method.
-   - **Domain name label**: Specify a value to create a fully qualified URL to the Jenkins virtual machine.
-   - **Jenkins release type**: Select the desired release type from the options: **LTS**, **Weekly build**, or **Azure Verified**.
+## Create Azure Container Instance with CLI 
+ - Create Resource group
+      ```
+      az group create --name my-resourcegroup --location westus
+      ```
 
-   ![Additional settings for Jenkins portal deployment](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-02.png)
+ - Create Azure Container Instance
+    Replace the `JENKINS_SECRET` and `AGENT_NAME` with the `JENKINS_SECRET` and `AGENT_NAME` you find in step 1.
+    ```cmd
+    az container create \
+      --name my-dock \
+      --resource-group my-resourcegroup \
+      --ip-address Public --image jenkins/inbound-agent:latest \
+      --os-type linux \
+      --ports 80 \
+      --command-line "jenkins-agent -url http://jenkinsserver:port <JENKINS_SECRET> <AGENT_NAME>"
+    ```
 
-4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
-
-5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
-
-   ![Cloud integration settings for Jenkins portal deployment](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-03.png)
-
-6. When you're done with the integration settings, select **OK**, and then select **OK** again on the validation summary. Select **Create** on the **Terms of use** summary. The Jenkins server takes a few minutes to deploy.
-
-## Configure Jenkins
-
-1. In the Azure portal, browse to the Jenkins resource group, select the Jenkins virtual machine, and take note of the DNS name.
-
-   ![DNS name in details about the Jenkins virtual machine](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-fqdn.png)
-
-2. Browse to the DNS name of the Jenkins VM and copy the returned SSH string.
-
-   ![Jenkins login instructions with SSH string](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-04.png)
-
-3. Open a terminal session on your development system, and paste in the SSH string from the last step. Update `username` to the username that you specified when you deployed the Jenkins server.
-
-4. After the session is connected, run the following command to retrieve the initial admin password:
-
-   ```bash
-   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-   ```
-
-5. Leave the SSH session and tunnel running, and go to `http://localhost:8080` in a browser. Paste the initial admin password into the box, and then select **Continue**.
-
-   !["Unlock Jenkins" screen with the box for the administrator password](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-05.png)
-
-6. Select **Install suggested plugins** to install all recommended Jenkins plugins.
-
-   !["Customize Jenkins" screen with "Install suggested plugins" selected](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-06.png)
-
-7. Create an admin user account. This account is used for logging in to and working with your Jenkins instance.
-
-   !["Create First Admin User" screen, with credentials filled in](./media/azure-container-instances-as-jenkins-build-agent/jenkins-portal-07.png)
-
-8. Select **Save and Finish**, and then select **Start using Jenkins** to complete the configuration.
-
-Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate a Jenkins build on Azure Container Instances.
+  After the container started, it will connect to the Jenkins controller server automatically.
+  ![Agent started](./media/azure-container-instances-as-jenkins-build-agent/agentstart.png)
 
 ## Create a build job
 
@@ -121,10 +100,6 @@ To test the build job and observe Azure Container Instances as the build platfor
 4. After all build jobs have finished, the container instances are removed.
 
    ![Resource group with container instances removed](./media/azure-container-instances-as-jenkins-build-agent/jenkins-aci-none.png)
-
-## Troubleshooting the Jenkins plugin
-
-If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 
