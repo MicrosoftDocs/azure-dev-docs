@@ -76,9 +76,9 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Select **Save**.
 
-1. Go to the agent status page to see the `JENKINS_SECRET` and `AGENT_NAME`. These values are used in creating the Azure Container Instance.
+1. On the agent status page, you should see the `JENKINS_SECRET` and `AGENT_NAME`. The following screen shot shows how to identify the values. Both values are needed when you create the Azure Container Instance.
 
-    ![Build agent secret](./media/azure-container-instances-as-jenkins-build-agent/jenkins-secret.png)
+    ![The build-agent secret is displays after its successful creation.](./media/azure-container-instances-as-jenkins-build-agent/jenkins-secret.png)
 
 ## Create Azure Container Instance with CLI
 
@@ -101,6 +101,7 @@ For more information on Azure Container Instances, see [About Azure Container In
     ```
 
     After the container starts, it will connect to the Jenkins controller server automatically.
+
     ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agent-start.png)
 
 ## Create a build job
