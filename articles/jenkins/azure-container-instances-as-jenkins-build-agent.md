@@ -19,8 +19,8 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 - **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
-- **AZ CLI**: Make sure you have [Az CLI installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), version 2.0.67 or higher installed on your Jenkins server.
-- **SSH tool**: for example OpenSSH etc.
+- **Azure CLI**: Install [Azure CLI](/cli/azure/install-azure-cli) (2.0.67 or higher) on the Jenkins server.
+- **SSH tool**: One example is OpenSSH.
 
 ## Prerequisites
 
@@ -72,13 +72,13 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Verify that all required fields have been specified or entered:
 
-    ![Example Jenkins agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agentconfig.png)
+    ![Example Jenkins agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agent-config.png)
 
 1. Select **Save**.
 
 1. Go to the agent status page to see the `JENKINS_SECRET` and `AGENT_NAME`. These values are used in creating the Azure Container Instance.
 
-    ![Build agent secret](./media/azure-container-instances-as-jenkins-build-agent/jenkins_secret.png)
+    ![Build agent secret](./media/azure-container-instances-as-jenkins-build-agent/jenkins-secret.png)
 
 ## Create Azure Container Instance with CLI
 
@@ -101,7 +101,7 @@ For more information on Azure Container Instances, see [About Azure Container In
     ```
 
     After the container starts, it will connect to the Jenkins controller server automatically.
-    ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agentstart.png)
+    ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agent-start.png)
 
 ## Create a build job
 
