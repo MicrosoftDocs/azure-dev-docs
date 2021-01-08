@@ -69,47 +69,76 @@ In this tutorial, you will:
     
     1. Install JDK
     
+## Prepare the Jenkins controller
+
+1. Browse to your Jenkins portal.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **System Configuration**, select **Configure System**.
+
+1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **Security**, select **Configure Global Security**.
+
+1. Under **Agents**, specify **Fixed** port and enter the appropriate port number for your environment.
+
+    Configuration example:
+    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent-port.png)
+
+1. Select **Save**.
+
 ## Add agent to Jenkins
-  - Open your Jenkins portal, navigate to `Jenkins -> Manage Jenkins -> Manage Nodes and cloud -> New Node`, set a name for the new node; select **Permanent Agent** and click **OK**.
-    ![Create new node](./media/scale-deployments-using-vm-agents/portal.png)
-  - Configure node
-    - `Name`  Jenkins node name
-    - `Remote root directory` remote working directory, example: `/home/azureuser/work`
-    - `Labels`: Labels are used to group multiple agents into one logical group. Example : `UBUNTU`
-    - `Launch method`, you have two optionals to start the remote Jenkins Node
-        - `SSH`
-            - `Host`: VM public IP address or domain name, example: `123.123.123.123, example.com`
-            - `Credentials`: Create a new Jenkins Username/Password credentials to store your VM username/password
-            - `Host Key Verification Strategy`: Controls how Jenkins verifies the SSH key presented by the remote host whilst connecting. Default selection is OK.
-            Configuration example: ![SSH](./media/scale-deployments-using-vm-agents/ssh2.png)
 
-        - Execution of command of the master
-            - Download the `agent.jar`  from https://yourjenkinshostname/jnlpJars/agent.jar, exmaple: `https://localhost:8443/jnlpJars/agent.jar`
-            - Upload the `agent.jar` to your VM
-            - Start Jenkisn now with command `ssh nodeHost java -jar remote_agentjar_path`, example: `ssh azureuser@40.85.162.9 java -jar /home/azureuser/agent.jar`   
-            Configuration example: ![Configure execute command of the master](./media/scale-deployments-using-vm-agents/config.png)
+1. From the menu, select **Manage Jenkins**.
 
-    > **Note**: Make sure you Configure Jenkins URL if you use JNLP. Navigate to `Configure System` -> Jenkins Location. Update `Jenkins URL` to the HTTP address of your Jenkins installation, such as http://yourhost.yourdomain:8080/.
+1. Under **System Configuration**, select **Manage Nodes and Clouds**.
 
-After you set all the configurations, save the configuration and Jenkins will add the VM as a new work node. ![VM as new work node](./media/scale-deployments-using-vm-agents/commandstart.png)
+1. From the menu, select **New Node**.
+
+1. Enter a value for **Node Name**.
+
+1. Select **Permanent Agent**.
+
+1. Select **OK**.
+
+1. Verify that all required fields have been specified or entered. The following screen shot shows an example scenario.
+
+    ![Example Jenkins agent configuration](./media/scale-deployments-using-vm-agents/ssh2.png)
+
+1. Select **Save**.
 
 ## Create a job in Jenkins
 
-1. Within the Jenkins dashboard, click **New Item**. 
-1. Enter `demoproject1` for the name and select **Freestyle project**, then select **OK**.
-1. In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You see a message confirming that the label is served by the cloud configuration created in the previous step. 
-   ![Set up job](./media/scale-deployments-using-vm-agents/job-config.png)
+1. From the menu, select **New Item**.
+
+1. Enter `demoproject1` for the name.
+
+1. Select **Freestyle project**.
+
+1. Select **OK**.
+
+1. In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You see a message confirming that the label is served by the cloud configuration created in the previous step.
+
+   ![Setting up a new Jenkins job](./media/scale-deployments-using-vm-agents/job-config.png)
+
 1. In the **Source Code Management** tab, select **Git** and add the following URL into the **Repository URL** field: `https://github.com/spring-projects/spring-petclinic.git`
+
 1. In the **Build** tab, select **Add build step**, then **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
-1. Select **Save** to save the job definition.
+
+1. Select **Save**.
 
 ## Build the new job on an Azure VM agent
 
-1. Go back to the Jenkins dashboard.
-1. Select the job you created in the previous step, then click **Build now**. A new build is queued, but does not start until an agent VM is created in your Azure subscription.
+1. Select the job you created in the previous step.
+
+1. Select **Build now**. A new build is queued, but doesn't start until an agent VM is created in your Azure subscription.
+
 1. Once the build is complete, go to **Console output**. You see that the build was performed remotely on an Azure agent.
 
-![Console output](./media/scale-deployments-using-vm-agents/console-output.png)
+    ![Console output](./media/scale-deployments-using-vm-agents/console-output.png)
 
 ## Next steps
 
