@@ -45,30 +45,30 @@ In this tutorial, you will:
 
 1. Install the JDK.  
 
-#### [Linux](#tab/linux)
-
-1. Log in to the virtual machine using an SSH tool.
-
-    ```bash
-    ssh username@123.123.123.123
-    ```
+    #### [Linux](#tab/linux)
     
-1. Install the JDK with apt. You can also install with other package manager tools such as yum or pacman.
-
-    ```bash
-    sudo apt-get install -y default-jdk
-    ```
-
-1. After installation is complete, run `java -version` to verify the Java environment. The output will include the version numbers associated with various parts of the JDK.
-
-#### [Windows](#tab/windows)
-
-1. Log in to the virtual machine using an SSH tool or using Remote Desktop Connection.
-
-1. [Download the JDK](https://www.oracle.com/java/technologies/javase-downloads.html) that is appropriate for your environment.
-
-1. Install JDK
-
+    1. Log in to the virtual machine using an SSH tool.
+    
+        ```bash
+        ssh username@123.123.123.123
+        ```
+        
+    1. Install the JDK with apt. You can also install with other package manager tools such as yum or pacman.
+    
+        ```bash
+        sudo apt-get install -y default-jdk
+        ```
+    
+    1. After installation is complete, run `java -version` to verify the Java environment. The output will include the version numbers associated with various parts of the JDK.
+    
+    #### [Windows](#tab/windows)
+    
+    1. Log in to the virtual machine using an SSH tool or using Remote Desktop Connection.
+    
+    1. [Download the JDK](https://www.oracle.com/java/technologies/javase-downloads.html) that is appropriate for your environment.
+    
+    1. Install JDK
+    
 ## Add agent to Jenkins
   - Open your Jenkins portal, navigate to `Jenkins -> Manage Jenkins -> Manage Nodes and cloud -> New Node`, set a name for the new node; select **Permanent Agent** and click **OK**.
     ![Create new node](./media/scale-deployments-using-vm-agents/portal.png)
