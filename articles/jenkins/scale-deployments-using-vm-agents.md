@@ -33,42 +33,41 @@ In this tutorial, you will:
     az group create --name <resource_group> --location <location>
     ```
 
-1. 
+1. Use [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine.
 
-- Create Virtual Machine
-  - Linux
-    ```shell 
-    az vm create --resource-group my-resource-group --name my-vm --image UbuntuLTS --admin-username azureuser --admin-password "password"
+    ```azurecli
+    az vm create --resource-group <resource-group> --name <vm_name> --image UbuntuLTS --admin-username azureuser --admin-password "<password>"
     ```
-    You also upload your ssh key with command `--ssh-key-value ssh_path`, for example: `--ssh-key-value ~/.ssh/id_rsa.pub`
 
-  - Windows
-    ```shell
-    az vm create --resource-group my-resource-group --name my-vm --image UbuntuLTS --admin-username azureuser --admin-password "password"
+    **Notes**:
+
+    - You can also upload your ssh key with the following command `--ssh-key-value <ssh_path>`.
+
+1. Install the JDK.  
+
+#### [Linux](#tab/linux)
+
+1. Log in to the virtual machine using an SSH tool.
+
+    ```bash
+    ssh username@123.123.123.123
     ```
-  
--	Install JDK
-    - Linux
-      - Login into VM with SSH tool
-        ```shell
-        ssh username@123.123.123.123
-        ```
-      - Install JDK with `apt`, you can also install with other package manage tools like: `yum, pacman` etc.
-        ```shell
-        sudo apt-get install -y default-jdk
-        ```
-        After installation is complete, run `java -version` to check the java environment. You see:
-        
-        ```bash
-        openjdk 11.0.9.1 2020-11-04
-        OpenJDK Runtime Environment (build 11.0.9.1+1-Ubuntu-0ubuntu1.18.04)
-        OpenJDK 64-Bit Server VM (build 11.0.9.1+1-Ubuntu-0ubuntu1.18.04, mixed mode, sharing)
-        ```
-        
-    - Windows
-      - Login with SSH tool or `Remote Desktop Connection`
-      - Download the JDk from https://www.oracle.com/java/technologies/javase-downloads.html
-      - Install JDK
+    
+1. Install the JDK with apt. You can also install with other package manager tools such as yum or pacman.
+
+    ```bash
+    sudo apt-get install -y default-jdk
+    ```
+
+1. After installation is complete, run `java -version` to verify the Java environment. The output will include the version numbers associated with various parts of the JDK.
+
+#### [Windows](#tab/windows)
+
+1. Log in to the virtual machine using an SSH tool or using Remote Desktop Connection.
+
+1. [Download the JDK](https://www.oracle.com/java/technologies/javase-downloads.html) that is appropriate for your environment.
+
+1. Install JDK
 
 ## Add agent to Jenkins
   - Open your Jenkins portal, navigate to `Jenkins -> Manage Jenkins -> Manage Nodes and cloud -> New Node`, set a name for the new node; select **Permanent Agent** and click **OK**.
