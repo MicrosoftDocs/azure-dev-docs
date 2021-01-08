@@ -15,13 +15,6 @@ Azure Container Instances (ACI) provides an on-demand, burstable, and isolated e
 
 For more information on Azure Container Instances, see [About Azure Container Instances](/azure/container-instances/container-instances-overview).
 
-## Requirement
-
-- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
-- **Azure CLI**: Install [Azure CLI](/cli/azure/install-azure-cli) (2.0.67 or higher) on the Jenkins server.
-- **SSH tool**: One example is OpenSSH.
-
 ## Prerequisites
 
 - **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.

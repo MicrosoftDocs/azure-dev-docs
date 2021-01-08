@@ -3,8 +3,8 @@ title: Tutorial - Scale Jenkins deployments with VM running in Azure
 description: Learn how to add additional capacity to your Jenkins pipelines using Azure virtual machines
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
-ms.date: 12/16/2020
-ms.custom: devx-track-jenkins
+ms.date: 01/08/2021
+ms.custom: devx-track-jenkins,devx-track-jenkins
 ---
 
 # Tutorial: Scale Jenkins deployments with VM running in Azure
@@ -27,42 +27,13 @@ In this tutorial, you will:
 
 ## Create agent machine
 
-### Create Azure VM
+1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
 
-- Open your Azure CLI and login
-    ```shell
-    az login
+    ```azurecli
+    az group create --name <resource_group> --location <location>
     ```
-- Make sure current login use the right subscription
-    Check current subscription:
-    ```shell
-    az account show 
-    ```
-    Sample output:
-    ```json
-    {
-        "environmentName": "AzureCloud",
-        "homeTenantId": "00000000-0000-0000-0000-000000000000",
-        "id": "00000000-0000-0000-0000-000000000000",
-        "isDefault": true,
-        "managedByTenants": [],
-        "name": "00000000-0000-0000-0000-000000000000",
-        "state": "Enabled",
-        "tenantId": "00000000-0000-0000-0000-000000000000",
-        "user": {
-            "name": "user@test.com",
-            "type": "user"
-        }
-    }
-    ```
-    If output shows you are not using the subscription you want to use, you can change the subscrtiption with command:
-    ```shell
-    az account set --subscription "My Sub"
-    ```
-- Create Resourece group
-    ```shell
-    az group create --name my-resource-group --location eastus
-    ```
+
+1. 
 
 - Create Virtual Machine
   - Linux
@@ -118,7 +89,9 @@ In this tutorial, you will:
             - Upload the `agent.jar` to your VM
             - Start Jenkisn now with command `ssh nodeHost java -jar remote_agentjar_path`, example: `ssh azureuser@40.85.162.9 java -jar /home/azureuser/agent.jar`   
             Configuration example: ![Configure execute command of the master](./media/scale-deployments-using-vm-agents/config.png)
-        
+
+    > **Note**: Make sure you Configure Jenkins URL if you use JNLP. Navigate to `Configure System` -> Jenkins Location. Update `Jenkins URL` to the HTTP address of your Jenkins installation, such as http://yourhost.yourdomain:8080/.
+
 After you set all the configurations, save the configuration and Jenkins will add the VM as a new work node. ![VM as new work node](./media/scale-deployments-using-vm-agents/commandstart.png)
 
 ## Create a job in Jenkins

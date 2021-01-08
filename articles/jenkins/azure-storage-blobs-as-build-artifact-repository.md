@@ -20,7 +20,6 @@ In this tutorial, you'll be using the Azure Storage Plugin for Jenkins CI made a
 - **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
 - **Azure storage account**: If you don't already have a storage account, [create a Storage Account](/azure/storage/common/storage-account-create).
-- **Azure CLI**: Install [Azure CLI](/cli/azure/install-azure-cli) (2.0.67 or higher) on the Jenkins server.
 
 ## Configure your environment
 
