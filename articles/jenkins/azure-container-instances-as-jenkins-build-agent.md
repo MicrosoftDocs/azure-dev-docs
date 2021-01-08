@@ -44,7 +44,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 1. Under **Agents**, specify **Fixed** port and enter the appropriate port number for your environment.
 
     Configuration example:
-    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent_-ort.png)
+    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent-port.png)
 
 1. Select **Save**.
 
