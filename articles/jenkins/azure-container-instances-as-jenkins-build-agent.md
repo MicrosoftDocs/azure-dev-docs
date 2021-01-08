@@ -22,35 +22,75 @@ For more information on Azure Container Instances, see [About Azure Container In
 - **AZ CLI**: Make sure you have [Az CLI installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), version 2.0.67 or higher installed on your Jenkins server.
 - **SSH tool**: for example OpenSSH etc.
 
-## Prepare Jenkins master
+## Prerequisites
 
-1. Configure Jenkins URL. Navigate to `Configure System` -> Jenkins Location. Update `Jenkins URL` to the HTTP address of your Jenkins installation, such as http://yourhost.yourdomain:8080/.
-1. Open the TCP port for the agents. Navigate to `Manage Jenkins` -> `Configure Global Security` -> `Agents`. Change the `TCP port for inbound agents` option to `Fixed` and set a port number. 
+- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
+
+## Prepare the Jenkins controller
+
+1. Browse to your Jenkins portal.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **System Configuration**, select **Configure System**.
+
+1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **Security**, select **Configure Global Security**.
+
+1. Under **Agents**, specify **Fixed** port and enter the appropriate port number for your environment.
+
     Configuration example:
-    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agentPort.png)
+    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent_-ort.png)
+
+1. Select **Save**.
 
 ## Create Jenkins work agent
-  Open your Jenkins portal, navigate to `Jenkins -> Manage Jenkins -> Manage Nodes and cloud -> New Node`.
-  - Node Configure
-    - `Name`  Jenkins node name, the `AGENT_NAME` you will used for agent connection.
-    - `Remote root directory` Remote working directory, example: `/home/jenkins/work`
-    - `Labels`: Labels are used to group multiple agents into one logical group. Example : `linux`
-    - `Launch method`: `Launch agent by connecting to the master`
-    Configuration example:   
-     ![Agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agentconfig.png)
 
-    Click the `Save` button save the agent configuration. Go to the agent status page, you will find the `JENKINS_SECRET` ,`AGENT_NAME` in the status page.
+1. Browse to your Jenkins portal.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **System Configuration**, select **Manage Nodes and Clouds**.
+
+1. From the menu, select **New Node**.
+
+1. Enter a value for **Node Name**.
+
+1. Select **Permanent Agent**.
+
+1. Select **OK**.
+
+1. Enter a value for **Remote root directory**.Remote working directory, example: `/home/jenkins/work`
+
+1. Optionally, enter a label. Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.
+
+1. Set **Launch method** to **Launch agent by connecting to the master**.
+
+1. Verify that all required fields have been specified or entered:
+
+    ![Example Jenkins agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agentconfig.png)
+
+1. Select **Save**.
+
+1. Go to the agent status page to see the `JENKINS_SECRET` and `AGENT_NAME`. These values are used in creating the Azure Container Instance.
+
     ![Build agent secret](./media/azure-container-instances-as-jenkins-build-agent/jenkins_secret.png)
 
-## Create Azure Container Instance with CLI 
- - Create Resource group
-      ```
+## Create Azure Container Instance with CLI
+
+1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
+
+      ```azurecli
       az group create --name my-resourcegroup --location westus
       ```
 
- - Create Azure Container Instance
-    Replace the `JENKINS_SECRET` and `AGENT_NAME` with the `JENKINS_SECRET` and `AGENT_NAME` you find in step 1.
-    ```cmd
+1. Use [az container create](https://docs.microsoft.com/cli/azure/container#az_container_create) to create and Azure Container Instance. Replace the placeholders with the values obtained when you created the work agent.
+
+    ```azurecli
     az container create \
       --name my-dock \
       --resource-group my-resourcegroup \
@@ -60,8 +100,8 @@ For more information on Azure Container Instances, see [About Azure Container In
       --command-line "jenkins-agent -url http://jenkinsserver:port <JENKINS_SECRET> <AGENT_NAME>"
     ```
 
-  After the container started, it will connect to the Jenkins controller server automatically.
-  ![Agent started](./media/azure-container-instances-as-jenkins-build-agent/agentstart.png)
+    After the container starts, it will connect to the Jenkins controller server automatically.
+    ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agentstart.png)
 
 ## Create a build job
 
