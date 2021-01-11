@@ -57,7 +57,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Select **OK**.
 
-1. Enter a value for **Remote root directory**.Remote working directory, example: `/home/jenkins/work`
+1. Enter a value for **Remote root directory**. For example, `/home/jenkins/work`
 
 1. Optionally, enter a label. Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.
 

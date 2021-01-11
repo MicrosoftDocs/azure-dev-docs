@@ -25,7 +25,7 @@ In this tutorial, you will:
 
 - **Jenkins installation**: If you don't have access to a Jenkins installation, [configure Jenkins using Azure CLI](configure-on-linux-vm.md)
 
-## Create agent machine
+## Configure agent virtual machine
 
 1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
 
@@ -69,27 +69,6 @@ In this tutorial, you will:
     
     1. Install JDK
     
-## Prepare the Jenkins controller
-
-1. Browse to your Jenkins portal.
-
-1. From the menu, select **Manage Jenkins**.
-
-1. Under **System Configuration**, select **Configure System**.
-
-1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
-
-1. From the menu, select **Manage Jenkins**.
-
-1. Under **Security**, select **Configure Global Security**.
-
-1. Under **Agents**, specify **Fixed** port and enter the appropriate port number for your environment.
-
-    Configuration example:
-    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent-port.png)
-
-1. Select **Save**.
-
 ## Add agent to Jenkins
 
 1. From the menu, select **Manage Jenkins**.
@@ -104,9 +83,35 @@ In this tutorial, you will:
 
 1. Select **OK**.
 
-1. Verify that all required fields have been specified or entered. The following screen shot shows an example scenario.
+1. Specify values for the following fields:
 
-    ![Example Jenkins agent configuration](./media/scale-deployments-using-vm-agents/ssh2.png)
+    - **Name**: Specify a unique name that identifies an agent within the new Jenkins installation. This value can be different from the agent hostname. However, it's convenient to make them the two values the same. The name value is allowed any special character from the following list: `?*/\%!@#$^&|<>[]:;`.
+
+    - **Remote root directory**: An agent needs to have a directory dedicated to Jenkins. Specify the path to this directory on the agent. It is best to use an absolute path, such as `/home/azureuser/work` or `c:\jenkins`. This should be a path local to the agent machine. There is no need for this path to be visible from the master. If you use a relative path, such as ./jenkins-agent, the path will be relative to the working directory provided by the Launch method.
+
+    - **Labels**: Labels are used to group semantically related agents into one logical group. For example, you could define a label of `UBUNTU` for all your agents running the Ubuntu distro of Linux.
+
+    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agent via execution of command on the master** and **Launch agents via SSH**:
+
+        - **Launch agents via SSH**: Specify the values for the following fields:
+
+            - **Host**: VM public IP address or domain name. For example, `123.123.123.123` or `example.com`
+
+            - **Credentials**: Select a credential to be used for logging in to the remote host. You can also select the **Add** button to define a new credential and then select that new credential once it's create.
+
+            - **Host Key Verification Strategy**: Controls how Jenkins verifies the SSH key presented by the remote host whilst connecting.
+
+            ![Node configuration example specifying a launch method of Launch agents via SSH.](./media/scale-deployments-using-vm-agents/ssh2.png)
+
+        - **Launch agent via execution of command on the master**:
+
+            - Download the `agent.jar`  from `https://yourjenkinshostname/jnlpJars/agent.jar`. For example, `https://localhost:8443/jnlpJars/agent.jar`.
+
+            - Upload `agent.jar` to your virtual machine
+
+            - Start Jenkins with command `ssh nodeHost java -jar remote_agentjar_path`. For example, `ssh azureuser@99.99.999.9 java -jar /home/azureuser/agent.jar`.
+
+            ![Node configuration example specifying a launch method of Launch agent via execution of command on the master.](./media/scale-deployments-using-vm-agents/config.png)
 
 1. Select **Save**.
 
