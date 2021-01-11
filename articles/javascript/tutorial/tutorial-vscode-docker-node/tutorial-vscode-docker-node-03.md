@@ -2,15 +2,13 @@
 title: Create a container image for a JavaScript app from Visual Studio Code
 description: Docker Tutorial part 3, create and run a local Node.js app
 ms.topic: tutorial
-ms.date: 03/22/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-js
 ---
 
 # Create and run a local Node.js app from Visual Studio Code
 
 [Previous step: Use a container registry](tutorial-vscode-docker-node-02.md)
-
-In this step, you create a simple Node.js app using the Express application generator. You then run the app locally.
 
 [!INCLUDE [create-node-app](../../includes/create-node-app.md)]
 
