@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 [Previous step: Introduction and prerequisites](tutorial-vscode-azure-cli-node-01.md)
 
-[!INCLUDE [create-express-js-node-app](../includes/create-node-app.md)]
+[!INCLUDE [create-express-js-node-app](../../includes/create-node-app.md)]
 
 
 > [!div class="nextstepaction"]
