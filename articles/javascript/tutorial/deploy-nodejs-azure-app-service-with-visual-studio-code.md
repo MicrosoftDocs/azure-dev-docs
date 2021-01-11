@@ -37,21 +37,11 @@ Watch this video for a complete walkthrough of the content in this article.
 
 ## 3. Create a local Express.js app
 
-[!INCLUDE [create-express-js-node-app](../includes/create-node-app.md)]
+[!INCLUDE [Create a local Express.js app](../includes/create-node-app.md)]
 
 ## 4. Run your local Express.js app
 
-1. Start the server:
-
-    ```bash
-    npm start
-    ```
-
-1. Test the app by opening a browser to `http://localhost:3000`. The site should appear as follows:
-
-    ![Running Express Application](../media/deploy-azure/express.png)
-
-1. Press **Ctrl**+**C** in the terminal to stop the server.
+[!INCLUDE [Run your local Express.js app](../includes/create-node-app.md)]
 
 ## 5. Initialize Git in Visual Studio Code for current app
 

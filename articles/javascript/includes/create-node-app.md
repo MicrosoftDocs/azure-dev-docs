@@ -25,16 +25,3 @@ Create and run a Node.js app by cloning an Azure sample repository.
     ```bash
     npm install
     ```
-
-1. Start the server:
-
-    ```bash
-    npm start
-    ```
-
-1. Test the app by opening a browser and going to `http://localhost:3000`. Here is how the site should appear:
-
-    ![Running the Express application](../media/deploy-azure/express.png)
-
-1. Select **Ctrl**+**C** in the terminal to stop the server.
- 
