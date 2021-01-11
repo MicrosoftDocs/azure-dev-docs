@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 
 ## Run your local Express.js app
 
-[!INCLUDE [Run your local Express.js app](../../includes/create-node-app.md)]
+[!INCLUDE [Run your local Express.js app](../../includes/run-node-app.md)]
 
 > [!div class="nextstepaction"]
 > [I've created the  Node.js app](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)

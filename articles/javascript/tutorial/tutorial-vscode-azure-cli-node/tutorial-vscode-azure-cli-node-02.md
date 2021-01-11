@@ -16,7 +16,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 ## Run your local Express.js app
 
-[!INCLUDE [Run your local Express.js app](../../includes/create-node-app.md)]
+[!INCLUDE [Run your local Express.js app](../../includes/run-node-app.md)]
 
 
 > [!div class="nextstepaction"]

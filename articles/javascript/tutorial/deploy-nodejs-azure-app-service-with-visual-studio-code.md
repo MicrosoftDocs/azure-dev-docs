@@ -41,7 +41,7 @@ Watch this video for a complete walkthrough of the content in this article.
 
 ## 4. Run your local Express.js app
 
-[!INCLUDE [Run your local Express.js app](../includes/create-node-app.md)]
+[!INCLUDE [Run your local Express.js app](../includes/run-node-app.md)]
 
 ## 5. Initialize Git in Visual Studio Code for current app
 
