@@ -2,7 +2,7 @@
 title: Deploy Node.js apps to Azure App Service from Visual Studio Code
 description: Deploy an Express.js Node.js application to Azure App Service using the Visual Studio Code App Service extension.
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-js
 ---
 

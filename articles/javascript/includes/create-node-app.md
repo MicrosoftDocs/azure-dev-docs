@@ -2,7 +2,7 @@
 author: burkeholland
 ms.service: app-service  
 ms.topic: include
-ms.date: 03/31/2020
+ms.date: 01/11/2021
 ms.author: buhollan
 ms.custom: devx-track-js
 ---
