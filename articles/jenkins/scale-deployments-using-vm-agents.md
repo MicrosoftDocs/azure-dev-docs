@@ -115,6 +115,22 @@ In this tutorial, you will:
 
 1. Select **Save**.
 
+After you define the configurations, Jenkins adds the virtual machine as a new work node.
+
+![Example of virtual machine as new work node](./media/scale-deployments-using-vm-agents/commandstart.png)
+
+## Configure Jenkins URL
+
+If you use JNLP, you'll need to configure the Jenkins URL.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **System Configuration**, select **Configure System**.
+
+1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
+
+1. Select **Save**.
+
 ## Create a job in Jenkins
 
 1. From the menu, select **New Item**.
