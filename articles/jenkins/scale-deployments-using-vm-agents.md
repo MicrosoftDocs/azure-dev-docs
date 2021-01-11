@@ -69,6 +69,18 @@ In this tutorial, you will:
     
     1. Install JDK
     
+## Configure Jenkins URL
+
+If you use JNLP, you'll need to configure the Jenkins URL.
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **System Configuration**, select **Configure System**.
+
+1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
+
+1. Select **Save**.
+
 ## Add agent to Jenkins
 
 1. From the menu, select **Manage Jenkins**.
@@ -91,7 +103,7 @@ In this tutorial, you will:
 
     - **Labels**: Labels are used to group semantically related agents into one logical group. For example, you could define a label of `UBUNTU` for all your agents running the Ubuntu distro of Linux.
 
-    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agent via execution of command on the master** and **Launch agents via SSH**:
+    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agents via SSH** and **Launch agent via execution of command on the master**:
 
         - **Launch agents via SSH**: Specify the values for the following fields:
 
@@ -118,18 +130,6 @@ In this tutorial, you will:
 After you define the configurations, Jenkins adds the virtual machine as a new work node.
 
 ![Example of virtual machine as new work node](./media/scale-deployments-using-vm-agents/commandstart.png)
-
-## Configure Jenkins URL
-
-If you use JNLP, you'll need to configure the Jenkins URL.
-
-1. From the menu, select **Manage Jenkins**.
-
-1. Under **System Configuration**, select **Configure System**.
-
-1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
-
-1. Select **Save**.
 
 ## Create a job in Jenkins
 

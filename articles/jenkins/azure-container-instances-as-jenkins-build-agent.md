@@ -11,7 +11,7 @@ ms.custom: devx-track-jenkins,devx-track-azurecli
 
 [!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
-Azure Container Instances (ACI) provides an on-demand, burstable, and isolated environment for running containerized workloads. Because of these attributes, ACI makes a great platform for running Jenkins build jobs at a large scale. This article walks through deploying and using a Jenkins server that's pre-configured with ACI as a build target.
+Azure Container Instances (ACI) provides an on-demand, burstable, and isolated environment for running containerized workloads. Because of these attributes, ACI makes a great platform for running Jenkins build jobs at a large scale. This article shows you how to deploy an ACI and add it as a permanent build agent for a Jenkins controller.
 
 For more information on Azure Container Instances, see [About Azure Container Instances](/azure/container-instances/container-instances-overview).
 

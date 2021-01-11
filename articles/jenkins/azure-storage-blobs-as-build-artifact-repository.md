@@ -3,7 +3,7 @@ title: Tutorial - Use Azure Storage for build artifacts
 description: Learn how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
 keywords: jenkins, azure, devops, storage, cicd, build artifacts
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 01/11/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -13,12 +13,11 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 This article illustrates how to use Blob storage as a repository of build artifacts created by a Jenkins continuous integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this solution useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
-In this tutorial, you'll be using the Azure Storage Plugin for Jenkins CI made available by Microsoft.
-
 ## Prerequisites
 
 - **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
+- **Azure CLI**: Install Azure CLI (version 2.0.67 or higher) on the Jenkins server.
 - **Azure storage account**: If you don't already have a storage account, [create a Storage Account](/azure/storage/common/storage-account-create).
 
 ## Configure your environment
@@ -35,15 +34,11 @@ If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solu
     java -jar jenkins.war
     ```
 
-1. Open the Jenkins dashboard.
-
-1. Install and configure the Azure Storage plugin.
-  
 ## Add Azure credential needed to execute Azure CLI
 
-1. Browse to the Jenkins dashboard.
+1. Browse to the Jenkins portal.
 
-1. Select **Manage Jenkins**.
+1. From the menu, select **Manage Jenkins**.
 
 1. Select **Manage Credentials**.
 
