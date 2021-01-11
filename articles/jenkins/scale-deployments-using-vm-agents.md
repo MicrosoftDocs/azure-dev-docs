@@ -105,11 +105,11 @@ In this tutorial, you will:
 
         - **Launch agent via execution of command on the master**:
 
-            - Download the `agent.jar`  from `https://yourjenkinshostname/jnlpJars/agent.jar`. For example, `https://localhost:8443/jnlpJars/agent.jar`.
+            - Download the `agent.jar`  from `https://<your_jenkins_host_name>/jnlpJars/agent.jar`. For example, `https://localhost:8443/jnlpJars/agent.jar`.
 
             - Upload `agent.jar` to your virtual machine
 
-            - Start Jenkins with command `ssh nodeHost java -jar remote_agentjar_path`. For example, `ssh azureuser@99.99.999.9 java -jar /home/azureuser/agent.jar`.
+            - Start Jenkins with command `ssh <node_host> java -jar <remote_agentjar_path>`. For example, `ssh azureuser@99.99.999.9 java -jar /home/azureuser/agent.jar`.
 
             ![Node configuration example specifying a launch method of Launch agent via execution of command on the master.](./media/scale-deployments-using-vm-agents/config.png)
 
