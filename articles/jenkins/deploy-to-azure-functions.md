@@ -3,8 +3,8 @@ title: Tutorial - Deploy to Azure Functions using Jenkins
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
-ms.date: 10/23/2019
-ms.custom: devx-track-jenkins
+ms.date: 01/11/2021
+ms.custom: devx-track-jenkins,devx-track-cli
 ---
 
 # Tutorial: Deploy to Azure Functions using Jenkins
@@ -43,7 +43,7 @@ The following steps show how to create a Java function using the Azure CLI:
 1. Create the test function app, replacing the placeholders with the appropriate values.
 
     ```azurecli
-    az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
+    az functionapp create --resource-group <resource_group> --runtime java --consumption-plan-location eastus --name <function_app> --storage-account <storage_account> --functions-version 2
     ```
 
 ## Prepare Jenkins server
@@ -54,29 +54,57 @@ The following steps explain how to prepare the Jenkins server:
 
 1. Sign in to the Jenkins instance with SSH.
 
-1. On the Jenkins instance, install maven using the following command:
+1. On the Jenkins instance, install Az CLI,  version 2.0.67 or higher.
 
-    ```terminal
+1. Install maven using the following command:
+
+    ```bash
     sudo apt install -y maven
     ```
 
 1. On the Jenkins instance, install the [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) by issuing the following commands at a terminal prompt:
 
-    ```terminal
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
-    sudo dpkg -i packages-microsoft-prod.deb
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    cat /etc/apt/sources.list.d/dotnetdev.list
     sudo apt-get update
-    sudo apt-get install azure-functions-core-tools
+    sudo apt-get install azure-functions-core-tools-3
     ```
-
-1. In the Jenkins dashboard, install the following plugins:
-
-    - Azure Functions Plug-in
-    - EnvInject Plug-in
 
 1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-from-github-to-azure-app-service.md) for step-by-step instructions.
 
-1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./deploy-from-github-to-azure-app-service.md#add-service-principal-to-jenkins) tutorial.
+1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
+
+    1. From the menu, select **Manage Jenkins**.
+
+    1. Under **System Configuration**, select **Manage Plugins**.
+
+    1. Select the **Installed** tab.
+
+    1. In the **filter** field, enter `credentials`.
+    
+    1. Verify that the **Credentials Plugin** is installed. If not, you'll need to install it from the **Available** tab.
+
+    ![The Credentials Plugin needs to be installed.](./media/deploy-to-azure-functions/credentials-plugin.png)
+
+1. From the menu, select **Manage Jenkins**.
+
+1. Under **Security**, select **Manage Credentials**.
+
+1. Under **Credentials**, select **(global)**.
+
+1. From the menu, select **Add Credentials**.
+
+1. Enter the following values for your [Microsoft Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%252fazure%252fazure-resource-manager%252ftoc.json):
+
+    - **Kind**: Verify that the kind is ***Username with password***.
+    - **Username**: ***appId*** of the service principal created.
+    - **Password**: ***password*** of the service principal created.
+    - **ID**: Credential identifier such `as azuresp`.
+
+1. Select **OK**.
 
 ## Fork the sample GitHub repo
 
@@ -94,34 +122,37 @@ In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/p
 
 1. Enable **Prepare an environment for the run**.
 
-1. Add the following environment variables in **Properties Content**, replacing the placeholders with the appropriate values for your environment:
-
-    ```
-    AZURE_CRED_ID=<service_principal_credential_id>
-    RES_GROUP=<resource_group>
-    FUNCTION_NAME=<function_name>
-    ```
-    
 1. In the **Pipeline->Definition** section, select **Pipeline script from SCM**.
 
 1. Enter your GitHub fork's URL and script path ("doc/resources/jenkins/JenkinsFile") to use in the [JenkinsFile example](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
-   ```
-   node {
-    stage('Init') {
-        checkout scm
+   ```nodejs
+    node {
+    withEnv(['AZURE_SUBSCRIPTION_ID=99999999-9999-9999-9999-999999999999',
+            'AZURE_TENANT_ID=99999999-9999-9999-9999-999999999999']) {
+        stage('Init') {
+            cleanWs()
+            checkout scm
         }
 
-    stage('Build') {
-        sh 'mvn clean package'
+        stage('Build') {
+            sh 'mvn clean package'
         }
 
-    stage('Publish') {
-        azureFunctionAppPublish appName: env.FUNCTION_NAME, 
-                                azureCredentialsId: env.AZURE_CRED_ID, 
-                                filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
-                                resourceGroup: env.RES_GROUP, 
-                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+        stage('Publish') {
+            def RESOURCE_GROUP = '<resource_group>' 
+            def FUNC_NAME = '<function_app>'
+            // login Azure
+            withCredentials([usernamePassword(credentialsId: 'azuresp', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+            sh '''
+                az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+                az account set -s $AZURE_SUBSCRIPTION_ID
+            '''
+            }
+            sh 'cd $PWD/target/azure-functions/odd-or-even-function-sample && zip -r ../../../archive.zip ./* && cd -'
+            sh "az functionapp deployment source config-zip -g $RESOURCE_GROUP -n $FUNC_NAME --src archive.zip"
+            sh 'az logout'
+            }
         }
     }
     ```

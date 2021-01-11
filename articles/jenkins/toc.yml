@@ -15,7 +15,6 @@
     items:
     - name: Scale with Azure Container Instances
       href: azure-container-instances-as-jenkins-build-agent.md
-      maintainContext: true
     - name: Scale with Azure VM agents
       href: scale-deployments-using-vm-agents.md
   - name: Implement CI/CD
@@ -28,27 +27,20 @@
       items:
       - name: CI/CD to Kubernetes
         href: deploy-from-github-to-aks.md
-        maintainContext: true
-      - name: Deploy to AKS using blue/green pattern
-        href: deploy-to-aks-using-blue-green-deployment-pattern.md
     - name: App Service
       items:
       - name: Create Azure resources in a pipeline job
         href: deploy-to-azure-app-service-using-azure-cli.md
     - name: Use Jenkins with Azure DevOps
       href: deploy-to-linux-vm-using-azure-devops-services.md
-      maintainContext: true
     - name: Deploy to Azure Functions
       href: deploy-to-azure-functions.md
     - name: Publish to Azure Storage
       href: azure-storage-blobs-as-build-artifact-repository.md
-      maintainContext: true
     - name: CI/CD to Linux VMs
       href: pipeline-with-github-and-docker.md
-      maintainContext: true
     - name: CI/CD to Service Fabric
       href: deploy-to-service-fabric-cluster.md
-      maintainContext: true
 - name: Samples
   items:
     - name: Sample jobs and scripts
