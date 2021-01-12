@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 [!INCLUDE [azure-cli-prepare-your-environment.md](../includes/azure-cli-prepare-your-environment.md)]
 
 #### azure-cli-prepare-your-environment-no-header-h3.md
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-h3.md)]
 
 #### azure-cli-prepare-your-environment-no-header.md
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../includes/azure-cli-prepare-your-environment-no-header.md)]
