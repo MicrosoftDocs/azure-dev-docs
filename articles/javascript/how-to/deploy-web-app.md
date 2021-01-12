@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 01/12/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
@@ -61,6 +61,14 @@ Other deployment methods may exist, based on the specific service. For example, 
 * [Local Git](/azure/app-service/deploy-local-git)
 * [cURL](/azure/app-service/deploy-zip#with-curl)
 * [SSH](/azure/app-service/configure-linux-open-ssh-session)
+
+You can redeploy to your App service using any of the [provided methods](#deploy-your-web-app-to-azure) even if you didn't use that method to originally deploy. You may have some configuration before redeploying if you are switching methods. 
+
+### Deploy or redeploy to App service with Visual Studio Code
+
+To deploy or redeploy your App service app with Visual Studio Code, right-click your app service from the list of service in the App service extension, then select **Deploy to Web App...**. 
+
+:::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
 
 ## Verify your deployment with your HTTP endpoint
 

@@ -134,7 +134,11 @@ View (tail) any output that the running app generates through calls to `console.
 
 1. Refresh the web page a few times in the browser to see additional log output.
 
-## 8. Clean up resources
+## 8. Make changes and redeploy
+
+Make a few changes and [redeploy](../how-to/deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code) the app using the App service extension. 
+
+## 9. Clean up resources
 
 When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.
 
