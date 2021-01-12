@@ -3,7 +3,7 @@ title: Tutorial - Use Azure Storage for build artifacts
 description: Learn how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
 keywords: jenkins, azure, devops, storage, cicd, build artifacts
 ms.topic: article
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -19,20 +19,6 @@ This article illustrates how to use Blob storage as a repository of build artifa
 - **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
 - **Azure CLI**: Install Azure CLI (version 2.0.67 or higher) on the Jenkins server.
 - **Azure storage account**: If you don't already have a storage account, [create a Storage Account](/azure/storage/common/storage-account-create).
-
-## Configure your environment
-
-If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
-  
-1. On a Java-enabled machine, [download jenkins.war](https://jenkins-ci.org).
-
-1. Open a command prompt and go to the directory that contains jenkins.war
-
-1. Run the following command:
-
-    ```bash
-    java -jar jenkins.war
-    ```
 
 ## Add Azure credential needed to execute Azure CLI
 
