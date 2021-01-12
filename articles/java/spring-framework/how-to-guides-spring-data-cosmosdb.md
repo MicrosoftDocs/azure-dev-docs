@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 This article describes the features of [Spring Data Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) when it uses the SQL API. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
-With [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction), a globally distributed database service, developers can work with data by using a variety of standard APIs. The Spring Data Azure Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework, and it provides integration with Azure Cosmos DB by using the SQL API. For information about support for other APIs, see:
+With [Azure Cosmos DB](/azure/cosmos-db/introduction), a globally distributed database service, developers can work with data by using a variety of standard APIs. The Spring Data Azure Cosmos DB SDK is based on the [Spring Data](https://spring.io/projects/spring-data) framework, and it provides integration with Azure Cosmos DB by using the SQL API. For information about support for other APIs, see:
 
 - [Use the Spring Data MongoDB API with Azure Cosmos DB](./configure-spring-data-mongodb-with-cosmos-db.md)
 - [Use the Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
@@ -92,7 +92,7 @@ String[] includePaths; // The included paths for indexing.
 String[] excludePaths; // The excluded paths for indexing.
 ```
 
-The SDK supports partitioning. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview). To specify a field of a domain class as a partition key field, annotate it with `@PartitionKey`. Then, when you perform CRUD operations, specify your partition value.
+The SDK supports partitioning. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview). To specify a field of a domain class as a partition key field, annotate it with `@PartitionKey`. Then, when you perform CRUD operations, specify your partition value.
 
 The following example shows how to use the `@PartitionKey` annotation when you perform CRUD operations.
 

@@ -19,7 +19,7 @@ This article walks you through setting up a development environment for Azure de
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
-- [Java 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support), which is included in Azure Cloud Shell.
+- [Java 8](../fundamentals/java-jdk-long-term-support.md), which is included in Azure Cloud Shell.
 - [Maven 3](https://maven.apache.org/download.cgi), which is included in Azure Cloud Shell.
 
 ## Set up authentication
