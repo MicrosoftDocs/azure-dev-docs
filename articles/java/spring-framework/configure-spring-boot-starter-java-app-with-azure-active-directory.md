@@ -54,7 +54,10 @@ The following prerequisites are required in order to complete the steps in this 
 1. Select **Create a resource**, then **Identity**, and then **Azure Active Directory**.
    
    >[!div class="mx-imgBorder"]
-   >![Create new Azure Active Directory instance][create-directory-01]
+   >![Create new Azure Active Directory instance_step1][create-directory-00]
+
+   >[!div class="mx-imgBorder"]
+   >![Create new Azure Active Directory instance_step2][create-directory-01]
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial.
  (For example: `azuresampledirectory.onmicrosoft.com`.) 
@@ -163,22 +166,19 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Extract the files from the project archive you created and downloaded earlier in this tutorial into a directory.
 
-1. Navigate to the *src/main/resources* folder in your project and change *application.properties* as *application.yml* , then open the *application.yml* file in a text editor.
+1. Navigate to the *src/main/resources* folder in your project, then open the *application.properties* file in a text editor.
 
 1. Specify the settings for your app registration using the values you created earlier; for example:
 
-   ```yaml
-   azure:
-     activedirectory:
-       # Specifies your Active Directory ID:
-       tenant-id: 22222222-2222-2222-2222-222222222222
-       # Specifies your App Registration's Application ID:
-       client-id: 11111111-1111-1111-1111-1111111111111111
-       # Specifies your App Registration's secret key:
-       client-secret: AbCdEfGhIjKlMnOpQrStUvWxYz==
-       # Specifies the list of Active Directory groups to use for authorization:
-       user-group:
-         allowed-groups: group1
+   ```properties
+   # Specifies your Active Directory ID:
+   azure.activedirectory.tenant-id=22222222-2222-2222-2222-222222222222
+   # Specifies your App Registration's Application ID:
+   azure.activedirectory.client-id=11111111-1111-1111-1111-1111111111111111
+   # Specifies your App Registration's secret key:
+   azure.activedirectory.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
+   # Specifies the list of Active Directory groups to use for authorization:
+   azure.activedirectory.user-group.allowed-groups=group1
    ```
 
    Where:
@@ -193,7 +193,7 @@ The following prerequisites are required in order to complete the steps in this 
    > [!NOTE]
    > For a full list of values that are available in your *application.properties* file, see the [Azure Active Directory Spring Boot Sample][AAD Spring Boot Sample] on GitHub.
 
-1. Save and close the *application.yml* file.
+1. Save and close the *application.properties* file.
 
 1. Create a folder named *controller* in the Java source folder for your application; for example: *src/main/java/com/wingtiptoys/security/controller*.
 
@@ -343,6 +343,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 [create-spring-app-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-01.png
 
+[create-directory-00]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-00.png
 [create-directory-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-01.png
 [create-directory-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-02.png
 [create-directory-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-03.png
