@@ -61,7 +61,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Optionally, enter a label. Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.
 
-1. Set **Launch method** to **Launch agent by connecting to the master**.
+1. Set **Launch method** to **Launch agent by connecting to the controller**.
 
 1. Verify that all required fields have been specified or entered:
 

@@ -105,7 +105,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 ## Prepare Jenkins server
 
-In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
+In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on controller](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
 
 ### Install plug-ins
 
@@ -156,7 +156,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
-1. Connect to the Jenkins master via SSH.
+1. Connect to the Jenkins controller via SSH.
 
 1. Install Maven.
 
