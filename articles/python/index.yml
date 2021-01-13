@@ -2,7 +2,7 @@
 
 title: Azure for Python Developers
 summary: |
-  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more. <a href="https://www.microsoft.com">Microsoft link test</a>.
+  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more. [Markdown link](https://www.microsoft.com)
   
 metadata:
   title: Azure for Python developers
@@ -46,6 +46,12 @@ landingContent:
             url: tutorial-deploy-containers-01.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp          
+  - title: Give feedback
+    linkLists:      
+      - linkListType: whats-new
+        links:
+          - text: Tell us what you think about this page
+            url: tutorial-python-postgresql-app-portal.md
   - title: Machine learning
     linkLists:      
       - linkListType: how-to-guide
