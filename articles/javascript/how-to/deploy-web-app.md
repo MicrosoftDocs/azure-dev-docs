@@ -83,3 +83,4 @@ View your HTTP endpoint from the service's Overview page on the Azure portal.
 ## Next steps
 
 * [Deploy with containers](deploy-containers.md)
+* [More deployment tutorials using Visual Studio Code](https://code.visualstudio.com/docs/azure/deployment)
