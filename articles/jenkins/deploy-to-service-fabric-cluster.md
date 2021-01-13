@@ -192,7 +192,7 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 
 1. On the **General** tab, check the box for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
-1. On the **Source Code Management** tab, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). You can also specify which branch to build (for example, `/master`).
+1. On the **Source Code Management** tab, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). You can also specify which branch to build (for example, `/main`).
 1. Configure your *GitHub* repository to talk to Jenkins:
 
    1. On your GitHub repository page, go to **Settings** > **Integrations and Services**.
@@ -298,7 +298,7 @@ For development and test environments, you can configure either Azure credential
 1. Back under **Service Fabric Cluster Configuration**, make sure that your new credential is selected for **Azure Credentials**. 
 1. From the **Resource Group** drop-down, select the resource group of the cluster you want to deploy the application to.
 1. From the **Service Fabric** drop-down, select the cluster that you want to deploy the application to.
-1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
+1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`.
 1. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
     ![Service Fabric Jenkins Post-Build Action - Configure Azure credentials](./media/deploy-to-service-fabric-cluster/post-build-credentials.png)
 1. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Continue on to [Next steps](#next-steps) to test your deployment.
@@ -309,7 +309,7 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 
 ## Ideas to try
 
-GitHub and Jenkins are now configured. Consider making some sample change in the `reliable-services-actor-sample/Actors/ActorCounter` project in your fork of the repository, https://github.com/Azure-Samples/service-fabric-java-getting-started. Push your changes to the remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster you specified in post-build actions.  
+GitHub and Jenkins are now configured. Consider making some sample change in the `reliable-services-actor-sample/Actors/ActorCounter` project in your fork of the repository, https://github.com/Azure-Samples/service-fabric-java-getting-started. Push your changes to the remote `main` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster you specified in post-build actions.  
 
 ## Next steps
 
