@@ -2,7 +2,7 @@
 
 title: Azure for Python Developers
 summary: |
-  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more.
+  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more. <a href="https://www.microsoft.com">Microsoft link test</a>.
   
 metadata:
   title: Azure for Python developers
