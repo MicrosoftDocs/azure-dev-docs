@@ -36,7 +36,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
     * Choose the **Subscription** you want to use for your database.
     * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
-    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contoso*.
+    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccount*.
     * Choose **Core (SQL)** for the API.
     * Specify the **Location** for your database.
 
