@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 # How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
 
-Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
+Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
 
 This article demonstrates creating an Azure Cosmos DB using the Azure portal, then using the **[Spring Initializr]** to create a custom Spring Boot application, and then add the [Azure Spring Boot Starter for Azure Cosmos DB] to your custom application to store data in and retrieve data from your Azure Cosmos DB by using Spring Data and the Cosmos DB SQL API.
 
@@ -26,7 +26,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 ## Create an Azure Cosmos DB by using the Azure portal
 
-1. Browse to the Azure portal at <https://portal.azure.com/> and click **Create a resource**.
+1. Browse to the Azure portal at <https://portal.azure.com/> and select **Create a resource**.
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
@@ -40,17 +40,17 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
     * Choose **Core (SQL)** for the API.
     * Specify the **Location** for your database.
 
-    When you have specified these options, click **Review + create**, review your specifications, and click **Create**.
+    When you have specified these options, select **Review + create**, review your specifications, and select **Create**.
 
     ![Select Review + Create to proceed.][AZ03]
 
-1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
+1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select on your database on any of those locations to open the properties page for your cache.
 
-1. When the properties page for your database is displayed, click **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
     ![Copy the URI and access keys in the Keys section.][AZ05]
 
-## Create a simple Spring Boot application with the Spring Initializr
+## Create a Spring Boot application with the Spring Initializr
 
 Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [azure-spring-boot-sample-cosmosdb](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-cosmos) sample in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
@@ -357,7 +357,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 > [!div class="nextstepaction"]
 > [Spring on Azure](./index.yml)
 
-### Additional Resources
+### More Resources
 
 For more information about using Azure Cosmos DB and Java, see the following articles:
 
