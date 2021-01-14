@@ -19,6 +19,10 @@ Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your 
 * [Work with files and directories in a Node.js app](/learn/modules/nodejs-files/)
 * [Interactively debug Node.js apps with the built-in and Visual Studio Code debuggers](/learn/modules/debug-nodejs/)
 
+## TypeScript
+
+* [Playground](https://www.typescriptlang.org/play)
+
 ## Getting started
 
 * [JavaScript for beginners](https://techcommunity.microsoft.com/t5/apps-on-azure/learn-javascript-with-this-series-of-videos-for-beginners/ba-p/1764635)
