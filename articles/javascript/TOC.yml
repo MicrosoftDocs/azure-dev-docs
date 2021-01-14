@@ -115,7 +115,7 @@
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-      - name: Use Virtual machines  
+      - name: Deploy to virtual machines
         items:               
         - name: "Deploy container with logging"
           items: 
