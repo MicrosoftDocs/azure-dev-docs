@@ -25,13 +25,10 @@ to a [deployment group](/azure/devops/pipelines/release/deployment-groups/index)
 > * Create an Azure Pipelines release pipeline.
 > * Execute manual and CI-triggered deployments.
 
-## Before you begin
+## Prerequisites
 
-* You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins controller on an Azure virtual machine](/azure/jenkins/install-jenkins-solution-template). 
-
-* Sign in to your Azure DevOps Services organization (**https://{yourorganization}.visualstudio.com**). 
-  You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
 
   > [!NOTE]
   > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
