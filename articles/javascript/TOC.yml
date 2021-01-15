@@ -160,7 +160,7 @@
   - name: Learn
     href: learn-azure-javascript.md
   - name: Samples
-    href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+    href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

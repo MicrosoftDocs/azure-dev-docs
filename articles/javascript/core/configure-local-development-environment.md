@@ -137,4 +137,4 @@ You can also use any other source control tool of your choice; Git is simply one
 
 * [Create and use a service principal](node-sdk-azure-authenticate-principal.md)
 * [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
-* [Deploy a static website to Azure from Visual Studio Code](../tutorial-vscode-static-website-node-01.md)
+* [Deploy a static website to Azure from Visual Studio Code](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md)

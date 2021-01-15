@@ -37,9 +37,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|
 |---------------------------------------|
-|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/)|
-|Build a simple website using HTML, CSS, and JavaScript - [Learn](https://docs.microsoft.com/learn/modules/build-simple-website/)|
-|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](https://docs.microsoft.com/learn/modules/build-api-azure-functions)|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/learn/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](/learn/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/learn/modules/build-api-azure-functions)|
 
 ## 2020 November
 
