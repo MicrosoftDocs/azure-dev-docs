@@ -254,9 +254,9 @@ The following prerequisites are required in order to complete the steps in this 
    > }
    > ```
 
-1. Open your *application class* in a text editor.
+1. Open your application class in a text editor.
 
-1. Add `@EnableWebSecurity` and `@EnableGlobalMethodSecurity(prePostEnabled = true)` in your *application class* like following, then save and close the file:
+1. Add `@EnableWebSecurity` and `@EnableGlobalMethodSecurity(prePostEnabled = true)` in your application class as shown in the following example, then save and close the file:
 
     ```java
     package com.wingtiptoys;
@@ -290,7 +290,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
-1. After your application is built and started by Maven, open http:<span></span>//localhost:8080/group1 in a web browser; you should be prompted for a user name and password.
+1. After your application is built and started by Maven, open <http://localhost:8080/group1> in a web browser; you should be prompted for a user name and password.
    
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
