@@ -164,4 +164,4 @@
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
-    href: /javascript/api/overview/azure/?view=azure-node-latest
+    href: /javascript/api/overview/azure/

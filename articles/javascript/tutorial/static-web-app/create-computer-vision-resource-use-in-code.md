@@ -16,14 +16,14 @@ Creating a resource group allows you to easily find the resources, and delete th
 
 At the end of this series of steps, you need to have **the key and endpoint** for your resource.
 
-1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo`:
+1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
 
     ```azurecli
     az group create \
         --location eastus \
         --name rg-demo 
     ```
-1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
+1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create):
 
 
     ```azurecli
@@ -48,7 +48,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
     ...
     ```
 
-1. Run the following [command](/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) to get your keys. 
+1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) to get your keys. 
 
     ```azurecli
     az cognitiveservices account keys list \

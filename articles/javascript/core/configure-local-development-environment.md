@@ -40,7 +40,7 @@ The following common local workstation installations are recommended to help wit
 
 |Name/Installer|Description|
 |--|--|
-|[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on an extension-per-service basis.|
+|[Azure CLI](/cli/azure/get-started-with-azure-cli) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on an extension-per-service basis.|
 | [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use a different source control tool if you prefer. |
 
 
@@ -125,7 +125,7 @@ git init
 
 From there, you can run commands like `git add` and `git commit` to commit changes. By regularly committing changes, you create a commit history with which you can revert to any previous state.
 
-To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git?view=azure-devops). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
+To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
 
 Documentation for git is found on [git-scm.com/docs](https://git-scm.com/docs) and all around the Internet.
 

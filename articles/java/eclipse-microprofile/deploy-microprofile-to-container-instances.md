@@ -76,7 +76,7 @@ To build the image and be ready to run on Azure, you will have to follow these s
 
 #### Set up Azure CLI
 
-Make sure you have an Azure subscription, [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), and that you are authenticated to your account:
+Make sure you have an Azure subscription, [Azure CLI installed](/cli/azure/install-azure-cli), and that you are authenticated to your account:
 
 ```bash
 az login

@@ -106,7 +106,7 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: /javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/
           - text: JS/TS samples
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Explore developer tools

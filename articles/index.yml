@@ -108,15 +108,15 @@ productDirectory:
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       links:
-        - url: /cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/get-started-with-azure-cli
           text: Get started
-        - url: /cli/azure/install-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/install-azure-cli
           text: Install
-        - url: /cli/azure/authenticate-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/authenticate-azure-cli
           text: Sign-in
-        - url: /cli/azure/query-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/query-azure-cli
           text: Run a query on the output of a CLI command
-        - url: /cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest
+        - url: /cli/azure/azure-cli-vm-tutorial
           text: Create a virtual machine
         - url: /cli/azure/
           text: See more in the Azure CLI developer center
