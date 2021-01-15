@@ -99,11 +99,11 @@ If you use JNLP, you'll need to configure the Jenkins URL.
 
     - **Name**: Specify a unique name that identifies an agent within the new Jenkins installation. This value can be different from the agent hostname. However, it's convenient to make them the two values the same. The name value is allowed any special character from the following list: `?*/\%!@#$^&|<>[]:;`.
 
-    - **Remote root directory**: An agent needs to have a directory dedicated to Jenkins. Specify the path to this directory on the agent. It is best to use an absolute path, such as `/home/azureuser/work` or `c:\jenkins`. This should be a path local to the agent machine. There is no need for this path to be visible from the controller. If you use a relative path, such as ./jenkins-agent, the path will be relative to the working directory provided by the Launch method.
+    - **Remote root directory**: An agent needs to have a directory dedicated to Jenkins. Specify the path to this directory on the agent. It is best to use an absolute path, such as `/home/azureuser/work` or `c:\jenkins`. This should be a path local to the agent machine. There is no need for this path to be visible from the master. If you use a relative path, such as ./jenkins-agent, the path will be relative to the working directory provided by the Launch method.
 
     - **Labels**: Labels are used to group semantically related agents into one logical group. For example, you could define a label of `UBUNTU` for all your agents running the Ubuntu distro of Linux.
 
-    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agents via SSH** and **Launch agent via execution of command on the controller**:
+    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agents via SSH** and **Launch agent via execution of command on the master**:
 
         - **Launch agents via SSH**: Specify the values for the following fields:
 
@@ -115,7 +115,7 @@ If you use JNLP, you'll need to configure the Jenkins URL.
 
             ![Node configuration example specifying a launch method of Launch agents via SSH.](./media/scale-deployments-using-vm-agents/ssh2.png)
 
-        - **Launch agent via execution of command on the controller**:
+        - **Launch agent via execution of command on the master**:
 
             - Download the `agent.jar`  from `https://<your_jenkins_host_name>/jnlpJars/agent.jar`. For example, `https://localhost:8443/jnlpJars/agent.jar`.
 
@@ -123,7 +123,7 @@ If you use JNLP, you'll need to configure the Jenkins URL.
 
             - Start Jenkins with command `ssh <node_host> java -jar <remote_agentjar_path>`. For example, `ssh azureuser@99.99.999.9 java -jar /home/azureuser/agent.jar`.
 
-            ![Node configuration example specifying a launch method of Launch agent via execution of command on the controller.](./media/scale-deployments-using-vm-agents/config.png)
+            ![Node configuration example specifying a launch method of Launch agent via execution of command on the master.](./media/scale-deployments-using-vm-agents/config.png)
 
 1. Select **Save**.
 
