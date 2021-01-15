@@ -44,7 +44,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
     ![Select Review + Create to proceed.][AZ03]
 
-1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select on your database on any of those locations to open the properties page for your cache.
+1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select your database for any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
@@ -69,7 +69,7 @@ Use the following steps to create a new Spring Boot application project with Azu
 
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
-   > 1. The version of Spring Boot may be higher than the version supported by Azure Support. It's recommended that developers can manually modify to the highest spring boot version supported by Azure after the project is automatically generated. You can find the highest version number supported by Azure [here][azure-spring-boot-version-matrix].
+   > 1. The version of Spring Boot may be higher than the version supported by Azure Support. After the project is automatically generated, you can manually change the Spring Boot version to the highest version supported by Azure, which you can find [here][azure-spring-boot-version-matrix].
 
 1. When you have specified the options listed above, select **GENERATE**.
 
