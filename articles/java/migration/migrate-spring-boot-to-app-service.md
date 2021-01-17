@@ -115,7 +115,7 @@ If your application is built from a Maven POM file, use the Webapp plugin for Ma
 If you can't use the Maven plugin, you'll need to provision the Web App through other mechanisms, such as:
 
 * [Azure portal](https://portal.azure.com/#create/Microsoft.WebSite)
-* [Azure CLI](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+* [Azure CLI](/cli/azure/webapp#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
 Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-ftp) to deploy your application. If possible, your application should be uploaded to */home/site/wwwroot/app.jar*. If you don't wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](/azure/app-service/containers/app-service-linux-faq#built-in-images) textbox in the Configuration section of the portal. The startup script doesn't run from the directory into which it's placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
@@ -163,6 +163,6 @@ Now that you have your application migrated to Azure App Service you should veri
 
 * Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
-* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). When you use Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) followed by the slot swap.
+* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). When you use Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?tabs=yaml#deploy-to-a-slot) followed by the slot swap.
 
 * Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).

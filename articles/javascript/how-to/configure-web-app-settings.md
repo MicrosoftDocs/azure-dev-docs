@@ -2,7 +2,7 @@
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-js
 ---
 
@@ -61,6 +61,61 @@ Each service provides its own mechanism to add a custom domain.
 
 You need to [map the app's port number](/azure/app-service/configure-language-nodejs?pivots=platform-windows#get-port-number) if it isn't the default port, `8080`. This lets the App service forward requests to the correct port. 
 
+## Configure browser for CORS to connect with server
+
+If you need to connect to your own server, and need to ignore CORS security while running and debugging with the client locally, the recommended solution is to configure this setting in the Visual Studio Code debug file, `launch.json`, to pass settings to the browser to disable the security. 
+
+Because this file is strictly used for launching a debugging session, it is safe to check into your source control. 
+
+### Configure Edge browser to disable CORS for debugging
+
+The following `launch.json` file configures the **Edge browser** setting to turn off CORS security for the debug session: `--disable-web-security`. 
+
+```json
+{
+    // Debug client, with requests to server, w/o 
+    // changes to client or server
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Edge against localhost",
+            "request": "launch",
+            "type": "pwa-msedge",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--disable-web-security"
+            ],
+        },
+    ]
+}
+```
+
+### Configure Chrome browser to disable CORS for debugging
+
+The following `launch.json` file configures the **Chrome browser** setting to turn off CORS security for the debug session: `--disable-web-security`. 
+
+```json
+{
+    // Debug client, with requests to server, w/o 
+    // changes to client or server
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--disable-web-security"
+            ],
+        }
+    ]
+}
+```
+
+
 ## Configure certificates
 
 If your app requires certificates immediately, you have several choices about how to [provide certificates](/azure/app-service/configure-ssl-certificate#import-an-app-service-certificate):
@@ -105,4 +160,4 @@ If something is missing from this list, please fill out the feedback to tell us 
 
 ## Next steps
 
-* See many of these steps in an [end-to-end Node.js app](/azure/developer/javascript/how-to/develop-nodejs-on-azure) development flow. 
+* See many of these steps in an [end-to-end Node.js app](./develop-nodejs-on-azure.md) development flow.

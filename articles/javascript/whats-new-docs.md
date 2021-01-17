@@ -1,13 +1,22 @@
 ---
-title: "What's new for JavaScript docs: "
-description: "What's new in JavaScript docs for October 2020"
+title: "What's new for JavaScript docs"
+description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 01/05/2021
 ---
 
-# JavaScript docs: What's new for October 2020
+# JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 January
+
+### What's updated
+
+|Name|Notes|
+|---------------------------------------|--|
+|[**For beginners**](learn-azure-javascript.md#getting-started)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
+|[Common top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
 
 ## 2020 December
 
@@ -28,9 +37,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|
 |---------------------------------------|
-|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/)|
-|Build a simple website using HTML, CSS, and JavaScript - [Learn](https://docs.microsoft.com/learn/modules/build-simple-website/)|
-|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](https://docs.microsoft.com/learn/modules/build-api-azure-functions)|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/learn/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](/learn/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/learn/modules/build-api-azure-functions)|
 
 ## 2020 November
 

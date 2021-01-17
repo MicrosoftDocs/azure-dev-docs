@@ -56,7 +56,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: /azure/developer/javascript/tutorial/static-web-app/add-computer-vision-react-app#add-computer-vision-code-as-separate-module
+            url: ./tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
           - text: "Static web app: Login/Logoff button"
@@ -106,7 +106,7 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: /javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/
           - text: JS/TS samples
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Explore developer tools

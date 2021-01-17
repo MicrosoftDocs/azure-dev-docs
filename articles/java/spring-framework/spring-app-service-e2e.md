@@ -263,7 +263,7 @@ set DOLLAR=$
 ```
 ---
 
-Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql?view=azure-cli-latest#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration?view=azure-cli-latest#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
+Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
 
 # [bash](#tab/bash)
 
@@ -564,6 +564,6 @@ Next, check out the other configuration and CI/CD options available for Java wit
 > [!div class="nextstepaction"]
 > [Configure a Linux Java app for Azure App Service](/azure/app-service/containers/configure-language-java)
 > [!div class="nextstepaction"]
-> [Build and deploy to a Java web app using Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp?view=azure-devops&tabs=java-tomcat)
+> [Build and deploy to a Java web app using Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp?tabs=java-tomcat)
 > [!div class="nextstepaction"]
 > [Deploy to Azure App Service by using the Jenkins plugin](/azure/jenkins/deploy-jenkins-app-service-plugin)

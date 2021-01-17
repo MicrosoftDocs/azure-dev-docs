@@ -152,5 +152,5 @@ User management can be stored in an Azure Active Directory or your own database,
 
 User authorization can be provided by Azure, or you can develop authorization without Azure, or you can combine the two for a custom experience of authorization, roles, and app features. 
 
-* Continuing using the [MSAL library](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
-* Add [Microsoft Graph](https://docs.microsoft.com/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
+* Continuing using the [MSAL library](/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
+* Add [Microsoft Graph](/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
