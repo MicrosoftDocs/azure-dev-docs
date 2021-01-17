@@ -55,8 +55,6 @@ SecretClient client = new SecretClientBuilder()
 
 This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, deployed to an Azure resource with a user assigned managed identity configured.
 
-See more about how to configure a user assigned managed identity for an Azure resource in [Enable managed identity for Azure resources](#configure-managedidentitycredential).
-
 ```java
 /**
  * The default credential will use the user assigned managed identity with the specified client ID.
