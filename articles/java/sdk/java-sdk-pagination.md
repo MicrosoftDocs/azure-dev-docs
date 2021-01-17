@@ -1,5 +1,5 @@
 ---
-title: Pagination & iteration
+title: Pagination & iteration in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to pagination and iteration
 author: anuchandy
 ms.date: 11/23/2020
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: anuchan
 ---
 
-# Pagination & iteration
+# Pagination & iteration in the Azure SDK for Java
 
-Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
+This article provides an overview of how to make use of Azure SDK for Java pagination and iteration functionality to efficiently and productively work with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
 
 1. Make it possible for developers to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` enable the common case to be quickly and easily achieved: iterating over a paginated response deserialized into a given type `T`. In the case of `PagedIterable`, it implements the `Iterable` interface, and offers API to receive a `Stream`. In the case of `PagedFlux`, it is a `Flux`. In all cases, the act of pagination is transparent to developers and iteration will continue until the returned results are completely iterated over.
 
@@ -26,7 +26,7 @@ This section covers the synchronous APIs. Further down this document is guidance
 
 As noted, the most common use case is to iterate over each element individually, rather than per page. The code samples below show how the `PagedIterable` API allows for users to use the iteration style they prefer to implement this functionality.
 
-#### Using a _for-each_ loop
+#### Using a for-each loop
 
 Because `PagedIterable` implements `Iterable`, it is possible to iterate through the elements using code such as that shown below:
 
@@ -62,7 +62,7 @@ while (it.hasNext()) {
 
 When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it is possible to iterate per page. Note that there is no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
 
-#### Using a _for-each_ loop
+#### Using a for-each loop
 
 Note that the `PagedIterable` that is returned by calling `listSecrets()` has an `iterableByPage()` API, that when called gives an `Iterable<PagedResponse<Secret>>` in this case, rather than before, where we got an `Iterable<Secret>`. It is this extra `PagedResponse` that provides us with the response metadata and access to the continuation token.
 

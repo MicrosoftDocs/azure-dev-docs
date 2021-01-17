@@ -1,5 +1,5 @@
 ---
-title: How to configure tracing for the Azure libraries
+title: Configuring tracing in Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to tracing
 author: samvaity
 ms.date: 11/23/2020
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: savaity
 ---
 
-# How to configure tracing for the Azure libraries
+# Configuring tracing in Azure SDK for Java
 
-The Azure SDK for Java enables tracing in all client libraries by simply including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based `azure-core-tracing-opentelemetry` [plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
+This article provides an overview of how to configure the Azure SDK for Java to integrate tracing functionality. The Azure SDK for Java enables tracing in all client libraries by simply including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based `azure-core-tracing-opentelemetry` [plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
 There are two key concepts related to tracing: **span** and **trace**. A span represents a single operation in a trace. A span could be representative of an HTTP request, a remote procedure call (RPC), a database query, or even the path that a code takes. A trace is a tree of spans showing the path of work through a system. A trace on its own is distinguishable by a unique 16 byte sequence called a TraceID. Further details on these concepts, and how they relate to OpenTelemetry can be found on the [OpenTelemetry Documentation](https://opentelemetry.io/docs/) site.
 
@@ -63,7 +63,7 @@ In cases where no parent span is provided, a new parent span will be created to 
 
 In addition to [OpenTelemetry's required standard attributes](https://github.com/open-telemetry/opentelemetry-specification/blob/e9340d74f1ba0b651b3581d6bd5df6a92b772e18/semantic-conventions.md), the Azure client libraries annotate the spans with the attributes mentioned below:
 
-* `az.namespace`: Microsoft resource provider [namespaces](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) mapped to Azure services.
+* `az.namespace`: Microsoft resource provider [namespaces](/azure/azure-resource-manager/management/azure-services-resource-providers) mapped to Azure services.
 * `x-ms-request-id`: The unique identifier for the request.
 * `span.kind`: Describes the relationship between the span, its parents, and its children in a trace.
 * `span.status.message`: Represents the status of a finished span.
@@ -93,9 +93,9 @@ tracerSdkFactory.addSpanProcessor(SimpleSpansProcessor.newBuilder(exporter).buil
 
 ## Enabling tracing with the in-process agent
 
-Application Insights, a feature of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), can be used for automatic collection and transmission of data for subsequent analysis of applications in large-scale distributed systems. This instrumentation monitors your application and directs the telemetry data to an [Azure Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) using a unique GUID that is referred to as an 'Instrumentation Key'.
+Application Insights, a feature of [Azure Monitor](/azure/azure-monitor/overview), can be used for automatic collection and transmission of data for subsequent analysis of applications in large-scale distributed systems. This instrumentation monitors your application and directs the telemetry data to an [Azure Application Insights resource](/azure/azure-monitor/app/app-insights-overview) using a unique GUID that is referred to as an 'Instrumentation Key'.
 
-Through the use of a [Java in-process agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent), developers can enable monitoring of their applications without any code changes. In addition to this, developers will need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to their project. Once this is done, developers can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
+Through the use of a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agent), developers can enable monitoring of their applications without any code changes. In addition to this, developers will need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to their project. Once this is done, developers can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
 
 ## Next steps
 

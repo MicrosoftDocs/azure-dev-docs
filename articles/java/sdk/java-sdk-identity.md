@@ -1,5 +1,5 @@
 ---
-title: Authenticate with Azure using Azure Identity
+title: Azure authentication with Java and Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
 author: g2vinay
 ms.date: 01/06/2021
@@ -8,16 +8,16 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Authenticate with Azure using Azure Identity
+# Azure authentication with Java and Azure Identity
 
-The Azure Identity library provides Azure Active Directory token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support AAD token authentication.
+This article provides an overview of the Java Azure Identity library, which provides Azure Active Directory token authentication support across the Azure SDK for Java. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support AAD token authentication.
 
 The Azure Identity library currently supports:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md), which enables:
-  * IDEA IntelliJ authentication, with the login information retrieved from the [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+  * IDEA IntelliJ authentication, with the login information retrieved from the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)
   * Visual Studio Code authentication, with the login information saved in [Azure plugin for Visual Studio Code](https://code.visualstudio.com/docs/azure/extensions)
-  * Azure CLI authentication, with the login information saved in the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli)
+  * Azure CLI authentication, with the login information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md), which enables:
   * Default Azure Credential Authentication
   * Managed Identity Authentication
@@ -47,13 +47,11 @@ The latest release of azure-identity can be found [here](https://search.maven.or
 
 ## Key concepts
 
-### Credential
+Two key concepts in understanding the Azure Identity library are those of a credential, and then the most common implementation of that credential, the `DefaultAzureCredential`.
 
 A credential is a class which contains or can obtain the data needed for a service client to authenticate requests. Service clients across Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service.
 
 The Azure Identity library focuses on OAuth authentication with Azure Active directory, and it offers a variety of credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
-
-### DefaultAzureCredential
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. Further details and examples of using `DefaultAzureCredential` can be found [here](java-sdk-identity-azure-hosted-auth.md#default-azure-credential).
 
@@ -75,7 +73,7 @@ SecretClient client = new SecretClientBuilder()
 
 ### Authenticating Azure Management Libraries
 
-The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](https://docs.microsoft.com/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
+The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
 The subscription IDs can be find on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the [Azure CLI][azure_cli] snippet below to get subscription IDs:
 
@@ -113,10 +111,10 @@ This document has introduced the Azure Identity functionality available in the A
 * [Authentication with User Credentials](java-sdk-identity-user-auth.md)
 
 <!-- LINKS -->
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [source]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity
-[aad_doc]: https://docs.microsoft.com/azure/active-directory/
+[aad_doc]: /azure/active-directory/
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [keys_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys
 [logging]: https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK
@@ -124,4 +122,4 @@ This document has introduced the Azure Identity functionality available in the A
 [eventhubs_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs
 [azure_core_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 [javadoc]: https://azure.github.io/azure-sdk-for-java
-[jdk_link]: https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable
+[jdk_link]: /java/azure/jdk/?view=azure-java-stable

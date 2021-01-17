@@ -1,5 +1,5 @@
 ---
-title: Authenticating with Service Principal
+title: Azure authentication with service principal
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via Service Principal
 author: g2vinay
 ms.date: 01/06/2021
@@ -8,17 +8,15 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Authenticating with Service Principal
+# Azure authentication with service principal
 
-The Azure Identity library provides Azure Active Directory token authentication support via Service Principal through a a set of TokenCredential implementations.
-
-Topics covered in this document include:
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via Service Principal through a a set of TokenCredential implementations. Topics covered in this document include:
 
 * [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
 * [Client Secret Credential](#client-secret-credential)
 * [Client Certificate Credential](#client-certificate-credential)
 
-More conceptual details can be found here for [Service principal authentication](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+More conceptual details can be found here for [Service principal authentication](/azure/active-directory/develop/app-objects-and-service-principals).
 
 ## Creating a Service Principal with the Azure CLI
 
@@ -103,5 +101,5 @@ In this document we have covered authentication via service principal, which is 
 Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

@@ -1,5 +1,5 @@
 ---
-title: Authenticating Azure Hosted Applications
+title: Authenticating Azure-Hosted Java applications
 description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
 author: g2vinay
 ms.date: 01/06/2021
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Authenticating Azure Hosted Applications
+# Authenticating Azure-Hosted Java applications
 
-The Azure Identity library provides Azure Active Directory token authentication support for applications hosted on Azure through a a set of TokenCredential implementations.
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication for applications hosted on Azure. This is made possible through a set of TokenCredential implementations discussed below.
 
 Topics covered in this document include:
 
@@ -29,7 +29,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 * Visual Studio Code - If the developer has authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` will authenticate with that account.
 * Azure CLI - If the developer has authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` will authenticate with that account.
 
-### Configure `DefaultAzureCredential`
+### Configure DefaultAzureCredential
 
 `DefaultAzureCredential` supports a set of configurations through setters on the `DefaultAzureCredentialBuilder` or environment variables.
 
@@ -39,7 +39,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 * Setting environment variable `AZURE_USERNAME` configures the `DefaultAzureCredential` to pick the corresponding cached token from the shared token cache.
 * Setting `.intelliJKeePassDatabasePath(String)` on the builder configures the `DefaultAzureCredential` to read a specific KeePass file when authenticating with IntelliJ credentials.
 
-### Authenticating with `DefaultAzureCredential`
+### Authenticating with DefaultAzureCredential
 
 This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
 
@@ -51,7 +51,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-### Authenticating a user assigned managed identity with `DefaultAzureCredential`
+### Authenticating a user assigned managed identity with DefaultAzureCredential
 
 This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, deployed to an Azure resource with a user assigned managed identity configured.
 
@@ -72,7 +72,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-### Authenticating a user in Azure Toolkit for IntelliJ with `DefaultAzureCredential`
+### Authenticating a user in Azure Toolkit for IntelliJ with DefaultAzureCredential
 
 This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, on a workstation with IntelliJ IDEA installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
@@ -96,27 +96,9 @@ SecretClient client = new SecretClientBuilder()
 
 ## Managed Identity Credential
 
-The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI` and/or `IMDS` endpoints, then this credential will get your application authenticated and offers a great secretless authentication experience. 
+The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI` and/or `IMDS` endpoints, then this credential will get your application authenticated and offers a great secretless authentication experience.
 
-More conceptual details can be found here for [Managed identity authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-
-### Configure `ManagedIdentityCredential`
-
-#### Cloud shell
-
-A system assigned managed identity is enabled by default in [Azure Cloud Shell](https://shell.azure.com).
-
-#### Virtual machines, App Services, Function Apps
-
-Go to [Azure Portal](https://portal.azure.com) and navigate to your resource. You should see an "Identity" tab:
-
-You will be able to configure either system assigned or user assigned identities. For user assigned identities, the client ID of the managed identity must be used to create the `ManagedIdentityCredential` or `DefaultAzureCredential`.
-
-#### Kubernetes Services (AKS)
-
-Only user assigned identities are currently supported in AKS with the [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) plugin. Please follow the instructions in the repo as it may change between versions.
-
-See more about how to configure your Azure resource for managed identity in [Enable managed identity for Azure resources](https://github.com/Azure/azure-sdk-for-java/wiki/Set-up-Your-Environment-for-Authentication#enable-managed-identity-for-azure-resources)
+More conceptual details can be found here for [Managed identity authentication](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ### Authenticating in Azure with managed identity
 
@@ -141,77 +123,29 @@ SecretClient client = new SecretClientBuilder()
 
 `DefaultAzureCredential` and `EnvironmentCredential` can be configured with environment variables. Each type of authentication requires values for specific variables:
 
-#### Service principal with secret
-<table border="1" width="100%">
-<thead>
-<tr>
-<th>variable name</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>AZURE_CLIENT_ID</code></td>
-<td>id of an Azure Active Directory application</td>
-</tr>
-<tr>
-<td><code>AZURE_TENANT_ID</code></td>
-<td>id of the application's Azure Active Directory tenant</td>
-</tr>
-<tr>
-<td><code>AZURE_CLIENT_SECRET</code></td>
-<td>one of the application's client secrets</td>
-</tr>
-</tbody>
-</table>
+### Service principal with secret
 
-#### Service principal with certificate
-<table border="1" width="100%">
-<thead>
-<tr>
-<th>variable name</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>AZURE_CLIENT_ID</code></td>
-<td>id of an Azure Active Directory application</td>
-</tr>
-<tr>
-<td><code>AZURE_TENANT_ID</code></td>
-<td>id of the application's Azure Active Directory tenant</td>
-</tr>
-<tr>
-<td><code>AZURE_CLIENT_CERTIFICATE_PATH</code></td>
-<td>path to a PEM-encoded certificate file including private key (without password protection)</td>
-</tr>
-</tbody>
-</table>
+| Variable name         | Value                                                 |
+| --------------------- | ----------------------------------------------------- |
+| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application           |
+| `AZURE_TENANT_ID`     | ID of the application's Azure Active Directory tenant |
+| `AZURE_CLIENT_SECRET` | One of the application's client secrets               |
 
-#### Username and password
-<table border="1" width="100%">
-<thead>
-<tr>
-<th>variable name</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>AZURE_CLIENT_ID</code></td>
-<td>id of an Azure Active Directory application</td>
-</tr>
-<tr>
-<td><code>AZURE_USERNAME</code></td>
-<td>a username (usually an email address)</td>
-</tr>
-<tr>
-<td><code>AZURE_PASSWORD</code></td>
-<td>that user's password</td>
-</tr>
-</tbody>
-</table>
+### Service principal with certificate
+
+| Variable name         | Value                                                                                                |
+| --------------------- | ---------------------------------------------------------------------------------------------------- |
+| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application                                                          |
+| `AZURE_TENANT_ID`     | ID of the application's Azure Active Directory tenant                                                |
+| `AZURE_CLIENT_CERTIFICATE_PATH` | Path to a PEM-encoded certificate file including private key (without password protection) |
+
+### Username and password
+
+| Variable name         | Value                                            |
+| --------------------- | ------------------------------------------------ |
+| `AZURE_CLIENT_ID`     | ID of an Azure Active Directory application      |
+| `AZURE_USERNAME`      | A username (usually an email address)            |
+| `AZURE_PASSWORD`      | The associated password for the given username   |
 
 Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
 

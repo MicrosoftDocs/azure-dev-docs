@@ -1,5 +1,5 @@
 ---
-title: Logging with the java.util.logging
+title: Logging with the Azure SDK for Java and java.util.logging
 description: An overview of the Azure SDK for Java integration with java.util.logging
 author: srnagar
 ms.date: 11/23/2020
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# Logging with java.util.logging
+# Logging with the Azure SDK for Java and java.util.logging
 
-As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used. Choosing which logging framework to use is outside of the scope of this document, but needless to say, often the best choice is the one you probably already have, whether you know it or not, thanks to third-party dependencies sometimes being opinionated in this regard.
+This article provides an overview of how to log in applications that make use of the Azure SDK for Java and that wish to log using the java.util.logging framework that is part of the JDK. As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used.
 
 To enable java.util.logging, developers must do two things:
 
@@ -31,7 +31,7 @@ Adding the Maven dependency is simply a matter of including the following XML in
 </dependency>
 ```
 
-## Add `logging.properties` to your project
+## Add logging.properties to your project
 
 To log using `java.util.logging`, create a file called `logging.properties` under `./src/main/resources` directory of your project. This file will contain the logging configurations to customize your logging needs. More information on configuring `logging.properties` can be found [here](http://tutorials.jenkov.com/java-logging/configuration.html).
 
@@ -69,4 +69,4 @@ This will create a file called `myapplication.log` in your home directory (`%h`)
 
 In this document we have discussed configuring `java.util.logging` and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
 
-Once you have mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](https://docs.microsoft.com/azure/developer/java/eclipse-microprofile/).
+Once you have mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

@@ -1,5 +1,5 @@
 ---
-title: Authenticating with User Credentials
+title: Azure authentication with user credentials
 description: An overview of the Azure SDK for Java concepts related to authenticating applications with user credentials
 author: g2vinay
 ms.date: 01/06/2021
@@ -8,11 +8,9 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Authenticating with User Credentials
+# Azure authentication with user credentials
 
-The Azure Identity library provides Azure Active Directory token authentication support for applications running locally on developer machines through a set of TokenCredential implementations.
-
-Topics covered in this document include:
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This is made possible through a set of TokenCredential implementations discussed below. Topics covered in this document include:
 
 * [Device Code Credential](#device-code-credential)
 * [Interactive Browser Credential](#interactive-browser-credential)
@@ -22,7 +20,7 @@ Topics covered in this document include:
 
 The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, the user is then asked to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
 
-More conceptual details can be found here for [Device code authentication](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
 ### Enable applications for device code flow
 
@@ -94,7 +92,7 @@ SecretClient client = new SecretClientBuilder()
 
 The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi factor authentication. This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must **not** have Multi-factor auth turned on.
 
-More conceptual details can be found here for [Username + password authentication](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc).
+More conceptual details can be found here for [Username + password authentication](/azure/active-directory/develop/v2-oauth-ropc).
 
 ```java
 /**

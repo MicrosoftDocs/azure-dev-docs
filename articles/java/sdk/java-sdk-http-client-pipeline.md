@@ -1,5 +1,5 @@
 ---
-title: HTTP clients & pipeline
+title: HTTP clients & pipelines in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to HTTP clients and pipelines
 author: srnagar
 ms.date: 01/06/2021
@@ -8,7 +8,9 @@ ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# HTTP clients & pipeline
+# HTTP clients & pipelines in the Azure SDK for Java
+
+This article provides an overview of using the HTTP client and pipeline functionality within the Azure SDK for Java, which provides a consistent, powerful, and flexible developer experience for developers using all Azure SDK for Java libraries.
 
 ## HTTP clients
 
@@ -46,7 +48,8 @@ The dependency on Netty is removable if another implementation is preferred. Thi
 </dependency>
 ```
 
-**NOTE**: If the Netty dependency is removed but no implementation is given in its place the application will fail to start. An `HttpClient` implementation must exist on the classpath.
+> [!NOTE]
+> If the Netty dependency is removed but no implementation is given in its place the application will fail to start. An `HttpClient` implementation must exist on the classpath.
 
 ### Configuring HTTP Clients
 

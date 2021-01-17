@@ -1,5 +1,5 @@
 ---
-title: Asynchronous programming
+title: Asynchronous programming in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to asynchronous programming
 author: srnagar
 ms.date: 01/06/2021
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# Asynchronous programming
+# Asynchronous programming in the Azure SDK for Java
 
 When the Azure SDK team started to architect the redesign of the [new Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases), initially only non-blocking, asynchronous APIs were to be offered to developers for interacting with Azure services. Doing so would enable application developers using Azure SDK to utilize their system resources efficiently to build scalable applications. However, when the Azure SDK team conducted user studies, it was quickly realized that it was important to include synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. Given this, all Java client libraries in the Azure SDK for Java offers both asynchronous and synchronous clients. It is, however, recommended to use the asynchronous clients for production systems to maximize the utilization of system resources.
 
@@ -48,7 +48,7 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 
 The reactive streams specification does not differentiate between a publisher that produces at most one data element vs. a publisher that may produce more than one data element. However, this distinction is very useful in building cloud APIs to indicate if a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has 0 or more values.
 
-Let's take an example of [App Configuration async client](https://docs.microsoft.com/java/api/com.azure.data.appconfiguration.configurationasyncclient?view=azure-java-stable&preserve-view=true) to retrieve a configuration stored in [App Configuration Azure service](https://docs.microsoft.com/azure/azure-app-configuration/overview).
+Let's take an example of [App Configuration async client](/java/api/com.azure.data.appconfiguration.configurationasyncclient?view=azure-java-stable&preserve-view=true) to retrieve a configuration stored in [App Configuration Azure service](/azure/azure-app-configuration/overview).
 
 Creating a `ConfigurationAsyncClient` and calling the `getConfigurationSetting()` API on the client returns a `Mono` which indicates that the response contains a single value. Here's the important bit - just calling this method alone doesn't do anything. The client has not made a request to the App Configuration service yet. At this stage, `Mono<ConfigurationSetting>` returned by this API is just an "assembly" of data processing pipeline. What this means is that the required setup for consuming the data is done. In order to actually trigger the data transfer i.e. to make the request to the service and get the response, the returned `Mono` has to be subscribed to. So, when dealing with these reactive streams, you must remember to `subscribe()` because _nothing happens until you do so_.
 
@@ -69,7 +69,8 @@ System.out.println("Done");
 
 Notice that after calling `getConfigurationSetting()` API on the client, we subscribed to the result and provided three separate lambdas - the first one consumes data received from the service which is triggered upon successful response, the second callback is triggered if there was an error while retrieving the configuration and the third one is invoked when the data stream is complete, meaning no more data elements are expected from this stream.
 
->**Note:** As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. This means that if there is nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` will not wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can simply add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
+> [!NOTE]
+> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. This means that if there is nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` will not wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can simply add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
 
 APIs that return a `Flux` also follow a similar pattern, with the difference being the first callback provided to the `subscribe()` method will be called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks will be invoked if either of these signals are received from the publisher. 
 

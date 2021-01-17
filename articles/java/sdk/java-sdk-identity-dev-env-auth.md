@@ -1,5 +1,5 @@
 ---
-title: Azure Authentication in Development Environments
+title: Azure Authentication in Java development environments
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
 author: g2vinay
 ms.date: 01/06/2021
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Azure Authentication in Development Environments
+# Azure Authentication in Java development environments
 
-The Azure Identity library provides Azure Active Directory token authentication support for applications running locally on developer machines through a set of `TokenCredential` implementations.
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication for applications running locally on developer machines through a set of `TokenCredential` implementations.
 
 Topics covered in this document include:
 
@@ -24,7 +24,7 @@ Topics covered in this document include:
 
 The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, the user is then asked to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it is running on.
 
-More conceptual details can be found here for [Device code authentication](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
 ### Enable applications for device code flow
 
@@ -202,5 +202,5 @@ In this document we have covered authentication during development using credent
 Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

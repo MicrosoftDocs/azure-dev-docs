@@ -1,5 +1,5 @@
 ---
-title: How to configure proxies for use in Azure SDK for Java
+title: Configuring proxies in Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to proxying
 author: alzimmermsft
 ms.date: 11/23/2020
@@ -8,7 +8,9 @@ ms.custom: devx-track-java
 ms.author: alzimmer
 ---
 
-# How to configure proxies for use in Azure SDK for Java
+# Configuring proxies in Azure SDK for Java
+
+This article provides an overview of how to configure the Azure SDK for Java to make proper use of proxies.
 
 ## HTTP proxy configuration
 
@@ -33,11 +35,12 @@ When the environment is inspected it will search for the following environment c
 3. `https.proxy*`
 4. `http.proxy*`
 
-Where `*` is the [well-known Java](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) proxy properties.
+Where `*` is the well-known Java proxy properties. For more information, see [Java Networking and Proxies](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html).
 
 If any of the environment configurations are found a `ProxyOptions` instance will be created (by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`). More details about the `ProxyOptions` type are provided later in this document.
 
-> **Note:** Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
+> [!Important]
+> Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
 
 If the system environment variables contain proxy configuration, but this is not desired to be used when creating an HTTP client instance, it is possible to override the default behavior by explicitly setting a differently-configured `Configuration` when in the builder of a HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
 
