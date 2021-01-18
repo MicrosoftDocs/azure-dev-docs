@@ -152,6 +152,6 @@ az group delete deno-quickstart
 
 Learn more about:
 * [Learn about how to configure your app settings](../how-to/configure-web-app-settings.md)
-* [Deploy to App service](../tutorial-vscode-azure-app-service-node-01.md) with Visual Studio Code extensions
+* [Deploy to App service](./deploy-nodejs-azure-app-service-with-visual-studio-code.md) with Visual Studio Code extensions
 * [Deploy to a Virtual Machine](./nodejs-virtual-machine-vm/introduction.md)
 * [Deploy Deno function](https://github.com/anthonychu/azure-functions-deno-worker) as a [custom handler](/azure/azure-functions/functions-custom-handlers)

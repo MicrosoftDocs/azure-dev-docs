@@ -164,4 +164,4 @@ After you define the configurations, Jenkins adds the virtual machine as a new w
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](deploy-from-github-to-azure-app-service.md)
+> [CI/CD to Azure App Service](./deploy-to-azure-app-service-using-azure-cli.md)

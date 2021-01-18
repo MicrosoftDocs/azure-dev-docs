@@ -17,7 +17,7 @@ When building static web apps, you have several choices on Azure, based on the d
 ## Client application architecture
 
 The React (create-react-app) provides the following functionality: 
-* Display message if Azure key and endpoint for Cognitive Services [**Computer Vision**](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) isn't found
+* Display message if Azure key and endpoint for Cognitive Services [**Computer Vision**](/azure/cognitive-services/computer-vision/) isn't found
 * Allows you to analyze an image with Cognitive Services Computer Vision
     * Enter a public image URL or analyze image from collection
     * When analysis is complete
@@ -31,7 +31,7 @@ The React (create-react-app) provides the following functionality:
 The GitHub action starts when a push to a specific branch happens:
 * Inserts GitHub secrets for Computer Vision key and endpoint into build
 * Builds the React (create-react-app) client
-* Moves the resulting files to your Azure [**Static Web app**](https://docs.microsoft.com/azure/static-web-apps) resource
+* Moves the resulting files to your Azure [**Static Web app**](/azure/static-web-apps) resource
 
 > [!div class="nextstepaction"]
-> [Download and run the React Cognitive Services Image Analyzer app locally](run-the-react-cognitive-services-image-analyzer-app-locally.md) 
+> [Download and run the React Cognitive Services Image Analyzer app locally](run-the-react-cognitive-services-image-analyzer-app-locally.md)

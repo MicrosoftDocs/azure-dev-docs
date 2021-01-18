@@ -37,16 +37,16 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 
 ### Static Web Apps
 
-* [Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/)
+* [Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY](/learn/paths/optimize-basketball-games-with-machine-learning/)
 * [Publish an Angular, React, Svelte, or Vue JavaScript app with Azure Static Web Apps](/learn/modules/publish-app-service-static-web-app-api/)
 * [Create and publish a static web app with Gatsby and Azure Static Web Apps](/learn/modules/create-deploy-static-webapp-gatsby-app-service/)
-* [Build a simple website using HTML, CSS, and JavaScript](https://docs.microsoft.com/learn/modules/build-simple-website/)
+* [Build a simple website using HTML, CSS, and JavaScript](/learn/modules/build-simple-website/)
 
 ### Serverless APIs
 
 * [Build Serverless APIs with Azure Functions](/learn/modules/build-api-azure-functions/)
 * [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/)
-* [Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js.](https://docs.microsoft.com/learn/modules/build-api-azure-functions)
+* [Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js.](/learn/modules/build-api-azure-functions)
 
 ### DevOps (CI/CD)
 
