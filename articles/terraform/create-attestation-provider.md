@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 
 # Configure an Azure Attestation policy using Terraform
 
-This article shows example Terraform code for creating an [Attestation provider](https://docs.microsoft.com/azure/attestation/overview) on Azure.
+This article shows example Terraform code for creating an [Attestation provider](/azure/attestation/overview) on Azure.
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ manager: barbkess
 ms.custom: devx-track-azurecli
 ---
 
-- Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) using the bash environment.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.
 
    [![Launch Cloud Shell in a new window](./media/hdi-launch-cloud-shell.png)](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.

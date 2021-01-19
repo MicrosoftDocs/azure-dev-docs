@@ -160,4 +160,4 @@ If something is missing from this list, please fill out the feedback to tell us 
 
 ## Next steps
 
-* See many of these steps in an [end-to-end Node.js app](/azure/developer/javascript/how-to/develop-nodejs-on-azure) development flow. 
+* See many of these steps in an [end-to-end Node.js app](./develop-nodejs-on-azure.md) development flow.
