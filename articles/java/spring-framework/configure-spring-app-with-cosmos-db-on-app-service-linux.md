@@ -24,7 +24,7 @@ It will demonstrate the usage of the following components:
 The following prerequisites are required in order to follow the steps in this article:
 
 - In order to deploy a Java Web app to cloud, you need an Azure subscription. If you do not already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI 2.0](/cli/azure/install-azure-cli)
 - [Java 8 JDK](../fundamentals/java-jdk-install.md)
 - [Maven 3](http://maven.apache.org/)
 

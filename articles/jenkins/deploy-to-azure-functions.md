@@ -73,7 +73,7 @@ The following steps explain how to prepare the Jenkins server:
     sudo apt-get install azure-functions-core-tools-3
     ```
 
-1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-from-github-to-azure-app-service.md) for step-by-step instructions.
+1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-to-azure-app-service-using-azure-cli.md) for step-by-step instructions.
 
 1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
 

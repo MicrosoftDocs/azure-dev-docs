@@ -25,4 +25,4 @@ The Azure libraries for JavaScript are available for installation from:
 
 ## Next steps
 
-Find [reference documentation](/javascript/api/overview/azure/?view=azure-node-latest) for all Azure NPM packages.
+Find [reference documentation](/javascript/api/overview/azure/) for all Azure NPM packages.

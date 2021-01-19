@@ -27,7 +27,7 @@ The following table links to a variety of articles for connecting to and using A
 
 ## Cosmos DB connection strings with Azure CLI
 
-Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings):
+Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings):
 
 ```azurecli-interactive
 az cosmosdb keys list \
@@ -38,7 +38,7 @@ az cosmosdb keys list \
 
 ## SQL connection strings with Azure CLI
 
-Use the following command, [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string):
+Use the following command, [az sql db show-connection-string](/cli/azure/sql/db#az_sql_db_show_connection_string):
 
 ```azurecli-interactive
 az sql db show-connection-string \
@@ -52,11 +52,11 @@ az sql db show-connection-string \
 
 ## MySQL username and password with Azure CLI
 
-These are set at [resource creation time](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create). 
+These are set at [resource creation time](/cli/azure/mysql/server#az_mysql_server_create). 
 
 ## PostgreSQL username and password with Azure CLI
 
-These are set at [resource creation time](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create). 
+These are set at [resource creation time](/cli/azure/postgres/server#az_postgres_server_create). 
 
 ## Azure Storage solutions for files and data
 

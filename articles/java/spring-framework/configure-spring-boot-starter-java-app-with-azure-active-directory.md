@@ -36,7 +36,7 @@ The following prerequisites are required in order to complete the steps in this 
 1. Browse to <https://start.spring.io/>.
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
-1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **Spring Security**.
+1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page and select the **GENERATE** button.
    
    >[!div class="mx-imgBorder"]
@@ -54,7 +54,10 @@ The following prerequisites are required in order to complete the steps in this 
 1. Select **Create a resource**, then **Identity**, and then **Azure Active Directory**.
    
    >[!div class="mx-imgBorder"]
-   >![Create new Azure Active Directory instance][create-directory-01]
+   >![Create new Azure Active Directory instance_step1][create-directory-00]
+
+   >[!div class="mx-imgBorder"]
+   >![Create new Azure Active Directory instance_step2][create-directory-01]
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial.
  (For example: `azuresampledirectory.onmicrosoft.com`.) 
@@ -130,14 +133,6 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
-1. From the main page for your app registration, select **Manifest**, then set the value of the `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow` parameters to `true`, and then select **Save**.
-   
-   >[!div class="mx-imgBorder"]
-   >![Configure app manifest][create-app-registration-11]
-
-   > [!NOTE]
-   > For more information about the `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow` parameters and other application settings, see [Azure Active Directory application manifest][AAD app manifest].
-
 ### Add a user account to your directory, and add that account to a group
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
@@ -157,7 +152,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. From the **Overview** page of your Active Directory, select **Groups**, then **New group** that you will use for authorization in your application.
 
-1. Select **No members selected**. (For the purposes of this tutorial, we'll create a group named *users*.)  Search for the user created in the previous step.  Select **Select** to add the user to the group.  Then select **Create** to create the new group.
+1. Select **No members selected**. (For the purposes of this tutorial, we'll create a group named *group1*.)  Search for the user created in the previous step.  Select **Select** to add the user to the group.  Then select **Create** to create the new group.
 
    >[!div class="mx-imgBorder"]
    >![Select the user for group][create-user-03]
@@ -171,39 +166,19 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Extract the files from the project archive you created and downloaded earlier in this tutorial into a directory.
 
-1. Navigate to the parent folder for your project, and open the `pom.xml` Maven project file in a text editor.
-
-1. Add the dependencies for Spring OAuth2 security to the `pom.xml`:
-
-   ```xml
-   <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-oauth2-client</artifactId>
-   </dependency>
-   <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-oauth2-jose</artifactId>
-   </dependency>
-   ```
-
-1. Save and close the *pom.xml* file.
-
-1. Navigate to the *src/main/resources* folder in your project and open the *application.properties* file in a text editor.
+1. Navigate to the *src/main/resources* folder in your project, then open the *application.properties* file in a text editor.
 
 1. Specify the settings for your app registration using the values you created earlier; for example:
 
-   ```yaml
+   ```properties
    # Specifies your Active Directory ID:
    azure.activedirectory.tenant-id=22222222-2222-2222-2222-222222222222
-
    # Specifies your App Registration's Application ID:
-   spring.security.oauth2.client.registration.azure.client-id=11111111-1111-1111-1111-1111111111111111
-
+   azure.activedirectory.client-id=11111111-1111-1111-1111-1111111111111111
    # Specifies your App Registration's secret key:
-   spring.security.oauth2.client.registration.azure.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
-
+   azure.activedirectory.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
    # Specifies the list of Active Directory groups to use for authorization:
-   azure.activedirectory.user-group.allowed-groups=Users
+   azure.activedirectory.user-group.allowed-groups=group1
    ```
 
    Where:
@@ -211,8 +186,8 @@ The following prerequisites are required in order to complete the steps in this 
    | Parameter | Description |
    |---|---|
    | `azure.activedirectory.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
-   | `spring.security.oauth2.client.registration.azure.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
-   | `spring.security.oauth2.client.registration.azure.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
+   | `azure.activedirectory.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
+   | `azure.activedirectory.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
    | `azure.activedirectory.user-group.allowed-groups` | Contains a list of Active Directory groups to use for authorization. |
 
    > [!NOTE]
@@ -229,21 +204,26 @@ The following prerequisites are required in order to complete the steps in this 
    ```java
    package com.wingtiptoys.security;
 
-   import org.springframework.web.bind.annotation.RequestMapping;
+   import org.springframework.web.bind.annotation.GetMapping;
+   import org.springframework.web.bind.annotation.ResponseBody;
    import org.springframework.web.bind.annotation.RestController;
-   import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.security.access.prepost.PreAuthorize;
-   import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
-   import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-   import org.springframework.ui.Model;
-
+   
    @RestController
    public class HelloController {
-      @Autowired
-      @PreAuthorize("hasRole('Users')")
-      @RequestMapping("/")
-      public String helloWorld() {
-         return "Hello World!";
+   
+      @GetMapping("group1")
+      @ResponseBody
+      @PreAuthorize("hasRole('ROLE_group1')")
+      public String group1() {
+         return "Hello Group 1 Users!";
+      }
+    
+      @GetMapping("group2")
+      @ResponseBody
+      @PreAuthorize("hasRole('ROLE_group2')")
+      public String group2() {
+         return "Hello Group 2 Users!";
       }
    }
    ```
@@ -255,18 +235,18 @@ The following prerequisites are required in order to complete the steps in this 
    >
    > ``` java
    > public class HelloController {
-   >    @Autowired
-   >    @PreAuthorize("hasRole('Users')")
+   >
+   >    @PreAuthorize("hasRole('ROLE_Users')")
    >    @RequestMapping("/")
    >    public String helloWorld() {
    >       return "Hello Users!";
    >    }
-   >    @PreAuthorize("hasRole('Group1')")
+   >    @PreAuthorize("hasRole('ROLE_group1')")
    >    @RequestMapping("/Group1")
    >    public String groupOne() {
    >       return "Hello Group 1 Users!";
    >    }
-   >    @PreAuthorize("hasRole('Group2')")
+   >    @PreAuthorize("hasRole('ROLE_group2')")
    >    @RequestMapping("/Group2")
    >    public String groupTwo() {
    >       return "Hello Group 2 Users!";
@@ -274,40 +254,25 @@ The following prerequisites are required in order to complete the steps in this 
    > }
    > ```
 
-1. Create a folder named *security* in the Java source folder for your application; for example: *src/main/java/com/wingtiptoys/security/security*.
+1. Open your application class in a text editor.
 
-1. Create a new Java file named *WebSecurityConfig.java* in the *security* folder and open it in a text editor.
-
-1. Enter the following code, then save and close the file:
+1. Add `@EnableWebSecurity` and `@EnableGlobalMethodSecurity(prePostEnabled = true)` in your application class as shown in the following example, then save and close the file:
 
     ```java
-    package com.wingtiptoys.security;
+    package com.wingtiptoys;
 
-    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
     import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-    import org.springframework.security.config.annotation.web.builders.HttpSecurity;
     import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-    import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-    import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
-    import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
-    import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-
+    
     @EnableWebSecurity
     @EnableGlobalMethodSecurity(prePostEnabled = true)
-    public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-        @Autowired
-        private OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService;
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .oauth2Login()
-                .userInfoEndpoint()
-                .oidcUserService(oidcUserService);
-        }
+    @SpringBootApplication
+    public class SpringBootSampleActiveDirectoryApplication {   
+        public static void main(String[] args) {
+            SpringApplication.run(SpringBootSampleActiveDirectoryApplication.class, args);
+        }   
     }
     ```
 
@@ -325,7 +290,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
-1. After your application is built and started by Maven, open http:<span></span>//localhost:8080 in a web browser; you should be prompted for a user name and password.
+1. After your application is built and started by Maven, open <http://localhost:8080/group1> in a web browser; you should be prompted for a user name and password.
    
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
@@ -336,14 +301,16 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Changing your password][update-password]
 
-1. After you have logged in successfully, you should see the sample "Hello World" text from the controller.
+1. After you have logged in successfully, you should see the sample "Hello Group 1 Users!" text from the controller.
 
    >[!div class="mx-imgBorder"]
-   >![Successful login][hello-world]
+   >![Authorized_group1][hello-group1]
 
    > [!NOTE]
    > User accounts which are not authorized will receive an **HTTP 403 Unauthorized** message.
 
+   >[!div class="mx-imgBorder"]
+   >![UnAuthorized_group2][Unauthorized-group2]
 ## Summary
 
 In this tutorial, you created a new Java web application using the Azure Active Directory starter, configured a new Azure AD tenant and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
@@ -376,6 +343,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 [create-spring-app-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-01.png
 
+[create-directory-00]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-00.png
 [create-directory-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-01.png
 [create-directory-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-02.png
 [create-directory-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-03.png
@@ -391,7 +359,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-08]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.png
 [create-app-registration-09]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png
 [create-app-registration-10]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png
-[create-app-registration-11]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-11.png
 
 [create-user-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-01.png
 [create-user-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-02.png
@@ -400,5 +367,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 [application-login]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
-[hello-world]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-world.png
+[hello-group1]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-group1.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
+[Unauthorized-group2]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/unauthorized-group2.png
