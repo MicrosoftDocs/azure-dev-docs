@@ -8,7 +8,7 @@ ms.custom: languages:JavaScript, devx-track-javascript
 
 # Convert text to speech with Cognitive Services Speech
 
-In this tutorial, you will add Cognitive Services Speech to an existing Express.js app for the purpose of adding conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio. 
+In this tutorial, add Cognitive Services Speech to an existing Express.js app to add conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio. 
 
 ## Application architecture
 
@@ -16,9 +16,9 @@ The tutorial takes a minimal Express.js app and adds functionality using a combi
 
 * new route for the server API to provide conversion from text to speech, returning an MP3 stream
 * new route for an HTML form to allow you to enter your information
-* new HTML form with JavaScript provide a client-side call to the Speech service
+* new HTML form, with JavaScript, provides a client-side call to the Speech service
 
-This application provides 3 different calls to convert speech to text:
+This application provides three different calls to convert speech to text:
 
 * The first server call creates a file on the server then returns it to the client. You would typically use this for longer text or text you know should be served more than once. 
 * The second server call is for shorter term text and is help in-memory before returned to the client. 
@@ -34,7 +34,7 @@ This application provides 3 different calls to convert speech to text:
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
    [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
-   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for more sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
@@ -86,7 +86,7 @@ npm install microsoft-cognitiveservices-speech-sdk
         * Create in-memory stream as an array of Buffers
     * Audio format - The audio format selected is MP3, but [other formats](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) exists, along with other [Audio configuration methods](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#methods). 
 
-    The Speech SDK method returns a callback-style function which this textToSpeech converts into a promise. 
+    The textToSpeech converts the SDK function converts from callback into a promise. 
 
 ## Create a new route for the Express.js app
 
@@ -104,6 +104,85 @@ npm install microsoft-cognitiveservices-speech-sdk
 
 ## Update the client web page with a form 
 
+Update the client HTML web page with a form that collects the required parameters. The optional parameter is passed in based on which audio control the user selects. Because this tutorial provides a mechanism to call the Azure Speech service from the client, that JavaScript is also provided. 
+
+Open the `/public/client.html` file and replace its contents with the following:
+
+:::code language="html" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/public/client.html" highlight="74, 102 137" :::
+
+Highlighted lines in the file: 
+
+* Line 74: The Azure Speech SDK is pulled into the client library, using the `cdn.jsdelivr.net` site to deliver the NPM package. 
+* Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
+* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and process the result. 
+
+## Create Cognitive Services Speech resource
+
+Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
+
+
+1. Log in to the [Azure Cloud Shell](https://shell.azure.com). This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription. 
+1. Create a resource group for your Speech resource. 
+
+    ```azurecli
+    az group create \
+        --location eastus \
+        --name tutorial-resource-group-eastus
+    ```
+
+1. Create a Speech resource in the resource group.
+
+    ```azurecli
+    az cognitiveservices account create \
+        --kind SpeechServices \
+        --location eastus \
+        --name tutorial-speech \
+        --resource-group tutorial-resource-group-eastus \
+        --sku F0
+    ```
+
+    This command will fail if your only free Speech resource has already been created. 
+
+1. Use the command to get the key values for the new Speech resource. 
+
+    ```azurecli
+    az cognitiveservices account keys list \
+        --name tutorial-speech \
+        --resource-group tutorial-resource-group-eastus \
+        --output table
+    ```
+
+1. Copy one of the keys. 
+
+    You use the key in the web form to authenticate to the Azure Speech service.
+
 ## Run the Express.js app to convert text to speech
 
+1. Start the app with the following bash command.
+
+    ```bash
+    npm start
+    ```
+
+1. Open the web app in a browser.
+
+    ```
+    http://localhost:3000    
+    ```
+
+1. Paste your Speech key into the highlighted text box. 
+
+    :::image type="content" source="../../media/speech-tutorial/expressjs-webapp-form-with-speech-key-field-highlighted.png" alt-text="Browser screenshot of web form with Speech key input field highlighted.":::
+
+1. Optionally, change the text to something new. 
+
+1. Select one of the three buttons to begin the conversion to the audio format:
+    * Get directly from Azure - client-side call to Azure
+    * Audio control for audio from file
+    * Audio control for audio from buffer
+
+    You may notice a small delay between selecting the control and the audio playing. 
+
 ## Next steps
+
+* [Deploy Express.js MongoDB app to App Service from Visual Studio Code](deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
