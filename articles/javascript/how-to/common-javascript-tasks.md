@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: reference
-ms.date: 01/06/2021
+ms.date: 01/20/2021
 ms.custom: devx-track-js
 ---
 
@@ -85,6 +85,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
+|Deploy or reploy app|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#9-clean-up-resources)|
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
 ## Cognitive Services
