@@ -77,7 +77,7 @@ npm install microsoft-cognitiveservices-speech-sdk
 1. To integrate the Speech SDK into the Express.js application, create a file in the `src` folder named `azure-cognitiveservices-speech.js`.
 1. Add the following code to pull in dependencies and create a function to convert text to speech.
 
-    :::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/azure-cognitiveservices-computervision.js" highlight="55-75" :::
+    :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/azure-cognitiveservices-computervision.js" highlight="3,21,32" :::
 
 1. 
 
