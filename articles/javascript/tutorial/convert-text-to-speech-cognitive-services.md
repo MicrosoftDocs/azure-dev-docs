@@ -32,9 +32,8 @@ This application provides 3 different calls to convert speech to text:
     - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - [GitHub account](https://github.com/join) - to fork and push to a repo
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.
-
-   [![Embed launch](../../includes/media/cloud-shell-try-it/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
+   [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
    - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
