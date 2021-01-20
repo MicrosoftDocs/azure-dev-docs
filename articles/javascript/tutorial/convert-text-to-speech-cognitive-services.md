@@ -27,11 +27,10 @@ This application provides 3 different calls to convert speech to text:
 ## Prerequisites
 
 
-- [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js 8x+ and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
-- [GitHub account](https://github.com/join) - to fork and push to a repo
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
    [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
@@ -41,19 +40,48 @@ This application provides 3 different calls to convert speech to text:
 
 ## Download sample Express.js repo 
 
-1. Download the repo:
-1. Install the dependencies
+1. Using git, clone the Express.js sample repo to your local computer. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/js-e2e-express-server
+    ```
+
+1. Change to the new directory for the sample.
+
+    ```bash
+    cd js-e2e-express-server
+    ```
+
+1. Open the project in Visual Studio Code.
+
+    ```bash
+    code .
+    ```
+
+1. Open a new terminal in Visual Studio Code and install the project dependencies.
 
     ```bash
     npm install
     ```
 
-
 ## Install Cognitive Services Speech SDK for JavaScript
 
-In this section install the SDK for Speech and other dependencies.
+From the Visual Studio Code terminal, install the Azure Cognitive Services Speech SDK.
+
+```bash
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
 ## Create a Speech module for the Express.js app
+
+1. To integrate the Speech SDK into the Express.js application, create a file in the `src` folder named `azure-cognitiveservices-speech.js`.
+1. Add the following code to pull in dependencies and create a function to convert text to speech.
+
+    ```javascript
+    
+    ```
+
+1. 
 
 ## Create a new route for the Express.js app
 
