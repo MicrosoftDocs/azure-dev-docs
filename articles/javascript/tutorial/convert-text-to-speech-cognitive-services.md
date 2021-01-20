@@ -90,6 +90,18 @@ npm install microsoft-cognitiveservices-speech-sdk
 
 ## Create a new route for the Express.js app
 
+1. Open the `src/server.js` file. 
+1. Add the `azure-cognitiveservices-speech.js` module as a dependency at the top of the file:
+
+    :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="2"  :::
+    
+
+1. Add a new API route to call the **textToSpeech** method created in the previous section of the tutorial. 
+
+    :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="30-51" highlight="45-50" :::
+
+    This method takes the required and optional parameters for the textToSpeech method from the API querystring. If a file needs to be created, a unique file name is developed. The textToSpeech method is called asynchronously and returned as a piped stream. 
+
 ## Update the client web page with a form 
 
 ## Run the Express.js app to convert text to speech
