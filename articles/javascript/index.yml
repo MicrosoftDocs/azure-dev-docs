@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 012/16/2020
+  ms.date: 01/20/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -33,6 +33,8 @@ landingContent:
             url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
+          - text: Top tasks for JavaScript developers
+            url: how-to/common-javascript-tasks.md
   - title: Deploy and host
     linkLists:
       - linkListType: tutorial
