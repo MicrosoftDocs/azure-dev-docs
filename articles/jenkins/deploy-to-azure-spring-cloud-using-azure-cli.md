@@ -26,7 +26,7 @@ In this tutorial, you'll complete these tasks:
 
 ## Provision a service instance and launch a Java Spring application
 
-We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
+We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you've already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get more information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
 
@@ -154,7 +154,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
     - **Tenant ID**: Microsoft account tenant ID
     - **Azure Environment**: Select the appropriate value for your environment. For example, use **Azure** for Azure Global
     - **ID**: Set as `azure_service_principal`. We use this ID in a later step in this article
-    - **Description**: This is optional, but recommended.
+    - **Description**: This value is optional, but recommended from a documentation/maintenance standpoint.
     
 ### Install Maven and Azure CLI spring-cloud extension
 
@@ -168,7 +168,7 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
     sudo apt-get install maven
     ```
 
-1. Verify that the Azure CLI is installed by entering `az version`. If the Azure CLI is not installed, see [Installing the Azure CLI](/cli/azure/install-azure-cli).
+1. Verify that the Azure CLI is installed by entering `az version`. If the Azure CLI isn't installed, see [Installing the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Switch to the `jenkins` user:
 
