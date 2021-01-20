@@ -3,7 +3,7 @@ title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 keywords: jenkins, azure, devops, azure spring cloud, azure cli
 ms.topic: tutorial
-ms.date: 11/10/2020 
+ms.date: 01/20/2021
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
@@ -152,9 +152,9 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
     - **ID**: Set as `azure_service_principal`. We use this ID in a later step in this article
     - **Description**: This is optional, but recommended.
     
-### Install Maven and Az CLI spring-cloud extension
+### Install Maven and Azure CLI spring-cloud extension
 
-The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
+The sample pipeline uses Maven to build and Azure CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
 1. Connect to the Jenkins controller via SSH.
 
@@ -180,7 +180,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
 
 ## Create a Jenkinsfile
 
-1. In your own repo (https://github.com/&lt;your GitHub id&gt;/piggymetrics), create a **Jenkinsfile** in the root.
+1. In your own repo - `https://github.com/your_github_id/piggymetrics` - create a **Jenkinsfile** in the root.
 
 1. Update the file as follows. Make sure you replace the values of **\<resource group name>** and **\<service name>**. Replace **azure_service_principal** with the right ID if you use a different value when you added the credential in Jenkins.
 
