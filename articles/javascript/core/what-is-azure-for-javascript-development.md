@@ -106,7 +106,7 @@ The [**Azure SDKs**](../azure-sdk-library-package-index.md) are the recommended 
 
 Azure resources are also available from:
 * [Azure CLI](/cli/azure/install-azure-cli) and [Azure Cloud Shell](https://shell.azure.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-5.2.0&preserve-view=true)
+* [Azure PowerShell](/powershell/azure/)
 * [REST APIs](/rest/api/azure/)
 
 ## Deploy web apps to hosting options
