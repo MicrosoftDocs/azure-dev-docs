@@ -27,9 +27,9 @@ This application provides three different calls to convert speech to text:
 ## Prerequisites
 
 
-- [Node.js 8x+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-    - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
    [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
@@ -183,13 +183,57 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 
     You may notice a small delay between selecting the control and the audio playing. 
 
+## Create new Azure App service in Visual Studio Code
+
+1. From the command palette (**Ctrl**+**Shift**+**P**), type "create web" and select **Azure App Service: Create New Web App...Advanced**. You use the advanced command to have full control over the deployment including resource group, App Service Plan, and operating system rather than use Linux defaults.
+
+1. Respond to the prompts as follows:
+
+    - Select your **Subscription** account.
+    - For **Enter a globally unique name** like `my-text-to-speech-app`. 
+        - Enter a name that's unique across all of Azure. Use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-')
+    - Select `tutorial-resource-group-eastus` for the resource group.
+    - **Select a runtime stack** of `Node 10.1` or more recent. 
+    - Select the Linux operating system.
+    - Select **Create a new App Service plan**, provide a name like `my-text-to-speech-app-plan`, and select the **F1 Free** [pricing tier](../core/what-is-azure-for-javascript-development.md#free-tier-resources).
+    - Select the **F1** free pricing tier.
+    - Select **Skip for now** for the Application Insights resource.
+    - Select the `eastus` location. 
+
+1. After a short time, Visual Studio Code notifies you that creation is complete. Close the notification with the **X** button:
+
+## Deploy local Express.js app to remote App service in Visual Studio Code
+
+1. With the web app in place, deploy your code from the local computer. Select the Azure icon to open the **Azure App Service** explorer, expand your subscription node, right-click the name of the web app you just created, and select **Deploy to Web App**.
+
+1. At the prompts, select the root folder of the Express.js app, select your **subscription** account again and then select the name of the web app created earlier.
+
+1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
+
+    ![Prompt to update configuration on the target Linux server](../media/deploy-azure/server-build.png)
+
+1. Once deployment is complete, select **Browse Website** in the prompt to view your freshly deployed web app. 
+
+1. (Optional): You can make changes to your code files, then use the **Deploy to Web App**, in the Azure App service extension, to update the web app.
+
+## Stream remote service logs in Visual Studio Code
+
+View (tail) any output that the running app generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
+
+1. In the **Azure App Service** explorer, right-click your new app node and choose **Start Streaming Logs**.
+
+    <pre>
+    Starting Live Log Stream ---
+    </pre>
+
+1. Refresh the web page a few times in the browser to see additional log output.
 
 
 ## Clean up resources by removing resource group
 
 Once you have completed this tutorial, you need to remove the resource group, which includes the resource, to make sure you are not billed for any more usage. 
 
-In the Azure Cloud shell, use the [Azure CLI command](/cli/azure/group#az_group_delete) to delete the resource group:
+In the Azure Cloud Shell, use the [Azure CLI command](/cli/azure/group#az_group_delete) to delete the resource group:
 
 ```azurecli
 az group delete --name tutorial-resource-group-eastus  -y
