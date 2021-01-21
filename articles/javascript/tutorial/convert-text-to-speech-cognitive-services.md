@@ -183,6 +183,20 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 
     You may notice a small delay between selecting the control and the audio playing. 
 
+
+
+## Clean up resources by removing resource group
+
+Once you have completed this tutorial, you need to remove the resource group, which includes the resource, to make sure you are not billed for any more usage. 
+
+In the Azure Cloud shell, use the [Azure CLI command](/cli/azure/group#az_group_delete) to delete the resource group:
+
+```azurecli
+az group delete --name tutorial-resource-group-eastus  -y
+```
+
+This command may take a few minutes. 
+
 ## Next steps
 
 * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
