@@ -80,7 +80,7 @@ npm install microsoft-cognitiveservices-speech-sdk
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/azure-cognitiveservices-speech.js" highlight="3,21,32" :::
 
     * Parameters - The file pulls in the dependencies for using the SDK, streams, buffers, and the file system (fs). The `textToSpeech` function takes four arguments. If a file name with local path is sent, the text is converted to an audio file. If a file name is not sent, an in-memory audio stream is created. 
-    * Speech SDK method - The Speech SDK method [synthesizer.speakTextAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest#speakTextAsync_string___e__SpeechSynthesisResult_____void___e__string_____void__AudioOutputStream___PushAudioOutputStreamCallback___PathLike_) returns different types, based on the configuration it receives. 
+    * Speech SDK method - The Speech SDK method [synthesizer.speakTextAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#speakTextAsync_string___e__SpeechSynthesisResult_____void___e__string_____void__AudioOutputStream___PushAudioOutputStreamCallback___PathLike_) returns different types, based on the configuration it receives. 
         The method returns the result, which differs based on what the method was asked to do:
         * Create file 
         * Create in-memory stream as an array of Buffers
