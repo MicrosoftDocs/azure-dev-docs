@@ -15,7 +15,7 @@ This tutorial covers several possible ways of setting up your Jenkins environmen
 1. Then follow the steps in one of these sections to set up Jenkins:
    * [Set up Jenkins inside a Service Fabric cluster](#set-up-jenkins-inside-a-service-fabric-cluster), 
    * [Set up Jenkins outside a Service Fabric cluster](#set-up-jenkins-outside-a-service-fabric-cluster), or
-   * [Install the Service Fabric plug-in in an existing Jenkins environment](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
+   * [Install the Service Fabric plug-in in an existing Jenkins environment](#install-service-fabric-plug-in-in-an-existing-jenkins-environment).
 1. After you've set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
 1. Finally, configure the Jenkins job post-build step to deploy your application to your Service Fabric cluster. There are two ways to configure Jenkins to deploy your application to a cluster:    
    * For development and test environments, use [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This method is the simplest deployment method to set up.
