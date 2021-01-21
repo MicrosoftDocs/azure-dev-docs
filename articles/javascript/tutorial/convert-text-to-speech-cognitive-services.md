@@ -172,7 +172,7 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 
 1. Paste your Speech key into the highlighted text box. 
 
-    :::image type="content" source="../../media/speech-tutorial/expressjs-webapp-form-with-speech-key-field-highlighted.png" alt-text="Browser screenshot of web form with Speech key input field highlighted.":::
+    :::image type="content" source="../media/speech-tutorial/expressjs-webapp-form-with-speech-key-field-highlighted.png" alt-text="Browser screenshot of web form with Speech key input field highlighted.":::
 
 1. Optionally, change the text to something new. 
 
