@@ -86,21 +86,21 @@ npm install microsoft-cognitiveservices-speech-sdk
         * Create in-memory stream as an array of Buffers
     * Audio format - The audio format selected is MP3, but [other formats](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) exists, along with other [Audio configuration methods](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#methods). 
 
-    The textToSpeech converts the SDK function converts from callback into a promise. 
+    The local method, `textToSpeech`, wraps and converts the SDK call-back function into a promise. 
 
 ## Create a new route for the Express.js app
 
 1. Open the `src/server.js` file. 
 1. Add the `azure-cognitiveservices-speech.js` module as a dependency at the top of the file:
 
-    :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="2"  :::
+    :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="3"  :::
     
 
 1. Add a new API route to call the **textToSpeech** method created in the previous section of the tutorial. 
 
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/server.js" range="30-51" highlight="45-50" :::
 
-    This method takes the required and optional parameters for the textToSpeech method from the API querystring. If a file needs to be created, a unique file name is developed. The textToSpeech method is called asynchronously and returned as a piped stream. 
+    This method takes the required and optional parameters for the `textToSpeech` method from the querystring. If a file needs to be created, a unique file name is developed. The `textToSpeech` method is called asynchronously and pipes the result to the response (`res`) object. 
 
 ## Update the client web page with a form 
 
@@ -200,15 +200,15 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
     - Select **Skip for now** for the Application Insights resource.
     - Select the `eastus` location. 
 
-1. After a short time, Visual Studio Code notifies you that creation is complete. Close the notification with the **X** button:
+1. After a short time, Visual Studio Code notifies you that creation is complete. Close the notification with the **X** button.
 
 ## Deploy local Express.js app to remote App service in Visual Studio Code
 
 1. With the web app in place, deploy your code from the local computer. Select the Azure icon to open the **Azure App Service** explorer, expand your subscription node, right-click the name of the web app you just created, and select **Deploy to Web App**.
 
-1. At the prompts, select the root folder of the Express.js app, select your **subscription** account again and then select the name of the web app created earlier.
+1. At the prompts, select the root folder of the Express.js app, select your **subscription** account again and then select the name of the web app, `my-text-to-speech-app`, created earlier.
 
-1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
+1. When deploying to Linux, select **Yes** if prompted to update your configuration to run `npm install` on the target server.
 
     ![Prompt to update configuration on the target Linux server](../media/deploy-azure/server-build.png)
 
