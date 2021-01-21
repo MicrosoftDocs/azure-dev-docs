@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 
 # Configure an Azure Network Watcher Connection using Terraform
 
-This article shows example Terraform code for setting up [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) on Azure to monitor the network health for a Network Security Group.
+This article shows example Terraform code for setting up [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) on Azure to monitor the network health for a Network Security Group.
 
 ## Prerequisites
 
@@ -107,6 +107,4 @@ resource "azurerm_network_watcher_flow_log" "app1_network_logs" {
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Network security group flow logging](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
-> [Traffic Analysis](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Network security group flow logging](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
