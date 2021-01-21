@@ -1,14 +1,20 @@
 ---
-title: Convert text to speech on client and server with Cognitive Services
+title: Express.js app converts text to speech with Cognitive Services Speech
 description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.custom: languages:JavaScript, devx-track-javascript
 ---
 
-# Convert text to speech with Cognitive Services Speech
+# Express.js app converts text to speech with Cognitive Services Speech
 
 In this tutorial, add Cognitive Services Speech to an existing Express.js app to add conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio. 
+
+This tutorial shows 3 different ways to convert text to speech from Azure Cognitive Services Speech:
+
+* Client JavaScript gets audio directly 
+* Server JavaScript gets audio from file (*.MP3)
+* Server JavaScript gets audio from in-memory arrayBuffer
 
 ## Application architecture
 
