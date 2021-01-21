@@ -140,7 +140,7 @@ View (tail) any output that the running app generates through calls to `console.
 
 1. Right-click your app service from the list of App services in the App service extension, then select **Deploy to Web App...**. 
 
-    :::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
+    :::image type="content" source="../media/deploy-azure/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
 
 
 ## 9. Clean up resources
