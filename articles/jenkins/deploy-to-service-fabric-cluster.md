@@ -298,7 +298,7 @@ For development and test environments, you can configure either Azure credential
 1. Back under **Service Fabric Cluster Configuration**, make sure that your new credential is selected for **Azure Credentials**. 
 1. From the **Resource Group** drop-down, select the resource group of the cluster you want to deploy the application to.
 1. From the **Service Fabric** drop-down, select the cluster that you want to deploy the application to.
-1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
+1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`.
 1. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
     ![Service Fabric Jenkins Post-Build Action - Configure Azure credentials](./media/deploy-to-service-fabric-cluster/post-build-credentials.png)
 1. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Continue on to [Next steps](#next-steps) to test your deployment.

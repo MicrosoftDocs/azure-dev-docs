@@ -6,7 +6,7 @@ ms.date: 01/06/2021
 ms.custom: devx-track-js
 ---
 
-# Common top tasks for JavaScript developers
+# Top tasks for JavaScript developers
 
 Find an example of your current task. If you can't find a task, leave feedback requesting your task. 
 

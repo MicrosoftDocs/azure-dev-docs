@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 11/12/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -29,7 +29,7 @@ The service principal involved depends on where the app is running, as described
 
 ### Identity when running the app on Azure
 
-When running in the cloud (for example, in production), an app most commonly uses a **system-assigned managed identity**. With a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), you use the app's name when assigning roles and permissions for resources. Azure automatically manages the underlying service principal and automatically authenticates the app with those other Azure resources. As a result, you don't need to handle the service principal directly. Furthermore, your app code never needs to handle access tokens, secrets, or connection strings for Azure resources, which reduces the risk that any such information might be leaked or otherwise compromised.
+When running in the cloud (for example, in production), an app most commonly uses a **system-assigned managed identity** (formerly referred to as "MSI"). With a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), you use the app's name when assigning roles and permissions for resources. Azure automatically manages the underlying service principal and automatically authenticates the app with those other Azure resources. As a result, you don't need to handle the service principal directly. Furthermore, your app code never needs to handle access tokens, secrets, or connection strings for Azure resources, which reduces the risk that any such information might be leaked or otherwise compromised.
 
 Configuring managed identity depends on the service you use to host your app. Refer to the article, [Services that support managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) for links to instructions for each service. For web apps deployed to Azure App Service, for example, you enable managed identity through the **Identity** > **System assigned** option in the Azure portal, or by using the `az webapp identity assign` command in the Azure CLI.
 
@@ -74,7 +74,7 @@ vault_url = os.environ["KEY_VAULT_URL"]
 
 
 # Acquire a credential object for the app identity. When running in the cloud,
-# DefaultAzureCredential uses the app's managed identity or user-assigned service principal.
+# DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
 # When run locally, DefaultAzureCredential relies on environment variables named
 # AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
 
@@ -111,7 +111,9 @@ It's only when the code calls the [`get_secret`](/python/api/azure-keyvault-secr
 
 ## Authenticate with DefaultAzureCredential
 
-For most applications, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the [`azure-identity`](/python/api/azure-identity/azure.identity) library provides the simplest and recommended means of authentication. `DefaultAzureCredential` automatically uses the app's managed identity in the cloud, and automatically loads a local service principal from environment variables when running locally.
+For most applications, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the [`azure-identity`](/python/api/azure-identity/azure.identity) library provides the simplest and recommended means of authentication.
+
+`DefaultAzureCredential` automatically uses the app's managed identity (MSI) in the cloud, and automatically loads a local service principal from environment variables when running locally (as described on [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication)).
 
 ```python
 import os
@@ -133,7 +135,7 @@ retrieved_secret = secret_client.get_secret("secret-name-01")
 
 The preceding code uses a `DefaultAzureCredential` object when accessing Azure Key Vault, where the URL of the Key Vault is available in an environment variable named `KEY_VAULT_URL`. The code clearly implements the typical library usage pattern: acquire a credential object, create an appropriate client object for the Azure resource, then attempt to perform an operation on that resource using that client object. Again, authentication and authorization don't happen until this final step.
 
-When code is deployed to and running on Azure, `DefaultAzureCredential` automatically uses the system-assigned managed identity that you can enable for the app within whatever service is hosting it. Permissions for specific resources, such as Azure Storage or Azure Key Vault, are assigned to that identity using the Azure portal or the Azure CLI. In these cases, this Azure-managed identity maximizes security because you don't ever deal with an explicit service principal in your code.
+When code is deployed to and running on Azure, `DefaultAzureCredential` automatically uses the system-assigned managed identity (MSI) that you can enable for the app within whatever service is hosting it. Permissions for specific resources, such as Azure Storage or Azure Key Vault, are assigned to that identity using the Azure portal or the Azure CLI. In these cases, this Azure-managed identity maximizes security because you don't ever deal with an explicit service principal in your code.
 
 When you run your code locally, `DefaultAzureCredential` automatically uses the service principal described by the environment variables named `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET`. The client object then includes these values (securely) in the HTTP request header when calling the API endpoint. No code changes are necessary when running locally or in the cloud. For details on creating the service principal and setting up the environment variables, see [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication).
 

@@ -30,9 +30,9 @@ To deploy a Java web app to Azure, you can use Azure CLI in a [Jenkins Pipeline]
 
 ## Configure Jenkins
 
-The following steps show how to install the required Java JDK and Maven on the Jenkins master:
+The following steps show how to install the required Java JDK and Maven on the Jenkins controller:
 
-1. Sign in to Jenkins master using SSH.
+1. Sign in to Jenkins controller using SSH.
 
 1. [Download and install the Azul Zulu JDKs from an apt-get repository](../java/fundamentals/java-jdk-install.md#download-and-install-the-azul-zulu-jdks-from-an-apt-get-repository):
 
