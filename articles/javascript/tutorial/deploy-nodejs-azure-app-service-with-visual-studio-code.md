@@ -136,7 +136,7 @@ View (tail) any output that the running app generates through calls to `console.
 
 ## 8. Make changes and redeploy
 
-1. Make a few changes and redeploy the app. 
+1. Make a small change to the app. Change `Welcome to Express` to `Welcome to Express with Visual Studio Code`. 
 
 1. Right-click your app service from the list of App services in the App service extension, then select **Deploy to Web App...**. 
 
