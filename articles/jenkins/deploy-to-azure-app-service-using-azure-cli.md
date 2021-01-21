@@ -53,9 +53,9 @@ The following steps show how to install the required Java JDK and Maven on the J
 
 The following steps show how to specify your Azure credential:
 
-1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
+1. Make sure the [Credentials plug-in](https://plugins.jenkins.io/credentials/) is installed.
 
-1. Within the Jenkins dashboard, select **Credentials -> System ->**. 
+1. Within the Jenkins dashboard, select **Credentials -> System ->**.
 
 1. Select **Global credentials(unrestricted)**.
 
@@ -210,7 +210,7 @@ You can modify the script to deploy to an Azure App Service on Linux. App Servic
 
 1. [Install Docker on your Jenkins](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-1. Make sure [Docker Pipeline plugin](https://plugins.jenkins.io/docker-workflow/) is installed.
+1. Make sure [Docker Pipeline plug-in](https://plugins.jenkins.io/docker-workflow/) is installed.
 
 1. In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file as follows:
 

@@ -58,7 +58,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 1. Open your Jenkins account and select **Manage Jenkins**.
 2. On the **Manage Jenkins** page, select **Manage Plugins**.
 3. Filter the list to locate the **NodeJS** plug-in, and select the **Install without restart** option.
-    ![Adding the NodeJS plugin to Jenkins](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-nodejs-plugin.png)
+    ![Adding the NodeJS plug-in to Jenkins](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-nodejs-plugin.png)
 4. Filter the list to find the **VS Team Services Continuous Deployment** plug-in and select the **Install without restart** option.
 5. Go back to the Jenkins dashboard and select **Manage Jenkins**.
 6. Select **Global Tool Configuration**. Find **NodeJS** and select **NodeJS installations**.
@@ -156,9 +156,9 @@ To create the release pipeline in Azure Pipelines:
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps. Open the release to see the deployment taking place. Congratulations!
 
-## Troubleshooting the Jenkins plugin
+## Troubleshooting the Jenkins plug-in
 
-If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+If you encounter any bugs with the Jenkins plug-ins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

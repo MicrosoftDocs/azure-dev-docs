@@ -24,7 +24,7 @@ landingContent:
             url: overview.md
       - linkListType: reference
         links:
-          - text: Jenkins Plugins for Azure
+          - text: Jenkins plug-ins for Azure
             url: plug-ins-for-azure.md
       - linkListType: architecture
         links:

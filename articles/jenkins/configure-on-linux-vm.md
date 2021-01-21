@@ -136,11 +136,11 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
     ![Initial page to unlock Jenkins](./media/configure-on-linux-vm/unlock-jenkins.png)
 
-1. Select **Select plugins to install**.
+1. Select **Select plug-in to install**.
 
     ![Select the option to install selected plug-ins](./media/configure-on-linux-vm/select-plugins.png)
 
-1. In the filter box at the top of the page, enter `github`. Select the GitHub plugin and select **Install**.
+1. In the filter box at the top of the page, enter `github`. Select the GitHub plug-in and select **Install**.
 
     ![Install the GitHub plug-ins](./media/configure-on-linux-vm/install-github-plugin.png)
 

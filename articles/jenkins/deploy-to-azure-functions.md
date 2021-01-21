@@ -75,19 +75,19 @@ The following steps explain how to prepare the Jenkins server:
 
 1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-to-azure-app-service-using-azure-cli.md) for step-by-step instructions.
 
-1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
+1. Make sure the [Credentials plug-in](https://plugins.jenkins.io/credentials/) is installed.
 
     1. From the menu, select **Manage Jenkins**.
 
-    1. Under **System Configuration**, select **Manage Plugins**.
+    1. Under **System Configuration**, select **Manage plug-in**.
 
     1. Select the **Installed** tab.
 
     1. In the **filter** field, enter `credentials`.
     
-    1. Verify that the **Credentials Plugin** is installed. If not, you'll need to install it from the **Available** tab.
+    1. Verify that the **Credentials plug-in** is installed. If not, you'll need to install it from the **Available** tab.
 
-    ![The Credentials Plugin needs to be installed.](./media/deploy-to-azure-functions/credentials-plugin.png)
+    ![The Credentials Plug-in needs to be installed.](./media/deploy-to-azure-functions/credentials-plugin.png)
 
 1. From the menu, select **Manage Jenkins**.
 
