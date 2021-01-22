@@ -73,5 +73,7 @@
           href: java-sdk-azure-containers-samples.md
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
+    - name: Package index
+      href: azure-sdk-library-package-index.md
     - name: Reference
       href: /java/api/?view=azure-java
