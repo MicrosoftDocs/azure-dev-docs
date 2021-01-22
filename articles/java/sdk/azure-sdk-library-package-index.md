@@ -8,7 +8,7 @@ ms.author: brendm
 author: bmitchell287
 ---
 
-# Azure libraries package index
+# Azure libraries package index for Java
 
 [Libraries using azure.core](#libraries-using-azurecore)
 
@@ -16,8 +16,8 @@ author: bmitchell287
 
 ## Libraries using azure.core
 
-[!INCLUDE [java-new-releases](../includes/java-new.md)]
+[!INCLUDE [java-new-releases](../../includes/java-new.md)]
 
 ## All libraries
 
-[!INCLUDE [java-all-libraries](../includes/java-all.md)]
+[!INCLUDE [java-all-libraries](../../includes/java-all.md)]
