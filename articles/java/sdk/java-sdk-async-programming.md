@@ -10,6 +10,8 @@ ms.author: srnagar
 
 # Asynchronous programming in the Azure SDK for Java
 
+This article describes the 
+
 When the Azure SDK team started to architect the redesign of the [new Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases), initially only non-blocking, asynchronous APIs were to be offered to developers for interacting with Azure services. Doing so would enable application developers using Azure SDK to utilize their system resources efficiently to build scalable applications. However, when the Azure SDK team conducted user studies, it was quickly realized that it was important to include synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. Given this, all Java client libraries in the Azure SDK for Java offers both asynchronous and synchronous clients. It is, however, recommended to use the asynchronous clients for production systems to maximize the utilization of system resources.
 
 ## Reactive Streams

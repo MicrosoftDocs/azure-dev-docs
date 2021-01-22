@@ -24,7 +24,9 @@ Despite Netty being the default HTTP client used by all Azure client libraries, 
 
 ### Replacing the Default HTTP Client
 
-The dependency on Netty is removable if another implementation is preferred. This is done by excluding the Netty dependency in build configuration files. In a Maven pom.xml, you would exclude the Netty dependency, and substitute another dependency. The following example shows how the Netty dependency is excluded from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as such:
+You can remove the dependency on Netty if you prefer another implementation. To do this, you exclude the Netty dependency from the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and substitute another dependency.
+
+The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as such:
 
 ```xml
 <dependency>
@@ -49,13 +51,13 @@ The dependency on Netty is removable if another implementation is preferred. Thi
 ```
 
 > [!NOTE]
-> If the Netty dependency is removed but no implementation is given in its place the application will fail to start. An `HttpClient` implementation must exist on the classpath.
+> If you remove the Netty dependency but provide no implementation in its place, the application will fail to start. An `HttpClient` implementation must exist on the classpath.
 
 ### Configuring HTTP Clients
 
-When building a service client it will default to using `HttpClient.createDefault()`, this returns a basic `HttpClient` based on the provided HTTP client implementation. If a more complex `HttpClient` is required, such as requiring a proxy, each implementation offers a builder that allows for a configured `HttpClient` to be constructed, these are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`. These builders will share a common set of configurations such as proxying and communication port but will contain configurations that are specific to each implementation.
+When building a service client it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. If a more complex `HttpClient` is required, such as requiring a proxy, each implementation offers a builder that allows for a configured `HttpClient` to be constructed, these are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`. These builders will share a common set of configurations such as proxying and communication port but will contain configurations that are specific to each implementation.
 
-The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient, that proxy through `http://localhost:3128` and authenticate with user `example` whose password is `weakPassword`.
+The following examples show you how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user `example` whose password is `weakPassword`.
 
 ```java
 // Netty
@@ -77,7 +79,7 @@ HttpClient client = new JdkAsyncHttpClientBuilder()
     .build();
 ```
 
-The constructed `HttpClient` instance can now be passed into a service client builder to be used as the client it uses to communicate to the service. The following example is using the new HttpClient instance to build an Azure Storage Blob client.
+You can now pass the constructed `HttpClient` instance into a service client builder to be used as the client it uses to communicate to the service. The following example is using the new `HttpClient` instance to build an Azure Storage Blob client.
 
 ```java
 BlobClient blobClient = new BlobClientBuilder()
@@ -120,11 +122,11 @@ The Azure Core framework will provide the policy with necessary request and resp
 
 ### HTTP Pipeline Policy Position
 
-When making HTTP requests to cloud services, it is important to handle transient failures and retry failed attempts. As this is a very commonly needed functionality, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
+When you make HTTP requests to cloud services, it's important to handle transient failures and retry failed attempts. Because this functionality is frequently needed, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
 
-This retry policy, therefore, splits the whole pipeline into two parts. Policies that are executed before the retry policy and policies that are executed after. Policies that are added before the retry policy are executed only once per API operation and policies that are added after the retry policy will be executed as many times as the retries.
+This retry policy, therefore, splits the whole pipeline into two parts: policies that are executed before the retry policy and policies that are executed after. Policies that are added before the retry policy are executed only once per API operation and policies that are added after the retry policy will be executed as many times as the retries.
 
-So, when building the HTTP pipeline, it is necessary to understand whether a policy should be executed each time a request is retried or if it is sufficient to execute it just once per API operation.
+So, when building the HTTP pipeline, it's necessary to understand whether a policy should be executed each time a request is retried or if it is sufficient to execute it just once per API operation.
 
 ### Common HTTP pipeline policies
 
@@ -140,10 +142,10 @@ HTTP pipelines for REST-based services are generally configured with policies fo
 
 ### Custom HTTP Pipeline Policy
 
-The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. Custom policies can be added to the pipeline that is either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify if this policy should be executed per-call or per-retry.
+The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. Custom policies can be added to the pipeline that is either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
 
-Creating a custom HTTP pipeline policy is as simple as extending a base policy type and implementing some abstract method. The policy can then be plugged in to the pipeline.
+Creating a custom HTTP pipeline policy is as simple as extending a base policy type and implementing some abstract method. You can then plug the policy into the pipeline.
 
 ## Next steps
 
-Now that you've familiarized yourself with HTTP client functionality in the Azure SDK for Java, consider reviewing the [proxying](java-sdk-proxying.md) documentation to learn how to further customize the HTTP client being used.
+Now that you're familiar with HTTP client functionality in the Azure SDK for Java, consider reviewing the [proxying](java-sdk-proxying.md) documentation to learn how to further customize the HTTP client being used.

@@ -35,7 +35,7 @@ This will let the application authenticate, but the application still doesn't ha
 
 Navigate to API Permissions, and enable Microsoft Graph, and the resources you want to access, for example, Azure Service Management, Key Vault, etc.
 
-You also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select "Accounts in any organizational directory" under Authentication panel (where you enabled Device Code) to make your application a multi-tenant app.
+You also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
 ### Authenticating a user account with device code flow
 

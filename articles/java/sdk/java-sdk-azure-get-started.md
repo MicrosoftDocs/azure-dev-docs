@@ -69,7 +69,7 @@ mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-This step creates a basic Maven project under the `testAzureApp` folder. Add the following entries into the project `pom.xml` to import the libraries used in the sample code in this tutorial.
+This step creates a basic Maven project under the *testAzureApp* directory. Add the following entries into the project's *pom.xml* file to import the libraries used in the sample code in this tutorial.
 
 ```XML
 <dependency>
@@ -128,7 +128,7 @@ The [Azure toolkit](../toolkit-for-eclipse/index.yml) is necessary if you plan t
 
 ## Create a Linux virtual machine
 
-Create a new file named `AzureApp.java` in the project's `src/main/java/com/fabrikam` directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
+Create a new file named *AzureApp.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
 
 ```java
 package com.fabrikam;
@@ -421,7 +421,7 @@ Run the sample from the command line.
 mvn clean compile exec:java
 ```
 
-You can browse for the `helloazure.txt` file in your storage account through the Azure portal or with [Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs).
+You can browse for the *helloazure.txt* file in your storage account through the Azure portal or with [Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs).
 
 Clean up the storage account by using the CLI.
 

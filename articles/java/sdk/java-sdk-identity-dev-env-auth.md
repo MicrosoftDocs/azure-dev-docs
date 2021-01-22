@@ -39,7 +39,7 @@ This will let the application authenticate, but the application still doesn't ha
 
 Navigate to API Permissions, and enable Microsoft Graph, and the resources you want to access, e.g., Azure Service Management, Key Vault, etc.
 
-Note that you also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select "Accounts in any organizational directory" under Authentication panel (where you enabled Device Code) to make your application a multi-tenant app.
+Note that you also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
 ### Authenticating a user account with device code flow
 
@@ -144,11 +144,11 @@ The Visual Studio Code credential authenticates in a development environment wit
 
 Follow the steps outlined below:
 
-1. In your IntelliJ window, open File -> Settings -> Plugins. Search “Azure Toolkit for IntelliJ” in the marketplace. Install and restart IDE.
-2. Find the new menu item Tools -> Azure -> Azure Sign In…
+1. In your IntelliJ window, open **File > Settings > Plugins**. Search “Azure Toolkit for IntelliJ” in the marketplace. Install and restart IDE.
+2. Find the new menu item **Tools > Azure > Azure Sign In…**
 3. Device Login will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Please select the appropriate subscription for which you want to access its resources.
 
-On Windows, you will also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords. Note down the location of the KeePassDatabase path.
+On Windows, you will also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
 
 ## Authenticating a user account with IntelliJ IDEA
 
@@ -173,7 +173,7 @@ The Visual Studio Code credential authenticates in a development environment wit
 
 ### Sign in Visual Studio Code Azure Account Extension for VisualStudioCodeCredential
 
-The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use, install the Azure Account extension, then use View->Command Palette to execute the “Azure: Sign In” command:
+The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command:
 
 This will open a browser that allows you to sign in to Azure. Once you have completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
 

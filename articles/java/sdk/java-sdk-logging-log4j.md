@@ -15,13 +15,13 @@ This article provides an overview of how to log in applications that make use of
 This document provides guidance to use the Log4J 2.x releases, but Log4J 1.x is equally supported by the Azure SDK for Java. To enable log4j logging, developers must do two things:
 
 1. Include the log4j library as a dependency,
-2. Create a configuration file (either `log4j2.properties` or `log4j2.xml`) under the `/src/main/resources` project directory.
+2. Create a configuration file (either *log4j2.properties* or *log4j2.xml*) under the */src/main/resources* project directory.
 
 For more information related to configuring log4j, please refer [here](https://logging.apache.org/log4j/2.x/manual/index.html).
 
 ## Adding Maven dependencies
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven pom.xml file. Be sure to check online to see what the latest released version is, which at the time of this document being written was 2.14.0.
+Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time of this document being written was 2.14.0.
 
 ```xml
 <dependency>
@@ -37,7 +37,7 @@ There are two commonly-used ways to configure Log4j: through an external propert
 
 ### Using a property file
 
-A flat properties file, named `log4j2.properties` can be placed under the `/src/main/resource` directory of the project. This file will take the following form:
+You can place a flat properties file named *log4j2.properties* in the */src/main/resource* directory of the project. This file should take the following form:
 
 ```properties
 appender.console.type = Console
@@ -55,7 +55,7 @@ rootLogger.appenderRef.stdout.ref = STDOUT
 
 ### Using an XML file
 
-An XML file, named `log4j2.xml` can be placed under the `/src/main/resource` directory of the project. This file will take the following form:
+You can place an XML file named *log4j2.xml* in the */src/main/resource* directory of the project. This file should take the following form:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

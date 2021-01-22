@@ -15,13 +15,13 @@ This article provides an overview of how to log in applications that make use of
 To enable java.util.logging, developers must do two things:
 
 1. Include the SLF4J adapter for java.util.logging as a dependency,
-2. Create a file called `logging.properties` under the `/src/main/resources` project directory.
+2. Create a file called *logging.properties* under the */src/main/resources* project directory.
 
 For more information related to configuring your logger, refer [here](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm)
 
 ## Add Maven dependency
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven pom.xml file. Be sure to check online to see what the latest released version is, which at the time of this document being written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
+Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time of this document being written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
 
 ```xml
 <dependency>
@@ -33,9 +33,9 @@ Adding the Maven dependency is simply a matter of including the following XML in
 
 ## Add logging.properties to your project
 
-To log using `java.util.logging`, create a file called `logging.properties` under `./src/main/resources` directory of your project. This file will contain the logging configurations to customize your logging needs. More information on configuring `logging.properties` can be found [here](http://tutorials.jenkov.com/java-logging/configuration.html).
+To log using `java.util.logging`, create a file called *logging.properties* under *./src/main/resources* directory of your project. This file will contain the logging configurations to customize your logging needs. For more information, see [Java Logging: Configuration](http://tutorials.jenkov.com/java-logging/configuration.html).
 
-If you would like to use a different filename other than `logging.properties`, you can do so by setting the `java.util.logging.config.file` system property. This property has to be set before the logger instance is created.
+If you would like to use a different filename other than *logging.properties*, you can do so by setting the `java.util.logging.config.file` system property. This property has to be set before the logger instance is created.
 
 ### Console logging
 
@@ -63,7 +63,7 @@ java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.level = INFO
 ```
 
-This will create a file called `myapplication.log` in your home directory (`%h`). This logger does not support automatic file rotation after a certain period. If this functionality is required, developers will have to write a scheduler to manage log file rotation.
+This will create a file called *myapplication.log* in your home directory (`%h`). This logger does not support automatic file rotation after a certain period. If this functionality is required, developers will have to write a scheduler to manage log file rotation.
 
 ## Next steps
 

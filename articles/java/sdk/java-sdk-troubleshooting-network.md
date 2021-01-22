@@ -82,4 +82,4 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 This example loads a persisted capture file and filters on `ip.src_host==<IP>`.
 
-In Wireshark navigate to `File > Open` and load a persisted capture from the file location used above. Once the file has loaded below the menu bar there is a filter input. In the filter input enter `ip.src_host==<IP>`, this will limit the capture view to only show captures where the source was from the host with the IP `<IP>`.
+In Wireshark navigate to *File > Open* and load a persisted capture from the file location used above. Once the file has loaded below the menu bar there is a filter input. In the filter input enter `ip.src_host==<IP>`, this will limit the capture view to only show captures where the source was from the host with the IP `<IP>`.
