@@ -17,7 +17,7 @@
         - name: Using Visual Studio Code
           href: /azure/azure-functions/create-first-function-vs-code-python
         - name: Using the Azure CLI
-          href: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+          href: /azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
     - name: Connect to Azure Storage
       items:
         - name: Using Visual Studio Code
