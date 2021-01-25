@@ -290,7 +290,7 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
-1. After your application is built and started by Maven, open <http://localhost:8080/group1> in a web browser; you should be prompted for a user name and password.
+1. After your application is built and started by Maven, open `http://localhost:8080/group1` in a web browser; you should be prompted for a user name and password.
    
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
