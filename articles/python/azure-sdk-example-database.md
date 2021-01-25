@@ -274,5 +274,7 @@ az mysql db create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
 - [Example: Provision and deploy a web app](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

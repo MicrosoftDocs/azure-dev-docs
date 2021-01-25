@@ -238,3 +238,5 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

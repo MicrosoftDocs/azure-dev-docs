@@ -102,6 +102,7 @@ For details on working with each client library, see the *README.md* or *README.
 - Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-python)
 - Open issues against the SDK on [GitHub](https://github.com/Azure/azure-sdk-for-python/issues)
 - Mention [@AzureSDK](https://twitter.com/AzureSdk/) on Twitter
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
 
 ## Next step
 
