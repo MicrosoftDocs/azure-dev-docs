@@ -118,7 +118,7 @@ A pipeline consists of a sequence of steps that are executed for each HTTP reque
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
-![image.png](./media/http-pipeline.png)
+![HTTP pipeline diagram](./media/http-pipeline.svg)
 
 ### HTTP Pipeline Policy Position
 
