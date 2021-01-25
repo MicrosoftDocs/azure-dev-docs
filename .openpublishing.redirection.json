@@ -685,6 +685,10 @@
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
+      "source_path": "articles/python/cloud-azure-terminology.md",
+      "redirect_url": "/azure/azure-glossary-cloud-terminology"
+    },
+    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },
