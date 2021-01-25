@@ -118,9 +118,9 @@ The following steps guide you through creating a pipeline job. The pipeline job 
 
     - Container names and blob names are lowercase (and case-sensitive) in Azure storage.
 
-## Create a pipeline job to download from Azure blob storage
+## Create a pipeline job to download from Azure Blob Storage
 
-The following steps show how to configure a pipeline job to download items from Azure blob storage.
+The following steps show how to configure a pipeline job to download items from Azure Blob Storage.
 
 1. In the **Pipeline** section of the job configuration, select **Pipeline script** and paste the following in **Script**. Edit the placeholders to match the values for your environment.
 
