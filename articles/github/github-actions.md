@@ -16,7 +16,7 @@ ms.custom: github-actions-azure
 
 In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
-Each workflow is made up of individual [actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
+Each workflow is made up of individual [actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
 With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure supports Azure services, including Azure App Service, Azure Functions, and Azure Key Vault.
 
@@ -28,11 +28,11 @@ Watch this video from GitHub Universe 2020 to learn more about continuous delive
 
 ## Why should I use GitHub Actions for Azure
 
-GitHub Actions for Azure are developed by Microsoft and designed to be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
+GitHub Actions for Azure are developed by Microsoft and designed to be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
 
 ## What is the difference between GitHub Actions and Azure Pipelines
 
-Azure Pipelines and GitHub Actions both help you automate software development workflows. [Learn more](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions) about how the services differ and how to migrate from Azure Pipelines to GitHub Actions.
+Azure Pipelines and GitHub Actions both help you automate software development workflows. [Learn more](https://docs.github.com/en/actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions) about how the services differ and how to migrate from Azure Pipelines to GitHub Actions.
 
 ## What do I need to use GitHub Actions for Azure
 
@@ -49,7 +49,7 @@ You can use the Azure login action in combination with both the [Azure CLI](http
 
 ## What is included in a GitHub Actions workflow
 
-Workflows are made up of one or more jobs. Within a job, there are steps made up of individual actions. See [Introduction to GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) to learn more about GitHub Actions concepts.  
+Workflows are made up of one or more jobs. Within a job, there are steps made up of individual actions. See [Introduction to GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) to learn more about GitHub Actions concepts.  
 
 ## Where can I see complete workflow examples
 
