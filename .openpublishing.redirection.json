@@ -716,6 +716,7 @@
       "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
       "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
     },
+    {
       "source_path": "articles/python/cloud-azure-terminology.md",
       "redirect_url": "/azure/azure-glossary-cloud-terminology"
     },    
