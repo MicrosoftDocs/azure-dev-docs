@@ -14,7 +14,7 @@ author: bmitchell287
 
 [All libraries](#all-libraries)
 
-## New Azure SDK Libraries
+## Libraries using azure-core
 
 [!INCLUDE [java-new-releases](../../includes/java-new.md)]
 
