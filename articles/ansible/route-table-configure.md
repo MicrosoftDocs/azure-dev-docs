@@ -102,7 +102,7 @@ Save the following playbook as `route_table_associate.yml`:
         virtual_network_name: "{{ virtual_network_name }}"
         resource_group: "{{ resource_group }}"
         address_prefix_cidr: "10.1.0.0/24"
-        route_table: "{ route_table_name }"
+        route_table: "{{ route_table_name }}"
 ```
 
 Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
