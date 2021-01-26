@@ -685,6 +685,42 @@
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-01.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-02.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-03.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-04.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-05.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-06.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-07.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/cloud-azure-terminology.md",
+      "redirect_url": "/azure/azure-glossary-cloud-terminology"
+    },    
+    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },

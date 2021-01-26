@@ -15,25 +15,9 @@
     - name: Create a function
       items:
         - name: Using Visual Studio Code
-          items:
-            - name: 1 Configure your environment
-              href: tutorial-vs-code-serverless-python-01.md
-            - name: 2 Create the Python function
-              href: tutorial-vs-code-serverless-python-02.md
-            - name: 3 Examine code files
-              href: tutorial-vs-code-serverless-python-03.md
-            - name: 4 Debug locally
-              href: tutorial-vs-code-serverless-python-04.md
-            - name: 5 Deploy to Azure
-              href: tutorial-vs-code-serverless-python-05.md
-            - name: 6 Add a second function
-              href: tutorial-vs-code-serverless-python-06.md
-            - name: 7 Add a storage binding
-              href: tutorial-vs-code-serverless-python-07.md
-            - name: 8 Clean up resources
-              href: tutorial-vs-code-serverless-python-08.md
+          href: /azure/azure-functions/create-first-function-vs-code-python
         - name: Using the Azure CLI
-          href: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+          href: /azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
     - name: Connect to Azure Storage
       items:
         - name: Using Visual Studio Code
