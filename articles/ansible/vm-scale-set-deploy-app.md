@@ -39,12 +39,12 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
 
   ```yml
   - name: Get facts for all Public IPs within a resource groups
-    azure_rm_publicipaddress_facts:
+    azure_rm_publicipaddress_info:
       resource_group: "{{ resource_group }}"
     register: output_ip_address
 
   - name: Get loadbalancer info
-    azure_rm_loadbalancer_facts:
+    azure_rm_loadbalancer_info:
       resource_group: "{{ resource_group }}"
       name: "{{ loadbalancer_name }}"
     register: output
