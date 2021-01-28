@@ -12,13 +12,13 @@ Learn the steps to clone a public repository from GitHub to your local computer 
 
 Working in Visual Studio Code with a repository uses separate tools:
 
-|Icon|Access from|Information|
+|Icon|Information|Access from|
 |--|--|--|
-||Command palette - F1| **Git CLI** [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|
-|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|Activity bar|**Git** Source control extension|
-|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|Activity bar|**GitHub** extension from the activity bar|
+|| Git CLI [](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|command palette - F1|
+|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|Source control extension|Activity bar|
+|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|GitHub extension|Activity bar|
 
-These tools are meant to be quick to accomplish common tasks. 
+These tools are meant to be quick to accomplish common tasks. The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
 
 ## Use command palette to clone repository
 
@@ -72,9 +72,15 @@ Once you have made changes on your branch, commit the changes
 
     ![Adding the yarn.lock file to Git](../../media/node-howto-e2e/visual-studio-code-add-yarn-lock.png)
 
-## Push a local branch to remote
+## Push a local branch to remote from status bar
 
+1. Select the push icon to the right of the branch name. 
+1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
+## Push a local branch to remote from the Source Control extension
+1. Select the Source Control icon from the activity bar. 
+1. Select the ellipsis (...) then select **Pull, Push**, then select **Push to...*. 
+1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
 ## Next steps
 
