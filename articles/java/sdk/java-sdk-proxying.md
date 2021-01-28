@@ -15,7 +15,7 @@ This article provides an overview of how to configure the Azure SDK for Java to 
 ## HTTP proxy configuration
 
 The Azure client libraries for Java offer multiple ways to configure a proxy for an `HttpClient`. Each method of supplying a proxy has its own pros and cons and
-provides different levels of encapsulation. Once a proxy has been configured for an `HttpClient` it will use the proxy for the remainder of its lifetime. Having the proxy tied to an individual `HttpClient` allows for multiple `HttpClient` to be used in an application where each can use a different proxy to accomplish an
+provides different levels of encapsulation. Once a proxy has been configured for an `HttpClient` it will use the proxy for the rest of its lifetime. Having the proxy tied to an individual `HttpClient` allows for multiple `HttpClient` to be used in an application where each can use a different proxy to accomplish an
 applications proxying requirements.
 
 The proxy configuration options are:
@@ -26,7 +26,7 @@ The proxy configuration options are:
 
 ### Using an environment proxy
 
-HTTP client builders, by default, will inspect the environment for proxy configurations. This makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it is configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This will read in from the system environment any HTTP proxy configuration.
+HTTP client builders, by default, will inspect the environment for proxy configurations. This makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This will read in from the system environment any HTTP proxy configuration.
 
 When the environment is inspected it will search for the following environment configurations in the order specified:
 
@@ -42,7 +42,7 @@ If any of the environment configurations are found a `ProxyOptions` instance wil
 > [!Important]
 > Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
 
-If the system environment variables contain proxy configuration, but this is not desired to be used when creating an HTTP client instance, it is possible to override the default behavior by explicitly setting a differently-configured `Configuration` when in the builder of a HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
+If the system environment variables contain proxy configuration, but this is not desired to be used when creating an HTTP client instance, it's possible to override the default behavior by explicitly setting a differently-configured `Configuration` when in the builder of a HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
 
 **Example**
 

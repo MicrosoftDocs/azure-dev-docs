@@ -46,7 +46,7 @@ This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-gu
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture broad through to specific low-level network traffic which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, etc. Captures can also be filtered either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture broad through to specific low-level network traffic, which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, and so on. Captures can also be filtered either at capture time or during analysis.
 
 ### Configuring a capture filter
 
@@ -74,7 +74,7 @@ In Wireshark, navigate to **Capture > Options** and navigate to the **Output** t
 
 ### Filtering captures
 
-Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it is easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax to be able to analyze captures.
+Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax to be able to analyze captures.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) on filtering captures.
 

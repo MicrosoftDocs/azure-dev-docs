@@ -21,7 +21,7 @@ For more information related to configuring your logger, refer [here](https://do
 
 ## Add the Maven dependency
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time of this document being written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
+Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
 
 ```xml
 <dependency>
@@ -39,7 +39,7 @@ If you would like to use a different filename other than *logging.properties*, y
 
 ### Console logging
 
-A simple configuration to log to console can be configured as shown below. It is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
+You can create a simple configuration to log to console as shown in the following example. This example is configured to log all logging events that are INFO level or higher, wherever they come from.
 
 ```properties
 handlers = java.util.logging.ConsoleHandler
@@ -67,6 +67,6 @@ This will create a file called *myapplication.log* in your home directory (`%h`)
 
 ## Next steps
 
-In this document we have discussed configuring `java.util.logging` and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
+In this article we have discussed configuring `java.util.logging` and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
 
 Once you have mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

@@ -17,7 +17,7 @@ In the Java client libraries for Azure, a convention exists that all long-runnin
 * In synchronous clients, long-running operations will return a `SyncPoller` instance.
 * In asynchronous clients, long-running operations will return a `PollerFlux` instance.
 
-Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to simplify the interaction with long-running server-side operations. The remainder of this document outlines best practices when working with these types.
+Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to simplify the interaction with long-running server-side operations. The rest of this article outlines best practices when working with these types.
 
 ## Synchronous long-running operations
 
@@ -61,7 +61,7 @@ Other useful APIs in `SyncPoller` include:
 
 ## Asynchronous long-running operations
 
-The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It is important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). This means that the main-thread may terminate before the result is available. It is up to the developer to ensure that the application does not exit before the async operation has had time to complete.
+The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). This means that the main-thread may terminate before the result is available. It's up to the developer to ensure that the application does not exit before the async operation has had time to complete.
 
 In the async API, a `PollerFlux` will be returned immediately, but the long-running operation itself will not commence until a subscription is made to the returned `PollerFlux`. This is the same as how all `Flux`-based APIs operate. Shown below is an example of an async long-running operation:
 
@@ -70,7 +70,7 @@ asyncClient.beginUploadFromUri(...)
     .subscribe(response -> System.out.println("Status of long running upload operation: " + response.getStatus()));
 ```
 
-In the following example, we will get intermittent status updates on the long-running operation, from which we can determine if it is still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
+In the following example, we'll get intermittent status updates on the long-running operation, from which we can determine if it's still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
 
 If we are not interested in the intermediate status updates and just want to get notified of the final result once it has arrived, we may do the following in our code:
 

@@ -10,7 +10,9 @@ ms.author: vigera
 
 # Azure authentication with user credentials
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This is made possible through a set of TokenCredential implementations discussed below. Topics covered in this document include:
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This is made possible through a set of TokenCredential implementations discussed below. 
+
+This article covers the following topics:
 
 * [Device Code Credential](#device-code-credential)
 * [Interactive Browser Credential](#interactive-browser-credential)
@@ -33,7 +35,7 @@ In order to authenticate a user through device code flow, you need to:
 
 This will let the application authenticate, but the application still doesn't have permission to log you into Active Directory, or access resources on your behalf.
 
-Navigate to API Permissions, and enable Microsoft Graph, and the resources you want to access, for example, Azure Service Management, Key Vault, etc.
+Navigate to API Permissions, and enable Microsoft Graph, and the resources you want to access, for example, Azure Service Management, Key Vault, and so on.
 
 You also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
@@ -64,7 +66,7 @@ This credential interactively authenticates a user with the default system brows
 
 ### Enable applications for interactive browser OAuth 2 flow
 
-Register an application in Azure Active Directory with permissions to log in on behalf of a user to use InteractiveBrowserCredential. Follow all the steps above for device code flow to register your application to support logging you into Active Directory and access certain resources. Note the same limitations apply that an admin of your tenant must grant consent to your application before any user account can log in.
+Register an application in Azure Active Directory with permissions to log in on behalf of a user to use InteractiveBrowserCredential. Follow all the steps above for device code flow to register your application to support logging you into Active Directory and access certain resources. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
 You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to add to the Redirect URIs sub section under Authentication section of your registered AAD application.
 
@@ -113,7 +115,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this document we have covered authentication with user credentials, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+In this article we have covered authentication with user credentials, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

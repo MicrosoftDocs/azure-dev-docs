@@ -126,7 +126,7 @@ For details on working with each management library, see the *README.md* file lo
 
 ## Next steps
 
-Now that you understand what the Azure SDK for Java is, it is time to take a deep dive into many of the cross-cutting concepts that exist to make developers productive when using the libraries. A good starting point is the documentation for the following:
+Now that you understand what the Azure SDK for Java is, it's time to take a deep dive into many of the cross-cutting concepts that exist to make developers productive when using the libraries. A good starting point is the documentation for the following:
 
 * [HTTP clients & pipeline](java-sdk-http-client-pipeline.md)
 * [Asynchronous programming](java-sdk-async-programming.md)

@@ -21,7 +21,7 @@ For more information related to configuring Logback, refer [here](http://logback
 
 ## Adding Maven dependencies
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time of this document being written was 1.2.3.
+Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was 1.2.3.
 
 ```xml
 <dependency>
@@ -37,7 +37,7 @@ Adding the Maven dependency is simply a matter of including the following XML in
 
 ### Console logging
 
-You can create a simple Logback configuration to log to the console as shown in the following example. This example is configured to log all logging events that are INFO level or higher, regardless of where it comes from.
+You can create a simple Logback configuration to log to the console as shown in the following example. This example is configured to log all logging events that are INFO level or higher, wherever they come from.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -60,7 +60,7 @@ You can create a simple Logback configuration to log to the console as shown in 
 
 The example configuration below is similar to the previous configuration, but it lowers the level at which logging coming from all `com.azure.core` packaged classes (including subpackages), so that everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher will be logged. This can be used by developers who find the code in `com.azure.core` to be too noisy, for example. This kind of configuration can also go both ways - if developers want to get more debug information from classes in `com.azure.core`, they could set this to DEBUG, for example.
 
-It is possible to have fine-grained control over the logging of specific classes, or specific packages. As shown below, `com.azure.core` will control the output of all core classes, but this could have equally been `com.azure.security.keyvault` or equivalent, to control the output as appropriate for the circumstances that are most informative in the context of the running application.
+It's possible to have fine-grained control over the logging of specific classes, or specific packages. As shown below, `com.azure.core` will control the output of all core classes, but this could have equally been `com.azure.security.keyvault` or equivalent, to control the output as appropriate for the circumstances that are most informative in the context of the running application.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -108,7 +108,7 @@ In the examples above, logging was to the console, which is not normally the pre
 
 ### Spring applications
 
-The Spring framework works by reading the Spring *application.properties* file for various configurations, including the logging configuration. It is possible to configure the Spring application to read Logback configurations from any file, however. To do this, developers configure the `logging.config` property to point to the *logback.xml* configuration file, by adding the following line into their Spring */src/main/resources/application.properties* file:
+The Spring framework works by reading the Spring *application.properties* file for various configurations, including the logging configuration. It's possible to configure the Spring application to read Logback configurations from any file, however. To do this, developers configure the `logging.config` property to point to the *logback.xml* configuration file, by adding the following line into their Spring */src/main/resources/application.properties* file:
 
 ```properties
 logging.config=classpath:logback.xml
@@ -116,6 +116,6 @@ logging.config=classpath:logback.xml
 
 ## Next steps
 
-In this document we have discussed configuring Logback and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there is a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
+In this article we've discussed configuring Logback and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there is a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
 
 Once you have master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

@@ -101,7 +101,7 @@ AzureResourceManager azureResourceManager = AzureResourceManager.configure()
 
 ## HTTP pipeline
 
-The HTTP pipeline is one of the key components in achieving consistency and diagnosability in the Java client libraries for Azure, which are two of the core design principles for all Azure SDKs, regardless of language. An HTTP pipeline is composed of:
+The HTTP pipeline is one of the key components in achieving consistency and diagnosability in the Java client libraries for Azure, which are two of the core design principles for all Azure SDKs, whatever the language. An HTTP pipeline is composed of:
 
 * HTTP Transport
 * HTTP pipeline policies
@@ -114,7 +114,7 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps that are executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries are built on a standard 'Azure Core' layer, this layer will be used to ensure that each policy is executed in order in the pipeline. On the onward journey (that is, while sending a request), the policies are executed in the order in which they are added to the pipeline. When a response is received from the service, the policies are executed in the reverse order. Note that all policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response whereas the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps that are executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries are built on a standard 'Azure Core' layer, this layer will be used to ensure that each policy is executed in order in the pipeline. On the onward journey (that is, while sending a request), the policies are executed in the order in which they are added to the pipeline. When a response is received from the service, the policies are executed in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response whereas the authentication policy is only interested in modifying the request.
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 

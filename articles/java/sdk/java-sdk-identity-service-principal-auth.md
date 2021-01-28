@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via Service Principal through a a set of TokenCredential implementations. Topics covered in this document include:
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via Service Principal through a a set of TokenCredential implementations. Topics covered in this article include:
 
 * [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
 * [Client Secret Credential](#client-secret-credential)
@@ -92,7 +92,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this document we have covered authentication via service principal, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+In this article we have covered authentication via service principal, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

@@ -12,15 +12,15 @@ ms.author: anuchan
 
 This article provides an overview of how to make use of Azure SDK for Java pagination and iteration functionality to efficiently and productively work with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
 
-1. Make it possible for developers to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` enable the common case to be quickly and easily achieved: iterating over a paginated response deserialized into a given type `T`. In the case of `PagedIterable`, it implements the `Iterable` interface, and offers API to receive a `Stream`. In the case of `PagedFlux`, it is a `Flux`. In all cases, the act of pagination is transparent to developers and iteration will continue until the returned results are completely iterated over.
+1. Make it possible for developers to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` enable the common case to be quickly and easily achieved: iterating over a paginated response deserialized into a given type `T`. In the case of `PagedIterable`, it implements the `Iterable` interface, and offers API to receive a `Stream`. In the case of `PagedFlux`, it's a `Flux`. In all cases, the act of pagination is transparent to developers and iteration will continue until the returned results are completely iterated over.
 
 2. Make it possible to iterate explicitly page-by-page. This enables developers to more clearly understand when requests are being made, and to be able to access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
 
-This document is split between the Java Azure SDK synchronous and asynchronous APIs. Developers will encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs will be present when working with asynchronous clients.
+This article is split between the Java Azure SDK synchronous and asynchronous APIs. Developers will encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs will be present when working with asynchronous clients.
 
 ## Synchronous pagination and iteration
 
-This section covers the synchronous APIs. Further down this document is guidance on working with the asynchronous APIs.
+This section covers the synchronous APIs. Later, this article provides guidance on working with the asynchronous APIs.
 
 ### Iterating over individual elements
 
@@ -28,7 +28,7 @@ As noted, the most common use case is to iterate over each element individually,
 
 #### Using a for-each loop
 
-Because `PagedIterable` implements `Iterable`, it is possible to iterate through the elements using code such as that shown below:
+Because `PagedIterable` implements `Iterable`, it's possible to iterate through the elements using code such as that shown below:
 
 ```java
 PagedIterable<Secret> secrets = client.listSecrets();
@@ -60,11 +60,11 @@ while (it.hasNext()) {
 
 ### Iterating over pages
 
-When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it is possible to iterate per page. Note that there is no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
+When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There is no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
 
 #### Using a for-each loop
 
-Note that the `PagedIterable` that is returned by calling `listSecrets()` has an `iterableByPage()` API, that when called gives an `Iterable<PagedResponse<Secret>>` in this case, rather than before, where we got an `Iterable<Secret>`. It is this extra `PagedResponse` that provides us with the response metadata and access to the continuation token.
+The `PagedIterable` that is returned by calling `listSecrets()` has an `iterableByPage()` API, that when called gives an `Iterable<PagedResponse<Secret>>` in this case, rather than before, where we got an `Iterable<Secret>`. It's this extra `PagedResponse` that provides us with the response metadata and access to the continuation token.
 
 ```java
 Iterable<PagedResponse<Secret>> secretPages = client.listSecrets().iterableByPage();
@@ -75,7 +75,7 @@ for (PagedResponse<Secret> page : secretPages) {
 }
 ```
 
-Note that there is also an `iterableByPage` overload that accepts a continuation token. This can be called when you want to return to the same point of iteration at a later time.
+There is also an `iterableByPage` overload that accepts a continuation token. This can be called when you want to return to the same point of iteration at a later time.
 
 #### Using Stream
 
@@ -93,7 +93,7 @@ client.listSecrets()
 
 ## Asynchronously observing pages and individual elements
 
-This section covers the asynchronous APIs. Further up this document is guidance on working with the synchronous APIs. It is important to note that in async APIs the network calls happens in a different thread than the main-thread that calls `subscribe()`. This means that the main-thread may terminate before the result is available. It is up to the developer to ensure that the application does not exit before the async operation has had time to complete.
+This section covers the asynchronous APIs. Earlier, this article provided guidance on working with the synchronous APIs. It's important to note that in async APIs the network calls happens in a different thread than the main-thread that calls `subscribe()`. This means that the main-thread may terminate before the result is available. It's up to the developer to ensure that the application does not exit before the async operation has had time to complete.
 
 ### Observing individual elements
 
