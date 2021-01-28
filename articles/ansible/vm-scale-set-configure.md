@@ -9,7 +9,7 @@ ms.custom: devx-track-ansible
 
 # Tutorial: Configure virtual machine scale sets in Azure using Ansible
 
-[!INCLUDE [ansible-27-note.md](includes/ansible-27-note.md)]
+[!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vm-scale-set.md](../includes/open-source-devops-intro-vm-scale-set.md)]
 
