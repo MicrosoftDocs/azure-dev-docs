@@ -27,7 +27,7 @@ The proxy configuration options are:
 
 HTTP client builders, by default, will inspect the environment for proxy configurations. This makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This will read in from the system environment any HTTP proxy configuration.
 
-When the environment is inspected it will search for the following environment configurations in the order specified:
+When the environment is inspected, it will search for the following environment configurations in the order specified:
 
 1. `HTTPS_PROXY`
 2. `HTTP_PROXY`
@@ -41,7 +41,7 @@ If any of the environment configurations are found, a `ProxyOptions` instance wi
 > [!Important]
 > Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
 
-If the system environment variables contain proxy configuration, but this isn't desired to be used when creating an HTTP client instance, it's possible to override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
+If the system environment variables contain proxy configuration, but you don't want this used used when creating an HTTP client instance, you can override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
 **Example**
 
@@ -56,7 +56,7 @@ HttpClient nettyHttpClient = new NettyAsyncHttpClientBuilder().build();
 HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder().build();
 ```
 
-To prevent the environment proxy from being used configure the HTTP client builder with `Configuration.NONE`.
+To prevent the environment proxy from being used, configure the HTTP client builder with `Configuration.NONE`.
 
 ```java
 HttpClient nettyHttpClient = new NettyAsyncHttpClientBuilder()

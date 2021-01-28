@@ -22,7 +22,7 @@ Topics covered in this article include:
 
 ## Device Code Credential
 
-The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, the user is then asked to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
+The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -32,7 +32,7 @@ In order to authenticate a user through device code flow, you need to:
 
 1. Go to Azure Active Directory in the Azure portal and find your app registration.
 2. Navigate to the **Authentication** section.
-3. Under **Suggested Redirected URIs** check the URI that ends with `/common/oauth2/nativeclient`.
+3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select *yes* for **Treat application as a public client**.
 
 This will let the application authenticate, but the application still doesn't have permission to log you into Active Directory, or access resources on your behalf.
@@ -67,7 +67,7 @@ This credential interactively authenticates a user with the default system brows
 
 To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow all the steps above for device code flow to register your application so that it supports logging you into Active Directory and accessing certain resources. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
-You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to add to the Redirect URIs sub section under Authentication section of your registered AAD application.
+You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the Redirect URIs subsection under the Authentication section of your registered AAD application.
 
 ### Authenticating a user account interactively in the browser
 
@@ -146,7 +146,7 @@ Follow the steps outlined below:
 
 1. In your IntelliJ window, open **File > Settings > Plugins**. Search “Azure Toolkit for IntelliJ” in the marketplace. Install and restart IDE.
 2. Find the new menu item **Tools > Azure > Azure Sign In…**
-3. Device Login will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Please select the appropriate subscription for which you want to access its resources.
+3. **Device Login** will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Select the subscription with the resources that you want to access.
 
 On Windows, you'll also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
 
@@ -193,7 +193,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this article we have covered authentication during development using credentials available on a developers computer, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+In this article we have covered authentication during development using credentials available on a developer's computer, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
 
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)

@@ -21,7 +21,7 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 * There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   * [Connect to and use Azure resources with client libraries.](#connect-to-and-use-azure-resources-with-client-libraries)
   * [Provision and manage Azure resources with management libraries.](#provision-and-manage-azure-resources-with-management-libraries)
-* Documentation for the libraries is found on the [Azure for Java Reference](/java/api/overview/azure/), which is organized by Azure Service, or the [Java API browser](/java/api/), which is organized by package name.
+* Documentation for the libraries is found on the [Azure for Java Reference](/java/api/overview/azure/) organized by Azure Service, or the [Java API browser](/java/api/) organized by package name.
 
 ## Other details
 

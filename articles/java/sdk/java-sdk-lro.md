@@ -37,7 +37,7 @@ do {
 
 This sample uses the `poll()` method on the `SyncPoller` to retrieve the long-running operation progress. In this case, the status is printed to the console, but a better implementation would make relevant decisions based on this status.
 
-The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (i.e. the commonly used `retry-after` header). If the response doesn't contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
+The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (that is, the commonly used `retry-after` header). If the response doesn't contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
 
 The above sample uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If these intermediate results are of no interest, developers can instead call `waitForCompletion()`, which will block the current thread until the long-running operation completes and returns the last poll response:
 
@@ -70,7 +70,7 @@ asyncClient.beginUploadFromUri(...)
     .subscribe(response -> System.out.println("Status of long running upload operation: " + response.getStatus()));
 ```
 
-In the following example, you'll get intermittent status updates on the long-running operation, from which you can determine whether it's still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
+In the following example, you'll get intermittent status updates on the long-running operation, from which you can determine whether it's still operating in the expected fashion. In this case, the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
 
 If you aren't interested in the intermediate status updates and just want to get notified of the final result once it has arrived, you can do the following in your code:
 

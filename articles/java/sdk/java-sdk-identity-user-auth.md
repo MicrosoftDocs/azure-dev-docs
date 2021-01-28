@@ -20,7 +20,7 @@ This article covers the following topics:
 
 ## Device Code Credential
 
-The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, the user is then asked to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
+The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -30,7 +30,7 @@ In order to authenticate a user through device code flow, you need to:
 
 1. Go to Azure Active Directory in Azure portal and find your app registration.
 2. Navigate to the **Authentication** section.
-3. Under **Suggested Redirected URIs** check the URI that ends with `/common/oauth2/nativeclient`.
+3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select `yes` for `Treat application as a public client`.
 
 This will let the application authenticate, but the application still doesn't have permission to log you into Active Directory, or access resources on your behalf.
@@ -68,7 +68,7 @@ This credential interactively authenticates a user with the default system brows
 
 Register an application in Azure Active Directory with permissions to log in on behalf of a user to use InteractiveBrowserCredential. Follow all the steps above for device code flow to register your application to support logging you into Active Directory and access certain resources. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
-You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to add to the Redirect URIs sub section under Authentication section of your registered AAD application.
+You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the Redirect URIs subsection under the Authentication section of your registered AAD application.
 
 ### Authenticating a user account interactively in the browser
 

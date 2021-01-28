@@ -17,7 +17,7 @@ This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is e
 1. Include the log4j library as a dependency,
 2. Create a configuration file (either *log4j2.properties* or *log4j2.xml*) under the */src/main/resources* project directory.
 
-For more information related to configuring log4j, please refer [here](https://logging.apache.org/log4j/2.x/manual/index.html).
+For more information related to configuring log4j, see [Welcome to Log4j 2](https://logging.apache.org/log4j/2.x/manual/index.html).
 
 ## Adding Maven dependencies
 
@@ -78,6 +78,6 @@ You can place an XML file named *log4j2.xml* in the */src/main/resource* directo
 
 ## Next steps
 
-In this article, we've discussed configuring Log4j and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Log4j, there's a vast amount of [configuration guidance](https://logging.apache.org/log4j/2.x/manual/index.html) on its website also.
+In this article, we've discussed the configuration of Log4j and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Log4j, there's a vast amount of [configuration guidance](https://logging.apache.org/log4j/2.x/manual/index.html) on its website also.
 
 Once you've master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).
