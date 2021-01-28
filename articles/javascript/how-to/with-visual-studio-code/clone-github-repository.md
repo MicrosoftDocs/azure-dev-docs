@@ -14,9 +14,9 @@ Working in Visual Studio Code with a repository uses separate tools:
 
 |Icon|Information|Access from|
 |--|--|--|
-|| Git CLI [](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|command palette - F1|
-|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|Source control extension|Activity bar|
-|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::|GitHub extension|Activity bar|
+|| [Git CLI](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|command palette - F1|
+|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
+|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Icon for GitHub Prs and Issues":::|GitHub extension|Activity bar|
 
 These tools are meant to be quick to accomplish common tasks. The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
 
@@ -84,4 +84,4 @@ Once you have made changes on your branch, commit the changes
 
 ## Next steps
 
-* How to [deploy a web app](deploy-web-app.md)
+* How to [deploy a web app](../deploy-web-app.md)
