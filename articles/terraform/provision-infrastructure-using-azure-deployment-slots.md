@@ -190,7 +190,7 @@ After you fork the test project repo, configure the deployment slots via the fol
 
 1. On the **Choose branch** tab, select **master**.
 
-    ![Choose the master branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-master.png)
+    ![Choose the branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-master.png)
 
 1. On the **Deployment option** tab, select **OK**.
 
@@ -198,7 +198,7 @@ At this point, you've deployed the production slot. To deploy the staging slot, 
 
 - In step 3, select the **slotAppServiceSlotOne** resource.
 
-- In step 13, select the working branch instead of the master branch.
+- In step 13, select the working branch.
 
     ![Choose the working branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-working.png)
 
