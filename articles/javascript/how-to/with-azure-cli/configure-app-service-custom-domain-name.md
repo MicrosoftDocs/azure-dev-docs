@@ -6,7 +6,7 @@ ms.date: 06/25/2017
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
 ---
 
-## Configuring a custom domain name
+# Configuring a custom domain name
 
 Add your custom domain name to your Azure web app using the Azure CLI. 
 
