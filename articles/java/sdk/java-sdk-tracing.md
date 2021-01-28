@@ -69,7 +69,7 @@ In addition to [OpenTelemetry's required standard attributes](https://github.com
 * `span.status.message`: Represents the status of a finished span.
 * `span.status.code`: Represents the status code of a finished span.
 
-Additional metadata about the operation being performed is captured in the span names. The HTTP span names are set to the URI path value and the library method invocation span is of the form `<namespace qualified type>.<method name>`.
+More metadata about the operation being performed is captured in the span names. The HTTP span names are set to the URI path value and the library method invocation span is of the form `<namespace qualified type>.<method name>`.
 
 For example, an App Configuration client request to set Configuration setting i.e `appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().setKey("hello").setValue("world")` will result in the following two spans:
 
@@ -95,7 +95,7 @@ tracerSdkFactory.addSpanProcessor(SimpleSpansProcessor.newBuilder(exporter).buil
 
 Application Insights, a feature of [Azure Monitor](/azure/azure-monitor/overview), can be used for automatic collection and transmission of data for later analysis of applications in large-scale distributed systems. This instrumentation monitors your application and directs the telemetry data to an [Azure Application Insights resource](/azure/azure-monitor/app/app-insights-overview) using a unique GUID that is referred to as an 'Instrumentation Key'.
 
-By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agent), developers can enable monitoring of their applications without any code changes. In addition to this, developers will need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to their project. Once this is done, developers can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
+By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agent), developers can enable monitoring of their applications without any code changes. Also, developers will need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to their project. Once this is done, developers can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
 
 ## Next steps
 

@@ -29,7 +29,7 @@ The Azure Identity library currently supports:
   * Device code authentication
   * Username/password authentication
 
-Follow the links above to learn more about the specifics of each of these authentication approaches. In the rest of this article we'll introduce the commonly-used `DefaultAzureCredential` and related topics.
+Follow the links above to learn more about the specifics of each of these authentication approaches. In the rest of this article, we'll introduce the commonly used `DefaultAzureCredential` and related topics.
 
 ## Adding Maven dependencies
 
@@ -51,7 +51,7 @@ Two key concepts in understanding the Azure Identity library are those of a cred
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service.
 
-The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers a variety of credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
+The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. Further details and examples of using `DefaultAzureCredential` can be found [here](java-sdk-identity-azure-hosted-auth.md#default-azure-credential).
 
@@ -75,7 +75,7 @@ SecretClient client = new SecretClientBuilder()
 
 The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
-The subscription IDs can be find on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the [Azure CLI][azure_cli] snippet below to get subscription IDs:
+You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the [Azure CLI][azure_cli] snippet below to get subscription IDs:
 
 ```bash
 az account list --output table
@@ -95,15 +95,15 @@ The `DefaultAzureCredential` used in the example above authenticates a `AzureRes
 ## Troubleshooting
 
 Credentials raise exceptions either when they fail to authenticate or cannot execute authentication.
-When credentials fail to authenticate, the`ClientAuthenticationException` is raised and it has a `message` attribute that
-describes why authentication failed. When this exception is raised by `ChainedTokenCredential`, the chained execution of underlying list of credentials is stopped.
+When credentials fail to authenticate, the `ClientAuthenticationException` is raised and it has a `message` attribute that
+describes why authentication failed. When `ChainedTokenCredential` raises this exception, the chained execution of underlying list of credentials is stopped.
 
-When credentials cannot execute authentication due to one of the underlying resources required by the credential being unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
-describes why the credential is unavailable for authentication execution . When this exception is raised by `ChainedTokenCredential`, the message collects error messages from each credential in the chain.
+When credentials cannot execute authentication because one of the underlying resources required by the credential is unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
+describes why the credential is unavailable for authentication execution. When `ChainedTokenCredential` raises this exception, the message collects error messages from each credential in the chain.
 
 ## Next Steps
 
-This article has introduced the Azure Identity functionality available in the Azure SDK for Java. It has spoken about the `DefaultAzureCredential` being commonly-used and appropriate in many cases. In the links below, readers are encouraged to explore other ways of authenticating using the Azure Identity library, and to learn more about the `DefaultAzureCredential`:
+This article has introduced the Azure Identity functionality available in the Azure SDK for Java. It has spoken about the `DefaultAzureCredential` being commonly used and appropriate in many cases. In the links below, readers are encouraged to explore other ways of authenticating using the Azure Identity library, and to learn more about the `DefaultAzureCredential`:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

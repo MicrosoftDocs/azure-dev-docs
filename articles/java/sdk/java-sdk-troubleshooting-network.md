@@ -46,7 +46,7 @@ This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-gu
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that is able to capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and is able to capture broad through to specific low-level network traffic, which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, and so on. Captures can also be filtered either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and can capture broad through to specific low-level network traffic, which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, and so on. Captures can also be filtered either at capture time or during analysis.
 
 ### Configuring a capture filter
 
@@ -62,7 +62,7 @@ In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter 
 
 ### Capturing to disk
 
-Reproducing unexpected networking exceptions may require running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark is able to log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
+Reproducing unexpected networking exceptions may require running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) on configuring persisting captured traffic to disk.
 
@@ -70,7 +70,7 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50MB in size.
 
-In Wireshark, navigate to **Capture > Options** and navigate to the **Output** tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by selecting **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**, this will have Wireshark create a new file after one of the predicates is matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark is able to create, select **Use a ring buffer with X files**, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
+In Wireshark, navigate to **Capture > Options** and navigate to the **Output** tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by selecting **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**, this will have Wireshark create a new file after one of the predicates is matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
 
 ### Filtering captures
 

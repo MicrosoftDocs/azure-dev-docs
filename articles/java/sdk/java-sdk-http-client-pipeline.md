@@ -24,7 +24,7 @@ Despite Netty being the default HTTP client, there are three implementations ava
 
 ### Replacing the Default HTTP Client
 
-You can remove the dependency on Netty if you prefer another implementation. To do this, you exclude the Netty dependency from the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and substitute another dependency.
+You can remove the dependency on Netty if you prefer another implementation. To do this, you exclude the Netty dependency from the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
 
 The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
 
@@ -55,7 +55,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 ### Configuring HTTP clients
 
-When you build a service client it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`. These builders will share a common set of configurations, such as proxying and communication port, but will contain configurations that are specific to each implementation.
+When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`. These builders will share a common set of configurations, such as proxying and communication port, but will contain configurations that are specific to each implementation.
 
 The following examples show you how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
 
@@ -79,7 +79,7 @@ HttpClient client = new JdkAsyncHttpClientBuilder()
     .build();
 ```
 
-You can now pass the constructed `HttpClient` instance into a service client builder to be used as the client it uses to communicate to the service. The following example uses the new `HttpClient` instance to build an Azure Storage Blob client.
+You can now pass the constructed `HttpClient` instance into a service client builder for use as the client for communicating with the service. The following example uses the new `HttpClient` instance to build an Azure Storage Blob client.
 
 ```java
 BlobClient blobClient = new BlobClientBuilder()
@@ -110,7 +110,7 @@ You can provide your own custom HTTP pipeline when creating a client. If you don
 
 ### HTTP transport
 
-The HTTP transport is responsible for establishing the connection to the server, as well as sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, The Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP Transport so you can use other implementations where appropriate. The SDK also provides two additional HTTP transport implementations for OkHttp and the HttpClient that ships with JDK 11 and later.
+The HTTP transport is responsible for establishing the connection to the server, and sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, The Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP Transport so you can use other implementations where appropriate. The SDK also provides two more HTTP transport implementations for OkHttp and the HttpClient that ships with JDK 11 and later.
 
 ### HTTP pipeline policies
 
@@ -126,11 +126,11 @@ When you make HTTP requests to cloud services, it's important to handle transien
 
 This retry policy, therefore, splits the whole pipeline into two parts: policies that are executed before the retry policy and policies that are executed after the retry policy. Policies that are added before the retry policy are executed only once per API operation and policies that are added after the retry policy will be executed as many times as the retries.
 
-So, when building the HTTP pipeline, it's necessary to understand whether a policy should be executed each time a request is retried or if it's sufficient to execute it just once per API operation.
+So, when building the HTTP pipeline, it's necessary to understand whether a policy should be executed each time a request is retried or if it's sufficient to execute it once per API operation.
 
 ### Common HTTP pipeline policies
 
-HTTP pipelines for REST-based services are generally configured with policies for authentication, retries, logging, telemetry and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that can be added to the pipeline.
+HTTP pipelines for REST-based services are configured with policies for authentication, retries, logging, telemetry, and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that can be added to the pipeline.
 
 | Policy                | GitHub link        |
 |-----------------------|--------------------|

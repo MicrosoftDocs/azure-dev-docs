@@ -33,7 +33,7 @@ Adding the Maven dependency is simply a matter of including the following XML in
 
 ## Configuring Log4j
 
-There are two commonly-used ways to configure Log4j: through an external properties file, or through an external XML file. These approaches are outlined below.
+There are two commonly used ways to configure Log4j: through an external properties file, or through an external XML file. These approaches are outlined below.
 
 ### Using a property file
 

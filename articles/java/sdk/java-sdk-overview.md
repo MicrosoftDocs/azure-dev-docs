@@ -15,7 +15,7 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 ## Important details
 
 * The Azure libraries are how you communicate with Azure services from Java code that you run either locally or in the cloud.
-* The libraries support Java 8 and later, and are tested against both the Java 8 baseline as well as the latest Java 'long-term support' release.
+* The libraries support Java 8 and later, and are tested against both the Java 8 baseline and the latest Java 'long-term support' release.
 * The libraries include full Java module support, which means that they are fully compliant with the requirements of a Java module and export all relevant packages for use.
 * The Azure SDK for Java is composed solely of many individual Java libraries that relate to specific Azure services. There are no other tools in the "SDK".
 * There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
@@ -63,7 +63,7 @@ KeyAsyncClient client = new KeyClientBuilder()
         .buildAsyncClient();
 ```
 
-For details on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find additional code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For details on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Provision and manage Azure resources with management libraries
 
@@ -115,7 +115,7 @@ virtualMachine.update()
     .apply();
 ```
 
-For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://aka.ms/azsdk/java/mgmt). You can also find additional code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://aka.ms/azsdk/java/mgmt). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Get help and connect with the SDK team
 

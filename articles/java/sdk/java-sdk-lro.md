@@ -21,7 +21,7 @@ Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to 
 
 ## Synchronous long-running operations
 
-Calling any API that returns a `SyncPoller` will immediately start the long-running operation, and the `SyncPoller` will then be returned immediately, allowing for monitoring of the progress of the long-running operation, as well as retrieval of the final result. The code below shows how to monitor the progress of a long-running operation using the `SyncPoller`.
+Calling any API that returns a `SyncPoller` will immediately start the long-running operation, and the `SyncPoller` will then be returned immediately, allowing for monitoring of the progress of the long-running operation and retrieval of the final result. The code below shows how to monitor the progress of a long-running operation using the `SyncPoller`.
 
 ```java
 SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(...)
@@ -37,7 +37,7 @@ do {
 
 This sample uses the `poll()` method on the `SyncPoller` to retrieve the long-running operation progress. In this case, the status is printed to the console, but a better implementation would make relevant decisions based on this status.
 
-The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (i.e. the commonly-used `retry-after` header). If the response does not contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
+The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (i.e. the commonly used `retry-after` header). If the response does not contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
 
 The above sample uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If these intermediate results are of no interest, developers can instead call `waitForCompletion()`, which will block the current thread until the long-running operation completes and returns the last poll response:
 

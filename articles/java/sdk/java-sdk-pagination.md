@@ -97,7 +97,7 @@ This section covers the asynchronous APIs. Earlier, this article provided guidan
 
 ### Observing individual elements
 
-The code sample below shows how the `PagedFlux` API allows users to observe individual elements asynchronously. There are a variety of [ways to subscribe to a Flux type](https://projectreactor.io/docs/core/release/reference/#_simple_ways_to_create_a_flux_or_mono_and_subscribe_to_it), presented below is one variety where we provide three lambda expressions, for the consumer, error consumer, and the complete consumer. Having all three is good practice, but in some cases a simpler form where only the consumer, and possibly the error consumer, is adequate for the work being performed.
+The code sample below shows how the `PagedFlux` API allows users to observe individual elements asynchronously. There are various [ways to subscribe to a Flux type](https://projectreactor.io/docs/core/release/reference/#_simple_ways_to_create_a_flux_or_mono_and_subscribe_to_it), presented below is one variety where we provide three lambda expressions, for the consumer, error consumer, and the complete consumer. Having all three is good practice, but in some cases a simpler form where only the consumer, and possibly the error consumer, is adequate for the work being performed.
 
  ```java
 asyncClient.listSecrets()
