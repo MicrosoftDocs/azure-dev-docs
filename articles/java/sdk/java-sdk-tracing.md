@@ -59,7 +59,7 @@ appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().s
 
 In cases where no parent span is provided, a new parent span will be created to encapsulate all the client libraries outgoing requests. Note that for each call into an Azure client library method, two spans are created: one tracing the progression through the client libraries, and the other tracing the outgoing HTTP request span.
 
-#### Tracer Span Attributes
+#### Tracer Span attributes
 
 In addition to [OpenTelemetry's required standard attributes](https://github.com/open-telemetry/opentelemetry-specification/blob/e9340d74f1ba0b651b3581d6bd5df6a92b772e18/semantic-conventions.md), the Azure client libraries annotate the spans with the attributes mentioned below:
 

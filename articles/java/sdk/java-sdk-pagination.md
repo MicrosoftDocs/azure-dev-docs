@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: anuchan
 ---
 
-# Pagination & iteration in the Azure SDK for Java
+# Pagination and iteration in the Azure SDK for Java
 
 This article provides an overview of how to make use of Azure SDK for Java pagination and iteration functionality to efficiently and productively work with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
 
@@ -18,11 +18,11 @@ This article provides an overview of how to make use of Azure SDK for Java pagin
 
 This document is split between the Java Azure SDK synchronous and asynchronous APIs. Developers will encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs will be present when working with asynchronous clients.
 
-## Synchronous Pagination and Iteration
+## Synchronous pagination and iteration
 
 This section covers the synchronous APIs. Further down this document is guidance on working with the asynchronous APIs.
 
-### Iterating over Individual Elements
+### Iterating over individual elements
 
 As noted, the most common use case is to iterate over each element individually, rather than per page. The code samples below show how the `PagedIterable` API allows for users to use the iteration style they prefer to implement this functionality.
 
@@ -58,7 +58,7 @@ while (it.hasNext()) {
 }
 ```
 
-### Iterating over Pages
+### Iterating over pages
 
 When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it is possible to iterate per page. Note that there is no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
 

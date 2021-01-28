@@ -70,7 +70,7 @@ asyncClient.beginUploadFromUri(...)
     .subscribe(response -> System.out.println("Status of long running upload operation: " + response.getStatus()));
 ```
 
-In this example, we will get intermittent status updates on the long-running operation, from which we can determine if it is still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
+In the following example, we will get intermittent status updates on the long-running operation, from which we can determine if it is still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
 
 If we are not interested in the intermediate status updates and just want to get notified of the final result once it has arrived, we may do the following in our code:
 

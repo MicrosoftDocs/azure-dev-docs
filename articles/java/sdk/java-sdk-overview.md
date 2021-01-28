@@ -21,7 +21,7 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 * There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   * [Connect to and use Azure resources with client libraries.](#connect-to-and-use-azure-resources-with-client-libraries)
   * [Provision and manage Azure resources with management libraries.](#provision-and-manage-azure-resources-with-management-libraries)
-* Documentation for the libraries is found on the [Azure for Java Reference](https://docs.microsoft.com/java/api/overview/azure/), which is organized by Azure Service, or the [Java API browser](https://docs.microsoft.com/java/api/), which is organized by package name.
+* Documentation for the libraries is found on the [Azure for Java Reference](/java/api/overview/azure/), which is organized by Azure Service, or the [Java API browser](/java/api/), which is organized by package name.
 
 ## Other details
 
@@ -63,15 +63,15 @@ KeyAsyncClient client = new KeyClientBuilder()
         .buildAsyncClient();
 ```
 
-For details on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find additional code snippets in the [reference documentation](https://docs.microsoft.com/java/api) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?products=azure&languages=java).
+For details on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find additional code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Provision and manage Azure resources with management libraries
 
 The management (or "management plane") libraries, all of which can be found in the `com.azure.resourcemanager` Maven group ID, help you create, provision and otherwise manage Azure resources from Java application code. All Azure services have corresponding management libraries.
 
-With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com/) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
-All Azure Java management libraries provide a `*Manager` class as service API, for example, `ComputeManager` for Azure compute service, or `AzureResourceManager` for the aggregation of popular services. 
+All Azure Java management libraries provide a `*Manager` class as service API, for example, `ComputeManager` for Azure compute service, or `AzureResourceManager` for the aggregation of popular services.
 
 ### Management libraries example
 
@@ -115,7 +115,7 @@ virtualMachine.update()
     .apply();
 ```
 
-For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://aka.ms/azsdk/java/mgmt). You can also find additional code snippets in the [reference documentation](https://docs.microsoft.com/java/api) and the [Azure Samples](https://docs.microsoft.com/samples/browse/?products=azure&languages=java).
+For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://aka.ms/azsdk/java/mgmt). You can also find additional code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Get help and connect with the SDK team
 

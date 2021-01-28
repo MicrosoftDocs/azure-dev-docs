@@ -19,7 +19,7 @@ To enable java.util.logging, developers must do two things:
 
 For more information related to configuring your logger, refer [here](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm)
 
-## Add Maven dependency
+## Add the Maven dependency
 
 Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time of this document being written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
 

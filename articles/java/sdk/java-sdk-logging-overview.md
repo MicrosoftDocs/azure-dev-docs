@@ -21,7 +21,7 @@ Regardless of logging configuration used, the same log output will be available 
 
 The remainder of this document details configuration of all available logging options.
 
-## Default logger (For Temporary Debugging)
+## Default logger (for temporary debugging)
 
 As noted, all Azure client libraries use SLF4J for logging, but there is a fallback, default logger built into Azure client libraries for Java for circumstances where an application is deployed, and logging is required, but it is not possible to redeploy the application with an SLF4J logger included. To enable this logger, developers must firstly be certain that there exists no SLF4J logger (as this will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. Refer to the following table for the allowed values for this environment variable:
 

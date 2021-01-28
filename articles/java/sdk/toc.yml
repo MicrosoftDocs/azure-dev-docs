@@ -51,7 +51,7 @@
       expanded: false
       items:
         - name: Spring
-          href: https://docs.microsoft.com/azure/developer/java/spring-framework/spring-boot-starters-for-azure        
+          href: /azure/developer/java/spring-framework/spring-boot-starters-for-azure
         - name: MicroProfile
           href: https://docs.microsoft.com/azure/developer/java/eclipse-microprofile/
     - name: Troubleshooting
@@ -76,4 +76,4 @@
     - name: Package index
       href: azure-sdk-library-package-index.md
     - name: Reference
-      href: /java/api/?view=azure-java
+      href: /java/api

@@ -26,10 +26,10 @@ More conceptual details can be found here for [Device code authentication](/azur
 
 In order to authenticate a user through device code flow, you need to:
 
-1. Go to Azure Active Directory on Azure portal and find your app registration.
-2. Navigate to Authentication section.
-3. Under Suggested Redirected URIs check the URI that ends with `/common/oauth2/nativeclient`.
-4. Under Default Client Type, select `yes` for `Treat application as a public client`.
+1. Go to Azure Active Directory in Azure portal and find your app registration.
+2. Navigate to the **Authentication** section.
+3. Under **Suggested Redirected URIs** check the URI that ends with `/common/oauth2/nativeclient`.
+4. Under **Default Client Type**, select `yes` for `Treat application as a public client`.
 
 This will let the application authenticate, but the application still doesn't have permission to log you into Active Directory, or access resources on your behalf.
 
@@ -39,7 +39,7 @@ You also need to be the admin of your tenant to grant consent to your applicatio
 
 ### Authenticating a user account with device code flow
 
-This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DeviceCodeCredential` on an IoT device.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DeviceCodeCredential` on an IoT device.
 
 ```java
 /**
@@ -62,7 +62,7 @@ SecretClient client = new SecretClientBuilder()
 
 This credential interactively authenticates a user with the default system browser and offers a smooth authentication experience by letting users use their own credentials to authenticate their application.
 
-### Enable applications for interactive browser oauth 2 flow
+### Enable applications for interactive browser OAuth 2 flow
 
 Register an application in Azure Active Directory with permissions to log in on behalf of a user to use InteractiveBrowserCredential. Follow all the steps above for device code flow to register your application to support logging you into Active Directory and access certain resources. Note the same limitations apply that an admin of your tenant must grant consent to your application before any user account can log in.
 
@@ -70,7 +70,7 @@ You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is requi
 
 ### Authenticating a user account interactively in the browser
 
-This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `InteractiveBrowserCredential`.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `InteractiveBrowserCredential`.
 
 ```java
 /**

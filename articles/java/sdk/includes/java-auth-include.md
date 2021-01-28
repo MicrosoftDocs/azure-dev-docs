@@ -7,7 +7,7 @@ export AZURE_AUTH_LOCATION=/Users/raisa/azure.auth
 The authentication file is used to configure the entry point `Azure` object used by the management libraries to define, create, and configure Azure resources.
 
 ```java
-// pull in the location of the security file from the environment 
+// pull in the location of the security file from the environment
 final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
 
 Azure azure = Azure

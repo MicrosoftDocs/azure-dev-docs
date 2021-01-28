@@ -21,7 +21,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Java API browser
-            url: /java/api/?view=azure-java
+            url: /java/api
       - linkListType: how-to-guide
         links:
           - text: Identity & Authentication

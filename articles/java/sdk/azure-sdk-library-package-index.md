@@ -10,7 +10,7 @@ author: bmitchell287
 
 # Azure SDK for Java libraries
 
-The Azure SDK for Java is composed of many libraries - one for each Azure service. On top of this, there are libraries designed to integrate into open source projects, such as Spring, to provide Azure-specific support. All Azure SDK for Java libraries are [designed to work together cohesively](/azure/developer/java/sdk/java-sdk-overview) and provide an excellent developer experience. This is achieved through a common set of concepts, including [HTTP pipelines](/azure/developer/java/sdk/java-sdk-http-client-pipeline), [identity and authentication](/azure/developer/java/sdk/java-sdk-identity), and [logging](/azure/developer/java/sdk/java-sdk-logging-overview).
+The Azure SDK for Java is composed of many libraries - one for each Azure service. On top of this, there are libraries designed to integrate into open source projects, such as Spring, to provide Azure-specific support. All Azure SDK for Java libraries are [designed to work together cohesively](java-sdk-overview.md) and provide an excellent developer experience. This is achieved through a common set of concepts, including [HTTP pipelines](java-sdk-http-client-pipeline.md), [identity and authentication](java-sdk-identity.md), and [logging](java-sdk-logging-overview.md).
 
 The tables below show all libraries that exist in the Azure SDK for Java, linking out to all relevant repositories and documentation. To keep up to date with the Azure SDKs, consider following the [@AzureSDK](https://twitter.com/azuresdk) Twitter account, and the [Azure SDK blog](https://devblogs.microsoft.com/azure-sdk/).
 
