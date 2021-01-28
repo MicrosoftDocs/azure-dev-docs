@@ -49,7 +49,7 @@ The latest release of azure-identity can be found [here](https://search.maven.or
 
 Two key concepts in understanding the Azure Identity library are those of a credential, and then the most common implementation of that credential, the `DefaultAzureCredential`.
 
-A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service.
+A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service.
 
 The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
 
@@ -57,7 +57,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 
 ## Examples
 
-As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways in which they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, we have a quick overview of authenticating in both client and management libraries.
+As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways in which they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, there's a quick overview of authenticating in both client and management libraries.
 
 ### Authenticating Azure client libraries
 
@@ -94,11 +94,11 @@ The `DefaultAzureCredential` used in the example above authenticates a `AzureRes
 
 ## Troubleshooting
 
-Credentials raise exceptions either when they fail to authenticate or cannot execute authentication.
+Credentials raise exceptions either when they fail to authenticate or can't execute authentication.
 When credentials fail to authenticate, the `ClientAuthenticationException` is raised and it has a `message` attribute that
 describes why authentication failed. When `ChainedTokenCredential` raises this exception, the chained execution of underlying list of credentials is stopped.
 
-When credentials cannot execute authentication because one of the underlying resources required by the credential is unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
+When credentials can't execute authentication because one of the underlying resources required by the credential is unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
 describes why the credential is unavailable for authentication execution. When `ChainedTokenCredential` raises this exception, the message collects error messages from each credential in the chain.
 
 ## Next Steps

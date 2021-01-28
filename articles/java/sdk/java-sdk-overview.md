@@ -1,5 +1,5 @@
 ---
-title: Introducing Azure SDK for Java
+title: Introducing the Azure SDK for Java
 description: Overview of the features and capabilities of the Azure libraries for Java that helps developers be more productive when provisioning, using, and managing Azure resources.
 author: jonathangiles
 ms.date: 11/23/2020
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: jogiles
 ---
 
-# Introducing Azure SDK for Java
+# Introducing the Azure SDK for Java
 
 The open-source Azure libraries for Java simplify provisioning, managing, and using Azure resources from Java application code.
 
@@ -39,7 +39,7 @@ All Azure Java client libraries follow the same API design pattern of offering a
 
 * Client libraries that support both synchronous and asynchronous APIs must offer these in separate classes. This means that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
 
-* There is a single builder class that takes responsibility for building both the sync and async APIs. The builder will be named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder will have `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
+* There's a single builder class that takes responsibility for building both the sync and async APIs. The builder will be named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder will have `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
 
 Because of these conventions, users of the Java client libraries should feel comfortable that all classes ending in `Client` will be immutable and provide operations to interact with an Azure service. All classes that end in `ClientBuilder` will provide operations to configure and create an instance of a particular client type.
 

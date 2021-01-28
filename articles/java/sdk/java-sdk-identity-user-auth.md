@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Azure authentication with user credentials
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This is made possible through a set of TokenCredential implementations discussed below. 
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This is made possible through a set of TokenCredential implementations discussed below.
 
 This article covers the following topics:
 

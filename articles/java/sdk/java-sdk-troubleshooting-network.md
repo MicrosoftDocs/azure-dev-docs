@@ -10,7 +10,7 @@ ms.author: alzimmer
 
 # Troubleshooting networking issues
 
-The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. We'll discuss a few applications that are able to diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
+The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. This article will discuss a few applications that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
 
 ## Fiddler
 
@@ -82,4 +82,4 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 The following example loads a persisted capture file and filters on `ip.src_host==<IP>`.
 
-In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar there is a filter input. In the filter input enter `ip.src_host==<IP>`, this will limit the capture view to only show captures where the source was from the host with the IP `<IP>`.
+In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input will appear. In the filter input enter `ip.src_host==<IP>`. This will limit the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.

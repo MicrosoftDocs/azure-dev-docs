@@ -1,5 +1,5 @@
 ---
-title: Configuring proxies in Azure SDK for Java
+title: Configuring proxies in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to proxying
 author: alzimmermsft
 ms.date: 11/23/2020
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: alzimmer
 ---
 
-# Configuring proxies in Azure SDK for Java
+# Configuring proxies in the Azure SDK for Java
 
 This article provides an overview of how to configure the Azure SDK for Java to make proper use of proxies.
 
@@ -41,7 +41,7 @@ If any of the environment configurations are found, a `ProxyOptions` instance wi
 > [!Important]
 > Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
 
-If the system environment variables contain proxy configuration, but this is not desired to be used when creating an HTTP client instance, it's possible to override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
+If the system environment variables contain proxy configuration, but this isn't desired to be used when creating an HTTP client instance, it's possible to override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, developers are explicitly preventing the builder from inspecting the environment for configuration.
 
 **Example**
 

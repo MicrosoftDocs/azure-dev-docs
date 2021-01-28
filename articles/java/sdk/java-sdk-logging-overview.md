@@ -15,7 +15,7 @@ This article provides an overview of how to enable logging in applications that 
 * A built-in logging framework for temporary debugging purposes.
 * Support for logging using the [SLF4J](https://www.slf4j.org/) interface.
 
-We recommend that you use the SLF4J functionality because it's well known in the Java ecosystem and there is significant documentation on using it. For starters, consider referring to the [SLF4J manual](https://www.slf4j.org/manual.html). Later in this article we provide links to configuration examples for many of the popular Java logging frameworks and how the Azure client libraries can use them.
+We recommend that you use the SLF4J functionality because it's well known in the Java ecosystem and there's significant documentation on using it. For starters, consider referring to the [SLF4J manual](https://www.slf4j.org/manual.html). Later in this article, we provide links to configuration examples for many of the popular Java logging frameworks and how the Azure client libraries can use them.
 
 Whatever logging configuration you use, the same log output is available in either case because all logging output in the Azure client libraries for Java is routed through an azure-core `ClientLogger` abstraction.
 
@@ -23,7 +23,7 @@ The rest of this article details the configuration of all available logging opti
 
 ## Default logger (for temporary debugging)
 
-As noted, all Azure client libraries use SLF4J for logging, but there is a fallback, default logger built into Azure client libraries for Java for circumstances where an application is deployed, and logging is required, but it's not possible to redeploy the application with an SLF4J logger included. To enable this logger, you must first be certain that no SLF4J logger exists (because it will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. The following table shows the values allowed for this environment variable:
+As noted, all Azure client libraries use SLF4J for logging, but there's a fallback, default logger built into Azure client libraries for Java for circumstances where an application is deployed, and logging is required, but it's not possible to redeploy the application with an SLF4J logger included. To enable this logger, you must first be certain that no SLF4J logger exists (because it will take precedence), and then set the `AZURE_LOG_LEVEL` environment variable. The following table shows the values allowed for this environment variable:
 
 | Log Level              | Allowed Environment Variable Values     |
 |------------------------|-----------------------------------------|
@@ -32,7 +32,7 @@ As noted, all Azure client libraries use SLF4J for logging, but there is a fallb
 | WARNING                | "warn", "warning"                       |
 | ERROR                  | "err", "error"                          |
 
-After the environment variable is set, restart the application to enable the environment variable to take effect. Enabling this logger will log to the console, and does not provide advanced customization capabilities (like rollover, logging to file, and so on) that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
+After the environment variable is set, restart the application to enable the environment variable to take effect. Enabling this logger will log to the console, and doesn't provide advanced customization capabilities (like rollover, logging to file, and so on) that an SLF4J implementation will provide. To turn the logging off again, just remove the environment variable and restart the application.
 
 ## SLF4J logging
 

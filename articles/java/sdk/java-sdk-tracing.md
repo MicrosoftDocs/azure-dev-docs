@@ -1,5 +1,5 @@
 ---
-title: Configuring tracing in Azure SDK for Java
+title: Configuring tracing in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to tracing
 author: samvaity
 ms.date: 11/23/2020
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: savaity
 ---
 
-# Configuring tracing in Azure SDK for Java
+# Configuring tracing in the Azure SDK for Java
 
 This article provides an overview of how to configure the Azure SDK for Java to integrate tracing functionality. The Azure SDK for Java enables tracing in all client libraries by including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based `azure-core-tracing-opentelemetry` [plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
@@ -19,9 +19,9 @@ There are two ways to enable tracing in the Azure client libraries for Java:
 1. By enabling functionality built into the Azure SDK for Java.
 2. By enabling an in-process agent to gather tracing data and submit it without any code changes.
 
-## Enabling tracing in Azure SDK for Java
+## Enabling tracing in the Azure SDK for Java
 
-Enabling tracing for all Azure Java client libraries is simple: all developers need to do is add the `azure-core-tracing-opentelemetry` and `opentelemetry-sdk` dependencies to their application. For example, in Maven we would see the following dependencies:
+Enabling tracing for all Azure Java client libraries is simple: all developers need to do is add the `azure-core-tracing-opentelemetry` and `opentelemetry-sdk` dependencies to their application. For example, in Maven, the following dependencies would be present:
 
 ```xml
 <dependency>
@@ -39,8 +39,8 @@ Enabling tracing for all Azure Java client libraries is simple: all developers n
 
 By adding this dependency, tracing will be enabled, with traces included with all HTTP requests. There are now two problems:
 
-1. There is no integration with any incoming parent span.
-2. The generated traces are not being exported anywhere for later analysis.
+1. There's no integration with any incoming parent span.
+2. The generated traces aren't being exported anywhere for later analysis.
 
 Let's work on these two issues now.
 
@@ -52,7 +52,7 @@ As noted above, including the dependencies will enable tracing within the Azure 
 // The 'span' given in this context is the parent span key received from the incoming request
 Context traceContext = new Context(PARENT_SPAN_KEY, span);
 
-// in this sample code, we are passing a new configuration setting to a service, but also including
+// This example code passes a new configuration setting to a service, but also includes
 // the traceContext from above, so that it may be picked up by the http transport and included as appropriate.
 appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().setKey("hello").setValue("world"), true, traceContext);
 ```

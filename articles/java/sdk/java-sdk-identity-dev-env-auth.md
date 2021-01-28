@@ -88,7 +88,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Azure CLI Credential
 
-The Visual Studio Code credential authenticates in a development environment with the enabled user or service principal in Azure CLI. It utilizes the `Azure CLI` given a user is already logged into it and uses the CLI to authenticate the application against Azure Active Directory.
+The Visual Studio Code credential authenticates in a development environment with the enabled user or service principal in Azure CLI. It uses the Azure CLI given a user is already logged into it and uses the CLI to authenticate the application against Azure Active Directory.
 
 ### Sign in Azure CLI for AzureCliCredential
 
@@ -138,7 +138,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## IntelliJ Credential
 
-The Visual Studio Code credential authenticates in a development environment with the account in Azure Toolkit for IntelliJ. It utilizes the logged in user information on the `IntelliJ IDE` and uses it to authenticate the application against Azure Active Directory.
+The Visual Studio Code credential authenticates in a development environment with the account in Azure Toolkit for IntelliJ. It uses the logged in user information on the IntelliJ IDE and uses it to authenticate the application against Azure Active Directory.
 
 ## Sign in Azure Toolkit for IntelliJ for IntelliJCredential
 
@@ -169,7 +169,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Visual Studio Code Credential
 
-The Visual Studio Code credential authenticates in a development environment with the account in Visual Studio Azure Account extension. It utilizes the logged in user information on the `Visual Studio Code IDE` and uses it to authenticate the application against Azure Active Directory.
+The Visual Studio Code credential authenticates in a development environment with the account in Visual Studio Azure Account extension. It uses the logged in user information on the Visual Studio Code IDE and uses it to authenticate the application against Azure Active Directory.
 
 ### Sign in Visual Studio Code Azure Account Extension for VisualStudioCodeCredential
 

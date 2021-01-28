@@ -81,7 +81,7 @@ It's possible to have fine-grained control over the logging of specific classes,
 
 ### Log to a file with log rotation enabled
 
-In the examples above, logging was to the console, which is not normally the preferred location for logs. To configure logging to a file instead, which will be rolled over after hourly, and archived in gzip format, the following configuration will suffice:
+In the examples above, logging was to the console, which isn't normally the preferred location for logs. To configure logging to a file instead, which will be rolled over after hourly, and archived in gzip format, the following configuration will suffice:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -116,6 +116,6 @@ logging.config=classpath:logback.xml
 
 ## Next steps
 
-In this article we've discussed configuring Logback and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there is a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
+In this article, we've discussed configuring Logback and how to make the Azure SDK for Java log through this. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there's a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
 
 Once you have master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

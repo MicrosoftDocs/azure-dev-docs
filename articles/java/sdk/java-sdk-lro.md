@@ -37,7 +37,7 @@ do {
 
 This sample uses the `poll()` method on the `SyncPoller` to retrieve the long-running operation progress. In this case, the status is printed to the console, but a better implementation would make relevant decisions based on this status.
 
-The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (i.e. the commonly used `retry-after` header). If the response does not contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
+The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (i.e. the commonly used `retry-after` header). If the response doesn't contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
 
 The above sample uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If these intermediate results are of no interest, developers can instead call `waitForCompletion()`, which will block the current thread until the long-running operation completes and returns the last poll response:
 
@@ -61,7 +61,7 @@ Other useful APIs in `SyncPoller` include:
 
 ## Asynchronous long-running operations
 
-The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). This means that the main-thread may terminate before the result is available. It's up to the developer to ensure that the application does not exit before the async operation has had time to complete.
+The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). This means that the main-thread may terminate before the result is available. It's up to the developer to ensure that the application doesn't exit before the async operation has had time to complete.
 
 In the async API, a `PollerFlux` will be returned immediately, but the long-running operation itself will not commence until a subscription is made to the returned `PollerFlux`. This is the same as how all `Flux`-based APIs operate. Shown below is an example of an async long-running operation:
 
@@ -70,9 +70,9 @@ asyncClient.beginUploadFromUri(...)
     .subscribe(response -> System.out.println("Status of long running upload operation: " + response.getStatus()));
 ```
 
-In the following example, we'll get intermittent status updates on the long-running operation, from which we can determine if it's still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
+In the following example, you'll get intermittent status updates on the long-running operation, from which you can determine whether it's still operating in the expected fashion. In this case the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
 
-If we are not interested in the intermediate status updates and just want to get notified of the final result once it has arrived, we may do the following in our code:
+If you aren't interested in the intermediate status updates and just want to get notified of the final result once it has arrived, you can do the following in your code:
 
 ```java
 asyncClient.beginUploadFromUri(...)
@@ -89,7 +89,7 @@ asyncClient.beginUploadFromUri(...)
         () -> countDownLatch.countDown());
 ```
 
-In this code we retrieve the final result of the long-running operation by calling `last()`. This tells the `PollerFlux` that we want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and its status can be inspected to determine the outcome. If the poller indicates that the long-running operation has completed successfully, the final result can be retrieved and passed on to the consumer in the subscribe call.
+In this code, you retrieve the final result of the long-running operation by calling `last()`. This tells the `PollerFlux` that you want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and its status can be inspected to determine the outcome. If the poller indicates that the long-running operation has completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
 
 The following sample code using `last()` operator to wait for all polling to complete, then retrieve the final result if LRO succeeded.
 
