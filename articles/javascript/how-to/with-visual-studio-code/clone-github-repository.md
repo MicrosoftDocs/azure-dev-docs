@@ -36,7 +36,7 @@ To get started, download the sample project using the following steps:
 
     ![Visual Studio Code explorer](../../media/node-howto-e2e/visual-studio-code-explorer.png)
 
-## Create a branch for changes wit Git CL
+## Create a branch for changes with Git CL
 
 Use Git in the command palette to create a new branch.
 
@@ -72,19 +72,9 @@ Once you have made changes on your branch, commit the changes
 
     ![Adding the yarn.lock file to Git](../../media/node-howto-e2e/visual-studio-code-add-yarn-lock.png)
 
-## Create a Pull Request (PR) 
+## Push a local branch to remote
 
-1. Install the [Visual Studio extension for PRs and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
-1. Select the new GitHub icon to the integrated tab (usually found at the far left).
-1. In the Pull Request bar, select **+**.
-1. In the pop-up window, select the **remote repository**. 
-
-    The list includes all remotes for the local repository. 
-1. Select the **target branch**.
-1. Select the **remote** to publish to.  
-1. Select the **upstream branch**. 
-1. Select the **PR title**. 
 
 ## Next steps
 
