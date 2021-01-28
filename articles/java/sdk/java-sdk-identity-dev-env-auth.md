@@ -22,7 +22,7 @@ Topics covered in this article include:
 
 ## Device code credential
 
-The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
+The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, it asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -193,7 +193,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-This article has covered authentication during development using credentials available on your computer, which is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe additional authentication methods:
+This article has covered authentication during development using credentials available on your computer, which is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods:
 
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with service principals](java-sdk-identity-service-principal-auth.md)

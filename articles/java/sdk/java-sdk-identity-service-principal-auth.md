@@ -92,7 +92,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-This article has covered authentication via service principal, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe additional authentication methods:
+This article has covered authentication via service principal, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
