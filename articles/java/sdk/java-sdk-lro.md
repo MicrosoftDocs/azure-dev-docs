@@ -12,7 +12,7 @@ ms.author: anuchan
 
 This article provides an overview of using long-running operations with the Azure SDK for Java. Certain operations on Azure may take extended amounts of time to complete, that push them outside of the standard HTTP style of quick request / response flow. For example, copying data from a source URL to a Storage blob or training a model to recognize forms are operations that may take a few seconds to several minutes. Such operations are referred to as Long-Running Operations, and are often abbreviated as 'LRO'. An LRO may take seconds, minutes, hours, days, or longer to complete, depending on the operation requested and the process that must be performed on the server side.
 
-In the Java client libraries for Azure, a convention exists that all long-running operations begin with the `begin` prefix. Whenever a `begin` prefix is encountered, developers are encouraged to understand that this operation will be long-running, and that the means of interaction with this operation will be slightly different that the usual request / response flow. Along with the `begin` prefix, the return type from the operation will also be different than usual, to enable the full range of long-running operation functionality. As with most things in the Azure SDK for Java, there are both synchronous and asynchronous APIs for long-running operations:
+In the Java client libraries for Azure, a convention exists that all long-running operations begin with the `begin` prefix. This prefix indicates that this operation will be long-running, and that the means of interaction with this operation will be slightly different that the usual request / response flow. Along with the `begin` prefix, the return type from the operation will also be different than usual, to enable the full range of long-running operation functionality. As with most things in the Azure SDK for Java, there are both synchronous and asynchronous APIs for long-running operations:
 
 * In synchronous clients, long-running operations will return a `SyncPoller` instance.
 * In asynchronous clients, long-running operations will return a `PollerFlux` instance.
@@ -39,7 +39,7 @@ This sample uses the `poll()` method on the `SyncPoller` to retrieve the long-ru
 
 The `getRetryAfter()` method returns how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (that is, the commonly used `retry-after` header). If the response doesn't contain poll-delay, then the duration given at the time of invoking the long-running operation is used.
 
-The above sample uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If these intermediate results are of no interest, developers can instead call `waitForCompletion()`, which will block the current thread until the long-running operation completes and returns the last poll response:
+The above sample uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If these intermediate results are of no interest, you can instead call `waitForCompletion()`, which will block the current thread until the long-running operation completes and returns the last poll response:
 
 ```java
 PollResponse<UploadBlobProgress> response = poller.waitForCompletion();
@@ -61,7 +61,7 @@ Other useful APIs in `SyncPoller` include:
 
 ## Asynchronous long-running operations
 
-The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). This means that the main-thread may terminate before the result is available. It's up to the developer to ensure that the application doesn't exit before the async operation has had time to complete.
+The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). What this means is that the main-thread may terminate before the result is available. It's up to you to ensure that the application doesn't exit before the async operation has had time to complete.
 
 In the async API, a `PollerFlux` will be returned immediately, but the long-running operation itself won't commence until a subscription is made to the returned `PollerFlux`. This is the same as how all `Flux`-based APIs operate. Shown below is an example of an async long-running operation:
 

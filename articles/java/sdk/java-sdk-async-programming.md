@@ -12,12 +12,12 @@ ms.author: srnagar
 
 This article describes the asynchronous programming model in the Azure SDK for Java.
 
-The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs enable application developers using the Azure SDK to use their system resources efficiently to build scalable applications. However,
-the [new Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. Therefore, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
+The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs let you use the Azure SDK to build scalable applications that use system resources efficiently. However,
+the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. Therefore, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
 
 ## Reactive streams
 
-If you look at the [async client](https://azure.github.io/azure-sdk/java_design.html#java-async-client-shape) in the new Azure SDK for Java design guidelines, you'll notice that instead of using [`CompletableFuture`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) provided by Java 8, our async APIs use reactive types. Why did we choose reactive types over types that are natively available in JDK?
+If you look at the [async client](https://azure.github.io/azure-sdk/java_design.html#java-async-client-shape) in the Azure SDK for Java design guidelines, you'll notice that instead of using [`CompletableFuture`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) provided by Java 8, our async APIs use reactive types. Why did we choose reactive types over types that are natively available in JDK?
 
 Java 8 introduced features like Streams, Lambdas, and CompletableFuture. `CompletableFuture`s provide callback-based, non-blocking capabilities, and the `CompletionStage` interface allowed for easy composition of a series of asynchronous operations. [Lambdas](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) make these push-based APIs more readable. Lastly, [Streams](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html) provide functional-style operations to handle a collection of data elements. However, there are some limitations. Streams are synchronous and can't be reused. `CompletableFuture` allows you to make a single request, provides support for a callback, and expects a _single_ response. Many cloud services require the ability to stream data - Event Hubs for instance.
 
@@ -32,7 +32,7 @@ The [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm#
 
 There are some well-known Java libraries that provide implementations of this specification - [RxJava](https://github.com/ReactiveX/RxJava), [Akka Streams](https://doc.akka.io/docs/akka/current/stream/stream-introduction.html), [Vert.x](https://vertx.io/docs/#reactive), and [Project Reactor](https://projectreactor.io/docs/core/release/reference/).
 
-The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main factor driving this decision was to provide smooth integration with [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html), which also uses Project Reactor. Another contributing factor to choose Project Reactor over RxJava was that Project Reactor uses Java 8 whereas RxJava, at the time, was still at Java 7. Project Reactor also offers a rich set of operators that are composable and allows developers to write declarative code for building data processing pipelines. Another nice thing about Project Reactor is that it has adapters for converting Project Reactor types to other popular implementation types.
+The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main factor driving this decision was to provide smooth integration with [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html), which also uses Project Reactor. Another contributing factor to choose Project Reactor over RxJava was that Project Reactor uses Java 8 whereas RxJava, at the time, was still at Java 7. Project Reactor also offers a rich set of operators that are composable and allow you to write declarative code for building data processing pipelines. Another nice thing about Project Reactor is that it has adapters for converting Project Reactor types to other popular implementation types.
 
 ## Comparing APIs of synchronous and asynchronous operations
 
@@ -47,7 +47,7 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 
 > For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
 
-## Using async APIs in the new Azure SDK for Java
+## Using async APIs in the Azure SDK for Java
 
 The reactive streams specification doesn't differentiate between a publisher that produces at most one data element vs. a publisher that may produce more than one data element. However, this distinction is useful in building cloud APIs to indicate if a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has zero or more values.
 
@@ -73,7 +73,7 @@ System.out.println("Done");
 Notice that after calling `getConfigurationSetting()` API on the client, we subscribed to the result and provided three separate lambdas. The first lambda consumes data received from the service, which is triggered upon successful response. The second lambda is triggered if there was an error while retrieving the configuration. The third lambda is invoked when the data stream is complete, meaning no more data elements are expected from this stream.
 
 > [!NOTE]
-> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. This means that if there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can simply add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
+> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. If there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can simply add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
 
 APIs that return a `Flux` also follow a similar pattern, with the difference being the first callback provided to the `subscribe()` method will be called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks will be invoked if either of these signals are received from the publisher.
 
@@ -134,9 +134,9 @@ If the subscriber requests more than one data element each time `onNext()` is ca
 
 ### Cancelling a subscription
 
-A subscription manages the state of data transfer between a publisher and a subscriber. The subscription is active until the publisher has completed transferring all the data to the subscriber or the subscriber is no longer interested in receiving data. There are a couple of ways in which the subscriber can cancel a subscription as shown below.
+A subscription manages the state of data transfer between a publisher and a subscriber. The subscription is active until the publisher has completed transferring all the data to the subscriber or the subscriber is no longer interested in receiving data. There are a couple of ways you can cancel a subscription as shown below.
 
-Dispose the subscriber:
+The following example cancels the subscription by disposing the subscriber:
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
@@ -157,7 +157,7 @@ Disposable disposable = asyncClient.receive().subscribe(
 disposable.dispose();
 ```
 
-or call the `cancel()` method on `Subscription`:
+The follow example cancels the subscription by calling the `cancel()` method on `Subscription`:
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
@@ -194,7 +194,7 @@ asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {
 
 ## Conclusion
 
-Threads are expensive resources and shouldn't be wasted waiting for response from remote service calls. As the adoption of microservices architecture increases, the need to scale and use resources efficiently becomes vital. Asynchronous APIs are favorable when there are network-bound operations. The new Azure SDK for Java offers a rich set of APIs for async operations to help maximize your system resources. We highly encourage you to try out our async clients.
+Threads are expensive resources and shouldn't be wasted waiting for response from remote service calls. As the adoption of microservices architecture increases, the need to scale and use resources efficiently becomes vital. Asynchronous APIs are favorable when there are network-bound operations. The Azure SDK for Java offers a rich set of APIs for async operations to help maximize your system resources. We highly encourage you to try out our async clients.
 
 If you need more information, you can [look up which operator to use](https://projectreactor.io/docs/core/release/reference/#which-operator) that best suits your task at hand.
 

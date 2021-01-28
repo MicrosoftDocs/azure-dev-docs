@@ -17,7 +17,7 @@ This article covers the following topics:
 * [Default Azure Credential](#default-azure-credential)
 * [Managed Identity Credential](#managed-identity-credential)
 
-## Default Azure Credential
+## Default Azure credential
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
 
@@ -25,9 +25,9 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 
 * Environment - The `DefaultAzureCredential` will read account information specified via [environment variables](#environment-variables) and use it to authenticate.
 * Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` will authenticate with that account.
-* IntelliJ - If the developer has authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` will authenticate with that account.
-* Visual Studio Code - If the developer has authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` will authenticate with that account.
-* Azure CLI - If the developer has authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` will authenticate with that account.
+* IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` will authenticate with that account.
+* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` will authenticate with that account.
+* Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` will authenticate with that account.
 
 ### Configure DefaultAzureCredential
 
@@ -149,11 +149,11 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 ## Next steps
 
-In this article, we have covered authentication for applications hosted in Azure, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+This article has covered authentication for applications hosted in Azure, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods that you may wish to review:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
-* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
-* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+* [Authentication with service principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with user credentials](java-sdk-identity-user-auth.md)
 
 Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 

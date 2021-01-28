@@ -21,7 +21,7 @@ There are two ways to enable tracing in the Azure client libraries for Java:
 
 ## Enabling tracing in the Azure SDK for Java
 
-Enabling tracing for all Azure Java client libraries is simple: all developers need to do is add the `azure-core-tracing-opentelemetry` and `opentelemetry-sdk` dependencies to their application. For example, in Maven, the following dependencies would be present:
+To enable tracing for all Azure Java client libraries, add the `azure-core-tracing-opentelemetry` and `opentelemetry-sdk` dependencies to your application. For example, in Maven, add the following dependencies:
 
 ```xml
 <dependency>
@@ -37,12 +37,12 @@ Enabling tracing for all Azure Java client libraries is simple: all developers n
 </dependency>
 ```
 
-By adding this dependency, tracing will be enabled, with traces included with all HTTP requests. There are now two problems:
+By adding this dependency, tracing is enabled, with traces included with all HTTP requests. There are now two problems:
 
 1. There's no integration with any incoming parent span.
 2. The generated traces aren't being exported anywhere for later analysis.
 
-Let's work on these two issues now.
+The following sections address these problems.
 
 ### Integrating parent spans
 
@@ -59,7 +59,7 @@ appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().s
 
 In cases where no parent span is provided, a new parent span will be created to encapsulate all the client libraries outgoing requests. For each call into an Azure client library method, two spans are created: one tracing the progression through the client libraries, and the other tracing the outgoing HTTP request span.
 
-#### Tracer Span attributes
+#### Tracer span attributes
 
 In addition to [OpenTelemetry's required standard attributes](https://github.com/open-telemetry/opentelemetry-specification/blob/e9340d74f1ba0b651b3581d6bd5df6a92b772e18/semantic-conventions.md), the Azure client libraries annotate the spans with the attributes mentioned below:
 
@@ -93,10 +93,10 @@ tracerSdkFactory.addSpanProcessor(SimpleSpansProcessor.newBuilder(exporter).buil
 
 ## Enabling tracing with the in-process agent
 
-Application Insights, a feature of [Azure Monitor](/azure/azure-monitor/overview), can be used for automatic collection and transmission of data for later analysis of applications in large-scale distributed systems. This instrumentation monitors your application and directs the telemetry data to an [Azure Application Insights resource](/azure/azure-monitor/app/app-insights-overview) using a unique GUID that is referred to as an 'Instrumentation Key'.
+Application Insights, a feature of [Azure Monitor](/azure/azure-monitor/overview), can be used for automatic collection and transmission of data for later analysis of applications in large-scale distributed systems. This instrumentation monitors your application and directs the telemetry data to an [Azure Application Insights resource](/azure/azure-monitor/app/app-insights-overview) using a unique GUID that's referred to as an 'Instrumentation Key'.
 
-By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agent), developers can enable monitoring of their applications without any code changes. Also, developers will need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to their project. Once this is done, developers can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
+By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agent), you can enable monitoring of your applications without any code changes. Also, you'll need to add the [azure-core-tracing-opentelemetry](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java) dependency to your project. Once this is done, you can use the Application Insights dashboard to instrument requests, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with within an application.
 
 ## Next steps
 
-Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, consider reviewing the [identity and authentication](java-sdk-identity.md) overview to familiarize yourself with how developers can create secure applications.
+Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, consider reviewing [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.

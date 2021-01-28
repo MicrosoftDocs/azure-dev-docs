@@ -1,6 +1,6 @@
 ---
 title: Azure authentication with service principal
-description: An overview of the Azure SDK for Java concepts related to authenticating applications via Service Principal
+description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 author: g2vinay
 ms.date: 01/06/2021
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via Service Principal through a set of TokenCredential implementations. Topics covered in this article include:
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via service principal through a set of TokenCredential implementations. Topics covered in this article include:
 
-* [Creating a Service Principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
-* [Client Secret Credential](#client-secret-credential)
-* [Client Certificate Credential](#client-certificate-credential)
+* [Creating a service principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
+* [Client secret credential](#client-secret-credential)
+* [Client certificate credential](#client-certificate-credential)
 
 More conceptual details can be found here for [Service principal authentication](/azure/active-directory/develop/app-objects-and-service-principals).
 
-## Creating a Service Principal with the Azure CLI
+## Creating a service principal with the Azure CLI
 
 Use the [Azure CLI][azure_cli] snippet below to create/get client secret credentials.
 
@@ -46,7 +46,7 @@ Output:
   * `AZURE\_CLIENT\_SECRET` for the password.
   * `AZURE\_TENANT\_ID` for the tenant.
 
-## Client Secret Credential
+## Client secret credential
 
 This credential authenticates the created service principal through its client secret (password). This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `ClientSecretCredential`.
 
@@ -67,7 +67,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-## Client Certificate Credential
+## Client certificate credential
 
 This credential authenticates the created service principal through its client certificate. This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `ClientCertificateCredential`.
 
@@ -92,7 +92,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this article, we have covered authentication via service principal, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+This article has covered authentication via service principal, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe additional authentication methods:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

@@ -1,40 +1,40 @@
 - name: Azure SDK for Java documentation
   href: index.yml
   items:
-    - name: Get Started
+    - name: Get started
       href: java-sdk-azure-get-started.md
     - name: Concepts
       expanded: true
       items:
         - name: Overview
           href: java-sdk-overview.md
-        - name: Common Concepts
+        - name: Common concepts
           expanded: false
           items:
-            - name: HTTP clients & pipeline
+            - name: HTTP clients and pipeline
               href: java-sdk-http-client-pipeline.md
             - name: Asynchronous programming
               href: java-sdk-async-programming.md
-            - name: Pagination & iteration
+            - name: Pagination and iteration
               href: java-sdk-pagination.md
-            - name: Long-Running operations
+            - name: Long-running operations
               href: java-sdk-lro.md
             - name: Proxying
               href: java-sdk-proxying.md
             - name: Tracing
               href: java-sdk-tracing.md
-        - name: Identity & Authentication
+        - name: Identity and authentication
           expanded: false
           items:
             - name: Overview
               href: java-sdk-identity.md
-            - name: Auth in Development Environments
+            - name: Auth in development environments
               href: java-sdk-identity-dev-env-auth.md
-            - name: Auth in Azure Hosted Applications
+            - name: Auth in Azure hosted applications
               href: java-sdk-identity-azure-hosted-auth.md
-            - name: Auth with Service Principals
+            - name: Auth with service principals
               href: java-sdk-identity-service-principal-auth.md
-            - name: Auth with User Credentials
+            - name: Auth with user credentials
               href: java-sdk-identity-user-auth.md
         - name: Logging
           expanded: false

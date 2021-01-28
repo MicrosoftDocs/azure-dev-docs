@@ -21,7 +21,7 @@ The Azure Identity library currently supports:
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md), which enables:
   * Default Azure Credential Authentication
   * Managed Identity Authentication
-* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md), which enables:
+* [Authentication with service principals](java-sdk-identity-service-principal-auth.md), which enables:
   * Client Secret Authentication
   * Client Certificate Authentication
 * [Authentication with User Credentials](java-sdk-identity-user-auth.md), which enables:
@@ -57,7 +57,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 
 ## Examples
 
-As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways in which they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, there's a quick overview of authenticating in both client and management libraries.
+As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways that they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, there's a quick overview of authenticating in both client and management libraries.
 
 ### Authenticating Azure client libraries
 
@@ -101,14 +101,14 @@ describes why authentication failed. When `ChainedTokenCredential` raises this e
 When credentials can't execute authentication because one of the underlying resources required by the credential is unavailable on the machine, the`CredentialUnavailableException` is raised and it has a `message` attribute that
 describes why the credential is unavailable for authentication execution. When `ChainedTokenCredential` raises this exception, the message collects error messages from each credential in the chain.
 
-## Next Steps
+## Next steps
 
 This article has introduced the Azure Identity functionality available in the Azure SDK for Java. It has spoken about the `DefaultAzureCredential` being commonly used and appropriate in many cases. In the links below, readers are encouraged to explore other ways of authenticating using the Azure Identity library, and to learn more about the `DefaultAzureCredential`:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
-* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
-* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+* [Authentication with service principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with user credentials](java-sdk-identity-user-auth.md)
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure

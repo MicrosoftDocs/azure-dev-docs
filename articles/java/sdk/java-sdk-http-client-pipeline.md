@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# HTTP clients & pipelines in the Azure SDK for Java
+# HTTP clients and pipelines in the Azure SDK for Java
 
-This article provides an overview of using the HTTP client and pipeline functionality within the Azure SDK for Java. This functionality provides a consistent, powerful, and flexible developer experience for developers using all Azure SDK for Java libraries.
+This article provides an overview of using the HTTP client and pipeline functionality within the Azure SDK for Java. This functionality provides a consistent, powerful, and flexible experience for developers using all Azure SDK for Java libraries.
 
 ## HTTP clients
 
@@ -22,7 +22,7 @@ Despite Netty being the default HTTP client, there are three implementations ava
 * [OkHttp](https://square.github.io/okhttp/)
 * The new [HttpClient](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in JDK 11
 
-### Replacing the Default HTTP Client
+### Replacing the default HTTP client
 
 You can remove the dependency on Netty if you prefer another implementation. To do this, you exclude the Netty dependency from the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
 
@@ -114,7 +114,7 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer will be used to ensure that each policy executes in order in the pipeline. On the onward journey (that is, while sending a request), the policies execute in the order in which they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response whereas the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer will be used to ensure that each policy executes in order in the pipeline. On the onward journey (that is, while sending a request), the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response whereas the authentication policy is only interested in modifying the request.
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
@@ -142,7 +142,7 @@ HTTP pipelines for REST-based services have configurations with policies for aut
 
 ### Custom HTTP pipeline policy
 
-The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. Custom policies can be added to the pipeline that is either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
+The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that are either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
 
 Creating a custom HTTP pipeline policy is as simple as extending a base policy type and implementing some abstract method. You can then plug the policy into the pipeline.
 

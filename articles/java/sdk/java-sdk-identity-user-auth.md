@@ -18,9 +18,9 @@ This article covers the following topics:
 * [Interactive Browser Credential](#interactive-browser-credential)
 * [Username Password Credential](#username-password-credential)
 
-## Device Code Credential
+## Device code credential
 
-The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
+The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -60,7 +60,7 @@ SecretClient client = new SecretClientBuilder()
     .buildClient();
 ```
 
-## Interactive Browser Credential
+## Interactive browser credential
 
 This credential interactively authenticates a user with the default system browser and offers a smooth authentication experience by letting users use their own credentials to authenticate their application.
 
@@ -90,7 +90,7 @@ SecretClient client = new SecretClientBuilder()
     .buildClient();
 ```
 
-## Username Password Credential
+## Username password credential
 
 The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi factor authentication. This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must **not** have Multi-factor auth turned on.
 
@@ -115,11 +115,11 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this article, we have covered authentication with user credentials, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+This article has covered authentication with user credentials, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe additional authentication methods:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
-* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with service principals](java-sdk-identity-service-principal-auth.md)
 
 Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 

@@ -1,6 +1,6 @@
 ---
-title: Introducing the Azure SDK for Java
-description: Overview of the features and capabilities of the Azure libraries for Java that helps developers be more productive when provisioning, using, and managing Azure resources.
+title: Use the Azure SDK for Java
+description: Overview of the features and capabilities of the Azure libraries for Java that helps you be more productive when provisioning, using, and managing Azure resources.
 author: jonathangiles
 ms.date: 11/23/2020
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 ms.author: jogiles
 ---
 
-# Introducing the Azure SDK for Java
+# Use the Azure SDK for Java
 
 The open-source Azure libraries for Java simplify provisioning, managing, and using Azure resources from Java application code.
 
@@ -35,9 +35,9 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 
 The client (or "data plane") libraries help you write Java application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API. They can be easily identified as their Maven group ID is `com.azure`.
 
-All Azure Java client libraries follow the same API design pattern of offering a Java builder class that is responsible for creating an instance of a client. This separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus simpler to use. On top of this, all client libraries follow a few important patterns:
+All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus simpler to use. Additionally, all client libraries follow a few important patterns:
 
-* Client libraries that support both synchronous and asynchronous APIs must offer these in separate classes. This means that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
+* Client libraries that support both synchronous and asynchronous APIs must offer these in separate classes. What this means is that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
 
 * There's a single builder class that takes responsibility for building both the sync and async APIs. The builder will be named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder will have `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
 
@@ -45,7 +45,7 @@ Because of these conventions, users of the Java client libraries should feel com
 
 ### Client libraries example
 
-The code to create a synchronous Key Vault `KeyClient` would be similar to the following:
+The following code example shows how to create a synchronous Key Vault `KeyClient`:
 
 ```java
 KeyClient client = new KeyClientBuilder()
@@ -54,7 +54,7 @@ KeyClient client = new KeyClientBuilder()
         .buildClient();
 ```
 
-Similarly, to create an asynchronous Key Vault `KeyAsyncClient`, do the following:
+The following code example shows how to create an asynchronous Key Vault `KeyAsyncClient`:
 
 ```java
 KeyAsyncClient client = new KeyClientBuilder()
@@ -75,7 +75,7 @@ All Azure Java management libraries provide a `*Manager` class as service API, f
 
 ### Management libraries example
 
-The code to create a `ComputeManager` would be similar to the following:
+The following code example shows how to create a `ComputeManager`:
 
 ```java
 ComputeManager computeManager = ComputeManager
@@ -84,7 +84,7 @@ ComputeManager computeManager = ComputeManager
         new AzureProfile(AzureEnvironment.AZURE));
 ```
 
-The code to provision a new virtual machine would be similar to the following:
+The following code example shows how to provision a new virtual machine:
 
 ```java
 VirtualMachine virtualMachine = computeManager.virtualMachines()
@@ -107,7 +107,7 @@ VirtualMachine virtualMachine = computeManager.virtualMachines()
     .getByResourceGroup(<your-resource-group>, <your-virtual-machine>);
 ```
 
-The code to update the virtual machine and add a new data disk would be similar to the following:
+The following code example shows how to update the virtual machine and add a new data disk:
 
 ```java
 virtualMachine.update()
@@ -126,7 +126,7 @@ For details on working with each management library, see the *README.md* file lo
 
 ## Next steps
 
-Now that you understand what the Azure SDK for Java is, it's time to take a deep dive into many of the cross-cutting concepts that exist to make developers productive when using the libraries. A good starting point is the documentation for the following:
+Now that you understand what the Azure SDK for Java is, you can take a deep dive into many of the cross-cutting concepts that exist to make you productive when using the libraries. The following articles provide good starting points:
 
 * [HTTP clients & pipeline](java-sdk-http-client-pipeline.md)
 * [Asynchronous programming](java-sdk-async-programming.md)

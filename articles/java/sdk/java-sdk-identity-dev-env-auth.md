@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Azure Authentication in Java development environments
+# Azure authentication in Java development environments
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication for applications running locally on developer machines through a set of `TokenCredential` implementations.
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication. This support enables authentication for applications running locally on developer machines through a set of `TokenCredential` implementations.
 
 Topics covered in this article include:
 
@@ -20,9 +20,9 @@ Topics covered in this article include:
 * [IntelliJ Credential](#intellij-credential)
 * [Visual Studio Code Credential](#visual-studio-code-credential)
 
-## Device Code Credential
+## Device code credential
 
-The Device Code Credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via Device Code Credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
+The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, is asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -59,7 +59,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-## Interactive Browser Credential
+## Interactive browser credential
 
 This credential interactively authenticates a user with the default system browser and offers a smooth authentication experience by letting users use their own credentials to authenticate their application.
 
@@ -86,7 +86,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-## Azure CLI Credential
+## Azure CLI credential
 
 The Visual Studio Code credential authenticates in a development environment with the enabled user or service principal in Azure CLI. It uses the Azure CLI given a user is already logged into it and uses the CLI to authenticate the application against Azure Active Directory.
 
@@ -136,7 +136,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-## IntelliJ Credential
+## IntelliJ credential
 
 The Visual Studio Code credential authenticates in a development environment with the account in Azure Toolkit for IntelliJ. It uses the logged in user information on the IntelliJ IDE and uses it to authenticate the application against Azure Active Directory.
 
@@ -167,7 +167,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-## Visual Studio Code Credential
+## Visual Studio Code credential
 
 The Visual Studio Code credential authenticates in a development environment with the account in Visual Studio Azure Account extension. It uses the logged in user information on the Visual Studio Code IDE and uses it to authenticate the application against Azure Active Directory.
 
@@ -193,11 +193,11 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this article, we have covered authentication during development using credentials available on a developer's computer, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+This article has covered authentication during development using credentials available on your computer, which is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe additional authentication methods:
 
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
-* [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
-* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+* [Authentication with service principals](java-sdk-identity-service-principal-auth.md)
+* [Authentication with user credentials](java-sdk-identity-user-auth.md)
 
 Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
