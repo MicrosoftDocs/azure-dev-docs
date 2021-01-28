@@ -47,11 +47,11 @@ There are two ways to get the sample playbook:
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myScaleSet
     vmss_lb_name: myScaleSetLb
     location: eastus
     admin_username: azureuser
     admin_password: "{{ admin_password }}"
+
   tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
@@ -87,25 +87,37 @@ There are two ways to get the sample playbook:
 
     - name: Create a load balancer
       azure_rm_loadbalancer:
-        name: "{{ vmss_lb_name }}"
-        location: "{{ location }}"
         resource_group: "{{ resource_group }}"
-        public_ip: "{{ vmss_name }}"
-        probe_protocol: Tcp
-        probe_port: 8080
-        probe_interval: 10
-        probe_fail_count: 3
-        protocol: Tcp
-        load_distribution: Default
-        frontend_port: 80
-        backend_port: 8080
-        idle_timeout: 4
-        natpool_frontend_port_start: 50000
-        natpool_frontend_port_end: 50040
-        natpool_backend_port: 22
-        natpool_protocol: Tcp
+        name: "{{ vmss_name }}lb"
+        location: "{{ location }}"
+        frontend_ip_configurations:
+          - name: "{{ vmss_name }}front-config"
+            public_ip_address: "{{ vmss_name }}"
+        backend_address_pools:
+          - name: "{{ vmss_name }}backend-pool"
+        probes:
+          - name: "{{ vmss_name }}prob0"
+            port: 8080
+            interval: 10
+            fail_count: 3
+        inbound_nat_pools:
+          - name: "{{ vmss_name }}nat-pool"
+            frontend_ip_configuration_name: "{{ vmss_name }}front-config"
+            protocol: Tcp
+            frontend_port_range_start: 50000
+            frontend_port_range_end: 50040
+            backend_port: 22
+        load_balancing_rules:
+          - name: "{{ vmss_name }}lb-rules"
+            frontend_ip_configuration: "{{ vmss_name }}front-config"
+            backend_address_pool: "{{ vmss_name }}backend-pool"
+            frontend_port: 80
+            backend_port: 8080
+            load_distribution: Default
+            probe: "{{ vmss_name }}prob0"
 
-    - name: Create Scale Set
+    - name: Create VMSS
+      no_log: true
       azure_rm_virtualmachinescaleset:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
@@ -125,7 +137,7 @@ There are two ways to get the sample playbook:
           publisher: Canonical
           sku: 16.04-LTS
           version: latest
-        load_balancer: "{{ vmss_lb_name }}"
+        load_balancer: "{{ vmss_name }}lb"
         data_disks:
           - lun: 0
             disk_size_gb: 20
@@ -135,6 +147,7 @@ There are two ways to get the sample playbook:
             disk_size_gb: 30
             managed_disk_type: Standard_LRS
             caching: ReadOnly
+
 ```
 
 Before running the playbook, see the following notes:
@@ -197,11 +210,11 @@ The [configured scale set](#configure-a-scale-set) currently has two instances. 
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-    The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
+    The results of running the Azure CLI command in Cloud Shell show that two instances exist:
 
     ```bash
     {
-      "capacity": 3,
+      "capacity": 2,
     }
     ```
 
@@ -215,11 +228,16 @@ There are two ways to get the sample playbook:
 * Create a new file named `vmss-scale-out.yml` and copy into it the following contents:
 
 ```yml
+---
 - hosts: localhost
+  gather_facts: false
+  
   vars:
-    resource_group: myResourceGroup
-    vmss_name: myScaleSet
-  tasks: 
+    resource_group: myTestRG
+    vmss_name: myTestVMSS
+  
+  tasks:
+
     - name: Get scaleset info
       azure_rm_virtualmachine_scaleset_facts:
         resource_group: "{{ resource_group }}"
@@ -227,16 +245,17 @@ There are two ways to get the sample playbook:
         format: curated
       register: output_scaleset
 
-    - name: Dump scaleset info
-      debug:
-        var: output_scaleset
-
-    - name: Modify scaleset (change the capacity to 3)
+    - name: set image fact
       set_fact:
-        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+        vmss_image: "{{ output_scaleset.vmss[0].image }}"
 
-    - name: Update something in that scale set
-      azure_rm_virtualmachinescaleset: "{{ body }}"
+    - name: Create VMSS
+      no_log: true
+      azure_rm_virtualmachinescaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        capacity: 3
+        image: "{{ vmss_image }}"
 ```
 
 Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
@@ -256,29 +275,14 @@ ok: [localhost]
 TASK [Get scaleset info] 
 ok: [localhost]
 
-TASK [Dump scaleset info] 
-ok: [localhost] => {
-    "output_scaleset": {
-        "ansible_facts": {
-            "azure_vmss": [
-                {
-                    ......
-                }
-            ]
-        },
-        "changed": false,
-        "failed": false
-    }
-}
-
-TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+TASK [Set image fact] 
 ok: [localhost]
 
-TASK [Update something in that scale set] 
+TASK [Change VMSS capacity] 
 changed: [localhost]
 
 PLAY RECAP 
-localhost                  : ok=5    changed=1    unreachable=0    failed=0
+localhost                  : ok=3    changed=1    unreachable=0    failed=0
 ```
 
 ## Verify the results
@@ -289,7 +293,7 @@ Verify your results of your work via the Azure portal:
 
 1. Navigate to the scale set you configured.
 
-1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (3 instances)` 
+1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (3 instances)`
 
 1. You can also verify the change with the [Azure Cloud Shell](https://shell.azure.com/) by running the following command:
 
@@ -307,5 +311,5 @@ Verify your results of your work via the Azure portal:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible](./vm-scale-set-deploy-app.md)
