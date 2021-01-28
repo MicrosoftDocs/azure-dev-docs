@@ -41,7 +41,7 @@ If any of the environment configurations are found, a `ProxyOptions` instance wi
 > [!Important]
 > Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
 
-If the system environment variables contain proxy configuration, but you don't want this used used when creating an HTTP client instance, you can override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
+If the system environment variables contain proxy configuration, but you don't want this used when creating an HTTP client instance, you can override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
 **Example**
 

@@ -149,7 +149,7 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 ## Next steps
 
-In this article we have covered authentication for applications hosted in Azure, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+In this article, we have covered authentication for applications hosted in Azure, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)

@@ -193,7 +193,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-In this article we have covered authentication during development using credentials available on a developer's computer, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
+In this article, we have covered authentication during development using credentials available on a developer's computer, which is one of the ways in which developers can authenticate in the Azure SDK for Java. There are other authentication methods that readers may wish to review:
 
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
