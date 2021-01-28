@@ -2,7 +2,7 @@
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.custom: devx-track-js
 ---
 
@@ -59,7 +59,12 @@ Each service provides its own mechanism to add a custom domain.
 
 ## Configure port forwarding
 
-You need to [map the app's port number](/azure/app-service/configure-language-nodejs?pivots=platform-windows#get-port-number) if it isn't the default port, `8080`. This lets the App service forward requests to the correct port. 
+You need to [map the app's port number](/azure/app-service/configure-language-nodejs?pivots=platform-windows#get-port-number) if it isn't the default port. This lets the App service forward requests to the correct port. 
+
+```javascript
+// 3000 is an example port
+const port = process.env.PORT || 3000
+```
 
 ## Configure browser for CORS to connect with server
 

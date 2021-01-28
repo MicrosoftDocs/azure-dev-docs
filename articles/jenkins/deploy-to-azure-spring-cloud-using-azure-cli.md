@@ -156,7 +156,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
-1. Connect to the Jenkins master via SSH.
+1. Connect to the Jenkins controller via SSH.
 
 1. Install Maven.
 

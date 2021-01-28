@@ -463,6 +463,10 @@ Create Terraform configuration file that creates all the resources.
         service_cidr       = var.aks_service_cidr
       }
 
+      role_based_access_control {
+        enabled = var.aks_enable_rbac
+      }
+
       depends_on = [azurerm_virtual_network.test, azurerm_application_gateway.network]
       tags       = var.tags
     }

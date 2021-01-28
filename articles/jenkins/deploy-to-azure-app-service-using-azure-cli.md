@@ -30,9 +30,9 @@ To deploy a Java web app to Azure, you can use Azure CLI in a [Jenkins Pipeline]
 
 ## Configure Jenkins
 
-The following steps show how to install the required Java JDK and Maven on the Jenkins master:
+The following steps show how to install the required Java JDK and Maven on the Jenkins controller:
 
-1. Sign in to Jenkins master using SSH.
+1. Sign in to Jenkins controller using SSH.
 
 1. [Download and install the Azul Zulu JDKs from an apt-get repository](../java/fundamentals/java-jdk-install.md#download-and-install-the-azul-zulu-jdks-from-an-apt-get-repository):
 
@@ -53,9 +53,9 @@ The following steps show how to install the required Java JDK and Maven on the J
 
 The following steps show how to specify your Azure credential:
 
-1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
+1. Make sure the [Credentials plug-in](https://plugins.jenkins.io/credentials/) is installed.
 
-1. Within the Jenkins dashboard, select **Credentials -> System ->**. 
+1. Within the Jenkins dashboard, select **Credentials -> System ->**.
 
 1. Select **Global credentials(unrestricted)**.
 
@@ -210,7 +210,7 @@ You can modify the script to deploy to an Azure App Service on Linux. App Servic
 
 1. [Install Docker on your Jenkins](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-1. Make sure [Docker Pipeline plugin](https://plugins.jenkins.io/docker-workflow/) is installed.
+1. Make sure [Docker Pipeline plug-in](https://plugins.jenkins.io/docker-workflow/) is installed.
 
 1. In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file as follows:
 

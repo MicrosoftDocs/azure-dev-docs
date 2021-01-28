@@ -320,21 +320,21 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
 
 1. Create a resource group, which you can think of as a *namespace* or *directory* to help organize Azure resources. The `-n` option is used to specify the name of the group and can be anything you want.
 
-    ```shell
+    ```azurecli
     az group create -n nina-demo -l westus
     ```
 
     The `-l` option indicates the location of the resource group. While in preview, the App Service on Linux support is available only in select regions. Therefore, if you aren't located in the Western US, and you want to check which other regions are available, run `az appservice list-locations --linux-workers-enabled` from the CLI to view your datacenter options.
 
-1. Set the newly created resource group as the default resource group so that you can continue to use the CLI without needing to explicitly specify the resource group with each CLI call:
+1. Set the newly created resource group as the default resource group so that you can continue to use the CLI without needing to explicitly specify the resource group with each Azure CLI call:
 
-   ```shell
+   ```azurecli
    az configure -d group=nina-demo
    ```
 
 1. Create the App Service *plan*, which manages the creation and scaling of the underlying virtual machines to which your app is deployed. Once again, specify any value that you'd like for the `n` option.
 
-    ```shell
+    ```azurecli
     az appservice plan create -n nina-demo-plan --is-linux
     ```
 
@@ -342,7 +342,7 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
 
 1. Create the App Service web app, which represents the actual to-do app that will be running within the plan and resource group just created. You can think of a web app as being synonymous with a process or container, and the plan as being the virtual machine/container host that they're running on. Additionally, as part of creating the web app, you'll need to configure it to use the Docker image you published to DockerHub:
 
-    ```shell
+    ```azurecli
     az webapp create -n nina-demo-app -p nina-demo-plan -i lostintangent/node
     ```
 
@@ -351,13 +351,13 @@ To get started, open up the Visual Studio terminal. You'll use the new Azure CLI
 
 1. Set the web app as the default web instance:
 
-    ```shell
+    ```azurecli
     az configure -d web=nina-demo-app
     ```
 
 1. Launch the app to view the deployed container, which will be available at an `*.azurewebsites.net` URL:
 
-    ```shell
+    ```azurecli
     az webapp browse
     ```
 
@@ -373,20 +373,20 @@ While you could configure a MongoDB server, or replica set, and manage that infr
 
 1. From the Visual Studio Code terminal, run the following command to create a MongoDB-compatible instance of the Cosmos DB service. Replace the **<NAME** placeholder with a globally unique value (Cosmos DB uses this name to generate the database's server URL):
 
-   ```shell
+   ```azurecli
    COSMOSDB_NAME=<NAME>
    az cosmosdb create -n $COSMOSDB_NAME --kind MongoDB
    ```
 
 1. Retrieve the MongoDB connection string for this instance:
 
-   ```shell
+   ```bash
    MONGODB_URL=$(az cosmosdb list-connection-strings -n $COSMOSDB_NAME -otsv --query "connectionStrings[0].connectionString")
    ```
 
 1. Update your web app's **MONGODB_URL** environment variable so that it connects to the newly provisioned Cosmos DB instance instead of attempting to connect to a locally running MongoDB server (that doesn't exist!):
 
-    ```shell
+    ```azurecli
     az webapp config appsettings set --settings MONGODB_URL=$MONGODB_URL
     ```
 
@@ -404,7 +404,7 @@ DockerHub provides an amazing experience for distributing your container images,
 
 Provisioning a custom registry can be accomplished by running the following command. (Replace the **<NAME** placeholder with a globally unique value as ACR uses specified value to generate the registry's login server URL.
 
-```shell
+```azurecli
 ACR_NAME=<NAME>
 az acr create -n $ACR_NAME -l westus --admin-enabled
 ```
@@ -414,31 +414,31 @@ az acr create -n $ACR_NAME -l westus --admin-enabled
 
 The `az acr create` commands displays the login server URL (via the `LOGIN SERVER` column) that you use to log in using the Docker CLI (for example, `ninademo.azurecr.io`). Additionally, the command generates admin credentials that you can use in order to authenticate against it. To retrieve those credentials, run the following command and note the displayed username and password:
 
-```shell
+```azurecli
 az acr credential show -n $ACR_NAME
 ```
 
 Using the credentials from the previous step, and your individual login server, you can log in to the registry using the standard Docker CLI workflow.
 
-```shell
+```console
 docker login <LOGIN_SERVER> -u <USERNAME> -p <PASSWORD>
 ```
 
 You can now tag your Docker container to indicate that it's associated with your private registry using the following command (replacing `lostintangent/node` with the name you gave the container image.
 
-```shell
+```console
 docker tag lostintangent/node <LOGIN_SERVER>/lostintangent/node
 ```
 
 Finally, push the tagged image to your private Docker registry.
 
-```shell
+```console
 docker push <LOGIN_SERVER>/lostintangent/node
 ```
 
 Your container is now stored in your own private registry, and the Docker CLI was happy to allow you to continue working in the same way as you did when using DockerHub. In order to instruct the App Service web app to pull from your private registry, you need only run the following command:
 
-```shell
+```azurecli
 az appservice web config container set \
     -r <LOGIN_SERVER> \
     -c <LOGIN_SERVER>/lostintangent/node \
@@ -454,7 +454,7 @@ If you refresh the app in your browser, everything should look and work the same
 
 While the `*.azurewebsites.net` URL is great for testing, at some point you may want to add a custom domain name to your web app. Once you have a domain name from a registrar, you need only add an `A` record to it  that points at your web app's external IP (which is actually a load balancer). You can retrieve this IP by running the following command:
 
-```shell
+```azurecli
 az webapp config hostname get-external-ip
 ```
 
@@ -462,7 +462,7 @@ In addition to add an `A` record, you also need to add a `TXT` record to your do
 
 Once those records are created and the DNS changes have propagated, register the custom domain with Azure so that it knows to expect the incoming traffic correctly.
 
-```shell
+```azurecli
 az webapp config hostname add --hostname <DOMAIN>
 ```
 
@@ -475,7 +475,7 @@ Open a browser and navigate to your custom domain to see that it now resolves to
 
 At some point, your web app may become popular enough that its allocated resources (CPU and RAM) aren't sufficient for handling the increase in traffic and operational demands. The App Service Plan that you created earlier (**B1**) comes with one CPU core and 1.75 GB of RAM, which can easily become overloaded. The **B2** plan comes with twice as much RAM and CPU, so if you notice that your app is beginning to run out of either, you can scale up the underlying virtual machine by running the following command:
 
-```shell
+```azurecli
 az appservice plan update -n nina-demo-plan --sku B2
 ```
 
@@ -486,7 +486,7 @@ After just a few moments, your web app will be migrated to the requested hardwar
 
 In addition to scaling up the virtual machine specs, as long as your web app is stateless, you also have the option to *scale out* by adding more underlying virtual machine instances. The App Service Plan you created earlier included only a single virtual machine (a *worker*), and therefore, all incoming traffic is ultimately bound by the limits of the available resources of that one instance. If you want to add a second virtual machine instance, you could run the same command you ran earlier, but instead of scaling up the SKU, you scale out the number of worker virtual machines.
 
-```shell
+```azurecli
 az appservice plan update -n nina-demo-plan --number-of-workers 2
 ```
 
@@ -501,7 +501,7 @@ Stateless web apps are considered a best practice as they make the ability to sc
 
 To ensure that you don't get charged for any Azure resources you aren't using, run the following command from your Visual Studio Code terminal to delete all of the resources provisioned during this tutorial.
 
-```shell
+```azurecli
 az group delete
 ```
 

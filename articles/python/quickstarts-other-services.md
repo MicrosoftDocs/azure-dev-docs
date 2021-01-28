@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 - **DevOps**:
   - [Create a CI/CD pipeline for Python with Azure DevOps Starter](/azure/devops-project/azure-devops-project-python)
-  - [Build Python apps](/azure/devops/pipelines/ecosystems/python?view=azure-devops)
+  - [Build Python apps](/azure/devops/pipelines/ecosystems/python)
 
 - **Geographical mapping**:
   - [Tutorial: Route electric vehicles by using Azure Notebooks](/azure/azure-maps/tutorial-ev-routing)

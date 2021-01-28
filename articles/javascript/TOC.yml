@@ -73,6 +73,8 @@
         items:              
         - name: "Express.js with VS Code"
           href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
+        - name: "Convert text to speech with Cognitive Services"
+          href: tutorial/convert-text-to-speech-cognitive-services.md
         - name: "Express.js with a MongoDB (Cosmos) database"
           href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
         - name: "Create with Azure CLI, deploy with Git"
@@ -139,7 +141,7 @@
     items:
     - name: Configure your app
       href: how-to/configure-web-app-settings.md
-    - name: Common JavaScript tasks
+    - name: Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
     - name: End to end Node.js with VS Code
       href: how-to/develop-nodejs-on-azure.md

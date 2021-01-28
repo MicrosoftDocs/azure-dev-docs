@@ -16,7 +16,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Notes|
 |---------------------------------------|--|
 |[**For beginners**](learn-azure-javascript.md#getting-started)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
-|[Common top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|[Top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
 
 ## 2020 December
 
