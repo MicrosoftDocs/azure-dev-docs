@@ -47,7 +47,7 @@ Use Git in the command palette to create a new branch.
 
 1. Enter a new branch name. The branch name is visible in the status bar. 
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-vscode.png" alt-text="The branch name is visible in the status bar.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
 ## Create a branch from status bar
 
@@ -60,7 +60,7 @@ Use Git in the command palette to create a new branch.
 
 1. Enter a new branch name. The branch name is visible in the status bar. 
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-vscode.png" alt-text="The branch name is visible in the status bar.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
 ## Commit changes with Git 
 
