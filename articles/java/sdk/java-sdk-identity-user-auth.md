@@ -121,7 +121,7 @@ In this article we have covered authentication with user credentials, which is o
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
 
-Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
+Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

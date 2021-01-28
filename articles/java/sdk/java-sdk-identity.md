@@ -49,7 +49,7 @@ The latest release of azure-identity can be found [here](https://search.maven.or
 
 Two key concepts in understanding the Azure Identity library are those of a credential, and then the most common implementation of that credential, the `DefaultAzureCredential`.
 
-A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they are constructed, and service clients use those credentials to authenticate requests to the service.
+A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
 The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
 

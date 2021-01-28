@@ -157,7 +157,7 @@ public class AzureApp {
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
@@ -220,7 +220,7 @@ Replace the main method in `AzureApp.java` with the following one. Update the `a
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
             
@@ -279,7 +279,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
@@ -363,7 +363,7 @@ Replace the current main method in `AzureApp.java` with the following code. This
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 

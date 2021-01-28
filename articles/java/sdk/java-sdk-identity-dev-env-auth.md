@@ -148,7 +148,7 @@ Follow the steps outlined below:
 2. Find the new menu item **Tools > Azure > Azure Sign In…**
 3. Device Login will help you log in as a user account. Follow the instructions to log in on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. Please select the appropriate subscription for which you want to access its resources.
 
-On Windows, you will also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
+On Windows, you'll also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
 
 ## Authenticating a user account with IntelliJ IDEA
 
@@ -175,7 +175,7 @@ The Visual Studio Code credential authenticates in a development environment wit
 
 The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command:
 
-This will open a browser that allows you to sign in to Azure. Once you have completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
+This will open a browser that allows you to sign in to Azure. Once you've completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
 
 ### Authenticating a user account with Visual Studio Code
 
@@ -199,7 +199,7 @@ In this article we have covered authentication during development using credenti
 * [Authentication with Service Principals](java-sdk-identity-service-principal-auth.md)
 * [Authentication with User Credentials](java-sdk-identity-user-auth.md)
 
-Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
+Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure

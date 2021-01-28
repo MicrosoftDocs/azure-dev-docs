@@ -16,7 +16,7 @@ This article provides an overview of how to make use of the Azure SDK for Java p
 
 2. Make it possible to iterate explicitly page-by-page. This lets you more clearly understand when requests are being made, and to lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
 
-This article is split between the Java Azure SDK synchronous and asynchronous APIs. You will encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs when working with asynchronous clients.
+This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs when working with asynchronous clients.
 
 ## Synchronous pagination and iteration
 

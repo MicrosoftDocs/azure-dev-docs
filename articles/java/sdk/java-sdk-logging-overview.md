@@ -36,7 +36,7 @@ After the environment variable is set, restart the application to enable the env
 
 ## SLF4J logging
 
-By default, you should configure logging using an SLF4J-supported logging framework. First, you will need to include a relevant SLF4J logging implementation as a dependency from your project. For more information, see [Declaring project dependencies for logging](http://www.slf4j.org/manual.html#projectDep) in the SLF4J user manual. Next, you will need to configure your logger to work as necessary in your environment, such as setting log levels, configuring which classes do and do not log, and so on. Some examples are provided through the links below, but for more detail, see the documentation for your chosen logging framework.
+By default, you should configure logging using an SLF4J-supported logging framework. First, you'll need to include a relevant SLF4J logging implementation as a dependency from your project. For more information, see [Declaring project dependencies for logging](http://www.slf4j.org/manual.html#projectDep) in the SLF4J user manual. Next, you'll need to configure your logger to work as necessary in your environment, such as setting log levels, configuring which classes do and do not log, and so on. Some examples are provided through the links below, but for more detail, see the documentation for your chosen logging framework.
 
 ## Next steps
 

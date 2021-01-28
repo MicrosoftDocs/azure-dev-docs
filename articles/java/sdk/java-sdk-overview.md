@@ -16,7 +16,7 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 
 * The Azure libraries are how you communicate with Azure services from Java code that you run either locally or in the cloud.
 * The libraries support Java 8 and later, and are tested against both the Java 8 baseline and the latest Java 'long-term support' release.
-* The libraries include full Java module support, which means that they are fully compliant with the requirements of a Java module and export all relevant packages for use.
+* The libraries include full Java module support, which means that they're fully compliant with the requirements of a Java module and export all relevant packages for use.
 * The Azure SDK for Java is composed solely of many individual Java libraries that relate to specific Azure services. There are no other tools in the "SDK".
 * There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   * [Connect to and use Azure resources with client libraries.](#connect-to-and-use-azure-resources-with-client-libraries)

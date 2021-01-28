@@ -98,7 +98,7 @@ In this article we have covered authentication via service principal, which is o
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with User Credentials](java-sdk-identity-user-auth.md)
 
-Once you have mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
+Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure
