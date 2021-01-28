@@ -1,52 +1,85 @@
+---
+title: Add custom domain name to web app
+description: Add your custom domain name to your Azure web app using the Azure CLI.
+ms.topic: how-to
+ms.date: 06/25/2017
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+---
 
-## Hosting a private Docker registry
+# Create and use container registry
 
-DockerHub provides an amazing experience for distributing your container images, but there may be scenarios where you'd prefer to host your own private Docker registry - such as for security/governance or performance benefits. For this purpose, Azure provides the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) that allows you to spin up your own Docker registry whose backing storage is located in the same data center as your web app (which makes pulls quicker). The ACR also provides you with full control over the contents and access controls - such as who can push or pull images.
+A container registry is ideal for container images you want to deploy to Azure.
 
-Provisioning a custom registry can be accomplished by running the following command. (Replace the **<NAME** placeholder with a globally unique value as ACR uses specified value to generate the registry's login server URL.
+The registry allows you to manage container repositories and versions.  
+
+## Create a container registry
+
+
+Create a registry with a resource name. The resource name becomes part of the login server name for your resource. 
+
+Use the [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) command to create a registry. 
 
 ```azurecli
-ACR_NAME=<NAME>
-az acr create -n $ACR_NAME -l westus --admin-enabled
+az acr create \
+    --resource-group YOUR-RESOURCE-GROUP
+    --name YOUR-REGISTRY-NAME 
+    --location westus 
+    --admin-enabled
+    --sku Basic
+    --public-network-enabled false
 ```
 
-> [!NOTE]
-> While this topic's example uses the **admin account** to keep things simple, it is not recommended for production registries.
+## Get container registry credentials
 
-The `az acr create` commands displays the login server URL (via the `LOGIN SERVER` column) that you use to log in using the Docker CLI (for example, `ninademo.azurecr.io`). Additionally, the command generates admin credentials that you can use in order to authenticate against it. To retrieve those credentials, run the following command and note the displayed username and password:
+To retrieve credentials, run the [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) command and note the displayed username and password:
 
 ```azurecli
-az acr credential show -n $ACR_NAME
+az acr credential show \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-REGISTRY-NAME
 ```
+
+## Login to container registry with Docker CLI
 
 Using the credentials from the previous step, and your individual login server, you can log in to the registry using the standard Docker CLI workflow.
 
-```console
-docker login <LOGIN_SERVER> -u <USERNAME> -p <PASSWORD>
+```bash
+docker login YOUR-LOGIN_SERVER \
+    --username USERNAME
+    --password PASSWORD
 ```
 
-You can now tag your Docker container to indicate that it's associated with your private registry using the following command (replacing `lostintangent/node` with the name you gave the container image.
+## Tag your local image
 
-```console
-docker tag lostintangent/node <LOGIN_SERVER>/lostintangent/node
+You can now tag your Docker container to indicate that it's associated with your private registry using the following command (replacing `YOURALIAS/IMAGENAME` with the name you gave the container image.
+
+```bash
+docker tag YOURALIAS/IMAGENAME \
+    YOUR-LOGIN_SERVER/YOURALIAS/IMAGENAME:v1
 ```
 
-Finally, push the tagged image to your private Docker registry.
+## Push your local image to your container registry
 
-```console
-docker push <LOGIN_SERVER>/lostintangent/node
+```bash
+docker push YOUR-LOGIN_SERVER/YOURALIAS/IMAGENAME:v1
 ```
 
-Your container is now stored in your own private registry, and the Docker CLI was happy to allow you to continue working in the same way as you did when using DockerHub. In order to instruct the App Service web app to pull from your private registry, you need only run the following command:
+## Configure web app to use container 
+
+In configure the App Service web app to pull the image from your registry, run the following [az appservice web config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command:
 
 ```azurecli
 az appservice web config container set \
-    -r <LOGIN_SERVER> \
-    -c <LOGIN_SERVER>/lostintangent/node \
-    -u <USERNAME> \
-    -p <PASSWORD>
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-WEBAPP-NAME
+    --docker-registry-server-url YOUR-LOGIN_SERVER \
+    --docker-custom-image-name YOUR-LOGIN_SERVER/YOURALIAS/IMAGENAME:v1 \
+    -u USERNAME \
+    -p PASSWORD
 ```
 
-Make sure to add the `https://` prefix to the beginning of the `-r` option. However, don't add the prefix to the container image name.
+Make sure to add the `https://` prefix to the beginning of the `--docker-registry-server-url` option. However, don't add the prefix to the container image name.
 
-If you refresh the app in your browser, everything should look and work the same. However, it's now running your app via your private Docker registry. Once you update your app, tag and push the changes as done above, and update the tag in your App Service container configuration.
+## Next steps
+
+* [Create mongodb CosmosDB resource](create-mongodb-cosmosdb.md)
