@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 10/12/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -12,7 +12,7 @@ This example demonstrates how to use the Azure SDK management libraries in a Pyt
 
 - List all the resource groups in an Azure subscription.
 - List resources within a specific resource group.
- 
+
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.
@@ -28,8 +28,8 @@ Be sure to create and activate a virtual environment for this project.
 Create a file named *requirements.txt* with the following contents:
 
 ```text
-azure-mgmt-resource
-azure-identity
+azure-mgmt-resource>=1.15.0
+azure-identity>=1.5.0
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
