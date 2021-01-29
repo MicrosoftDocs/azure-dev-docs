@@ -48,7 +48,7 @@ Notes:
 
 | Name/Installer | Description |
 | --- | --- |
-| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
+| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
 
 ### Verify components
 
