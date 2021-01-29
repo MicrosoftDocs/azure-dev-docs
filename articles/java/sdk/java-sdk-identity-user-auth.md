@@ -26,7 +26,7 @@ More conceptual details can be found here for [Device code authentication](/azur
 
 ### Enable applications for device code flow
 
-In order to authenticate a user through device code flow, use the following steps:
+To authenticate a user through device code flow, use the following steps:
 
 1. Go to Azure Active Directory in Azure portal and find your app registration.
 2. Navigate to the **Authentication** section.
