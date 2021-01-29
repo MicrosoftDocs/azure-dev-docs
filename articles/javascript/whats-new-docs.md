@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/29/2021
 ---
 
 # JavaScript docs: What's new
@@ -11,12 +11,21 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 January
 
+### What's new
+
+|Name|Notes|
+|---------------------------------------|--|
+|How-to guide with Azure CLI<br>* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |Covers common scenarios for JavaScript developers|
+|How-to guide with Visual Studio Code<br>* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|Covers common scenarios for JavaScript developers|
+
 ### What's updated
 
 |Name|Notes|
 |---------------------------------------|--|
 |[**For beginners**](learn-azure-javascript.md#getting-started)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
 |[Top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|How-to guide with Azure CLI<br>* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |Covers common scenarios for JavaScript developers|
+|How-to guide with Visual Studio Code<br>* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|Covers common scenarios for JavaScript developers|
 
 ## 2020 December
 
