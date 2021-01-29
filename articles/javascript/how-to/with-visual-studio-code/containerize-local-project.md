@@ -84,7 +84,7 @@ To see the available Docker commands, display the command palette (**F1**) and t
 
 ## Push local container image to DockerHub
 
-The image needs to be available from a registry in order to create an Azure web app from the image. The image can be publicly available in a community registry or in a private registry accessed with authentication like [Azure Container Registry](/container-registry/). 
+The image needs to be available from a registry in order to create an Azure web app from the image. The image can be publicly available in a community registry or in a private registry accessed with authentication like [Azure Container Registry](/azure/container-registry/). 
 
 To push the image, make sure you have already authenticated with DockerHub by running `docker login` from the CLI and entering your account credentials.
 

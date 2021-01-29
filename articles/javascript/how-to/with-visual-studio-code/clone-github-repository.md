@@ -79,7 +79,7 @@ Once you have made changes on your branch, commit the changes
 
 ## Push a local branch to remote from the Source Control extension
 1. Select the Source Control icon from the activity bar. 
-1. Select the ellipsis (...) then select **Pull, Push**, then select **Push to...*. 
+1. Select the ellipsis (...) then select **Pull, Push**, then select **Push to...**. 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
 ## Next steps

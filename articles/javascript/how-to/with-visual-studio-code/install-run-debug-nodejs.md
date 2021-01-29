@@ -13,13 +13,13 @@ Learn the steps to developer and debug your JavaScript Node.js project with Visu
 ## Prepare your environment
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/). 
-1. Install [git](https://git-scm.com/). Visual Studio Code integrates with git to provide *Source Control** management in the [Side Bar](https://code.visualstudio.com/docs/getstarted/userinterface).
+1. Install [git](https://git-scm.com/). Visual Studio Code integrates with git to provide *Source Control* management in the [Side Bar](https://code.visualstudio.com/docs/getstarted/userinterface).
 
 1. Get a mongoDB database connection string.
 
     If you don't have a mongoDB database available, you can:
     * Choose to run this local project in a multi-container configuration where one of the containers is a mongoDB database. Install the [Docker](https://www.docker.com/) and [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension to get a multi-container configure with one of the containers running a local mongoDB database. 
-    * Choose to create an [Azure CosmosDB](/cosmos-db/) resource for a mongoDB database. Learn more with this [tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-a-cosmosdb-database-resource-for-mongodb).
+    * Choose to create an [Azure CosmosDB](/azure/cosmos-db/) resource for a mongoDB database. Learn more with this [tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-a-cosmosdb-database-resource-for-mongodb).
 
 ## Clone sample project to local computer
 

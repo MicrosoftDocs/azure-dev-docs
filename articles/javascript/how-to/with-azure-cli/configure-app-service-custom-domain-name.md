@@ -2,8 +2,8 @@
 title: Add custom domain name to web app
 description: Add your custom domain name to your Azure web app using the Azure CLI.
 ms.topic: how-to
-ms.date: 06/25/2017
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+ms.date: 01/29/2021
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Configuring a custom domain name
