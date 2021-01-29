@@ -27,6 +27,8 @@ You can retrieve this IP by running the following command:
 az webapp config hostname get-external-ip --name
 ```
 
+<a name="register-a-domain-name-with-your-azure-app"></a>
+
 ## Configure web app domain name 
 
 Once those records are created and the DNS changes have propagated, register the custom domain with Azure so that it knows to expect the incoming traffic correctly.
