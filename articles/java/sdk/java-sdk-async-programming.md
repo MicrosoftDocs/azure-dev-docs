@@ -207,4 +207,4 @@ If you need more information, you can [look up which operator to use](https://pr
 
 ## Next steps
 
-After reading the asynchronous programming document above, we hope you now better understand the various asynchronous programming concepts. Once you have mastered the art of async programming, it is important to be able to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies, as well as detailing how pagination works in the Azure SDK for Java.
+After reading the asynchronous programming document above, we hope you now better understand the various asynchronous programming concepts. Once you've mastered the art of async programming, it's important to know how to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies, and details how pagination works in the Azure SDK for Java.

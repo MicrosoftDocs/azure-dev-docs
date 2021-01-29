@@ -13,7 +13,7 @@ ms.custom: seo-java-august2019, devx-track-java, devx-track-azurecli
 
 # Get started with cloud development using Java on Azure
 
-This article walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect to them to perform some basic tasks, like uploading a file or deploying a web application. When you're finished, you'll be ready to start using Azure services in your own Java applications.
+This article walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect to them to do some basic tasks, like uploading a file or deploying a web application. When you're finished, you'll be ready to start using Azure services in your own Java applications.
 
 ## Prerequisites
 

@@ -22,7 +22,7 @@ Topics covered in this article include:
 
 ## Device code credential
 
-The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, it asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
+The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
@@ -35,7 +35,7 @@ To authenticate a user through device code flow, do the following steps:
 3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select *yes* for **Treat application as a public client**.
 
-These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access, such as Azure Service Management, Key Vault, and so on.
+These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
 
 You must also be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
@@ -63,7 +63,7 @@ This credential interactively authenticates a user with the default system brows
 
 ### Enable applications for interactive browser OAuth 2 flow
 
-To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow all the steps above for device code flow to register your application so that it supports logging you into Active Directory and accessing certain resources. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
+To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow the steps above for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
 You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the Redirect URIs subsection under the Authentication section of your registered AAD application.
 
@@ -118,7 +118,7 @@ az account get-access-token
 
 to verify the account has been successfully configured.
 
-You may have to repeat this process after a certain period (usually a few weeks to a few months based on the refresh token validity configured in your organization). AzureCliCredential will prompt you to sign in again.
+You may have to repeat this process after a certain period, depending on the refresh token validity in your organization. Generally, the refresh token validity is a few weeks to a few months. AzureCliCredential will prompt you to sign in again.
 
 ### Authenticating a user account with Azure CLI
 
@@ -167,7 +167,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Visual Studio Code credential
 
-The Visual Studio Code credential authenticates in a development environment with the account in Visual Studio Azure Account extension. It uses the logged in user information on the Visual Studio Code IDE and uses it to authenticate the application against Azure Active Directory.
+The Visual Studio Code credential enables authentication in development environments where VS Code is installed with the [VS Code Azure Account extension](https://github.com/Microsoft/vscode-azure-account). It uses the logged in user information in the VS Code IDE and uses it to authenticate the application against Azure Active Directory.
 
 ### Sign in Visual Studio Code Azure Account Extension for VisualStudioCodeCredential
 

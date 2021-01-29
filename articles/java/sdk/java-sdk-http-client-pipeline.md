@@ -14,7 +14,7 @@ This article provides an overview of using the HTTP client and pipeline function
 
 ## HTTP clients
 
-The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. Therefore, the [Netty](https://netty.io) HTTP client is the default client used in all Azure libraries for Java.
+The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure libraries for Java.
 
 Although Netty is the default HTTP client, there are three implementations available for your use, depending on which dependencies you already have in your project. These implementations are for:
 
@@ -55,7 +55,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 ### Configuring HTTP clients
 
-When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`. These builders will share a common set of configurations, such as proxying and communication port, but will contain configurations that are specific to each implementation.
+When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
 The following examples show you how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
 
@@ -101,12 +101,12 @@ AzureResourceManager azureResourceManager = AzureResourceManager.configure()
 
 ## HTTP pipeline
 
-The HTTP pipeline is one of the key components in achieving consistency and diagnosability in the Java client libraries for Azure, which are two of the core design principles for all Azure SDKs, whatever the language. An HTTP pipeline is composed of:
+The HTTP pipeline is one of the key components in achieving consistency and diagnosability in the Java client libraries for Azure. An HTTP pipeline is composed of:
 
 * HTTP Transport
 * HTTP pipeline policies
 
-You can provide your own custom HTTP pipeline when creating a client. If you don't provide a pipeline, the client library will create one with all of the common policies required for the specific service that the library represents.
+You can provide your own custom HTTP pipeline when creating a client. If you don't provide a pipeline, the client library will create one configured to work with that specific client library.
 
 ### HTTP transport
 
@@ -114,7 +114,7 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer will be used to ensure that each policy executes in order in the pipeline. On the onward journey (that is, while sending a request), the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response whereas the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer will be used to ensure that each policy executes in order in the pipeline. When sending a request, the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
