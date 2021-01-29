@@ -42,6 +42,10 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 * [Create and publish a static web app with Gatsby and Azure Static Web Apps](/learn/modules/create-deploy-static-webapp-gatsby-app-service/)
 * [Build a simple website using HTML, CSS, and JavaScript](/learn/modules/build-simple-website/)
 
+### Server APIs
+
+* [Create a Node HTTP Server](/learn/modules/build-web-api-nodejs-express/)
+
 ### Serverless APIs
 
 * [Build Serverless APIs with Azure Functions](/learn/modules/build-api-azure-functions/)
@@ -60,11 +64,7 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 ### Virtual Machines
 * [Build and run a web application with the MEAN stack on an Azure Linux virtual machine](/learn/modules/build-a-web-app-with-mean-on-a-linux-vm/)
 
-
-
-
 Search for [more Learn resources](/search/?category=Learn&terms=JavaScript).
-
 
 ## Microsoft Learning Partners
 
