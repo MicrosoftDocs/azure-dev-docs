@@ -47,5 +47,5 @@ az webapp config appsettings set \
 
 ## Next steps
 
-* [Deploy your web app](Deploy-container-app-service.md)
+* [Configure web app settings](../configure-web-app-settings.md)
 
