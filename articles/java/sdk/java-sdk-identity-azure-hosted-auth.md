@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Authenticating Azure-hosted Java applications
 
-This article looks at how Azure Identity library supports Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of TokenCredential implementations, which are discussed below.
+This article looks at how the Azure Identity library supports Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of TokenCredential implementations, which are discussed below.
 
 This article covers the following topics:
 

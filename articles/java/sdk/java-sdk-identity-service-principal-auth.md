@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Azure authentication with service principal
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication via service principal through a set of TokenCredential implementations. Topics covered in this article include:
+This article looks at how the Azure Identity library supports Azure Active Directory token authentication via service principal. Topics covered in this article include:
 
 * [Creating a service principal with the Azure CLI](#creating-a-service-principal-with-the-azure-cli)
 * [Client secret credential](#client-secret-credential)

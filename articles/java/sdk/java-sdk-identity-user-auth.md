@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Azure authentication with user credentials
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed below.
+This article looks at how the Azure Identity library supports Azure Active Directory token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed below.
 
 This article covers the following topics:
 
@@ -20,7 +20,7 @@ This article covers the following topics:
 
 ## Device code credential
 
-The device code credential interactively authenticates a user on devices with limited UI. When the application runs and requests authentication via device code credential, it asks the user to visit the login URL on any browser supported machine. The user then enters the device code mentioned in the instructions along with their log in credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device its running on.
+The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
 More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
 
