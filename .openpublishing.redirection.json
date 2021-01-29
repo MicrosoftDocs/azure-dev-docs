@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
       "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
     },

@@ -24,18 +24,9 @@ The following hosting choices allow you to deploy your containered applications.
 
 ## Build, containerize, and deploy app to Azure
 
-To get started, follow this [tutorial](develop-nodejs-on-azure.md) to learn how to:
-
-* Download sample code
-* Run the Node.js app
-* Debug the app in Visual Studio Code
-* Containerize the Node.js MEAN app
-* Deploy the app using Azure CLI commands
-* Create a MongoDB server on a CosmosDB resource
-* Add the container image to your private Container registry
-* Add custom domain name to your web app
-* Scale out your web app to a larger size
-* Create and delete a resource group for all the resources
+To get started, select from the list:
+* Tutorial: [Express.js](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md)
+* Tutorial: [Deno](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md)
 
 ## Next steps
 
