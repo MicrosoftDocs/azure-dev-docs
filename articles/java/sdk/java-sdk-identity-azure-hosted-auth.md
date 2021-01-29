@@ -10,7 +10,7 @@ ms.author: vigera
 
 # Authenticating Azure-hosted Java applications
 
-This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of TokenCredential implementations discussed below.
+This article provides an overview of the Azure Identity library support for Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of TokenCredential implementations, which are discussed below.
 
 This article covers the following topics:
 
@@ -19,7 +19,7 @@ This article covers the following topics:
 
 ## Default Azure credential
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
+The `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials commonly that are used to authenticate when deployed with credentials that are used to authenticate in a development environment. The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order.
 
 ![DefaultAzureCredential authentication flow](./media/defaultazurecredential.svg)
 

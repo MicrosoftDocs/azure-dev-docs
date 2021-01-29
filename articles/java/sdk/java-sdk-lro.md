@@ -63,7 +63,7 @@ Other useful APIs in `SyncPoller` include:
 
 The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). What this means is that the main-thread may terminate before the result is available. It's up to you to ensure that the application doesn't exit before the async operation has had time to complete.
 
-In the async API, a `PollerFlux` will be returned immediately, but the long-running operation itself won't commence until a subscription is made to the returned `PollerFlux`. This is the same as how all `Flux`-based APIs operate. Shown below is an example of an async long-running operation:
+In the async API, a `PollerFlux` is returned immediately, but the long-running operation itself won't commence until a subscription is made to the returned `PollerFlux`. This process is how all `Flux`-based APIs operate. The following example shows an async long-running operation:
 
 ```java
 asyncClient.beginUploadFromUri(...)
@@ -72,7 +72,7 @@ asyncClient.beginUploadFromUri(...)
 
 In the following example, you'll get intermittent status updates on the long-running operation, from which you can determine whether it's still operating in the expected fashion. In this case, the code is simply being printed to the console, but a better implementation would make relevant error handling decisions based on this status.
 
-If you aren't interested in the intermediate status updates and just want to get notified of the final result once it has arrived, you can do the following in your code:
+If you aren't interested in the intermediate status updates and just want to get notified of the final result when it arrives, you can use code similar to the following example:
 
 ```java
 asyncClient.beginUploadFromUri(...)
@@ -89,7 +89,7 @@ asyncClient.beginUploadFromUri(...)
         () -> countDownLatch.countDown());
 ```
 
-In this code, you retrieve the final result of the long-running operation by calling `last()`. This tells the `PollerFlux` that you want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and its status can be inspected to determine the outcome. If the poller indicates that the long-running operation has completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
+In this code, you retrieve the final result of the long-running operation by calling `last()`. This call tells the `PollerFlux` that you want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and its status can be inspected to determine the outcome. If the poller indicates that the long-running operation has completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
 
 The following sample code using `last()` operator to wait for all polling to complete, then retrieve the final result if LRO succeeded.
 

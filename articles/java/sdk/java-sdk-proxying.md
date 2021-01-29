@@ -25,7 +25,7 @@ The proxy configuration options are:
 
 ### Using an environment proxy
 
-HTTP client builders, by default, will inspect the environment for proxy configurations. This makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This will read in from the system environment any HTTP proxy configuration.
+HTTP client builders, by default, will inspect the environment for proxy configurations. This process makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This call will read in any HTTP proxy configuration from the system environment.
 
 When the environment is inspected, it will search for the following environment configurations in the order specified:
 
@@ -39,9 +39,9 @@ Where `*` represents the well-known Java proxy properties. For more information,
 If any of the environment configurations are found, a `ProxyOptions` instance will be created (by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`). More details about the `ProxyOptions` type are provided later in this article.
 
 > [!Important]
-> Java requires that the system environment property `java.net.useSystemProxies` must be `true` for any proxy configuration to be used.
+> To use any proxy configuration, Java requires you to set the system environment property `java.net.useSystemProxies` to `true`.
 
-If the system environment variables contain proxy configuration, but you don't want this used when creating an HTTP client instance, you can override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
+If the system environment variables contain proxy configuration, but you don't want it used when creating an HTTP client instance, you can override the default behavior by explicitly setting a differently configured `Configuration` when in the builder of an HTTP client, as setting a `Configuration` means that the default behavior of calling `Configuration.getGlobalConfiguration()` will no longer occur. For example, by calling the `configuration(Configuration)` API using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
 **Example**
 
@@ -70,7 +70,7 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
 
 ### Using a Configuration proxy
 
-Rather than read from the environment, HTTP client builders may be configured to use a custom `Configuration`, configured with the same proxy configuration settings that are already accepted from the environment. This offers the ability to have reusable configurations that are scoped to a limited use case. When the HTTP client builder is building the `HttpClient`, it will use the `ProxyOptions` returned from `ProxyOptions.fromConfiguration(<Configuration passed into the builder>)`.
+Rather than read from the environment, you may configure HTTP client builders to use a custom `Configuration`, configured with the same proxy configuration settings that are already accepted from the environment. This configuration offers the ability to have reusable configurations that are scoped to a limited use case. When the HTTP client builder is building the `HttpClient`, it will use the `ProxyOptions` returned from `ProxyOptions.fromConfiguration(<Configuration passed into the builder>)`.
 
 **Example**
 
@@ -113,8 +113,7 @@ ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.HTTP, new InetSocketAd
     .setCredentials("1", "1");
 ```
 
-HTTP client builders may be configured with `ProxyOptions` directly to indicate an explicit proxy to use. This is the most granular way to provide a proxy and
-generally isn't as flexible as passing a `Configuration` that can be mutated to update proxying requirements.
+You may configure HTTP client builders with `ProxyOptions` directly to indicate an explicit proxy to use. This configuration is the most granular way to provide a proxy and generally isn't as flexible as passing a `Configuration` that can be mutated to update proxying requirements.
 
 **Example**
 

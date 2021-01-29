@@ -43,17 +43,17 @@ Adding the Maven dependency is simply a matter of including the following XML in
 </dependency>
 ```
 
-The latest release of azure-identity can be found [here](https://search.maven.org/artifact/com.azure/azure-identity).
+You can find the latest release of azure-identity on its [Maven Central page](https://search.maven.org/artifact/com.azure/azure-identity).
 
 ## Key concepts
 
-Two key concepts in understanding the Azure Identity library are those of a credential, and then the most common implementation of that credential, the `DefaultAzureCredential`.
+There are two key concepts in understanding the Azure Identity library: the concept of a credential, and the most common implementation of that credential, the `DefaultAzureCredential`.
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
 The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed, with credentials used to authenticate in a development environment. Further details and examples of using `DefaultAzureCredential` can be found [here](java-sdk-identity-azure-hosted-auth.md#default-azure-credential).
+The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed with credentials that are used to authenticate in a development environment. Further details and examples of using `DefaultAzureCredential` can be found [here](java-sdk-identity-azure-hosted-auth.md#default-azure-credential).
 
 ## Examples
 

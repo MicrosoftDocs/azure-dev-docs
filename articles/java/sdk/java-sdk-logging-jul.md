@@ -63,7 +63,7 @@ java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.level = INFO
 ```
 
-This will create a file called *myapplication.log* in your home directory (`%h`). This logger doesn't support automatic file rotation after a certain period. If you require this functionality, you'll need to write a scheduler to manage log file rotation.
+This code will create a file called *myapplication.log* in your home directory (`%h`). This logger doesn't support automatic file rotation after a certain period. If you require this functionality, you'll need to write a scheduler to manage log file rotation.
 
 ## Next steps
 

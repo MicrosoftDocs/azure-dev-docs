@@ -16,7 +16,7 @@ This article provides an overview of using the HTTP client and pipeline function
 
 The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. Therefore, the [Netty](https://netty.io) HTTP client is the default client used in all Azure libraries for Java.
 
-Despite Netty being the default HTTP client, there are three implementations available for your use, depending on which dependencies you already have in your project. These are implementations for:
+Although Netty is the default HTTP client, there are three implementations available for your use, depending on which dependencies you already have in your project. These implementations are for:
 
 * [Netty](https://netty.io)
 * [OkHttp](https://square.github.io/okhttp/)
@@ -24,7 +24,7 @@ Despite Netty being the default HTTP client, there are three implementations ava
 
 ### Replacing the default HTTP client
 
-You can remove the dependency on Netty if you prefer another implementation. To do this, you exclude the Netty dependency from the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
+If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
 
 The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
 

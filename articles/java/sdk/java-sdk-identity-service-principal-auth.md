@@ -41,7 +41,7 @@ Output:
 ```
 
 * Run `az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert` to create a service principal along with a certificate. Note down the path/location of this certificate.
-* Use the returned credentials above to note down the following:
+* Use the returned credentials above to note down the following information:
   * `AZURE\_CLIENT\_ID` for the appId.
   * `AZURE\_CLIENT\_SECRET` for the password.
   * `AZURE\_TENANT\_ID` for the tenant.
