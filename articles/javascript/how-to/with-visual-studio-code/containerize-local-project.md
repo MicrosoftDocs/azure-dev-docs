@@ -26,7 +26,7 @@ This command returns an error if Docker isn't installed and running.
 1. In the activity bar, select the **Extensions** icon, then search for `docker`, and select the **Docker** [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
 1. Install the Docker extension, then reload Visual Studio Code.
 
-    ![Installing the Docker extension for Visual Studio Code](../media/node-howto-e2e/visual-studio-code-docker-extension.png)
+    ![Installing the Docker extension for Visual Studio Code](../../media/node-howto-e2e/visual-studio-code-docker-extension.png)
 
     The Docker extension for Visual Studio Code includes a command for generating a *Dockerfile* and the *docker-compose.yml* file for an existing project.
 
@@ -38,7 +38,7 @@ This command returns an error if Docker isn't installed and running.
 
 To see the available Docker commands, display the command palette (**F1**) and type `docker`.
 
-![Commands supported by the Docker extension for Visual Studio Code ](../media/node-howto-e2e/visual-studio-code-available-docker-codes.png)
+![Commands supported by the Docker extension for Visual Studio Code ](../../media/node-howto-e2e/visual-studio-code-available-docker-codes.png)
 
 ## Create a Dockerfile in your project
 
@@ -55,7 +55,7 @@ To see the available Docker commands, display the command palette (**F1**) and t
     |Port to expose|8080 - or the autodectected value|
     |Include optional docker files (.dockerignore) |yes|
 
-    ![Generated Dockerfile in Visual Studio Code](../media/node-howto-e2e/visual-studio-code-complete-dockerfile.png)
+    ![Generated Dockerfile in Visual Studio Code](../../media/node-howto-e2e/visual-studio-code-complete-dockerfile.png)
 
     The Docker command generates a complete *Dockerfile* and Docker-compose files that you can begin using immediately.
 
@@ -67,7 +67,7 @@ To see the available Docker commands, display the command palette (**F1**) and t
     If you don't have a package.json, specify a tag with the format of `ALIAS/IMAGE-NAME` where ALIAS is your Docker alias and IMAGE-NAME is the name for your project's image. An example tag is `diberry/express-web-app`. 
 1. Select **Enter** to launch the integrated terminal window that displays the output of your Docker image being built.
 
-    ![Docker image build output](../media/node-howto-e2e/docker-build-image-output.png)
+    ![Docker image build output](../../media/node-howto-e2e/docker-build-image-output.png)
 
     The command automated the process of running `docker build` for you.
 
