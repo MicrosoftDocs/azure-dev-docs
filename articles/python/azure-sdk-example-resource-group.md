@@ -1,7 +1,7 @@
 ---
 title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 11/12/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -23,8 +23,8 @@ Be sure to create and activate a virtual environment for this project.
 Create a file named *requirements.txt* with the following contents:
 
 ```text
-azure-mgmt-resource
-azure-identity
+azure-mgmt-resource>=1.15.0
+azure-identity>=1.5.0
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
