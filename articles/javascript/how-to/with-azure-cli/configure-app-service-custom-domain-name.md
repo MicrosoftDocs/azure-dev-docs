@@ -28,7 +28,7 @@ Your app service has a convenient DNS name, great for testing, in the form of `Y
 
 Once those records are created and the DNS changes have propagated, register the custom domain with Azure so that it knows to expect the incoming traffic correctly.
 
-Use the [az webapp config hostname add](/cli/azure/webapp/config/hostname?view=azure-cli-latest) command:
+Use the [az webapp config hostname add](/cli/azure/webapp/config/hostname) command:
 
 ```azurecli
 az webapp config hostname add \

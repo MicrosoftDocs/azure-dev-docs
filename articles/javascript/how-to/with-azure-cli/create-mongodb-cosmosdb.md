@@ -27,7 +27,7 @@ az cosmosdb create \
 
 ## Get the MongoDB connection string for your resource
 
-Retrieve the MongoDB connection string for this instance with the [az cosmosdb list-connection-strings](cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command:
+Retrieve the MongoDB connection string for this instance with the [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command:
 
 ```azurecli
 az cosmosdb list-connection-strings \
