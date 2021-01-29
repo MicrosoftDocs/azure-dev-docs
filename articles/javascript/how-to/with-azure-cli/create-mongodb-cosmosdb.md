@@ -1,40 +1,51 @@
 ---
-title: 
-description: 
+title: Create and use MongoDB on Azure
+description: Create a Cosmos DB resource and use for your MongoDB database. 
 ms.topic: how-to
-ms.date: 
+ms.date: 01/28/2021
 ms.custom: seo-javascript-october2019, devx-track-js
 ---
 
-# 
+# Create and use MongoDB on Azure with Cosmos DB
 
-## Provisioning a MongoDB server
+A Cosmos DB resource provides you with a MongoDB to use with MongoDB provider packages found on npm. 
 
-While you could configure a MongoDB server, or replica set, and manage that infrastructure yourself, Azure provides a solution called [Cosmos DB](https://azure.microsoft.com/services/documentdb/). Cosmos DB is a fully-managed, geo-replicable, high-performance, NoSQL database that provides a MongoDB-compatibility layer. As a result, you can point an existing MEAN app at it (or any MongoDB client/tool such as [Studio 3T](https://studio3t.com/)) without needing to change anything but the connection string. The following steps illustrate this capability:
+Cosmos DB is a fully-managed, geo-replicable, high-performance, NoSQL database that provides a MongoDB-compatibility layer. You can point an existing JavaScript app at it (or any MongoDB client/tool) without needing to change anything but the connection string. 
 
-1. From the Visual Studio Code terminal, run the following command to create a MongoDB-compatible instance of the Cosmos DB service. Replace the **<NAME** placeholder with a globally unique value (Cosmos DB uses this name to generate the database's server URL):
+## Create a Cosmos DB resource for MongoDB
 
-   ```azurecli
-   COSMOSDB_NAME=<NAME>
-   az cosmosdb create -n $COSMOSDB_NAME --kind MongoDB
-   ```
+Use the following [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command. Replace the **YOUR-RESOURCE_NAME** placeholder with a globally unique value. Cosmos DB uses this name to generate the database's server URL.
 
-1. Retrieve the MongoDB connection string for this instance:
+```azurecli
+az cosmosdb create \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-RESOURCE_NAME \
+    --enable-public-network true \
+    --locations westus \
+    --kind MongoDB
+```
 
-   ```bash
-   MONGODB_URL=$(az cosmosdb list-connection-strings -n $COSMOSDB_NAME -otsv --query "connectionStrings[0].connectionString")
-   ```
+## Get the MongoDB connection string for your resource
 
-1. Update your web app's **MONGODB_URL** environment variable so that it connects to the newly provisioned Cosmos DB instance instead of attempting to connect to a locally running MongoDB server (that doesn't exist!):
+Retrieve the MongoDB connection string for this instance with the [az cosmosdb list-connection-strings](cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command:
 
-    ```azurecli
-    az webapp config appsettings set --settings MONGODB_URL=$MONGODB_URL
-    ```
+```azurecli
+az cosmosdb list-connection-strings \
+--resource-group YOUR-RESOURCE-GROUP \
+--name YOUR-RESOURCE_NAME \
+-otsv --query "connectionStrings[0].connectionString"
+```
 
-1. Return to your browser and refresh it. Try adding and removing a to-do item to prove that the app now works without needing to change anything! Set the environment variable to the created Cosmos DB instance, which is fully emulating a MongoDB database.
+## Configure your web app with the connection string
 
-    ![Demo app after connected to a database](../media/node-howto-e2e/finish-demo-walkthrough.png)
+Add a Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) so the web app connects to the Cosmos DB resource:
 
-When needed, you can switch back to the Cosmos DB instance and scale up (or down) the reserved throughput that the MongoDB instance needs, and benefit from the added traffic without needing to manage any infrastructure manually.
+```azurecli
+az webapp config appsettings set \
+    --settings MONGODB_URL=YOUR-CONNECTION-STRING
+```
 
-Additionally, Cosmos DB automatically indexes every single document and property for you. That way, you don't need to profile slow queries or manually fine-tune your indexes. Just provision and scale as needed, and let Cosmos DB handle the rest.
+## Next steps
+
+* [Deploy your web app](Deploy-container-app-service.md)
+
