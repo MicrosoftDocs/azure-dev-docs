@@ -22,7 +22,7 @@ Java 8 introduced features like Streams, Lambdas, and CompletableFuture. `Comple
 
 Reactive streams can help to overcome these limitations by streaming elements from a source to a subscriber. When a subscriber requests data from a source, the source sends any number of results back. It doesn't need to send them all at once. The transfer happens over a period of time, whenever the source has data to send.
 
-In this model, the subscriber registers event handlers to process data when it arrives. These push-based interactions notifies the subscriber through distinct signals:
+In this model, the subscriber registers event handlers to process data when it arrives. These push-based interactions notify the subscriber through distinct signals:
 
 - An `onSubscribe()` call indicates that the data transfer is about to begin.
 - An `onError()` call indicates there was an error, which also marks the end of data transfer.
@@ -98,7 +98,7 @@ asyncClient.receive().subscribe(
 
 ### Backpressure
 
-What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". With backpressure the subscriber takes control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, a push-model for data transfer can be transformed to a push-pull model.
+What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, a push-model for data transfer can be transformed to a push-pull model.
 
 Here's an example of how you can control the rate at which events are received by the Event Hubs consumer:
 
@@ -207,4 +207,4 @@ If you need more information, you can [look up which operator to use](https://pr
 
 ## Next steps
 
-In the text above we have introduced the concepts of asynchronous programming as it relates to the Azure SDK for Java. Once you have mastered the art of async programming, it is important to be able to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies. Following this, the document goes on to detail how pagination is exposed to users of the Azure SDK for Java.
+After reading the asynchronous programming document above, we hope you now better understand the various asynchronous programming concepts. Once you have mastered the art of async programming, it is important to be able to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies, as well as detailing how pagination works in the Azure SDK for Java.
