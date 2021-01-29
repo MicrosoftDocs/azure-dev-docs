@@ -12,7 +12,7 @@ ms.author: srnagar
 
 This article describes the asynchronous programming model in the Azure SDK for Java.
 
-The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs let you use the Azure SDK to build scalable applications that use system resources efficiently. However, the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. Therefore, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
+The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs let you use the Azure SDK to build scalable applications that use system resources efficiently. However, the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. As such, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
 
 ## Reactive streams
 
@@ -20,15 +20,15 @@ If you look at the [async client](https://azure.github.io/azure-sdk/java_design.
 
 Java 8 introduced features like Streams, Lambdas, and CompletableFuture. `CompletableFuture`s provide callback-based, non-blocking capabilities, and the `CompletionStage` interface allowed for easy composition of a series of asynchronous operations. [Lambdas](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) make these push-based APIs more readable. Lastly, [Streams](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html) provide functional-style operations to handle a collection of data elements. However, there are some limitations. Streams are synchronous and can't be reused. `CompletableFuture` allows you to make a single request, provides support for a callback, and expects a _single_ response. Many cloud services require the ability to stream data - Event Hubs for instance.
 
-Reactive streams can help to overcome these limitations by streaming elements from a source to a subscriber. When a subscriber requests data from a source, the source can send any number of results back. It doesn't need to send them all at once. The transfer can happen over a period of time when the source has data to send.
+Reactive streams can help to overcome these limitations by streaming elements from a source to a subscriber. When a subscriber requests data from a source, the source sends any number of results back. It doesn't need to send them all at once. The transfer happens over a period of time, whenever the source has data to send.
 
-In this model, the subscriber registers event handlers to process data when it arrives. This push-based interactions notifies the subscriber through distinct signals:
+In this model, the subscriber registers event handlers to process data when it arrives. These push-based interactions notifies the subscriber through distinct signals:
 
 - An `onSubscribe()` call indicates that the data transfer is about to begin.
 - An `onError()` call indicates there was an error, which also marks the end of data transfer.
 - An `onComplete()` call indicates successful completion of data transfer.
 
-Unlike Java Streams, reactive streams treat errors as first-class events and have a dedicated channel for the source to communicate any errors to the subscriber. Also, reactive streams allow the subscriber to negotiate the data transfer rate to transform these streams into a push-pull model.
+Unlike Java Streams, reactive streams treat errors as first-class events. Reactive streams have a dedicated channel for the source to communicate any errors to the subscriber. Also, reactive streams allow the subscriber to negotiate the data transfer rate to transform these streams into a push-pull model.
 
 The [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm#reactive-streams) specification provides a standard for how the transfer of data should occur. At a high level, the specification defines the following four interfaces and specifies rules on how these interfaces should be implemented.
 
@@ -39,7 +39,7 @@ The [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm#
 
 There are some well-known Java libraries that provide implementations of this specification - [RxJava](https://github.com/ReactiveX/RxJava), [Akka Streams](https://doc.akka.io/docs/akka/current/stream/stream-introduction.html), [Vert.x](https://vertx.io/docs/#reactive), and [Project Reactor](https://projectreactor.io/docs/core/release/reference/).
 
-The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main factor driving this decision was to provide smooth integration with [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html), which also uses Project Reactor. Another contributing factor to choose Project Reactor over RxJava was that Project Reactor uses Java 8 whereas RxJava, at the time, was still at Java 7. Project Reactor also offers a rich set of operators that are composable and allow you to write declarative code for building data processing pipelines. Another nice thing about Project Reactor is that it has adapters for converting Project Reactor types to other popular implementation types.
+The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main factor driving this decision was to provide smooth integration with [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html), which also uses Project Reactor. Another contributing factor to choose Project Reactor over RxJava was that Project Reactor uses Java 8 but RxJava, at the time, was still at Java 7. Project Reactor also offers a rich set of operators that are composable and allow you to write declarative code for building data processing pipelines. Another nice thing about Project Reactor is that it has adapters for converting Project Reactor types to other popular implementation types.
 
 ## Comparing APIs of synchronous and asynchronous operations
 
@@ -60,7 +60,7 @@ The reactive streams specification doesn't differentiate between types of publis
 
 Let's take an example of [App Configuration async client](/java/api/com.azure.data.appconfiguration.configurationasyncclient) to retrieve a configuration stored in [App Configuration Azure service](/azure/azure-app-configuration/overview).
 
-Creating a `ConfigurationAsyncClient` and calling the `getConfigurationSetting()` API on the client returns a `Mono`, which indicates that the response contains a single value. Here's the important bit - just calling this method alone doesn't do anything. The client has not made a request to the App Configuration service yet. At this stage, `Mono<ConfigurationSetting>` returned by this API is just an "assembly" of data processing pipeline. What this means is that the required setup for consuming the data is done. In order to actually trigger the data transfer (that is, to make the request to the service and get the response) the returned `Mono` must be subscribed to. So, when dealing with these reactive streams, you must remember to `subscribe()` because nothing happens until you do so.
+Creating a `ConfigurationAsyncClient` and calling the `getConfigurationSetting()` API on the client returns a `Mono`, which indicates that the response contains a single value. Here's the important bit - just calling this method alone doesn't do anything. The client has not made a request to the App Configuration service yet. At this stage, `Mono<ConfigurationSetting>` returned by this API is just an "assembly" of data processing pipeline. What this means is that the required setup for consuming the data is done. To actually trigger the data transfer (that is, to make the request to the service and get the response) the returned `Mono` must be subscribed to. So, when dealing with these reactive streams, you must remember to `subscribe()` because nothing happens until you do so.
 
 Let's look at a sample on how to subscribe to the `Mono` and print the value of configuration to the console.
 
@@ -98,7 +98,7 @@ asyncClient.receive().subscribe(
 
 ### Backpressure
 
-What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior is not always desirable, and the subscriber may have to control the rate of publishing. This is known as "backpressure" - with the subscriber taking control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, a push-model for data transfer can be transformed to a push-pull model.
+What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". With backpressure the subscriber takes control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, a push-model for data transfer can be transformed to a push-pull model.
 
 Here's an example of how you can control the rate at which events are received by the Event Hubs consumer:
 
@@ -207,4 +207,4 @@ If you need more information, you can [look up which operator to use](https://pr
 
 ## Next steps
 
-In this document we've introduced the concepts of asynchronous programming as it relates to the Azure SDK for Java. Consider reviewing the [pagination and iteration](java-sdk-pagination.md)documentation to learn how to consume responses from Azure services where there's more than one returned value.
+In the text above we have introduced the concepts of asynchronous programming as it relates to the Azure SDK for Java. Once you have mastered the art of async programming, it is important to be able to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies. Following this, the document goes on to detail how pagination is exposed to users of the Azure SDK for Java.
