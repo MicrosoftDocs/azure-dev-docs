@@ -37,7 +37,7 @@ The client (or "data plane") libraries help you write Java application code to i
 
 All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus simpler to use. Additionally, all client libraries follow a few important patterns:
 
-* Client libraries that support both synchronous and asynchronous APIs must offer these in separate classes. What this means is that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
+* Client libraries that support both synchronous and asynchronous APIs must offer these APIs in separate classes. What this means is that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
 
 * There's a single builder class that takes responsibility for building both the sync and async APIs. The builder will be named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder will have `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
 
