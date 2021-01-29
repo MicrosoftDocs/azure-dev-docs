@@ -6,19 +6,19 @@ ms.date: 01/28/2021
 ms.custom: devx-track-js
 ---
 
-# Clone and work with a GitHub repository with Visual Studio Code
+# Clone and use a GitHub repository in Visual Studio Code
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
 
 Working in Visual Studio Code with a repository uses separate tools:
 
-|Icon|Information|Access from|
+|Icon|Information|[Access from](https://code.visualstudio.com/docs/getstarted/userinterface)|
 |--|--|--|
 || [Git CLI](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|command palette - F1|
 |:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
 |:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Icon for GitHub Prs and Issues":::|GitHub extension|Activity bar|
 
-These tools are meant to be quick to accomplish common tasks. The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
+The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
 
 ## Use command palette to clone repository
 
@@ -79,7 +79,7 @@ Once you have made changes on your branch, commit the changes
 
 ## Push a local branch to remote from the Source Control extension
 1. Select the Source Control icon from the activity bar. 
-1. Select the ellipsis (...) then select **Pull, Push**, then select **Push to...*. 
+1. Select the ellipsis (...) then select **Pull, Push**, then select **Push to...**. 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
 ## Next steps
