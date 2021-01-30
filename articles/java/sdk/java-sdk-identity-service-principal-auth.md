@@ -16,7 +16,7 @@ This article looks at how the Azure Identity library supports Azure Active Direc
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-More conceptual details can be found here for [Service principal authentication](/azure/active-directory/develop/app-objects-and-service-principals).
+For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals).
 
 ## Creating a service principal with the Azure CLI
 

@@ -96,7 +96,7 @@ SecretClient client = new SecretClientBuilder()
 
 The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI` and/or `IMDS` endpoints, then this credential will get your application authenticated and offers a great secretless authentication experience.
 
-More conceptual details can be found here for [Managed identity authentication](/azure/active-directory/managed-identities-azure-resources/overview).
+For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ### Authenticating in Azure with managed identity
 
@@ -119,7 +119,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Environment variables
 
-`DefaultAzureCredential` and `EnvironmentCredential` can be configured with environment variables. Each type of authentication requires values for specific variables:
+You can configure `DefaultAzureCredential` and `EnvironmentCredential` with environment variables. Each type of authentication requires values for specific variables:
 
 ### Service principal with secret
 
@@ -145,7 +145,7 @@ SecretClient client = new SecretClientBuilder()
 | `AZURE_USERNAME`      | A username (usually an email address)            |
 | `AZURE_PASSWORD`      | The associated password for the given username   |
 
-Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
+Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret is used.
 
 ## Next steps
 

@@ -56,7 +56,7 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 
 ## Using async APIs in the Azure SDK for Java
 
-The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, the distinction between a publisher producing at most one data element versus one that produces zero or more is useful. In cloud-based APIs, this distinction can be used to indicate if a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has zero or more values.
+The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, the distinction between a publisher producing at most one data element versus one that produces zero or more is useful. In cloud-based APIs, this distinction indicates whether a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has zero or more values.
 
 Let's take an example of [App Configuration async client](/java/api/com.azure.data.appconfiguration.configurationasyncclient) to retrieve a configuration stored in [App Configuration Azure service](/azure/azure-app-configuration/overview).
 
@@ -80,9 +80,9 @@ System.out.println("Done");
 Notice that after calling `getConfigurationSetting()` API on the client, we subscribed to the result and provided three separate lambdas. The first lambda consumes data received from the service, which is triggered upon successful response. The second lambda is triggered if there was an error while retrieving the configuration. The third lambda is invoked when the data stream is complete, meaning no more data elements are expected from this stream.
 
 > [!NOTE]
-> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. If there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can simply add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
+> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. If there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until the network call to App Configuration service is made and a response is received. In production systems, you might continue to process something else but in this example you can add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
 
-APIs that return a `Flux` also follow a similar pattern, with the difference being the first callback provided to the `subscribe()` method will be called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks will be invoked if either of these signals are received from the publisher.
+APIs that return a `Flux` also follow a similar pattern, with the difference being that the first callback provided to the `subscribe()` method is called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks are invoked if either of these signals are received from the publisher.
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
@@ -98,7 +98,7 @@ asyncClient.receive().subscribe(
 
 ### Backpressure
 
-What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, a push-model for data transfer can be transformed to a push-pull model.
+What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, you can transform a push-model for data transfer into a push-pull model.
 
 Here's an example of how you can control the rate at which events are received by the Event Hubs consumer:
 
@@ -184,7 +184,7 @@ asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {
     @Override
     public void onNext(PartitionEvent partitionEvent) {
         System.out.println("Sequence number of received event: " + partitionEvent.getData().getSequenceNumber());
-        this.subscription.cancel(); // Cancels the subscription and no further event will be received
+        this.subscription.cancel(); // Cancels the subscription. No further event is received.
     }
 
     @Override

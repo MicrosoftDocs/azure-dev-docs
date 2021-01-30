@@ -14,9 +14,9 @@ The Azure client libraries for Java offer a consistent and robust [logging story
 
 ## Fiddler
 
-[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. Capturing the raw requests and responses helps aid in troubleshooting scenarios where the service gets an unexpected request or the client receives an unexpected response. To use Fiddler the client library will need to be configured with an HTTP proxy. If HTTPS is being used, extra configuration will be needed if the decrypted request and response bodies need to be inspected.
+[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. Capturing the raw requests and responses helps aid in troubleshooting scenarios where the service gets an unexpected request or the client receives an unexpected response. To use Fiddler, you need to configure the client library with an HTTP proxy. If you use HTTPS, you need extra configuration you need to inspect the decrypted request and response bodies.
 
-### Adding an HTTP proxy
+### Add an HTTP proxy
 
 To add an HTTP proxy, follow the guidance in the [proxy configuration](java-sdk-proxying.md) documentation. Be sure to use the default Fiddler address of `localhost` on port 8888.
 
@@ -56,7 +56,7 @@ Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_
 
 The following example adds a capture filter to capture network sent to or received from a specific host.
 
-In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This will add a filter to only capture traffic to and from that host. If the application communicates to multiple hosts multiple capture filters can be added, or the host IP/hostname can be added with the 'OR' operator to provide looser capture filtering.
+In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This will add a filter to capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
 ### Capturing to disk
 
@@ -70,7 +70,7 @@ In Wireshark, navigate to **Capture > Options** and navigate to the **Output** t
 
 ### Filtering captures
 
-Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax to be able to analyze captures.
+Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax for analyzing captures.
 
 Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) on filtering captures.
 

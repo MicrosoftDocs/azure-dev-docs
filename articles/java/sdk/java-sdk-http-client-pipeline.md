@@ -14,7 +14,7 @@ This article provides an overview of using the HTTP client and pipeline function
 
 ## HTTP clients
 
-The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure libraries for Java.
+The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure SDK for Java libraries.
 
 Although Netty is the default HTTP client, there are three implementations available for your use, depending on which dependencies you already have in your project. These implementations are for:
 
@@ -114,7 +114,7 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer will be used to ensure that each policy executes in order in the pipeline. When sending a request, the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline will be executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When sending a request, the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline are executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
@@ -124,13 +124,13 @@ The Azure Core framework will provide the policy with necessary request and resp
 
 When you make HTTP requests to cloud services, it's important to handle transient failures and retry failed attempts. Because this functionality is a common requirement, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
 
-This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation and policies added after the retry policy will be executed as many times as the retries.
+This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation and policies added after the retry policy are executed as many times as the retries.
 
 So, when building the HTTP pipeline, you should understand whether to execute a policy for each request retry or once per API operation.
 
 ### Common HTTP pipeline policies
 
-HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that can be added to the pipeline.
+HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that you can add to the pipeline.
 
 | Policy                | GitHub link        |
 |-----------------------|--------------------|
@@ -144,7 +144,7 @@ HTTP pipelines for REST-based services have configurations with policies for aut
 
 The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that are either created by the user or by the client library developer. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
 
-Creating a custom HTTP pipeline policy is as simple as extending a base policy type and implementing some abstract method. You can then plug the policy into the pipeline.
+To create a custom HTTP pipeline policy, you just extend a base policy type and implement some abstract method. You can then plug the policy into the pipeline.
 
 ## Next steps
 

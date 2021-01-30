@@ -60,7 +60,7 @@ while (it.hasNext()) {
 
 ### Iterating over pages
 
-When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There's no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there will be no further calls to the service.
+When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There's no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there are no further calls to the service.
 
 #### Using a for-each loop
 
@@ -123,4 +123,4 @@ asyncClient.listSecrets().byPage()
 
 ## Next steps
 
-Now that you're familiar with pagination and iteration in the Azure SDK for Java, consider reviewing [Long-running operations in the Azure SDK for Java](java-sdk-lro.md). Long-running operations are operations that run for a longer duration than most normal HTTP requests, typically because they require some effort on the server side. Familiarizing yourself with the long-running operation APIs will be of great use for when these APIs appear in your development journey.
+Now that you're familiar with pagination and iteration in the Azure SDK for Java, consider reviewing [Long-running operations in the Azure SDK for Java](java-sdk-lro.md). Long-running operations are operations that run for a longer duration than most normal HTTP requests, typically because they require some effort on the server side.

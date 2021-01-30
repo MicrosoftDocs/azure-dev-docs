@@ -1,6 +1,6 @@
 ---
 title: Use the Azure SDK for Java
-description: Overview of the features and capabilities of the Azure libraries for Java that helps you be more productive when provisioning, using, and managing Azure resources.
+description: Overview of the features and capabilities of the Azure SDK for Java that help you be more productive when provisioning, using, and managing Azure resources.
 author: jonathangiles
 ms.date: 11/23/2020
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.author: jogiles
 
 # Use the Azure SDK for Java
 
-The open-source Azure libraries for Java simplify provisioning, managing, and using Azure resources from Java application code.
+The open-source Azure SDK for Java simplifies provisioning, managing, and using Azure resources from Java application code.
 
 ## Important details
 
@@ -25,23 +25,23 @@ The open-source Azure libraries for Java simplify provisioning, managing, and us
 
 ## Other details
 
-* The Azure libraries for Java build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Java paradigms. However, you can always use the REST API directly from Java code, if desired.
-* You can find the [source code for the Azure libraries on GitHub](https://github.com/Azure/azure-sdk-for-java). As an open-source project, contributions are welcome!
-* We're currently updating the Azure libraries for Java libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
+* The Azure SDK for Java libraries build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Java paradigms. However, you can always use the REST API directly from Java code, if desired.
+* You can find the source code for the Azure libraries in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java). As an open-source project, contributions are welcome!
+* We're currently updating the Azure SDK for Java libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
   * This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) library.
-* For details on the guidelines we apply to the libraries, see the [Java Guidelines: Introduction](https://azure.github.io/azure-sdk/java_introduction.html).
+* For details on the guidelines we apply to the libraries, see the [Java Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/java_introduction.html).
 
 ## Connect to and use Azure resources with client libraries
 
-The client (or "data plane") libraries help you write Java application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API. They can be easily identified as their Maven group ID is `com.azure`.
+The client (or "data plane") libraries help you write Java application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API. You can identify them because their Maven group ID is `com.azure`.
 
-All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus simpler to use. Additionally, all client libraries follow a few important patterns:
+All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus easier to use. Additionally, all client libraries follow a few important patterns:
 
 * Client libraries that support both synchronous and asynchronous APIs must offer these APIs in separate classes. What this means is that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
 
-* There's a single builder class that takes responsibility for building both the sync and async APIs. The builder will be named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder will have `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
+* There's a single builder class that takes responsibility for building both the sync and async APIs. The builder is named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder has `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
 
-Because of these conventions, users of the Java client libraries should feel comfortable that all classes ending in `Client` will be immutable and provide operations to interact with an Azure service. All classes that end in `ClientBuilder` will provide operations to configure and create an instance of a particular client type.
+Because of these conventions, users of the Java client libraries should feel comfortable that all classes ending in `Client` are immutable and provide operations to interact with an Azure service. All classes that end in `ClientBuilder` provide operations to configure and create an instance of a particular client type.
 
 ### Client libraries example
 
@@ -67,7 +67,7 @@ For details on working with each client library, see the *README.md* file locate
 
 ## Provision and manage Azure resources with management libraries
 
-The management (or "management plane") libraries, all of which can be found in the `com.azure.resourcemanager` Maven group ID, help you create, provision and otherwise manage Azure resources from Java application code. All Azure services have corresponding management libraries.
+The management (or "management plane") libraries help you create, provision and otherwise manage Azure resources from Java application code. You can find these libraries in the `com.azure.resourcemanager` Maven group ID. All Azure services have corresponding management libraries.
 
 With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -115,14 +115,14 @@ virtualMachine.update()
     .apply();
 ```
 
-For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://aka.ms/azsdk/java/mgmt). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager#readme). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Get help and connect with the SDK team
 
-* Visit the [Azure libraries for Java documentation](https://aka.ms/java-docs)
-* Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-for-java)
-* Open issues against the SDK on [GitHub](https://github.com/Azure/azure-sdk-for-java/issues)
-* Mention [@AzureSDK](https://twitter.com/AzureSdk/) on Twitter
+* Visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
+* Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-for-java).
+* Open issues against the SDK in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java/issues).
+* Mention [@AzureSDK](https://twitter.com/AzureSdk/) on Twitter.
 
 ## Next steps
 

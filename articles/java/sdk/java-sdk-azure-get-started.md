@@ -58,7 +58,7 @@ For more options of authentication, see [Azure Identity](https://github.com/Azur
 ### Create a new Maven project
 
 > [!NOTE]
-> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure libraries for Java.
+> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure SDK for Java.
 
 Create a Maven project from the command line in a new directory on your system.
 
@@ -439,4 +439,4 @@ A [reference](/java/api) is available for all packages.
 
 ## Get help and give feedback
 
-Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure libraries for Java on the [project GitHub](https://github.com/Azure/azure-sdk-for-java).
+Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure SDK for Java in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java).

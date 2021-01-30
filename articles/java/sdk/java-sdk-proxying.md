@@ -36,7 +36,7 @@ When the environment is inspected, it will search for the following environment 
 
 Where `*` represents the well-known Java proxy properties. For more information, see [Java Networking and Proxies](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html).
 
-If any of the environment configurations are found, a `ProxyOptions` instance will be created (by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`). More details about the `ProxyOptions` type are provided later in this article.
+If any of the environment configurations are found, a `ProxyOptions` instance is created (by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`). More details about the `ProxyOptions` type are provided later in this article.
 
 > [!Important]
 > To use any proxy configuration, Java requires you to set the system environment property `java.net.useSystemProxies` to `true`.
@@ -107,7 +107,7 @@ ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.HTTP, new InetSocketAd
     .setCredentials("1", "1");
 ```
 
-You may configure HTTP client builders with `ProxyOptions` directly to indicate an explicit proxy to use. This configuration is the most granular way to provide a proxy and generally isn't as flexible as passing a `Configuration` that can be mutated to update proxying requirements.
+You may configure HTTP client builders with `ProxyOptions` directly to indicate an explicit proxy to use. This configuration is the most granular way to provide a proxy and generally isn't as flexible as passing a `Configuration` that you can mutate to update proxying requirements.
 
 The following example uses `ProxyOptions` to use Fiddler as the proxy.
 

@@ -22,7 +22,7 @@ This article covers the following topics:
 
 The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
-More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
+For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
 ### Enable applications for device code flow
 
@@ -39,7 +39,7 @@ You also need to be the admin of your tenant to grant consent to your applicatio
 
 ### Authenticating a user account with device code flow
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DeviceCodeCredential` on an IoT device.
+The following example demonstrates authenticating the `SecretClient` from the [Azure Key Vault Secret client library for Java][secrets_client_library] using the `DeviceCodeCredential` on an IoT device.
 
 ```java
 /**
@@ -90,9 +90,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Username password credential
 
-The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi factor authentication. This example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must **not** have Multi-factor auth turned on.
-
-More conceptual details can be found here for [Username + password authentication](/azure/active-directory/develop/v2-oauth-ropc).
+The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi factor authentication. The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must not have multi-factor auth turned on.
 
 ```java
 /**
@@ -110,6 +108,8 @@ SecretClient client = new SecretClientBuilder()
     .credential(usernamePasswordCredential)
     .buildClient();
 ```
+
+For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](/azure/active-directory/develop/v2-oauth-ropc).
 
 ## Next steps
 

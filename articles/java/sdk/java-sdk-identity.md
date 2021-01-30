@@ -31,9 +31,9 @@ The Azure Identity library currently supports:
 
 Follow the links above to learn more about the specifics of each of these authentication approaches. In the rest of this article, we'll introduce the commonly used `DefaultAzureCredential` and related topics.
 
-## Adding Maven dependencies
+## Add the Maven dependencies
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was 1.2.1.
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.2.1* version number with the latest released version number shown on the [Microsoft Azure Client Library For Identity page](https://mvnrepository.com/artifact/com.azure/azure-identity).
 
 ```xml
 <dependency>
@@ -43,17 +43,15 @@ Adding the Maven dependency is simply a matter of including the following XML in
 </dependency>
 ```
 
-You can find the latest release of azure-identity on its [Maven Central page](https://search.maven.org/artifact/com.azure/azure-identity).
-
 ## Key concepts
 
 There are two key concepts in understanding the Azure Identity library: the concept of a credential, and the most common implementation of that credential, the `DefaultAzureCredential`.
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
-The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and any of them can be used to construct service clients capable of authenticating with a `TokenCredential`.
+The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and you can use any of them to construct service clients capable of authenticating with a `TokenCredential`.
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed with credentials that are used to authenticate in a development environment. Further details and examples of using `DefaultAzureCredential` can be found [here](java-sdk-identity-azure-hosted-auth.md#default-azure-credential).
+The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](java-sdk-identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](java-sdk-identity-azure-hosted-auth.md).
 
 ## Examples
 
@@ -81,7 +79,7 @@ You can find the subscription IDs on the [Subscriptions page in the Azure portal
 az account list --output table
 ```
 
-The subscription ID can be set in the `AZURE_SUBSCRIPTION_ID` environment variable. It will be picked up by `AzureProfile` as the default subscription ID, during the creation of `Manager` service API similar to the following code:
+You can set the subscription ID in the `AZURE_SUBSCRIPTION_ID` environment variable. This ID is picked up by `AzureProfile` as the default subscription ID, during the creation of `Manager` service API similar to the following code:
 
 ```java
 AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
@@ -90,7 +88,7 @@ AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
     .withDefaultSubscription();
 ```
 
-The `DefaultAzureCredential` used in the example above authenticates a `AzureResourceManager` instance using the `DefaultAzureCredential`. Other Token Credential implementations offered in the Azure Identity library can be used here as well in place of `DefaultAzureCredential`.
+The `DefaultAzureCredential` used in the example above authenticates a `AzureResourceManager` instance using the `DefaultAzureCredential`. You can also use other Token Credential implementations offered in the Azure Identity library in place of `DefaultAzureCredential`.
 
 ## Troubleshooting
 

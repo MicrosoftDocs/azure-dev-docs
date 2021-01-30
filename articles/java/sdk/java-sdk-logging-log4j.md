@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Logging with the Azure SDK for Java and Log4j
 
-This article provides an overview of how to log in applications that make use of the Azure SDK for Java and that wish to log using Log4j. As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/) can be used.
+This article provides an overview of how to add logging using Log4j to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/).
 
 This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is equally supported by the Azure SDK for Java. To enable log4j logging, you must do two things:
 
@@ -19,9 +19,9 @@ This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is e
 
 For more information related to configuring log4j, see [Welcome to Log4j 2](https://logging.apache.org/log4j/2.x/manual/index.html).
 
-## Adding Maven dependencies
+## Add the Maven dependency
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was 2.14.0.
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *2.14.0* version number with the latest released version number shown on the [Apache Log4j SLF4J Binding page](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl).
 
 ```xml
 <dependency>
@@ -33,7 +33,7 @@ Adding the Maven dependency is simply a matter of including the following XML in
 
 ## Configuring Log4j
 
-There are two commonly used ways to configure Log4j: through an external properties file, or through an external XML file. These approaches are outlined below.
+There are two common ways to configure Log4j: through an external properties file, or through an external XML file. These approaches are outlined below.
 
 ### Using a property file
 

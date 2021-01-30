@@ -10,18 +10,18 @@ ms.author: srnagar
 
 # Logging with the Azure SDK for Java and java.util.logging
 
-This article provides an overview of how to log in applications that make use of the Azure SDK for Java and that wish to log using the java.util.logging framework that's part of the JDK. As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html) can be used.
+This article provides an overview of how to add logging using java.util.logging to applications that make use of the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
 
 To enable java.util.logging, you must do two things:
 
 1. Include the SLF4J adapter for java.util.logging as a dependency,
 2. Create a file called *logging.properties* under the */src/main/resources* project directory.
 
-For more information related to configuring your logger, see [Configuring Logging Output](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm) in Oracle documentation.
+For more information related to configuring your logger, see [Configuring Logging Output](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm) in the Oracle documentation.
 
 ## Add the Maven dependency
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was [1.7.30](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.7.30* version number with the latest released version number shown on the [SLF4J JDK14 Binding page](https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14).
 
 ```xml
 <dependency>

@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Logging with the Azure SDK for Java and Logback
 
-This article provides an overview of how to log in applications that make use of the Azure SDK for Java and that wish to log using Logback. As mentioned in the [logging overview](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), and as such, logging frameworks such as [Logback](http://logback.qos.ch/) can be used.
+This article provides an overview of how to add logging using Logback to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [Logback](http://logback.qos.ch/).
 
 To enable Logback logging, you must do two things:
 
@@ -19,9 +19,9 @@ To enable Logback logging, you must do two things:
 
 For more information related to configuring Logback, see [Logback configuration](http://logback.qos.ch/manual/configuration.html) in the Logback documentation.
 
-## Adding Maven dependencies
+## Add the Maven dependency
 
-Adding the Maven dependency is simply a matter of including the following XML in the project Maven *pom.xml* file. Be sure to check online to see what the latest released version is, which at the time this article was written was 1.2.3.
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.2.3* version number with the latest released version number shown on the [Logback Classic Module page](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic).
 
 ```xml
 <dependency>
@@ -58,7 +58,7 @@ You can create a Logback configuration to log to the console as shown in the fol
 
 ### Logging Azure core errors
 
-The example configuration below is similar to the previous configuration, but it lowers the level at which logging comes from all `com.azure.core` packaged classes (including subpackages). This way, everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher is logged. For example, you can use this approach when you find the code in `com.azure.core` to be too noisy. This kind of configuration can also go both ways. For example, if you want to get more debug information from classes in `com.azure.core`, you could change this setting to DEBUG.
+The example configuration below is similar to the previous configuration, but it lowers the level at which logging comes from all `com.azure.core` packaged classes (including subpackages). This way, everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher is logged. For example, you can use this approach if you find the code in `com.azure.core` too noisy. This kind of configuration can also go both ways. For example, if you want to get more debug information from classes in `com.azure.core`, you could change this setting to DEBUG.
 
 It's possible to have fine-grained control over the logging of specific classes, or specific packages. As shown below, `com.azure.core` will control the output of all core classes, but you could equally use `com.azure.security.keyvault` or equivalent to control the output as appropriate for the circumstances that are most informative in the context of the running application.
 
@@ -81,7 +81,7 @@ It's possible to have fine-grained control over the logging of specific classes,
 
 ### Log to a file with log rotation enabled
 
-In the examples above, logging was to the console, which isn't normally the preferred location for logs. To configure logging to a file instead, which will be rolled over after hourly, and archived in gzip format, the following configuration will suffice:
+The examples above log to the console, which isn't normally the preferred location for logs. Use the following configuration to log to a file instead, with hourly roll-over, and archiving in gzip format:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -24,7 +24,7 @@ Topics covered in this article include:
 
 The device code credential interactively authenticates a user on devices with limited UI. It works by prompting the user to visit a login URL on a browser-enabled machine when the application attempts to authenticate. The user then enters the device code mentioned in the instructions along with their login credentials. Upon successful authentication, the application that requested authentication gets authenticated successfully on the device it's running on.
 
-More conceptual details can be found here for [Device code authentication](/azure/active-directory/develop/v2-oauth2-device-code).
+For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
 ### Enable applications for device code flow
 
