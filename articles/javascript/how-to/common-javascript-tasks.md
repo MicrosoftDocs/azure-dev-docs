@@ -84,8 +84,13 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#6-create-app-service-resource-in-visual-studio-code)|
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
+|Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-web-app-with-the-connection-string)|
+|Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
+|Configure web app custom domain name|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#register-a-domain-name-with-your-azure-app)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
 |Deploy or reploy app|[Visual Studio Code extension](deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code)|
+|Get web app external IP|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#register-a-domain-name-with-your-azure-app)|
+|Purchase a domain name and configure DNS record|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#purchase-a-domain-name-and-configure-dns-record)|
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
 ## Cognitive Services
@@ -97,17 +102,24 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Install Azure SDK|[Bash](../tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-to-local-react-app)|
 |Analyze image with [`@azure/cognitiveservices-computervision`](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)|[Visual Studio Code](../tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module)|
 
-## Containers
-
-Check [Docker tasks](#docker) if you didn't find what you were looking for. 
+## Containers including Docker tasks
 
 |Task|using|
 |--|--|
-|Create container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md#create-an-azure-container-registry)|
-|Push image to registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#push-the-image-to-a-registry)|
-|Enable admin access to registry|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#enable-admin-access-on-the-registry)|
+|Add docker files to local project|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#add-docker-files)|
+|Build docker image from local project|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#build-a-docker-image)|
+|Create a container image from your local JavaScript project|[Visual Studio Code](./with-visual-studio-code/containerize-local-project.md#create-a-container)|
+|Create container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md#create-an-azure-container-registry)<br>[Azure CLI](./with-azure-cli/create-container-registry-resource.md#create-a-container-registry)|
+|Create Dockerfile|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#create-a-dockerfile-in-your-project)|
 |Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#deploy-image)|
-
+|Enable admin access to registry|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#enable-admin-access-on-the-registry)|
+|Get Azure container registry credentials|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#get-container-registry-credentials)|
+|Login to container registry|[BASH - Docker CLI](./with-azure-cli/create-container-registry-resource.md#login-to-container-registry-with-docker-cli)|
+|Push image to Docker registry resource|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#push-local-container-image-to-dockerhub)|
+|Push image to Azure container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#push-the-image-to-a-registry)<BR>[BASH - Docker CLI](./with-azure-cli/create-container-registry-resource.md#push-your-local-image-to-your-container-registry)|
+|Run local container|[Visual Studio Code extension](with-visual-studio-code/containerize-local-project.md#build-image-from-your-project)|
+|Tag your local image|[BASH - Docker CLI](./with-azure-cli/create-container-registry-resource.md#tag-your-local-image)|
+|Verify Docker version|[Bash](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#verify-docker-install)|
 
 ## Databases
 
@@ -116,21 +128,14 @@ Check [Docker tasks](#docker) if you didn't find what you were looking for.
 |Create CosmosDB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|
 |Get CosmosDB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmosdb-connection-string)|
 
-## Docker
-
-Check [Container tasks](#containers) if you didn't find what you were looking for. 
-
-|Task|using|
-|--|--|
-|Verify Docker version|[Bash](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#verify-docker-install)|
-|Add docker files to local project|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#add-docker-files)|
-|Build docker image from local project|[Bash](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md#build-a-docker-image)|
-
 ## Git
 
 |Task|using|
 |--|--|
 |Initialize local Git repository|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-initialize-git-in-visual-studio-code-for-current-app)|
+|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)<br>[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#create-a-branch-from-status-bar)|
+|Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
+|Push a local branch to remote repo|[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-status-bar)<br>[Visual Studio Code with Source Course extension](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-the-source-control-extension)|
 
 ## GitHub 
 
@@ -167,6 +172,12 @@ Check [Container tasks](#containers) if you didn't find what you were looking fo
 |Upload file to storage with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality)|
 |List files in Storage container with [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob)|[React/TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#get-list-of-blobs)|
 
+## Terminal usage
+
+|Task|using|
+|--|--|
+|Integrated terminal|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#use-the-integrated-bash-terminal-to-install-dependencies)|
+
 ## Virtual machines
 
 |Task|using|
@@ -180,11 +191,15 @@ Check [Container tasks](#containers) if you didn't find what you were looking fo
 |View logs|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#viewing-the-vm-logs-for-nginx-and-pm2)<br>[Portal](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md#view-application-traces-in-azure-portal)|
 
 
-## Visual Studio Code
+## Visual Studio Code: Develop and debug JavaScript apps 
 
 |Task|using|
 |--|--|
-|Clone GitHub repo|[Visual Studio Code](../tutorial/browser-file-upload-azure-storage-blob.md#2-clone-and-run-the-initial-react-app)|
+|Code completion|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#use-visual-studio-code-autocompletion-with-mongodb)|
+|Debugging local Node.js app|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#debugging-the-local-nodejs-app)|
+|Local full-stack debugging|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#local-full-stack-debugging-in-visual-studio-code)|
+|Navigate the project files and code|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#navigate-the-project-files-and-code)|
+|Running the local Node.js app|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#running-the-local-nodejs-app)|
 
 ## Samples supporting these tasks
 

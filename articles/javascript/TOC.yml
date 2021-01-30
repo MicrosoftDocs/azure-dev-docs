@@ -3,6 +3,8 @@
   items:
   - name: What's new in docs
     href: whats-new-docs.md
+  - name: What's new with Developer Advocates
+    href: whats-new-developer-advocacy.md  
   - name: Get started on Azure with JavaScript
     items:
     - name: What is Azure for JavaScript developers?
