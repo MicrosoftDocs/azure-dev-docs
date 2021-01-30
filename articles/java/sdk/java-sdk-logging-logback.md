@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and Logback
 
-This article provides an overview of how to add logging using Logback to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [Logback](http://logback.qos.ch/).
+This article provides an overview of how to add logging using Logback to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [Logback](http://logback.qos.ch/).
 
 To enable Logback logging, you must do two things:
 
@@ -116,6 +116,6 @@ logging.config=classpath:logback.xml
 
 ## Next steps
 
-This article has covered the configuration of Logback and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there's a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
+This article covered the configuration of Logback and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there's a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
 
 Once you've master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

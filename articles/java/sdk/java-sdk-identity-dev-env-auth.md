@@ -35,7 +35,7 @@ To authenticate a user through device code flow, do the following steps:
 3. Under **Suggested Redirected URIs**, check the URI that ends with `/common/oauth2/nativeclient`.
 4. Under **Default Client Type**, select *yes* for **Treat application as a public client**.
 
-These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
+These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
 
 You must also be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
@@ -189,7 +189,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-This article has covered authentication during development using credentials available on your computer, which is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods:
+This article covered authentication during development using credentials available on your computer. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with service principals](java-sdk-identity-service-principal-auth.md)

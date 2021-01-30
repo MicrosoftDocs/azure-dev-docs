@@ -46,7 +46,7 @@ The following sections address these problems.
 
 ### Integrate parent spans
 
-As noted above, including the dependencies will enable tracing within the Azure client libraries, but it won't integrate with any incoming tracing data, for example in a web environment where an incoming request results in a call into an Azure client library. To enable tracing, you can create a root span in your application and pass it into the Azure client library calls, so that this span may be encapsulated into appropriate outgoing requests to Azure services. You can accomplish this task by using the `Context` parameter on all client methods, as shown in the following example:
+As noted above, including the dependencies will enable tracing within the Azure client libraries. However, it won't integrate with any incoming tracing data, for example in a web environment where an incoming request results in a call into an Azure client library. To enable tracing, you can create a root span in your application and pass it into the Azure client library calls, so that this span may be encapsulated into appropriate outgoing requests to Azure services. You can accomplish this task by using the `Context` parameter on all client methods, as shown in the following example:
 
 ```java
 // The 'span' given in this context is the parent span key received from the incoming request

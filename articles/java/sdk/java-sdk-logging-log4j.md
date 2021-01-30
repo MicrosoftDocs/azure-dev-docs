@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and Log4j
 
-This article provides an overview of how to add logging using Log4j to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/).
+This article provides an overview of how to add logging using Log4j to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/).
 
 This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is equally supported by the Azure SDK for Java. To enable log4j logging, you must do two things:
 
@@ -78,6 +78,6 @@ You can place an XML file named *log4j2.xml* in the */src/main/resource* directo
 
 ## Next steps
 
-This article has covered the configuration of Log4j and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Log4j, there's a vast amount of [configuration guidance](https://logging.apache.org/log4j/2.x/manual/index.html) on its website also.
+This article covered the configuration of Log4j and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Log4j, there's a vast amount of [configuration guidance](https://logging.apache.org/log4j/2.x/manual/index.html) on its website also.
 
 Once you've master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

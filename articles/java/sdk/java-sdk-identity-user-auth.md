@@ -113,7 +113,7 @@ For more information, see [Microsoft identity platform and OAuth 2.0 Resource Ow
 
 ## Next steps
 
-This article has covered authentication with user credentials, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods:
+This article covered authentication with user credentials. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

@@ -15,7 +15,7 @@ This article provides an overview of how to enable logging in applications that 
 * A built-in logging framework for temporary debugging purposes.
 * Support for logging using the [SLF4J](https://www.slf4j.org/) interface.
 
-We recommend that you use SLF4J because it's well known in the Java ecosystem and it's well-documented. For starters, consider referring to the [SLF4J manual](https://www.slf4j.org/manual.html). If SLF4J is not appropriate, the Later in this article, we provide links to configuration examples for many of the popular Java logging frameworks and how the Azure client libraries can use them.
+We recommend that you use SLF4J because it's well known in the Java ecosystem and it's well documented. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html). Later in this article, we provide links to configuration examples for many of the popular Java logging frameworks and how the Azure client libraries can use them.
 
 Whatever logging configuration you use, the same log output is available in either case because all logging output in the Azure client libraries for Java is routed through an azure-core `ClientLogger` abstraction.
 

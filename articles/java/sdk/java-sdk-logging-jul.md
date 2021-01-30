@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and java.util.logging
 
-This article provides an overview of how to add logging using java.util.logging to applications that make use of the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
+This article provides an overview of how to add logging using java.util.logging to applications that make use of the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
 
 To enable java.util.logging, you must do two things:
 
@@ -67,6 +67,6 @@ This code will create a file called *myapplication.log* in your home directory (
 
 ## Next steps
 
-This article has covered the configuration of `java.util.logging` and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
+This article covered the configuration of `java.util.logging` and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
 
 Once you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

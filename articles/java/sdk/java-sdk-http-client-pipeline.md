@@ -114,7 +114,7 @@ The HTTP transport is responsible for establishing the connection to the server,
 
 ### HTTP pipeline policies
 
-A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When sending a request, the policies execute in the order that they're added to the pipeline. When a response is received from the service, the policies execute in the reverse order. All policies added to the pipeline are executed before the request is sent and after a response is received. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
+A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When you send a request, the policies execute in the order that they're added to the pipeline. When you receive a response from the service, the policies execute in the reverse order. All policies added to the pipeline execute before you send the request and after you receive a response. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
 
 The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
@@ -124,7 +124,7 @@ The Azure Core framework will provide the policy with necessary request and resp
 
 When you make HTTP requests to cloud services, it's important to handle transient failures and retry failed attempts. Because this functionality is a common requirement, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
 
-This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation and policies added after the retry policy are executed as many times as the retries.
+This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation and policies added after the retry policy execute as many times as the retries.
 
 So, when building the HTTP pipeline, you should understand whether to execute a policy for each request retry or once per API operation.
 

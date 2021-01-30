@@ -49,13 +49,13 @@ There are two key concepts in understanding the Azure Identity library: the conc
 
 A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
 
-The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes capable of acquiring an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and you can use any of them to construct service clients capable of authenticating with a `TokenCredential`.
+The Azure Identity library focuses on OAuth authentication with Azure Active Directory, and it offers various credential classes that can acquire an AAD token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core][azure_core_library], and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately be run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](java-sdk-identity-azure-hosted-auth.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](java-sdk-identity-azure-hosted-auth.md).
 
 ## Examples
 
-As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways that they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, there's a quick overview of authenticating in both client and management libraries.
+As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly. One of the ways that they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the following sections , there's a quick overview of authenticating in both client and management libraries.
 
 ### Authenticate Azure client libraries
 
@@ -101,7 +101,7 @@ describes why the credential is unavailable for authentication execution. When `
 
 ## Next steps
 
-This article has introduced the Azure Identity functionality available in the Azure SDK for Java. It has spoken about the `DefaultAzureCredential` being commonly used and appropriate in many cases. In the links below, readers are encouraged to explore other ways of authenticating using the Azure Identity library, and to learn more about the `DefaultAzureCredential`:
+This article introduced the Azure Identity functionality available in the Azure SDK for Java. It described the `DefaultAzureCredential` as common and appropriate in many cases. The following articles describe other ways to authenticate using the Azure Identity library, and provide more information about the `DefaultAzureCredential`:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)

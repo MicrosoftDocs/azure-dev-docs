@@ -21,7 +21,7 @@ The open-source Azure SDK for Java simplifies provisioning, managing, and using 
 * There are distinct "management" and "client" libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more information, see the following sections later in this article:
   * [Connect to and use Azure resources with client libraries.](#connect-to-and-use-azure-resources-with-client-libraries)
   * [Provision and manage Azure resources with management libraries.](#provision-and-manage-azure-resources-with-management-libraries)
-* Documentation for the libraries is found on the [Azure for Java Reference](/java/api/overview/azure/) organized by Azure Service, or the [Java API browser](/java/api/) organized by package name.
+* You can find documentation for the libraries in the [Azure for Java Reference](/java/api/overview/azure/) organized by Azure Service, or the [Java API browser](/java/api/) organized by package name.
 
 ## Other details
 
@@ -29,7 +29,7 @@ The open-source Azure SDK for Java simplifies provisioning, managing, and using 
 * You can find the source code for the Azure libraries in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java). As an open-source project, contributions are welcome!
 * We're currently updating the Azure SDK for Java libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
   * This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) library.
-* For details on the guidelines we apply to the libraries, see the [Java Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/java_introduction.html).
+* For more information on the guidelines we apply to the libraries, see the [Java Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/java_introduction.html).
 
 ## Connect to and use Azure resources with client libraries
 
@@ -63,7 +63,7 @@ KeyAsyncClient client = new KeyClientBuilder()
         .buildAsyncClient();
 ```
 
-For details on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For more information on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Provision and manage Azure resources with management libraries
 
@@ -115,7 +115,7 @@ virtualMachine.update()
     .apply();
 ```
 
-For details on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager#readme). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For more information on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager#readme). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Get help and connect with the SDK team
 

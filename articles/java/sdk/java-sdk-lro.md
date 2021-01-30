@@ -63,7 +63,7 @@ Other useful APIs in `SyncPoller` include:
 
 The code below shows how the `PollerFlux` API allows users to observe a long-running operation. It's important to note that in asynchronous APIs the network calls happens in a different thread than the main-thread that calls subscribe(). What this means is that the main-thread may terminate before the result is available. It's up to you to ensure that the application doesn't exit before the async operation has had time to complete.
 
-In the async API, a `PollerFlux` is returned immediately, but the long-running operation itself won't commence until a subscription is made to the returned `PollerFlux`. This process is how all `Flux`-based APIs operate. The following example shows an async long-running operation:
+In the async API, a `PollerFlux` is returned immediately, but the long-running operation itself won't start until a subscription is made to the returned `PollerFlux`. This process is how all `Flux`-based APIs operate. The following example shows an async long-running operation:
 
 ```java
 asyncClient.beginUploadFromUri(...)

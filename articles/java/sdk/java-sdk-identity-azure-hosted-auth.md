@@ -94,13 +94,13 @@ SecretClient client = new SecretClientBuilder()
 
 ## Managed Identity credential
 
-The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI` and/or `IMDS` endpoints, then this credential will get your application authenticated and offers a great secretless authentication experience.
+The Managed Identity authenticates the managed identity (system or user assigned) of an Azure resource. So, if the application is running inside an Azure resource that supports Managed Identity through `IDENTITY/MSI`, `IMDS` endpoints, or both, then this credential will get your application authenticated and offers a great secretless authentication experience.
 
 For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ### Authenticate in Azure with managed identity
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `ManagedIdentityCredential` in a virtual machine, app service, function app, cloud shell, service fabric, arc, or AKS environment on Azure, with system assigned, or user assigned managed identity enabled.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `ManagedIdentityCredential` in a virtual machine, app service, function app, Cloud Shell, service fabric, arc, or AKS environment on Azure, with system assigned, or user assigned managed identity enabled.
 
 ```java
 /**
@@ -149,7 +149,7 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 ## Next steps
 
-This article has covered authentication for applications hosted in Azure, which is one of the ways you can authenticate in the Azure SDK for Java. The following articles describe other authentication methods that you may wish to review:
+This article covered authentication for applications hosted in Azure. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
 * [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
 * [Authentication with service principals](java-sdk-identity-service-principal-auth.md)

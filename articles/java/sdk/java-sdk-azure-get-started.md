@@ -51,7 +51,7 @@ Next, configure the environment variables:
 - `AZURE_CLIENT_SECRET`: Use the *password* value from the service principal output.
 - `AZURE_TENANT_ID`: Use the *tenant* value from the service principal output.
 
-For more options of authentication, see [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
+For more authentication options, see the [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
 
 ## Tooling
 

@@ -10,17 +10,17 @@ ms.author: anuchan
 
 # Pagination and iteration in the Azure SDK for Java
 
-This article provides an overview of how to make use of the Azure SDK for Java pagination and iteration functionality to efficiently and productively work with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure that developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
+This article provides an overview of how to make use of the Azure SDK for Java pagination and iteration functionality to work efficiently and productively with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure that developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
 
 1. Make it possible to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` make this task easy by iterating over a paginated response deserialized into a given type `T`. `PagedIterable` implements the `Iterable` interface, and offers an API to receive a `Stream`, while `PagedFlux` provides a `Flux`. In all cases, the act of pagination is transparent, and iteration continues while there are still results iterate over.
 
 2. Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
 
-This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll encounter the synchronous iteration APIs when working with synchronous clients, and similarly, asynchronous iteration APIs when working with asynchronous clients.
+This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll see the synchronous iteration APIs when you work with synchronous clients, and similarly, asynchronous iteration APIs when you work with asynchronous clients.
 
 ## Synchronous pagination and iteration
 
-This section covers the synchronous APIs. Later, this article provides guidance on working with the asynchronous APIs.
+This section covers the synchronous APIs. Later, this article provides guidance on how to work with the asynchronous APIs.
 
 ### Iterate over individual elements
 
@@ -60,7 +60,7 @@ while (it.hasNext()) {
 
 ### Iterate over pages
 
-When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There's no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there are no further calls to the service.
+When you work with individual pages, for example for when you need HTTP response information, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There's no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there are no further calls to the service.
 
 #### Use a for-each loop
 
