@@ -2,7 +2,7 @@
 title: Azure authentication with service principal
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 author: g2vinay
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -18,7 +18,7 @@ This article looks at how the Azure Identity library supports Azure Active Direc
 
 For more information, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals).
 
-## Creating a service principal with the Azure CLI
+## Create a service principal with the Azure CLI
 
 Use the [Azure CLI][azure_cli] snippet below to create/get client secret credentials.
 

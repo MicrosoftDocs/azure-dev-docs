@@ -2,7 +2,7 @@
 title: Asynchronous programming in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to asynchronous programming
 author: srnagar
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -54,7 +54,7 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 
 > For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
 
-## Using async APIs in the Azure SDK for Java
+## Use async APIs in the Azure SDK for Java
 
 The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, the distinction between a publisher producing at most one data element versus one that produces zero or more is useful. In cloud-based APIs, this distinction indicates whether a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has zero or more values.
 
@@ -139,7 +139,7 @@ When the subscriber first "connects" to the publisher, the publisher hands the s
 
 If the subscriber requests more than one data element each time `onNext()` is called, `request(10)` for example, the publisher will send the next 10 elements immediately if they're available or when they become available. These elements are accumulated in a buffer on the subscriber's end and since each `onNext()` call will request 10 more, the backlog keeps growing until either the publisher has no more data elements to send or the subscriber's buffer overflows resulting in out of memory errors.
 
-### Cancelling a subscription
+### Cancel a subscription
 
 A subscription manages the state of data transfer between a publisher and a subscriber. The subscription is active until the publisher has completed transferring all the data to the subscriber or the subscriber is no longer interested in receiving data. There are a couple of ways you can cancel a subscription as shown below.
 

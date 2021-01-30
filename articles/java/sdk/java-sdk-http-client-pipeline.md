@@ -1,8 +1,8 @@
 ---
-title: HTTP clients & pipelines in the Azure SDK for Java
+title: HTTP clients and pipelines in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to HTTP clients and pipelines
 author: srnagar
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -22,7 +22,7 @@ Although Netty is the default HTTP client, there are three implementations avail
 * [OkHttp](https://square.github.io/okhttp/)
 * The new [HttpClient](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in JDK 11
 
-### Replacing the default HTTP client
+### Replace the default HTTP client
 
 If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
 
@@ -53,7 +53,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 > [!NOTE]
 > If you remove the Netty dependency but provide no implementation in its place, the application will fail to start. An `HttpClient` implementation must exist on the classpath.
 
-### Configuring HTTP clients
+### Configure HTTP clients
 
 When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 

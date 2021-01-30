@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting networking issues
+title: Troubleshoot networking issues
 description: An overview of how to troubleshoot networking issues related to using the Azure SDK for Java
 author: alzimmermsft
-ms.date: 11/23/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: alzimmer
 ---
 
-# Troubleshooting networking issues
+# Troubleshoot networking issues
 
 The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. This article will discuss a few applications that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
 
@@ -48,7 +48,7 @@ This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-gu
 
 [Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and can capture broad through to specific low-level network traffic, which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, and so on. Captures can also be filtered either at capture time or during analysis.
 
-### Configuring a capture filter
+### Configure a capture filter
 
 Capture filters reduce the number of network calls that are captured for analysis. Without capture filters Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation.
 
@@ -58,7 +58,7 @@ The following example adds a capture filter to capture network sent to or receiv
 
 In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This will add a filter to capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
-### Capturing to disk
+### Capture to disk
 
 Reproducing unexpected networking exceptions may require running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
 
@@ -68,7 +68,7 @@ The following example sets up Wireshark to persist captures to disk with multipl
 
 In Wireshark, navigate to **Capture > Options** and navigate to the **Output** tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by selecting **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**, this will have Wireshark create a new file after one of the predicates is matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
 
-### Filtering captures
+### Filter captures
 
 Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax for analyzing captures.
 

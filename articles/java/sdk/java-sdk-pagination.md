@@ -1,8 +1,8 @@
 ---
-title: Pagination & iteration in the Azure SDK for Java
+title: Pagination and iteration in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to pagination and iteration
 author: anuchandy
-ms.date: 11/23/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: anuchan
@@ -22,11 +22,11 @@ This article is split between the Java Azure SDK synchronous and asynchronous AP
 
 This section covers the synchronous APIs. Later, this article provides guidance on working with the asynchronous APIs.
 
-### Iterating over individual elements
+### Iterate over individual elements
 
 As noted, the most common use case is to iterate over each element individually, rather than per page. The code samples below show how the `PagedIterable` API allows for users to use the iteration style they prefer to implement this functionality.
 
-#### Using a for-each loop
+#### Use a for-each loop
 
 Because `PagedIterable` implements `Iterable`, it's possible to iterate through the elements using code such as that shown below:
 
@@ -37,7 +37,7 @@ for (Secret secret : secrets) {
 }
 ```
 
-#### Using Stream
+#### Use Stream
 
 Because `PagedIterable` has a `stream()` method defined on it, you can call it to use the standard Java Stream APIs, as shown below:
 
@@ -47,7 +47,7 @@ client.listSecrets()
       .forEach(secret -> System.out.println("Secret is: " + secret));
 ```
 
-#### Using Iterator
+#### Use Iterator
 
 Because `PagedIterable` implements `Iterable`, it also has an `iterator()` method to allow for the Java iterator programming style, as show below:
 
@@ -58,11 +58,11 @@ while (it.hasNext()) {
 }
 ```
 
-### Iterating over pages
+### Iterate over pages
 
 When working with individual pages is required, for example for when HTTP response information is required, or when continuation tokens are important to retain iteration history, it's possible to iterate per page. There's no difference in performance or the number of calls made to the service whether you iterate by page or by each item. The underlying implementation loads the next page on-demand and if you unsubscribe from the `PagedFlux` at any time, there are no further calls to the service.
 
-#### Using a for-each loop
+#### Use a for-each loop
 
 The `PagedIterable` that's returned by calling `listSecrets()` has an `iterableByPage()` API, that when called gives an `Iterable<PagedResponse<Secret>>` in this case, rather than before, where you got an `Iterable<Secret>`. It's this extra `PagedResponse` that provides us with the response metadata and access to the continuation token.
 
@@ -77,7 +77,7 @@ for (PagedResponse<Secret> page : secretPages) {
 
 There's also an `iterableByPage` overload that accepts a continuation token. You can call this overload when you want to return to the same point of iteration at a later time.
 
-#### Using Stream
+#### Use Stream
 
 Note here the `streamByPage()` method call, which performs the same operation as shown above. Note again that `streamByPage` has a continuation token overload, for returning to the same point of iteration at a later time.
 
@@ -91,11 +91,11 @@ client.listSecrets()
       });
 ```
 
-## Asynchronously observing pages and individual elements
+## Asynchronously observe pages and individual elements
 
 This section covers the asynchronous APIs. In async APIs, the network calls happen in a different thread than the main-thread that calls `subscribe()`. What this means is that the main-thread may terminate before the result is available. It's up to you to ensure that the application doesn't exit before the async operation has had time to complete.
 
-### Observing individual elements
+### Observe individual elements
 
 The code example below shows how the `PagedFlux` API allows users to observe individual elements asynchronously. There are various [ways to subscribe to a Flux type](https://projectreactor.io/docs/core/release/reference/#_simple_ways_to_create_a_flux_or_mono_and_subscribe_to_it). This example is one variety there are three lambda expressions: one each for the consumer, the error consumer, and the complete consumer. Having all three is good practice, but in some cases it's adequate for the work being formed to have only the consumer, and possibly the error consumer.
 
@@ -106,7 +106,7 @@ asyncClient.listSecrets()
         () -> System.out.println("Successfully listed all secrets"));
  ```
 
-### Observing pages
+### Observe pages
 
  The code sample below shows how the `PagedFlux` API allows users to observe each page asynchronously, again by using a `byPage()` API and by providing a consumer, error consumer, and a completion consumer.
 

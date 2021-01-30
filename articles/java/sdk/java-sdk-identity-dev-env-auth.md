@@ -2,7 +2,7 @@
 title: Azure Authentication in Java development environments
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
 author: g2vinay
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -39,7 +39,7 @@ These steps will let the application authenticate, but it still won't have permi
 
 You must also be the admin of your tenant to grant consent to your application when you log in for the first time. Also note after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
-### Authenticating a user account with device code flow
+### Authenticate a user account with device code flow
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DeviceCodeCredential` on an IoT device.
 
@@ -67,7 +67,7 @@ To use `InteractiveBrowserCredential`, you need to register an application in Az
 
 You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the Redirect URIs subsection under the Authentication section of your registered AAD application.
 
-### Authenticating a user account interactively in the browser
+### Authenticate a user account interactively in the browser
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `InteractiveBrowserCredential`.
 
@@ -120,7 +120,7 @@ to verify the account has been successfully configured.
 
 You may have to repeat this process after a certain period, depending on the refresh token validity in your organization. Generally, the refresh token validity is a few weeks to a few months. AzureCliCredential will prompt you to sign in again.
 
-### Authenticating a user account with Azure CLI
+### Authenticate a user account with Azure CLI
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `AzureCliCredential` on a workstation with Azure CLI installed and signed in.
 
@@ -148,7 +148,7 @@ Follow the steps outlined below:
 
 On Windows, you'll also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
 
-## Authenticating a user account with IntelliJ IDEA
+## Authenticate a user account with IntelliJ IDEA
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `IntelliJCredential` on a workstation with IntelliJ IDEA installed, and the user has signed in with an Azure account.
 
@@ -173,7 +173,7 @@ The Visual Studio Code credential enables authentication in development environm
 
 The Visual Studio Code authentication is handled by an integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). To use this form of authentication, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command. This command opens a browser window and displays a page that allows you to sign in to Azure. Once you've completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
 
-### Authenticating a user account with Visual Studio Code
+### Authenticate a user account with Visual Studio Code
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `VisualStudioCodeCredential` on a workstation with Visual Studio Code installed, and the user has signed in with an Azure account.
 

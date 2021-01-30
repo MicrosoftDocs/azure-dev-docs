@@ -1,14 +1,14 @@
 ---
-title: Authenticating Azure-Hosted Java applications
+title: Authenticate Azure-Hosted Java applications
 description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
 author: g2vinay
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
 ---
 
-# Authenticating Azure-hosted Java applications
+# Authenticate Azure-hosted Java applications
 
 This article looks at how the Azure Identity library supports Azure Active Directory token authentication for applications hosted on Azure. This support is made possible through a set of TokenCredential implementations, which are discussed below.
 
@@ -39,7 +39,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 * Setting environment variable `AZURE_USERNAME` configures the `DefaultAzureCredential` to pick the corresponding cached token from the shared token cache.
 * Setting `.intelliJKeePassDatabasePath(String)` on the builder configures the `DefaultAzureCredential` to read a specific KeePass file when authenticating with IntelliJ credentials.
 
-### Authenticating with DefaultAzureCredential
+### Authenticate with DefaultAzureCredential
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
 
@@ -51,7 +51,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-### Authenticating a user assigned managed identity with DefaultAzureCredential
+### Authenticate a user assigned managed identity with DefaultAzureCredential
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, deployed to an Azure resource with a user assigned managed identity configured.
 
@@ -70,7 +70,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-### Authenticating a user in Azure Toolkit for IntelliJ with DefaultAzureCredential
+### Authenticate a user in Azure Toolkit for IntelliJ with DefaultAzureCredential
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, on a workstation with IntelliJ IDEA installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
@@ -98,7 +98,7 @@ The Managed Identity authenticates the managed identity (system or user assigned
 
 For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-### Authenticating in Azure with managed identity
+### Authenticate in Azure with managed identity
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `ManagedIdentityCredential` in a virtual machine, app service, function app, cloud shell, service fabric, arc, or AKS environment on Azure, with system assigned, or user assigned managed identity enabled.
 

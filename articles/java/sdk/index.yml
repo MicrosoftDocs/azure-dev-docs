@@ -6,7 +6,7 @@ summary: Cloud development using Java on Azure.
 metadata:
   title: Azure SDK for Java documentation
   description: Cloud development using Java on Azure
-  ms.date: 04/03/2020
+  ms.date: 01/29/2021
   ms.topic: landing-page
 
 landingContent:
@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: Identity and authentication
             url: java-sdk-identity.md
-          - text: Configuring logging
+          - text: Configure logging
             url: java-sdk-logging-overview.md
       - linkListType: learn
         links:

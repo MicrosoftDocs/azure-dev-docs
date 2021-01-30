@@ -2,7 +2,7 @@
 title: Azure authentication with user credentials
 description: An overview of the Azure SDK for Java concepts related to authenticating applications with user credentials
 author: g2vinay
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -37,7 +37,7 @@ These steps will let the application authenticate, but it still won't have permi
 
 You also need to be the admin of your tenant to grant consent to your application when you log in for the first time. Also note that after 2018 your Active Directory may require your application to be multi-tenant. Select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code) to make your application a multi-tenant app.
 
-### Authenticating a user account with device code flow
+### Authenticate a user account with device code flow
 
 The following example demonstrates authenticating the `SecretClient` from the [Azure Key Vault Secret client library for Java][secrets_client_library] using the `DeviceCodeCredential` on an IoT device.
 
@@ -68,7 +68,7 @@ Register an application in Azure Active Directory with permissions to log in on 
 
 You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the Redirect URIs subsection under the Authentication section of your registered AAD application.
 
-### Authenticating a user account interactively in the browser
+### Authenticate a user account interactively in the browser
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `InteractiveBrowserCredential`.
 

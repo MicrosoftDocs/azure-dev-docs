@@ -1,14 +1,14 @@
 ---
-title: Configuring proxies in the Azure SDK for Java
+title: Configure proxies in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to proxying
 author: alzimmermsft
-ms.date: 11/23/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: alzimmer
 ---
 
-# Configuring proxies in the Azure SDK for Java
+# Configure proxies in the Azure SDK for Java
 
 This article provides an overview of how to configure the Azure SDK for Java to make proper use of proxies.
 
@@ -23,7 +23,7 @@ The proxy configuration options are:
 * [Using a Configuration proxy](#using-a-configuration-proxy)
 * [Using an explicit proxy](#using-an-explicit-proxy)
 
-### Using an environment proxy
+### Use an environment proxy
 
 HTTP client builders, by default, will inspect the environment for proxy configurations. This process makes use of the Azure SDK for Java `Configuration` APIs. By default, whenever a client is created, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This call will read in any HTTP proxy configuration from the system environment.
 
@@ -66,7 +66,7 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
     .build();
 ```
 
-### Using a Configuration proxy
+### Use a Configuration proxy
 
 Rather than read from the environment, you may configure HTTP client builders to use a custom `Configuration`, configured with the same proxy configuration settings that are already accepted from the environment. This configuration offers the ability to have reusable configurations that are scoped to a limited use case. When the HTTP client builder is building the `HttpClient`, it will use the `ProxyOptions` returned from `ProxyOptions.fromConfiguration(<Configuration passed into the builder>)`.
 
@@ -89,7 +89,7 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
     .build();
 ```
 
-### Using an explicit proxy
+### Use an explicit proxy
 
 The Java client libraries ships with a `ProxyOptions` class that acts as the Azure client libraries type for configuring a proxy. You can configure `ProxyOptions` with the network protocol used to send proxy requests, the proxy address, proxy authentication credentials, and non-proxying hosts. Only the proxy network protocol and proxy address are required. When using authentication credentials both the username and password must be set.
 

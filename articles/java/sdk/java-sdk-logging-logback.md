@@ -1,14 +1,14 @@
 ---
-title: Logging with the Azure SDK for Java and Logback
+title: Log with the Azure SDK for Java and Logback
 description: An overview of the Azure SDK for Java integration with logback
 author: srnagar
-ms.date: 11/23/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
 ---
 
-# Logging with the Azure SDK for Java and Logback
+# Log with the Azure SDK for Java and Logback
 
 This article provides an overview of how to add logging using Logback to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/). You can therefore use logging frameworks such as [Logback](http://logback.qos.ch/).
 
@@ -56,7 +56,7 @@ You can create a Logback configuration to log to the console as shown in the fol
 </configuration>
 ```
 
-### Logging Azure core errors
+### Log Azure core errors
 
 The example configuration below is similar to the previous configuration, but it lowers the level at which logging comes from all `com.azure.core` packaged classes (including subpackages). This way, everything INFO-level and higher is logged, except for `com.azure.core`, where only ERROR-level and higher is logged. For example, you can use this approach if you find the code in `com.azure.core` too noisy. This kind of configuration can also go both ways. For example, if you want to get more debug information from classes in `com.azure.core`, you could change this setting to DEBUG.
 

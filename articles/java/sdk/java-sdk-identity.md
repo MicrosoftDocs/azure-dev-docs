@@ -2,7 +2,7 @@
 title: Azure authentication with Java and Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
 author: g2vinay
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -57,7 +57,7 @@ The `DefaultAzureCredential` is appropriate for most scenarios where the applica
 
 As noted in the [overview](java-sdk-overview.md#provision-and-manage-azure-resources-with-management-libraries) documentation, the management libraries differ slightly, and one of the ways that they differ is that there are libraries for *consuming* Azure services (called client libraries), and libraries for *managing* Azure services (called management libraries). In the sections below, there's a quick overview of authenticating in both client and management libraries.
 
-### Authenticating Azure client libraries
+### Authenticate Azure client libraries
 
 The following example below demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`.
 
@@ -69,7 +69,7 @@ SecretClient client = new SecretClientBuilder()
   .buildClient();
 ```
 
-### Authenticating Azure management libraries
+### Authenticate Azure management libraries
 
 The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
