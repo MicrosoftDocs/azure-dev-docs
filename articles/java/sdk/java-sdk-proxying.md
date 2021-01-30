@@ -19,9 +19,9 @@ application's proxying requirements.
 
 The proxy configuration options are:
 
-* [Using an environment proxy](#using-an-environment-proxy)
-* [Using a Configuration proxy](#using-a-configuration-proxy)
-* [Using an explicit proxy](#using-an-explicit-proxy)
+* [Use an environment proxy](#use-an-environment-proxy)
+* [Use a Configuration proxy](#use-a-configuration-proxy)
+* [Use an explicit proxy](#use-an-explicit-proxy)
 
 ### Use an environment proxy
 
