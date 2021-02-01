@@ -107,6 +107,8 @@ This example registers a handler that directs log output to stdout. You can use 
 
 By default, logging within the Azure libraries does not include any HTTP information. To include HTTP information in log output, you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
+**CAUTION**: HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
+
 ### Enable HTTP logging for a client object
 
 ```python
