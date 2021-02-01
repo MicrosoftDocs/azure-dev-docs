@@ -10,11 +10,13 @@ ms.author: anuchan
 
 # Pagination and iteration in the Azure SDK for Java
 
-This article provides an overview of how to make use of the Azure SDK for Java pagination and iteration functionality to work efficiently and productively with large data sets. Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure that developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they meet the same expectations:
+This article provides an overview of how to make use of the Azure SDK for Java pagination and iteration functionality to work efficiently and productively with large data sets.
 
-1. Make it possible to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` make this task easy by iterating over a paginated response deserialized into a given type `T`. `PagedIterable` implements the `Iterable` interface, and offers an API to receive a `Stream`, while `PagedFlux` provides a `Flux`. In all cases, the act of pagination is transparent, and iteration continues while there are still results iterate over.
+Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure that developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they have the same requirements:
 
-2. Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
+- Make it possible to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` make this task easy by iterating over a paginated response deserialized into a given type `T`. `PagedIterable` implements the `Iterable` interface, and offers an API to receive a `Stream`, while `PagedFlux` provides a `Flux`. In all cases, the act of pagination is transparent, and iteration continues while there are still results iterate over.
+
+- Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
 
 This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll see the synchronous iteration APIs when you work with synchronous clients, and similarly, asynchronous iteration APIs when you work with asynchronous clients.
 

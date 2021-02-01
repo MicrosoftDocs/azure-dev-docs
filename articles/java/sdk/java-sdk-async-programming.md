@@ -49,10 +49,10 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 
 | API Type                                           | No value                   | Single value            | Multiple values                         |
 |----------------------------------------------------|----------------------------|-------------------------|-------------------------------|
-| Standard Java - Synchronous APIs                   | `void`                     | `T`                     | `Iterable\<T>`                 |
-| Standard Java - Asynchronous APIs                  | `CompletableFuture\<Void>` | `CompletableFuture\<T>` | `CompletableFuture\<List\<T>>` |
-| Reactive Streams Interfaces                        | `Publisher\<Void>`         | `Publisher\<T>`         | `Publisher\<T>`                |
-| Project Reactor implementation of Reactive Streams | `Mono\<Void>`              | `Mono\<T>`              | `Flux\<T>`                     |
+| Standard Java - Synchronous APIs                   | `void`                     | `T`                     | `Iterable<T>`                 |
+| Standard Java - Asynchronous APIs                  | `CompletableFuture<Void>`  | `CompletableFuture<T>`  | `CompletableFuture<List<T>>`   |
+| Reactive Streams Interfaces                        | `Publisher<Void>`          | `Publisher<T>`          | `Publisher<T>`                 |
+| Project Reactor implementation of Reactive Streams | `Mono<Void>`               | `Mono<T>`               | `Flux<T>`                      |
 
 For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
 
