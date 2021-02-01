@@ -35,6 +35,14 @@ landingContent:
             url: https://devblogs.microsoft.com/azure-sdk/
           - text: Top tasks for JavaScript developers
             url: how-to/common-javascript-tasks.md
+  - title: Returning to Azure?
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What's new in docs 
+            url: whats-new-docs.md
+          - text: What's new with Developer Advocates
+            url: whats-new-developer-advocacy.md
   - title: Deploy and host
     linkLists:
       - linkListType: tutorial
