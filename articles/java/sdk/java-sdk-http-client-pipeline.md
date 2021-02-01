@@ -14,9 +14,9 @@ This article provides an overview of using the HTTP client and pipeline function
 
 ## HTTP clients
 
-The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations when the need arises. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure SDK for Java libraries.
+The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure SDK for Java libraries.
 
-Although Netty is the default HTTP client, there are three implementations available for your use, depending on which dependencies you already have in your project. These implementations are for:
+Although Netty is the default HTTP client, the SDK provides three client implementations, depending on which dependencies you already have in your project. These implementations are for:
 
 * [Netty](https://netty.io)
 * [OkHttp](https://square.github.io/okhttp/)
@@ -26,7 +26,7 @@ Although Netty is the default HTTP client, there are three implementations avail
 
 If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
 
-The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Depending on the libraries readers are using, be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
+The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
 
 ```xml
 <dependency>
@@ -57,7 +57,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
-The following examples show you how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
+The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user *example* with password *weakPassword*.
 
 ```java
 // Netty
@@ -103,34 +103,34 @@ AzureResourceManager azureResourceManager = AzureResourceManager.configure()
 
 The HTTP pipeline is one of the key components in achieving consistency and diagnosability in the Java client libraries for Azure. An HTTP pipeline is composed of:
 
-* HTTP Transport
+* An HTTP transport
 * HTTP pipeline policies
 
 You can provide your own custom HTTP pipeline when creating a client. If you don't provide a pipeline, the client library will create one configured to work with that specific client library.
 
 ### HTTP transport
 
-The HTTP transport is responsible for establishing the connection to the server, and sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, The Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP Transport so you can use other implementations where appropriate. The SDK also provides two more HTTP transport implementations for OkHttp and the HttpClient that ships with JDK 11 and later.
+The HTTP transport is responsible for establishing the connection to the server, and sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, the Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP transport so you can use other implementations where appropriate. The SDK also provides two more HTTP transport implementations for OkHttp and the HttpClient that ships with JDK 11 and later.
 
 ### HTTP pipeline policies
 
 A pipeline consists of a sequence of steps executed for each HTTP request-response roundtrip. Each policy has a dedicated purpose and will act on a request or a response or sometimes both. Because all client libraries have a standard 'Azure Core' layer, this layer ensures that each policy executes in order in the pipeline. When you send a request, the policies execute in the order that they're added to the pipeline. When you receive a response from the service, the policies execute in the reverse order. All policies added to the pipeline execute before you send the request and after you receive a response. The policy has to decide whether to act on the request, the response, or both. For example, a logging policy will log the request and response but the authentication policy is only interested in modifying the request.
 
-The Azure Core framework will provide the policy with necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
+The Azure Core framework will provide the policy with the necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
 ![HTTP pipeline diagram](./media/http-pipeline.svg)
 
 ### HTTP pipeline policy position
 
-When you make HTTP requests to cloud services, it's important to handle transient failures and retry failed attempts. Because this functionality is a common requirement, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
+When you make HTTP requests to cloud services, it's important to handle transient failures and to retry failed attempts. Because this functionality is a common requirement, Azure Core provides a retry policy that can watch for transient failures and automatically retry the request.
 
-This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation and policies added after the retry policy execute as many times as the retries.
+This retry policy, therefore, splits the whole pipeline into two parts: policies that execute before the retry policy and policies that execute after the retry policy. Policies added before the retry policy execute only once per API operation, and policies added after the retry policy execute as many times as the retries.
 
 So, when building the HTTP pipeline, you should understand whether to execute a policy for each request retry or once per API operation.
 
 ### Common HTTP pipeline policies
 
-HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that you can add to the pipeline.
+HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying the request ID in the header. Azure Core is pre-loaded with these commonly required HTTP policies that you can add to the pipeline.
 
 | Policy                | GitHub link        |
 |-----------------------|--------------------|
@@ -148,4 +148,4 @@ To create a custom HTTP pipeline policy, you just extend a base policy type and 
 
 ## Next steps
 
-Now that you're familiar with HTTP client functionality in the Azure SDK for Java, consider reviewing the [proxying](java-sdk-proxying.md) documentation to learn how to further customize the HTTP client being used.
+Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md) to learn how to further customize the HTTP client you're using.

@@ -12,13 +12,15 @@ ms.author: srnagar
 
 This article describes the asynchronous programming model in the Azure SDK for Java.
 
-The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs let you use the Azure SDK to build scalable applications that use system resources efficiently. However, the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries [approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) for users not familiar with asynchronous programming. As such, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
+The Azure SDK initially contained only non-blocking, asynchronous APIs for interacting with Azure services. These APIs let you use the Azure SDK to build scalable applications that use system resources efficiently. However, the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java#client-new-releases) also contains synchronous clients to cater to a wider audience, and also make our client libraries approachable for users not familiar with asynchronous programming. (See [Approachable](https://azure.github.io/azure-sdk/general_introduction.html#approachable) in the Azure SDK design guidelines.) As such, all Java client libraries in the Azure SDK for Java offer both asynchronous and synchronous clients. However, we recommend using the asynchronous clients for production systems to maximize the use of system resources.
 
 ## Reactive streams
 
-If you look at the [async client](https://azure.github.io/azure-sdk/java_design.html#java-async-client-shape) in the Azure SDK for Java design guidelines, you'll notice that instead of using [`CompletableFuture`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) provided by Java 8, our async APIs use reactive types. Why did we choose reactive types over types that are natively available in JDK?
+If you look at the [Async Service Clients](https://azure.github.io/azure-sdk/java_introduction.html#async-service-clients) section in the [Java Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/java_introduction.html), you'll notice that, instead of using `CompletableFuture` provided by Java 8, our async APIs use reactive types. Why did we choose reactive types over types that are natively available in JDK?
 
-Java 8 introduced features like Streams, Lambdas, and CompletableFuture. `CompletableFuture`s provide callback-based, non-blocking capabilities, and the `CompletionStage` interface allowed for easy composition of a series of asynchronous operations. [Lambdas](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) make these push-based APIs more readable. Lastly, [Streams](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html) provide functional-style operations to handle a collection of data elements. However, there are some limitations. Streams are synchronous and can't be reused. `CompletableFuture` allows you to make a single request, provides support for a callback, and expects a _single_ response. Many cloud services require the ability to stream data - Event Hubs for instance.
+Java 8 introduced features like [Streams](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html), [Lambdas](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html), and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). These features provide many capabilities, but have some limitations.
+
+`CompletableFuture` provides callback-based, non-blocking capabilities, and the `CompletionStage` interface allowed for easy composition of a series of asynchronous operations. Lambdas make these push-based APIs more readable. Streams provide functional-style operations to handle a collection of data elements. However, streams are synchronous and can't be reused. `CompletableFuture` allows you to make a single request, provides support for a callback, and expects a _single_ response. However, many cloud services require the ability to stream data - Event Hubs for instance.
 
 Reactive streams can help to overcome these limitations by streaming elements from a source to a subscriber. When a subscriber requests data from a source, the source sends any number of results back. It doesn't need to send them all at once. The transfer happens over a period of time, whenever the source has data to send.
 
@@ -32,12 +34,12 @@ Unlike Java Streams, reactive streams treat errors as first-class events. Reacti
 
 The [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm#reactive-streams) specification provides a standard for how the transfer of data should occur. At a high level, the specification defines the following four interfaces and specifies rules on how these interfaces should be implemented.
 
-- **Publisher** is the source of a data stream
-- **Subscriber** is the consumer of a data stream
-- **Subscription** manages the state of data transfer between a publisher and a subscriber
-- **Processor** is both a Publisher and a Subscriber
+- **Publisher** is the source of a data stream.
+- **Subscriber** is the consumer of a data stream.
+- **Subscription** manages the state of data transfer between a publisher and a subscriber.
+- **Processor** is both a publisher and a subscriber.
 
-There are some well-known Java libraries that provide implementations of this specification - [RxJava](https://github.com/ReactiveX/RxJava), [Akka Streams](https://doc.akka.io/docs/akka/current/stream/stream-introduction.html), [Vert.x](https://vertx.io/docs/#reactive), and [Project Reactor](https://projectreactor.io/docs/core/release/reference/).
+There are some well-known Java libraries that provide implementations of this specification, such as [RxJava](https://github.com/ReactiveX/RxJava), [Akka Streams](https://doc.akka.io/docs/akka/current/stream/stream-introduction.html), [Vert.x](https://vertx.io/docs/#reactive), and [Project Reactor](https://projectreactor.io/docs/core/release/reference/).
 
 The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main factor driving this decision was to provide smooth integration with [Spring Webflux](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html), which also uses Project Reactor. Another contributing factor to choose Project Reactor over RxJava was that Project Reactor uses Java 8 but RxJava, at the time, was still at Java 7. Project Reactor also offers a rich set of operators that are composable and allow you to write declarative code for building data processing pipelines. Another nice thing about Project Reactor is that it has adapters for converting Project Reactor types to other popular implementation types.
 
@@ -45,18 +47,18 @@ The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main
 
 We discussed the synchronous clients and options for asynchronous clients. The table below summarizes what APIs designed using these options look like:
 
-| API Type                                           | No value                 | Single value          | Multiple values              |
-|----------------------------------------------------|--------------------------|-----------------------|------------------------------|
-| Standard Java - Synchronous APIs                   | void                     | T                     | Iterable\<T>                 |
-| Standard Java - Asynchronous APIs                  | CompletableFuture\<Void> | CompletableFuture\<T> | CompletableFuture\<List\<T>> |
-| Reactive Streams Interfaces                        | Publisher\<Void>         | Publisher\<T>         | Publisher\<T>                |
-| Project Reactor implementation of Reactive Streams | Mono\<Void>              | Mono\<T>              | Flux\<T>                     |
+| API Type                                           | No value                   | Single value            | Multiple values                         |
+|----------------------------------------------------|----------------------------|-------------------------|-------------------------------|
+| Standard Java - Synchronous APIs                   | `void`                     | `T`                     | `Iterable\<T>`                 |
+| Standard Java - Asynchronous APIs                  | `CompletableFuture\<Void>` | `CompletableFuture\<T>` | `CompletableFuture\<List\<T>>` |
+| Reactive Streams Interfaces                        | `Publisher\<Void>`         | `Publisher\<T>`         | `Publisher\<T>`                |
+| Project Reactor implementation of Reactive Streams | `Mono\<Void>`              | `Mono\<T>`              | `Flux\<T>`                     |
 
-> For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
+For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
 
 ## Use async APIs in the Azure SDK for Java
 
-The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, the distinction between a publisher producing at most one data element versus one that produces zero or more is useful. In cloud-based APIs, this distinction indicates whether a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a result that has at most one value and an API that returns a type of `Flux` will contain a response that has zero or more values.
+The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, there's a useful distinction between a publisher producing at most one data element versus one that produces zero or more. In cloud-based APIs, this distinction indicates whether a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a response that has at most one value, and an API that returns a `Flux` will contain a response that has zero or more values.
 
 Let's take an example of [App Configuration async client](/java/api/com.azure.data.appconfiguration.configurationasyncclient) to retrieve a configuration stored in [App Configuration Azure service](/azure/azure-app-configuration/overview).
 

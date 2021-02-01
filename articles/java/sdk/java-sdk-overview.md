@@ -41,7 +41,7 @@ All Azure Java client libraries follow the same API design pattern of offering a
 
 * There's a single builder class that takes responsibility for building both the sync and async APIs. The builder is named similarly to the sync client class, with `Builder` included. For example, `KeyVaultClientBuilder`. This builder has `buildClient()` and `buildAsyncClient()` methods to create client instances, as appropriate.
 
-Because of these conventions, users of the Java client libraries should feel comfortable that all classes ending in `Client` are immutable and provide operations to interact with an Azure service. All classes that end in `ClientBuilder` provide operations to configure and create an instance of a particular client type.
+Because of these conventions, all classes ending in `Client` are immutable and provide operations to interact with an Azure service. All classes that end in `ClientBuilder` provide operations to configure and create an instance of a particular client type.
 
 ### Client libraries example
 
@@ -100,7 +100,7 @@ VirtualMachine virtualMachine = computeManager.virtualMachines()
     .create();
 ```
 
-The code to get an existing virtual machine would be:
+The following code example shows how to get an existing virtual machine:
 
 ```java
 VirtualMachine virtualMachine = computeManager.virtualMachines()
@@ -128,9 +128,9 @@ For more information on working with each management library, see the *README.md
 
 Now that you understand what the Azure SDK for Java is, you can take a deep dive into many of the cross-cutting concepts that exist to make you productive when using the libraries. The following articles provide good starting points:
 
-* [HTTP clients & pipeline](java-sdk-http-client-pipeline.md)
+* [HTTP clients and pipelines](java-sdk-http-client-pipeline.md)
 * [Asynchronous programming](java-sdk-async-programming.md)
-* [Pagination & iteration](java-sdk-pagination.md)
-* [Long-Running operations](java-sdk-lro.md)
-* [Proxying](java-sdk-proxying.md)
-* [Tracing](java-sdk-tracing.md)
+* [Pagination and iteration](java-sdk-pagination.md)
+* [Long-running operations](java-sdk-lro.md)
+* [Configure proxies](java-sdk-proxying.md)
+* [Configure tracing](java-sdk-tracing.md)
