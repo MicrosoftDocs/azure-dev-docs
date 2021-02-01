@@ -299,12 +299,14 @@ Create Terraform configuration file that creates all the resources.
       name                 = var.aks_subnet_name
       virtual_network_name = azurerm_virtual_network.test.name
       resource_group_name  = data.azurerm_resource_group.rg.name
+      depends_on = [azurerm_virtual_network.test]
     }
 
     data "azurerm_subnet" "appgwsubnet" {
       name                 = "appgwsubnet"
       virtual_network_name = azurerm_virtual_network.test.name
       resource_group_name  = data.azurerm_resource_group.rg.name
+      depends_on = [azurerm_virtual_network.test]
     }
 
     # Public Ip 
