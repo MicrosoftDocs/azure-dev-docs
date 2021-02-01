@@ -60,11 +60,11 @@ For the sake of completeness, it's worth mentioning that Java 9 introduced the [
 
 The reactive streams specification doesn't differentiate between types of publishers. In the reactive streams specification, publishers simply produce zero or more data elements. In many cases, there's a useful distinction between a publisher producing at most one data element versus one that produces zero or more. In cloud-based APIs, this distinction indicates whether a request returns a single-valued response or a collection. Project Reactor provides two types to make this distinction - [Mono](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html) and [Flux](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html). An API that returns a `Mono` will contain a response that has at most one value, and an API that returns a `Flux` will contain a response that has zero or more values.
 
-Let's take an example of [App Configuration async client](/java/api/com.azure.data.appconfiguration.configurationasyncclient) to retrieve a configuration stored in [App Configuration Azure service](/azure/azure-app-configuration/overview).
+For example, suppose you use a [ConfigurationAsyncClient](/java/api/com.azure.data.appconfiguration.configurationasyncclient) to retrieve a configuration stored using the Azure App Configuration service. (For more information, see [What is Azure App Configuration?](/azure/azure-app-configuration/overview).
 
-Creating a `ConfigurationAsyncClient` and calling the `getConfigurationSetting()` API on the client returns a `Mono`, which indicates that the response contains a single value. Here's the important bit - just calling this method alone doesn't do anything. The client has not made a request to the App Configuration service yet. At this stage, `Mono<ConfigurationSetting>` returned by this API is just an "assembly" of data processing pipeline. What this means is that the required setup for consuming the data is done. To actually trigger the data transfer (that is, to make the request to the service and get the response) the returned `Mono` must be subscribed to. So, when dealing with these reactive streams, you must remember to `subscribe()` because nothing happens until you do so.
+If you create a `ConfigurationAsyncClient` and call `getConfigurationSetting()` on the client, it returns a `Mono`, which indicates that the response contains a single value. However, calling this method alone doesn't do anything. The client has not yet made a request to the Azure App Configuration service. At this stage, the `Mono<ConfigurationSetting>` returned by this API is just an "assembly" of data processing pipeline. What this means is that the required setup for consuming the data is complete. To actually trigger the data transfer (that is, to make the request to the service and get the response), you must subscribe to the returned `Mono`. So, when dealing with these reactive streams, you must remember to call `subscribe()` because nothing happens until you do so.
 
-Let's look at a sample on how to subscribe to the `Mono` and print the value of configuration to the console.
+The following example shows how to subscribe to the `Mono` and print the configuration value to the console.
 
 ```java
 ConfigurationAsyncClient asyncClient = new ConfigurationClientBuilder()
@@ -79,12 +79,12 @@ asyncClient.getConfigurationSetting("{config-key}", "{config-value}").subscribe(
 System.out.println("Done");
 ```
 
-Notice that after calling `getConfigurationSetting()` API on the client, we subscribed to the result and provided three separate lambdas. The first lambda consumes data received from the service, which is triggered upon successful response. The second lambda is triggered if there was an error while retrieving the configuration. The third lambda is invoked when the data stream is complete, meaning no more data elements are expected from this stream.
+Notice that after calling `getConfigurationSetting()` on the client, the example code subscribes to the result and provides three separate lambdas. The first lambda consumes data received from the service, which is triggered upon successful response. The second lambda is triggered if there is an error while retrieving the configuration. The third lambda is invoked when the data stream is complete, meaning no more data elements are expected from this stream.
 
 > [!NOTE]
-> As with all asynchronous programming, after the subscription is created, execution proceeds as per usual. If there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until you make the network call to App Configuration service and receive a response. In production systems, you might continue to process something else but in this example you can add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
+> As with all asynchronous programming, after the subscription is created, execution proceeds as usual. If there's nothing to keep the program active and executing, it may terminate before the async operation completes. The main thread that called `subscribe()` won't wait until you make the network call to Azure App Configuration and receive a response. In production systems, you might continue to process something else, but in this example you can add a small delay by calling `Thread.sleep()` or use a `CountDownLatch` to give the async operation a chance to complete.
 
-APIs that return a `Flux` also follow a similar pattern, with the difference being that the first callback provided to the `subscribe()` method is called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks are invoked if either of these signals are received from the publisher.
+As shown in the following example, APIs that return a `Flux` also follow a similar pattern. The difference is that the first callback provided to the `subscribe()` method is called multiple times for each data element in the response. The error or the completion callbacks are called exactly once and are considered as terminal signals. No other callbacks are invoked if either of these signals are received from the publisher.
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
@@ -100,9 +100,9 @@ asyncClient.receive().subscribe(
 
 ### Backpressure
 
-What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and can lead to out of memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you `subscribe()` to a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. Once the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, you can transform a push-model for data transfer into a push-pull model.
+What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and this can lead to out-of-memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you call `subscribe()` on a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data, indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. After the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, you can transform a push-model for data transfer into a push-pull model.
 
-Here's an example of how you can control the rate at which events are received by the Event Hubs consumer:
+The following example shows how you can control the rate at which events are received by the Event Hubs consumer:
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
@@ -137,9 +137,9 @@ asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {
 });
 ```
 
-When the subscriber first "connects" to the publisher, the publisher hands the subscriber an instance of `Subscription`, which manages the state of the data transfer. This `Subscription` is the medium through which the subscriber can apply backpressure by calling `request()` method to specify how many more data elements it can handle.
+When the subscriber first "connects" to the publisher, the publisher hands the subscriber a `Subscription` instance, which manages the state of the data transfer. This `Subscription` is the medium through which the subscriber can apply backpressure by calling `request()` to specify how many more data elements it can handle.
 
-If the subscriber requests more than one data element each time `onNext()` is called, `request(10)` for example, the publisher will send the next 10 elements immediately if they're available or when they become available. These elements are accumulated in a buffer on the subscriber's end and since each `onNext()` call will request 10 more, the backlog keeps growing until either the publisher has no more data elements to send or the subscriber's buffer overflows resulting in out of memory errors.
+If the subscriber requests more than one data element each time it calls `onNext()`, `request(10)` for example, the publisher will send the next 10 elements immediately if they're available or when they become available. These elements accumulate in a buffer on the subscriber's end, and since each `onNext()` call will request 10 more, the backlog keeps growing until either the publisher has no more data elements to send, or the subscriber's buffer overflows, resulting in out-of-memory errors.
 
 ### Cancel a subscription
 
@@ -203,10 +203,10 @@ asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {
 
 ## Conclusion
 
-Threads are expensive resources and shouldn't be wasted waiting for response from remote service calls. As the adoption of microservices architecture increases, the need to scale and use resources efficiently becomes vital. Asynchronous APIs are favorable when there are network-bound operations. The Azure SDK for Java offers a rich set of APIs for async operations to help maximize your system resources. We highly encourage you to try out our async clients.
+Threads are expensive resources that you shouldn't waste on waiting for responses from remote service calls. As the adoption of microservices architectures increase, the need to scale and use resources efficiently becomes vital. Asynchronous APIs are favorable when there are network-bound operations. The Azure SDK for Java offers a rich set of APIs for async operations to help maximize your system resources. We highly encourage you to try out our async clients.
 
-If you need more information, you can [look up which operator to use](https://projectreactor.io/docs/core/release/reference/#which-operator) that best suits your task at hand.
+For more information on the operators that best suit your particular tasks, see [Which operator do I need?](https://projectreactor.io/docs/core/release/reference/#which-operator) in the [Reactor 3 Reference Guide](https://projectreactor.io/docs/core/release/reference/index.html).
 
 ## Next steps
 
-After reading the asynchronous programming document above, we hope you now better understand the various asynchronous programming concepts. Once you've mastered the art of async programming, it's important to know how to iterate over the results. The [pagination and iteration](java-sdk-pagination.md) documentation introduces the best iteration strategies, and details how pagination works in the Azure SDK for Java.
+Now that you better understand the various asynchronous programming concepts, it's important to learn how to iterate over the results. For more information on the best iteration strategies, and details of how pagination works, see [Pagination and iteration in the Azure SDK for Java](java-sdk-pagination.md).
