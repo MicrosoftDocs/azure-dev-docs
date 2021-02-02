@@ -28,7 +28,7 @@ Each npm package will show authentication for that exact client library. Do not 
 
 ## Azure Identity library
 
-The Azure Identity library is the newest authentication package for Azure. Review the [list of supported libraries](https://www.npmjs.com/package/@azure/identity#client-libraries-supporting-authentication-with-azure-identity) using Azure Identity.
+The Azure Identity library is the newest authentication package for Azure. Check the readme of the client library you are using to see if it supports the use of this new library.
 
 The [@azure/identity](https://www.npmjs.com/package/@azure/identity) library simplifies authentication against Azure Active Directory for Azure SDK libraries. It provides a set of TokenCredential implementations, which can be passed into SDK libraries to authenticate API requests. It supports token authentication using an Azure Active Directory service principal or managed identity.
 
