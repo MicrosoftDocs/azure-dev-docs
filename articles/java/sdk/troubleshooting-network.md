@@ -86,4 +86,4 @@ In Wireshark, navigate to **File > Open** and load a persisted capture from the 
 
 ## Next steps
 
-This topic covered using various tools to diagnose networking issues when working with the Azure SDK for Java. Now that you're familiar with the high-level usage scenarios, you can begin exploring the SDK itself. For more information on the APIs available, see the [Azure SDK for Java libraries](azure-sdk-library-package-index).
+This topic covered using various tools to diagnose networking issues when working with the Azure SDK for Java. Now that you're familiar with the high-level usage scenarios, you can begin exploring the SDK itself. For more information on the APIs available, see the [Azure SDK for Java libraries](azure-sdk-library-package-index.md).

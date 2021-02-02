@@ -2,7 +2,7 @@
   href: index.yml
   items:
     - name: Get started
-      href: azure-get-started.md
+      href: get-started.md
     - name: Concepts
       expanded: true
       items:
@@ -62,15 +62,15 @@
     - name: Code Samples
       items:
         - name: Virtual machines
-          href: azure-virtual-machine-samples.md
+          href: virtual-machine-samples.md
         - name: Web apps
-          href: azure-web-apps-samples.md
+          href: web-apps-samples.md
         - name: SQL Database
-          href: azure-sql-database-samples.md
+          href: sql-database-samples.md
         - name: Security
-          href: azure-security-samples.md
+          href: security-samples.md
         - name: Containers
-          href: azure-containers-samples.md
+          href: containers-samples.md
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
     - name: Package index

@@ -15,7 +15,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure development using Java
-            url: azure-get-started.md
+            url: get-started.md
           - text: Use the Azure SDK for Java
             url: overview.md
       - linkListType: reference
