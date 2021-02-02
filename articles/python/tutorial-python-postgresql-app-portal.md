@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
 description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom: devx-track-python
 ---
 
