@@ -20,7 +20,7 @@ You can create a resource with:
 
 ### Create a CosmosDB for MongoDB resource with Azure CLI
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com.) to create a new CosmosDB resource for a mongoDB database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new CosmosDB resource for a mongoDB database. 
 
 ```azurecli
 az cosmosdb create 
@@ -36,7 +36,7 @@ This command created a publicly available resource in the `eastus` region.
 
 ### Get a CosmosDB for MongoDB connection string with Azure CLI
 
-Use the following Azure CLI [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command in the [Azure Cloud Shell](https://shell.azure.com.) to get a connection string. 
+Use the following Azure CLI [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command in the [Azure Cloud Shell](https://shell.azure.com) to get a connection string. 
 
 ```azurecli
 az cosmosdb list-connection-strings \
