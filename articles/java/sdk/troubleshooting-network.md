@@ -10,13 +10,13 @@ ms.author: alzimmer
 
 # Troubleshoot networking issues
 
-This article describes a few tools that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root-causing a connection-closed exception.
+This article describes a few tools that can diagnose networking issues of various complexities. This includes scenarios such as troubleshooting an unexpected response value from a service, and root-causing a connection-closed exception.
 
-For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, the solution is to use the external tooling described in this article to diagnose networking issues.
+For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When these problems occur, the solution is to use the external tooling described in this article to diagnose networking issues.
 
 ## Fiddler
 
-[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. Capturing the raw requests and responses helps aid in troubleshooting scenarios where the service gets an unexpected request or the client receives an unexpected response. To use Fiddler, you need to configure the client library with an HTTP proxy. If you use HTTPS, you need extra configuration you need to inspect the decrypted request and response bodies.
+[Fiddler](https://docs.telerik.com/fiddler-everywhere/introduction) is an HTTP debugging proxy that allows for requests and responses passed through it to be logged as-is. The raw requests and responses that you capture can help you troubleshoot scenarios where the service gets an unexpected request, or the client receives an unexpected response. To use Fiddler, you need to configure the client library with an HTTP proxy. If you use HTTPS, you need extra configuration you need to inspect the decrypted request and response bodies.
 
 ### Add an HTTP proxy
 
@@ -58,31 +58,31 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and can capture broad to specific, low-level network traffic. This capability is useful for troubleshooting scenarios such as a remote host closing a connection or having connections closed during an operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, RST, and so on. You can also filter captures either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture network traffic without needing changes to application code. Wireshark is highly configurable and can capture broad to specific, low-level network traffic. This capability is useful for troubleshooting scenarios such as a remote host closing a connection or having connections closed during an operation. The Wireshark GUI displays captures using a color scheme that identifies unique capture cases, such as a TCP retransmission, RST, and so on. You can also filter captures either at capture time or during analysis.
 
 ### Configure a capture filter
 
-Capture filters reduce the number of network calls that are captured for analysis. Without capture filters, Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation. For more information, see [Capturing Live Network Data](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) in the Wireshark documentation.
+Capture filters reduce the number of network calls that are captured for analysis. Without capture filters, Wireshark will capture all traffic that goes through a network interface. This behavior can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation. For more information, see [Capturing Live Network Data](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) in the Wireshark documentation.
 
 The following example adds a capture filter to capture network traffic sent to or received from a specific host.
 
-In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This will add a filter to capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
+In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This filter will capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
 ### Capture to disk
 
-To reproduce unexpected networking exceptions, you might need to run an application for a long time to get the issue to reoccur and to see the traffic leading up to it. Additionally, it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk. Persisting to disk ensures that the captures are available for post-processing, and prevents the risk of running out of memory while reproducing the issue. For more information, see [File Input, Output, And Printing](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) in the Wireshark documentation.
+You might need to run an application for a long time to reproduce an unexpected networking exception, and to see the traffic that leads up to it. Additionally, it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk so that they are available for post-processing. This approach avoids the risk of running out of memory while you reproduce an issue. For more information, see [File Input, Output, And Printing](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) in the Wireshark documentation.
 
-The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50MB in size.
+The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50 MB in size.
 
 In Wireshark, navigate to **Capture > Options** and find the **Output** tab, then enter a file name to use. This configuration will cause Wireshark to persist captures to a single file. To enable capture to multiple files, select **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**. This configuration will have Wireshark create a new file when one of the predicates is matched. Each new file will use the same base name as the file name entered, and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**. This option will limit Wireshark to logging with only the specified number of files. When that number of files is reached, Wireshark will begin overwriting the files, starting with the oldest.
 
 ### Filter captures
 
-Sometimes you can't tightly scope the traffic that Wireshark captures - for example, if your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax for analyzing captures. For more information, see [Working With Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) in the Wireshark documentation.
+Sometimes you can't tightly scope the traffic that Wireshark captures - for example, if your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark supports filter-like syntax for analyzing captures. For more information, see [Working With Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) in the Wireshark documentation.
 
 The following example loads a persisted capture file, and filters on `ip.src_host==<IP>`.
 
-In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input will appear. In the filter input enter `ip.src_host==<IP>`. This will limit the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
+In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input will appear. In the filter input, enter `ip.src_host==<IP>`. This filter will limit the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
 
 ## Next steps
 
