@@ -2,7 +2,7 @@
 title: Pagination and iteration in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to pagination and iteration
 author: anuchandy
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: anuchan
@@ -10,7 +10,7 @@ ms.author: anuchan
 
 # Pagination and iteration in the Azure SDK for Java
 
-This article provides an overview of how to make use of the Azure SDK for Java pagination and iteration functionality to work efficiently and productively with large data sets.
+This article provides an overview of how to use the Azure SDK for Java pagination and iteration functionality to work efficiently and productively with large data sets.
 
 Many operations provided by the client libraries within the Azure Java SDK return more than one result. The Azure Java SDK defines a set of acceptable return types in these cases to ensure that developer experience is maximized through consistency. The return types used are `PagedIterable` for sync APIs and `PagedFlux` for async APIs. The APIs differ slightly on account of their different use cases, but conceptually they have the same requirements:
 
@@ -18,7 +18,7 @@ Many operations provided by the client libraries within the Azure Java SDK retur
 
 - Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
 
-This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll see the synchronous iteration APIs when you work with synchronous clients, and similarly, asynchronous iteration APIs when you work with asynchronous clients.
+This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll see the synchronous iteration APIs when you work with synchronous clients, and asynchronous iteration APIs when you work with asynchronous clients.
 
 ## Synchronous pagination and iteration
 
@@ -81,7 +81,7 @@ There's also an `iterableByPage` overload that accepts a continuation token. You
 
 #### Use Stream
 
-The `streamByPage()` method call performs the same operation as shown above. This API also has a continuation token overload, as shown in the following example, for returning to the same point of iteration at a later time.
+The following example shows how the `streamByPage()` method performs the same operation as shown above. This API also has a continuation token overload for returning to the same point of iteration at a later time.
 
 ```java
 client.listSecrets()

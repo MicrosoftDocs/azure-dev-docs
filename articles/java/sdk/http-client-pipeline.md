@@ -1,8 +1,8 @@
 ---
 title: HTTP clients and pipelines in the Azure SDK for Java
-description: An overview of the Azure SDK for Java concepts related to HTTP clients and pipelines
+description: An overview of the HTTP client and pipelines functionality in the Azure SDK for Java
 author: srnagar
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -53,9 +53,9 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 ### Configure HTTP clients
 
-When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex `HttpClient`, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient`. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
+When you build a service client, it will default to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
-The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HttpClient. These instances proxy through `http://localhost:3128` and authenticate with user *example* with password *weakPassword*.
+The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user *example* with password *weakPassword*.
 
 ```java
 // Netty
@@ -108,7 +108,7 @@ You can provide your own custom HTTP pipeline when creating a client. If you don
 
 ### HTTP transport
 
-The HTTP transport is responsible for establishing the connection to the server, and sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, the Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP transport so you can use other implementations where appropriate. The SDK also provides two more HTTP transport implementations for OkHttp and the HttpClient that ships with JDK 11 and later.
+The HTTP transport is responsible for establishing the connection to the server, and sending and receiving HTTP messages. The HTTP transport forms the gateway for the Azure SDK client libraries to interact with Azure services. As noted earlier in this article, the Azure SDK for Java uses [Netty](https://netty.io/) by default for its HTTP transport. However, the SDK also provides a pluggable HTTP transport so you can use other implementations where appropriate. The SDK also provides two more HTTP transport implementations for OkHttp and the HTTP client that ships with JDK 11 and later.
 
 ### HTTP pipeline policies
 

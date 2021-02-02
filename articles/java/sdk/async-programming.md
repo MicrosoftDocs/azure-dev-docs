@@ -1,8 +1,8 @@
 ---
 title: Asynchronous programming in the Azure SDK for Java
-description: An overview of the Azure SDK for Java concepts related to asynchronous programming
+description: An overview of asynchronous programming model in the Azure SDK for Java
 author: srnagar
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -68,10 +68,10 @@ The following example shows how to subscribe to the `Mono` and print the configu
 
 ```java
 ConfigurationAsyncClient asyncClient = new ConfigurationClientBuilder()
-    .connectionString("{connection-string}")
+    .connectionString("<your connection string>")
     .buildAsyncClient();
 
-asyncClient.getConfigurationSetting("{config-key}", "{config-value}").subscribe(
+asyncClient.getConfigurationSetting("<your config key>", "<your config value>").subscribe(
     config -> System.out.println("Config value: " + config.getValue()),
     ex -> System.out.println("Error getting configuration: " + ex.getMessage()),
     () -> System.out.println("Successfully retrieved configuration setting"));
@@ -88,8 +88,8 @@ As shown in the following example, APIs that return a `Flux` also follow a simil
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
-    .connectionString("{connection-string}")
-    .consumerGroup("{consumer-group}")
+    .connectionString("<your connection string>")
+    .consumerGroup("<your consumer group>")
     .buildAsyncConsumerClient();
 
 asyncClient.receive().subscribe(
@@ -106,8 +106,8 @@ The following example shows how you can control the rate at which events are rec
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
-    .connectionString("{connection-string}")
-    .consumerGroup("{consumer-group}")
+    .connectionString("<your connection string>")
+    .consumerGroup("<your consumer group>")
     .buildAsyncConsumerClient();
 
 asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {
@@ -149,8 +149,8 @@ The following example cancels the subscription by disposing the subscriber:
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
-    .connectionString("{connection-string}")
-    .consumerGroup("{consumer-group}")
+    .connectionString("<your connection string>")
+    .consumerGroup("<your consumer group>")
     .buildAsyncConsumerClient();
 
 Disposable disposable = asyncClient.receive().subscribe(
@@ -170,8 +170,8 @@ The follow example cancels the subscription by calling the `cancel()` method on 
 
 ```java
 EventHubConsumerAsyncClient asyncClient = new EventHubClientBuilder()
-    .connectionString("{connection-string}")
-    .consumerGroup("{consumer-group}")
+    .connectionString("<your connection string>")
+    .consumerGroup("<your consumer group>")
     .buildAsyncConsumerClient();
 
 asyncClient.receive().subscribe(new Subscriber<PartitionEvent>() {

@@ -2,7 +2,7 @@
 title: Long-running operations in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to long-running operations
 author: anuchandy
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: anuchan
@@ -10,9 +10,9 @@ ms.author: anuchan
 
 # Long-running operations in the Azure SDK for Java
 
-This article provides an overview of using long-running operations with the Azure SDK for Java. 
+This article provides an overview of using long-running operations with the Azure SDK for Java.
 
-Certain operations on Azure may take extended amounts of time to complete, that push them outside of the standard HTTP style of quick request / response flow. For example, copying data from a source URL to a Storage blob, or training a model to recognize forms, are operations that may take a few seconds to several minutes. Such operations are referred to as Long-Running Operations, and are often abbreviated as 'LRO'. An LRO may take seconds, minutes, hours, days, or longer to complete, depending on the operation requested and the process that must be performed on the server side.
+Certain operations on Azure may take extended amounts of time to complete. These operations are outside the standard HTTP style of quick request / response flow. For example, copying data from a source URL to a Storage blob, or training a model to recognize forms, are operations that may take a few seconds to several minutes. Such operations are referred to as Long-Running Operations, and are often abbreviated as 'LRO'. An LRO may take seconds, minutes, hours, days, or longer to complete, depending on the operation requested and the process that must be performed on the server side.
 
 In the Java client libraries for Azure, a convention exists that all long-running operations begin with the `begin` prefix. This prefix indicates that this operation is long-running, and that the means of interaction with this operation is slightly different that the usual request / response flow. Along with the `begin` prefix, the return type from the operation is also different than usual, to enable the full range of long-running operation functionality. As with most things in the Azure SDK for Java, there are both synchronous and asynchronous APIs for long-running operations:
 
@@ -26,7 +26,7 @@ Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to 
 Calling any API that returns a `SyncPoller` will immediately start the long-running operation. The API will return the `SyncPoller` immediately, letting you monitor the progress of the long-running operation and retrieve the final result. The following example shows how to monitor the progress of a long-running operation using the `SyncPoller`.
 
 ```java
-SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(...)
+SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(<URI to upload from>)
 PollResponse<UploadBlobProgress> response;
 
 do {
@@ -95,4 +95,4 @@ In this code, you retrieve the final result of the long-running operation by cal
 
 ## Next steps
 
-Now that you're familiar with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client.
+Now that you're familiar with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to customize the HTTP client further.

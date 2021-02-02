@@ -2,7 +2,7 @@
 title: Log with the Azure SDK for Java and java.util.logging
 description: An overview of the Azure SDK for Java integration with java.util.logging
 author: srnagar
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and java.util.logging
 
-This article provides an overview of how to add logging using java.util.logging to applications that make use of the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
+This article provides an overview of how to add logging using java.util.logging to applications that use the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
 
 To enable java.util.logging, you must do two things:
 

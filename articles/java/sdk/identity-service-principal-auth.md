@@ -2,7 +2,7 @@
 title: Azure authentication with service principal
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 author: g2vinay
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -25,10 +25,10 @@ Use the [Azure CLI][azure_cli] examples below to create or get client secret cre
 Use the following command to create a service principal and configure its access to Azure resources:
 
 ```azurecli
-az ad sp create-for-rbac -n <your-application-name> --skip-assignment
+az ad sp create-for-rbac -n <your application name> --skip-assignment
 ```
 
-This command displays output similar to the following:
+This command returns a value similar to the following output:
 
 ```output
 {
@@ -43,7 +43,7 @@ This command displays output similar to the following:
 Use the following command to create a service principal along with a certificate. Note down the path/location of this certificate.
 
 ```azurecli
-az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert
+az ad sp create-for-rbac -n <your application name> --skip-assignment --cert <certificate name> --create-cert
 ```
 
 Check the returned credentials and to note down the following information:
@@ -61,14 +61,14 @@ This credential authenticates the created service principal through its client s
  *  Authenticate with client secret.
  */
 ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
-  .clientId("<YOUR_CLIENT_ID>")
-  .clientSecret("<YOUR_CLIENT_SECRET>")
-  .tenantId("<YOUR_TENANT_ID>")
+  .clientId("<your client ID>")
+  .clientSecret("<your client secret>")
+  .tenantId("<your tenant ID>")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(clientSecretCredential)
   .buildClient();
 ```
@@ -82,16 +82,16 @@ This credential authenticates the created service principal through its client c
  *  Authenticate with a client certificate.
  */
 ClientCertificateCredential clientCertificateCredential = new ClientCertificateCredentialBuilder()
-  .clientId("<YOUR_CLIENT_ID>")
-  .pemCertificate("<PATH TO PEM CERTIFICATE>")
+  .clientId("<your client ID>")
+  .pemCertificate("<path to PEM certificate>")
   // Choose between either a PEM certificate or a PFX certificate.
-  //.pfxCertificate("<PATH TO PFX CERTIFICATE>", "PFX CERTIFICATE PASSWORD")
-  .tenantId("<YOUR_TENANT_ID>")
+  //.pfxCertificate("<path to PFX certificate>", "PFX CERTIFICATE PASSWORD")
+  .tenantId("<your tenant ID>")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(clientCertificateCredential)
   .buildClient();
 ```

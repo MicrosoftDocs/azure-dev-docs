@@ -1,8 +1,8 @@
 ---
-title: Troubleshoot networking issues
+title: Troubleshoot networking issues when using the Azure SDK for Java
 description: An overview of how to troubleshoot networking issues related to using the Azure SDK for Java
 author: alzimmermsft
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: alzimmer
@@ -10,7 +10,7 @@ ms.author: alzimmer
 
 # Troubleshoot networking issues
 
-This article describes a few tools that can diagnose networking issues of various complexities. This includes scenarios such as troubleshooting an unexpected response value from a service, and root-causing a connection-closed exception.
+This article describes a few tools that can diagnose networking issues of various complexities. These issues include scenarios that range from troubleshooting an unexpected response value from a service, to root-causing a connection-closed exception.
 
 For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When these problems occur, the solution is to use the external tooling described in this article to diagnose networking issues.
 
@@ -45,8 +45,8 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 **Windows**
 
 1. Export Fiddler's certificate.
-1. Find the JRE's keytool (usually `jre/bin`).
-1. Find the JRE's cacert (usually `jre/lib/security`).
+1. Find the JRE's keytool (usually `jre\bin`).
+1. Find the JRE's cacert (usually `jre\lib\security`).
 1. Open a command prompt and run the following command to import the certificate:
 
    ```cmd

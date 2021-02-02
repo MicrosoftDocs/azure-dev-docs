@@ -2,7 +2,7 @@
 title: Configure proxies in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to proxying
 author: alzimmermsft
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: alzimmer

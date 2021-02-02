@@ -1,8 +1,8 @@
 ---
-title: Authenticate Azure-Hosted Java applications
+title: Authenticate Azure-hosted Java applications
 description: An overview of the Azure SDK for Java concepts related to authenticating applications hosted within Azure
 author: g2vinay
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -46,7 +46,7 @@ The following example demonstrates authenticating the `SecretClient` from the [a
 ```java
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(new DefaultAzureCredentialBuilder().build())
   .buildClient();
 ```
@@ -60,12 +60,12 @@ The following example demonstrates authenticating the `SecretClient` from the [a
  * The default credential will use the user-assigned managed identity with the specified client ID.
  */
 DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
-  .managedIdentityClientId("<MANAGED_IDENTITY_CLIENT_ID>")
+  .managedIdentityClientId("<managed identity client ID>")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(defaultCredential)
   .buildClient();
 ```
@@ -87,7 +87,7 @@ DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(defaultCredential)
   .buildClient();
 ```
@@ -107,12 +107,12 @@ The following example demonstrates authenticating the `SecretClient` from the [a
  * Authenticate with a managed identity.
  */
 ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
-  .clientId("<USER ASSIGNED MANAGED IDENTITY CLIENT ID>") // required only for user-assigned
+  .clientId("<user-assigned managed identity client ID>") // required only for user-assigned
   .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(managedIdentityCredential)
   .buildClient();
 ```

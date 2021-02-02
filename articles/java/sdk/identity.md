@@ -2,7 +2,7 @@
 title: Azure authentication with Java and Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
 author: g2vinay
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -64,7 +64,7 @@ The following example below demonstrates authenticating the `SecretClient` from 
 ```java
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(new DefaultAzureCredentialBuilder().build())
   .buildClient();
 ```

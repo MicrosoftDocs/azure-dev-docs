@@ -2,7 +2,7 @@
 title: Log with the Azure SDK for Java and Logback
 description: An overview of the Azure SDK for Java integration with logback
 author: srnagar
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: srnagar
@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and Logback
 
-This article provides an overview of how to add logging using Logback to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [Logback](http://logback.qos.ch/).
+This article provides an overview of how to add logging using Logback to applications that use the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [Logback](http://logback.qos.ch/).
 
 To enable Logback logging, you must do two things:
 

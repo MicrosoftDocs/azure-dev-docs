@@ -2,7 +2,7 @@
 title: Azure authentication with user credentials
 description: An overview of the Azure SDK for Java concepts related to authenticating applications with user credentials
 author: g2vinay
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -55,7 +55,7 @@ DeviceCodeCredential deviceCodeCredential = new DeviceCodeCredentialBuilder()
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .vaultUrl("https://<your Key Vault name>.vault.azure.net")
     .credential(deviceCodeCredential)
     .buildClient();
 ```
@@ -66,9 +66,9 @@ This credential interactively authenticates a user with the default system brows
 
 ### Enable applications for interactive browser OAuth 2 flow
 
-Register an application in Azure Active Directory with permissions to log in on behalf of a user to use `InteractiveBrowserCredential`. Follow all the steps above for device code flow to register your application to support logging you into Active Directory and accessing certain resources. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
+To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow the steps above for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
-You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered AAD application.
+You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered AAD application.
 
 ### Authenticate a user account interactively in the browser
 
@@ -79,13 +79,13 @@ The following example demonstrates authenticating the `SecretClient` from the [a
  * Authenticate interactively in the browser.
  */
 InteractiveBrowserCredential interactiveBrowserCredential = new InteractiveBrowserCredentialBuilder()
-    .clientId("<YOUR_APP_CLIENT ID>")
+    .clientId("<your app client ID>")
     .redirectUrl("YOUR_APP_REGISTERED_REDIRECT_URL")
     .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .vaultUrl("https://<your Key Vault name>.vault.azure.net")
     .credential(interactiveBrowserCredential)
     .buildClient();
 ```
@@ -99,14 +99,14 @@ The `UsernamePasswordCredential` helps to authenticate a public client applicati
  * Authenticate with username, password.
  */
 UsernamePasswordCredential usernamePasswordCredential = new UsernamePasswordCredentialBuilder()
-    .clientId("<YOUR_APP_CLIENT_ID>")
-    .username("<YOUR_USERNAME>")
-    .password("<YOUR_PASSWORD>")
+    .clientId("<your app client ID>")
+    .username("<your username>")
+    .password("<your password>")
     .build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://{YOUR_KEY_VAULT_NAME}.vault.azure.net")
+    .vaultUrl("https://<your Key Vault name>.vault.azure.net")
     .credential(usernamePasswordCredential)
     .buildClient();
 ```

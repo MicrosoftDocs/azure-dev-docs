@@ -2,7 +2,7 @@
 title: Azure Authentication in Java development environments
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
 author: g2vinay
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: vigera
@@ -54,7 +54,7 @@ DeviceCodeCredential deviceCodeCredential = new DeviceCodeCredentialBuilder()
 
 // Azure SDK client builders accept the credential as a parameter
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(deviceCodeCredential)
   .buildClient();
 ```
@@ -67,7 +67,7 @@ This credential interactively authenticates a user with the default system brows
 
 To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow the steps above for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
-You may notice that in `InteractiveBrowserCredentialBuilder`, a redirect URL is required, and you need to add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered AAD application.
+You may notice that in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered AAD application.
 
 ### Authenticate a user account interactively in the browser
 
@@ -75,13 +75,13 @@ The following example demonstrates authenticating the `SecretClient` from the [a
 
 ```java
 InteractiveBrowserCredential interactiveBrowserCredential = new InteractiveBrowserCredentialBuilder()
-  .clientId("<YOUR CLIENT ID>")
+  .clientId("<your client ID>")
   .redirectUrl("http://localhost:8765")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(interactiveBrowserCredential)
   .buildClient();
 ```
@@ -101,7 +101,7 @@ az login
 Sign in as a service principal using the following command:
 
 ```bash
-az login --service-principal --username <client-id> --password <client-secret> --tenant <tenant-id>
+az login --service-principal --username <client ID> --password <client secret> --tenant <tenant ID>
 ```
 
 If the account or service principal has access to multiple tenants, make sure the desired tenant or subscription is in the state "Enabled" in the output from the following command:
@@ -127,7 +127,7 @@ AzureCliCredential cliCredential = new AzureCliCredentialBuilder().build();
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(cliCredential)
   .buildClient();
 ```
@@ -159,7 +159,7 @@ IntelliJCredential intelliJCredential = new IntelliJCredentialBuilder()
 
 // Azure SDK client builders accept the credential as a parameter
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(intelliJCredential)
   .buildClient();
 ```
@@ -181,7 +181,7 @@ VisualStudioCodeCredential visualStudioCodeCredential = new VisualStudioCodeCred
 
 // Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
+  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(visualStudioCodeCredential)
   .buildClient();
 ```

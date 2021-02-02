@@ -2,7 +2,7 @@
 title: Use the Azure SDK for Java
 description: Overview of the features and capabilities of the Azure SDK for Java that help you be more productive when provisioning, using, and managing Azure resources.
 author: jonathangiles
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.author: jogiles
@@ -25,7 +25,7 @@ The open-source Azure SDK for Java simplifies provisioning, managing, and using 
 
 ## Other details
 
-* The Azure SDK for Java libraries build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Java paradigms. However, you can always use the REST API directly from Java code, if desired.
+* The Azure SDK for Java libraries build on top of the underlying Azure REST API, allowing you to use those APIs through familiar Java paradigms. However, you can always use the REST API directly from Java code, if you prefer.
 * You can find the source code for the Azure libraries in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java). As an open-source project, contributions are welcome!
 * We're currently updating the Azure SDK for Java libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
   * This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) library.
@@ -35,7 +35,7 @@ The open-source Azure SDK for Java simplifies provisioning, managing, and using 
 
 The client (or "data plane") libraries help you write Java application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API. You can identify them because their Maven group ID is `com.azure`.
 
-All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and thus easier to use. Additionally, all client libraries follow a few important patterns:
+All Azure Java client libraries follow the same API design pattern of offering a Java builder class that's responsible for creating an instance of a client. This pattern separates the definition and instantiation of the client from its operation, allowing the client to be immutable and therefore easier to use. Additionally, all client libraries follow a few important patterns:
 
 * Client libraries that support both synchronous and asynchronous APIs must offer these APIs in separate classes. What this means is that in these cases there would be, for example, a `KeyVaultClient` for sync APIs and a `KeyVaultAsyncClient` for async APIs.
 
@@ -49,7 +49,7 @@ The following code example shows how to create a synchronous Key Vault `KeyClien
 
 ```java
 KeyClient client = new KeyClientBuilder()
-        .endpoint(<your-vault-url>)
+        .endpoint(<your Key Vault URL>)
         .credential(new DefaultAzureCredentialBuilder().build())
         .buildClient();
 ```
@@ -58,7 +58,7 @@ The following code example shows how to create an asynchronous Key Vault `KeyAsy
 
 ```java
 KeyAsyncClient client = new KeyClientBuilder()
-        .endpoint(<your-vault-url>)
+        .endpoint(<your Key Vault URL>)
         .credential(new DefaultAzureCredentialBuilder().build())
         .buildAsyncClient();
 ```
@@ -88,15 +88,15 @@ The following code example shows how to provision a new virtual machine:
 
 ```java
 VirtualMachine virtualMachine = computeManager.virtualMachines()
-    .define(<your-virtual-machine>)
+    .define(<your virtual machine>)
     .withRegion(Region.US_WEST)
-    .withExistingResourceGroup(<your-resource-group>)
+    .withExistingResourceGroup(<your resource group>)
     .withNewPrimaryNetwork("10.0.0.0/28")
     .withPrimaryPrivateIPAddressDynamic()
     .withoutPrimaryPublicIPAddress()
     .withPopularLinuxImage(KnownLinuxVirtualMachineImage.UBUNTU_SERVER_18_04_LTS)
-    .withRootUsername(<virtual-machine-username>)
-    .withSsh(<virtual-machine-ssh-key>)
+    .withRootUsername(<virtual-machine username>)
+    .withSsh(<virtual-machine SSH key>)
     .create();
 ```
 
@@ -104,7 +104,7 @@ The following code example shows how to get an existing virtual machine:
 
 ```java
 VirtualMachine virtualMachine = computeManager.virtualMachines()
-    .getByResourceGroup(<your-resource-group>, <your-virtual-machine>);
+    .getByResourceGroup(<your resource group>, <your virtual machine>);
 ```
 
 The following code example shows how to update the virtual machine and add a new data disk:
