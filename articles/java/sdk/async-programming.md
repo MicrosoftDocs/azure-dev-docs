@@ -45,7 +45,7 @@ The Azure SDK for Java adopted Project Reactor to offer its async APIs. The main
 
 ## Comparing APIs of synchronous and asynchronous operations
 
-We discussed the synchronous clients and options for asynchronous clients. The table below summarizes what APIs designed using these options look like:
+We discussed the synchronous clients and options for asynchronous clients. The table below summarizes what APIs look like that are designed using these options:
 
 | API Type                                           | No value                   | Single value            | Multiple values                         |
 |----------------------------------------------------|----------------------------|-------------------------|-------------------------------|
@@ -54,7 +54,7 @@ We discussed the synchronous clients and options for asynchronous clients. The t
 | Reactive Streams Interfaces                        | `Publisher<Void>`          | `Publisher<T>`          | `Publisher<T>`                 |
 | Project Reactor implementation of Reactive Streams | `Mono<Void>`               | `Mono<T>`               | `Flux<T>`                      |
 
-For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this doesn't include any implementation.
+For the sake of completeness, it's worth mentioning that Java 9 introduced the [Flow](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html) class that includes the four reactive streams interfaces. However, this class doesn't include any implementation.
 
 ## Use async APIs in the Azure SDK for Java
 
@@ -100,7 +100,7 @@ asyncClient.receive().subscribe(
 
 ### Backpressure
 
-What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data and this can lead to out-of-memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you call `subscribe()` on a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data, indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. After the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, you can transform a push-model for data transfer into a push-pull model.
+What happens when the source is producing the data at a faster rate than the subscriber can handle? The subscriber can get overwhelmed with data, which can lead to out-of-memory errors. The subscriber needs a way to communicate back to the publisher to slow down when it can't keep up. By default, when you call `subscribe()` on a `Flux` as shown in the example above, the subscriber is requesting an unbounded stream of data, indicating to the publisher to send the data as quickly as possible. This behavior isn't always desirable, and the subscriber may have to control the rate of publishing through "backpressure". Backpressure allows the subscriber to take control of the flow of data elements. A subscriber will request a limited number of data elements that they can handle. After the subscriber has completed processing these elements, the subscriber can request more. By using backpressure, you can transform a push-model for data transfer into a push-pull model.
 
 The following example shows how you can control the rate at which events are received by the Event Hubs consumer:
 
