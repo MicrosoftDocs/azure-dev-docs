@@ -20,17 +20,17 @@ For more information, see [Application and service principal objects in Azure Ac
 
 ## Create a service principal with the Azure CLI
 
-Use the [Azure CLI][azure_cli] snippet below to create/get client secret credentials.
+Use the [Azure CLI][azure_cli] examples below to create or get client secret credentials.
 
-* Create a service principal and configure its access to Azure resources:
+Use the following command to create a service principal and configure its access to Azure resources:
 
-```bash
+```azurecli
 az ad sp create-for-rbac -n <your-application-name> --skip-assignment
 ```
 
-Output:
+This command displays output similar to the following:
 
-```json
+```output
 {
 "appId": "generated-app-ID",
 "displayName": "dummy-app-name",
@@ -40,11 +40,17 @@ Output:
 }
 ```
 
-* Run `az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert` to create a service principal along with a certificate. Note down the path/location of this certificate.
-* Use the returned credentials above to note down the following information:
-  * `AZURE\_CLIENT\_ID` for the appId.
-  * `AZURE\_CLIENT\_SECRET` for the password.
-  * `AZURE\_TENANT\_ID` for the tenant.
+Use the following command to create a service principal along with a certificate. Note down the path/location of this certificate.
+
+```azurecli
+az ad sp create-for-rbac -n <your-application-name> --skip-assignment --cert <cert-name> --create-cert
+```
+
+Check the returned credentials and to note down the following information:
+
+* `AZURE\_CLIENT\_ID` for the appId.
+* `AZURE\_CLIENT\_SECRET` for the password.
+* `AZURE\_TENANT\_ID` for the tenant.
 
 ## Client secret credential
 
@@ -60,7 +66,7 @@ ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilde
   .tenantId("<YOUR_TENANT_ID>")
   .build();
 
-// Azure SDK client builders accept the credential as a parameter
+// Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
   .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
   .credential(clientSecretCredential)
@@ -78,12 +84,12 @@ This credential authenticates the created service principal through its client c
 ClientCertificateCredential clientCertificateCredential = new ClientCertificateCredentialBuilder()
   .clientId("<YOUR_CLIENT_ID>")
   .pemCertificate("<PATH TO PEM CERTIFICATE>")
-  // choose between either a PEM certificate or a PFX certificate
+  // Choose between either a PEM certificate or a PFX certificate.
   //.pfxCertificate("<PATH TO PFX CERTIFICATE>", "PFX CERTIFICATE PASSWORD")
   .tenantId("<YOUR_TENANT_ID>")
   .build();
 
-// Azure SDK client builders accept the credential as a parameter
+// Azure SDK client builders accept the credential as a parameter.
 SecretClient client = new SecretClientBuilder()
   .vaultUrl("https://{YOUR_VAULT_NAME}.vault.azure.net")
   .credential(clientCertificateCredential)
@@ -98,7 +104,7 @@ This article covered authentication via service principal. This form of authenti
 * [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
 * [Authentication with User Credentials](java-sdk-identity-user-auth.md)
 
-Once you've mastered authentication, consider looking into the [logging functionality](java-sdk-logging-overview.md) offered by the Azure SDK for Java.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure

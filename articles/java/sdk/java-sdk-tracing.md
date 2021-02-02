@@ -10,9 +10,11 @@ ms.author: savaity
 
 # Configure tracing in the Azure SDK for Java
 
-This article provides an overview of how to configure the Azure SDK for Java to integrate tracing functionality. The Azure SDK for Java enables tracing in all client libraries by including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based `azure-core-tracing-opentelemetry` [plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
+This article provides an overview of how to configure the Azure SDK for Java to integrate tracing functionality.
 
-There are two key concepts related to tracing: **span** and **trace**. A span represents a single operation in a trace. A span could be representative of an HTTP request, a remote procedure call (RPC), a database query, or even the path that a code takes. A trace is a tree of spans showing the path of work through a system. A trace on its own is distinguishable by a unique 16-byte sequence called a TraceID. For more information on these concepts and how they relate to OpenTelemetry, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/).
+The Azure SDK for Java enables tracing in all client libraries by including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based [azure-core-tracing-opentelemetry plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
+
+There are two key concepts related to tracing: **span** and **trace**. A span represents a single operation in a trace. A span can represent an HTTP request, a remote procedure call (RPC), a database query, or even the path that a code takes. A trace is a tree of spans showing the path of work through a system. You can distinguish a trace on its own by a unique 16-byte sequence called a TraceID. For more information on these concepts and how they relate to OpenTelemetry, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/).
 
 There are two ways to enable tracing in the Azure client libraries for Java:
 
@@ -49,7 +51,7 @@ The following sections address these problems.
 As noted above, including the dependencies will enable tracing within the Azure client libraries. However, it won't integrate with any incoming tracing data, for example in a web environment where an incoming request results in a call into an Azure client library. To enable tracing, you can create a root span in your application and pass it into the Azure client library calls, so that this span may be encapsulated into appropriate outgoing requests to Azure services. You can accomplish this task by using the `Context` parameter on all client methods, as shown in the following example:
 
 ```java
-// The 'span' given in this context is the parent span key received from the incoming request
+// The 'span' given in this context is the parent span key received from the incoming request.
 Context traceContext = new Context(PARENT_SPAN_KEY, span);
 
 // This example code passes a new configuration setting to a service, but also includes
@@ -61,7 +63,7 @@ In cases where no parent span is provided, a new parent span is created to encap
 
 #### Tracer span attributes
 
-In addition to [OpenTelemetry's required standard attributes](https://github.com/open-telemetry/opentelemetry-specification/blob/e9340d74f1ba0b651b3581d6bd5df6a92b772e18/semantic-conventions.md), the Azure client libraries annotate the spans with the attributes mentioned below:
+In addition to the required standard attributes documented in OpenTelemetry's [Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/e9340d74f1ba0b651b3581d6bd5df6a92b772e18/semantic-conventions.md)), the Azure client libraries annotate the spans with the following attributes:
 
 * `az.namespace`: Microsoft resource provider [namespaces](/azure/azure-resource-manager/management/azure-services-resource-providers) mapped to Azure services.
 * `x-ms-request-id`: The unique identifier for the request.
@@ -71,14 +73,14 @@ In addition to [OpenTelemetry's required standard attributes](https://github.com
 
 More metadata about the operation being performed is captured in the span names. The HTTP span names are set to the URI path value and the library method invocation span is of the form `<namespace qualified type>.<method name>`.
 
-For example, an App Configuration client request to set Configuration setting i.e `appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().setKey("hello").setValue("world")` will result in the following two spans:
+For example, an App Configuration client request to set the Configuration setting - that is, `appConfigClient.setConfigurationSettingWithResponse(new ConfigurationSetting().setKey("hello").setValue("world")` - will result in the following two spans:
 
-* Library method span named `AppConfig.setKey`.
-* HTTP outgoing request span named `/kv/hello`.
+* A Library method span named `AppConfig.setKey`.
+* An HTTP outgoing request span named `/kv/hello`.
 
 ### Configure tracing exports
 
-Applications that wish to make use of trace information must export traces to a distributed tracing store (such as [Zipkin](https://zipkin.io/), [Jaeger](https://www.jaegertracing.io/), and [Azure Monitor](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/monitor/microsoft-opentelemetry-exporter-azuremonitor#azure-monitor-opentelemetry-exporter-client-library-for-java)). Shown below is the Java code used to configure exporting of trace information to a Jaeger distributed tracing store running on localhost port 14250, using Jaeger-specific APIs:
+Applications that wish to make use of trace information must export traces to a distributed tracing store (such as [Zipkin](https://zipkin.io/), [Jaeger](https://www.jaegertracing.io/), and [Azure Monitor](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/monitor/microsoft-opentelemetry-exporter-azuremonitor#azure-monitor-opentelemetry-exporter-client-library-for-java)). The following example configures the exporting of trace information to a Jaeger distributed tracing store running on localhost port 14250, using Jaeger-specific APIs:
 
 ```java
 ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 14250).usePlaintext().build();
@@ -99,4 +101,4 @@ By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agen
 
 ## Next steps
 
-Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, consider reviewing [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.
+Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.
