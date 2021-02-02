@@ -84,7 +84,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#6-create-app-service-resource-in-visual-studio-code)|
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
-|Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-web-app-with-the-connection-string)|
+|Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-azure-web-app-with-the-connection-string)|
 |Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
 |Configure web app custom domain name|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#register-a-domain-name-with-your-azure-app)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
@@ -125,8 +125,10 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 |Task|using|
 |--|--|
-|Create CosmosDB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|
-|Get CosmosDB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmosdb-connection-string)|
+|Create Cosmos DB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#create-a-cosmos-db-resource-for-mongodb)|
+|Get CosmosDB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmosdb-connection-string)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#get-the-mongodb-connection-string-for-your-resource)|
+|View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
+|Use Mongoose API for mongoDB on Cosmos DB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
 
 ## Git
 
