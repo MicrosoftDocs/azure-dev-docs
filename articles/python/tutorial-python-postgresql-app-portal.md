@@ -201,6 +201,12 @@ With the code deployed and the database in place, the app is almost ready to use
     source /antenv/bin/activate
     ```
 
+1. Install dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 1. Run database migrations:
 
     ```bash
@@ -248,6 +254,8 @@ If you change the Django app's data models, however, you must migrate those chan
 1. Change into the app folder with `cd $APP_PATH`.
 
 1. Activate the virtual environment with `source /antenv/bin/activate`.
+
+1. Install requirements with `pip install -r requirements.txt`.
 
 1. Run the migrations again with `python manage.py migrate`.
 
