@@ -70,7 +70,7 @@ Logging levels are the same as the [standard logging library levels](https://doc
 | logging.ERROR             | Failures where the application is unlikely to recover (such as out of memory). |
 | logging.WARNING (default) | A function fails to perform its intended task (but not when the function can recover, such as retrying a REST API call). Functions typically log a warning when raising exceptions. The warning level automatically enables the error level. |
 | logging.INFO              | Function operates normally or a service call is canceled. Info events typically include requests, responses, and headers. The info level automatically enables the error and warning levels. |
-| logging.DEBUG             | Detailed information that is commonly used for troubleshooting and includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. CAUTION: The debug level includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security. |
+| logging.DEBUG             | Detailed information that is commonly used for troubleshooting and includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. CAUTION: If you also set `logging_enable=True`, the debug level includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security. |
 | logging.NOTSET            | Disable all logging. |
 
 ### Library-specific logging level behavior
@@ -105,30 +105,30 @@ This example registers a handler that directs log output to stdout. You can use 
 
 ## Enable HTTP logging for a client object or operation
 
-By default, logging within the Azure libraries does not include any HTTP information. To include HTTP information in log output, you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
+By default, logging within the Azure libraries does not include any HTTP information. To include HTTP information in log output (as DEBUG level), you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
 **CAUTION**: HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
-### Enable HTTP logging for a client object
+### Enable HTTP logging for a client object (DEBUG level)
 
 ```python
 from azure.storage.blob import BlobClient
 from azure.identity import DefaultAzureCredential
 
-# Enable HTTP logging on the client object
+# Enable HTTP logging on the client object when using DEBUG level
 # endpoint is the Blob storage URL.
 client = BlobClient(endpoint, DefaultAzureCredential(), logging_enable=True)
 ```
 
 Enabling HTTP logging for a client object enables logging for all operations invoked through that object.
 
-### Enable HTTP logging for a credential object
+### Enable HTTP logging for a credential object (DEBUG level)
 
 ```python
 from azure.storage.blob import BlobClient
 from azure.identity import DefaultAzureCredential
 
-# Enable HTTP logging on the credential object
+# Enable HTTP logging on the credential object when using DEBUG level
 credential = DefaultAzureCredential(logging_enable=True)
 
 # endpoint is the Blob storage URL.
@@ -137,7 +137,7 @@ client = BlobClient(endpoint, credential)
 
 Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, specifically, but not for operations in a client object that don't involve authentication.
 
-### Enable logging for an individual method
+### Enable logging for an individual method (DEBUG level)
 
 ```python
 from azure.storage.blob import BlobClient
@@ -146,7 +146,7 @@ from azure.identity import DefaultAzureCredential
 # endpoint is the Blob storage URL.
 client = BlobClient(endpoint, DefaultAzureCredential())
 
-# Enable HTTP logging for only this operation
+# Enable HTTP logging for only this operation when using DEBUG level
 client.create_container("container01", logging_enable=True)
 ```
 
