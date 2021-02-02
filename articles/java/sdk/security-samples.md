@@ -14,4 +14,4 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 
 The following table links to Java source you can use to access and work with Azure Active Directory (AD) in your apps.
 
-[!INCLUDE [java-vm-samples](includes/java-aad-samples.md)]
+[!INCLUDE [java-aad-samples](includes/java-aad-samples.md)]
