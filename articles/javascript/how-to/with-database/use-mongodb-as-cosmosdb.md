@@ -18,40 +18,7 @@ You can create a resource with:
 * [Azure portal](https://portal.azure.com)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-### Create a CosmosDB for MongoDB resource with Azure CLI
-
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new CosmosDB resource for a mongoDB database. 
-
-```azurecli
-az cosmosdb create 
-    --name YOUR-RESOURCE-NAME \
-    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
-    --resource-group YOUR-RESOURCE-GROUP \
-    --enable-public-network true \
-    --kind MongoDB \
-    --locations regionName=eastus
-```
-
-This command created a publicly available resource in the `eastus` region. 
-
-### Get a CosmosDB for MongoDB connection string with Azure CLI
-
-Use the following Azure CLI [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) command in the [Azure Cloud Shell](https://shell.azure.com) to get a connection string. 
-
-```azurecli
-az cosmosdb list-connection-strings \
-    --name YOUR-RESOURCE-NAME \
-    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
-    --resource-group YOUR-RESOURCE-GROUP \
-    --output table
-```
-
-This returns 4 connection strings, 2 read-write and 2 read-only. There are two so that you can give 2 different systems or developers a connection string to use individually. 
-
-Connect to the mongoDB database with a connection string. Make sure your service is available with one of the following:
-
-* publicly available
-* firewall settings for your client's IP address
+[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
 
 ## View and use your mongoDB on Azure CosmosDB
 
