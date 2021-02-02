@@ -164,7 +164,7 @@
     - name: With Databases
       items: 
       - name: MongoDB on CosmosDB
-        href: how-to-/with-database/use-mongodb-as-cosmosdb.md
+        href: how-to/with-database/use-mongodb-as-cosmosdb.md
     - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: Deploy containers
