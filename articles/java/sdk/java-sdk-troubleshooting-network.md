@@ -20,62 +20,70 @@ For client-side troubleshooting, the Azure client libraries for Java offer a con
 
 ### Add an HTTP proxy
 
-To add an HTTP proxy, follow the guidance in the [proxy configuration](java-sdk-proxying.md) documentation. Be sure to use the default Fiddler address of `localhost` on port 8888.
+To add an HTTP proxy, follow the guidance in [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md). Be sure to use the default Fiddler address of `localhost` on port 8888.
 
 ### Enable HTTPS decryption
 
-By default, Fiddler is able to capture only HTTP traffic. If your application uses HTTPS, you must take extra steps to trust Fiddler's certificate to allow it to capture HTTPS traffic.
+By default, Fiddler can capture only HTTP traffic. If your application uses HTTPS, you must take extra steps to trust Fiddler's certificate to allow it to capture HTTPS traffic. For more information, see [HTTPS Menu](https://docs.telerik.com/fiddler-everywhere/user-guide/settings/https) in the Fiddler documentation.
 
-This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-guide/settings/https) on trusting Fiddler's certificate. Below will discuss having your JRE trust the certificate. Without trusting the certificate HTTPS request through Fiddler may fail with security warnings.
+The following procedures describe how to use the Java Runtime Environment (JRE) to trust the certificate. Without trusting the certificate, an HTTPS request through Fiddler may fail with security warnings.
 
-#### Linux/macOS
+**Linux/macOS**
 
-1. Export Fiddler's certificate
-2. Find the JRE's keytool (usually `jre/bin`)
-3. Find the JRE's cacert (usually `jre/lib/security`)
-4. Run keytool to import the certificate: `sudo keytool -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler`
-5. Enter a password
-6. Trust the certificate
+1. Export Fiddler's certificate.
+1. Find the JRE's keytool (usually `jre/bin`).
+1. Find the JRE's cacert (usually `jre/lib/security`).
+1. Open a Bash window and run the following command to import the certificate:
 
-#### Windows
+   ```bash
+   sudo keytool -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
+   ```
 
-1. Export Fiddler's certificate
-2. Find the JRE's keytool (usually `jre/bin`)
-3. Find the JRE's cacert (usually `jre/lib/security`)
-4. Run keytool to import the certificate: `keytool.exe -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler`
-5. Enter a password
-6. Trust the certificate
+1. Enter a password.
+1. Trust the certificate.
+
+**Windows**
+
+1. Export Fiddler's certificate.
+1. Find the JRE's keytool (usually `jre/bin`).
+1. Find the JRE's cacert (usually `jre/lib/security`).
+1. Open a command prompt and run the following command to import the certificate:
+
+   ```cmd
+   keytool.exe -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
+   ```
+
+1. Enter a password.
+1. Trust the certificate.
 
 ## Wireshark
 
-[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and can capture broad through to specific low-level network traffic, which allows it to aid in troubleshooting scenarios such as a remote host closing a connection or having connections closed during operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, rst, and so on. Captures can also be filtered either at capture time or during analysis.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that can capture traffic going through a network interface without requiring changes to application code. Wireshark is highly configurable and can capture broad to specific, low-level network traffic. This capability is useful for troubleshooting scenarios such as a remote host closing a connection or having connections closed during an operation. The Wireshark GUI differentiates captures using a color scheme to easily identify unique capture cases such as a TCP retransmission, RST, and so on. You can also filter captures either at capture time or during analysis.
 
 ### Configure a capture filter
 
-Capture filters reduce the number of network calls that are captured for analysis. Without capture filters Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation.
+Capture filters reduce the number of network calls that are captured for analysis. Without capture filters, Wireshark will capture all traffic that goes through a network interface. This can produce massive amounts of data where most of it may be noise to the investigation. Using a capture filter helps preemptively scope the network traffic being captured to help target an investigation. For more information, see [Capturing Live Network Data](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) in the Wireshark documentation.
 
-Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCapture.html) on configuring traffic capture filters.
-
-The following example adds a capture filter to capture network sent to or received from a specific host.
+The following example adds a capture filter to capture network traffic sent to or received from a specific host.
 
 In Wireshark, navigate to **Capture > Capture Filters...** and add a new filter with the value `host <host IP or hostname>`. This will add a filter to capture traffic only to and from that host. If the application communicates to multiple hosts, you can add multiple capture filters, or you can add the host IP/hostname with the 'OR' operator to provide looser capture filtering.
 
 ### Capture to disk
 
-Reproducing unexpected networking exceptions may require running an application for a long time to get the issue to reproduce and see the traffic leading up to it, and it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk. Persisting to disk ensures that the captures are available for post-processing and prevents the risk of running out of memory while reproducing the issue.
-
-Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) on configuring persisting captured traffic to disk.
+To reproduce unexpected networking exceptions, you might need to run an application for a long time to get the issue to reoccur and to see the traffic leading up to it. Additionally, it may not be possible to maintain all captures in memory. Fortunately, Wireshark can log captures to disk. Persisting to disk ensures that the captures are available for post-processing, and prevents the risk of running out of memory while reproducing the issue. For more information, see [File Input, Output, And Printing](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIO.html) in the Wireshark documentation.
 
 The following example sets up Wireshark to persist captures to disk with multiple files, where the files split on either 100k capture or 50MB in size.
 
-In Wireshark, navigate to **Capture > Options** and navigate to the **Output** tab. Enter a file name to use, this will have Wireshark persist captures to a single file. Enable multiple files by selecting **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**, this will have Wireshark create a new file after one of the predicates is matched. Each new file will use the same base name as the file name entered and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**, this will limit Wireshark to logging with only X files where upon needing a new file after reaching X the oldest is overwritten.
+In Wireshark, navigate to **Capture > Options** and find the **Output** tab, then enter a file name to use. This configuration will cause Wireshark to persist captures to a single file. To enable capture to multiple files, select **Create a new file automatically** and then select **after 100000 packets** and **after 50 megabytes**. This configuration will have Wireshark create a new file when one of the predicates is matched. Each new file will use the same base name as the file name entered, and will append a unique identifier. If you want to limit the number of files that Wireshark can create, select **Use a ring buffer with X files**. This option will limit Wireshark to logging with only the specified number of files. When that number of files is reached, Wireshark will begin overwriting the files, starting with the oldest.
 
 ### Filter captures
 
-Some times it isn't possible to tightly scope the traffic captured by Wireshark, for example your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax for analyzing captures.
+Sometimes you can't tightly scope the traffic that Wireshark captures - for example, if your application communicates with multiple hosts using various protocols. In this scenario, generally with using persistent capture outlined above, it's easier to run analysis after network capturing. Wireshark provides the ability to use capture filter-like syntax for analyzing captures. For more information, see [Working With Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) in the Wireshark documentation.
 
-Wireshark provides an in-depth [guide](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html) on filtering captures.
-
-The following example loads a persisted capture file and filters on `ip.src_host==<IP>`.
+The following example loads a persisted capture file, and filters on `ip.src_host==<IP>`.
 
 In Wireshark, navigate to **File > Open** and load a persisted capture from the file location used above. After the file has loaded below the menu bar, a filter input will appear. In the filter input enter `ip.src_host==<IP>`. This will limit the capture view so that it shows only captures where the source was from the host with the IP `<IP>`.
+
+## Next steps
+
+This topic covered using various tools to diagnose networking issues when working with the Azure SDK for Java. Now that you're familiar with the high-level usage scenarios, you can begin exploring the SDK itself. For more information on the APIs available, see the [Azure SDK for Java libraries](azure-sdk-library-package-index).

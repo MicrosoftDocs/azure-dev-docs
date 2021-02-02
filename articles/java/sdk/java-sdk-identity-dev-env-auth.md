@@ -37,7 +37,9 @@ To authenticate a user through device code flow, do the following steps:
 
 These steps will let the application authenticate, but it still won't have permission to log you into Active Directory, or access resources on your behalf. To address this issue, navigate to **API Permissions**, and enable Microsoft Graph and the resources you want to access.
 
-You must also be the admin of your tenant to grant consent to your application when you log in for the first time. Also note that, after 2018, your Active Directory may require your application to be multi-tenant. To make your application a multi-tenant app, select **Accounts in any organizational directory** on the **Authentication** panel (where you enabled Device Code).
+You must also be the admin of your tenant to grant consent to your application when you log in for the first time.
+
+If you can't configure the device code flow option on your Active Directory, then it may require your app to be multi- tenant. To make your app multi-tenant, navigate to the **Authentication** panel, then select **Accounts in any organizational directory**. Then, select *yes* for **Treat application as Public Client**.
 
 ### Authenticate a user account with device code flow
 
