@@ -15,9 +15,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure development using Java
-            url: java-sdk-azure-get-started.md
+            url: azure-get-started.md
           - text: Use the Azure SDK for Java
-            url: java-sdk-overview.md
+            url: overview.md
       - linkListType: reference
         links:
           - text: Java API browser
@@ -25,20 +25,20 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Identity and authentication
-            url: java-sdk-identity.md
+            url: identity.md
           - text: Configure logging
-            url: java-sdk-logging-overview.md
+            url: logging-overview.md
       - linkListType: learn
         links:
         - text: HTTP clients and pipeline
-          url: java-sdk-http-client-pipeline.md
+          url: http-client-pipeline.md
         - text: Asynchronous programming
-          url: java-sdk-async-programming.md
+          url: async-programming.md
         - text: Pagination and iteration
-          url: java-sdk-pagination.md
+          url: pagination.md
         - text: Long-running operations
-          url: java-sdk-lro.md
+          url: lro.md
         - text: Proxying
-          url: java-sdk-proxying.md
+          url: proxying.md
         - text: Tracing
-          url: java-sdk-tracing.md
+          url: tracing.md

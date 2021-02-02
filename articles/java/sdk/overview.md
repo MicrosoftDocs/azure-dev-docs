@@ -128,9 +128,9 @@ For more information on working with each management library, see the *README.md
 
 Now that you understand what the Azure SDK for Java is, you can take a deep dive into many of the cross-cutting concepts that exist to make you productive when using the libraries. The following articles provide good starting points:
 
-* [HTTP clients and pipelines](java-sdk-http-client-pipeline.md)
-* [Asynchronous programming](java-sdk-async-programming.md)
-* [Pagination and iteration](java-sdk-pagination.md)
-* [Long-running operations](java-sdk-lro.md)
-* [Configure proxies](java-sdk-proxying.md)
-* [Configure tracing](java-sdk-tracing.md)
+* [HTTP clients and pipelines](http-client-pipeline.md)
+* [Asynchronous programming](async-programming.md)
+* [Pagination and iteration](pagination.md)
+* [Long-running operations](lro.md)
+* [Configure proxies](proxying.md)
+* [Configure tracing](tracing.md)

@@ -2,51 +2,51 @@
   href: index.yml
   items:
     - name: Get started
-      href: java-sdk-azure-get-started.md
+      href: azure-get-started.md
     - name: Concepts
       expanded: true
       items:
         - name: Overview
-          href: java-sdk-overview.md
+          href: overview.md
         - name: Common concepts
           expanded: false
           items:
             - name: HTTP clients and pipeline
-              href: java-sdk-http-client-pipeline.md
+              href: http-client-pipeline.md
             - name: Asynchronous programming
-              href: java-sdk-async-programming.md
+              href: async-programming.md
             - name: Pagination and iteration
-              href: java-sdk-pagination.md
+              href: pagination.md
             - name: Long-running operations
-              href: java-sdk-lro.md
+              href: lro.md
             - name: Proxying
-              href: java-sdk-proxying.md
+              href: proxying.md
             - name: Tracing
-              href: java-sdk-tracing.md
+              href: tracing.md
         - name: Identity and authentication
           expanded: false
           items:
             - name: Overview
-              href: java-sdk-identity.md
+              href: identity.md
             - name: Auth in development environments
-              href: java-sdk-identity-dev-env-auth.md
+              href: identity-dev-env-auth.md
             - name: Auth in Azure hosted applications
-              href: java-sdk-identity-azure-hosted-auth.md
+              href: identity-azure-hosted-auth.md
             - name: Auth with service principals
-              href: java-sdk-identity-service-principal-auth.md
+              href: identity-service-principal-auth.md
             - name: Auth with user credentials
-              href: java-sdk-identity-user-auth.md
+              href: identity-user-auth.md
         - name: Logging
           expanded: false
           items:
             - name: Overview
-              href: java-sdk-logging-overview.md
+              href: logging-overview.md
             - name: java.util.logging
-              href: java-sdk-logging-jul.md
+              href: logging-jul.md
             - name: Logback
-              href: java-sdk-logging-logback.md
+              href: logging-logback.md
             - name: Log4J
-              href: java-sdk-logging-log4j.md
+              href: logging-log4j.md
     - name: Integrations
       expanded: false
       items:
@@ -58,19 +58,19 @@
       expanded: false
       items:
         - name: Network issues
-          href: java-sdk-troubleshooting-network.md
+          href: troubleshooting-network.md
     - name: Code Samples
       items:
         - name: Virtual machines
-          href: java-sdk-azure-virtual-machine-samples.md
+          href: azure-virtual-machine-samples.md
         - name: Web apps
-          href: java-sdk-azure-web-apps-samples.md
+          href: azure-web-apps-samples.md
         - name: SQL Database
-          href: java-sdk-azure-sql-database-samples.md
+          href: azure-sql-database-samples.md
         - name: Security
-          href: java-sdk-azure-security-samples.md
+          href: azure-security-samples.md
         - name: Containers
-          href: java-sdk-azure-containers-samples.md
+          href: azure-containers-samples.md
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
     - name: Package index

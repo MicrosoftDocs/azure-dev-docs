@@ -209,4 +209,4 @@ For more information on the operators that best suit your particular tasks, see 
 
 ## Next steps
 
-Now that you better understand the various asynchronous programming concepts, it's important to learn how to iterate over the results. For more information on the best iteration strategies, and details of how pagination works, see [Pagination and iteration in the Azure SDK for Java](java-sdk-pagination.md).
+Now that you better understand the various asynchronous programming concepts, it's important to learn how to iterate over the results. For more information on the best iteration strategies, and details of how pagination works, see [Pagination and iteration in the Azure SDK for Java](pagination.md).

@@ -125,4 +125,4 @@ asyncClient.listSecrets().byPage()
 
 ## Next steps
 
-Now that you're familiar with pagination and iteration in the Azure SDK for Java, consider reviewing [Long-running operations in the Azure SDK for Java](java-sdk-lro.md). Long-running operations are operations that run for a longer duration than most normal HTTP requests, typically because they require some effort on the server side.
+Now that you're familiar with pagination and iteration in the Azure SDK for Java, consider reviewing [Long-running operations in the Azure SDK for Java](lro.md). Long-running operations are operations that run for a longer duration than most normal HTTP requests, typically because they require some effort on the server side.

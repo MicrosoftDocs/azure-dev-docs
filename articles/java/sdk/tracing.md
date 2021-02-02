@@ -101,4 +101,4 @@ By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agen
 
 ## Next steps
 
-Now that you're familiar with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.
+Now that you're familiar with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](identity.md) to learn how you can create secure applications.

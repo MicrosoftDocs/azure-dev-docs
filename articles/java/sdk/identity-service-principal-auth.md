@@ -100,11 +100,11 @@ SecretClient client = new SecretClientBuilder()
 
 This article covered authentication via service principal. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
-* [Authenticating applications hosted in Azure](java-sdk-identity-azure-hosted-auth.md)
-* [Authentication with User Credentials](java-sdk-identity-user-auth.md)
+* [Azure authentication in development environments](identity-dev-env-auth.md)
+* [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
+* [Authentication with User Credentials](identity-user-auth.md)
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [azure_cli]: /cli/azure

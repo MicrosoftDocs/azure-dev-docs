@@ -146,4 +146,4 @@ To create a custom HTTP pipeline policy, you just extend a base policy type and 
 
 ## Next steps
 
-Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md) to learn how to further customize the HTTP client you're using.
+Now that you're familiar with HTTP client functionality in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client you're using.

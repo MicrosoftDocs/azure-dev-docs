@@ -12,7 +12,7 @@ ms.author: alzimmer
 
 This article describes a few tools that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root-causing a connection-closed exception.
 
-For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, the solution is to use the external tooling described in this article to diagnose networking issues.
+For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, the solution is to use the external tooling described in this article to diagnose networking issues.
 
 ## Fiddler
 
@@ -20,7 +20,7 @@ For client-side troubleshooting, the Azure client libraries for Java offer a con
 
 ### Add an HTTP proxy
 
-To add an HTTP proxy, follow the guidance in [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md). Be sure to use the default Fiddler address of `localhost` on port 8888.
+To add an HTTP proxy, follow the guidance in [Configure proxies in the Azure SDK for Java](proxying.md). Be sure to use the default Fiddler address of `localhost` on port 8888.
 
 ### Enable HTTPS decryption
 

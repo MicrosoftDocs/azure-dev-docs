@@ -95,4 +95,4 @@ In this code, you retrieve the final result of the long-running operation by cal
 
 ## Next steps
 
-Now that you're familiar with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md) to learn how to further customize the HTTP client.
+Now that you're familiar with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](proxying.md) to learn how to further customize the HTTP client.

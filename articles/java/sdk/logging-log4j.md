@@ -10,7 +10,7 @@ ms.author: srnagar
 
 # Log with the Azure SDK for Java and Log4j
 
-This article provides an overview of how to add logging using Log4j to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/).
+This article provides an overview of how to add logging using Log4j to applications that make use of the Azure SDK for Java. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [log4j](https://logging.apache.org/log4j/2.x/).
 
 This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is equally supported by the Azure SDK for Java. To enable log4j logging, you must do two things:
 

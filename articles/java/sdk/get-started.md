@@ -431,7 +431,7 @@ az group delete --name sampleStorageResourceGroup
 
 ## Explore more samples
 
-To learn more about how to use the Azure management libraries for Java to manage resources and automate tasks, see our sample code for [virtual machines](java-sdk-azure-virtual-machine-samples.md), [web apps](java-sdk-azure-web-apps-samples.md), and [SQL database](java-sdk-azure-sql-database-samples.md).
+To learn more about how to use the Azure management libraries for Java to manage resources and automate tasks, see our sample code for [virtual machines](virtual-machine-samples.md), [web apps](web-apps-samples.md), and [SQL database](sql-database-samples.md).
 
 ## Reference and release notes
 

@@ -44,7 +44,7 @@ If the builder finds any of the environment configurations, it creates a `ProxyO
 
 You can also create an HTTP client instance that doesn't use any proxy configuration present in the system environment variables. To override the default behavior, you explicitly set a differently-configured `Configuration` in the HTTP client builder. When you set a `Configuration` in the builder, it will no longer call `Configuration.getGlobalConfiguration()`. For example, if you call `configuration(Configuration)` using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
-The following example uses the `HTTP_PROXY` environment variable with value `localhost:8888` to use Fiddler as the proxy. This code demonstrates creating a Netty and an OkHttp HTTP client. (For more information on HTTP client configuration, see [HTTP clients and pipelines](java-sdk-http-client-pipeline.md).)
+The following example uses the `HTTP_PROXY` environment variable with value `localhost:8888` to use Fiddler as the proxy. This code demonstrates creating a Netty and an OkHttp HTTP client. (For more information on HTTP client configuration, see [HTTP clients and pipelines](http-client-pipeline.md).)
 
 ```bash
 export HTTP_PROXY=localhost:8888
@@ -126,4 +126,4 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
 
 ## Next steps
 
-Now that you're familiar with proxy configuration in the Azure SDK for Java, see [Configure tracing in the Azure SDK for Java](java-sdk-tracing.md) to better understand flows within your application, and to help diagnose issues.
+Now that you're familiar with proxy configuration in the Azure SDK for Java, see [Configure tracing in the Azure SDK for Java](tracing.md) to better understand flows within your application, and to help diagnose issues.

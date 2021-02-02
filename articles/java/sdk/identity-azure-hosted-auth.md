@@ -74,7 +74,7 @@ SecretClient client = new SecretClientBuilder()
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `DefaultAzureCredential`, on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
-For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](java-sdk-identity-dev-env-auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
+For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](identity-dev-env-auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
 
 ```java
 /**
@@ -151,11 +151,11 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 This article covered authentication for applications hosted in Azure. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Azure authentication in development environments](java-sdk-identity-dev-env-auth.md)
-* [Authentication with service principals](java-sdk-identity-service-principal-auth.md)
-* [Authentication with user credentials](java-sdk-identity-user-auth.md)
+* [Azure authentication in development environments](identity-dev-env-auth.md)
+* [Authentication with service principals](identity-service-principal-auth.md)
+* [Authentication with user credentials](identity-user-auth.md)
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets
