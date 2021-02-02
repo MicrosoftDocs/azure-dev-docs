@@ -40,9 +40,7 @@ The following example shows you how to exclude the Netty dependency from a real 
       </exclusion>
     </exclusions>
 </dependency>
-```
 
-```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-http-okhttp</artifactId>

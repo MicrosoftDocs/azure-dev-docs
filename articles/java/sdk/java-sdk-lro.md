@@ -93,8 +93,6 @@ asyncClient.beginUploadFromUri(...)
 
 In this code, you retrieve the final result of the long-running operation by calling `last()`. This call tells the `PollerFlux` that you want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and you can inspect its status to determine the outcome. If the poller indicates that the long-running operation has completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
 
-The following example uses the `last()` operator to wait for all polling to complete, then retrieves the final result if LRO succeeded.
-
 ## Next steps
 
-Now that you've familiarized yourself with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md) to learn how to further customize the HTTP client.
+Now that you're familiar with the long-running APIs in the Azure SDK for Java, see [Configure proxies in the Azure SDK for Java](java-sdk-proxying.md) to learn how to further customize the HTTP client.

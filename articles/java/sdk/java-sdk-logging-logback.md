@@ -116,6 +116,6 @@ logging.config=classpath:logback.xml
 
 ## Next steps
 
-This article covered the configuration of Logback and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html). If you use Logback, there's a vast amount of [configuration guidance](http://logback.qos.ch/manual/configuration.html) on its website also.
+This article covered the configuration of Logback and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing the [SLF4J user manual](http://www.slf4j.org/manual.html) for further details. If you use Logback, there's also a vast amount of configuration guidance on its website. For more information, see [Logback configuration](http://logback.qos.ch/manual/configuration.html) in the Logback documentation.
 
-Once you've master logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).
+After you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

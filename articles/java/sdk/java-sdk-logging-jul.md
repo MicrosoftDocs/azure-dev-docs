@@ -39,7 +39,7 @@ If you would like to use a different filename other than *logging.properties*, y
 
 ### Console logging
 
-You can create a configuration to log to console as shown in the following example. This example is configured to log all logging events that are INFO level or higher, wherever they come from.
+You can create a configuration to log to the console as shown in the following example. This example is configured to log all logging events that are INFO level or higher, wherever they come from.
 
 ```properties
 handlers = java.util.logging.ConsoleHandler
@@ -52,7 +52,7 @@ java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$s] %5$s %n
 
 ### Log to a file
 
-In the examples above, logging was to the console, which isn't normally the preferred location for logs. To configure logging to a file instead, use the following configuration:
+The previous example logs to the console, which isn't normally the preferred location for logs. To configure logging to a file instead, use the following configuration:
 
 ```properties
 handlers = java.util.logging.FileHandler
@@ -67,6 +67,6 @@ This code will create a file called *myapplication.log* in your home directory (
 
 ## Next steps
 
-This article covered the configuration of `java.util.logging` and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing [the SLF4J documentation for further details](http://www.slf4j.org/manual.html).
+This article covered the configuration of `java.util.logging` and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing the [SLF4J user manual](http://www.slf4j.org/manual.html) for further details.
 
-Once you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).
+After you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).

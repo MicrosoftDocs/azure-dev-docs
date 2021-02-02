@@ -14,7 +14,7 @@ This article provides an overview of how to configure the Azure SDK for Java to 
 
 The Azure SDK for Java enables tracing in all client libraries by including a dependency on the [OpenTelemetery](https://opentelemetry.io/)-based [azure-core-tracing-opentelemetry plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). OpenTelemetry is a popular open-source observability framework for generating, capturing, and collecting telemetry data for cloud-native software.
 
-There are two key concepts related to tracing: **span** and **trace**. A span represents a single operation in a trace. A span can represent an HTTP request, a remote procedure call (RPC), a database query, or even the path that a code takes. A trace is a tree of spans showing the path of work through a system. You can distinguish a trace on its own by a unique 16-byte sequence called a TraceID. For more information on these concepts and how they relate to OpenTelemetry, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/).
+There are two key concepts related to tracing: **span** and **trace**. A span represents a single operation in a trace. A span can represent an HTTP request, a remote procedure call (RPC), a database query, or even the path that your code takes. A trace is a tree of spans showing the path of work through a system. You can distinguish a trace on its own by a unique 16-byte sequence called a TraceID. For more information on these concepts and how they relate to OpenTelemetry, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/).
 
 There are two ways to enable tracing in the Azure client libraries for Java:
 
@@ -101,4 +101,4 @@ By using a [Java in-process agent](/azure/azure-monitor/app/java-in-process-agen
 
 ## Next steps
 
-Now that you've familiarized yourself with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.
+Now that you're familiar with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](java-sdk-identity.md) to learn how you can create secure applications.

@@ -10,7 +10,9 @@ ms.author: alzimmer
 
 # Troubleshoot networking issues
 
-The Azure client libraries for Java offer a consistent and robust [logging story](java-sdk-logging-overview.md) to enable client-side troubleshooting. But, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, external tooling to diagnose networking issues is the solution. This article will discuss a few applications that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root causing a connection closed exception.
+This article describes a few tools that can diagnose networking issues of various complexities. The scenarios will range from troubleshooting an unexpected response value from a service to root-causing a connection-closed exception.
+
+For client-side troubleshooting, the Azure client libraries for Java offer a consistent and robust logging story, as described in [Configure logging in the Azure SDK for Java](java-sdk-logging-overview.md). However, the client libraries make network calls over various protocols, which may lead to troubleshooting scenarios that extend outside of the troubleshooting scope provided. When this happens, the solution is to use the external tooling described in this article to diagnose networking issues.
 
 ## Fiddler
 
@@ -22,7 +24,7 @@ To add an HTTP proxy, follow the guidance in the [proxy configuration](java-sdk-
 
 ### Enable HTTPS decryption
 
-By default Fiddler is only able to capture HTTP traffic. If your application is using HTTPS, extra steps must be taken to trust Fiddler's certificate to allow it to capture HTTPS traffic.
+By default, Fiddler is able to capture only HTTP traffic. If your application uses HTTPS, you must take extra steps to trust Fiddler's certificate to allow it to capture HTTPS traffic.
 
 This is a [high-level guide](https://docs.telerik.com/fiddler-everywhere/user-guide/settings/https) on trusting Fiddler's certificate. Below will discuss having your JRE trust the certificate. Without trusting the certificate HTTPS request through Fiddler may fail with security warnings.
 
