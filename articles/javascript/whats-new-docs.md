@@ -2,12 +2,20 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/02/2021
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 February
+
+### What's new
+
+|Name|Notes|
+|---------------------------------------|--|
+|[How to use MongoDB on Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md)|To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
 
 ## 2021 January
 
