@@ -4,7 +4,7 @@ description: This article demonstrates how to use Spring Cloud Stream Binder to 
 author: seanli1988
 manager: kyliel
 ms.author: seal
-ms.date: 10/10/2020
+ms.date: 02/03/2021
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -58,7 +58,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-        <version>2.0.0-beta.1</version> <!-- {x-version-update;com.azure.spring:azure-spring-cloud-stream-binder-servicebus-queue;current} -->
+        <version>2.2.0-beta.1</version> <!-- {x-version-update;com.azure.spring:azure-spring-cloud-stream-binder-servicebus-queue;current} -->
     </dependency>
     ```
 
@@ -68,7 +68,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.0.0-beta.1</version> <!-- {x-version-update;com.azure.spring:azure-spring-cloud-stream-binder-servicebus-topic;current} -->
+        <version>2.2.0-beta.1</version> <!-- {x-version-update;com.azure.spring:azure-spring-cloud-stream-binder-servicebus-topic;current} -->
     </dependency>
     ```
 
@@ -95,38 +95,50 @@ You can configure your app based on either the connection string or a credential
     **Service Bus queue**
 
     ```yaml
+    spring.cloud.azure.function.definition=consume;supply;
+    spring.cloud.azure.poller.fixed-delay=1000
+    spring.cloud.azure.poller.initial-delay=0
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-    spring.cloud.stream.bindings.input.destination=examplequeue
-    spring.cloud.stream.bindings.output.destination=examplequeue
-    spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode=MANUAL
+    spring.cloud.stream.bindings.consume-in-0.destination=examplequeue
+    spring.cloud.stream.bindings.supply-out-0.destination=examplequeue
+    spring.cloud.stream.servicebus.queue.bindings.consume-in-0.consumer.checkpoint-mode=MANUAL
     ```
 
     **Service Bus topic**
 
     ```yaml
+    spring.cloud.azure.function.definition=consume;supply;
+    spring.cloud.azure.poller.fixed-delay=1000
+    spring.cloud.azure.poller.initial-delay=0    
     spring.cloud.azure.servicebus.connection-string=<ServiceBusNamespaceConnectionString>
-    spring.cloud.stream.bindings.input.destination=exampletopic
-    spring.cloud.stream.bindings.input.group=examplesubscription
-    spring.cloud.stream.bindings.output.destination=exampletopic
-    spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode=MANUAL
+    spring.cloud.stream.bindings.consume-in-0.destination=exampletopic
+    spring.cloud.stream.bindings.consume-in-0.group=examplesubscription
+    spring.cloud.stream.bindings.supply-out-0.destination=exampletopic
+    spring.cloud.stream.servicebus.topic.bindings.consume-in-0.consumer.checkpoint-mode=MANUAL
     ```
 
     **<a name="fd">Field descriptions</a>**
 
     |                                        Field                                   |                                                                                   Description                                                                                    |
     |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |               `spring.cloud.azure.function.definition`                |                                        Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                   |
+    |               `spring.cloud.azure.poller.fixed-delay`                |                                        Specify fixed delay for default poller in milliseconds, default 1000L.                                   |
+    |               `spring.cloud.azure.poller.initial-delay`                |                                       Specify initial delay for periodic triggers, default 0.                                   |
     |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                   |
-    |               `spring.cloud.stream.bindings.input.destination`                 |                            Specify the Service Bus queue or Service Bus topic you used in this tutorial.                         |
-    |                  `spring.cloud.stream.bindings.input.group`                    |                                            If you used a Service Bus topic, specify the topic subscription.                                |
-    |               `spring.cloud.stream.bindings.output.destination`                |                               Specify the same value used for input destination.                        |
-    | `spring.cloud.stream.servicebus.queue.bindings.input.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
-    | `spring.cloud.stream.servicebus.topic.bindings.input.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
+    |               `spring.cloud.stream.bindings.consume-in-0.destination`                 |                            Specify the Service Bus queue or Service Bus topic you used in this tutorial.                         |
+    |                  `spring.cloud.stream.bindings.consume-in-0.group`                    |                                            If you used a Service Bus topic, specify the topic subscription.                                |
+    |               `spring.cloud.stream.bindings.supply-out-0.destination`                |                               Specify the same value used for input destination.                        |
+    | `spring.cloud.stream.servicebus.queue.bindings.consume-in-0.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
+    | `spring.cloud.stream.servicebus.topic.bindings.consume-in-0.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
 
 1. Save and close the *application.properties* file.
 
 ## Implement basic Service Bus functionality
 
 In this section, you create the necessary Java classes for sending messages to your service bus.
+The sample app has two operating modes.One way is to expose a Restful API to receive string message,
+another way is to automatically provide string messages. These messages are published to a service bus.
+The sample will also consume messages from the same service bus.
 
 ### Modify the main application class
 
@@ -143,91 +155,180 @@ In this section, you create the necessary Java classes for sending messages to y
 1. Add the following code to the file:
 
     ```java
-    package com.example;
-
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-    @SpringBootApplication
-    public class ServiceBusBinderApplication {
-
-        public static void main(String[] args) {
-            SpringApplication.run(ServiceBusBinderApplication.class, args);
-        }
-    }
+   package com.example;
+   
+   import com.azure.spring.integration.core.api.Checkpointer;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.messaging.Message;
+   
+   import java.util.function.Consumer;
+   
+   import static com.azure.spring.integration.core.AzureHeaders.CHECKPOINTER;
+   
+   @SpringBootApplication
+   public class ServiceBusBinderApplication {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+   
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceBusQueueBinderApplication.class, args);
+       }
+   
+       @Bean
+       public Consumer<Message<String>> consume() {
+           return message -> {
+               Checkpointer checkpointer = (Checkpointer) message.getHeaders().get(CHECKPOINTER);
+               LOGGER.info("New message received: '{}'", message);
+               checkpointer.success().handle((r, ex) -> {
+                   if (ex == null) {
+                       LOGGER.info("Message '{}' successfully checkpointed", message);
+                   }
+                   return null;
+               });
+           };
+       }
+   }
     ```
 
 1. Save and close the file.
 
-### Create a new class for the source connector
+### Create a new producer configuration class for profile manual
 
-1. Using a text editor, create a Java file named *StreamBinderSource.java* in the package directory of your app.
+1. Using a text editor, create a Java file named *ManualServiceProducerConfiguration.java* in the package directory of your app.
 
 1. Add the following code to the new file:
 
     ```java
-    package com.example;
-
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.cloud.stream.annotation.EnableBinding;
-    import org.springframework.cloud.stream.messaging.Source;
-    import org.springframework.messaging.support.GenericMessage;
-    import org.springframework.web.bind.annotation.PostMapping;
-    import org.springframework.web.bind.annotation.RequestParam;
-    import org.springframework.web.bind.annotation.RestController;
-
-    @EnableBinding(Source.class)
-    @RestController
-    public class StreamBinderSource {
-
-        @Autowired
-        private Source source;
-
-        @PostMapping("/messages")
-        public String postMessage(@RequestParam String message) {
-            this.source.output().send(new GenericMessage<>(message));
-            return message;
-        }
-    }
+   package com.example;
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.context.annotation.Configuration;
+   import org.springframework.context.annotation.Profile;
+   import org.springframework.messaging.Message;
+   import reactor.core.publisher.EmitterProcessor;
+   import reactor.core.publisher.Flux;
+   
+   import java.util.function.Supplier;
+   
+   @Configuration
+   @Profile("manual")
+   public class ManualServiceProducerConfiguration {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+   
+       @Bean
+       public EmitterProcessor<Message<String>> emitter() {
+           return EmitterProcessor.create();
+       }
+   
+       @Bean
+       public Supplier<Flux<Message<String>>> supply(EmitterProcessor<Message<String>> emitter) {
+           return () -> Flux.from(emitter)
+                            .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
+                            .doOnError(t -> LOGGER.error("Error encountered", t));
+       }
+   }
     ```
 
-1. Save and close the *StreamBinderSources.java* file.
+1. Save and close the *ManualServiceProducerConfiguration.java* file.
 
-### Create a new class for the sink connector
+### Create a new controller class for profile manual
 
-1. Using a text editor, create a Java file named *StreamBinderSink.java* in the package directory of your app.
+1. Using a text editor, create a Java file named *ServiceProducerController.java* in the package directory of your app.
 
 1. Add the following lines of code to the new file:
 
     ```java
-    package com.example;
-
-    import com.microsoft.azure.spring.integration.core.AzureHeaders;
-    import com.microsoft.azure.spring.integration.core.api.Checkpointer;
-    import org.springframework.cloud.stream.annotation.EnableBinding;
-    import org.springframework.cloud.stream.annotation.StreamListener;
-    import org.springframework.cloud.stream.messaging.Sink;
-    import org.springframework.messaging.handler.annotation.Header;
-
-    @EnableBinding(Sink.class)
-    public class StreamBinderSink {
-
-        @StreamListener(Sink.INPUT)
-        public void handleMessage(String message, @Header(AzureHeaders.CHECKPOINTER) Checkpointer checkpointer) {
-            System.out.println(String.format("New message received: '%s'", message));
-            checkpointer.success().handle((r, ex) -> {
-                if (ex == null) {
-                    System.out.println(String.format("Message '%s' successfully checkpointed", message));
-                }
-                return null;
-            });
-        }
-    }
+   package com.example;
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.context.annotation.Profile;
+   import org.springframework.http.ResponseEntity;
+   import org.springframework.messaging.Message;
+   import org.springframework.messaging.support.MessageBuilder;
+   import org.springframework.web.bind.annotation.GetMapping;
+   import org.springframework.web.bind.annotation.PostMapping;
+   import org.springframework.web.bind.annotation.RequestParam;
+   import org.springframework.web.bind.annotation.RestController;
+   import reactor.core.publisher.EmitterProcessor;
+   
+   @RestController
+   @Profile("manual")
+   public class ServiceProducerController {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+   
+       @Autowired
+       private EmitterProcessor<Message<String>> emitterProcessor;
+   
+       @PostMapping("/messages")
+       public ResponseEntity<String> sendMessage(@RequestParam String message) {
+           LOGGER.info("Going to add message {} to emitter", message);
+           emitterProcessor.onNext(MessageBuilder.withPayload(message).build());
+           return ResponseEntity.ok("Sent!");
+       }
+   
+       @GetMapping("/")
+       public String welcome() {
+           return "welcome";
+       }
+   }
     ```
 
-1. Save and close the *StreamBinderSink.java* file.
+1. Save and close the *ServiceProducerController.java* file.
+
+### Create a new producer configuration class for profile !manual
+
+1. Using a text editor, create a Java file named *ServiceProducerConfiguration.java* in the package directory of your app.
+
+1. Add the following lines of code to the new file:
+
+    ```java
+   package com.example;
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.context.annotation.Configuration;
+   import org.springframework.context.annotation.Profile;
+   import org.springframework.messaging.Message;
+   import org.springframework.messaging.support.MessageBuilder;
+   
+   import java.util.function.Supplier;
+   
+   @Configuration
+   @Profile("!manual")
+   public class ServiceProducerConfiguration {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+   
+       private int i = 0;
+   
+       @Bean
+       public Supplier<Message<String>> supply() {
+           return () -> {
+               LOGGER.info("Sending message, sequence " + i);
+               return MessageBuilder.withPayload("Hello world, " + i++).build();
+           };
+       }
+   }
+    ```
+
+1. Save and close the *ServiceProducerConfiguration.java* file.
 
 ## Build and test your application
+
+>[!Important]
+>
+>  When using the Restful API to send messages, the **Active profiles** must contain `manual`.
 
 1. Open a command prompt.
 
