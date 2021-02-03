@@ -22,9 +22,7 @@ You can create a resource with:
 
 ## View and use your mongoDB on Azure CosmosDB
 
-While developing your mongoDB database with JavaScript, you may need a tool to use and change the database. Use
-
-* [Cosmos explorer](https://cosmos.azure.com/) to work with your mongoDB database
+While developing your mongoDB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
 :::image type="content" source="../../media/howto-database/cosmos-explorer.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your mongoDB database.":::
 
@@ -159,6 +157,6 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongoose,
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction.md)
-* [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs.md)
-* [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration.md)
+* [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
+* [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
+* [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
