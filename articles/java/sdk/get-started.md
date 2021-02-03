@@ -13,7 +13,7 @@ ms.custom: seo-java-august2019, devx-track-java, devx-track-azurecli
 
 # Get started with cloud development using Java on Azure
 
-This article walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect to them to perform some basic tasks, like uploading a file or deploying a web application. When you're finished, you'll be ready to start using Azure services in your own Java applications.
+This article walks you through setting up a development environment for Azure development in Java. You'll then create some Azure resources and connect to them to do some basic tasks, like uploading a file or deploying a web application. When you're finished, you'll be ready to start using Azure services in your own Java applications.
 
 ## Prerequisites
 
@@ -51,14 +51,14 @@ Next, configure the environment variables:
 - `AZURE_CLIENT_SECRET`: Use the *password* value from the service principal output.
 - `AZURE_TENANT_ID`: Use the *tenant* value from the service principal output.
 
-For more options of authentication, see [Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
+For more authentication options, see the [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-java).
 
 ## Tooling
 
 ### Create a new Maven project
 
 > [!NOTE]
-> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure libraries for Java.
+> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure SDK for Java.
 
 Create a Maven project from the command line in a new directory on your system.
 
@@ -69,7 +69,7 @@ mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp \
 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-This step creates a basic Maven project under the `testAzureApp` folder. Add the following entries into the project `pom.xml` to import the libraries used in the sample code in this tutorial.
+This step creates a basic Maven project under the *testAzureApp* directory. Add the following entries into the project's *pom.xml* file to import the libraries used in the sample code in this tutorial.
 
 ```XML
 <dependency>
@@ -128,7 +128,7 @@ The [Azure toolkit](../toolkit-for-eclipse/index.yml) is necessary if you plan t
 
 ## Create a Linux virtual machine
 
-Create a new file named `AzureApp.java` in the project's `src/main/java/com/fabrikam` directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
+Create a new file named *AzureApp.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
 
 ```java
 package com.fabrikam;
@@ -157,7 +157,7 @@ public class AzureApp {
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
@@ -220,7 +220,7 @@ Replace the main method in `AzureApp.java` with the following one. Update the `a
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
             
@@ -279,7 +279,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
@@ -363,7 +363,7 @@ Replace the current main method in `AzureApp.java` with the following code. This
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
-            // If you do not set the tenant ID and subscription ID via environment variables,
+            // If you don't set the tenant ID and subscription ID via environment variables,
             // change to create the Azure profile with tenantId, subscriptionId, and Azure environment.
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 
@@ -421,7 +421,7 @@ Run the sample from the command line.
 mvn clean compile exec:java
 ```
 
-You can browse for the `helloazure.txt` file in your storage account through the Azure portal or with [Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs).
+You can browse for the *helloazure.txt* file in your storage account through the Azure portal or with [Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs).
 
 Clean up the storage account by using the CLI.
 
@@ -431,7 +431,7 @@ az group delete --name sampleStorageResourceGroup
 
 ## Explore more samples
 
-To learn more about how to use the Azure management libraries for Java to manage resources and automate tasks, see our sample code for [virtual machines](java-sdk-azure-virtual-machine-samples.md), [web apps](java-sdk-azure-web-apps-samples.md), and [SQL database](java-sdk-azure-sql-database-samples.md).
+To learn more about how to use the Azure management libraries for Java to manage resources and automate tasks, see our sample code for [virtual machines](virtual-machine-samples.md), [web apps](web-apps-samples.md), and [SQL database](sql-database-samples.md).
 
 ## Reference and release notes
 
@@ -439,4 +439,4 @@ A [reference](/java/api) is available for all packages.
 
 ## Get help and give feedback
 
-Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure libraries for Java on the [project GitHub](https://github.com/Azure/azure-sdk-for-java).
+Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure SDK for Java in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java).
