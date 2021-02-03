@@ -44,6 +44,8 @@ landingContent:
             url: /azure/app-service/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
+          - text: Static sites using Azure Storage
+            url: how-to-create-static-sites.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp          
   - title: Machine learning
