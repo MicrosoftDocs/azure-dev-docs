@@ -116,7 +116,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 1. Right click on your Function *HttpTrigger-Java*, and select *Trigger Function*, you will see that the browser is opened with the trigger URL.
 
-    ![Deploy functions to Azure run](media/quickstart-functions/explorer-trigger-functions.png)
+    ![Browser address bar showing the trigger URL](media/quickstart-functions/explorer-trigger-functions.png)
 
 ## Add more Functions to the project
 
@@ -134,7 +134,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 1. Deleting Azure Functions in Azure Explorer
       
-      ![Add functions to the project select trigger](media/quickstart-functions/delete-function.png)
+      ![Delete function in Azure Explorer](media/quickstart-functions/delete-function.png)
       
 
 ## Next steps

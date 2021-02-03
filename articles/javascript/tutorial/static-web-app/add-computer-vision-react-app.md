@@ -12,8 +12,8 @@ This sample has all the TypeScript code necessary to add Computer Vision to the 
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)
 * Azure services
-    * [Static web app](https://docs.microsoft.com/azure/static-web-apps)
-    * [Cognitive Services' Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
+    * [Static web app](/azure/static-web-apps)
+    * [Cognitive Services' Computer Vision](/azure/cognitive-services/computer-vision/)
 
 ## Add Computer Vision to local React app
 
@@ -44,4 +44,4 @@ Add methods to the React `app.js`. The image analysis and display of results are
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Clean up resources](clean-up-resources.md) 
+> [Clean up resources](clean-up-resources.md)

@@ -48,7 +48,7 @@ Notes:
 
 | Name/Installer | Description |
 | --- | --- |
-| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
+| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
 
 ### Verify components
 
@@ -131,7 +131,7 @@ Each developer in your organization should perform these steps individually.
 
 #### What the create-for-rbac command does
 
-The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
+The `az ad sp create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
 
 - `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command reference.
 

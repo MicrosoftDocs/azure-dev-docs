@@ -2,7 +2,7 @@
 title: Deploy Node.js apps to Azure App Service from Visual Studio Code
 description: Deploy an Express.js Node.js application to Azure App Service using the Visual Studio Code App Service extension.
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-js
 ---
 
@@ -37,41 +37,11 @@ Watch this video for a complete walkthrough of the content in this article.
 
 ## 3. Create a local Express.js app
 
-Create a Node.js app using the Express.js application generator. 
-
-1. In a terminal or command prompt, navigate to a location where you want to create the app folder.
-
-1. Run the following command to create a new Express app named *expressApp1* using the Express Generator. (The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine, formerly known as Jade, and to create a *.gitignore* file.)
-
-    ```bash
-    npx express-generator expressApp1 -–git --view pug 
-    ```
-
-1. Navigate into the app folder:
-
-    ```bash
-    cd expressApp1
-    ```
-
-1. Install the application's dependencies:
-
-    ```bash
-    npm install
-    ```
+[!INCLUDE [Create a local Express.js app](../includes/create-node-app.md)]
 
 ## 4. Run your local Express.js app
 
-1. Start the server:
-
-    ```bash
-    npm start
-    ```
-
-1. Test the app by opening a browser to `http://localhost:3000`. The site should appear as follows:
-
-    ![Running Express Application](../media/deploy-azure/express.png)
-
-1. Press **Ctrl**+**C** in the terminal to stop the server.
+[!INCLUDE [Run your local Express.js app](../includes/run-node-app.md)]
 
 ## 5. Initialize Git in Visual Studio Code for current app
 
@@ -164,7 +134,16 @@ View (tail) any output that the running app generates through calls to `console.
 
 1. Refresh the web page a few times in the browser to see additional log output.
 
-## 8. Clean up resources
+## 8. Make changes and redeploy
+
+1. Make a small change to the app. Change `Welcome to Express` to `Welcome to Express with Visual Studio Code`. 
+
+1. Right-click your app service from the list of App services in the App service extension, then select **Deploy to Web App...**. 
+
+    :::image type="content" source="../media/deploy-azure/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
+
+
+## 9. Clean up resources
 
 When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.
 

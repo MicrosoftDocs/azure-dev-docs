@@ -163,7 +163,7 @@ Enter the following to Unlock Jenkins:
 
 Open a web browser to the URL displayed and enter the unlock key. Follow the on-screen prompts to complete the Jenkins configuration:
 
-- Choose **Install suggested plugins**
+- Choose **Install suggested plug-ins**
 - Create the first admin user. Enter a username, such as *azureuser*, then provide your own secure password. Finally, type a full name and e-mail address.
 - Select **Save and Finish**
 - Once Jenkins is ready, select **Start using Jenkins**

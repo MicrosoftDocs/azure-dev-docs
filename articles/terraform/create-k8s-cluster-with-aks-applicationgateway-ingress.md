@@ -299,12 +299,14 @@ Create Terraform configuration file that creates all the resources.
       name                 = var.aks_subnet_name
       virtual_network_name = azurerm_virtual_network.test.name
       resource_group_name  = data.azurerm_resource_group.rg.name
+      depends_on = [azurerm_virtual_network.test]
     }
 
     data "azurerm_subnet" "appgwsubnet" {
       name                 = "appgwsubnet"
       virtual_network_name = azurerm_virtual_network.test.name
       resource_group_name  = data.azurerm_resource_group.rg.name
+      depends_on = [azurerm_virtual_network.test]
     }
 
     # Public Ip 
@@ -461,6 +463,10 @@ Create Terraform configuration file that creates all the resources.
         dns_service_ip     = var.aks_dns_service_ip
         docker_bridge_cidr = var.aks_docker_bridge_cidr
         service_cidr       = var.aks_service_cidr
+      }
+
+      role_based_access_control {
+        enabled = var.aks_enable_rbac
       }
 
       depends_on = [azurerm_virtual_network.test, azurerm_application_gateway.network]

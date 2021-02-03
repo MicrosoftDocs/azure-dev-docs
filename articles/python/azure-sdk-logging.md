@@ -1,7 +1,7 @@
 ---
 title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
-ms.date: 06/04/2020
+ms.date: 02/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,11 +10,13 @@ ms.custom: devx-track-python
 
 Azure Libraries for Python that are [based on azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) page provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
 
-Logger output is not enabled by default. To enable logging:
+The general process to work with logging is as follows:
 
 1. Acquire the logging object for the desired library and set the logging level.
 1. Register a handler for the logging stream.
-1. Enable logging by passing a `logging_enable=True` parameter to a client object constructor or to a specific method.
+1. To include HTTP information, pass a `logging_enable=True` parameter to a client object constructor, a credential object constructor, or to a specific method.
+
+Details are provided in the remaining sections of this article.
 
 As a general rule, the best resource for understanding logging usage within the libraries is to browse the SDK source code at [github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python). We encourage you to clone this repository locally so you can easily search for details when needed, as the following sections suggest.
 
@@ -68,7 +70,7 @@ Logging levels are the same as the [standard logging library levels](https://doc
 | logging.ERROR             | Failures where the application is unlikely to recover (such as out of memory). |
 | logging.WARNING (default) | A function fails to perform its intended task (but not when the function can recover, such as retrying a REST API call). Functions typically log a warning when raising exceptions. The warning level automatically enables the error level. |
 | logging.INFO              | Function operates normally or a service call is canceled. Info events typically include requests, responses, and headers. The info level automatically enables the error and warning levels. |
-| logging.DEBUG             | Detailed information that is commonly used for troubleshooting. Debug is the only logging level that includes sensitive information such as account keys in headers. Debug output typically includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. |
+| logging.DEBUG             | Detailed information that is commonly used for troubleshooting and includes a stack trace for exceptions. The debug level automatically enables the info, warning, and error levels. CAUTION: If you also set `logging_enable=True`, the debug level includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security. |
 | logging.NOTSET            | Disable all logging. |
 
 ### Library-specific logging level behavior
@@ -99,41 +101,58 @@ handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(handler)
 ```
 
-This example registers a handler that directs log output to stdout. You can use other types of handlers as described on [logging.handlers](https://docs.python.org/3/library/logging.handlers.html) in the Python documentation.
+This example registers a handler that directs log output to stdout. You can use other types of handlers as described on [logging.handlers](https://docs.python.org/3/library/logging.handlers.html) in the Python documentation or use the standard [logging.basicConfig](https://docs.python.org/3/library/logging.html#logging.basicConfig) method.
 
-## Enable logging for a client object or operation
+## Enable HTTP logging for a client object or operation
 
-Even after you've set a logging level set and registered a handler, you must still instruct the Azure libraries to enable logging for either a client object constructor or operation method.
+By default, logging within the Azure libraries does not include any HTTP information. To include HTTP information in log output (as DEBUG level), you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
-### Enable logging for a client object
+**CAUTION**: HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
+
+### Enable HTTP logging for a client object (DEBUG level)
 
 ```python
 from azure.storage.blob import BlobClient
 from azure.identity import DefaultAzureCredential
 
+# Enable HTTP logging on the client object when using DEBUG level
 # endpoint is the Blob storage URL.
 client = BlobClient(endpoint, DefaultAzureCredential(), logging_enable=True)
 ```
 
-Enabling logging for a client object enables logging for all operations invoked through that object.
+Enabling HTTP logging for a client object enables logging for all operations invoked through that object.
 
-### Enable logging for an operation
+### Enable HTTP logging for a credential object (DEBUG level)
 
 ```python
 from azure.storage.blob import BlobClient
 from azure.identity import DefaultAzureCredential
 
-# Logging is not enabled on this client.
+# Enable HTTP logging on the credential object when using DEBUG level
+credential = DefaultAzureCredential(logging_enable=True)
+
+# endpoint is the Blob storage URL.
+client = BlobClient(endpoint, credential)
+```
+
+Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, specifically, but not for operations in a client object that don't involve authentication.
+
+### Enable logging for an individual method (DEBUG level)
+
+```python
+from azure.storage.blob import BlobClient
+from azure.identity import DefaultAzureCredential
+
 # endpoint is the Blob storage URL.
 client = BlobClient(endpoint, DefaultAzureCredential())
 
-# Enable logging for only this operation
+# Enable HTTP logging for only this operation when using DEBUG level
 client.create_container("container01", logging_enable=True)
 ```
 
 ## Example logging output
 
-The following code is that shown in [Example: Use a storage account](azure-sdk-example-storage-use.md) with the addition of enabling DEBUG logging (comments omitted for brevity):
+The following code is that shown in [Example: Use a storage account](azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging (comments omitted for brevity):
 
 ```python
 import os, sys, logging

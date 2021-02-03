@@ -2,7 +2,7 @@
 title: Deploy Express.js/MongoDB app with VSCode - App Service/CosmosDB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
-ms.date: 12/03/2020
+ms.date: 01/12/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ---
 
@@ -11,6 +11,8 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascrip
 Deploy the Express.js application which connects to MongoDB to Azure App Service (on Linux) and a CosmosDB. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
+
+* **[Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)**
 
 ## Top tasks
 
@@ -22,7 +24,7 @@ This tutorial includes several **top Azure tasks** for JavaScript developers:
 
 ## Sample application
 
-The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mongo)consists of the following elements:
+The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mongo) consists of the following elements:
 
 * **Express.js server** hosted on port 8080
 * Simple **React.js server-side view** engine
@@ -135,6 +137,10 @@ Use the Visual Studio Code extension for App Service to create an App service re
 
 1. Open the website in a browser, replace the text `YOUR-RESOURCE_NAME` with your own resource name: `https://YOUR-RESOURCE_NAME.azurewebsites.net`.
 1. Use the web app, adding and deleting items. 
+
+## Make changes and redeploy
+
+Make a few changes and [redeploy](../how-to/deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code) the app using the App service extension. 
 
 ## Clean up resources 
 

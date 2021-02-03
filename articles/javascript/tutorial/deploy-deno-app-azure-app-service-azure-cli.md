@@ -89,7 +89,7 @@ Deploy your Deno app to Azure using Azure CLI.
 
     This AppService runs the `anthonychu/azure-webapps-deno:1.0.2` Docker image, which provides the base functionality to run any Deno code. This process may take a few seconds to complete.
 
-## 5. Configure the Azure app service webapp
+## 5. Configure App service Deno container
 
 1. Tell the webapp where to get the Docker container image for the experimental Deno image name:
 
@@ -152,6 +152,6 @@ az group delete deno-quickstart
 
 Learn more about:
 * [Learn about how to configure your app settings](../how-to/configure-web-app-settings.md)
-* [Deploy to App service](../tutorial-vscode-azure-app-service-node-01.md) with Visual Studio Code extensions
+* [Deploy to App service](./deploy-nodejs-azure-app-service-with-visual-studio-code.md) with Visual Studio Code extensions
 * [Deploy to a Virtual Machine](./nodejs-virtual-machine-vm/introduction.md)
 * [Deploy Deno function](https://github.com/anthonychu/azure-functions-deno-worker) as a [custom handler](/azure/azure-functions/functions-custom-handlers)

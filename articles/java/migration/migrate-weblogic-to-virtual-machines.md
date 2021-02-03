@@ -154,7 +154,7 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 * Using Azure Storage to serve static content mounted to the virtual machines. For more information, see [Attach or detach a data disk to a virtual machine](/azure/lab-services/devtest-lab-attach-detach-data-disk).
 
-* Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+* Deploy your applications to your migrated WebLogic cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started).
 
 * If you deployed WebLogic Server with Azure Application Gateway by following the steps in [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](migrate-weblogic-with-app-gateway.md), you may want to do additional configuration on the Application Gateway.  For more information, see [Application Gateway configuration overview
 ](/azure/application-gateway/configuration-overview).

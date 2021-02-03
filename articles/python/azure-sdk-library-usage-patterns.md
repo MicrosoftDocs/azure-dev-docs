@@ -192,12 +192,13 @@ If your JSON isn't formed properly, you typically get the error, "Deserializatio
 
 ## Next steps
 
-Now that you understand the common patterns for using the Azure libraries for Python, see the following standalone examples to explore specific management and client library scenarios:
+Now that you understand the common patterns for using the Azure libraries for Python, see the following standalone examples to explore specific management and client library scenarios. You can try these examples in any order as they are neither sequential nor interdependent.
 
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
 
-You can try these examples in any order as they are neither sequential nor interdependent.
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

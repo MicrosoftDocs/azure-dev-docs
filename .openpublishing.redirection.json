@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
       "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
     },
@@ -685,9 +689,41 @@
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
     },
     {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-01.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-02.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-03.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-04.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-05.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-06.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-07.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
       "source_path": "articles/python/cloud-azure-terminology.md",
       "redirect_url": "/azure/azure-glossary-cloud-terminology"
-    },
+    },    
     {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
@@ -749,16 +785,20 @@
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
     },
     {
-      "source_path": "articles/developer/jenkins/azure-dev-spaces-and-aks.md",
+      "source_path": "articles/jenkins/azure-dev-spaces-and-aks.md",
       "redirect_url": "/azure/developer/jenkins"
     },
     {
-      "source_path": "articles/developer/jenkins/deploy-from-github-to-azure-app-service.md",
+      "source_path": "articles/jenkins/deploy-from-github-to-azure-app-service.md",
       "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
     },
     {
-      "source_path": "articles/developer/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "source_path": "articles/jenkins/deploy-to-azure-app-service-using-plugin.md",
       "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
     }
   ]
 }
