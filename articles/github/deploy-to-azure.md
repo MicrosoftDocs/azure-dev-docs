@@ -31,7 +31,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 ## Azure Key Vault
 
-- [Use Key Vault secrets in GitHub Actions workflows](/azure/key-vault/secrets/quick-create-github-secret)
+- [Use Key Vault secrets in GitHub Actions workflows](github-key-vault.md)
 
 ## Azure Storage
 
