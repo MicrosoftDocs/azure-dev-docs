@@ -123,12 +123,24 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## Databases
 
+### MariaDB
+
+|Task|Using|
+|--|--|
+|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource)|
+|Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
+|View database|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)|
+
+### MongoDB on Cosmos DB
+
 |Task|using|
 |--|--|
 |Create Cosmos DB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#create-a-cosmos-db-resource-for-mongodb)|
 |Get CosmosDB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmosdb-connection-string)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#get-the-mongodb-connection-string-for-your-resource)|
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use Mongoose API for mongoDB on Cosmos DB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
+
+
 
 ## Git
 
