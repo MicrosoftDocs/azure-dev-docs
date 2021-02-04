@@ -5,7 +5,7 @@ ms.date: 02/04/2021
 ---
 
 
-## Create a MariaDB resource
+## Create a MariaDB resource with Azure CLI
 
 Use the following Azure CLI [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB resource for your database. 
 
@@ -24,7 +24,7 @@ az mariadb server create \
 
 This command may take a couple of minutes to complete and creates a publicly available resource in the `eastus` region. 
 
-## Create a database on the server
+## Create a database on the server with Azure CLI
 
 Use the following Azure CLI [az mariadb db create](/cli/azure/mariadb/db#az_mariadb_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB database on your server. 
 
@@ -36,7 +36,7 @@ az mariadb db create \
     --name YOURDATABASENAME
 ```
 
-## Get the MariaDB connection string 
+## Get the MariaDB connection string with Azure CLI
 
 Retrieve the MariaDB connection string for this instance with the [az mariadb server show-connection-string](/cli/azure/mariadb/server#az_mariadb_server_show_connection_string) command:
 
