@@ -27,7 +27,7 @@ While developing your MariaDB database with JavaScript, use one of the following
 * [MySQL Workbench](https://www.mysql.com/products/workbench/)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)
 
-## Use SDK packages to developer with your MariaDB on Azure
+## Use SDK packages to develope your MariaDB on Azure
 
 The Azure MariaDB uses npm packages already available, such as:
 
