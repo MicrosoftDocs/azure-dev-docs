@@ -139,9 +139,9 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 |Task|Using|
 |--|--|
-|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./how-to/with-azure-cli/create-mariadb.md#create-a-mariadb-resource)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
-|Get Connection string|[Azure CLI](./how-to/with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
-|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb?branch=pr-en-us-1525#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
+|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
+|Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
+|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb.md#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
 ### MongoDB on Cosmos DB
 
