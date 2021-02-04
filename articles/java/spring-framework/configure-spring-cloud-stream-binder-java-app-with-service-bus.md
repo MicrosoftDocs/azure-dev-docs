@@ -35,7 +35,7 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, select **8** Java version.
+1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, under **Spring Boot**, select 2.3.8, select **8** Java version.
 
 
 ## Use the Spring Cloud Stream Binder starter
@@ -245,7 +245,7 @@ In this section, you create the necessary Java classes for sending messages to y
    @Configuration
    public class ServiceProducerConfiguration {
    
-       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusBinderApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceProducerConfiguration.class);
    
        @Bean
        public EmitterProcessor<Message<String>> emitter() {
@@ -287,7 +287,7 @@ In this section, you create the necessary Java classes for sending messages to y
    @RestController
    public class ServiceProducerController {
    
-       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusBinderApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceProducerController.class);
    
        @Autowired
        private EmitterProcessor<Message<String>> emitterProcessor;
