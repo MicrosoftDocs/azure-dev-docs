@@ -58,7 +58,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-        <version>2.0.0-beta.1</version>
+        <version>2.1.0</version>
     </dependency>
     ```
 
@@ -68,7 +68,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.0.0-beta.1</version>
+        <version>2.1.0</version>
     </dependency>
     ```
 
@@ -99,13 +99,13 @@ You can configure your app based on either the connection string or a credential
       cloud:
         azure:
           servicebus:
-            connection-string: [servicebus-namespace-connection-string]
+            connection-string: <ServiceBusNamespaceConnectionString>
         stream:
           bindings:
             consume-in-0:
-              destination: [servicebus-queue-name]
+              destination: examplequeue
             supply-out-0:
-              destination: [servicebus-queue-name-same-as-above]
+              destination: examplequeue
           servicebus:
             queue:
               bindings:
@@ -126,14 +126,14 @@ You can configure your app based on either the connection string or a credential
       cloud:
         azure:
           servicebus:
-            connection-string: [servicebus-namespace-connection-string]
+            connection-string: <ServiceBusNamespaceConnectionString>
         stream:
           bindings:
             consume-in-0:
-              destination: [servicebus-topic-name]
-              group: [topic-subscription-name]
+              destination: exampletopic
+              group: examplesubscription
             supply-out-0:
-              destination: [servicebus-topic-name-same-as-above]
+              destination: exampletopic
           servicebus:
             topic:
               bindings:
@@ -199,10 +199,10 @@ In this section, you create the necessary Java classes for sending messages to y
    @SpringBootApplication
    public class ServiceBusBinderApplication {
    
-       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusBinderApplication.class);
    
        public static void main(String[] args) {
-           SpringApplication.run(ServiceBusQueueBinderApplication.class, args);
+           SpringApplication.run(ServiceBusBinderApplication.class, args);
        }
    
        @Bean
@@ -245,7 +245,7 @@ In this section, you create the necessary Java classes for sending messages to y
    @Configuration
    public class ServiceProducerConfiguration {
    
-       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusBinderApplication.class);
    
        @Bean
        public EmitterProcessor<Message<String>> emitter() {
@@ -287,7 +287,7 @@ In this section, you create the necessary Java classes for sending messages to y
    @RestController
    public class ServiceProducerController {
    
-       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusQueueBinderApplication.class);
+       private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBusBinderApplication.class);
    
        @Autowired
        private EmitterProcessor<Message<String>> emitterProcessor;
