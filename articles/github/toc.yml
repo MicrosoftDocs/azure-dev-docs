@@ -14,7 +14,7 @@
       href: database-actions-deploy.md
     - name: Use variable substitution
       href: github-variable-substitution.md
-    - name: Use Key Vault secrets in GitHub Actions
+    - name: Use Key Vault secrets
       href: github-key-vault.md
     - name: Manage Azure Policy
       href: manage-azure-policy.md
