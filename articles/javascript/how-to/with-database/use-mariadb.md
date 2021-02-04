@@ -16,6 +16,7 @@ You can create a resource with:
 
 * Azure CLI
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)
+* [@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mariadb.md)]
 
@@ -26,7 +27,7 @@ While developing your MariaDB database with JavaScript, use one of the following
 * [MySQL Workbench](https://www.mysql.com/products/workbench/)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)
 
-## Use native SDK packages to connect to MariaDB on Azure
+## Use SDK packages to developer with your MariaDB on Azure
 
 The Azure MariaDB uses npm packages already available, such as:
 
