@@ -12,6 +12,8 @@ A MariaDB resource provides you with a MariaDB server.
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mariadb.md)]
 
+
+
 ## Next steps
 
 * [Configure web app settings](../configure-web-app-settings.md)

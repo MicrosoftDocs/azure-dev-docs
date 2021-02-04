@@ -129,6 +129,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |--|--|
 |Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource)|
 |Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
+|Use mySql CLI|[Azure Portal](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal#connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line)|
 |View database|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)|
 
 ### MongoDB on Cosmos DB

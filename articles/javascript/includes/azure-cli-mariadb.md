@@ -24,6 +24,18 @@ az mariadb server create \
 
 This command may take a couple of minutes to complete and creates a publicly available resource in the `eastus` region. 
 
+## Create a database on the server
+
+Use the following Azure CLI [az mariadb db create](/cli/azure/mariadb/db#az_mariadb_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB database on your server. 
+
+```azurecli
+az mariadb db create \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --server-name YOURRESOURCENAME \
+    --name YOURDATABASENAME
+```
+
 ## Get the MariaDB connection string 
 
 Retrieve the MariaDB connection string for this instance with the [az mariadb server show-connection-string](/cli/azure/mariadb/server#az_mariadb_server_show_connection_string) command:
@@ -52,9 +64,5 @@ This returns the connection strings for the popular languages as a JSON object:
 }
 ``` 
 
-Connect to the mongoDB database with a connection string. Make sure your service is available with one of the following:
-
-* publicly available
-* firewall settings for your client's IP address
 
 

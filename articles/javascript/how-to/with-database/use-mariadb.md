@@ -8,55 +8,50 @@ ms.custom: devx-track-js
 
 # Develop a JavaScript application with MariaDB on Azure
 
-To create, move, or use a MariaDB database to Azure, you need a MariaDB resource. Learn how to create the resource and use your database.
+To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.
 
-## Create a Cosmos DB resource for a MongoDB database
+## Create an Azure Database for MariaDB resource 
 
 You can create a resource with:
 
 * Azure CLI
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)
-* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mariadb.md)]
 
-## View and use your mongoDB on Azure CosmosDB
+## View and use your MariaDB on Azure CosmosDB
+While developing your mongoDB database with JavaScript, use one of the following tools:
 
-While developing your mongoDB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
+* Azure Cloud Shell's _mysql_ CLI.
+* [MySQL Workbench](https://www.mysql.com/products/workbench/)
+* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your mongoDB database.":::
+[Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
+## Use native SDK packages to connect to MariaDB on Azure
 
-The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
+The Azure MariaDB uses npm packages already available, such as:
 
+* [mariadb](https://www.npmjs.com/package/mariadb)
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Cosmos explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
+## Use mariadb SDK to connect to mariaDB on Azure
 
-## Use native SDK packages to connect to MongoDB on Azure
-
-The mongoDB database on Cosmos DB uses npm packages already available, such as:
-
-* [mongoose](https://www.npmjs.com/package/mongoose)
-* [mongodb](https://www.npmjs.com/package/mongodb)
-
-## Use mongoose SDK to connect to MongoDB on Azure
-
-To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongoose, use the following procedure.
+To connect and use your mariaDB on Azure with JavaScript, use the following procedure.
 
 1. Make sure Node.js and npm are installed.
 1. Create a Node.js project in a new folder:
 
     ```bash
-    mkdir mongooseDemo && \
-        cd mongooseDemo && \
+    mkdir mariaDbDemo && \
+        cd mariaDbDemo && \
         npm init -y && \
-        npm install mongoose && \
+        npm install mariadb && \
         touch index.js && \
         code .
     ```
 
     The command:
-    * creates a project folder named `mongooseDemo`
+    * creates a project folder named `mariaDbDemo`
     * changes the Bash terminal into that folder
     * initializes the project, which creates the `package.json` file
     * creates the `index.js` script file
@@ -65,98 +60,143 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongoose,
 1. Copy the following JavaScript code into `index.js`:
 
     ```nodejs
-    // install mongoose SDK
-    // run at command line
-    // npm install mongoose
+    // To install npm package,
+    // run following command at terminal
+    // npm install mariadb
 
-    // get mongoose SDK
-    const mongoose = require("mongoose");
+    // get mariadb SDK
+    const mariadb = require('mariadb');
 
-    const run = async () => {
-      // connect to mongoose
-      await mongoose.connect(
-        "YOUR-CONNECTION-STRING",
-        {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          useFindAndModify: false,
-          useCreateIndex: true,
-        }
-      );
+    // query server and close connection
+    const query = async (config) => {
+      // creation connection
+      const connection = await mariadb.createConnection(config);
 
-      // define a schema
-      const Schema = mongoose.Schema;
-      const ObjectId = Schema.ObjectId;
+      // show databases on server
+      const databases = await connection.query('SHOW DATABASES;');
+      console.log(databases);
 
-      const JobSchema = new Schema({
-        id: ObjectId,
-        name: String,
-        job: String,
-      });
+      // show tables in the mysql database
+      const tables = await connection.query('SHOW TABLES FROM mysql;');
+      console.log(tables);
 
-      // Create model for database collection `Job`
-      const JobModel = mongoose.model("Job", JobSchema);
-
-      // Add data to doc and save
-      const doc1 = new JobModel();
-      doc1.name = "Joan Smith";
-      doc1.job = "Developer";
-      await doc1.save();
-
-      const doc2 = new JobModel();
-      doc2.name = "Bob Jones";
-      doc2.job = "Quality Assurance";
-      await doc2.save();
-
-      const doc3 = new JobModel();
-      doc3.name = "Michelle Roberts";
-      doc3.job = "Program Manager";
-      await doc3.save();
-
-      // find all docs in collection
-      console.log("find all");
-      const jobs = await JobModel.find({});
-
-      //iterate over docs
-      for (var job of jobs) {
-        console.log(`loop ` + JSON.stringify(job));
-      }
+      // show users configured for the server
+      const rows = await connection.query('select User from mysql.user;');
+      console.log(rows);
 
       // close connection
-      mongoose.connection.close();
-
-      return "succeeded";
+      connection.end();
     };
 
-    run()
-    .then((result) => {
-        console.log(result);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+    const config = {
+      host: 'YOUR-RESOURCE_NAME.mariadb.database.azure.com',
+      user: 'YOUR-ADMIN-NAME@YOUR-RESOURCE_NAME',
+      password: 'YOUR-ADMIN-PASSWORD',
+      port: 3306,
+    };
+
+    query(config)
+      .then(() => console.log('done'))
+      .catch((err) => console.log(err));
     ```
  
-1. Replace `YOUR-CONNECTION-STRING` in the script with your Cosmos DB your connection string. 
+1. Replace the host, user, and password with your values in the script for your connection configuration object, `config`. 
+
 1. Run the script.
 
     ```bash
-    node index.js
-    ```
-
-    The results are:
-
-    ```console
-    find all
-    loop {"_id":"6019a68a6ecddc35d536c92c","name":"Joan Smith","job":"Developer","__v":0}
-    loop {"_id":"6019a68e6ecddc35d536c92d","name":"Bob Jones","job":"Quality Assurance","__v":0}
-    loop {"_id":"6019a6916ecddc35d536c92e","name":"Michelle Roberts","job":"Program Manager","__v":0}
-    succeeded
+    [
+      { Database: 'information_schema' },
+      { Database: 'mysql' },
+      { Database: 'performance_schema' },
+      { Database: 'quickstartdb' },
+      { Database: 'tutorial' },
+      meta: [
+        ColumnDef {
+          _parse: [StringParser],
+          collation: [Collation],
+          columnLength: 256,
+          columnType: 253,
+          flags: 1,
+          scale: 0,
+          type: 'VAR_STRING'
+        }
+      ]
+    ]
+    [
+      { Tables_in_mysql: '__az_action_history__' },
+      { Tables_in_mysql: '__az_changed_static_configs__' },
+      { Tables_in_mysql: '__az_replica_information__' },
+      { Tables_in_mysql: '__az_replication_current_state__' },
+      { Tables_in_mysql: '__az_slave_relay_log_info__' },
+      { Tables_in_mysql: '__firewall_rules__' },
+      { Tables_in_mysql: '__script_version__' },
+      { Tables_in_mysql: 'column_stats' },
+      { Tables_in_mysql: 'columns_priv' },
+      { Tables_in_mysql: 'db' },
+      { Tables_in_mysql: 'event' },
+      { Tables_in_mysql: 'func' },
+      { Tables_in_mysql: 'general_log' },
+      { Tables_in_mysql: 'gtid_slave_pos' },
+      { Tables_in_mysql: 'help_category' },
+      { Tables_in_mysql: 'help_keyword' },
+      { Tables_in_mysql: 'help_relation' },
+      { Tables_in_mysql: 'help_topic' },
+      { Tables_in_mysql: 'host' },
+      { Tables_in_mysql: 'index_stats' },
+      { Tables_in_mysql: 'innodb_index_stats' },
+      { Tables_in_mysql: 'innodb_table_stats' },
+      { Tables_in_mysql: 'plugin' },
+      { Tables_in_mysql: 'proc' },
+      { Tables_in_mysql: 'procs_priv' },
+      { Tables_in_mysql: 'proxies_priv' },
+      { Tables_in_mysql: 'roles_mapping' },
+      { Tables_in_mysql: 'servers' },
+      { Tables_in_mysql: 'slow_log' },
+      { Tables_in_mysql: 'table_stats' },
+      { Tables_in_mysql: 'tables_priv' },
+      { Tables_in_mysql: 'time_zone' },
+      { Tables_in_mysql: 'time_zone_leap_second' },
+      { Tables_in_mysql: 'time_zone_name' },
+      { Tables_in_mysql: 'time_zone_transition' },
+      { Tables_in_mysql: 'time_zone_transition_type' },
+      { Tables_in_mysql: 'transaction_registry' },
+      { Tables_in_mysql: 'user' },
+      meta: [
+        ColumnDef {
+          _parse: [StringParser],
+          collation: [Collation],
+          columnLength: 292,
+          columnType: 253,
+          flags: 1,
+          scale: 0,
+          type: 'VAR_STRING'
+        }
+      ]
+    ]
+    [
+      { User: 'azurediberry' },
+      { User: 'azure_superuser' },
+      { User: 'azure_superuser' },
+      { User: 'azure_superuser' },
+      meta: [
+        ColumnDef {
+          _parse: [StringParser],
+          collation: [Collation],
+          columnLength: 320,
+          columnType: 254,
+          flags: 16515,
+          scale: 0,
+          type: 'STRING'
+        }
+      ]
+    ]
+    done
     ```
 
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
+* [Azure Database for MariaDB](/azure/mariadb/)
 * [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
-* [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
+* [Migration guide to move to Azure Database for MariaDB](/azure/mariadb/howto-migrate-dump-restore)
