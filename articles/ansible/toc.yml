@@ -110,7 +110,3 @@
     href: module-version-matrix.md
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure
-- name: Resources
-  items:
-  - name: Visual Studio Code extension for Ansible
-    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
