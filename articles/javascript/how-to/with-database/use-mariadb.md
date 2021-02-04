@@ -2,13 +2,13 @@
 title: Use JavaScript on Azure MariaDB 
 description: To create or move your MariaDB database to Azure, you need a MariaDB resource. 
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ms.custom: devx-track-js
 ---
 
 # Develop a JavaScript application with MariaDB on Azure
 
-To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.
+To create, move, or use a MariaDB database to Azure, you need an **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.
 
 ## Create an Azure Database for MariaDB resource 
 
