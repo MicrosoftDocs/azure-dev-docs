@@ -60,7 +60,7 @@ For iOS, you must have:
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
 * [Apple Developer Portal](https://developer.apple.com).
-* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1).
+* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core).
 * [Google Firebase Console](https://console.firebase.google.com/u/0/).
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started).
 * [Flutter](https://flutter.dev) and [Dart](https://dart.dev) for cross-platform development.
