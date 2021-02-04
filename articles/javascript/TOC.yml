@@ -3,6 +3,8 @@
   items:
   - name: What's new in docs
     href: whats-new-docs.md
+  - name: What's new with Developer Advocates
+    href: whats-new-developer-advocacy.md  
   - name: Get started on Azure with JavaScript
     items:
     - name: What is Azure for JavaScript developers?
@@ -17,13 +19,11 @@
       href: core/node-sdk-azure-authenticate-principal.md
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
-    - name: Automate with Azure CLI
-      href: core/automate-tasks-with-azure-cli.md
   - name: Tutorials
     items:
-      - name: Deploy and host
+      - name: Deploy and host client apps
         items: 
-        - name: "Client app: Cognitive Services"
+        - name: Cognitive Services - Image analysis
           items: 
             - name: 1. Introduction and prerequisites
               href: tutorial/static-web-app/introduction.md
@@ -39,11 +39,11 @@
               href: tutorial/static-web-app/add-computer-vision-react-app.md
             - name: 7. Clean up resources
               href: tutorial/static-web-app/clean-up-resources.md
-        - name: "Client app: upload to Storage"
+        - name: "Upload image to Storage"
           href: tutorial/browser-file-upload-azure-storage-blob.md
-        - name: "Client app: Add a Login button" 
+        - name: "Add a Login button for Microsoft Identity provider" 
           href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-        - name: "Client app: Host from Azure Storage"
+        - name: "Host web app from Azure Storage"
           items:
             - name: Introduction and prerequisites
               href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md
@@ -57,7 +57,9 @@
               href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md
-        - name: "Serverless: Create and deploy"
+      - name: Deploy and host serverless apps
+        items:               
+        - name: "Create a function with Visual Studio Code"
           items:
             - name: 1. Introduction and prerequisites
               href: tutorial/tutorial-vscode-serverless-node-install.md
@@ -69,11 +71,15 @@
               href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
             - name: 5. Clean up resources
               href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
-        - name: "Server: Express.js/MongoDB"
-          href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
-        - name: "Server: Deploy Express.js with VS Code"
+      - name: Deploy and host server apps
+        items:              
+        - name: "Express.js with VS Code"
           href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
-        - name: "Server: Deploy with the Azure CLI"
+        - name: "Convert text to speech with Cognitive Services"
+          href: tutorial/convert-text-to-speech-cognitive-services.md
+        - name: "Express.js with a MongoDB (Cosmos) database"
+          href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+        - name: "Create with Azure CLI, deploy with Git"
           items:
             - name: Introduction and prerequisites
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md
@@ -81,7 +87,7 @@
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
             - name: Create the App Service
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
-            - name: Deploy the app
+            - name: Deploy with git push
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
             - name: Stream logs
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
@@ -89,9 +95,9 @@
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
-        - name: "Server: Deploy Deno with Azure CLI"
-          href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-        - name: "Container: Deploy Express.js with VS Code"
+      - name: Deploy and host container apps  
+        items:        
+        - name: "Express.js with VS Code"
           items:
             - name: Introduction and prerequisites
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
@@ -109,7 +115,11 @@
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-        - name: "VM: Deploy container with logging"
+        - name: "Deno with Azure CLI"
+          href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
+      - name: Deploy to virtual machines
+        items:               
+        - name: "Deploy container with logging"
           items: 
             - name: 1. Introduction and prerequisites
               href: tutorial/nodejs-virtual-machine-vm/introduction.md
@@ -133,10 +143,28 @@
     items:
     - name: Configure your app
       href: how-to/configure-web-app-settings.md
-    - name: Common JavaScript tasks
+    - name: Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
-    - name: End to end Node.js with VS Code
-      href: how-to/develop-nodejs-on-azure.md
+    - name: With Visual Studio Code
+      items: 
+      - name: Install and debug local project
+        href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
+      - name: Clone a GitHub repo for changes
+        href: how-to/with-visual-studio-code/clone-github-repository.md
+      - name: Create container from local project
+        href: how-to/with-visual-studio-code/containerize-local-project.md
+    - name: With Azure CLI
+      items: 
+      - name: Create and use container registry
+        href: how-to/with-azure-cli/create-container-registry-resource.md
+      - name: Configure web app domain name
+        href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
+      - name: Use MongoDB Cosmos DB resource
+        href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
+    - name: With databases
+      items: 
+      - name: MongoDB on CosmosDB
+        href: how-to/with-database/use-mongodb-as-cosmosdb.md
     - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: Deploy containers
@@ -149,11 +177,13 @@
       href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
+    - name: Automate with Azure CLI
+      href: core/automate-tasks-with-azure-cli.md
   - name: Learn
     href: learn-azure-javascript.md
   - name: Samples
-    href: https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+    href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
-    href: /javascript/api/overview/azure/?view=azure-node-latest
+    href: /javascript/api/overview/azure/

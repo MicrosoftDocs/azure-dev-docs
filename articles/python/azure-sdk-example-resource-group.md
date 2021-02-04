@@ -1,9 +1,9 @@
 ---
 title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 11/12/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Example: Use the Azure libraries to provision a resource group
@@ -23,8 +23,8 @@ Be sure to create and activate a virtual environment for this project.
 Create a file named *requirements.txt* with the following contents:
 
 ```text
-azure-mgmt-resource
-azure-identity
+azure-mgmt-resource>=1.15.0
+azure-identity>=1.5.0
 ```
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
@@ -143,3 +143,5 @@ az group create -n PythonAzureExample-rg -l centralus
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

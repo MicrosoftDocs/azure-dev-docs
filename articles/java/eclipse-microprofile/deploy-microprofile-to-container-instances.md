@@ -76,15 +76,15 @@ To build the image and be ready to run on Azure, you will have to follow these s
 
 #### Set up Azure CLI
 
-Make sure you have an Azure subscription, [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), and that you are authenticated to your account:
+Make sure you have an Azure subscription, [Azure CLI installed](/cli/azure/install-azure-cli), and that you are authenticated to your account:
 
-```bash
+```azurecli
 az login
 ```
 
 #### Create a Resource Group
 
-```bash
+```azurecli
 export ARG=microprofileRG
 export ADCL=eastus
 az group create --name $ARG --location $ADCL
@@ -94,7 +94,7 @@ az group create --name $ARG --location $ADCL
 
 This command will create a globally unique (hopefully) container registry using a basic name with a random number.
 
-```bash
+```azurecli
 export RANDINT=`date +"%m%d%y$RANDOM"`
 export ACR=mydockerrepo$RANDINT
 az acr create --name $ACR -g $ARG --sku Basic --admin-enabled
@@ -111,7 +111,7 @@ While you can easily build the Docker image locally using Docker itself, you may
 
 Because of these reasons, we will build the image using the [Azure Container Registry Build] feature:
 
-```bash
+```azurecli
 export IMG_NAME="mympapp:latest"
 az acr build -r $ACR -t $IMG_NAME -g $ARG .
 ...
@@ -123,7 +123,7 @@ Build ID: aa1 was successful after 1m2.674577892s
 
 Now that the image is available on your ACR, let's push and instantiate a container instance on ACI. But first, we need to make sure we can authenticate into the ACR:
 
-```bash
+```azurecli
 export ACR_REPO=`az acr show --name $ACR -g $ARG --query loginServer -o tsv`
 export ACR_PASS=`az acr credential show --name $ACR -g $ARG --query "passwords[0].value" -o tsv`
 export ACI_INSTANCE=myapp`date +"%m%d%y$RANDOM"`

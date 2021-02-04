@@ -12,9 +12,9 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 In this step, you make changes to your app code, commit them to the local Git repository, and then redeploy your site by pushing to Azure.
 
-1. In the `myExpressApp` folder, open the *views/index.pug* file and change the message in line 5 to `p Welcome to Azure!`.
+1. In the `myExpressApp` folder, open the *src/server.js* file and change the message, `Welcome to Azure!`.
 
-    ![Editing the index.pug file](../../media/azure-cli/editpugfile.png)
+    ![Editing the src/server.js file](../../media/azure-cli/edit-server-file.png)
 
 1. Save the file.
 
@@ -47,7 +47,7 @@ In this step, you make changes to your app code, commit them to the local Git re
     remote: Handling node.js deployment.
     remote: Creating app_offline.htm
     remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-    remote: Copying file: 'views\index.pug'
+    remote: Copying file: 'src\server.js'
     remote: Deleting app_offline.htm
     remote: Using start-up script bin/www from package.json.
     remote: Generated web.config.

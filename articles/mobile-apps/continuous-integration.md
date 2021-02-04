@@ -63,8 +63,8 @@ With the added power of Visual Studio App Center services, you can further autom
 
 ### Azure Pipelines references
 
-- [Get started with Azure Pipelines guide](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
+- [Get started with Azure Pipelines guide](/azure/devops/pipelines/get-started/pipelines-get-started)
 - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/)
-- [Quickstarts](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
+- [Quickstarts](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2)
 
 To help you choose the right service for your application builds, see the article that compares [App Center Build vs. Azure Pipelines](/appcenter/build/choose-between-services).

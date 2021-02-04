@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 02/24/2020
+  ms.date: 12/16/2020
   ms.custom: devx-track-jenkins
 
 landingContent:
@@ -24,7 +24,7 @@ landingContent:
             url: overview.md
       - linkListType: reference
         links:
-          - text: Jenkins Plugins for Azure
+          - text: Jenkins plug-ins for Azure
             url: plug-ins-for-azure.md
       - linkListType: architecture
         links:
@@ -68,8 +68,6 @@ landingContent:
         links:
           - text: Deploy from GitHub to AKS
             url: deploy-from-github-to-aks.md
-          - text: Deploy to AKS using blue/green pattern
-            url: deploy-to-aks-using-blue-green-deployment-pattern.md
 
   # Card
   - title: CI/CD to App Service

@@ -32,7 +32,7 @@ For those releases designated as medium-term support (MTS), we provide Productio
 
 Azul Zulu for Azure - Enterprise Edition builds of OpenJDK are free, multiplatform, production-ready distributions of the OpenJDK for Azure and Azure Stack. They're backed by Microsoft and Azul Systems. These distributions are:
 
-* 100% open-source builds of OpenJDK packaged as Java Development Kits (JDKs), Java Runtime Environments (JREs), and headless JREs. These binaries are fully compatible and compliant commercial builds of Java Standard Edition (SE) that can be used with Java applications or components on Azure and Azure Stack.
+* 100% open-source builds of OpenJDK packaged as Java Development Kits (JDKs), Java Runtime Environments (JREs), and Headless JREs. These binaries are fully compatible and compliant commercial builds of Java Standard Edition (SE) that can be used with Java applications or components on Azure and Azure Stack.
 * Provided with long-term support, including bug fixes, performance enhancements, and security patches.
 * Available for developing and running Java applications on Windows, Linux, and macOS.
 * Available as container images on Docker Hub and as virtual machines (Windows and Linux) on Azure Marketplace.
@@ -77,7 +77,7 @@ The Azul Zulu for Azure - Enterprise Edition JDK releases:
 
    * 100% open source for its builds of OpenJDK.
    * Drop-in replacements for many Java SE distributions.
-   * JDK, JRE, and headless JRE.
+   * JDK, JRE, and Headless JRE.
    * Java 7, 8, 11, 13, and 15.
    * Verified compliant with Java SE specifications via the OpenJDK Community Technology Compatibility Kit (TCK).
    * Include production updates for Java SE, including bug fixes, performance enhancements, and security patches for Java SE 7, 8, 11, 13, and 15.
@@ -106,7 +106,7 @@ The Azul Zulu for Azure - Enterprise Edition JDK releases:
    * Delivered in multiple package types:
      * MSI, ZIP, tar, deb, RPM, and DMG
 
-     Certified Docker container images for Zulu JDK, JRE, and headless JRE on multiple base OS images are available at Docker Hub:
+     Certified Docker container images for Zulu JDK, JRE, and Headless JRE on multiple base OS images are available at Docker Hub:
 
      * [JDK](https://hub.docker.com/_/microsoft-java-jdk)
      * [JRE](https://hub.docker.com/_/microsoft-java-jre)

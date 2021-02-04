@@ -24,7 +24,7 @@ It will demonstrate the usage of the following components:
 The following prerequisites are required in order to follow the steps in this article:
 
 - In order to deploy a Java Web app to cloud, you need an Azure subscription. If you do not already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI 2.0](/cli/azure/install-azure-cli)
 - [Java 8 JDK](../fundamentals/java-jdk-install.md)
 - [Maven 3](http://maven.apache.org/)
 
@@ -34,12 +34,14 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
     For bash:
+
     ```bash
     git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
     yes | cp -rf .prep/* .
     ```
 
     For Windows:
+
     ```cmd
     git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
     cd e2e-java-experience-in-app-service-linux-part-2
@@ -58,19 +60,19 @@ The following procedure creates Azure Cosmos database using CLI.
 
 1. Login to your Azure CLI, and set your subscription id.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 2. Set the subscription id if needed.
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 3. Create an Azure resource group, and write down the resource group name for later use.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
     -l <your-resource-group-region>
     ```
@@ -78,7 +80,7 @@ The following procedure creates Azure Cosmos database using CLI.
 4. Create the Cosmos DB and specify the type as GlobalDocumentDB.
 The name of the Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You'll need this later.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -86,7 +88,7 @@ The name of the Cosmos DB must use only lower case letters. Make sure to note th
 
 5. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
 
-    ```bash
+    ```azurecli
     az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -108,6 +110,7 @@ export REGION=<put-your-REGION-here>
 ```
 
 For Windows (Command Prompt):
+
 ```cmd
 set COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 set COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
@@ -235,14 +238,14 @@ The following procedure opens log files on Azure.
 
 1. Configure logs for the deployed Java Web app in Azure App Service in Linux:
 
-    ```bash
+    ```azurecli
     az webapp log config --name ${WEBAPP_NAME} \
      --resource-group ${RESOURCEGROUP_NAME} \
      --web-server-logging filesystem
     ```
 2. Open Java Web app remote log stream from a local machine:
 
-    ```bash
+    ```azurecli
     az webapp log tail --name ${WEBAPP_NAME} \
      --resource-group ${RESOURCEGROUP_NAME}
      ```
@@ -290,7 +293,7 @@ Use the following procedure to scale the application.
 
 1. Scale out Java Web app using Azure CLI:
 
-    ```bash
+    ```azurecli
     az appservice plan update --number-of-workers 2 \
       --name ${WEBAPP_PLAN_NAME} \
       --resource-group ${RESOURCEGROUP_NAME}

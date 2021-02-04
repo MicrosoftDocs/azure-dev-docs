@@ -58,7 +58,7 @@ Use the following services to enable a continuous delivery pipeline in your mobi
 
 #### Azure Pipelines references
 
-- [Get started with Azure Pipelines guide](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
+- [Get started with Azure Pipelines guide](/azure/devops/pipelines/get-started/pipelines-get-started)
 - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/)
   
 ## Distribute your application directly to App Stores

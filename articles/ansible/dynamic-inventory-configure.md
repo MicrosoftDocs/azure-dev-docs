@@ -128,16 +128,16 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
     ansible all -m ping -i ./myazure_rm.yml
     ```
 
-1. When running the preceding command, you could receive an error. The error would be due  indicating a failure to connect to the host due to a 
+1. By default host-key checking is enabled, which may result in the following error.
 
     ```output
     Failed to connect to the host via ssh: Host key verification failed.
     ```
-    
-    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`.
+
+    Disable host-key verification by setting the `ANSIBLE_HOST_KEY_CHECKING` environment variable to `False`.
 
     ```bash
-    host_key_checking = False
+    export ANSIBLE_HOST_KEY_CHECKING=False
     ```
 
 1. When you run the playbook, you see results similar to the following output:
