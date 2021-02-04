@@ -12,6 +12,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## App registration
 
+[App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
+
 |Task|using|
 |--|--|
 |Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
@@ -51,6 +53,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ### Static web apps
 
+[Service documentation](/azure/static-web-apps/)
+
 |Task|using|
 |--|--|
 |Create Angular app|[Bash](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md?tabs=angular)|
@@ -66,6 +70,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ### Function (serverless) apps
 
+[Service documentation](/azure/azure-functions/)
+
 |Task|using|
 |--|--|
 |Create Functions app locally|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-create-local.md)|
@@ -76,6 +82,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Remove function app resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-remove-resource.md)|
 
 ### App service - full-stack, server-only, or client-only apps
+
+[Service documentation](/azure/app-service/)
 
 |Task|using|
 |--|--|
@@ -94,6 +102,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
 ## Cognitive Services
+
+[Service group documentation](/azure/cognitive-services/)
 
 |Task|using|
 |--|--|
@@ -125,14 +135,17 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ### MariaDB
 
+[Service documentation](/azure/mariadb/)
+
 |Task|Using|
 |--|--|
-|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource)|
-|Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
-|Use mySql CLI|[Azure Portal](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal#connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line)|
-|View database|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)|
+|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./how-to/with-azure-cli/create-mariadb.md#create-a-mariadb-resource)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
+|Get Connection string|[Azure CLI](./how-to/with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string)|
+|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb?branch=pr-en-us-1525#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
 ### MongoDB on Cosmos DB
+
+[Service documentation](/azure/cosmos-db/)
 
 |Task|using|
 |--|--|
@@ -172,6 +185,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## Storage
 
+[Service documentation](/azure/storage/)
+
 |Task|using|
 |--|--|
 |Create resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#3-create-storage-resource-with-visual-studio-extension)|
@@ -195,6 +210,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## Virtual machines
 
+[Service documentation](/azure/virtual-machines/)
+
 |Task|using|
 |--|--|
 |Connect to VM with SSH|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#connect-with-ssh-and-change-web-app)|
@@ -207,6 +224,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 
 ## Visual Studio Code: Develop and debug JavaScript apps 
+
+[Tool documentation](https://code.visualstudio.com/docs)
 
 |Task|using|
 |--|--|
