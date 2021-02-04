@@ -19,14 +19,12 @@ You can create a resource with:
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mariadb.md)]
 
-## View and use your MariaDB on Azure CosmosDB
-While developing your mongoDB database with JavaScript, use one of the following tools:
+## View and use your MariaDB on Azure
+While developing your MariaDB database with JavaScript, use one of the following tools:
 
-* Azure Cloud Shell's _mysql_ CLI.
+* [Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI
 * [MySQL Workbench](https://www.mysql.com/products/workbench/)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)
-
-[Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
 ## Use native SDK packages to connect to MariaDB on Azure
 
@@ -34,9 +32,9 @@ The Azure MariaDB uses npm packages already available, such as:
 
 * [mariadb](https://www.npmjs.com/package/mariadb)
 
-## Use mariadb SDK to connect to mariaDB on Azure
+## Use MariaDB SDK to connect to MariaDB on Azure
 
-To connect and use your mariaDB on Azure with JavaScript, use the following procedure.
+To connect and use your MariaDB on Azure with JavaScript, use the following procedure.
 
 1. Make sure Node.js and npm are installed.
 1. Create a Node.js project in a new folder:
@@ -198,5 +196,4 @@ To connect and use your mariaDB on Azure with JavaScript, use the following proc
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
 * [Azure Database for MariaDB](/azure/mariadb/)
-* [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Azure Database for MariaDB](/azure/mariadb/howto-migrate-dump-restore)
