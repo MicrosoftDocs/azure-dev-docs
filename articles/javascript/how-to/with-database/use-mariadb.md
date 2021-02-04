@@ -53,6 +53,7 @@ To connect and use your MariaDB on Azure with JavaScript, use the following proc
     * creates a project folder named `mariaDbDemo`
     * changes the Bash terminal into that folder
     * initializes the project, which creates the `package.json` file
+    * installs the mariadb npm package
     * creates the `index.js` script file
     * opens the project in Visual Studio Code
 
@@ -98,7 +99,7 @@ To connect and use your MariaDB on Azure with JavaScript, use the following proc
       .then(() => console.log('done'))
       .catch((err) => console.log(err));
     ```
- 
+
 1. Replace the host, user, and password with your values in the script for your connection configuration object, `config`. 
 
 1. Run the script.
