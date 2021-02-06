@@ -163,7 +163,7 @@
         href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
       - name: Use MariaDB resource
         href: how-to/with-azure-cli/create-mariadb.md
-      - name: Use MySql resource
+      - name: Use MySQL resource
         href: how-to/with-azure-cli/create-mysqldb.md
     - name: With databases
       items: 
