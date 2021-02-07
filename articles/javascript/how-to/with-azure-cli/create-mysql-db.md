@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 An Azure Database for MySQL server resource provides you with a MySQL server. 
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mysqldb.md)]
+[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mysql-db.md)]
 
 ## Next steps
 
