@@ -74,7 +74,7 @@ credential = DefaultAzureCredential(authority=stack_cloud.endpoints.active_direc
 resource_client = ResourceManagementClient(
     credential, subscription_id,
     base_url=stack_cloud.endpoints.resource_manager,
-    credential_scopes=[cloud.endpoints.active_directory_resource_id + "/.default"])
+    credential_scopes=[stack_cloud.endpoints.active_directory_resource_id + "/.default"])
 
 subscription_client = SubscriptionClient(
     credential,
