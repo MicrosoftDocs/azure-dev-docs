@@ -60,6 +60,7 @@ import os
 from msrestazure.azure_cloud import get_cloud_from_metadata_endpoint
 from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential
+from azure.profiles import KnownProfiles
 
 # Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID,
 # AZURE_TENANT_ID environment variables
