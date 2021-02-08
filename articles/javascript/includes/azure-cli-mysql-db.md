@@ -71,7 +71,7 @@ The response includes your server's configuration details including:
 }
 ```
 
-Before you can connect to the server, you need to configure your firewall rules to allow your client IP address through. 
+Before you can connect to the server programmatically, you need to configure your firewall rules to allow your client IP address through. 
 
 ## Add firewall rule for your client IP address to MySQL resource
 
