@@ -171,6 +171,8 @@
         href: how-to/with-database/use-mongodb-as-cosmosdb.md
       - name: MariaDB
         href: how-to/with-database/use-mariadb.md
+      - name: MySQL 
+        href: how-to/with-database/use-mysql-db.md
     - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: Deploy containers
