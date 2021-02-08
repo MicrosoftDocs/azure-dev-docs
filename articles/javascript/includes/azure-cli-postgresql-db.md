@@ -15,7 +15,7 @@ az postgres server create \
     --resource-group YOUR-RESOURCE-GROUP \
     --location eastus \
     --name YOURRESOURCENAME \
-    --admin-user postgresAdmin \
+    --admin-user YOUR-ADMIN-USER \
     --ssl-enforcement Disabled \
     --enable-public-network Enabled 
 ```
@@ -29,24 +29,24 @@ The response includes your server's configuration details including:
 ```text
 {
   "additionalProperties": {},
-  "administratorLogin": "postgresAdmin",
+  "administratorLogin": "YOUR-ADMIN-USER",
   "byokEnforcement": "Disabled",
-  "connectionString": "postgres://postgresAdmin%40diberry-postgres-2:123456789@postgres-2.postgres.database.azure.com/postgres?sslmode=require",
+  "connectionString": "postgres://YOUR-ADMIN-USER%40YOURRESOURCENAME:123456789@YOURRESOURCENAME.postgres.database.azure.com/postgres?sslmode=require",
   "earliestRestoreDate": "2021-02-08T21:56:20.130000+00:00",
-  "fullyQualifiedDomainName": "postgres-2.postgres.database.azure.com",
-  "id": "/subscriptions/.../resourceGroups/my-resource-group/providers/Microsoft.DBforPostgreSQL/servers/postgres-2",
+  "fullyQualifiedDomainName": "YOURRESOURCENAME.postgres.database.azure.com",
+  "id": "/subscriptions/.../resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.DBforPostgreSQL/servers/YOURRESOURCENAME",
   "identity": null,
   "infrastructureEncryption": "Disabled",
   "location": "eastus",
   "masterServerId": "",
   "minimalTlsVersion": "TLSEnforcementDisabled",
-  "name": "postgres-2",
+  "name": "YOURRESOURCENAME",
   "password": "123456789",
   "privateEndpointConnections": [],
   "publicNetworkAccess": "Enabled",
   "replicaCapacity": 5,
   "replicationRole": "None",
-  "resourceGroup": "my-resource-group",
+  "resourceGroup": "YOUR-RESOURCE-GROUP",
   "sku": {
     "additionalProperties": {},
     "capacity": 2,
@@ -76,7 +76,7 @@ Before you can connect to the server, you need to configure your firewall rules 
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
-Use the following Azure CLI [az postgres server firewall-rule create](/cli/azure/postgres/server#az_postgres_server_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL server resource for your database. 
+Use the following Azure CLI [az postgres server firewall-rule create](/cli/azure/postgres/server#az_postgres_server_firewall_rule_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new firewall rule for your database. 
 
 
 ```azurecli
@@ -91,7 +91,7 @@ az postgres server firewall-rule create \
 
 If you don't know your client IP address, use one of these methods:
 * Use the Azure portal to view and change your firewall rules, which includes adding your detected client IP
-* Run you Node.js code, the error about your firewall rules violation includes your client IP address
+* Run your Node.js code, the error about your firewall rules violation includes your client IP address
 
 While you can add the full range of internet addresses as a firewall rule, 0.0.0.0-255.255.255.255, this leaves your server open to attacks. 
 
@@ -123,14 +123,14 @@ This returns the connection strings for the popular languages as a JSON object. 
 {
 {
   "connectionStrings": {
-    "C++ (libpq)": "host=postgres-1.postgres.database.azure.com port=5432 dbname={database} user={username}postgres-1 password={password} sslmode=require",
-    "ado.net": "Server=postgres-1.postgres.database.azure.com;Database={database};Port=5432;User Id={username}@postgres-1;Password={password};",
-    "jdbc": "jdbc:postgresql://postgres-1.postgres.database.azure.com:5432/{database}?user={username}@postgres-1&password={password}",
-    "node.js": "var client = new pg.Client('postgres://{username}@postgres-1:{password}@postgres-1.postgres.database.azure.com:5432/{database}');",
-    "php": "host=postgres-1.postgres.database.azure.com port=5432 dbname={database} user={username}@postgres-1 password={password}",
-    "psql_cmd": "postgresql://{username}@postgres-1:{password}@postgres-1.postgres.database.azure.com/{database}?sslmode=require",
-    "python": "cnx = psycopg2.connect(database='{database}', user='{username}@postgres-1', host='postgres-1.postgres.database.azure.com', password='{password}', port='5432')",
-    "ruby": "cnx = PG::Connection.new(:host => 'postgres-1.postgres.database.azure.com', :user => '{username}@postgres-1', :dbname => '{database}', :port => '5432', :password => '{password}')"
+    "C++ (libpq)": "host=YOURRESOURCENAME.postgres.database.azure.com port=5432 dbname={database} user={username}YOURRESOURCENAME password={password} sslmode=require",
+    "ado.net": "Server=YOURRESOURCENAME.postgres.database.azure.com;Database={database};Port=5432;User Id={username}@YOURRESOURCENAME;Password={password};",
+    "jdbc": "jdbc:postgresql://YOURRESOURCENAME.postgres.database.azure.com:5432/{database}?user={username}@YOURRESOURCENAME&password={password}",
+    "node.js": "var client = new pg.Client('postgres://{username}@YOURRESOURCENAME:{password}@YOURRESOURCENAME.postgres.database.azure.com:5432/{database}');",
+    "php": "host=YOURRESOURCENAME.postgres.database.azure.com port=5432 dbname={database} user={username}@YOURRESOURCENAME password={password}",
+    "psql_cmd": "postgresql://{username}@YOURRESOURCENAME:{password}@YOURRESOURCENAME.postgres.database.azure.com/{database}?sslmode=require",
+    "python": "cnx = psycopg2.connect(database='{database}', user='{username}@YOURRESOURCENAME', host='YOURRESOURCENAME.postgres.database.azure.com', password='{password}', port='5432')",
+    "ruby": "cnx = PG::Connection.new(:host => 'YOURRESOURCENAME.postgres.database.azure.com', :user => '{username}@YOURRESOURCENAME', :dbname => '{database}', :port => '5432', :password => '{password}')"
   }
 }
 ``` 
