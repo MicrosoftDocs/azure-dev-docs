@@ -25,6 +25,22 @@ az mysql server create \
 
 This command may take a couple of minutes to complete and creates a publicly available resource in the `eastus` region. 
 
+## Add firewall rule for your client IP address to MySQL resource
+
+By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
+
+az mysql server firewall-rule create \
+--resource-group YOUR-RESOURCE-GROUP \
+--server YOURRESOURCENAME \
+--name AllowMyIP --start-ip-address 123.123.123.123 \
+--end-ip-address 123.123.123.123
+
+If you don't know your client IP address, use one of these methods:
+* Use the Azure portal to view and change your firewall rules, which includes adding your detected client IP
+* Run you Node.js code, the error about your firewall rules violation includes your client IP address
+
+While you can add the full range of internet addresses as a firewall rule, 0.0.0.0-255.255.255.255, this leaves your server open to attacks. 
+
 ## Create a database on the server with Azure CLI
 
 Use the following Azure CLI [az mysql db create](/cli/azure/mysql/db#az_mysql_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MySQL database on your server. 
