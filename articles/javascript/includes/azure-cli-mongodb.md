@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ---
 
 
@@ -14,12 +14,125 @@ az cosmosdb create \
     --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
     --resource-group YOUR-RESOURCE-GROUP \
     --name YOUR-RESOURCE_NAME \
-    --enable-public-network true \
     --locations regionName=eastus \
-    --kind MongoDB
+    --kind MongoDB \
+    --enable-public-network true \
+    --ip-range-filter 123.123.123.123 
 ```
 
+Replace `123.123.123.123` with your own client IP or remove the parameter entirely. 
+
 This command may take a couple of minutes to complete and creates a publicly available resource in the `eastus` region. 
+
+```text
+{
+  "apiProperties": {
+    "serverVersion": "3.6"
+  },
+  "capabilities": [
+    {
+      "name": "EnableMongo"
+    }
+  ],
+  "connectorOffer": null,
+  "consistencyPolicy": {
+    "defaultConsistencyLevel": "Session",
+    "maxIntervalInSeconds": 5,
+    "maxStalenessPrefix": 100
+  },
+  "cors": [],
+  "databaseAccountOfferType": "Standard",
+  "disableKeyBasedMetadataWriteAccess": false,
+  "documentEndpoint": "https://mongo-2.documents.azure.com:443/",
+  "enableAnalyticalStorage": false,
+  "enableAutomaticFailover": false,
+  "enableCassandraConnector": null,
+  "enableFreeTier": false,
+  "enableMultipleWriteLocations": false,
+  "failoverPolicies": [
+    {
+      "failoverPriority": 0,
+      "id": "mongodb-2",
+      "locationName": "East US"
+    }
+  ],
+  "id": "/subscriptions/.../resourceGroups/my-resource-group/providers/Microsoft.DocumentDB/databaseAccounts/mongo-2",
+  "ipRules": [
+    {
+      "ipAddressOrRange": "123.123.123.123"
+    }
+  ],
+  "isVirtualNetworkFilterEnabled": false,
+  "keyVaultKeyUri": null,
+  "kind": "MongoDB",
+  "location": "Central US",
+  "locations": [
+    {
+      "documentEndpoint": "https://mongodb-2.documents.azure.com:443/",
+      "failoverPriority": 0,
+      "id": "mongodb-2",
+      "isZoneRedundant": false,
+      "locationName": "East US",
+      "provisioningState": "Succeeded"
+    }
+  ],
+  "name": "mongo-2",
+  "privateEndpointConnections": null,
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": "Enabled",
+  "readLocations": [
+    {
+      "documentEndpoint": "https://mongodb-2.documents.azure.com:443/",
+      "failoverPriority": 0,
+      "id": "mongodb-2",
+      "isZoneRedundant": false,
+      "locationName": "East US",
+      "provisioningState": "Succeeded"
+    }
+  ],
+  "resourceGroup": "my-resource-group",
+  "systemData": {
+    "createdAt": "2021-02-08T20:21:05.9519342Z"
+  },
+  "tags": {},
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "virtualNetworkRules": [],
+  "writeLocations": [
+    {
+      "documentEndpoint": "https://mongodb-2.documents.azure.com:443/",
+      "failoverPriority": 0,
+      "id": "mongodb-2",
+      "isZoneRedundant": false,
+      "locationName": "East US",
+      "provisioningState": "Succeeded"
+    }
+  ]
+}
+```
+
+## Add firewall rule for your client IP address to MongoDB resource
+
+By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
+
+Use the [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) command to update the firewall rules.
+
+```azurecli
+az cosmosdb update \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-RESOURCE_NAME \
+    --ip-range-filter 123.123.123.123
+```
+
+To configure multiple IP addresses, use a comma separated list.
+
+```azurecli
+az cosmosdb update \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+    --resource-group YOUR-RESOURCE-GROUP \
+    --name YOUR-RESOURCE_NAME \
+    --ip-range-filter 123.123.123.123,456.456.456.456
+```
 
 ## Get the MongoDB connection string for your resource
 
