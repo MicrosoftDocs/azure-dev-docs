@@ -1,5 +1,5 @@
 ---
-title: Create PostgreSQL in Visual Studio Code
+title: Create Azure PostgreSQL in Visual Studio Code
 description: Create a PostgreSQL resource and use for your PostgreSQL database from the Azure Database extension in Visual Studio Code. 
 ms.topic: how-to
 ms.date: 02/08/2021
