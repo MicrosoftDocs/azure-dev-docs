@@ -13,7 +13,9 @@ Use this procedure for the following types of resources:
 * SQL
 * Azure Table
 * Gremlin
-* PostgreSQL 
+* [PostgreSQL](#create-a-postgresql-database) 
+
+### Create a PostgreSQL database
 
 1. Install the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension for Visual Studio Code.
 1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select **Databases** from the [sidebar](https://code.visualstudio.com/docs/getstarted/userinterface).
