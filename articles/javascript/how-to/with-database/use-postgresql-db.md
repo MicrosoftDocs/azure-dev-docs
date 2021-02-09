@@ -12,20 +12,19 @@ To create, move, or use a PostgreSQL database to Azure, you need an **Azure Data
 
 ## Create an Azure Database for PostgreSQL resource 
 
-You can create a resource with:
+Create a resource with:
 
-* Azure CLI
+* [Azure CLI](../../includes/azure-cli-postgresql-db.md)
+* [Visual Studio Code](../with-visual-studio-code/create-database.md#create-a-postgresql-resource-in-visual-studio-code)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
 * [https://www.npmjs.com/package/@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
-
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-postgresql-db.md)]
 
 ## View and use your PostgreSQL server on Azure
 While developing your PostgreSQL database with JavaScript, use one of the following tools:
 
 * [Azure Cloud Shell](https://shell.azure.com/) - psql CLI is available
 * [pgAdmin](https://www.pgadmin.org/)
-* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql)
+* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 ## Use SDK packages to develop your PostgreSQL server on Azure
 
