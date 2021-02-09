@@ -121,7 +121,6 @@ This returns the connection strings for the popular languages as a JSON object. 
 
 ```json
 {
-{
   "connectionStrings": {
     "C++ (libpq)": "host=YOURRESOURCENAME.postgres.database.azure.com port=5432 dbname={database} user={username}YOURRESOURCENAME password={password} sslmode=require",
     "ado.net": "Server=YOURRESOURCENAME.postgres.database.azure.com;Database={database};Port=5432;User Id={username}@YOURRESOURCENAME;Password={password};",

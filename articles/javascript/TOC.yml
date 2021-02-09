@@ -154,7 +154,7 @@
       - name: Create container from local project
         href: how-to/with-visual-studio-code/containerize-local-project.md
       - name: Create an Azure database
-        href: how-to/with-visual-studio-code/create-azure-database.sql
+        href: how-to/with-visual-studio-code/create-azure-database.md
     - name: With Azure CLI
       items: 
       - name: Create and use container registry

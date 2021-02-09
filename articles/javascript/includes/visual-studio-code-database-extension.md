@@ -5,7 +5,7 @@ ms.date: 02/08/2021
 ---
 
 
-## Use Azure Database extension in Visual Studio Code
+## Create Azure Database with Visual Studio Code extension
 
 Use this procedure for the following types of resources:
 
