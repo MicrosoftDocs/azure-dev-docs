@@ -17,7 +17,7 @@ Create a resource with:
 * [Azure CLI](../with-azure-cli/create-postgresql-server-resource.md)
 * [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
-* [https://www.npmjs.com/package/@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
+* [@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
 
 ## View and use your PostgreSQL server on Azure
 While developing your PostgreSQL database with JavaScript, use one of the following tools:
