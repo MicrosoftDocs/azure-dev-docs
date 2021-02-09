@@ -87,4 +87,4 @@ If your Azure web app connects to your database, you need to change the App sett
 
 ## Next steps
 
-* [Develop a JavaScript application with MongoDB on Azure](use-mongodb-as-cosmosdb)
+* [Develop a JavaScript application with MongoDB on Azure](use-mongodb-as-cosmosdb.md)
