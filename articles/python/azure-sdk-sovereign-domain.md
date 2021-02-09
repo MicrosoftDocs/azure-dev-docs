@@ -31,7 +31,7 @@ from msrestazure.azure_cloud import AZURE_CHINA_CLOUD as CLOUD
 from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential
 
-# Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID,
+# Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID and
 # AZURE_TENANT_ID environment variables
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 tenant_id = os.environ["AZURE_TENANT_ID"]
@@ -62,7 +62,7 @@ from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
 from azure.identity import DefaultAzureCredential
 from azure.profiles import KnownProfiles
 
-# Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID,
+# Assumes the subscription ID and tenant ID to use are in the AZURE_SUBSCRIPTION_ID and
 # AZURE_TENANT_ID environment variables
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 tenant_id = os.environ["AZURE_TENANT_ID"]
