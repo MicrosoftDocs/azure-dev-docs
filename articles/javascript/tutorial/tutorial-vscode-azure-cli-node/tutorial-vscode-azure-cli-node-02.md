@@ -20,4 +20,4 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 
 > [!div class="nextstepaction"]
-> [I create the app](tutorial-vscode-azure-cli-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=express)
+> [I created the app](tutorial-vscode-azure-cli-node-03.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=express)
