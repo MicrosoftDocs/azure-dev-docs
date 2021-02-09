@@ -171,6 +171,8 @@
         href: how-to/with-azure-cli/create-postgresql-server-resource.md
     - name: With databases
       items: 
+      - name: Getting started
+        href: how-to/with-database/getting-started.md
       - name: MongoDB on CosmosDB
         href: how-to/with-database/use-mongodb-as-cosmosdb.md
       - name: MariaDB
