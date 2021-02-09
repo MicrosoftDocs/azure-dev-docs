@@ -153,6 +153,8 @@
         href: how-to/with-visual-studio-code/clone-github-repository.md
       - name: Create container from local project
         href: how-to/with-visual-studio-code/containerize-local-project.md
+      - name: Create an Azure database
+        href: how-to/with-visual-studio-code/create-azure-database.md
     - name: With Azure CLI
       items: 
       - name: Create and use container registry
@@ -165,6 +167,8 @@
         href: how-to/with-azure-cli/create-mariadb.md
       - name: Use MySQL resource
         href: how-to/with-azure-cli/create-mysql-db.md
+      - name: Use PostgreSQL resource
+        href: how-to/with-azure-cli/create-postgresql-server-resource.md
     - name: With databases
       items: 
       - name: MongoDB on CosmosDB
@@ -173,6 +177,8 @@
         href: how-to/with-database/use-mariadb.md
       - name: MySQL 
         href: how-to/with-database/use-mysql-db.md
+      - name: PostgreSQL 
+        href: how-to/with-database/use-postgresql-db.md
     - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: Deploy containers
