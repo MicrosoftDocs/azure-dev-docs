@@ -117,7 +117,7 @@ az postgres server show-connection-string \
     --server-name YOURRESOURCENAME
 ```
 
-This returns the connection strings for the popular languages as a JSON object. You need to replace `{database}`, `{username}`, and `{password}` with your own values before using the connection string. 
+This returns the connection strings for the popular languages as a JSON object. You need to replace `{database}`, `{username}`, and `{password}` with your own values before using the connection string. Replace `YOURRESOURCENAME` with your resource name.
 
 ```json
 {
