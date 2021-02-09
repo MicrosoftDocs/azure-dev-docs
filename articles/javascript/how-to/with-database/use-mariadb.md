@@ -175,7 +175,7 @@ To connect and use your MariaDB on Azure with JavaScript, use the following proc
       ]
     ]
     [
-      { User: 'azurediberry' },
+      { User: 'azureAdmin' },
       { User: 'azure_superuser' },
       { User: 'azure_superuser' },
       { User: 'azure_superuser' },
