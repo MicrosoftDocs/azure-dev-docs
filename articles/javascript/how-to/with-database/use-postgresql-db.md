@@ -49,12 +49,12 @@ To connect and use your PostgreSQL on Azure with JavaScript, use the following p
     ```
 
     The command:
-    * creates a project folder named `DbDemo`
-    * changes the Bash terminal into that folder
-    * initializes the project, which creates the `package.json` file
-    * installs the pg npm package - to use async/await
-    * creates the `index.js` script file
-    * opens the project in Visual Studio Code
+    * Creates a project folder named `DbDemo`
+    * Changes the Bash terminal into that folder
+    * Initializes the project, which creates the `package.json` file
+    * Installs the pg npm package - to use async/await
+    * Creates the `index.js` script file
+    * Opens the project in Visual Studio Code
 
 1. Copy the following JavaScript code into `index.js`:
 
