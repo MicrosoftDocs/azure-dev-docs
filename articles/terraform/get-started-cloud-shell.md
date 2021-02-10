@@ -5,6 +5,7 @@ keywords: azure devops terraform install configure cloud shell init plan apply e
 ms.topic: quickstart
 ms.date: 09/27/2020
 ms.custom: devx-track-terraform, devx-track-azurecli
+adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
