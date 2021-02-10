@@ -59,7 +59,7 @@ For iOS, you must have:
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
 * [Apple Developer Portal](https://developer.apple.com)
-* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1) and [web API](https://dotnet.microsoft.com/apps/aspnet/apis)
+* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core) and [web API](https://dotnet.microsoft.com/apps/aspnet/apis)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started).
 * [Xamarin](https://dotnet.microsoft.com/apps/xamarin) and [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms).
@@ -116,7 +116,7 @@ You can now test sending notifications via the backend service.
 ## Related links
 
 * [Azure Notification Hubs overview](/azure/notification-hubs/notification-hubs-push-notification-overview)
-* [Installing Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* [Installing Visual Studio for Mac](/visualstudio/mac/installation)
 * [Installing Xamarin on Windows](/xamarin/get-started/installation/windows)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)

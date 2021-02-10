@@ -9,6 +9,8 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 
 # Tutorial: Create a Jenkins pipeline using GitHub and Docker
 
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
+
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]
@@ -118,7 +120,7 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Choose **Select plugins to install**
+- Choose **Select plug-ins to install**
 - Search for *GitHub* in the text box across the top. Check the box for *GitHub*, then select **Install**
 - Create the first admin user. Enter a username, such as **admin**, then provide your own secure password. Finally, type a full name and e-mail address.
 - Select **Save and Finish**

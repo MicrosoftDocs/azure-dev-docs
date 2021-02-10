@@ -49,7 +49,7 @@ The following steps walk you through the steps to create a redis cache using the
 
 After your redis cache has been created, it will be displayed in the Azure Explorer.
 
-      ![Redis Cache in Azure Explorer][CR03]
+   ![Redis Cache in Azure Explorer][CR03]
 
 > [!NOTE]
 >

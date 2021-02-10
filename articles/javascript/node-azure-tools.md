@@ -1,42 +1,57 @@
 ---
-title: Tools for JavaScript developers on Azure
+title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: reference
-ms.date: 10/30/2020
+ms.date: 12/07/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
-# Tools for JavaScript developers
-The following tools are recommended for developing JavaScript apps on Azure.
+# Tools for JavaScript developers on Azure 
+
+JavaScript is an ecosystem of many tools. This article is a selection of tools built and maintained by Microsoft for JavaScript developers. Tools improve for new Azure Services and deploy/hosting scenarios. 
+
+You don't need to use these tools to use Azure, it just makes the experience much better, both in functionality and support. 
+
+## Azure portal
+
+The [Azure portal](https://portal.azure.com/) gives you access to all subscriptions and resources for your account. 
 
 ## Azure CLI
-Azure CLI is optimized for managing Azure resources from the command line.
+Azure CLI is optimized for managing Azure resources from the command line. 
 
-![Azure CLI for managing Azure Resources](media/node-azure-tools/azure-cli.png)
- 
-> [!div class="nextstepaction"]
-> [Install the Azure CLI 2.0](/cli/azure/install-az-cli2)
+Azure CLI provides the following use scenarios:
 
-> [!div class="nextstepaction"]
-> [Use Azure CLI 2.0 container](/cli/azure/run-azure-cli-docker)
+* [Azure CLI Local installation](/cli/azure/install-az-cli2)
+* [Azure Cloud shell](https://shell.azure.com/)
+* [Docker container](/cli/azure/run-azure-cli-docker)
+
+If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.
+
+:::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
 
 ## TypeScript
 
-[TypeScript](https://www.typescriptlang.org/) stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system. Your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
-This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+## TypeScript and the Azure SDK client libraries
 
-> [!div class="nextstepaction"]
-> [Install TypeScript](https://www.typescriptlang.org/download)
+Azure SDK client library reference documentation is written for TypeScript because the client libraries are written with TypeScript. You don't have to use TypeScript to use the Azure SDK client libraries. 
 
+Learn more about the [TypeScript guidelines for Azure SDK](https://azure.github.io/azure-sdk/typescript_introduction.html).
 
 ## Visual Studio Code
-Edit and debug JavaScript apps on any OS.
 
-![Use Visual Studio Code to edit JavaScript](media/node-azure-tools/visual-studio-code-debug-javascript.png)
+[Visual Studio Code](https://code.visualstudio.com) is the preferred IDE for JavaScript development for Azure. The interface, features, and extensions work together to shorten development time and reduce development frustration. 
 
-> [!div class="nextstepaction"]
-> [Download Visual Studio Code](https://code.visualstudio.com)
+Create a project workspace at the root of your local development project then add all relevant configurations, settings, and extensions. Check in the workspace file with the project so every team member has access to the settings and tools they need for the project.
+
+You get several benefits using Visual Studio Code:
+
+* Visual Studio Code displays the Azure reference documentation inline
+* Visual Studio Code provides statement completion
+* Few ambiguous types or objects
+
+Visual Studio code provides of wealth of documentation for [JavaScript project use](https://code.visualstudio.com/docs/nodejs/working-with-javascript). 
 
 ## Visual Studio Code Extensions
 Use the following free extensions to interface with Azure services directly in Visual Studio Code.

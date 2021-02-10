@@ -33,7 +33,7 @@ Ansible enables you to automate cloud-native applications in Azure using Azure m
 
 ## Manage deployments with dynamic inventory
 
-Via its [dynamic inventory](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) feature, Ansible provides the ability to pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
+Via its [dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature, Ansible provides the ability to pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
 
 ## Additional Azure Marketplace options
 

@@ -1,6 +1,6 @@
 ---
 title: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services
-description: Learn how to faciliate continuous integration and deployment (CI/CD) to deploy apps to Linux virtual machines using Jenkins and Azure DevOps Services
+description: Learn how to facilitate continuous integration and deployment (CI/CD) to deploy apps to Linux virtual machines using Jenkins and Azure DevOps Services
 keywords: jenkins, azure, devops, virtual machine, cicd, azure devops services
 ms.topic: tutorial
 ms.date: 07/31/2018
@@ -13,7 +13,7 @@ Continuous integration (CI) and continuous deployment (CD) form a pipeline by wh
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
 
-to a [deployment group](/azure/devops/pipelines/release/deployment-groups/index?view=vsts) that contains Linux virtual machines (VMs). You learn how to:
+to a [deployment group](/azure/devops/pipelines/release/deployment-groups/index) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
@@ -25,16 +25,13 @@ to a [deployment group](/azure/devops/pipelines/release/deployment-groups/index?
 > * Create an Azure Pipelines release pipeline.
 > * Execute manual and CI-triggered deployments.
 
-## Before you begin
+## Prerequisites
 
-* You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins master on an Azure virtual machine](/azure/jenkins/install-jenkins-solution-template). 
-
-* Sign in to your Azure DevOps Services organization (**https://{yourorganization}.visualstudio.com**). 
-  You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -61,7 +58,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 1. Open your Jenkins account and select **Manage Jenkins**.
 2. On the **Manage Jenkins** page, select **Manage Plugins**.
 3. Filter the list to locate the **NodeJS** plug-in, and select the **Install without restart** option.
-    ![Adding the NodeJS plugin to Jenkins](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-nodejs-plugin.png)
+    ![Adding the NodeJS plug-in to Jenkins](media/deploy-to-linux-vm-using-azure-devops-services/jenkins-nodejs-plugin.png)
 4. Filter the list to find the **VS Team Services Continuous Deployment** plug-in and select the **Install without restart** option.
 5. Go back to the Jenkins dashboard and select **Manage Jenkins**.
 6. Select **Global Tool Configuration**. Find **NodeJS** and select **NodeJS installations**.
@@ -86,7 +83,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
  
 1.  Create a PAT in your Azure DevOps Services organization if you don't already have one. Jenkins requires this information to access your Azure DevOps Services organization. Be sure to store the token information for upcoming steps in this section.
   
-    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
+    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
@@ -159,9 +156,9 @@ To create the release pipeline in Azure Pipelines:
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Azure DevOps. Open the release to see the deployment taking place. Congratulations!
 
-## Troubleshooting the Jenkins plugin
+## Troubleshooting the Jenkins plug-in
 
-If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+If you encounter any bugs with the Jenkins plug-ins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

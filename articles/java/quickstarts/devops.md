@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 The following articles help you get started with various DevOps options on Azure:
 
-- [Azure Pipelines](/azure/devops/pipelines/targets/webapp-linux?view=azure-devops&tabs=java%2Cyaml)
+- [Azure Pipelines](/azure/devops/pipelines/targets/webapp-linux?tabs=java%2Cyaml)
 - [Azure DevOps Projects](/azure/devops-project/azure-devops-project-java)
 - [Azure Resource Manager templates with IntelliJ](/azure/azure-resource-manager/templates/create-templates-use-intellij)
 - [GitHub Actions](https://github.com/actions/setup-java)

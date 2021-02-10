@@ -1,137 +1,167 @@
 ---
-title: Tutorial - Scale Jenkins deployments with Azure VM agents
-description: Learn how to add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
+title: Tutorial - Scale Jenkins deployments with VM running in Azure
+description: Learn how to add additional capacity to your Jenkins pipelines using Azure virtual machines
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
-ms.date: 08/19/2020
-ms.custom: devx-track-jenkins
+ms.date: 01/08/2021
+ms.custom: devx-track-jenkins,devx-track-jenkins
 ---
 
-# Tutorial: Scale Jenkins deployments with Azure VM agents
+# Tutorial: Scale Jenkins deployments with VM running in Azure
 
-This tutorial shows how to use the Jenkins [Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents) to add on-demand capacity with Linux virtual machines running in Azure.
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
+
+This tutorial shows how to create a Linux virtual machines in Azure and add the VM as a work node to Jenkins.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Install the Azure VM Agents plugin
-> * Configure the plugin to create resources in your Azure subscription
-> * Set the compute resources available to each agent
-> * Set the operating system and tools installed on each agent
+> * Create agent machine
+> * Add agent to Jenkins
 > * Create a new Jenkins freestyle job
 > * Run the job on an Azure VM agent
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
 ## Prerequisites
 
 - **Jenkins installation**: If you don't have access to a Jenkins installation, [configure Jenkins using Azure CLI](configure-on-linux-vm.md)
 
-## Install Azure VM Agents plugin
+## Configure agent virtual machine
 
-1. From the Jenkins dashboard, select **Manage Jenkins**, then select **Manage Plugins**.
+1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
 
-1. Select the **Available** tab, then search for **Azure VM Agents**. Select the checkbox next to the entry for the plugin and select **Install without restart** from the bottom of the dashboard.
+    ```azurecli
+    az group create --name <resource_group> --location <location>
+    ```
 
-## Configure the Azure VM Agents plugin
+1. Use [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine.
 
-1. From the Jenkins dashboard, select **Manage Jenkins**, then **Configure System**.
+    ```azurecli
+    az vm create --resource-group <resource-group> --name <vm_name> --image UbuntuLTS --admin-username azureuser --admin-password "<password>"
+    ```
 
-1. Scroll to the bottom of the page and find the **Cloud** section with the  **Add new cloud** dropdown and choose **Microsoft Azure VM Agents**.
+    **Notes**:
 
-1. Select an existing service principal from **Add** drop-down in the **Azure Credentials** section. If none is listed, perform the following steps to [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) for your Azure account and add it to your Jenkins configuration:
+    - You can also upload your ssh key with the following command `--ssh-key-value <ssh_path>`.
 
-    a. Select **Add** next to **Azure Credentials** and choose **Jenkins**.
-    b. In the **Add Credentials** dialog, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
-    c. Create an Active Directory Service principal from the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview).
+1. Install the JDK.  
+
+    #### [Linux](#tab/linux)
     
-    ```azurecli-interactive
-    az ad sp create-for-rbac --name jenkins_sp --password secure_password
-    ```
+    1. Log in to the virtual machine using an SSH tool.
+    
+        ```bash
+        ssh username@123.123.123.123
+        ```
+        
+    1. Install the JDK with apt. You can also install with other package manager tools such as yum or pacman.
+    
+        ```bash
+        sudo apt-get install -y default-jdk
+        ```
+    
+    1. After installation is complete, run `java -version` to verify the Java environment. The output will include the version numbers associated with various parts of the JDK.
+    
+    #### [Windows](#tab/windows)
+    
+    1. Log in to the virtual machine using an SSH tool or using Remote Desktop Connection.
+    
+    1. [Download the JDK](https://www.oracle.com/java/technologies/javase-downloads.html) that is appropriate for your environment.
+    
+    1. Install JDK
+    
+## Configure Jenkins URL
 
-    ```json
-    {
-        "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBB",
-        "displayName": "jenkins_sp",
-        "name": "http://jenkins_sp",
-        "password": "secure_password",
-        "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
-    }
-    ```
-    d. Enter the credentials from the service principal into the **Add credentials** dialog. If you don't know your Azure subscription ID, you can query it from the CLI:
-     
-     ```azurecli-interactive
-     az account list
-     ```
+If you use JNLP, you'll need to configure the Jenkins URL.
 
-     ```json
-        {
-            "cloudName": "AzureCloud",
-            "id": "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA",
-            "isDefault": true,
-            "name": "Visual Studio Enterprise",
-            "state": "Enabled",
-            "tenantId": "CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCC",
-            "user": {
-            "name": "raisa@fabrikam.com",
-            "type": "user"
-            }
-     ```
+1. From the menu, select **Manage Jenkins**.
 
-    The completed service principal should use the `id` field for **Subscription ID**, the `appId` value for **Client ID**, `password` for **Client Secret**, and `tenant` for **Tenant ID**. Select **Add** to add the service principal and then configure the plugin to use the newly created credential.
+1. Under **System Configuration**, select **Configure System**.
 
-    ![Configure Azure Service Principal](./media/scale-deployments-using-vm-agents/new-service-principal.png)
+1. Verify that the **Jenkins URL** is set to the HTTP address of your Jenkins installation - `http://<your_host>.<your_domain>:8080/`.
 
-1. In the **Resource Group Name** section, leave **Create new** selected and enter `myJenkinsAgentGroup`.
-1. Select **Verify configuration** to connect to Azure to test the profile settings.
-1. Select **Apply** to update the plugin configuration.
+1. Select **Save**.
 
-## Configure agent resources
+## Add agent to Jenkins
 
-Configure a template for use to define an Azure VM agent. This template defines the compute resources each agent has when created.
+1. From the menu, select **Manage Jenkins**.
 
-1. Select **Add** next to **Add Azure Virtual Machine Template**.
-1. Enter `defaulttemplate` for the **Name**
-1. Enter `ubuntu` for the **Label**
-1. Select the desired [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) from the combo box.
-1. Select a [VM size](/azure/virtual-machines/linux/sizes) from the drop-down under **Virtual Machine Size**. A general-purpose `Standard_DS1_v2` size is fine for this tutorial.   
-1. Leave the **Retention time** at `60`. This setting defines the number of minutes Jenkins can wait before it deallocated idle agents. Specify 0 if you do not want idle agents to be removed automatically.
+1. Under **System Configuration**, select **Manage Nodes and Clouds**.
 
-   ![General VM configuration](./media/scale-deployments-using-vm-agents/general-config.png)
+1. From the menu, select **New Node**.
 
-## Configure agent operating system and tools
+1. Enter a value for **Node Name**.
 
-In the **Image Configuration** section of the plugin configuration, select **Ubuntu 16.04 LTS**. Check the boxes next to **Install Git (Latest)**, **Install Maven (V3.5.0)**, and **Install Docker** to install these tools on newly created agents.
+1. Select **Permanent Agent**.
 
-![Configure VM OS and tools](./media/scale-deployments-using-vm-agents/jenkins-os-config.png)
+1. Select **OK**.
 
-Select **Add** next to **Admin Credentials**, then select **Jenkins**. Enter a username and password used to sign in to the agents, making sure they satisfy the [username and password policy](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) for administrative accounts on Azure VMs.
+1. Specify values for the following fields:
 
-Select **Verify Template** to verify the configuration and then select **Save** to save your changes and return to the Jenkins dashboard.
+    - **Name**: Specify a unique name that identifies an agent within the new Jenkins installation. This value can be different from the agent hostname. However, it's convenient to make them the two values the same. The name value is allowed any special character from the following list: `?*/\%!@#$^&|<>[]:;`.
+
+    - **Remote root directory**: An agent needs to have a directory dedicated to Jenkins. Specify the path to this directory on the agent. It is best to use an absolute path, such as `/home/azureuser/work` or `c:\jenkins`. This should be a path local to the agent machine. There is no need for this path to be visible from the master. If you use a relative path, such as ./jenkins-agent, the path will be relative to the working directory provided by the Launch method.
+
+    - **Labels**: Labels are used to group semantically related agents into one logical group. For example, you could define a label of `UBUNTU` for all your agents running the Ubuntu distro of Linux.
+
+    - **Launch method**: There are two options to start the remote Jenkins node: **Launch agents via SSH** and **Launch agent via execution of command on the master**:
+
+        - **Launch agents via SSH**: Specify the values for the following fields:
+
+            - **Host**: VM public IP address or domain name. For example, `123.123.123.123` or `example.com`
+
+            - **Credentials**: Select a credential to be used for logging in to the remote host. You can also select the **Add** button to define a new credential and then select that new credential once it's create.
+
+            - **Host Key Verification Strategy**: Controls how Jenkins verifies the SSH key presented by the remote host whilst connecting.
+
+            ![Node configuration example specifying a launch method of Launch agents via SSH.](./media/scale-deployments-using-vm-agents/ssh2.png)
+
+        - **Launch agent via execution of command on the master**:
+
+            - Download the `agent.jar`  from `https://<your_jenkins_host_name>/jnlpJars/agent.jar`. For example, `https://localhost:8443/jnlpJars/agent.jar`.
+
+            - Upload `agent.jar` to your virtual machine
+
+            - Start Jenkins with command `ssh <node_host> java -jar <remote_agentjar_path>`. For example, `ssh azureuser@99.99.999.9 java -jar /home/azureuser/agent.jar`.
+
+            ![Node configuration example specifying a launch method of Launch agent via execution of command on the master.](./media/scale-deployments-using-vm-agents/config.png)
+
+1. Select **Save**.
+
+After you define the configurations, Jenkins adds the virtual machine as a new work node.
+
+![Example of virtual machine as new work node](./media/scale-deployments-using-vm-agents/commandstart.png)
 
 ## Create a job in Jenkins
 
-1. Within the Jenkins dashboard, click **New Item**. 
-1. Enter `demoproject1` for the name and select **Freestyle project**, then select **OK**.
-1. In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You see a message confirming that the label is served by the cloud configuration created in the previous step. 
-   ![Set up job](./media/scale-deployments-using-vm-agents/job-config.png)
+1. From the menu, select **New Item**.
+
+1. Enter `demoproject1` for the name.
+
+1. Select **Freestyle project**.
+
+1. Select **OK**.
+
+1. In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You see a message confirming that the label is served by the cloud configuration created in the previous step.
+
+   ![Setting up a new Jenkins job](./media/scale-deployments-using-vm-agents/job-config.png)
+
 1. In the **Source Code Management** tab, select **Git** and add the following URL into the **Repository URL** field: `https://github.com/spring-projects/spring-petclinic.git`
+
 1. In the **Build** tab, select **Add build step**, then **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
-1. Select **Save** to save the job definition.
+
+1. Select **Save**.
 
 ## Build the new job on an Azure VM agent
 
-1. Go back to the Jenkins dashboard.
-1. Select the job you created in the previous step, then click **Build now**. A new build is queued, but does not start until an agent VM is created in your Azure subscription.
+1. Select the job you created in the previous step.
+
+1. Select **Build now**. A new build is queued, but doesn't start until an agent VM is created in your Azure subscription.
+
 1. Once the build is complete, go to **Console output**. You see that the build was performed remotely on an Azure agent.
 
-![Console output](./media/scale-deployments-using-vm-agents/console-output.png)
-
-## Troubleshooting the Jenkins plugin
-
-If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+    ![Console output](./media/scale-deployments-using-vm-agents/console-output.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](deploy-from-github-to-azure-app-service.md)
+> [CI/CD to Azure App Service](./deploy-to-azure-app-service-using-azure-cli.md)

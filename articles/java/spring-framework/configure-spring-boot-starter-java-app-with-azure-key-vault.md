@@ -29,7 +29,7 @@ This tutorial describes how to create a Spring Boot app that reads a value from 
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * The `curl` command.  Most UNIX-like operating systems have this command pre-installed.  OS-specific clients are available at [the official curl website](https://curl.haxx.se/).
@@ -407,7 +407,7 @@ Follow these steps to make your POM ready to deploy `KeyvaultApplication` to Azu
    mvn azure-webapp:config
    ```
 
-1. For the `Subscription`, ensure you have select the same subscription id with the Key Vault you created.
+1. For the `Subscription`, ensure you have selected the same subscription id with the Key Vault you created.
 1. For the `Web App`, you can either select an existing Web App or select `<create>` to create a new one, if you select an existing Web App, it will jump directly to the last **confirm** step.
 1. For the `OS`, ensure `linux` is selected.
 1. For the `javaVersion`, ensure the Java version you chose in Spring Initializr is chosen.  We chose `11` above, so we choose 11 here.
@@ -642,7 +642,7 @@ When no longer needed, use the [Azure portal](https://portal.azure.com/) to dele
 
 ## Next steps
 
-To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
+To learn more about Spring and Azure, continue to the next topic on the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Configure a Spring Boot Initializer app to use Application Insights](configure-spring-boot-java-applicationinsights.md)
+> [How to use the Spring Boot Starter for Azure Service Bus JMS](configure-spring-boot-starter-java-app-with-azure-service-bus.md)

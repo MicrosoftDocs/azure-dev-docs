@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 
 This article describes the benefits of using Terraform to manage Azure infrastructure.
 
-## Automate infrastructure management.
+## Automate infrastructure management
 
 Terraform's template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. Automating infrastructure has several benefits:
 

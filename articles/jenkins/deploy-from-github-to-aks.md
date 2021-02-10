@@ -3,11 +3,13 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service using Jenkins
 description: Learn how to configure Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 02/05/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy from GitHub to Azure Kubernetes Service using Jenkins
+
+[!INCLUDE [jenkins-integration-with-azure.md](includes/jenkins-integration-with-azure.md)]
 
 This tutorial deploys a sample app from GitHub to an 
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) 
@@ -163,7 +165,7 @@ Enter the following to Unlock Jenkins:
 
 Open a web browser to the URL displayed and enter the unlock key. Follow the on-screen prompts to complete the Jenkins configuration:
 
-- Choose **Install suggested plugins**
+- Choose **Install suggested plug-ins**
 - Create the first admin user. Enter a username, such as *azureuser*, then provide your own secure password. Finally, type a full name and e-mail address.
 - Select **Save and Finish**
 - Once Jenkins is ready, select **Start using Jenkins**

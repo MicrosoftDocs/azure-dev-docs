@@ -15,10 +15,10 @@ This tutorial covers several possible ways of setting up your Jenkins environmen
 1. Then follow the steps in one of these sections to set up Jenkins:
    * [Set up Jenkins inside a Service Fabric cluster](#set-up-jenkins-inside-a-service-fabric-cluster), 
    * [Set up Jenkins outside a Service Fabric cluster](#set-up-jenkins-outside-a-service-fabric-cluster), or
-   * [Install the Service Fabric plugin in an existing Jenkins environment](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
+   * [Install the Service Fabric plug-in in an existing Jenkins environment](#install-service-fabric-plug-in-in-an-existing-jenkins-environment).
 1. After you've set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
 1. Finally, configure the Jenkins job post-build step to deploy your application to your Service Fabric cluster. There are two ways to configure Jenkins to deploy your application to a cluster:    
-   * For development and test environments, use [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This is the simplest deployment method to set up.
+   * For development and test environments, use [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This method is the simplest deployment method to set up.
    * For production environments, use [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials). Microsoft recommends this method for production environments because with Azure credentials you can limit the access that a Jenkins job has to your Azure resources. 
 
 ## Prerequisites
@@ -27,17 +27,17 @@ This tutorial covers several possible ways of setting up your Jenkins environmen
 - This article uses the *Service Fabric Getting Started Sample* on GitHub: [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) for the application to build and deploy. You can fork this repository to follow along, or, with some modification to the instructions, use your own GitHub project.
 
 
-## Install Service Fabric plugin in an existing Jenkins environment
+## Install Service Fabric plug-in in an existing Jenkins environment
 
-If you're adding the Service Fabric plugin to an existing Jenkins environment, you need to do the following steps:
+If you're adding the Service Fabric plug-in to an existing Jenkins environment, you need to do the following steps:
 
 - [Service Fabric CLI (sfctl)](/azure/service-fabric/service-fabric-cli). Install the CLI at the system level rather than at the user level, so Jenkins can run CLI commands. 
 - To deploy Java applications, install both [Gradle and Open JDK 8.0](/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development). 
 - To deploy .NET Core 2.0 applications, install the [.NET Core 2.0 SDK](/azure/service-fabric/service-fabric-get-started-linux#set-up-net-core-20-development). 
 
-After you've installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
+After you've installed the prerequisites needed for your environment, you can search for the Azure Service Fabric plug-in in Jenkins marketplace and install it.
 
-After you've installed the plugin, skip ahead to [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
+After you've installed the plug-in, skip ahead to [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
 
 ## Set up Jenkins inside a Service Fabric cluster
 
@@ -134,7 +134,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
-1. On the Jenkins Getting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
+1. On the Jenkins Getting Started page, choose the Select plug-in to install option, select the **None** checkbox, and click install.
 1. Create a user or select to continue as an admin.
 
 After you've set up Jenkins, skip ahead to [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).  
@@ -152,7 +152,7 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
     wget -qO- https://get.docker.io/ | sh
     ```
 
-1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
+1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plug-in pre-installed.
 1. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
 1. Get the ID of the container image instance. You can list all the Docker containers with the command `docker ps –a`
 1. Sign in to the Jenkins portal with the following steps:
@@ -197,7 +197,7 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 
    1. On your GitHub repository page, go to **Settings** > **Integrations and Services**.
 
-   1. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plugin**.
+   1. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plug-in**.
 
    1. Enter your Jenkins webhook URL (by default, it should be `http://<PublicIPorFQDN>:8081/github-webhook/`). Click **add/update service**.
 
@@ -219,7 +219,7 @@ The steps in this section show you how to configure a Jenkins job to respond to 
 
      The following screenshot shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of `CounterServiceApplication`.
 
-      ![Service Fabric Jenkins Build action](./media/deploy-to-service-fabric-cluster/build-step-dotnet.png)
+      ![Example of commands used to build the service](./media/deploy-to-service-fabric-cluster/build-step-dotnet.png)
 
 1. To configure Jenkins to deploy your app to a Service Fabric cluster in the post-build actions, you need the location of that cluster's certificate in your Jenkins container. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster and note the location of the cluster certificate:
 
@@ -298,14 +298,14 @@ For development and test environments, you can configure either Azure credential
 1. Back under **Service Fabric Cluster Configuration**, make sure that your new credential is selected for **Azure Credentials**. 
 1. From the **Resource Group** drop-down, select the resource group of the cluster you want to deploy the application to.
 1. From the **Service Fabric** drop-down, select the cluster that you want to deploy the application to.
-1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
+1. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`.
 1. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
     ![Service Fabric Jenkins Post-Build Action - Configure Azure credentials](./media/deploy-to-service-fabric-cluster/post-build-credentials.png)
 1. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Continue on to [Next steps](#next-steps) to test your deployment.
 
-## Troubleshooting the Jenkins plugin
+## Troubleshooting the Jenkins plug-in
 
-If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+If you encounter any bugs with the Jenkins plug-in, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Ideas to try
 

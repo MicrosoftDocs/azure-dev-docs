@@ -1,7 +1,7 @@
 ---
 title: Azure SDK libraries for JavaScript
 description: Listing of the package names, NPM links, docs links, and source code links for all libraries in the Azure SDK for JavaScript.
-ms.date: 09/30/2020
+ms.date: 12/08/2020
 ms.topic: reference
 ms.custom: devx-track-js
 ---
@@ -25,4 +25,4 @@ The Azure libraries for JavaScript are available for installation from:
 
 ## Next steps
 
-Find [reference documentation](/javascript/api/overview/azure/?view=azure-node-latest) for all Azure NPM packages.
+Find [reference documentation](/javascript/api/overview/azure/) for all Azure NPM packages.

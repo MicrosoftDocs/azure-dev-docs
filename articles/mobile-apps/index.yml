@@ -129,7 +129,7 @@ landingContent:
           - text: Automate the lifecycle of your apps with continuous build and integration
             url: continuous-integration.md
           - text: Key concepts for new Azure Pipelines users
-            url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+            url: /azure/devops/pipelines/get-started/key-pipelines-concepts
       - linkListType: overview
         links:
           - text: Release a build with App Center

@@ -2,7 +2,7 @@
 title: "Step 5: Clean up Azure resources"
 description: Tutorial step 5, cleaning up Azure resources to avoid incurring ongoing charges.
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 12/09/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 

@@ -3,13 +3,13 @@ title: Overview of Jenkins and Azure
 description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continuous integration and deployment (CI/CD) pipelines.
 keywords: jenkins, azure, devops, overview
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-jenkins
 ---
 
 # Azure and Jenkins
 
-[Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment in Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plugins are also available to simplify CI/CD of your applications to Azure.
+[Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment in Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plug-ins are also available to simplify CI/CD of your applications to Azure.
 
 This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. For more information about getting started with your own Jenkins server in Azure, see [Create a Jenkins server on Azure](configure-on-linux-vm.md).
 
@@ -28,9 +28,8 @@ Once configured with an [Azure service principal](/azure/azure-resource-manager/
 
 ## Deploy your code into Azure services
 
-Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins CI/CD pipelines. Deploying into [Azure App Service](/azure/app-service/) and [Azure Container Service](/azure/container-service/kubernetes/) lets you stage, test, and release updates to your applications without managing the underlying infrastructure.
+Use Jenkins plug-ins to deploy your applications to Azure as part of your Jenkins CI/CD pipelines. Deploying into [Azure App Service](/azure/app-service/) and [Azure Container Service](/azure/container-service/kubernetes/) lets you stage, test, and release updates to your applications without managing the underlying infrastructure.
 
  Plug-ins are available to deploy to the following services and environments:
 
-- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](deploy-from-github-to-azure-app-service.md) to get started.
-- [Azure App Service](/azure/app-service/overview). See the [how-to](deploy-to-azure-app-service-using-plugin.md) to get started.
+- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](deploy-to-azure-app-service-using-azure-cli.md) to get started.

@@ -31,7 +31,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 The following steps walk you through the Azure sign in process in your IntelliJ development environment.
 
-1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](installation.md).
+1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](./index.yml).
 
 1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 

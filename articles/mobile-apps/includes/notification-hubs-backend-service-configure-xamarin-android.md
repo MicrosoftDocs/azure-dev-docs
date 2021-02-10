@@ -75,7 +75,7 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetPlayServicesError());
 
-                if (string.isNullOrWhitespace(Token))
+                if (string.IsNullOrWhiteSpace(Token))
                     throw new Exception("Unable to resolve token for FCM");
 
                 var installation = new DeviceInstallation
@@ -106,7 +106,7 @@
     ```
 
     > [!NOTE]
-    > This class provides a unique ID (using [Secure.AndroidId](/dotnet/api/android.provider.settings.secure.androidid?view=xamarin-android-sdk-9)) as part of the notification hub registration payload.
+    > This class provides a unique ID (using [Secure.AndroidId](/dotnet/api/android.provider.settings.secure.androidid)) as part of the notification hub registration payload.
 
 1. Add another **Empty Class** to the **Services** folder called *PushNotificationFirebaseMessagingService.cs*, then add the following implementation.
 

@@ -1,20 +1,160 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-08.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/deno-visual-studio-code-azure-app-service.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/browser-file-upload.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob"
+    },    
+    {
+      "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-install"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-create-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-test-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource"
+    },
+    {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-03.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service"
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/node-sdk-logging.md",
@@ -34,11 +174,11 @@
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload"
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
-      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb"
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb?preview=tutorialFeedback"
     },
     {
       "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
@@ -143,6 +283,10 @@
     {
       "source_path": "articles/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage-api.md",
       "redirect_url": "/azure/developer/java/spring-framework"
+    },
+    {
+      "source_path": "articles/java/spring-framework/configure-spring-boot-java-applicationinsights.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
@@ -475,7 +619,7 @@
     {
       "source_path": "articles/python/python-sdk-azure-release-notes.md",
       "redirect_url": "/azure/developer/python/azure-sdk-overview"
-    },
+    },    
     {
       "source_path": "articles/python/python-sdk-azure-tools.md",
       "redirect_url": "/azure/developer/python/azure-tools"
@@ -541,6 +685,46 @@
       "redirect_url": "/azure/developer/python/quickstarts-identity-security"
     },
     {
+      "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-01.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-02.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-03.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-04.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-05.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-06.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-07.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/cloud-azure-terminology.md",
+      "redirect_url": "/azure/azure-glossary-cloud-terminology"
+    },    
+    {
       "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
     },
@@ -599,6 +783,22 @@
     {
       "source_path": "articles/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin.md",
       "redirect_url": "/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux"
+    },
+    {
+      "source_path": "articles/jenkins/azure-dev-spaces-and-aks.md",
+      "redirect_url": "/azure/developer/jenkins"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-from-github-to-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
     }
   ]
 }

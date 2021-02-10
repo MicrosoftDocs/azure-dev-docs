@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 09/21/2020
+  ms.date: 01/20/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -23,46 +23,62 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Azure Fundamentals
-            url: /learn/paths/azure-fundamentals/
+          - text: What is Azure?
+            url: core/what-is-azure-for-javascript-development.md
+          - text: Install Node.js
+            url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
           - text: Authenticate to client library
             url: core/node-sdk-azure-authenticate.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
-  - title: Hosting
+          - text: Top tasks for JavaScript developers
+            url: how-to/common-javascript-tasks.md
+  - title: Returning to Azure?
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What's new in docs 
+            url: whats-new-docs.md
+          - text: What's new with Developer Advocates
+            url: whats-new-developer-advocacy.md
+  - title: Deploy and host
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Front-end apps
-            url: /azure/static-web-apps/getting-started
-          - text: Node.js with App service
-            url: tutorial-vscode-azure-app-service-node-01.md
-          - text: Deno with App Service
-            url: tutorial/deno-visual-studio-code-azure-app-service.yml?&preview=tutorialFeedback
-          - text: Containers
-            url: tutorial-vscode-docker-node-01.md
-      - linkListType: how-to-guide
-        links:
-          - text: Full-stack (serverless APIs & front-end)
-            url: how-to/create-static-site.md
-  - title: Serverless functions
-    linkLists:
+          - text: "Static web app: React with Cognitive Services"
+            url: tutorial/static-web-app/introduction.md
+          - text: "App service: React upload to Storage Blobs"
+            url: tutorial/browser-file-upload-azure-storage-blob.md
+          - text: "App service: Express.js"
+            url: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
+          - text: "App service: Express.js with MongoDB"
+            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+          - text: "App service: Express.js container"
+            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
+          - text: "Azure Functions: HTTP serverless trigger"
+            url: tutorial/tutorial-vscode-serverless-node-install.md
+          - text: "Azure Virtual Machine: NGINX/Express.js containers"
+            url: tutorial/nodejs-virtual-machine-vm/introduction.md
+  - title: Azure SDK client library tutorials
+    linkLists: 
       - linkListType: tutorial
-        links:
-          - text: Develop and deploy
-            url: tutorial-vscode-serverless-node-01.md
-      - linkListType: how-to-guide
-        links:
-          - text: Write serverless code
-            url: how-to/develop-serverless-apps.md
+        links: 
+          - text: "Static web app: Analyze image with Computer Vision"
+            url: ./tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+          - text: "Static web app: Upload file to Storage Blob"
+            url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
+          - text: "Static web app: Login/Logoff button"
+            url: tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons
+          - text: "Express.js: Add Application Insights logging"
+            url: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights
   - title: Data
     linkLists:
       - linkListType: quickstart
         links:
           - text: MongoDB
-            url: /azure/cosmos-db/create-mongodb-nodejs?toc=/azure/javascript/toc.json&bc=/azure/javascript/breadcrumb/toc.json
+            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: MySql
             url: /azure/mysql/connect-nodejs
           - text: PostgreSQL
@@ -82,17 +98,17 @@ landingContent:
           - text: Translate text
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
-            url: /azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript
-  - title: Security, Messaging, and Logs
+            url: tutorial/static-web-app/introduction.md
+  - title: Learning paths and modules
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
-          - text: Authentication
-            url: /azure/active-directory/develop/quickstart-v2-javascript
-          - text: Message queues
-            url: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package
-          - text: Logging and analytics
-            url: /azure/azure-monitor/learn/nodejs-quick-start
+          - text: Azure Fundamentals
+            url: /learn/modules/intro-to-azure-fundamentals/
+          - text: Build JavaScript applications with Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
+          - text: Azure Static Web Apps
+            url: /learn/paths/azure-static-web-apps/
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
@@ -100,9 +116,9 @@ landingContent:
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
-            url: /javascript/api/overview/azure/?view=azure-node-latest
+            url: /javascript/api/overview/azure/
           - text: JS/TS samples
-            url: /samples/browse/?languages=javascript%252cnodejs%252ctypescript
+            url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Explore developer tools
     linkLists:
       - linkListType: get-started

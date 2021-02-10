@@ -12,5 +12,4 @@ The following articles help you get started with various monitoring options on A
 
 - [Application Insights - Codeless Monitoring](/azure/azure-monitor/app/java-in-process-agent)
 - [Elastic Stack by Logz.io](../fundamentals/java-get-started-with-logzio.md)
-- [Application Insights - Spring + AI SDK](../spring-framework/configure-spring-boot-java-applicationinsights.md)
 - [Application Insights - Micrometer](/azure/azure-monitor/app/micrometer-java)

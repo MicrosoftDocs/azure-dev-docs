@@ -3,7 +3,7 @@ title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 keywords: jenkins, azure, devops, azure spring cloud, azure cli
 ms.topic: tutorial
-ms.date: 09/01/2020 
+ms.date: 11/10/2020 
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
@@ -21,9 +21,7 @@ In this tutorial, you'll complete these tasks:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-
 - **Jenkins**: [Install Jenkins on a Linux VM](configure-on-linux-vm.md)
-
 - **GitHub account**: If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
 ## Provision a service instance and launch a Java Spring application
@@ -31,10 +29,11 @@ In this tutorial, you'll complete these tasks:
 We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
-    * [Git](https://git-scm.com/)
-    * [JDK 8](/java/azure/jdk/?view=azure-java-stable)
-    * [Maven 3.0 or above](https://maven.apache.org/download.cgi)
-    * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 or higher
+
+* [Git](https://git-scm.com/)
+* [JDK 8](/java/azure/jdk)
+* [Maven 3.0 or above](https://maven.apache.org/download.cgi)
+* [Azure CLI installed](/cli/azure/install-azure-cli), version 2.0.67 or higher
 
 1. Install the Azure Spring Cloud extension:
 
@@ -125,7 +124,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 ### Add your Azure Service Principal credential in Jenkins credential store
 
-1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
+1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](./deploy-to-azure-app-service-using-azure-cli.md#add-azure-service-principal-to-a-jenkins-credential) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
 
     ```
     {
@@ -157,7 +156,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
-1. Connect to the Jenkins master via SSH.
+1. Connect to the Jenkins controller via SSH.
 
 1. Install Maven.
 

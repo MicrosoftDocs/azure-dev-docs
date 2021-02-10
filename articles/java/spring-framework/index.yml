@@ -26,8 +26,6 @@ landingContent:
             url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
           - text: Kafka and Event Hubs
             url: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
-          - text: Application Insights
-            url: configure-spring-boot-java-applicationinsights.md
   - title: Step-by-step tutorials
     linkLists:
       - linkListType: tutorial
