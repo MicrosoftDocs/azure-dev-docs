@@ -4,6 +4,7 @@ description: Tutorial step 1, configure your environment for App Service
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.custom: devx-track-python, seo-python-october2019
+adobe-target: true
 ---
 
 # Tutorial: Deploy Python apps to Azure App Service on Linux from Visual Studio Code

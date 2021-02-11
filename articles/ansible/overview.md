@@ -5,6 +5,7 @@ keywords: ansible, azure, devops, overview, cloud provision, configuration manag
 ms.topic: overview
 ms.date: 08/13/2020
 ms.custom: devx-track-ansible
+adobe-target: true
 ---
 
 # Using Ansible with Azure
