@@ -4,6 +4,7 @@ description: Learn how Terraform can help you deploy and version your infrastruc
 ms.topic: overview
 ms.date: 10/26/2019
 ms.custom: devx-track-terraform
+adobe-target: true
 ---
 
 # Terraform with Azure

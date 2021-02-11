@@ -80,7 +80,7 @@ For example, an App Configuration client request to set the Configuration settin
 
 ### Configure tracing exports
 
-Applications that wish to make use of trace information must export traces to a distributed tracing store (such as [Zipkin](https://zipkin.io/), [Jaeger](https://www.jaegertracing.io/), and [Azure Monitor](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/monitor/microsoft-opentelemetry-exporter-azuremonitor#azure-monitor-opentelemetry-exporter-client-library-for-java)). The following example configures the exporting of trace information to a Jaeger distributed tracing store running on localhost port 14250, using Jaeger-specific APIs:
+Applications that wish to make use of trace information must export traces to a distributed tracing store (such as [Zipkin](https://zipkin.io/), [Jaeger](https://www.jaegertracing.io/), and [Azure Monitor](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/monitor/azure-monitor-opentelemetry-exporter#azure-monitor-opentelemetry-exporter-client-library-for-java). The following example configures the exporting of trace information to a Jaeger distributed tracing store running on localhost port 14250, using Jaeger-specific APIs:
 
 ```java
 ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 14250).usePlaintext().build();
