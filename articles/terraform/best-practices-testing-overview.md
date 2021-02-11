@@ -4,6 +4,7 @@ description: Learn about the different testing options that you can configure to
 ms.topic: overview
 ms.date: 07/31/2020
 ms.custom: devx-track-terraform
+adobe-target: true
 ---
 
 # Tutorial: Terraform testing overview

@@ -4,6 +4,7 @@ description: How to install, uninstall, and verify Azure SDK or Python libraries
 ms.date: 01/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # How to install Azure library packages for Python

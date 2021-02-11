@@ -4,6 +4,7 @@ description: In this tutorial, create a new serverless app in Visual Studio Code
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: devx-track-js, contperf-fy21q2
+adobe-target: true
 ---
 
 # 1. Create and deploy Azure Functions from Visual Studio Code
