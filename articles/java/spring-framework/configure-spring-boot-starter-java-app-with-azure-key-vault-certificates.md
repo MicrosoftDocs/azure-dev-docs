@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 Spring Boot apps typically enable SSL by installing the certificates. The certificates are installed into the local key store of the JVM that is running the Spring Boot app. Instead of installing certificates locally, Spring integration for Microsoft Azure provides a secure and frictionless way to enable SSL with help from Azure Key Vault and Managed security for Azure resources.
 
-<!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.vsdx -->
+<!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.ai -->
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-keyvault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
 
 ## Create a GNU/Linux VM with system assigned managed identity
