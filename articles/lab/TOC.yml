@@ -4,7 +4,7 @@
   - name: Tooltip
     items: 
     - name: Python quickstart with Tooltip
-      href: tool-tip-metric.md
+      href: tool-tip-metrics.md
   - name: Tutorial format labs
     items:
     - name: Python flask single page
