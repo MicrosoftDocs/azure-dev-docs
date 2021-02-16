@@ -14,7 +14,7 @@ ms.author: edburns
 
 # Tutorial: Secure Spring Boot Apps using Azure Key Vault certificates
 
-Production grade Spring Boot applications, whether in the cloud or on-premise, require end-to-end encryption for network traffic using standard SSL protocols. Most SSL certificates you encounter are discoverable from a public root certificate authority (CA). Sometimes, this is not possible.  When certificates are not discoverable, the app must have some way to **discover** such certificates and to **present** them to inbound network connections and **accept** them from outbound network connections. This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) Apps with SSL certificates using Azure Key Vault and Managed Identities for Azure Resources.
+Production grade Spring Boot applications, whether in the cloud or on-premise, require end-to-end encryption for network traffic using standard SSL protocols. Most SSL certificates you encounter are discoverable from a public root certificate authority (CA). Sometimes, this is not possible.  When certificates are not discoverable, the app must have some way to **load** such certificates and to **present** them to inbound network connections and **accept** them from outbound network connections. This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) Apps with SSL certificates using Azure Key Vault and Managed Identities for Azure Resources.
 
 In this tutorial, you learn how to:
 
@@ -153,7 +153,7 @@ Follow the steps in this section to create a Spring Boot starter application.
 1. At the bottom of the page, select **Generate**.
 1. When prompted, download the project to a path on your local computer.  For discussion, we'll use a directory *ssltest* in the current user's home directory.  The values above will give you a *ssltest.zip* file in that directory.
 
-### Enable the Spring Boot app to discover the SSL certificate
+### Enable the Spring Boot app to load the SSL certificate
 
 1. Unzip the *ssltest.zip* file.
 
@@ -201,7 +201,7 @@ Follow the steps in this section to create a Spring Boot starter application.
    azure.keyvault.uri=https://<your-key-vault-name>.vault.azure.net/
    ```
 
-   These values enable the Spring Boot app to perform the **discover** action for the SSL certificate. The following table describes the property values.
+   These values enable the Spring Boot app to perform the **load** action for the SSL certificate. The following table describes the property values.
 
    | Property Name | Explanation |
    |---------------|-------------|
@@ -213,7 +213,7 @@ Follow the steps in this section to create a Spring Boot starter application.
 
    Note that the only Key Vault specific property is the `azure.keyvault.uri`. The permission to access the Key Vault is granted because the app is running on a VM whose system assigned managed identity has been granted access to the Key Vault.
 
-These changes enable the Spring Boot app to **discover** the SSL certificate. The next section takes this further by enabling the app to **accept** the SSL certificate.
+These changes enable the Spring Boot app to **load** the SSL certificate. The next section takes this further by enabling the app to **accept** the SSL certificate.
 
 ### Create a Simple Spring Boot REST Controller
 
@@ -297,11 +297,11 @@ Now that you have built the Spring Boot app and uploaded it to the VM, run it on
    curl https://<your-vm-publicIpAddress>:8443/exit
    ```
 
-Now that we've illustrated the **discover** and **present** actions with a self-signed SSL certificate let's make some trivial changes to the app to illustrate the **accept** action.
+Now that we've illustrated the **load** and **present** actions with a self-signed SSL certificate let's make some trivial changes to the app to illustrate the **accept** action.
 
 ## Run a Spring Boot application where the SSL certificate for outbound connections comes from Azure Key Vault
 
-This section will modify the code in the previous section so that the **discover**, **present** and **accept** actions are satisfied from the Azure Key Vault.
+This section will modify the code in the previous section so that the **load**, **present** and **accept** actions are satisfied from the Azure Key Vault.
 
 ### Modify the `SsltestApplication` to illustrate outbound SSL connections
 
@@ -429,7 +429,7 @@ Next, re-build the app and re-upload it to the VM, and re-run it.
    curl https://<your-vm-publicIpAddress>:8443/exit
    ```
 
-You've observed a simple illustration of the **discover**, **present** and **accept** actions with a self-signed SSL certificate stored in Azure Key Vault.
+You've observed a simple illustration of the **load**, **present** and **accept** actions with a self-signed SSL certificate stored in Azure Key Vault.
 
 ## Clean up resources
 
