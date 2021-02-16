@@ -322,75 +322,147 @@
     },
     {
       "source_path": "articles/java/java-sdk-add-certificate-ca-store.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-add-certificate-ca-store"
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-add-certificate-ca-store.md",
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-azure-authenticate.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-authenticate"
+      "redirect_url": "/azure/developer/java/sdk/identity"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/java/sdk/identity"
     },
     {
       "source_path": "articles/java/java-sdk-azure-concepts.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-concepts"
+      "redirect_url": "/azure/developer/java/sdk/overview"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-concepts.md",
+      "redirect_url": "/azure/developer/java/sdk/overview"
     },
     {
       "source_path": "articles/java/java-sdk-azure-containers-samples.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-containers-samples"
+      "redirect_url": "/azure/developer/java/sdk/containers-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-containers-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/containers-samples"
     },
     {
       "source_path": "articles/java/java-sdk-azure-get-started.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-get-started"
+      "redirect_url": "/azure/developer/java/sdk/get-started"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-get-started.md",
+      "redirect_url": "/azure/developer/java/sdk/get-started"
     },
     {
       "source_path": "articles/java/java-sdk-azure-log.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-log"
+      "redirect_url": "/azure/developer/java/sdk/logging-overview"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-log.md",
+      "redirect_url": "/azure/developer/java/sdk/logging-overview"
     },
     {
       "source_path": "articles/java/java-sdk-azure-release-notes.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-release-notes"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-azure-security-samples.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-security-samples"
+      "redirect_url": "/azure/developer/java/sdk/security-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-security-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/security-samples"
     },
     {
       "source_path": "articles/java/java-sdk-azure-sql-database-samples.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-sql-database-samples"
+      "redirect_url": "/azure/developer/java/sdk/sql-database-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-sql-database-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/sql-database-samples"
     },
     {
       "source_path": "articles/java/java-sdk-azure-virtual-machine-samples.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-virtual-machine-samples"
+      "redirect_url": "/azure/developer/java/sdk/virtual-machine-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-virtual-machine-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/virtual-machine-samples"
     },
     {
       "source_path": "articles/java/java-sdk-azure-web-apps-samples.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-azure-web-apps-samples"
+      "redirect_url": "/azure/developer/java/sdk/web-apps-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-web-apps-samples.md",
+      "redirect_url": "/azure/developer/java/sdk/web-apps-samples"
     },
     {
       "source_path": "articles/java/java-sdk-configure-webapp-sources.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-configure-webapp-sources"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-manage-sql-elastic-pools.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-sql-elastic-pools"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-manage-storage-accounts.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-storage-accounts"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-manage-virtual-machines.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-virtual-machines"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-manage-virtual-networks.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-virtual-networks"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-manage-vm-scalesets.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-manage-vm-scalesets"
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/java-sdk-virtual-machines-in-parallel.md",
-      "redirect_url": "/azure/developer/java/sdk/java-sdk-virtual-machines-in-parallel"
+      "redirect_url": "/azure/developer/java/sdk/virtual-machine-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-virtual-machines-in-parallel.md",
+      "redirect_url": "/azure/developer/java/sdk/virtual-machine-samples"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-configure-webapp-sources.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-sql-elastic-pools.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-storage-accounts.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-machines.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-virtual-networks.md",
+      "redirect_url": "/azure/developer/java/sdk"
+    },
+    {
+      "source_path": "articles/java/sdk/java-sdk-manage-vm-scalesets.md",
+      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/migrate-java-se-to-java-se-app-service.md",
@@ -543,38 +615,6 @@
     {
       "source_path": "articles/java/toolkit-for-eclipse/displaying-javadoc-content-for-azure-libraries.md",
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-virtual-machines-in-parallel.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-azure-release-notes.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-configure-webapp-sources.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-manage-sql-elastic-pools.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-manage-storage-accounts.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-manage-virtual-machines.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-manage-virtual-networks.md",
-      "redirect_url": "/azure/developer/java/sdk"
-    },
-    {
-      "source_path": "articles/java/sdk/java-sdk-manage-vm-scalesets.md",
-      "redirect_url": "/azure/developer/java/sdk"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/whats-new.md",
