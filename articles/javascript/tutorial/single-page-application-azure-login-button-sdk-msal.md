@@ -4,6 +4,9 @@ description: Azure Active Directory authentication presented in this tutorial is
 ms.topic: tutorial
 ms.date: 02/16/2020
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
+ms.history: [
+"20210216:fix public issue 443"
+]
 ---
 
 # Add Microsoft login button to a single page application for authentication
