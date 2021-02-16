@@ -17,7 +17,7 @@ Azure authentication presented in this TypeScript tutorial is a login and logout
 The SPA built in this tutorial is a React app (create-react-app) with the following tasks:
 
 - Login using a Microsoft-supported login such as Office 365 or Outlook.com
-- Log off the application
+- Log off from the application
 
 To provide a quick and simple single page application, the sample uses **create-react-app** with TypeScript. This front-end framework provides several shortcuts in typical client development with Azure SDKs:
 
@@ -26,7 +26,7 @@ To provide a quick and simple single page application, the sample uses **create-
 
 ## 1. Set up development environment
 
-Verify the following is installed on your local computer.
+Verify the following software is installed on your local computer.
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
