@@ -14,10 +14,7 @@ ms.custom: devx-track-jenkins, devx-track-azurecli
 This tutorial deploys a sample app from GitHub to an
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 cluster by setting up continuous integration (CI) and
-continuous deployment (CD) in Jenkins. That way, when you
-update your app by pushing commits to GitHub, Jenkins
-automatically runs a new container build, pushes container
-images to Azure Container Registry (ACR), and then runs your app in AKS.
+continuous deployment (CD) in Jenkins.
 
 In this tutorial, you'll complete these tasks:
 
@@ -59,7 +56,9 @@ and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 ## Prepare your app
 
-In this article, you use a sample Azure vote application that contains a web interface hosted in one or more pods, and a second pod hosting Redis for temporary data storage. Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment is version one of the application, and lets you see the application in action.
+In this article, you use a sample Azure vote application that contains a web interface and Redis for temporary data storage.
+
+Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment lets you see the application in action.
 
 > [!NOTE]
 > The sample Azure vote application uses a Linux pod that is scheduled to run on a Linux node. The flow outlined in this article also works for a Windows Server pod scheduled on a Windows Server node.
@@ -95,7 +94,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Log in to your Azure Container Instance.
+Sign in to your Azure Container Instance.
 
 ```azurecli
 az login -n <acrLoginServer>
@@ -117,7 +116,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## Deploy the sample application to AKS
 
-To deploy the sample application to your AKS cluster, you can use the Kubernetes manifest file in the root of the Azure vote repository repo. Open the *azure-vote-all-in-one-redis.yaml* manifest file with an editor such as `vi`. Replace `microsoft` with your ACR login server name. This value is found on line **60** of the manifest file:
+To deploy the sample application to your AKS cluster, you can use the Kubernetes manifest file in the root of the Azure vote repository repo. Open the `azure-vote-all-in-one-redis.yaml` manifest file with an editor such as `vi`. Replace `microsoft` with your ACR login server name. This value is found on line **60** of the manifest file:
 
 ```yaml
 containers:
@@ -226,7 +225,11 @@ A Jenkins environment variable is used to hold the ACR login server name. This v
 
 ## Create a Jenkins credential for ACR
 
-To allow Jenkins to build and then push updated container images to ACR, you need to specify credentials for ACR. This authentication can use Azure Active Directory service principals. In the pre-requisites, you configured the service principal for your AKS cluster with *Reader* permissions to your ACR registry. These permissions allow the AKS cluster to *pull* images from the ACR registry. During the CI/CD process, Jenkins builds new container images based on application updates, and needs to then *push* those images to the ACR registry. For separation of roles and permissions, now configure a service principal for Jenkins with *Contributor* permissions to your ACR registry.
+During the CI/CD process, Jenkins builds new container images based on application updates, and needs to then *push* those images to the ACR registry.
+
+To allow Jenkins to push updated container images to ACR, you need to specify credentials for ACR. 
+
+For separation of roles and permissions, configure a service principal for Jenkins with *Contributor* permissions to your ACR registry.
 
 ### Create a service principal for Jenkins to use ACR
 
@@ -280,7 +283,7 @@ When complete, the credentials form looks like the following example:
 
 ![Create a Jenkins credential object with the service principal information](media/deploy-from-github-to-aks/acr-credentials.png)
 
-Click **OK** and return to the Jenkins portal.
+Select **OK** and return to the Jenkins portal.
 
 ## Create a Jenkins project
 
@@ -288,7 +291,7 @@ From the home page of your Jenkins portal, select **New item** on the left-hand 
 
 1. Enter *azure-vote* as job name. Choose **Freestyle project**, then select **OK**
 1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Under the **Source code management** section, select **Git**, enter your forked repo `.git` URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
 
 1. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**
 1. Under **Build Environment**, select **Use secret texts or files**
@@ -319,17 +322,26 @@ From the home page of your Jenkins portal, select **New item** on the left-hand 
 
 ## Test the Jenkins build
 
-Before you automate the job based on GitHub commits, first manually test the Jenkins build. This manual build validates that the job has been correctly configured, the proper Kubernetes authentication file is in place, and that the authentication with ACR works.
+Before you automate the job based on GitHub commits, manually test the Jenkins build.
+
+This build validates that the job has been correctly configured. It confirms the proper Kubernetes authentication file is in place, and that authentication to ACR working.
 
 On the left-hand menu of the project, select **Build Now**.
 
 ![Jenkins test build](media/deploy-from-github-to-aks/test-build.png)
 
-The first build takes a minute or two as the Docker image layers are pulled down to the Jenkins server. Subsequent builds can use the cached image layers to improve the build times.
+The first build longer as the Docker image layers are pulled down to the Jenkins server.
 
-During the build process, the GitHub repository is cloned to the Jenkins build server. A new container image is built and pushed to the ACR registry. Finally, the Azure vote application running on the AKS cluster is updated to use the new image. Because no changes have been made to the application code, the application is not changed if you view the sample app in a web browser.
+The builds do the following tasks:
 
-Once the build job is complete, click on **build #1** under build history. Select **Console Output** and view the output from the build process. The final line should indicate a successful build.
+1. Clones the GitHub repository
+1. Builds a new container image
+1. Pushes the container image to the ACR registry
+1. Updates the image used by the AKS deployment
+
+Because no changes have been made to the application code, the web UI is unchanged.
+
+Once the build job is complete, select **build #1** under build history. Select **Console Output** and view the output from the build process. The final line should indicate a successful build.
 
 ## Create a GitHub webhook
 
@@ -348,11 +360,11 @@ To create the GitHub webhook, complete the following steps:
 
 Now you can test the whole CI/CD pipeline. When you push a code commit to GitHub, the following steps happen:
 
-1. The GitHub webhook reaches out to Jenkins.
+1. The GitHub webhook notifies Jenkins.
 1. Jenkins starts the build job and pulls the latest code commit from GitHub.
 1. A Docker build is started using the updated code, and the new container image is tagged with the latest build number.
 1. This new container image is pushed to Azure Container Registry.
-1. Your application deployed to Azure Kubernetes Service updates with the latest container image from the Azure Container Registry registry.
+1. Your application running on Azure Kubernetes Service updates with the latest image from Azure Container Registry.
 
 On your development machine, open up the cloned application with a code editor. Under the */azure-vote/azure-vote* directory, open the file named **config_file.cfg**. Update the vote values in this file to something other than cats and dogs, as shown in the following example:
 
@@ -364,7 +376,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-When updated, save the file, commit the changes, and push these to your fork of the GitHub repository. The GitHub webhook triggers a new build job in Jenkins. In the Jenkins web dashboard, monitor the build process. It takes a few seconds to pull the latest code, create and push the updated image, and deploy the updated application in AKS.
+When updated, save the file, commit the changes, and push them to your fork of the GitHub repository. The GitHub webhook triggers a new build job in Jenkins. In the Jenkins web dashboard, monitor the build process. It takes a few seconds to pull the latest code, create and push the updated image, and deploy the updated application in AKS.
 
 Once the build is complete, refresh your web browser of the sample Azure vote application. Your changes are displayed, as shown in the following example:
 
