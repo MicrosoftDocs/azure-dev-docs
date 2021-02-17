@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ---
 
 
@@ -21,7 +21,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 
 The response includes your server's configuration details including: 
 
-* the public endpoint 
+* `location`: used for the `localDataCenter` value in the JavaScript code with the cassandra-drive 
 
 ```json
 {
@@ -109,7 +109,7 @@ The response includes your server's configuration details including:
 Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az_cosmosdb_cassandra_keyspace_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
 ```azurecli
-az mariadb db create \
+az cosmosdb cassandra keyspace create \
     --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
     --resource-group YOUR-RESOURCE-GROUP \
     --account-name YOUR-RESOURCE_NAME \
@@ -118,7 +118,7 @@ az mariadb db create \
 
 ## Create a table on the keyspace with Azure CLI
 
-Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/table#az_cosmosdb_cassandra_table_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
+Use the following Azure CLI [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az_cosmosdb_cassandra_table_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
 ```azurecli
 az cosmosdb cassandra table create \
@@ -214,4 +214,4 @@ This returns your connection strings. The following JSON is an example result wi
   }
 ```
 
-Connect to the Cassandra database with a connection string. 
+Connect to the Cassandra database with a connection string. Your Cassandra user name is the resource name. 

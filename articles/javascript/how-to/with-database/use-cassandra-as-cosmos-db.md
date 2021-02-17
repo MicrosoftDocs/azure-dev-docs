@@ -2,7 +2,7 @@
 title: Use JavaScript with Cassandra on Azure Cosmos DB
 description: To create or move your Cassandra database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.custom: devx-track-js
 ---
 
@@ -42,13 +42,13 @@ The Cassandra DB database on Cosmos DB uses npm packages already available, such
 **localDataCenter** using cassandra-driver:
 
 * V3, use the default of `dataCenter1`
-* V4, you must specify the data center, such as `West US` in the following code block. 
+* V4, you must specify the data center, such as `Central US` in the following code block. 
 
 ```javascript
   let client = new cassandra.Client({
     contactPoints: [`${config.contactPoint}:10350`],
     authProvider: authProvider,
-    localDataCenter: 'West US',
+    localDataCenter: 'Central US',
     sslOptions: {
       secureProtocol: 'TLSv1_2_method',
       rejectUnauthorized: false,
@@ -59,7 +59,7 @@ The Cassandra DB database on Cosmos DB uses npm packages already available, such
 If you are unsure of your localDataCenter, remove the property, run the sample code, and the value of the property is returned in the error text. 
 
 ```text
-NoHostAvailableError: All host(s) tried for query failed. First host tried, xxx.xxx.xxx.xxx:10350: ArgumentError: localDataCenter was configured as 'dataCenter1', but only found hosts in data centers: [West US]
+NoHostAvailableError: All host(s) tried for query failed. First host tried, xxx.xxx.xxx.xxx:10350: ArgumentError: localDataCenter was configured as 'dataCenter1', but only found hosts in data centers: [Central US]
 ```
 
 ## Use cassandra-driver SDK to connect to Cassandra DB on Azure
@@ -82,7 +82,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
     * creates a project folder named `DataDemo`
     * changes the Bash terminal into that folder
     * initializes the project, which creates the `package.json` file
-    * adds the npm SDK to the project
+    * adds the cassandra-driver npm SDK to the project
     * creates the `index.js` script file
     * opens the project in Visual Studio Code
 
@@ -96,7 +96,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
     const cassandra = require('cassandra-driver');
     
     const config = {
-      username: 'YOUR-USERNAME',
+      username: 'YOUR-USERNAME', // Your Cassandra user name is the resource name 
       password:
         'YOUR-PASSWORD',
       contactPoint: 'YOUR-RESOURCE-NAME.cassandra.cosmos.azure.com',
@@ -116,7 +116,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
       client = new cassandra.Client({
         contactPoints: [`${config.contactPoint}:10350`],
         authProvider: authProvider,
-        localDataCenter: 'West US',
+        localDataCenter: 'Central US',
         sslOptions: {
           secureProtocol: 'TLSv1_2_method',
           rejectUnauthorized: false,
@@ -193,10 +193,10 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
     ```
  
 1. Replace the following in the script with your Cosmos DB Cassandra connection information:
-1. 
-    * YOUR-USERNAME
+
+    * YOUR-RESOURCE-NAME
+    * YOUR-USERNAME - replace with YOUR-RESOURCE-NAME
     * YOUR-PASSWORD
-    * YOUR-RESOURCE-NAME 
 
 1. Run the script.
 

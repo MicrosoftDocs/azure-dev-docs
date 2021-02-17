@@ -161,6 +161,8 @@
         href: how-to/with-azure-cli/create-container-registry-resource.md
       - name: Configure web app domain name
         href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
+      - name: Use Cassandra Cosmos DB resource
+        href: how-to/with-azure-cli/create-cassandra-as-cosmos-db.md
       - name: Use MongoDB Cosmos DB resource
         href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
       - name: Use MariaDB resource
