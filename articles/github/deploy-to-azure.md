@@ -60,4 +60,4 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 ## Azure Stack
 
-- [Use the Azure login action with Azure CLI and PowerShell on Azure Stack Hub](/azure/azure-stack/user/ci-cd-github-action-login-cli)
+- [Use the Azure login action with Azure CLI and PowerShell on Azure Stack Hub](/azure-stack/user/ci-cd-github-action-login-cli)
