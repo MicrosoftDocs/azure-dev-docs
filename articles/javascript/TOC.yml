@@ -173,6 +173,8 @@
       items: 
       - name: Getting started
         href: how-to/with-database/getting-started.md
+      - name: Cassandra on CosmosDB
+        href: how-to/with-database/use-cassandra-as-cosmos-db.md
       - name: MongoDB on CosmosDB
         href: how-to/with-database/use-mongodb-as-cosmosdb.md
       - name: MariaDB
