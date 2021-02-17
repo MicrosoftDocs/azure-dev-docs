@@ -95,7 +95,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Log into your Azure Container Instance.
+Log in to your Azure Container Instance.
 
 ```azurecli
 az login -n <acrLoginServer>
@@ -147,7 +147,7 @@ To see the application in action, open a web browser to the external IP address 
 
 ## Configure Jenkins Controller
 
-Apply the following changes to enable AKS deployments from the Jenkins Controller.
+Apply the following changes to enable AKS deployments from the Jenkins Controller:
 
 Open port `80` inbound.
 
@@ -222,7 +222,7 @@ A Jenkins environment variable is used to hold the ACR login server name. This v
 
     ![Jenkins environment variables](media/deploy-from-github-to-aks/env-variables.png)
 
-- When complete, click **Save** at the bottom of the page.
+- When complete, Select **Save** at the bottom of the page.
 
 ## Create a Jenkins credential for ACR
 
@@ -268,7 +268,7 @@ Replace `<appId>` with the value provided in the output of the pervious command 
 
 With the role assignment created in Azure, now store your ACR credentials in a Jenkins credential object. These credentials are referenced during the Jenkins build job.
 
-Back on the left-hand side of the Jenkins portal, click **Manage Jenkins** > **Manage Credentials** > **Jenkins Store** > **Global credentials (unrestricted)** > **Add Credentials**
+Back on the left-hand side of the Jenkins portal, select **Manage Jenkins** > **Manage Credentials** > **Jenkins Store** > **Global credentials (unrestricted)** > **Add Credentials**
 
 Ensure that the credential kind is **Username with password** and enter the following items:
 
