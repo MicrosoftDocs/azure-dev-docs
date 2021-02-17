@@ -169,7 +169,8 @@ az cosmosdb keys list \
 
 This returns your connection strings. The following JSON is an example result with the security information replaced with:
 
-* `YOUR-RESOURCE-NAME`
+* `YOUR-RESOURCE-NAME`: used for UserName and part of host name or account endpoint
+* `YOUR-USERNAME`: same value as `YOUR-RESOURCE-NAME`
 * `PASSWORD-1`
 * `PASSWORD-2`
 * `ACCOUNT-KEY-1`
