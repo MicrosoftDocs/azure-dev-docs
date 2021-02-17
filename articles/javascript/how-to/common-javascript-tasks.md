@@ -1,7 +1,7 @@
 ---
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
-ms.topic: reference
+ms.topic: how-to
 ms.date: 01/20/2021
 ms.custom: devx-track-js
 ---
