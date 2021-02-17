@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 A Cosmos DB resource provides you with a MariaDB server. 
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra.md)]
+[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra-db.md)]
 
 ## Next steps
 

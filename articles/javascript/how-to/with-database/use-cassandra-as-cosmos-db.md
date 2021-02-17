@@ -19,7 +19,7 @@ You can create a resource with:
 * [Azure portal](https://portal.azure.com)
 * Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra db.md)]
+[!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra-db.md)]
 
 ## View and use your Cassandra DB on Azure CosmosDB
 
