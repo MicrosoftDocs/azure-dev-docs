@@ -41,7 +41,7 @@ To complete this tutorial, you need these items:
 the ACR login server name, and the AKS cluster configured to 
 [authenticate with the ACR registry](/azure/aks/cluster-container-registry-integration).
 
-- A [Jenkins Controller](https://docs.microsoft.com/en-us/azure/developer/jenkins/configure-on-linux-vm) Deployed to an Azure Virtual Machine.
+- A [Jenkins Controller](https://docs.microsoft.com/azure/developer/jenkins/configure-on-linux-vm) Deployed to an Azure Virtual Machine.
 
 - The Azure CLI version 2.0.46 or later installed and configured. 
 Run `az --version` to find the version. If you need to install or upgrade, 
