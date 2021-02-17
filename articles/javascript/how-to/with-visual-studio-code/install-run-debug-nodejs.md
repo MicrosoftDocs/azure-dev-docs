@@ -19,7 +19,7 @@ Learn the steps to developer and debug your JavaScript Node.js project with Visu
 
     If you don't have a mongoDB database available, you can:
     * Choose to run this local project in a multi-container configuration where one of the containers is a mongoDB database. Install the [Docker](https://www.docker.com/) and [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension to get a multi-container configure with one of the containers running a local mongoDB database. 
-    * Choose to create an [Azure CosmosDB](/azure/cosmos-db/) resource for a mongoDB database. Learn more with this [tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-a-cosmosdb-database-resource-for-mongodb).
+    * Choose to create an [Azure Cosmos DB](/azure/cosmos-db/) resource for a mongoDB database. Learn more with this [tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-a-cosmosdb-database-resource-for-mongodb).
 
 ## Clone sample project to local computer
 

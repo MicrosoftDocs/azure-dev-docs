@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 
 ## Create a Cosmos DB resource for MongoDB
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new CosmosDB resource for a mongoDB database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
 
 ```azurecli
 az cosmosdb create \

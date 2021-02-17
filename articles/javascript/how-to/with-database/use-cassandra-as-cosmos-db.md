@@ -21,7 +21,7 @@ You can create a resource with:
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra-db.md)]
 
-## View and use your Cassandra DB on Azure CosmosDB
+## View and use your Cassandra DB on Azure Cosmos DB
 
 While developing your Cassandra DB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
