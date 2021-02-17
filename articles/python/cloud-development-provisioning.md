@@ -1,7 +1,7 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
-ms.date: 10/06/2020
+ms.date: 02/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -10,19 +10,19 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 [Previous article: overview](cloud-development-overview.md)
 
-As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with building what is essentially the target cloud computer to which you deploy your application. (To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).)
+As described in the previous article of this series, an essential part of developing a cloud application is provisioning the necessary resources within Azure to which you can then deploy your code and data. That is, building a cloud application begins with building what is essentially the target cloud computer to which you deploy that code and data. (To review the types of available resources, see the [Azure developer's guide](/azure/guides/developer/azure-developer-guide).)
 
 How is this provisioning done, exactly? How do you ask Azure to allocate resources for your application, and how do you then configure and otherwise access those resources? In short, how do you talk to Azure itself to get all these resources in place?
 
 ## Means of communicating with Azure
 
-The answer is straightforward. As with most operating systems, you can communicate with Azure through three routes: a user interface, a command-line interface, and an API.
+As with most operating systems, you can communicate with Azure through three routes: a user interface, a command-line interface, and an API.
 
 ![The different means of communicating with Azure to provision resources](media/cloud-development/communication-with-azure.png)
 
 You can use any or all of these complementary methods to create, configure, and manage whatever Azure resources you need. In fact, you typically use all three in the course of a development project, and it's worth your time to become familiar with each of them.
 
-Within this developer center, we primarily show use of the CLI and Python code that uses the Azure libraries because use of the portal is well covered in the documentation for each individual service.
+Within this developer center, we primarily show how to provision resources using both the Azure CLI and Python code that uses the Azure libraries. Using the portal is well covered in the documentation for each individual service.
 
 > [!NOTE]
 > The Azure libraries for Python are sometimes referred to as the Azure SDK for Python. However, there are no SDK components other than the libraries, which you acquire through the Python package manager, pip.
@@ -37,15 +37,15 @@ The [Azure portal](https://portal.azure.com) is Azure's fully customizable, brow
 
 ## Azure CLI
 
-The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
+The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/azure-cli) command-line interface. Once you're signed in to the Azure CLI (using the `az login` command), you can perform the same tasks that you can through the portal.
   
 **Pros**: Easily automated through scripts and processing of output. Provides higher-level commands that provision multiple resources together for common tasks, such as deploying a web app. Scripts can be managed in source control.
 
 **Cons**: Steeper learning curve than using the portal, and commands are subject to bugs. Error messages are not always helpful.
 
-You can also use [Azure PowerShell](/powershell/) in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
+You can also use the [Azure PowerShell](/powershell/) module in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
 
-In place of the local CLI or PowerShell, you can use the Azure Cloud Shell directly via [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. The Cloud Shell also comes pre-configured with many different tools that would be inconvenient to install locally, especially if you need to run only one or two commands.
+In place of the local CLI or PowerShell, you can use the same commands in the Azure Cloud Shell, [https://shell.azure.com/](https://shell.azure.com/). The Cloud Shell is convenient because it's automatically authenticated with Azure once it opens and has the same capabilities you would through the Azure portal. The Cloud Shell also comes pre-configured with many different tools that would be inconvenient to install locally, especially if you need to run only one or two commands.
 
 Because Cloud Shell isn't a local environment, it's more suitable for singular operations like you'd do through the portal rather than scripted automation. Nevertheless, you can clone source repositories (for example, GitHub repositories) in the Cloud Shell. As a result, you can develop automation scripts locally, store them in a repository, clone the repository in Cloud Shell, and then run them there.
 
