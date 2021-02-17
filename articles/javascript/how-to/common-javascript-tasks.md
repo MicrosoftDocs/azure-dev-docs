@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 02/17/2021
 ms.custom: devx-track-js
 ---
 
@@ -133,6 +133,18 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 ## Databases
 
+### Cassandra API on Cosmos DB
+
+[Service documentation](/azure/cosmos-db/)
+
+|Task|Using|
+|--|--|
+|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)<br>[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-cosmos-db-resource-for-cassandra-db)|
+|Create keystore on resource|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
+|Create table on keystore|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
+|Get connection information|[Azure CLI](./with-azure-cli/create-cassandra-db.md#get-the-cassandra-connection-string-with-azure-cli)|
+|Use cassandra-driver API on Cosmos DB|[JavaScript](/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
+
 ### MariaDB
 
 [Service documentation](/azure/mariadb/)
@@ -144,7 +156,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string-with-azure-cli)|
 |Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb.md#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
-### MongoDB on Cosmos DB
+### MongoDB API on Cosmos DB
 
 [Service documentation](/azure/cosmos-db/)
 
@@ -155,6 +167,28 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use Mongoose API for mongoDB on Cosmos DB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
 
+### MySQL
+
+[Service documentation](/azure/mysql/)
+
+|Task|Using|
+|--|--|
+|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
+|Create database on resource|[Azure CLI](./with-database/use-mysql-db.md#create-a-database-on-the-server-with-azure-cli)|
+|Get Connection string|[Azure CLI](./with-database/use-mysql-db.md#get-the-mysql-connection-string-with-azure-cli)|
+|Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/MySQL)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
+|Use promise-mysql API|[JavaScript](./with-database/use-mysql-db.md#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
+
+### PostgreSQL
+
+[Service documentation](/azure/postgresql/)
+
+|Task|using|
+|--|--|
+|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-azure-cli/create-postgresql-server-resource.md#create-an-azure-database-for-postgresql-server-resource-with-azure-cli)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
+|Get connection string|[Azure CLI](./with-azure-cli/create-postgresql-server-resource.md#get-the-postgresql-connection-string-with-azure-cli)|
+|View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
+|Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)
 
 
 ## Git
