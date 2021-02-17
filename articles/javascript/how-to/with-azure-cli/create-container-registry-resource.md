@@ -81,4 +81,4 @@ Make sure to add the `https://` prefix to the beginning of the `--docker-registr
 
 ## Next steps
 
-* [Create mongodb CosmosDB resource](create-mongodb-cosmosdb.md)
+* [Create mongodb Cosmos DB resource](create-mongodb-cosmosdb.md)
