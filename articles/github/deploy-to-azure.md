@@ -57,6 +57,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 ## Azure Machine Learning
 
 - [Use GitHub Actions with Azure Machine Learning](/azure/machine-learning/how-to-github-actions-machine-learning)
+
 ## Azure Stack
 
 - [Use the Azure login action with Azure CLI and PowerShell on Azure Stack Hub](/azure/azure-stack/user/ci-cd-github-action-login-cli)
