@@ -1,7 +1,7 @@
 ---
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---

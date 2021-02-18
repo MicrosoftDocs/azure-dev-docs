@@ -1,5 +1,5 @@
 ---
-title: Deploy Express.js/MongoDB app with VSCode - App Service/CosmosDB
+title: Deploy Express.js/MongoDB app with VSCode - App Service/Cosmos DB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
 ms.date: 01/12/2020
@@ -8,7 +8,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascrip
 
 # Deploy Express.js MongoDB app to App Service from Visual Studio Code
 
-Deploy the Express.js application which connects to MongoDB to Azure App Service (on Linux) and a CosmosDB. 
+Deploy the Express.js application which connects to MongoDB to Azure App Service (on Linux) and a Cosmos DB. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
@@ -18,7 +18,7 @@ The programming work is done for you, this tutorial focuses on using the local a
 
 This tutorial includes several **top Azure tasks** for JavaScript developers:
 
-* Create CosmosDB resource to host MongoDB database
+* Create Cosmos DB resource to host MongoDB database
 * Create App service resource to host Express.js app
 * Deploy Express.js app to App service
 
@@ -44,7 +44,7 @@ The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mong
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
     - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
-## Create a CosmosDB database resource for MongoDB
+## Create a Cosmos DB database resource for MongoDB
 
 Create a Cosmos resource first because this will take several minutes. 
 
@@ -66,7 +66,7 @@ Create a Cosmos resource first because this will take several minutes.
 
     Creating the resource may take up to 15 minutes. You can move skip the next section if you are time-restricted but remember to back to finish this next section in a few minutes.
 
-## Get CosmosDB connection string
+## Get Cosmos DB connection string
 
 While still in the Azure Databases explorer, right-click the resource name, the select **Copy Connection String** to copy the connection string. You will need this later in the tutorial for your environment variable file.
 
@@ -83,7 +83,7 @@ The Express.js web app is provided for you. Download the app, install the depend
     code .
     ```
 
-1. Edit the environment file, `.env`, adding the connection string property for your CosmosDB as the `DATABASE_URL` property's value. 
+1. Edit the environment file, `.env`, adding the connection string property for your Cosmos DB as the `DATABASE_URL` property's value. 
 
     ```bash
     ENVIRONMENT=development
@@ -151,8 +151,8 @@ Once you have completed this tutorial, you need to remove the two resources crea
 
 ## Next steps
 
-Continue learning about the App Service and CosmosDB:
+Continue learning about the App Service and Cosmos DB:
 * [Learn about how to configure your app settings](../how-to/configure-web-app-settings.md)
 * [Configure a Node.js app for Azure App Service](/azure/app-service/configure-language-nodejs?pivots=platform-linux)
 * [Connect with SSH](/azure/app-service/configure-linux-open-ssh-session)
-* [Migrate data to CosmosDB](/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json)
+* [Migrate data to Cosmos DB](/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json)

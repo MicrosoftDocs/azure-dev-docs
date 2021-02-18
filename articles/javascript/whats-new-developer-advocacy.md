@@ -22,6 +22,6 @@ ms.date: 01/29/2021
         * [Vide0 #1](https://youtu.be/JmUSx5wXU68)
         * [Video #2](https://youtu.be/Vr-UMoAv8pk)
         * [Video #3](https://youtu.be/6u4aM2eT-gg)
-    * YouTube: [Back-End Migration to Serverless Architecture & Local Database PostGreSQL to CosmosDB - Day 01](https://youtu.be/nVbU9BlF5hs)
+    * YouTube: [Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 01](https://youtu.be/nVbU9BlF5hs)
 * Wassim Chegham:
     * Blog: [Angular, Rust, WebAssembly, Node.js, Serverless, and... the NEW Azure Static Web Apps!](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb)
