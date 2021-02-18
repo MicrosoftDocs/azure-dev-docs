@@ -37,6 +37,12 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
         --identifier-uris http://localhost/$appName
     ```
 
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure/install-azure-cli) if you have set it up locally.
+
+    > [!NOTE]
+    > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
+    > `az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
+
 1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned the Contributor role.
 
     ```azurecli-interactive
@@ -44,7 +50,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                                     --sdk-auth
     ```
-
+    
 1. Copy the JSON object for your service principal.
 
     ```json
@@ -150,7 +156,7 @@ build-and-deploy:
 
 ## Connect to Azure Government and Azure Stack Hub clouds
 
-To login into one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value AzureCloud and connect to the Azure Public Cloud.
+To login into one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connect to the Azure Public Cloud.
 
 ```yaml
    - name: Login to Azure US Gov Cloud with CLI
