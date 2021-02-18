@@ -4,7 +4,7 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 09/27/2020
+ms.date: 02/18/2021
 ms.author: tarcher
 ---
 
@@ -13,14 +13,20 @@ ms.author: tarcher
 A Terraform configuration file starts off with the specification of the provider. When using Azure, you'll specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
 
 ```terraform
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-  version = "~>2.0"
   features {}
 }
-
 resource "azurerm_resource_group" "rg" {
-  name = "<your_resource_group_name>"
-  location = "<your_resource_group_location>"
+  name = "<resource_group_name>"
+  location = "<location>"
 }
 
 # Your Terraform code goes here...

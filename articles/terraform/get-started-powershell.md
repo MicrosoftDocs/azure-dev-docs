@@ -128,6 +128,12 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     Connect-AzAccount -ServicePrincipal -Credential $spCredentials -Tenant "<azure_subscription_tenant_id>" 
     ```
 
+1. Log in to Azure using Azure CLI:
+
+    ```azurecli
+    az login
+    ```
+
 ## Set environment variables
 
 Setting environment variables helps Terraform use the intended Azure subscription without you having to insert the information in every Terraform configuration file.
