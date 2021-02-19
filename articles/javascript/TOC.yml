@@ -163,6 +163,7 @@
         href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
       - name: Use Cassandra Cosmos DB resource
         href: how-to/with-azure-cli/create-cassandra-db.md
+      - name: how-to/with-azure-cli/create-cache-for-redis-db.md
       - name: Use MongoDB Cosmos DB resource
         href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
       - name: Use MariaDB resource
@@ -177,6 +178,8 @@
         href: how-to/with-database/getting-started.md
       - name: Cassandra on Cosmos DB
         href: how-to/with-database/use-cassandra-as-cosmos-db.md
+      - name: Redis
+        href: how-to/with-database/use-azure-cache-for-redis.md
       - name: MongoDB on Cosmos DB
         href: how-to/with-database/use-mongodb-as-cosmosdb.md
       - name: MariaDB
