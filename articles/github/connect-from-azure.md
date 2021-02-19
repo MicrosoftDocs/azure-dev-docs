@@ -37,7 +37,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
         --identifier-uris http://localhost/$appName
     ```
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure/install-azure-cli) if you have set it up locally.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
     > [!NOTE]
     > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
