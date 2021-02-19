@@ -51,9 +51,9 @@
       expanded: false
       items:
         - name: Spring
-          href: /azure/developer/java/spring-framework/spring-boot-starters-for-azure
+          href: ../spring-framework/spring-boot-starters-for-azure.md
         - name: MicroProfile
-          href: https://docs.microsoft.com/azure/developer/java/eclipse-microprofile/
+          href: ../eclipse-microprofile/index.yml
     - name: Troubleshooting
       expanded: false
       items:

@@ -16,4 +16,4 @@ You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-
 
 ## Next steps
 
-* Learn more about [Python on Azure](/azure/developer/python/)
+* Learn more about [Python on Azure](../python/index.yml)

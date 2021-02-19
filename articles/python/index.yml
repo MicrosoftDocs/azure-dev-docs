@@ -23,7 +23,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy using Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
+            url: /azure/azure-functions/create-first-function-vs-code-python
           - text: Deploy using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
           - text: Connect to storage using Visual Studio Code
