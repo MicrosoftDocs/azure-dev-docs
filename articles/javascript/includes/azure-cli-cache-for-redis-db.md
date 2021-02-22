@@ -87,7 +87,7 @@ az redis firewall-rules create \
 ```
 
 If you don't know your client IP address, use one of these methods:
-* Use the Azure portal to view and change your firewall rules, which includes adding your detected client IP
+* Use the Azure portal to view and change your firewall rules, which include adding your detected client IP
 * Run you Node.js code, the error about your firewall rules violation includes your client IP address
 
 ## Get the Redis keys with Azure CLI
@@ -109,3 +109,24 @@ This returns the two keys:
     "secondaryKey": "DEPr+3zWbL6d5XwxPajAriXKgoSeCqraN8SLSoiMWhM="
   }
 ```
+
+## Connect Azure Cache for Redis to your App service web app
+
+Add connection information to your App service web app with [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+
+```azurecli
+az webapp config appsettings set \
+--subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+--resource-group YOUR-RESOURCE-GROUP \
+--name YOUR-APP-SERVICE-RESOURCE-NAME \
+--settings "REDIS_URL=YOUR-REDIS-HOST-NAME" "REDIS_PORT=YOUR-REDIS-PORT" "REDIS_KEY=YOUR-REDIS-KEY"
+```
+
+Replace the following settings in the preceding code:
+
+* YOUR-SUBSCRIPTION-ID-OR-NAME
+* YOUR-RESOURCE-GROUP
+* YOUR-APP-SERVICE-RESOURCE-NAME
+* YOUR-REDIS-HOST-NAME
+* YOUR-REDIS-PORT
+* YOUR-REDIS-KEY

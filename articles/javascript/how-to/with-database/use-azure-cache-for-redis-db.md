@@ -1,6 +1,6 @@
 ---
 title: Use JavaScript with Redis on Azure 
-description: To create or move your Redis database to Azure, you need a Azure Cache for Redis resource. 
+description: To create or move your Redis database to Azure, you need an Azure Cache for Redis resource. 
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: devx-track-js
@@ -28,8 +28,7 @@ While developing your Redis database with JavaScript, use the [Redis console](/a
 
 This console provides [Redis CLI](https://redis.io/topics/rediscli) functionality. Be aware [some commands are not supported](/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis).
 
-:::image type="content" source="../../media/howto-database/.png" alt-text="":::
-
+Once you have your resource created, [import your data](/azure/azure-cache-for-redis/cache-how-to-import-export-data) into your Redis resource from Azure Storage using the Azure portal. 
 
 ## Use native SDK packages to connect to Redis on Azure
 
@@ -65,132 +64,106 @@ To connect and use your Redis database on Azure with JavaScript and ioredis, use
 1. Copy the following JavaScript code into `index.js`:
 
     ```nodejs
-    // install ioredis SDK
-    // run at command line
-    // npm install ioredis
-
-    const cassandra = require('ioredis');
+    const redis = require('ioredis');
     
     const config = {
-      username: 'YOUR-USERNAME', // Your Cassandra user name is the resource name 
-      password:
-        'YOUR-PASSWORD',
-      contactPoint: 'YOUR-RESOURCE-NAME.cassandra.cosmos.azure.com',
-    };
+        "HOST": "YOUR-RESOURCE-NAME.redis.cache.windows.net",
+        "KEY": "YOUR-RESOURCE-PASSWORD",
+        "TIMEOUT": 300,
+        "KEY_PREFIX": "demoExample:"
+    }
     
-    let client = null;
-    
-    const callCassandra = async () => {
-
-      // authentication 
-      const authProvider = new cassandra.auth.PlainTextAuthProvider(
-        config.username,
-        config.password
-      );
-    
-      // create client
-      client = new cassandra.Client({
-        contactPoints: [`${config.contactPoint}:10350`],
-        authProvider: authProvider,
-        localDataCenter: 'Central US',
-        sslOptions: {
-          secureProtocol: 'TLSv1_2_method',
-          rejectUnauthorized: false,
+    // Create Redis config object
+    const configuration = {
+        host: config.HOST,
+        port: 6380,
+        password: config.KEY,
+        timeout: config.TIMEOUT,
+        tls: {
+            servername: config.HOST
         },
-      });
+        database: 0,
+        keyPrefix: config.KEY_PREFIX
+    }
     
-      await client.connect();
-      console.log("connected");
-      
-      // create keyspace
-      let query =
-        "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter\' : \'1\' }";
-      await client.execute(query);
-      console.log('created keyspace');
+    const connect = () => {
+        return redis.createClient(configuration);
+    }
     
-      // create table
-      query =
-        'CREATE TABLE IF NOT EXISTS uprofile.user (name text, alias text, region text Primary Key)';
-      await client.execute(query);
-      console.log('created table');
+    const set = async (client, key, expiresInSeconds=configuration.timeout, stringify=true, data) => {
+        return await client.setex(key, expiresInSeconds, stringify? JSON.stringify(data): data);
+    }
     
-      // insert 3 rows
-      console.log('insert');
-      const arr = [
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Tim Jones', 'TJones', 'centralus')",
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Joan Smith', 'JSmith', 'northus')",
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Bob Wright', 'BWright', 'westus')"
-      ];
-      for (const element of arr) {
-        await client.execute(element);
-      }
+    const get = async (client, key, stringParse=true) => {
+        const value = await client.get(key);
+        return stringParse ? JSON.parse(value) : value;
+    }
     
-      // get all rows
-      query = 'SELECT * FROM uprofile.user';
-      const resultSelect = await client.execute(query);
+    const remove = async (client, key) => {
+          return await client.del(key);
+    }
     
-      for (const row of resultSelect.rows) {
-        console.log(
-          'Obtained row: %s | %s | %s ',
-          row.name,
-          row.alias,
-          row.region
-        );
-      }
+    const disconnect = (client) => {
+        client.disconnect();
+    }
     
-      // get filtered row
-      console.log('Getting by region');
-      query = 'SELECT * FROM uprofile.user where region=\'westus\'';
-      const resultSelectWhere = await client.execute(query);
+    const test = async () => {
+        
+        // connect
+        const dbConnection = await connect();
+        
+        // set
+        const setResult1 = await set(dbConnection, "r1", "1000000", false, "record 1");
+        const setResult2 = await set(dbConnection, "r2", "1000000", false, "record 2");
+        const setResult3 = await set(dbConnection, "r3", "1000000", false, "record 3");
     
-      for (const row of resultSelectWhere.rows) {
-        console.log(
-          'Obtained row: %s | %s | %s ',
-          row.name,
-          row.alias,
-          row.region
-        );
-      }
+        // get
+        const val2 = await get(dbConnection, "r2", false);
+        console.log(val2);
+        
+        // delete
+        const remove2 = await remove(dbConnection, "r2");
+        
+        // get again = won't be there
+        const val2Again = await get(dbConnection, "r2", false);
+        console.log(val2Again);
+        
+        // done
+        disconnect(dbConnection)
+    }
     
-      client.shutdown();
-    };
-    
-    callCassandra()
-      .then(() => {
-        console.log('done');
-      })
-      .catch((err) => {
-        if (client) {
-          client.shutdown();
-        }
-        console.log(err);
-      });
-
+    test()
+    .then(() => console.log("done"))
+    .catch(err => console.log(err))
     ```
  
-1. Replace the following in the script with your Cosmos DB Cassandra connection information:
+1. Replace the following in the script with your Redis resource information:
 
     * YOUR-RESOURCE-NAME
-    * YOUR-USERNAME - replace with YOUR-RESOURCE-NAME
-    * YOUR-PASSWORD
+    * YOUR-RESOURCE-PASSWORD
 
 1. Run the script.
 
     ```bash
     node index.js
     ```
-
-    The results are:
+    
+    The script inserts 3 keys then deletes the middle key. The console results are:
 
     ```console
-    connected
-    created keyspace
-    created table
-    insert
-    Obtained row: Joan Smith | JSmith | northus 
-    Obtained row: Tim Jones | TJones | centralus 
-    Obtained row: Bob Wright | BWright | westus
-    Getting by region
-    Obtained row: Bob Wright | BWright | westus 
+    record 2
+    null
     done
     ```
+
+1. In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`. 
+
+    :::image type="content" source="../../media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
+
+## Next steps
+
+* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* [Azure Cache for Redis documentation](/azure/azure-cache-for-redis)
+* [Azure Cache for Redis quickstart](/azure/azure-cache-for-redis/cache-nodejs-get-started)
+* [Azure Architecture Center - Best practices with Caching](/azure/architecture/best-practices/caching)
+* [Best practices with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-best-practices#client-library-specific-guidance)
