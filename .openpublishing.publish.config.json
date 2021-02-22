@@ -74,6 +74,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "js-e2e",
+      "url": "https://github.com/Azure-Samples/js-e2e",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "master",
