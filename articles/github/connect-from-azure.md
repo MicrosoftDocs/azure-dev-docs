@@ -16,9 +16,9 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 The Azure login action allows you to execute commands in a workflow in the context of an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-By default, the action logs in with the Azure CLI, setting up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+By default, the action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
-You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub. 
+You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
 ## Create a service principal and add it to GitHub secret
 
@@ -156,7 +156,7 @@ build-and-deploy:
 
 ## Connect to Azure Government and Azure Stack Hub clouds
 
-To login into one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connect to the Azure Public Cloud.
+To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
 ```yaml
    - name: Login to Azure US Gov Cloud with CLI
