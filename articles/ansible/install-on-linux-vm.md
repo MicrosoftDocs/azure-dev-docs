@@ -3,7 +3,7 @@ title: Quickstart - Configure Ansible using Azure CLI
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 02/25/2021
 ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
@@ -16,7 +16,7 @@ In this quickstart, you'll complete these tasks:
 > [!div class="checklist"]
 > * Create an SSH key pair
 > * Create a resource group
-> * Create a CentOS virtual machine 
+> * Create a CentOS virtual machine
 > * Install Ansible on the virtual machine
 > * Connect to the virtual machine via SSH
 > * Configure Ansible on the virtual machine
@@ -48,10 +48,9 @@ The following steps walk you through creating an SSH key pair.
     ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N ""
     ```
 
-    **Notes**:
-
-    - The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
-    - The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
+> [!NOTE]
+> The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
+> The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
 
 ## Create a virtual machine
 
@@ -78,52 +77,66 @@ The following steps walk you through creating an SSH key pair.
     az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
     ```
 
-    **Notes**:
-
-    - The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
-
-## Install Ansible on the virtual machine
-
-Run the Ansible installation script using [az vm extension set](/cli/azure/vm/extension?#az-vm-extension-set).
-
-```azurecli
-az vm extension set \
- --resource-group QuickstartAnsible-rg \
- --vm-name QuickstartAnsible-vm \
- --name customScript \
- --publisher Microsoft.Azure.Extensions \
- --version 2.1 \
- --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-ansible-control-machine/master/configure-ansible-centos.sh"]}' \
- --protected-settings '{"commandToExecute": "./configure-ansible-centos.sh"}'
-```
-
-**Notes:**
-
-- Upon completion, the `az vm extension` command displays the results of running the installation script.
-
 ## Connect to your virtual machine via SSH
 
-Using the SSH command, connect to your virtual machine. Replace the placeholders with the appropriate values returned.
+Using the SSH command, connect to your virtual machine's public IP address.
 
 ```azurecli
 ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
 ```
 
+Replace the placeholders with the appropriate values returned in pervious commands.
+
+## Install Ansible on the virtual machine
+
+Run the following commands to configure Ansible on Centos:
+
+<br>
+
+<details>
+
+<summary><code>configure-ansible-centos.sh</code></summary>
+
+```bash
+#!/bin/bash
+
+# Update all packages that have available updates.
+sudo yum update -y
+
+# Install Python 3 and pip.
+sudo yum install -y python3-pip
+
+# Upgrade pip3.
+sudo pip3 install --upgrade pip
+
+# Install Ansible.
+pip3 install ansible[azure]
+
+# Install Ansible modules and plugins for interacting with Azure.
+ansible-galaxy collection install azure.azcollection
+
+# Install required modules for Ansible on Azure
+wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+
+# Install Ansible modules
+sudo pip3 install -r requirements-azure.txt
+``````
+
+</details>
+
 ## Create Azure credentials
 
 To configure the Ansible credentials, you need the following information:
 
-* Your Azure subscription ID
-* The service principal values
-
-If you're using Ansible Tower or Jenkins, declare the service principal values as environment variables.
+* Your Azure subscription ID and tenant ID
+* The service principal applicationID, and secret
 
 Configure the Ansible credentials using one of the following techniques:
 
-- [Create an Ansible credentials file](#file-credentials)
-- [Define Ansible environment variables](#env-credentials)
+- [Option 1 - Create an Ansible credentials file](#file-credentials)
+- [Option 2 - Define Ansible environment variables](#env-credentials)
 
-#### <span id="file-credentials"/> Create Ansible credentials file
+#### <span id="file-credentials"/> Option 1 - Create Ansible credentials file
 
 In this section, you create a local credentials file to provide credentials to Ansible.
 
@@ -148,7 +161,10 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
 1. Save and close the file.
 
-#### <span id="env-credentials"/>Define Ansible environment variables
+> [!WARNING]
+> For security reasons, credential files should only be used in development environments.
+
+#### <span id="env-credentials"/> Option 2 - Define Ansible environment variables
 
 On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
