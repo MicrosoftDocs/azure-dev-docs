@@ -109,8 +109,16 @@ Create the Terraform configuration file that declares the Azure provider.
 1. Paste the following code into the editor:
 
     ```hcl
+    terraform {
+      required_providers {
+          azurerm = {
+            source  = "hashicorp/azurerm"
+            version = "~>2.0"
+          }
+      }
+    }
     provider "azurerm" {
-        version = "~>1.22"
+      features {}
     }
     ```
 

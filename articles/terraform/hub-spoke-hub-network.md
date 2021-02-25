@@ -91,21 +91,21 @@ Create the Terraform configuration file that declares the hub virtual network.
       name                 = "GatewaySubnet"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.255.224/27"
+      address_prefixes     = ["10.0.255.224/27"]
     }
 
     resource "azurerm_subnet" "hub-mgmt" {
       name                 = "mgmt"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.0.64/27"
+      address_prefixes       = ["10.0.0.64/27"]
     }
 
     resource "azurerm_subnet" "hub-dmz" {
       name                 = "dmz"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.0.32/27"
+      address_prefixes       = ["10.0.0.32/27"]
     }
 
     resource "azurerm_network_interface" "hub-nic" {

@@ -83,14 +83,14 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       name                 = "mgmt"
       resource_group_name  = azurerm_resource_group.spoke1-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.spoke1-vnet.name
-      address_prefix       = "10.1.0.64/27"
+      address_prefixes     = ["10.1.0.64/27"]
     }
 
     resource "azurerm_subnet" "spoke1-workload" {
       name                 = "workload"
       resource_group_name  = azurerm_resource_group.spoke1-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.spoke1-vnet.name
-      address_prefix       = "10.1.1.0/24"
+      address_prefixes     = ["10.1.1.0/24"]
     }
 
     resource "azurerm_virtual_network_peering" "spoke1-hub-peer" {
@@ -205,14 +205,14 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
       name                 = "mgmt"
       resource_group_name  = azurerm_resource_group.spoke2-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.spoke2-vnet.name
-      address_prefix       = "10.2.0.64/27"
+      address_prefixes     = ["10.2.0.64/27"]
     }
 
     resource "azurerm_subnet" "spoke2-workload" {
       name                 = "workload"
       resource_group_name  = azurerm_resource_group.spoke2-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.spoke2-vnet.name
-      address_prefix       = "10.2.1.0/24"
+      address_prefixes     = ["10.2.1.0/24"]
     }
 
     resource "azurerm_virtual_network_peering" "spoke2-hub-peer" {

@@ -2,7 +2,7 @@
 title: Tutorial - Create a hub virtual network appliance in Azure using Terraform
 description: Learn how to create a Hub virtual network (VNet) that acts as a common connection point between other networks.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/18/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -130,12 +130,11 @@ Create the Terraform configuration file that declares an on-premises virtual net
 
     resource "azurerm_virtual_machine_extension" "enable-routes" {
       name                 = "enable-iptables-routes"
-      location             = azurerm_resource_group.hub-nva-rg.location
-      resource_group_name  = azurerm_resource_group.hub-nva-rg.name
-      virtual_machine_name = azurerm_virtual_machine.hub-nva-vm.name
+      virtual_machine_id   = azurerm_virtual_machine.hub-nva-vm.id
       publisher            = "Microsoft.Azure.Extensions"
       type                 = "CustomScript"
       type_handler_version = "2.0"
+
 
       settings = <<SETTINGS
         {
@@ -259,7 +258,6 @@ Create the Terraform configuration file that declares an on-premises virtual net
       route_table_id = azurerm_route_table.spoke2-rt.id
       depends_on = [azurerm_subnet.spoke2-workload]
     }
-
     ```
 
 1. Save the file and exit the editor.
