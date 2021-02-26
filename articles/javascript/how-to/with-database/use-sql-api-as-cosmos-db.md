@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Develop a JavaScript application for Cosmos DB with SQL API 
 
-To create,or use Cosmos DB with the the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.
+To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.
 
 ## Create a Cosmos DB resource for a SQL API database
 
@@ -24,7 +24,7 @@ You can create a resource with:
 
 While developing your SQL API database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
-:::image type="content" source="../../media/howto-database/.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your mongoDB database.":::
+:::image type="content" source="../../media/howto-database/.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your database.":::
 
 The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
@@ -59,80 +59,161 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
 
 1. Copy the following JavaScript code into `index.js`:
 
-    ```nodejs
-    // install @azure/cosmos
-    // run at command line
-    // npm install @azure/cosmos
+    ```javascript
+    const CosmosClient = require("@azure/cosmos").CosmosClient;
 
-    // get mongoose SDK
-    const mongoose = require("mongoose");
+    // CHANGE THESE VALUES
+    const COSMOS_DB_RESOURCE_NAME = "YOUR-RESOURCE-NAME";
+    const COSMOS_DB_RESOURCE_KEY = "YOUR-RESOURCE-KEY";
 
-    const run = async () => {
-      // connect to mongoose
-      await mongoose.connect(
-        "YOUR-CONNECTION-STRING",
-        {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          useFindAndModify: false,
-          useCreateIndex: true,
+    let client = null;      // Cosmos DB SQL API connection object
+    let db = null;          // DB object
+    let container = null;   // Container object
+
+    // data
+    const DATABASE_DOCS = [
+        { name: "Joe", job: "banking" },
+        { name: "Jack", job: "security" },
+        { name: "Jill", job: "pilot" }];
+        
+    const ALL_DOCS = null;
+
+    // Azure Cosmos DB config
+    const config = {
+        COSMOSDB_SQL_API_URI: `https://${COSMOS_DB_RESOURCE_NAME}.documents.azure.com:443/`,
+        COSMOSDB_SQL_API_KEY: COSMOS_DB_RESOURCE_KEY,
+        COSMOSDB_SQL_API_DATABASE_NAME: "DemoDb",
+        COSMOSDB_SQL_API_CONTAINER_NAME: "DemoContainer"
+    }
+
+    // Unique Id = Guid
+    const newGuid = () => {
+        const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+        return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4() + s4() + s4()}`;
+    }
+
+    // insert array
+    const insert = async (newItems) => {
+
+        const results = [];
+        for (const item of newItems) {
+
+            item.id = newGuid();
+            const result = await container.items.create(item);
+            results.push(result.item);
         }
-      );
-
-      // define a schema
-      const Schema = mongoose.Schema;
-      const ObjectId = Schema.ObjectId;
-
-      const JobSchema = new Schema({
-        id: ObjectId,
-        name: String,
-        job: String,
-      });
-
-      // Create model for database collection `Job`
-      const JobModel = mongoose.model("Job", JobSchema);
-
-      // Add data to doc and save
-      const doc1 = new JobModel();
-      doc1.name = "Joan Smith";
-      doc1.job = "Developer";
-      await doc1.save();
-
-      const doc2 = new JobModel();
-      doc2.name = "Bob Jones";
-      doc2.job = "Quality Assurance";
-      await doc2.save();
-
-      const doc3 = new JobModel();
-      doc3.name = "Michelle Roberts";
-      doc3.job = "Program Manager";
-      await doc3.save();
-
-      // find all docs in collection
-      console.log("find all");
-      const jobs = await JobModel.find({});
-
-      //iterate over docs
-      for (var job of jobs) {
-        console.log(`loop ` + JSON.stringify(job));
-      }
-
-      // close connection
-      mongoose.connection.close();
-
-      return "succeeded";
+        return results;
     };
+    // find all or by id
+    const find = async (query) => {
 
-    run()
-    .then((result) => {
-        console.log(result);
+        if (query == null) {
+            query = "SELECT * from c"
+        } else {
+            query = `SELECT * from c where c.id = ${query}`
+        }
+
+        const result = await container.items
+            .query(query)
+            .fetchAll();
+
+        return result && result.resources ? result.resources : [];
+    }
+    // remove all or by id
+    const remove = async (id) => {
+
+        // remove 1
+        if (id) {
+            await container.item(id).delete();
+        } else {
+
+            // get all items
+            const items = await find();
+
+            // remove all
+            for await (const item of items) {
+                await container.item(item.id).delete();
+            }
+        }
+
+        return;
+    }
+    // connection with SDK
+    const connect = () => {
+        try {
+
+            const connectToCosmosDB = {
+                endpoint: config.COSMOSDB_SQL_API_URI,
+                key: config.COSMOSDB_SQL_API_KEY
+            }
+
+            return new CosmosClient(connectToCosmosDB);
+
+        } catch (err) {
+            console.log('Cosmos DB SQL API - can\'t connected - err');
+            console.log(err);
+        }
+    }
+    const connectToDatabase = async () => {
+
+        client = connect();
+
+        if (client) {
+
+            // get DB
+            const databaseResult = await client.databases.createIfNotExists({ id: config.COSMOSDB_SQL_API_DATABASE_NAME });
+            db = databaseResult.database;
+
+            if (db) {
+                // get Container
+                const containerResult = await db.containers.createIfNotExists({ id: config.COSMOSDB_SQL_API_CONTAINER_NAME });
+                container = containerResult.container;
+                return !!db;
+            }
+        } else {
+            throw new Error("can't connect to database");
+        }
+
+
+    }
+
+    // use Database
+    const dbProcess = async (docs) => {
+
+        // connect
+        const db = await connectToDatabase();
+        if (!db) throw Error("db not working")
+        console.log("connected to " + config.COSMOSDB_SQL_API_DATABASE_NAME + "/" + config.COSMOSDB_SQL_API_CONTAINER_NAME)
+        
+        // insert new docs
+        const insertResult = await insert(docs);
+        console.log("inserted " + insertResult.length)
+
+        // get all docs
+        const findResult = await find(ALL_DOCS);
+        console.log("found " + findResult.length);
+
+        // remove all then make sure they are gone
+        await remove(ALL_DOCS);
+        const findResult3 = await find(ALL_DOCS);
+        console.log("removed all, now have " + findResult3.length);
+
+        return;
+
+    }
+
+    dbProcess(DATABASE_DOCS)
+    .then(() => {
+        console.log("done")
+    }).catch(err => {
+        console.log(err)
     })
-    .catch((err) => {
-        console.log(err);
-    });
     ```
  
-1. Replace `YOUR-CONNECTION-STRING` in the script with your Cosmos DB your connection string. 
+1. Replace the following variables in the script:
+    * `YOUR-RESOURCE-NAME` - the name you used when creating your Cosmos DB resource
+    * `YOUR-RESOURCE-KEY` - one of the read/write keys for your resource
+
 1. Run the script.
 
     ```bash
@@ -142,16 +223,15 @@ To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the foll
     The results are:
 
     ```console
-    find all
-    loop {"_id":"6019a68a6ecddc35d536c92c","name":"Joan Smith","job":"Developer","__v":0}
-    loop {"_id":"6019a68e6ecddc35d536c92d","name":"Bob Jones","job":"Quality Assurance","__v":0}
-    loop {"_id":"6019a6916ecddc35d536c92e","name":"Michelle Roberts","job":"Program Manager","__v":0}
-    succeeded
+    connected to DemoDb/DemoContainer4
+    inserted 3
+    found 3
+    removed all, now have 0
+    done
     ```
 
 ## Next steps
 
 * How to [deploy a JavaScript web app](../deploy-web-app.md)
-* [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
-* [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
-* [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
+* [Cosmos DB for SQL API documentation](/azure/cosmos-db)
+* [Cosmos DB for SQL API quickstart](/azure/cosmos-db/create-sql-api-nodejs)

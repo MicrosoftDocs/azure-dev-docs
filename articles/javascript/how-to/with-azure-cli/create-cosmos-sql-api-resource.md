@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Create and use Cosmos DB with the SQL API on Azure
 
-A Cosmos DB resource provides you with a SQL server. 
+Create a Cosmos DB resource with the Azure CLI to use with your SQL API database. 
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-cosmos-db-sql-api.md)]
 

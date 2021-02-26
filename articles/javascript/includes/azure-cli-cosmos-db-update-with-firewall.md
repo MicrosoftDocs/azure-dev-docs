@@ -4,11 +4,10 @@ ms.topic: include
 ms.date: 02/08/2021
 ---
 
-## Add firewall rule for your client IP address to Cosmos DB resource
+## Add firewall rule for your client IP address
 
-Use the [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) command to update the firewall rules.
+Add your client IP address so your client connection to the server with JavaScript is successful. Use the [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) command to update the firewall rules.
 
-Add your client IP address so your client connection to the server with JavaScript is successful.
 
 ```azurecli
 az cosmosdb update \
@@ -18,7 +17,7 @@ az cosmosdb update \
     --ip-range-filter 123.123.123.123
 ```
 
-To configure multiple IP addresses, use a comma separated list.
+To configure multiple IP addresses, use a comma-separated list.
 
 ```azurecli
 az cosmosdb update \
