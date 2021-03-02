@@ -14,7 +14,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). 
 
-To clean up the resources, go to the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+[!INCLUDE [remove resource group with Azure portal](../../includes/azure-portal-remove-resource-group.md)]
 
 [!INCLUDE [Next steps for using VSCode extensions](../includes/tutorial-next-steps-vscode-extensions.md)]
 

@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 The App Service you created for the container includes a backing App Service Plan that can incur costs. 
 
-Go to the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+[!INCLUDE [remove resource group with Azure portal](../../includes/azure-portal-remove-resource-group.md)]
 
 ### Next steps
 
