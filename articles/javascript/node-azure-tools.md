@@ -16,29 +16,6 @@ You don't need to use these tools to use Azure, it just makes the experience muc
 
 The [Azure portal](https://portal.azure.com/) gives you access to all subscriptions and resources for your account. 
 
-## Azure CLI
-Azure CLI is optimized for managing Azure resources from the command line. 
-
-Azure CLI provides the following use scenarios:
-
-* [Azure CLI Local installation](/cli/azure/install-az-cli2)
-* [Azure Cloud shell](https://shell.azure.com/)
-* [Docker container](/cli/azure/run-azure-cli-docker)
-
-If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.
-
-:::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
-
-## TypeScript
-
-[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system. Your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
-
-## TypeScript and the Azure SDK client libraries
-
-Azure SDK client library reference documentation is written for TypeScript because the client libraries are written with TypeScript. You don't have to use TypeScript to use the Azure SDK client libraries. 
-
-Learn more about the [TypeScript guidelines for Azure SDK](https://azure.github.io/azure-sdk/typescript_introduction.html).
-
 ## Visual Studio Code
 
 [Visual Studio Code](https://code.visualstudio.com) is the preferred IDE for JavaScript development for Azure. The interface, features, and extensions work together to shorten development time and reduce development frustration. 
@@ -74,3 +51,29 @@ If you prefer to install individual extensions, this list includes the most popu
 
 > [!div class="nextstepaction"]
 > [Get more Azure extensions in the Visual Studio Code marketplace](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)
+
+
+## TypeScript
+
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system. Your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+
+## TypeScript and the Azure SDK client libraries
+
+Azure SDK client library reference documentation is written for TypeScript because the client libraries are written with TypeScript. You don't have to use TypeScript to use the Azure SDK client libraries. 
+
+Learn more about the [TypeScript guidelines for Azure SDK](https://azure.github.io/azure-sdk/typescript_introduction.html).
+
+
+## Azure CLI
+Azure CLI is optimized for managing Azure resources from the command line. 
+
+Azure CLI provides the following use scenarios:
+
+* [Azure CLI Local installation](/cli/azure/install-az-cli2)
+* [Azure Cloud shell](https://shell.azure.com/)
+* [Docker container](/cli/azure/run-azure-cli-docker)
+
+If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.
+
+:::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
+
