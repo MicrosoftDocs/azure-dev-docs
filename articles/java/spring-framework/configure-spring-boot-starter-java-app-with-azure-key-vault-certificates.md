@@ -15,7 +15,7 @@ This tutorial shows you how to secure your Spring Boot (including Azure Spring C
 
 Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 
-Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. The certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
+Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
 <!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.ai -->
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-keyvault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
@@ -219,7 +219,7 @@ To enable the app to load the certificate, use the following steps:
    azure.keyvault.uri=https://<your Key Vault name>.vault.azure.net/
    ```
 
-   These values enable the Spring Boot app to perform the load action for the TLS/SSL certificate. The following table describes the property values.
+   These values enable the Spring Boot app to perform the *load* action for the TLS/SSL certificate, as mentioned at the beginning of the tutorial. The following table describes the property values.
 
    | Property Name | Explanation |
    |---------------|-------------|
@@ -231,7 +231,7 @@ To enable the app to load the certificate, use the following steps:
 
    The only property specific to Key Vault is `azure.keyvault.uri`. The app is running on a VM whose system-assigned managed identity has been granted access to the Key Vault. Therefore, the app has also been granted access.
 
-These changes enable the Spring Boot app to load the TLS/SSL certificate. In the next section, you'll enable the app to accept the TLS/SSL certificate.
+These changes enable the Spring Boot app to load the TLS/SSL certificate. In the next section, you'll enable the app to perform the *accept* action for the TLS/SSL certificate, as mentioned at the beginning of the tutorial.
 
 ### Create a Spring Boot REST controller
 
@@ -266,6 +266,8 @@ To create the REST controller, use the following steps:
 
    }
    ```
+   
+   Note that calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't do this in a real application.
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
 
