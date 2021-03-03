@@ -2,6 +2,7 @@
 ms.custom: devx-track-js
 ms.topic: include
 ms.date: 03/02/2021
+
 ---
 
 1. In the Azure portal, select the **Resource groups** from the Favorites list. 
