@@ -24,11 +24,10 @@ You can create a resource with:
 
 While developing your SQL API database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
-:::image type="content" source="../../media/howto-database/.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your database.":::
+:::image type="content" source="../../media/howto-database/cosmos-explorer-sql-api.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your database.":::
 
 The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
-:::image type="content" source="../../media/howto-database/" alt-text="The Cosmos explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
 
 ## Use the Azure SDK package to connect to your Cosmos DB SQL API database
 

@@ -172,7 +172,7 @@
       - name: Use PostgreSQL resource
         href: how-to/with-azure-cli/create-postgresql-server-resource.md
       - name: Use SQL API on Cosmos DB
-        href: how-to-/with-azure-cli/create-cosmos-sql-api-resource.md
+        href: how-to/with-azure-cli/create-cosmos-sql-api-resource.md
     - name: With databases
       items: 
       - name: Getting started
