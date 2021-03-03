@@ -2,7 +2,7 @@
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/02/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
@@ -54,14 +54,23 @@ You get several benefits using Visual Studio Code:
 Visual Studio code provides of wealth of documentation for [JavaScript project use](https://code.visualstudio.com/docs/nodejs/working-with-javascript). 
 
 ## Visual Studio Code Extensions
-Use the following free extensions to interface with Azure services directly in Visual Studio Code.
+
+Use the following free extensions to use Azure services directly in Visual Studio Code.
 
 | Tool | Description  |
 |:---------:|---------|
+|[Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)|Get web site hosting, SQL and MongoDB data, Docker Containers, Serverless Functions and more, all on Azure, all from VS Code, in this one extension from Microsoft.|
+
+If you prefer to install individual extensions, this list includes the most popular Azure services:
+
+| Tool | Description  |
+|:---------:|---------|
+| [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)| Sign-In and Subscription management|
 | [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions "Link to Azure Functions extension") <br> [![Azure Functions Tools](media/node-azure-tools/icon-azure-functions.png)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) | Create, manage, view, debug, and deploy functions|
 | [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice "Link to Azure App Service extension") <br> [![App Service Tools](media/node-azure-tools/icon-azure-app-service.png)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) | Browse sites and the Azure portal, create new sites and deploy to slots |
 | [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb "Link to Cosmos DB extension" )  <br> [![Cosmos DB Tools](media/node-azure-tools/icon-cosmos-db.png)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)| Create, browse, and update globally distributed, multi-model databases in Azure |
 | [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)   <br> [![Docker](media/node-azure-tools/icon-docker.png)](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)| Manage Docker containers and images, Docker Hub, and Azure container registry |
+|[Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)|Azure Storage including Blob Containers, File Shares, Tables and Queues|
 
 > [!div class="nextstepaction"]
 > [Get more Azure extensions in the Visual Studio Code marketplace](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)
