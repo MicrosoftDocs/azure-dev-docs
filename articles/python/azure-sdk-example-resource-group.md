@@ -27,6 +27,8 @@ azure-mgmt-resource>=1.15.0
 azure-identity>=1.5.0
 ```
 
+Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
+
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
 ```cmd
