@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
 
-- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
+- A supported Java Development Kit (JDK). For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
 
 - [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
@@ -92,7 +92,7 @@ First, use the following steps to authenticate using the Azure CLI.
 
 ### Create a service principal for use in by your app
 
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service. "Service" is any application, service, or platform, including the sample app built in this tutorial, that needs to access Azure resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
+Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service. "Service" is any application, service, or platform that needs to access Azure resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
 To create a service principal, use the following command.
 
@@ -305,7 +305,7 @@ Use the following steps to examine the application and run it locally.
    * The class has a method annotated with `@GetMapping(get)`. `@GetMapping` tells Spring Boot to send HTTP requests with the path `/get` to that method, allowing the response from that method to be returned to the HTTP client.
    * The class has a private instance variable `connectionString`. The value of this instance variable is returned from the `get()` method.
 
-1. Open a Bash window and navigate to the top level *keyvault* directory, where the *pom.xml* file is located.
+1. Open a Bash window and navigate to the top-level *keyvault* directory, where the *pom.xml* file is located.
 
 1. Enter the following command:
 
@@ -372,7 +372,7 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 
    The Key Vault integration provides a Spring `PropertySource` that's populated from the values of the Key Vault. For more implementation details, see [Azure Key Vault Secrets Spring Boot starter client library for Java](https://aka.ms/azure-spring-boot-starter-keyvault-secrets).
 
-1. Open a Bash window and navigate to the top level *keyvault* directory, where the *pom.xml* file is located.
+1. Open a Bash window and navigate to the top-level *keyvault* directory, where the *pom.xml* file is located.
 
 1. Enter the following command:
 
@@ -396,7 +396,7 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 
 The following steps show you how to deploy the `KeyvaultApplication` to Azure App Service.
 
-1. In the top level *keyvault* directory, open the *pom.xml* file.
+1. In the top-level *keyvault* directory, open the *pom.xml* file.
 1. In the `<build><plugins>` section, add the `azure-webapp-maven-plugin` by inserting the following XML.
 
    ```xml

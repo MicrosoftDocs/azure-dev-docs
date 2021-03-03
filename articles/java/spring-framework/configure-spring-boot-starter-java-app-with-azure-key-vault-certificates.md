@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
-description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and Managed Identities for Azure Resources.
+description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 ms.date: 02/18/2021
 ms.service: key-vault
 ms.topic: tutorial
@@ -11,11 +11,11 @@ author: edburns
 
 # Tutorial: Secure Spring Boot apps using Azure Key Vault certificates
 
-This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and Managed Identities for Azure Resources.
+This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 
-Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you encounter are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
+Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 
-Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. Instead of installing certificates locally, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and Managed security for Azure resources.
+Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. The certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
 <!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.ai -->
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-keyvault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Create a GNU/Linux VM with system-assigned managed identity
 
-Use the following steps to create an Azure VM with a system-assigned managed identity and prepare it to run the Spring Boot application. For an overview of Managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+Use the following steps to create an Azure VM with a system-assigned managed identity and prepare it to run the Spring Boot application. For an overview of managed identities for Azure resources, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
 1. Open a Bash shell.
 
@@ -89,7 +89,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
    ```
 
-1. Accept the terms for the image. This is necessary to allow the VM to be created.
+1. Accept the terms for the image to allow the VM to be created.
 
    ```azurecli
    az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
@@ -227,13 +227,13 @@ To enable the app to load the certificate, use the following steps:
    |server.ssl.key-alias|The value of the `--name` argument you passed to `az keyvault certificate create`.|
    |server.ssl.key-store-type|Must be `AzureKeyVault`.|
    |server.ssl.trust-store-type|Must be `AzureKeyVault`.|
-   |azure.keyvault.uri|The `vaultUri` property in the return JSON from `az keyvault create`. You saved this aside in an environment variable.|
+   |azure.keyvault.uri|The `vaultUri` property in the return JSON from `az keyvault create`. You saved this value in an environment variable.|
 
-   The only property specific to Key Vault is `azure.keyvault.uri`. The permission to access the Key Vault is granted because the app is running on a VM whose system-assigned managed identity has been granted access to the Key Vault.
+   The only property specific to Key Vault is `azure.keyvault.uri`. The app is running on a VM whose system-assigned managed identity has been granted access to the Key Vault. Therefore, the app has also been granted access.
 
-These changes enable the Spring Boot app to load the TLS/SSL certificate. The next section takes this further by enabling the app to accept the SSL certificate.
+These changes enable the Spring Boot app to load the TLS/SSL certificate. In the next section, you'll enable the app to accept the TLS/SSL certificate.
 
-### Create a simple Spring Boot REST controller
+### Create a Spring Boot REST controller
 
 To create the REST controller, use the following steps:
 
@@ -272,7 +272,7 @@ To create the REST controller, use the following steps:
    * There's now a `@RestController` annotation on the `SsltestApplication` class generated by Spring Initializr.
    * There's a method annotated with `@GetMapping`, with a `value` for the HTTP call you'll make.
    * The `inbound` method simply returns a greeting when a browser makes an HTTPS request to the `/ssl-test` path. The `inbound` method illustrates how the server presents the TLS/SSL certificate to the browser.
-   * The `exit` method will cause the JVM to exit when invoked. This is a convenience to make the sample easy to run in the context of this tutorial.
+   * The `exit` method will cause the JVM to exit when invoked. This method is a convenience to make the sample easy to run in the context of this tutorial.
 
 1. Open a new Bash shell and navigate to the *ssltest* directory. Run the following command.
 
@@ -321,7 +321,7 @@ Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL
 
 ## Run a Spring Boot application with secure outbound connections
 
-In this section, you'll modify the code in the previous section so that the the TLS/SSL certificate for outbound connections comes from Azure Key Vault. Thus, the *load*, *present*, and *accept* actions are satisfied from the Azure Key Vault.
+In this section, you'll modify the code in the previous section so that the TLS/SSL certificate for outbound connections comes from Azure Key Vault. Therefore, the *load*, *present*, and *accept* actions are satisfied from the Azure Key Vault.
 
 ### Modify the SsltestApplication to illustrate outbound TLS connections
 
@@ -403,7 +403,7 @@ Replace the contents of *SsltestApplication.java* with the following code.
    }
 ```
 
-Next, re-build the app, re-upload it to the VM, and re-run it.
+Next, rebuild the app, upload it to the VM, and run it again.
 
 1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
 
@@ -422,7 +422,7 @@ Next, re-build the app, re-upload it to the VM, and re-run it.
    mvn clean package
    ```
 
-1. Re-upload the app using the same `sftp` command from earlier in this topic.
+1. Upload the app again using the same `sftp` command from earlier in this article.
 
    ```bash
    cd target
