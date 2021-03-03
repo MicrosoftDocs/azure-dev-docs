@@ -323,7 +323,7 @@ Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL
 
 In this section, you'll modify the code in the previous section so that the the TLS/SSL certificate for outbound connections comes from Azure Key Vault. Thus, the *load*, *present*, and *accept* actions are satisfied from the Azure Key Vault.
 
-### Modify the `SsltestApplication` to illustrate outbound TLS connections
+### Modify the SsltestApplication to illustrate outbound TLS connections
 
 First, you add a new rest endpoint called `ssl-test-outbound`. This endpoint opens up a TLS socket to itself and verifies that the TLS connection accepts the TLS/SSL certificate.
 
