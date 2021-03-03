@@ -282,7 +282,7 @@ To create the REST controller, use the following steps:
 
    Maven compiles the code and packages it up into an executable JAR file
 
-1. Verify that the network security group created within `<your resource group name>` allows inbound traffic on ports 22 and 8443 from your IP address. To learn about configuring network security group rules to allow inbound traffic, see the [Work with security rules](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group#work-with-security-rules) section of [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group).
+1. Verify that the network security group created within `<your resource group name>` allows inbound traffic on ports 22 and 8443 from your IP address. To learn about configuring network security group rules to allow inbound traffic, see the [Work with security rules](/azure/virtual-network/manage-network-security-group#work-with-security-rules) section of [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group).
 
 1. Put the executable JAR file on the VM.
 
