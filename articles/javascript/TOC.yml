@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: What's new with Developer Advocates
     href: whats-new-developer-advocacy.md  
+  - name: Top tasks for developers
+    href: how-to/common-javascript-tasks.md    
   - name: Get started on Azure with JavaScript
     items:
     - name: What is Azure for JavaScript developers?
