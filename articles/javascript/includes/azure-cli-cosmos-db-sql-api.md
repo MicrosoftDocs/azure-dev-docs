@@ -18,7 +18,7 @@ az cosmosdb create \
 --ip-range-filter YOUR-CLIENT-IP
 ```
 
-To enable firewall access from your local computer to your resource, replace `123.123.123.123` with your own client IP. 
+To enable firewall access from your local computer to your resource, replace `123.123.123.123` with your own client IP. To configure multiple IP addresses, use a comma-separated list.
 
 [!INCLUDE [Azure CLI command - Cosmos DB Update - firewall IP range](azure-cli-cosmos-db-update-with-firewall.md)]
 

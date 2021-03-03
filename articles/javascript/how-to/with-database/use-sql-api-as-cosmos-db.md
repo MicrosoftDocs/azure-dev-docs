@@ -16,7 +16,7 @@ You can create a resource with:
 
 * Azure CLI
 * [Azure portal](https://portal.azure.com)
-* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* Visual Studio Code extension - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-cosmos-db-sql-api.md)]
 
@@ -28,12 +28,11 @@ While developing your SQL API database with JavaScript, use [Cosmos explorer](ht
 
 The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
 
+## Use @azure/cosmos SDK to connect to database
 
-## Use the Azure SDK package to connect to your Cosmos DB SQL API database
+Connect to your Azure Cosmos DB with SQL API using the following Azure SDK:
 
 * [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos)
-
-## Use @azure/cosmos SDK to connect to SQL API database on Azure
 
 To connect and use your SQL API on Azure Cosmos DB with JavaScript, use the following procedure.
 
