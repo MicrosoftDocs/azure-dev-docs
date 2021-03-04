@@ -22,8 +22,8 @@ The Build Virtual Machine Image action uses the [Azure Image Builder service](/a
 - A GitHub account with an active repository. If you don't have one, sign up for [free](https://github.com/join). 
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
 - A Shared Image Gallery.
-    - [Create a Shared Image Gallery with the Azure CLI](azure/virtual-machines/shared-images-cli)
-    - Create an Azure Shared Image Gallery using the portal ([Windows](azure/virtual-machines/windows/shared-images-portal), [Linux](/azure/virtual-machines/linux/shared-images-portal))
+    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/shared-images-cli)
+    - Create an Azure Shared Image Gallery using the portal ([Windows](/azure/virtual-machines/windows/shared-images-portal), [Linux](/azure/virtual-machines/linux/shared-images-portal))
 
 ## Workflow file overview
 
@@ -215,7 +215,7 @@ Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with
 |---|---|---|
 | `resource-group-name`  | Yes  | The resource group used for storage and saving artifacts during the build process.  |
 |  `image-builder-template-name` |  No |  The name of the image builder template resource used.  |
-|  `location` | Yes  | The location where Azure Image Builder will run. See [supported locations](azure/virtual-machines/image-builder-overview#regions).  |
+|  `location` | Yes  | The location where Azure Image Builder will run. See [supported locations](/azure/virtual-machines/image-builder-overview#regions).  |
 | `build-timeout-in-minutes`  |  No | Time after which the build is canceled. Defaults to 240. |
 | `vm-size`  | Optional  | By default, `Standard_D1_v2` will be used.  See [virtual machine sizes](/azure/virtual-machines/sizes).|
 |  `managed-identity` |  Yes | The user managed identity you created earlier. Use the full identifier if your identity is in a different resources group. Use the name if it is in the same resource group. |
