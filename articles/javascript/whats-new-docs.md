@@ -20,7 +20,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[How to use MariaDb on Azure](./how-to/with-database/use-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
 |[How to use MySql on Azure](./how-to/with-database/use-mysql-db.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
 |[How to use PostgreSQL on Azure](./how-to/with-database/use-postgresql-db.md)|To create, move, or use a PostgreSQL database to Azure, you need a **Azure Database for PostgreSQL server** resource. Learn how to create the resource and use your database.|
-|[Develop a JavaScript application for Azure Cache for Redis](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
+|[Develop a JavaScript application for Azure Cache for Redis](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a Redis database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
 
 ## 2021 January
