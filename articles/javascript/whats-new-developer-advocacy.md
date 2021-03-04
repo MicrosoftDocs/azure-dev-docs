@@ -7,6 +7,8 @@ ms.date: 01/29/2021
 
 # What's new with JavaScript Developer Advocates
 
+## 2021 February
+
 ## 2021 January
 
 * Aaron Power: 
