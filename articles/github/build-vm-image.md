@@ -12,9 +12,14 @@ ms.custom: github-actions-azure
 
 # Build custom virtual machine images with GitHub Actions and Azure
 
-Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) build Azure virtual machine image action. You can use GitHub Actions to create custom virtual machine images with artifacts from your workflows that include pre-installed software. With GitHub Actions, you can both build images and distribute them with [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries). You can use these images to create [virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) by creating a workflow to build a virtual machine image.
 
-The Build Virtual Machine Image action uses the [Azure Image Builder service](/azure/virtual-machines/image-builder-overview).
+
+With GitHub Actions, you can speed up your CI/CD process by creating custom virtual machine images with artifacts from your workflows. You can both build images and distribute them to a [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries).
+
+ You can then use these images to create [virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+
+The build virtual machine image action uses the [Azure Image Builder service](/azure/virtual-machines/image-builder-overview).
 
 ## Prerequisites
 
@@ -33,16 +38,16 @@ The file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Add a user managed identity. <br /> 2. Define a service principal or publish profile.  <br /> 3. Create a GitHub secret. |
+|**Authentication** | 1. Add a user-managed identity. <br /> 2. Define a service principal or publish profile.  <br /> 3. Create a GitHub secret. |
 |**Build** | 1. Set up the environment. <br /> 2. Build the app. |
 |**Image** | 1. Create a VM Image. <br /> 2. Create a virtual machine. |
 
 
-## Create a user managed identity
+## Create a user-managed identity
 
-You need a user managed identity for Azure Image Builder(AIB) to distribute images using a Shared Image Gallery. Your Azure user-assigned managed identity will be used during the image build to read and write images. 
+You'll need a user-managed identity for Azure Image Builder(AIB) to distribute images. Your Azure user-assigned managed identity will be used during the image build to read and write images to a Shared Image Gallery. 
 
-1. Create a user managed identity with [Azure CLI](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) or the [Azure portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Write down the name of your managed identity. 
+1. Create a user-managed identity with [Azure CLI](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) or the [Azure portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Write down the name of your managed identity. 
 
 1. Customize this JSON code. Replace the placeholders for `{subscriptionID}` and `{rgName}`with your subscription ID and resource group name.
 
@@ -77,7 +82,7 @@ You need a user managed identity for Azure Image Builder(AIB) to distribute imag
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login), you first need to add your Azure service principal as a secret to your GitHub repository.
 
-In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
+In this example, you'll create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
 1. If you do not have an existing application, register a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
 
@@ -218,7 +223,7 @@ Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with
 |  `location` | Yes  | The location where Azure Image Builder will run. See [supported locations](/azure/virtual-machines/image-builder-overview#regions).  |
 | `build-timeout-in-minutes`  |  No | Time after which the build is canceled. Defaults to 240. |
 | `vm-size`  | Optional  | By default, `Standard_D1_v2` will be used.  See [virtual machine sizes](/azure/virtual-machines/sizes).|
-|  `managed-identity` |  Yes | The user managed identity you created earlier. Use the full identifier if your identity is in a different resources group. Use the name if it is in the same resource group. |
+|  `managed-identity` |  Yes | The user-managed identity you created earlier. Use the full identifier if your identity is in a different resources group. Use the name if it is in the same resource group. |
 |  `source-os` | Yes  | The OS type of the base image (Linux or Windows) |
 |  `source-image-type` | Yes  | The base image type that will be used for creating the custom image.  |
 |  `source-image` | Yes  | The resource identifier for base image. A source image should be present in the same Azure region set in the input value of location. |
@@ -226,7 +231,7 @@ Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with
 |  `customizer-destination` | No  | This is the directory in the customized image where artifacts are copied to. |
 |  `customizer-windows-update` | No  | For Windows only. Boolean value. If `true`, the image builder will run Windows update at the end of the customizations.|
 |  `dist-location` | No  | For SharedImageGallery, this is the `dist-type`.|
-|  `dist-image-tags` | No  | These are user defined tags that are added to the custom image created (example: `version:beta`). |
+|  `dist-image-tags` | No  | These are user-defined tags that are added to the custom image created (example: `version:beta`). |
 
 
 ## Create virtual machine
