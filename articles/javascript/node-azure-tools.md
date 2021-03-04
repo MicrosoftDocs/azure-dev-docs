@@ -70,7 +70,7 @@ Azure CLI is optimized for managing Azure resources from the command line.
 Azure CLI provides the following use scenarios:
 
 * [Azure CLI Local installation](/cli/azure/install-az-cli2)
-* [Azure Cloud shell](https://shell.azure.com/)
+* [Azure Cloud Shell](https://shell.azure.com/)
 * [Docker container](/cli/azure/run-azure-cli-docker)
 
 If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.
