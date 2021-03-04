@@ -23,7 +23,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy using Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
+            url: /azure/azure-functions/create-first-function-vs-code-python
           - text: Deploy using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
           - text: Connect to storage using Visual Studio Code
@@ -44,14 +44,10 @@ landingContent:
             url: /azure/app-service/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
+          - text: Static sites using Azure Storage
+            url: how-to-create-static-sites.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp          
-  - title: What do you think?
-    linkLists:      
-      - linkListType: whats-new
-        links:
-          - text: Tell us what you think about this page
-            url: https://ux.microsoft.com/Talk/PythonDevCenterDocumentation
   - title: Data and storage
     linkLists:
       - linkListType: deploy

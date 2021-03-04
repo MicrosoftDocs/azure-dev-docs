@@ -97,14 +97,14 @@ The Java client libraries ship with a `ProxyOptions` class that acts as the Azur
 The following example creates a simple `ProxyOptions` instance that proxies requests to the default Fiddler address (`localhost:8888`):
 
 ```java
-ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.HTTP, new InetSocketAddress("localhost", 8888));
+ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.Type.HTTP, new InetSocketAddress("localhost", 8888));
 ```
 
 The following example creates an authenticated `ProxyOptions` that proxies requests to a Fiddler instance requiring proxy authentication:
 
 ```java
 // Fiddler uses username "1" and password "1" with basic authentication as its proxy authentication requirement.
-ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.HTTP, new InetSocketAddess("localhost", 8888))
+ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.Type.HTTP, new InetSocketAddress("localhost", 8888))
     .setCredentials("1", "1");
 ```
 
@@ -113,7 +113,7 @@ You can configure HTTP client builders with `ProxyOptions` directly to indicate 
 The following example uses `ProxyOptions` to use Fiddler as the proxy:
 
 ```java
-ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.HTTP, new InetSocketAddress("localhost", 8888));
+ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.Type.HTTP, new InetSocketAddress("localhost", 8888));
 
 HttpClient nettyHttpClient = new NettyAsyncHttpClientBuilder()
     .proxy(proxyOptions)

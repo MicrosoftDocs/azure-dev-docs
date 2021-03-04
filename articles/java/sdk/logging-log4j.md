@@ -80,4 +80,4 @@ You can place an XML file named *log4j2.xml* in the */src/main/resource* directo
 
 This article covered the configuration of Log4j and how to make the Azure SDK for Java use it for logging. Because the Azure SDK for Java works with all SLF4J logging frameworks, consider reviewing the [SLF4J user manual](http://www.slf4j.org/manual.html) for further details. If you use Log4j, there's also vast amount of configuration guidance on its website. For more information, see [Welcome to Log4j 2!](https://logging.apache.org/log4j/2.x/manual/index.html)
 
-After you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](/azure/developer/java/spring-framework/spring-boot-starters-for-azure) and [MicroProfile](/azure/developer/java/eclipse-microprofile/).
+After you've mastered logging, consider looking into the integrations that Azure offers into frameworks such as [Spring](../spring-framework/spring-boot-starters-for-azure.md) and [MicroProfile](../eclipse-microprofile/index.yml).

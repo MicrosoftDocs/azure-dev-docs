@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 11/17/2020
+ms.date: 02/17/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -16,9 +16,9 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 The Azure login action allows you to execute commands in a workflow in the context of an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-Once you have set up the login action, you can then use Azure CLI or Azure PowerShell.
+By default, the action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
-By default, the action logs in with the Azure CLI, setting up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
 ## Create a service principal and add it to GitHub secret
 
@@ -37,14 +37,20 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
         --identifier-uris http://localhost/$appName
     ```
 
-1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. 
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
+
+    > [!NOTE]
+    > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
+    > `az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
+
+1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned the Contributor role.
 
     ```azurecli-interactive
         az ad sp create-for-rbac --name "myApp" --role contributor \
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                                     --sdk-auth
     ```
-
+    
 1. Copy the JSON object for your service principal.
 
     ```json
@@ -146,6 +152,25 @@ build-and-deploy:
         inlineScript: |
             az account show
             az storage -h
+```
+
+## Connect to Azure Government and Azure Stack Hub clouds
+
+To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
+
+```yaml
+   - name: Login to Azure US Gov Cloud with CLI
+     uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+          environment: 'AzureUSGovernment'
+          enable-AzPSSession: false
+   - name: Login to Azure US Gov Cloud with Az Powershell
+      uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+          environment: 'AzureUSGovernment'
+          enable-AzPSSession: true
 ```
 
 ## Connect with other Azure services

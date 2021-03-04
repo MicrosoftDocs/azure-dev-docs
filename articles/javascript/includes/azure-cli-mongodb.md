@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 
 ## Create a Cosmos DB resource for MongoDB
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new CosmosDB resource for a mongoDB database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
 
 ```azurecli
 az cosmosdb create \
@@ -110,7 +110,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 }
 ```
 
-## Add firewall rule for your client IP address to MongoDB resource
+## Add firewall rule for your client IP address
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 

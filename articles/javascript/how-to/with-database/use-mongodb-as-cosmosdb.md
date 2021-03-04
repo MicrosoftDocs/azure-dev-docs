@@ -20,7 +20,7 @@ You can create a resource with:
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
 
-## View and use your mongoDB on Azure CosmosDB
+## View and use your mongoDB on Azure Cosmos DB
 
 While developing your mongoDB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
 
