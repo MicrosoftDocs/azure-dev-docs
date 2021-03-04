@@ -36,13 +36,16 @@ The Cosmos explorer is also available in the Azure portal, for your resource, as
 
 The mongoDB database on Cosmos DB uses npm packages already available, such as:
 
-* [mongoose](https://www.npmjs.com/package/mongoose)
 * [mongodb](https://www.npmjs.com/package/mongodb)
+* [mongoose](https://www.npmjs.com/package/mongoose)
 
+# [MongoDB](#tab/mongodb)
 
+[!INCLUDE [Javascript MongoDB](../../includes/javascript-mongodb.md)]
 
+# [Mongoose](#tab/mongoose)
 
-
+[!INCLUDE [Javascript Mongoose](../../includes/javascript-mongoose.md)]
 
 
 ## Next steps
