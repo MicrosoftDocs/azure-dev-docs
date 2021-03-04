@@ -152,7 +152,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 ```
 
-## Configure environment and artifact
+## Configure Java
 
 Set up the Java environment with the [Java Setup SDK action](https://github.com/marketplace/actions/setup-java-jdk). For this example, you'll setup the environment, build with Maven, and then output an artifact.
 
@@ -192,7 +192,7 @@ jobs:
 
 ```
 
-## Create image 
+## Build your image 
 
 Use the [Build Azure Virtual Machine Image action](https://github.com/marketplace/actions/build-azure-virtual-machine-image) to create a custom virtual machine image.
 
@@ -234,7 +234,7 @@ Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with
 |  `dist-image-tags` | No  | These are user-defined tags that are added to the custom image created (example: `version:beta`). |
 
 
-## Create virtual machine
+## Create your virtual machine
 
 As a last step, create a virtual machine from your image. Replace the placeholders for `{rgName}`with your resource group name.
 
