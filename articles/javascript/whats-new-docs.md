@@ -36,7 +36,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |#|Name|
 |---------------------------------------|--|
-|1|[Application Insights API for custom events and metrics](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
+|1|[Application Insights API for custom events and metrics](how-to/common-javascript-tasks.md)|
 |2|[Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website)|
 |3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code)|
 |4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
