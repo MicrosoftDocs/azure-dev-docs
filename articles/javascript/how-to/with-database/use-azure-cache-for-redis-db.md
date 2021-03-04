@@ -54,12 +54,12 @@ To connect and use your Redis database on Azure with JavaScript and ioredis, use
     ```
 
     The command:
-    * creates a project folder named `DataDemo`
-    * changes the Bash terminal into that folder
-    * initializes the project, which creates the `package.json` file
-    * adds the ioredis npm SDK to the project
-    * creates the `index.js` script file
-    * opens the project in Visual Studio Code
+    * Creates a project folder named `DataDemo`
+    * Changes the Bash terminal into that folder
+    * Initializes the project, which creates the `package.json` file
+    * Adds the ioredis npm SDK to the project
+    * Creates the `index.js` script file
+    * Opens the project in Visual Studio Code
 
 1. Copy the following JavaScript code into `index.js`:
 

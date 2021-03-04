@@ -31,7 +31,7 @@ The response includes your server's configuration details including:
   "accessKeys": null,
   "enableNonSslPort": true,
   "hostName": "YOUR-RESOURCE-NAME.redis.cache.windows.net",
-  "id": "/subscriptions/bb881e62-cf77-4d5d-89fb-29d71e930b66/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Cache/Redis/YOUR-RESOURCE-NAME",
+  "id": "/subscriptions/YOUR-SUBSCRIPTION-ID-OR-NAME/resourceGroups/YOUR-RESOURCE-GROUP/providers/Microsoft.Cache/Redis/YOUR-RESOURCE-NAME",
   "instances": [
     {
       "isMaster": false,
@@ -87,8 +87,8 @@ az redis firewall-rules create \
 ```
 
 If you don't know your client IP address, use one of these methods:
-* Use the Azure portal to view and change your firewall rules, which include adding your detected client IP
-* Run you Node.js code, the error about your firewall rules violation includes your client IP address
+* Use the Azure portal to view and change your firewall rules, which include adding your detected client IP.
+* When you run your Node.js code, your receive an error about your firewall rules violation which includes your client IP address. Copy the IP address and use it to set your firewall rule.
 
 ## Get the Redis keys with Azure CLI
 
