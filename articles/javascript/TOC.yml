@@ -159,26 +159,30 @@
         href: how-to/with-visual-studio-code/create-azure-database.md
     - name: With Azure CLI
       items: 
-      - name: Create and use container registry
+      - name: Container registry
         href: how-to/with-azure-cli/create-container-registry-resource.md
       - name: Configure web app domain name
         href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
-      - name: Use Cassandra Cosmos DB resource
+      - name: Cassandra Cosmos DB resource
         href: how-to/with-azure-cli/create-cassandra-db.md
-      - name: Use MongoDB Cosmos DB resource
+      - name: Cache for Redis
+        href: how-to/with-azure-cli/create-cache-for-redis-db.md
+      - name: MongoDB Cosmos DB resource
         href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
-      - name: Use MariaDB resource
+      - name: MariaDB resource
         href: how-to/with-azure-cli/create-mariadb.md
-      - name: Use MySQL resource
+      - name: MySQL resource
         href: how-to/with-azure-cli/create-mysql-db.md
-      - name: Use PostgreSQL resource
+      - name: PostgreSQL resource
         href: how-to/with-azure-cli/create-postgresql-server-resource.md
-      - name: Use SQL API on Cosmos DB
+      - name: SQL API on Cosmos DB
         href: how-to/with-azure-cli/create-cosmos-sql-api-resource.md
     - name: With databases
       items: 
       - name: Getting started
         href: how-to/with-database/getting-started.md
+      - name: Cache for Redis
+        href: how-to/with-database/use-azure-cache-for-redis-db.md
       - name: Cassandra on Cosmos DB
         href: how-to/with-database/use-cassandra-as-cosmos-db.md
       - name: MongoDB on Cosmos DB
