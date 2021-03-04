@@ -2,7 +2,7 @@
 title: Deploy Docker containers to Azure App Service from Visual Studio Code
 description: Docker Tutorial part 1, introduction and prerequisites.
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 03/04/2021
 ms.custom: devx-track-js
 ---
 
@@ -20,8 +20,11 @@ Watch this video for a complete walkthrough of the content in this article.
 
 - An [Azure subscription](#azure-subscription).
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+- Visual Studio Code extensions
+    - [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+    - [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
+    - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
 - [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 - [Docker](https://www.docker.com/community-edition).
 

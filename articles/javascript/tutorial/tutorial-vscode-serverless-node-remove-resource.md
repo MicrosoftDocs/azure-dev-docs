@@ -12,9 +12,9 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 ## Remove remote Azure resources
 
-The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). 
+The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.
 
-[!INCLUDE [remove resource group with Azure portal](../includes/azure-portal-remove-resource-group.md)]
+:::image type="content" source="../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 [!INCLUDE [Next steps for using VSCode extensions](../includes/tutorial-next-steps-vscode-extensions.md)]
 

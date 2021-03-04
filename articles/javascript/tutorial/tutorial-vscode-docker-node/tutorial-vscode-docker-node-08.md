@@ -10,11 +10,11 @@ ms.custom: devx-track-js
 
 [Previous step: Stream logs](tutorial-vscode-docker-node-07.md)
 
-## Delete App service resource and resource group
+## Delete resource group
 
-The App Service you created for the container includes a backing App Service Plan that can incur costs. 
+The App Service you created for the container includes a backing App Service Plan that can incur costs. Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.
 
-[!INCLUDE [remove resource group with Azure portal](../../includes/azure-portal-remove-resource-group.md)]
+:::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ### Next steps
 
