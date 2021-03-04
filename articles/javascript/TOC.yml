@@ -179,7 +179,7 @@
       - name: Cassandra on Cosmos DB
         href: how-to/with-database/use-cassandra-as-cosmos-db.md
       - name: Redis
-        href: how-to/with-database/use-azure-cache-for-redis.md
+        href: how-to/with-database/use-azure-cache-for-redis-db.md
       - name: MongoDB on Cosmos DB
         href: how-to/with-database/use-mongodb-as-cosmosdb.md
       - name: MariaDB
