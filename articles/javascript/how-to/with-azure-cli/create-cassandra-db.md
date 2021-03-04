@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Create and use Cassandra database on Azure
 
-A Cosmos DB resource provides you with a MariaDB server. 
+A Cosmos DB resource provides you with a Cassandra server. 
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-cassandra-db.md)]
 

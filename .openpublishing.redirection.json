@@ -290,27 +290,27 @@
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
-      "redirect_url": "/azure/developer/java/tookit-for-intellij"
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
-      "redirect_url": "/azure/developer/java/tookit-for-intellij"
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
     },
     {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij-publish-as-docker-container.md",
-      "redirect_url": "/azure/developer/java/tookit-for-intellij"
+      "redirect_url": "/azure/developer/java/toolkit-for-intellij"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse.md",
-      "redirect_url": "/azure/developer/java/tookit-for-eclipse"
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
-      "redirect_url": "/azure/developer/java/tookit-for-eclipse"
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-publish-as-docker-container.md",
-      "redirect_url": "/azure/developer/java/tookit-for-eclipse"
+      "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
     {
       "source_path": "articles/java/java-azure-tools.md",

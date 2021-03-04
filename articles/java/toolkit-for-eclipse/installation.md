@@ -65,7 +65,7 @@ You can install the Azure Toolkit for Eclipse directly from the *Help* menu in t
 
    :::image type="content" source="media/installation/eclipse-install-software-button.png" alt-text="Install new software, Help menu."::: 
 
-1. In the **Available Software** dialog, type `http://dl.microsoft.com/eclipse/` in the **Work with** text box.
+1. In the **Available Software** dialog, type `http://azuredownloads.blob.core.windows.net/eclipse/` in the **Work with** text box.
 
 1. In the **Name** pane, check **Azure Toolkit for Java**, and uncheck **Contact all update sites during install to find required software**. Your screen should appear similar to the following:
 

@@ -33,7 +33,7 @@ productDirectory:
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       links:
-        - url: ./python/tutorial-vs-code-serverless-python-01.md
+        - url: /azure/azure-functions/create-first-function-vs-code-python
           text: Deploy serverless Python apps to Azure Functions
         - url: ./python/tutorial-deploy-app-service-on-linux-01.md
           text: Deploy Python apps to Azure App Service
