@@ -6,7 +6,7 @@ ms.date: 02/19/2021
 ms.custom: devx-track-js
 ---
 
-# Create and use Redis on Azure
+# Create and use Azure Cache for Redis
 
 An **Azure Cache for Redis** resource provides you with a Redis server. 
 
