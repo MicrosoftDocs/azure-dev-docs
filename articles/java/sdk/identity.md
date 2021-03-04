@@ -15,7 +15,7 @@ This article provides an overview of the Java Azure Identity library, which prov
 The Azure Identity library currently supports:
 
 * [Azure authentication in Java development environments](identity-dev-env-auth.md), which enables:
-  * IDEA IntelliJ authentication, with the login information retrieved from the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/).
+  * IDEA IntelliJ authentication, with the login information retrieved from the [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml).
   * Visual Studio Code authentication, with the login information saved in [Azure plugin for Visual Studio Code](https://code.visualstudio.com/docs/azure/extensions).
   * Azure CLI authentication, with the login information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
 * [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md), which enables:

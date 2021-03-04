@@ -110,7 +110,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 }
 ```
 
-## Add firewall rule for your client IP address to MongoDB resource
+## Add firewall rule for your client IP address
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 

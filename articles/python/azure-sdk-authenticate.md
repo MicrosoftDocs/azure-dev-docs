@@ -160,11 +160,11 @@ print(list(sub_list))
 
 If the library has not been updated, code using `DefaultAzureCredential` will given the "object has no attribute 'signed-session'" as described in the next section.
 
-### "'DefaultAzureCredential' object has no attribute 'signed-session'"
+### Credential "object has no attribute 'signed_session'"
 
-If you attempt to use `DefaultAzureCredential` with a library that has not been updated to use azure.core, calls through a client object fail with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". You'd encounter such a failure, ror example, if you use the code in the preceding section with an azure-mgmt-resource library below version 15.
+If you attempt to use `DefaultAzureCredential` (or `AzureCliCredential` and other credential objects from azure.identity) with a library that has not been updated to use azure.core, calls through a client object fail with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". You'd encounter such a failure, ror example, if you use the code in the preceding section with an azure-mgmt-resource library below version 15.
 
-This error happens because non-azure.core versions of SDK management libraries assume that the credential object contains a `signed_session` property, which `DefaultAzureCredential` lacks.
+This error happens because non-azure.core versions of SDK management libraries assume that the credential object contains a `signed_session` property, which is not present on `DefaultAzureCredential` and other credential objects from azure.identity.
 
 If the management library you want to use has not yet been updated, then you can use the following alternate methods:
 

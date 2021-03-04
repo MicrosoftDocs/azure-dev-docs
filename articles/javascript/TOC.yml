@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: What's new with Developer Advocates
     href: whats-new-developer-advocacy.md  
+  - name: Top tasks for developers
+    href: how-to/common-javascript-tasks.md    
   - name: Get started on Azure with JavaScript
     items:
     - name: What is Azure for JavaScript developers?
@@ -173,6 +175,8 @@
         href: how-to/with-azure-cli/create-mysql-db.md
       - name: Use PostgreSQL resource
         href: how-to/with-azure-cli/create-postgresql-server-resource.md
+      - name: Use SQL API on Cosmos DB
+        href: how-to/with-azure-cli/create-cosmos-sql-api-resource.md
     - name: With databases
       items: 
       - name: Getting started
@@ -189,6 +193,8 @@
         href: how-to/with-database/use-postgresql-db.md
       - name: Redis
         href: how-to/with-database/use-azure-cache-for-redis-db.md
+      - name: SQL API on Cosmos DB
+        href: how-to/with-database/use-sql-api-as-cosmos-db.md
     - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: Deploy containers
