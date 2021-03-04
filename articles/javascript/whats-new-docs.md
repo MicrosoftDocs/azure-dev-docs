@@ -29,7 +29,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[Top tasks for JavaScript developers](/azure/azure-monitor/app/api-custom-events-metrics)|
 
-### Top 10 documents, by page view, for JavaScript Developers
+
+
+### <a name="top-10"></a>Top 10 documents, by page view, for JavaScript Developers
 
 |#|Name|
 |---------------------------------------|--|
