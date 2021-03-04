@@ -19,7 +19,7 @@ The App Service you created for the container includes a backing App Service Pla
 
     :::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
-### Next steps
+## Next steps
 
 [!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
 
