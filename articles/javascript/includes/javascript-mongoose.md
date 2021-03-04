@@ -99,7 +99,7 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongoose,
     });
     ```
  
-1. Replace `YOUR-CONNECTION-STRING` in the script with your Cosmos DB your connection string. 
+1. Replace `YOUR-CONNECTION-STRING` in the script with your resource connection string. 
 1. Run the script.
 
     ```bash

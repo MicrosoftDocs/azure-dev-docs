@@ -89,7 +89,7 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, 
     })
     ```
 
-1. Replace the following in the script with your Redis resource information:
+1. Replace the following in the script with your resource information:
 
     * YOUR_RESOURCE_PRIMARY_CONNECTION_STRING
 
@@ -209,10 +209,9 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, 
     };
     ```nodejs
 
-1. Replace the following in the script with your Redis resource information:
+1. Replace the following in the script with your resource information:
 
-    * YOUR-RESOURCE-NAME
-    * YOUR-RESOURCE-PASSWORD
+    * YOUR_RESOURCE_PRIMARY_CONNECTION_STRING
 
 1. Run the script.
 
