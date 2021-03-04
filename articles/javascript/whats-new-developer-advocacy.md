@@ -9,9 +9,9 @@ ms.date: 01/29/2021
 
 This content is primarily from Developer Advocates as well as other members of the Azure JavaScript community. 
 
-## Reoccuring events 
+## Reoccurring events 
 
-* [Web Wednesday - reoccuring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+* [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
 
 ## 2021 February
 
