@@ -7,7 +7,7 @@ ms.date: 01/29/2021
 
 # What's new with JavaScript Developer Advocates
 
-This content is primarily from Developer Advocates as well as other members of the Azure Javascript community. 
+This content is primarily from Developer Advocates as well as other members of the Azure JavaScript community. 
 
 ## Reoccuring events 
 
