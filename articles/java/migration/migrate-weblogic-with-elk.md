@@ -38,35 +38,17 @@ Follow these steps to get access to Elasticsearch managed service.
 
 1. Visit the main page for [Elasticsearch managed service on Azure](https://www.elastic.co/azure).
 
-1. Enter your email address.
+1. Select **Try Free**.
 
-1. Wait for the email.
+1. Under **Elasticsearch** select **Launch on Elastic Cloud**.  If you already have an account, log in to it and continue to the next step.  If you do not have an account, fill in an email address and password and select **Create account**. The email address and this password are for you Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
 
-1. Click on the **Verify and Accept** button in the email.
-
-1. Create a password and login. The email address and this password are for you Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
-
-Follow these steps after you have logged in to create Elasticsearch managed service on Azure.
-
-1. Select **Elastic Stack**.
-
-1. Accept the default hardware profile.
-
-1. Select **Azure** as the **Cloud provider**.
-
-1. Select a **Region**.
-
-1. Leave the **Version** at its default.
-
-1. Name your deployment. Note down the name of the deployment in case you need it later.
-
-1. Select **Create deployment**.
-
-1. Note down your Elastic deplyopment credentials, they are for your Elasticsearch and Kibana endpoints.
-
-1. Select **Continue without downloading**.
-
-1. Wait for the deployment to complete. You'll see **Your deployment has been created.**
+   1. Click on the **Verify and Accept** button in the email.
+   1. After logging in, select **Start your free trial**.
+   1. Select **Elastic Stack**.
+   1. In **Deployment settings**, make sure you have selected **Azure** and choose the same data center where your WLS will be deployed.
+   1. Accept the default values for the remainder of the settings.
+   1. Select **Create deployment**.
+   1. Note down your deployment credentials. You will need them later in this tutorial.
 
 Proceed to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls). Alternatively, the steps in the next section show you how to do the same process with Elasticsearch (Self-managed).
 
