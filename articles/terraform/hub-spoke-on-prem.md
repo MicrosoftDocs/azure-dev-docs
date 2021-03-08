@@ -58,7 +58,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
 
     ```hcl
     locals {
-      onprem-location       = "SouthCentralUS"
+      onprem-location       = "eastus"
       onprem-resource-group = "onprem-vnet-rg"
       prefix-onprem         = "onprem"
     }

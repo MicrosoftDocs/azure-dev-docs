@@ -58,7 +58,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
 
     ```hcl
     locals {
-      spoke1-location       = "CentralUS"
+      spoke1-location       = "eastus"
       spoke1-resource-group = "spoke1-vnet-rg"
       prefix-spoke1         = "spoke1"
     }
@@ -180,7 +180,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
     
     ```hcl
     locals {
-      spoke2-location       = "CentralUS"
+      spoke2-location       = "eastus"
       spoke2-resource-group = "spoke2-vnet-rg"
       prefix-spoke2         = "spoke2"
     }

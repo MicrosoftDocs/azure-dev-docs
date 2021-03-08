@@ -61,7 +61,7 @@ Create the Terraform configuration file that declares an on-premises virtual net
     ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
-      hub-nva-location       = "CentralUS"
+      hub-nva-location       = "eastus"
       hub-nva-resource-group = "hub-nva-rg"
     }
 

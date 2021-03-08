@@ -139,7 +139,7 @@ Create the Terraform configuration file for common variables that are used acros
     ```hcl
     variable "location" {
       description = "Location of the network"
-      default     = "centralus"
+      default     = "eastus"
     }
     
     variable "username" {
