@@ -49,7 +49,7 @@ After completing the [prerequisites](#prerequisites), verify the appropriate con
     cd hub-spoke
     ```
 
-1. List the files in the working directory to verify that the `.tf` config files created in the previous tutorials are listed. (The screenshot displays additional files that you won't have until you initialize Terraform in the next steps.)
+1. List the files in the working directory to verify that the `.tf` config files created in the previous tutorials are listed. (The screenshot displays other files that you won't have until you initialize Terraform in the next steps.)
 
     ![Terraform demo config files](./media/hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
