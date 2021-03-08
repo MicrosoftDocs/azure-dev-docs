@@ -28,7 +28,7 @@ provider azurerm {
 
 resource "azurerm_resource_group" "application1" {
   name                        = "app1_rg"
-  location                    = "eastus"
+  location                    = "northcentralus"
 }
 
 # Networking components to be monitored
@@ -73,7 +73,7 @@ resource "azurerm_log_analytics_workspace" "traffic_analytics" {
 # There can only be one Network Watcher per subscription and region
 
 resource "azurerm_network_watcher" "app1_traffic" {
-  name                = "NetworkWatcher_eastus"
+  name                = "NetworkWatcher_northcentralus"
   location            = azurerm_resource_group.application1.location
   resource_group_name = azurerm_resource_group.application1.name
 }
