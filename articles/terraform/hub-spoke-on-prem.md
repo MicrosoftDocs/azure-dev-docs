@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform
 
 # Tutorial: Create on-premises virtual network in Azure using Terraform
 
-This tutorial shows how to implement an on-premises network using an Azure virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
+This tutorial shows how to implement an on-premises network in Azure. You can replace the sample network with your own private virtual network. To do so, modify the subnet IP addresses to suit your environment.
 
 The following tasks are explained:
 
