@@ -2,7 +2,7 @@
 title: Tutorial - Validate a hub and spoke network in Azure using Terraform
 description: Learn how to validate hub and spoke network topology with all virtual networks connected to one another.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/08/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -49,7 +49,7 @@ After completing the [prerequisites](#prerequisites), verify the appropriate con
     cd hub-spoke
     ```
 
-1. Run the `ls` command to verify that the `.tf` config files created in the previous tutorials are listed:
+1. List the files in the working directory to verify that the `.tf` config files created in the previous tutorials are listed. (The screenshot displays other files that you won't have until you initialize Terraform in the next steps.)
 
     ![Terraform demo config files](./media/hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
@@ -89,13 +89,15 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
 
-1. Select **Connect**.
+1. Note the **Public IP Address** value.
 
-1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
+1. Return to the command line and run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `variables.tf` file.
 
-1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
+   ```bash
+   ssh testadmin@<onprem_vm_ip_address>
+   ```
 
-1. Run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
+1. Once connected to the **onprem-vm** virtual machine, run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```bash
    ping 10.0.0.68
