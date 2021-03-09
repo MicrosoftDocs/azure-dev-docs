@@ -207,7 +207,7 @@ sudo usermod -aG docker jenkins;
 sudo usermod -aG docker azureuser;
 sudo touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion;
 sudo service jenkins restart;
-sudo cp ~/.kube/config /var/lib/jenkins/config
+sudo cp ~/.kube/config /var/lib/jenkins/.kube/
 sudo chmod 777 /var/lib/jenkins/
 sudo chmod 777 /var/lib/jenkins/config
 ```
