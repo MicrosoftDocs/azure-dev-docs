@@ -158,6 +158,8 @@ Create the Terraform configuration file for common variables that are used acros
     }
     ```
 
+    **Note**: This tutorial uses a hard-coded password in the variables file for simplicity. In a real-world app, you might want to consider using a SSH public/private key pair. For more information about SSH keys and Azure, see [How to use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
+
 1. Save the file and exit the editor.
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]

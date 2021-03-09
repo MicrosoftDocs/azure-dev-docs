@@ -89,13 +89,15 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
 
-1. Select **Connect**.
+1. Note the **Public IP Address** value.
 
-1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
+1. Return to the command line and run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `variables.tf` file.
 
-1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
+   ```bash
+   ssh testadmin@<onprem_vm_ip_address>
+   ```
 
-1. Run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
+1. Once connected to the **onprem-vm** virtual machine, run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```bash
    ping 10.0.0.68
