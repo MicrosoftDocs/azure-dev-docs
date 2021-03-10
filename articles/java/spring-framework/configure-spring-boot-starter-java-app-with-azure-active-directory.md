@@ -52,7 +52,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Log into <https://portal.azure.com>.
 
-1. Select **Create a resource**, then **Identity**, and then **Azure Active Directory**.
+1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
    
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance_step1][create-directory-00]
