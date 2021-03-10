@@ -1,10 +1,10 @@
 ---
-title: Tutorial: Migrate a WebLogic Server Azure with Elastic Stack on Azure as the logging solution
+title: Tutorial Migrate a WebLogic Server Azure with Elastic Stack on Azure as the logging solution
 description: This tutorial walks you through deploying WebLogic Server to Azure with Elastic Stack on Azure as the logging solution
 author: edburns
 ms.author: edburns
 ms.topic: tutorial 
-ms.date: 10/29/2020
+ms.date: 03/10/2021
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
@@ -113,10 +113,9 @@ After you've successfully deployed WLS with ELK integration, it's time to create
 
 1. Open the Kibana launch URL you saved aside during the section [Create an Elastic on Azure instance](#create-an-elastic-on-azure-instance) in a browser.
 1. Log in with the credentials you created during the section [Create an Elastic on Azure instance](#create-an-elastic-on-azure-instance).
-1. Select the hamburger icon in the upper left corner of the Kibana window, then, in the **Management** section, select **Stack Management**.
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-01.png" alt-text="The Stack Management button":::
-1. In the **Kibana** section, select **Index Patterns**, then select **Create index pattern**.
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-02.png" alt-text="The Create index pattern button":::
+1. Select the hamburger icon in the upper left corner of the Kibana window, then, in the **Analytics** section, select **Discover**.
+
+1. Select **Create index pattern**.
 1. Place the cursor in the text field labeled **Index pattern** and paste the value you saved as the **logindex** in the previous section, then select **Next step**.
    :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-03.png" alt-text="The logindex insertion text field":::
 1. On the **Create index pattern** page, add fields to the index pattern.  Include at least `@timestamp`, then select **Create index pattern**. Creating the index pattern may take a few minutes, but only needs to be done once.
@@ -126,7 +125,7 @@ After you've successfully deployed WLS with ELK integration, it's time to create
 
 After you've successfully created the index, you can finally search the WLS logs using Kibana. Follow the steps in this section to get started searching the logs.
 
-1. Once the index has been created, select the hamburger menu. In the **Kibana** section, select **Discover**.
+1. Once the index has been created, select the hamburger menu. In the **Analytics** section, select **Discover**.
    :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-05.png" alt-text="The Discover page":::
 1. From the **Discover** page, select the dropdown on the left and select the index you created.
    :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-06.png" alt-text="The index on the discover page":::
