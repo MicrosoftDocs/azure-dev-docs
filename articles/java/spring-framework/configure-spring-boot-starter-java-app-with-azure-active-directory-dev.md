@@ -43,7 +43,7 @@ A `web application` is any web based application that allows user to login, wher
 
 ### Accessing a web application
 
-This scenario uses the [The OAuth 2.0 authorization code grant] flow to login in an user with a Microsoft account. 
+This scenario uses the [The OAuth 2.0 authorization code grant] flow to login in a user with a Microsoft account. 
 
 **System diagram**:
 
@@ -54,12 +54,12 @@ This scenario uses the [The OAuth 2.0 authorization code grant] flow to login in
 example `http://localhost:8080/login/oauth2/code/`. Note the tailing `/` cannot be omitted.
 
    >[!div class="mx-imgBorder"]
-   >![web-application-set-redirect-uri-1][web-application-set-redirect-uri-1]
+   >![Web Application set redirect uri 1][web-application-set-redirect-uri-1]
 
    >[!div class="mx-imgBorder"]
-   >![web-application-set-redirect-uri-2][web-application-set-redirect-uri-2]
+   >![Web Application set redirect uri 2][web-application-set-redirect-uri-2]
 
-* Step 2: Add the following dependencies in you pom.xml.
+* Step 2: Add the following dependencies in your pom.xml.
 
 [//]: # "{x-version-update-start;com.azure.spring:azure-spring-boot-starter-active-directory;current}"
 ```xml
@@ -113,11 +113,11 @@ public class AADOAuth2LoginConfigSample extends AADWebSecurityConfigurerAdapter 
 **System diagram**:
 
    >[!div class="mx-imgBorder"]
-   >![web-application-visiting-resource-servers][web-application-visiting-resource-servers]
+   >![Web Application visiting resource servers][web-application-visiting-resource-servers]
 
 * Step 1: Make sure `redirect URI` has been set, just like [Accessing a web application].
 
-* Step 2: Add the following dependencies in you pom.xml.
+* Step 2: Add the following dependencies in your pom.xml.
 
 [//]: # "{x-version-update-start;com.azure.spring:azure-spring-boot-starter-active-directory;current}"
 ```xml
@@ -169,7 +169,7 @@ This scenario not support login. Just protect the server by validating the acces
 
 To use **aad-starter** in this scenario, we need these steps:
 
-* Step 1: Add the following dependencies in you pom.xml.
+* Step 1: Add the following dependencies in your pom.xml.
 
 [//]: # "{x-version-update-start;com.azure.spring:azure-spring-boot-starter-active-directory;current}"
 ```xml
@@ -195,10 +195,10 @@ azure:
 Both `client-id` and `app-id-uri` can be used to verify access token. `app-id-uri` can be get in Azure Portal:
 
    >[!div class="mx-imgBorder"]
-   >![get-app-id-uri-1][get-app-id-uri-1]
+   >![Get App Id Uri 1][get-app-id-uri-1]
 
    >[!div class="mx-imgBorder"]
-   >![get-app-id-uri-2][get-app-id-uri-2]
+   >![Get App Id Uri 2][get-app-id-uri-2]
 
 * Step 3: Write Java code:
   
@@ -226,11 +226,11 @@ This scenario support visit other resource servers in resource servers.
 **System diagram**:
 
    >[!div class="mx-imgBorder"]
-   >![resource-server-visiting-other-resource-servers][resource-server-visiting-other-resource-servers]
+   >![Resource server visiting other resource servers][resource-server-visiting-other-resource-servers]
 
 To use **aad-starter** in this scenario, we need these steps:
 
-* Step 1: Add the following dependencies in you pom.xml.
+* Step 1: Add the following dependencies in your pom.xml.
 
 [//]: # "{x-version-update-start;com.azure.spring:azure-spring-boot-starter-active-directory;current}"
 ```xml
@@ -383,7 +383,7 @@ public class OnDemandClientController {
 ```
 
 After these steps. `arm`'s scopes (https://management.core.windows.net/user_impersonation) doesn't 
-need to be consented at login time. When user request `/arm` endpoint, user need to consent the 
+need to be consented at login time. When user request `/arm` endpoint, user needs to consent the 
 scope. That's `incremental consent` means.
 
 After the scopes have been consented, AAD server will remember that this user has already granted 
