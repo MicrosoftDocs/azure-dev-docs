@@ -2,7 +2,7 @@
 title: Use JavaScript with Redis on Azure 
 description: To create or move your Redis database to Azure, you need an Azure Cache for Redis resource. 
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/04/2021
 ms.custom: devx-track-js
 ---
 
@@ -37,9 +37,9 @@ The Redis database uses npm packages such as:
 * [redis](https://www.npmjs.com/package/redis)
 * [ioredis](https://www.npmjs.com/package/ioredis)
 
-## Use ioredis SDK to connect to Redis database on Azure
+## Install ioredis SDK 
 
-To connect and use your Redis database on Azure with JavaScript and ioredis, use the following procedure.
+Use the following procedure to install the `ioredis` package and initialize your project.
 
 1. Make sure Node.js and npm are installed.
 1. Create a Node.js project in a new folder:
@@ -48,8 +48,7 @@ To connect and use your Redis database on Azure with JavaScript and ioredis, use
     mkdir DataDemo && \
         cd DataDemo && \
         npm init -y && \
-        npm install ioredis && \
-        touch index.js && \
+        npm install ioredis \
         code .
     ```
 
@@ -58,8 +57,76 @@ To connect and use your Redis database on Azure with JavaScript and ioredis, use
     * Changes the Bash terminal into that folder
     * Initializes the project, which creates the `package.json` file
     * Adds the ioredis npm SDK to the project
-    * Creates the `index.js` script file
     * Opens the project in Visual Studio Code
+
+## Create JavaScript file to bulk insert data into Redis
+
+1. In Visual Studio Code, create a `bulk_insert.js` file.
+
+1. Download the [MOCK_DATA.csv](https://github.com/Azure-Samples/js-e2e/blob/main/database/redis/MOCK_DATA.csv) file and place it in the same directory as `bulk_insert.js`.
+
+1. Copy the following JavaScript code into `bulk_insert.js`:
+
+    ```nodejs
+    const Redis = require('ioredis');
+    const fs = require('fs');
+    const parse = require('csv-parser')
+    const { finished } = require('stream/promises');
+    
+    const config = {
+        "HOST": "YOUR-RESOURCE-NAME.redis.cache.windows.net",
+        "KEY": "YOUR-RESOURCE-PASSWORD",
+    }
+    
+    // Create Redis config object
+    const configuration = {
+        host: config.HOST,
+        port: 6380,
+        password: config.KEY,
+        tls: {
+            servername: config.HOST
+        },
+        database: 0,
+        keyPrefix: config.prefix
+    }
+    var redis = new Redis(configuration);
+    
+    // insert each row into Redis
+    async function insertData(readable) {
+        for await (const row of readable) {
+            await redis.set(`bar2:${row.id}`, JSON.stringify(row))
+        }
+    }
+    
+    // read file, parse CSV, each row is a chunk
+    const readable = fs
+        .createReadStream('./MOCK_DATA.csv')
+        .pipe(parse());
+    
+    // Pipe rows to insert function
+    insertData(readable)
+    .then(() => {
+        console.log('succeeded');
+        redis.disconnect();
+    })
+    .catch(console.error);
+    ```
+
+1. Replace the following in the script with your Redis resource information:
+
+    * YOUR-RESOURCE-NAME
+    * YOUR-AZURE-REDIS-RESOURCE-KEY
+
+1. Run the script.
+
+    ```bash
+    node bulk_insert.js
+    ```
+    
+## Create JavaScript code to use Redis
+
+1. In Visual Studio Code, create a `index.js` file.
+
 
 1. Copy the following JavaScript code into `index.js`:
 
@@ -156,9 +223,11 @@ To connect and use your Redis database on Azure with JavaScript and ioredis, use
     done
     ```
 
-1. In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`. 
+## Use Redis console in Azure portal to view data
 
-    :::image type="content" source="../../media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
+In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`. 
+
+:::image type="content" source="../../media/howto-database/azure-cache-for-redis-azure-portal-console-scan.png" alt-text="In the Azure portal, view your resource's console with the command `SCAN 0 COUNT 1000 MATCH *`.":::
 
 ## Next steps
 
