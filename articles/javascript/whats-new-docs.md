@@ -3,6 +3,8 @@ title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
 ms.date: 02/17/2021
+
+
 ---
 
 # JavaScript docs: What's new
@@ -22,6 +24,29 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[How to use PostgreSQL on Azure](./how-to/with-database/use-postgresql-db.md)|To create, move, or use a PostgreSQL database to Azure, you need a **Azure Database for PostgreSQL server** resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Azure Cache for Redis](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a Redis database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
+
+### What's updated
+
+|Name|Notes|
+|---------------------------------------|--|
+|[Top tasks for JavaScript developers](/azure/azure-monitor/app/api-custom-events-metrics)|
+
+
+
+### <a name="top-10"></a>Top 10 documents, by page view, for JavaScript Developers
+
+|#|Name|
+|---------------------------------------|--|
+|1|[Application Insights API for custom events and metrics](how-to/common-javascript-tasks.md)|
+|2|[Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website)|
+|3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code)|
+|4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
+|5|[Get started with speech-to-text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=script%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript)|
+|6|[Call an ASP.NET Core web API with JavaScript](/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0)|
+|7|[ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0)|
+|8|[Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node?tabs=v2)|
+|9|[Sign in users and call the Microsoft Graph API from an Angular single-page application](/azure/active-directory/develop/tutorial-v2-angular)|
+|10|[Application Insights for web pages](/azure/azure-monitor/app/javascript)|
 
 ## 2021 January
 
