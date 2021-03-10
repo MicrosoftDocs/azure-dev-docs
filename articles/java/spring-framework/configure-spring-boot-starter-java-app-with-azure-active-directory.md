@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Active Directory
 description: Learn how to configure a Spring Boot Initializer app with the Azure Active Directory starter.
 services: active-directory
 documentationcenter: java
-ms.date: 10/14/2020
+ms.date: 02/07/2021
 ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
