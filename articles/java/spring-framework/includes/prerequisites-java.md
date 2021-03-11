@@ -6,4 +6,4 @@ ms.topic: include
 ms.date: 03/11/2021
 ---
 
-- [Java 8 JDK](../fundamentals/java-jdk-install.md)
+- [Java 8 JDK](../../fundamentals/java-jdk-install.md)
