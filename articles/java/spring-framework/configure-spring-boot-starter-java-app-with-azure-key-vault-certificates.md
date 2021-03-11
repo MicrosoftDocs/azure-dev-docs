@@ -36,6 +36,8 @@ In this tutorial, you learn how to:
 [!INCLUDE [curl](includes/prerequisites-curl.md)]
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
+[!INCLUDE [JDK](includes/prerequisites-java.md)]
+[!INCLUDE [Maven](includes/prerequisites-maven.md)]
 
 ## Create a GNU/Linux VM with system-assigned managed identity
 
