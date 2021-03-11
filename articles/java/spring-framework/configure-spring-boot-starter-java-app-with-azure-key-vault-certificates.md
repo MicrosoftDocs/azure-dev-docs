@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
-ms.date: 02/18/2021
+ms.date: 03/11/2021
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -18,7 +18,7 @@ Production-grade Spring Boot applications, whether in the cloud or on-premises, 
 Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
 <!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.ai -->
-:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-keyvault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
+:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
 
 In this tutorial, you learn how to:
 
@@ -266,7 +266,7 @@ To create the REST controller, use the following steps:
 
    }
    ```
-   
+
    Note that calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't do this in a real application.
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
