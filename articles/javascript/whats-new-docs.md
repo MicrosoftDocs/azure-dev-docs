@@ -11,6 +11,15 @@ ms.date: 02/17/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 March
+
+### What's updated
+
+|Name|Notes|
+|---------------------------------------|--|
+|[Install and manage Node.js for Azure development](./core/install-nodejs-develop-azure-sdk-project.md)|
+
+
 ## 2021 February
 
 ### What's new
