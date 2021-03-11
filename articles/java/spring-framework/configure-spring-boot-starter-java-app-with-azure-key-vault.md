@@ -31,10 +31,8 @@ In this tutorial, you learn how to:
 [!INCLUDE [curl](includes/prerequisites-curl.md)]
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
-
-- A supported Java Development Kit (JDK). For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
-
-- [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+[!INCLUDE [JDK](includes/prerequisites-java.md)]
+[!INCLUDE [Maven](includes/prerequisites-maven.md)]
 
 ## Create a new Azure Key Vault
 
