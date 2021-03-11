@@ -28,8 +28,8 @@ If you intend to host your application on Azure, without hosting it inside a con
 
 When you need to manage more than one version of Node.js across your local and remote environments, use either of the following choices:
 
-* [NVM](#manage-version-with-nvm) - Node version manager
-* [Containers](#manage-version-with) - Use a container with a specific Node.js minimum version
+* [NVM](#manage-nodejs-version-with-nvm) - Node version manager
+* [Containers](#manage-nodejs-version-with) - Use a container with a specific Node.js minimum version
 
 ## Manage Node.js version with NVM
 
