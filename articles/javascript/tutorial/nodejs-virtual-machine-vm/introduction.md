@@ -10,6 +10,8 @@ ms.custom: devx-track-js
 
 In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.
 
+* [**Sample code**](https://github.com/Azure-Samples/js-e2e-vm)
+
 This tutorial includes the following tasks:
 
 * Sign in to Azure with Azure CLI
@@ -32,8 +34,9 @@ This tutorial includes the following tasks:
 
 ## Prerequisites
 
-* Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands
-* SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
+- SSH to connect to the VM: Use a modern terminal such as bash shell, which includes SSH.
+[!INCLUDE [Azure CLI](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 
 ## Next step
 

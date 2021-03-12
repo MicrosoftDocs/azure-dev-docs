@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: N-Usha 
   ms.author: ushan 
-  ms.date: 05/05/2020
+  ms.date: 11/24/2020
   ms.custom: github-actions-azure
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -23,15 +23,28 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Deploy to Azure using GitHub Actions
+          - text: What is GitHub Actions for Azure?
             url: github-actions.md
   # Card (optional)
   - title: Deploy to Azure
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Deploy apps from GitHub to Azure
             url: deploy-to-azure.md   
+          - text: Deploy databases from GitHub to Azure
+            url: database-actions-deploy.md 
+
+  # Card
+  - title: Tools for interacting with GitHub Actions 
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Authenticate from Azure to GitHub
+            url: connect-from-azure.md  
+          - text: Use variable substitution
+            url: github-variable-substitution.md
+
   # Card (optional)
   - title: Visual Studio and Visual Studio Code
     linkLists:
@@ -39,21 +52,15 @@ landingContent:
         links:
           - text: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
             url: deploy-with-visual-studio.md 
+
   # Card (optional)
-  - title: Azure DevOps and GitHub integration
+  - title: Azure Pipelines and GitHub integration
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Work with Azure DevOps and GitHub 
             url: integrate-azure-devops.md
-  # Card
-  - title: Connect from Azure to GitHub 
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Connect to GitHub from Azure and other services
-            url: connect-from-azure.md  
-            
+
     # Card (optional)
   - title: Manage Azure Policies with GitHub
     linkLists:

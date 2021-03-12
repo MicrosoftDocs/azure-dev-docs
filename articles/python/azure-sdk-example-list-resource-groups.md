@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 10/12/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -12,7 +12,7 @@ This example demonstrates how to use the Azure SDK management libraries in a Pyt
 
 - List all the resource groups in an Azure subscription.
 - List resources within a specific resource group.
- 
+
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.
@@ -28,15 +28,19 @@ Be sure to create and activate a virtual environment for this project.
 Create a file named *requirements.txt* with the following contents:
 
 ```text
-azure-mgmt-resource
-azure-identity
+azure-mgmt-resource>=1.15.0
+azure-identity>=1.5.0
 ```
+
+Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
 ```cmd
 pip install -r requirements.txt
 ```
+
+
 
 ## 3: Write code to work with resource groups
 
@@ -155,3 +159,5 @@ az resource list --resource group myResourceGroup --location centralus
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

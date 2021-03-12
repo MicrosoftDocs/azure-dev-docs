@@ -61,13 +61,18 @@ You should change those properties directly near the top of the *pom.xml* file:
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <azure.functions.maven.plugin.version>1.9.0</azure.functions.maven.plugin.version>
+
+    <azure.functions.java.library.version>1.4.0</azure.functions.java.library.version>
+    <azure.functions.maven.plugin.version>1.9.1</azure.functions.maven.plugin.version>
+
+    <!-- customize those two properties. The functionAppName should be unique across Azure -->
+    <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
     <functionAppName>my-spring-function</functionAppName>
-    <functionAppRegion>westus</functionAppRegion>
+
+    <functionAppRegion>eastus</functionAppRegion>
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
-    <functionResourceGroup>my-resource-group</functionResourceGroup>
-    <start-class>com.example.HelloFunction</start-class>
-    <spring.boot.wrapper.version>1.0.25.RELEASE</spring.boot.wrapper.version>
+    <start-class>com.example.DemoApplication</start-class>
+    <spring.boot.wrapper.version>1.0.26.RELEASE</spring.boot.wrapper.version>
 </properties>
 ```
 
@@ -92,6 +97,7 @@ Create a *src/main/azure* folder and add the following Azure Functions configura
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "java",
+    "MAIN_CLASS":"com.example.DemoApplication",
     "AzureWebJobsDashboard": ""
   }
 }
@@ -168,6 +174,25 @@ This gives you therefore two main benefits over a standard Azure Function:
 
 In the *src/main/java/com/example* folder, create the following file, which is a normal Spring Boot application:
 
+*DemoApplication.java*:
+
+```java
+package com.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(HelloFunction.class, args);
+    }
+}
+```
+
+Now create the following file, which contains a Spring Boot component that represents the Function we want to run:
+
 *HelloFunction.java*:
 
 ```java
@@ -175,31 +200,25 @@ package com.example;
 
 import com.example.model.Greeting;
 import com.example.model.User;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
-@SpringBootApplication
-public class HelloFunction {
+@Component
+public class HelloFunction implements Function<User, Greeting> {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(HelloFunction.class, args);
-    }
-
-    @Bean
-    public Function<User, Greeting> hello() {
-        return user -> new Greeting("Welcome, " + user.getName());
+    @Override
+    public Greeting apply(User user) {
+        return new Greeting("Hello, " + user.getName() + "!\n");
     }
 }
 ```
 
-> [!NOTE] 
-> The `hello()` function is quite specific:
-> 
-> - It returns a `java.util.function.Function`, which is the function that will be used in this quickstart. It contains the business logic, and is uses a standard Java API to transform one object into another.
-> - As it has the `@Bean` annotation, it is a Spring Bean, and by default its name is the one of the method, `hello`. This is important if you want to create other functions in your application, as this name must match the Azure Functions name we will create in the next section.
+> [!NOTE]
+> The `HelloFunction` function is quite specific:
+>
+> - It is a `java.util.function.Function`, which is the function that will be used in this quickstart. It contains the business logic, and is uses a standard Java API to transform one object into another.
+> - As it has the `@Component` annotation, it is a Spring Bean, and by default its name is the one of the class starting with a lowercase character, `helloFunction`. This is important if you want to create other functions in your application, as this name must match the Azure Functions name we will create in the next section.
 
 ## Create the Azure Function
 
@@ -228,11 +247,15 @@ public class HelloHandler extends AzureSpringBootRequestHandler<User, Greeting> 
     public HttpResponseMessage execute(
             @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<User>> request,
             ExecutionContext context) {
-
-        context.getLogger().info("Greeting user name: " + request.getBody().get().getName());
+        User user = request.getBody()
+                .filter((u -> u.getName() != null))
+                .orElseGet(() -> new User(
+                        request.getQueryParameters()
+                                .getOrDefault("name", "world")));
+        context.getLogger().info("Greeting user name: " + user.getName());
         return request
                 .createResponseBuilder(HttpStatus.OK)
-                .body(handleRequest(request.getBody().get(), context))
+                .body(handleRequest(user, context))
                 .header("Content-Type", "application/json")
                 .build();
     }
@@ -241,8 +264,8 @@ public class HelloHandler extends AzureSpringBootRequestHandler<User, Greeting> 
 
 This Java class is an Azure Function, with the following interesting features:
 
-- It extends `AzureSpringBootRequestHandler`, which does the link between Azure Functions and Spring Cloud Function. This is what provides the `handleRequest()` method that is used in its `execute()` method.
-- The name of the function, as defined by the `@FunctionName("hello")` annotation, is the same as the Spring bean we have configured in the previous step, `hello`.
+- It extends `AzureSpringBootRequestHandler`, which does the link between Azure Functions and Spring Cloud Function. This is what provides the `handleRequest()` method that is used in its `body()` method.
+- The name of the function, as defined by the `@FunctionName("hello")` annotation, is `hello`.
 - It is a real Azure Function, so you can use the full Azure Functions API here.
 
 ## Add unit tests
@@ -258,7 +281,7 @@ package com.example;
 
 import com.example.model.Greeting;
 import com.example.model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -267,8 +290,8 @@ public class HelloFunctionTest {
 
     @Test
     public void test() {
-        Greeting result = new HelloFunction().hello().apply(new User("foo"));
-        assertThat(result.getMessage()).isEqualTo("Welcome, foo");
+        Greeting result = new HelloFunction().apply(new User("foo"));
+        assertThat(result.getMessage()).isEqualTo("Hello, foo!\n");
     }
 
     @Test
@@ -277,7 +300,7 @@ public class HelloFunctionTest {
                 HelloFunction.class);
         Greeting result = handler.handleRequest(new User("foo"), null);
         handler.close();
-        assertThat(result.getMessage()).isEqualTo("Welcome, foo");
+        assertThat(result.getMessage()).isEqualTo("Hello, foo!\n");
     }
 }
 ```

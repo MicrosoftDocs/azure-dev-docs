@@ -50,7 +50,7 @@ We will use the Azure CLI to create the Azure Key Vault resource and populate it
 
 1. Firstly, lets create an Azure service principal. This will provide us with the client ID and key we need to access Key Vault:
 
-```bash
+```azurecli
 az login
 az account set --subscription <subscription_id>
 
@@ -73,7 +73,7 @@ Of particular note here is the `appID` and `password` values - these are what we
 
 Now that we have created a service principal, we can optionally create a resource group (if you already have one you want to use, you can skip this step). Note that to get a list of resource group locations, you can call `az account list-locations` and use the `name` value from that list to specify where the resource group should be created.
 
-```bash
+```azurecli
 # For this tutorial, the author chose to use `westus`
 # and `jg-test` for the resource group name.
 az group create -l <resource_group_location> -n <resource_group_name>
@@ -81,7 +81,7 @@ az group create -l <resource_group_location> -n <resource_group_name>
 
 We now create an Azure Key Vault resource. Note that the Key Vault name is what you will use to reference the key vault later, so choose something memorable.
 
-```bash
+```azurecli
 az keyvault create --name <your_keyvault_name>            \
                    --resource-group <your_resource_group> \
                    --location <location>                  \
@@ -93,7 +93,7 @@ az keyvault create --name <your_keyvault_name>            \
 
 We also need to grant the appropriate permissions to the service principal we created earlier, so that it may access the Key Vault secrets. Note that the appID value is the `appId` value from above where we created the service principal (that is, `5292398e-XXXX-40ce-XXXX-d49fXXXX9e79` - but use the value from your terminal output).
 
-```bash
+```azurecli
 az keyvault set-policy --name <your_keyvault_name>   \
                        --secret-permission get list  \
                        --spn <your_sp_appId_created_in_step1>
@@ -101,7 +101,7 @@ az keyvault set-policy --name <your_keyvault_name>   \
 
 We are now at the point where we can push a secret into Key Vault. Lets use the key name `demo-key`, and set the value of the key to be `demo-value`:
 
-```bash
+```azurecli
 az keyvault secret set --name demo-key      \
                        --value demo-value   \
                        --vault-name <your_keyvault_name>  

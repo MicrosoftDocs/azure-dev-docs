@@ -124,7 +124,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 ### Add your Azure Service Principal credential in Jenkins credential store
 
-1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](deploy-from-github-to-azure-app-service.md#create-service-principal) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
+1. You need an Azure Service Principal to deploy to Azure. For more information, see the [Create service principal](./deploy-to-azure-app-service-using-azure-cli.md#add-azure-service-principal-to-a-jenkins-credential) section in the Deploy to Azure App Service tutorial. The output from `az ad sp create-for-rbac` looks something like this:
 
     ```
     {
@@ -156,7 +156,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
 The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
-1. Connect to the Jenkins master via SSH.
+1. Connect to the Jenkins controller via SSH.
 
 1. Install Maven.
 

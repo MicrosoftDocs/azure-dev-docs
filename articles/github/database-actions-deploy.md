@@ -15,4 +15,5 @@ The following articles provide support to deploy database updates from GitHub to
 
 - [Use GitHub Actions to connect to Azure SQL Database](/azure/azure-sql/database/connect-github-actions-sql-db)
 - [Use GitHub Actions to connect to Azure MySQL](/azure/mysql/quickstart-mysql-github-actions)
-- Use the [Azure PostgreSQL action](https://github.com/Azure/postgresql) to deploy to an Azure PostgreSQL database using PL/SQL scripts.
+- [Use GitHub Actions to connect to Azure PostgreSQL](/azure/postgresql/how-to-deploy-github-action)
+

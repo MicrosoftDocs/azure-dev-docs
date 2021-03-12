@@ -21,7 +21,7 @@ You can watch a demonstration of the process with the //build 2019 session, [Pro
 
 > [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
 
-A step-by-step tutorial can be found on [Deploy a static website to Azure](../tutorial-vscode-static-website-node-01.md).
+A step-by-step tutorial can be found on [Deploy a static website to Azure](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md).
 
 The following articles also explain further details:
 

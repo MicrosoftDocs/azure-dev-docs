@@ -33,7 +33,7 @@ productDirectory:
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       links:
-        - url: ./python/tutorial-vs-code-serverless-python-01.md
+        - url: /azure/azure-functions/create-first-function-vs-code-python
           text: Deploy serverless Python apps to Azure Functions
         - url: ./python/tutorial-deploy-app-service-on-linux-01.md
           text: Deploy Python apps to Azure App Service
@@ -48,13 +48,13 @@ productDirectory:
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
-        - url: ./javascript/tutorial-vscode-static-website-node-01.md?tabs=bash
+        - url: ./javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md?tabs=bash
           text: Develop a static website
-        - url: ./javascript/tutorial-vscode-azure-app-service-node-01.md?tabs=bash
+        - url: ./javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
           text: Deploy to Azure App Service
         - url: ./javascript/tutorial/tutorial-vscode-serverless-node-install.md?tabs=bash
           text: Deploy a serverless application
-        - url: ./javascript/tutorial-vscode-docker-node-01.md?tabs=bash
+        - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
         - url: /azure/cosmos-db/create-mongodb-nodejs?bc=%252fazure%252fdeveloper%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fdeveloper%252fjavascript%252ftoc.json
           text: Migrate a MongoDB app to Azure Cosmos DB
@@ -108,15 +108,15 @@ productDirectory:
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
       links:
-        - url: /cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/get-started-with-azure-cli
           text: Get started
-        - url: /cli/azure/install-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/install-azure-cli
           text: Install
-        - url: /cli/azure/authenticate-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/authenticate-azure-cli
           text: Sign-in
-        - url: /cli/azure/query-azure-cli?view=azure-cli-latest
+        - url: /cli/azure/query-azure-cli
           text: Run a query on the output of a CLI command
-        - url: /cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest
+        - url: /cli/azure/azure-cli-vm-tutorial
           text: Create a virtual machine
         - url: /cli/azure/
           text: See more in the Azure CLI developer center

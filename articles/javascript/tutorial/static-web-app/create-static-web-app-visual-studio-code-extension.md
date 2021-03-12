@@ -6,7 +6,7 @@ ms.topic: include
 ms.custom: devx-track-javascript
 ---
 
-# 4. Create Azure Static Web app resource
+# 5. Create Azure Static Web app resource
 
 In this section of the tutorial, create the Static Web app resource with a Visual Studio Code extension for that service and push local code to your remote repository to build, then deploy the app to Azure.
 

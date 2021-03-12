@@ -2,13 +2,13 @@
 title: Tutorial - Create on-premises virtual network in Azure using Terraform
 description: Learn how to implement an on-premises virtual network (VNet) in Azure that houses local resources.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/08/2021
 ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Create on-premises virtual network in Azure using Terraform
 
-This tutorial shows how to implement an on-premises network using an Azure virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
+This tutorial shows how to implement an on-premises network in Azure. You can replace the sample network with a private virtual network. To do so, modify the subnet IP addresses to suit your environment.
 
 The following tasks are explained:
 
@@ -58,7 +58,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
 
     ```hcl
     locals {
-      onprem-location       = "SouthCentralUS"
+      onprem-location       = "eastus"
       onprem-resource-group = "onprem-vnet-rg"
       prefix-onprem         = "onprem"
     }
@@ -83,14 +83,14 @@ Create the Terraform configuration file that declares an on-premises VNet.
       name                 = "GatewaySubnet"
       resource_group_name  = azurerm_resource_group.onprem-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.onprem-vnet.name
-      address_prefix       = "192.168.255.224/27"
+      address_prefixes     = ["192.168.255.224/27"]
     }
 
     resource "azurerm_subnet" "onprem-mgmt" {
       name                 = "mgmt"
       resource_group_name  = azurerm_resource_group.onprem-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.onprem-vnet.name
-      address_prefix       = "192.168.1.128/25"
+      address_prefixes     = ["192.168.1.128/25"]
     }
 
     resource "azurerm_public_ip" "onprem-pip" {

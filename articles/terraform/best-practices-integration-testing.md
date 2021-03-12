@@ -67,7 +67,7 @@ The [terraform validate](https://www.terraform.io/docs/commands/validate.html) c
 
 As you can see, Terraform has detected an issue in the syntax of the configuration code. This issue prevents the configuration from being deployed.
 
-It-s a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this tutorial, we'll explore how to [configure an Azure pipeline to automatically validate](#automate-integration-tests-using-azure-pipeline).
+It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this tutorial, we'll explore how to [configure an Azure pipeline to automatically validate](#automate-integration-tests-using-azure-pipeline).
 
 ## Validate Terraform configuration can be deployed on Azure
 

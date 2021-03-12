@@ -2,11 +2,11 @@
 title: Create Computer Vision resource
 description: Create your Cognitive Services Computer Vision resource and set to environment variables.
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 12/16/2020
 ms.custom: devx-track-js
 ---
 
-# 3. Create Computer Vision resource and use in code
+# 4. Create Computer Vision resource and use in code
 
 In this step, create your Computer Vision resource and set to environment variables. 
 
@@ -16,14 +16,14 @@ Creating a resource group allows you to easily find the resources, and delete th
 
 At the end of this series of steps, you need to have **the key and endpoint** for your resource.
 
-1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group?view=azure-cli-latest#az_group_create), with the name `rg-demo`:
+1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
 
     ```azurecli
     az group create \
         --location eastus \
         --name rg-demo 
     ```
-1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
+1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create):
 
 
     ```azurecli
@@ -48,7 +48,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
     ...
     ```
 
-1. Run the following [command](/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) to get your keys. 
+1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) to get your keys. 
 
     ```azurecli
     az cognitiveservices account keys list \
@@ -103,13 +103,15 @@ When using Azure Static web apps, environment variables such as secrets, need to
 
 ## Run react app with ComputerVision resource
 
-This React app watches for changes to rebuild and rerun the app. Make a change in order to force a rebuild.
+1. Start the app again, at the command line:
 
-1. **Enter a new line** in `./src/VisualAi.js` just after the first empty line (line 4). This change causes a rebuild of the locally running website.
+    ```bash
+    npm start
+    ```
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
 
-1. Leave the text field empty and **select the Analyze button**. 
+1. Leave the text field empty, to select an image from the default catalog, and select the **Analyze** button. 
 
     :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
 

@@ -1,35 +1,79 @@
 - name: Azure SDK for Java documentation
   href: index.yml
   items:
-    - name: Get Started
-      href: java-sdk-azure-get-started.md
+    - name: Get started
+      href: get-started.md
     - name: Concepts
       expanded: true
       items:
-        - name: Patterns & best practices
-          href: java-sdk-azure-concepts.md
-    - name: How-to Articles
-      expanded: true
+        - name: Overview
+          href: overview.md
+        - name: Common concepts
+          expanded: false
+          items:
+            - name: HTTP clients and pipeline
+              href: http-client-pipeline.md
+            - name: Asynchronous programming
+              href: async-programming.md
+            - name: Pagination and iteration
+              href: pagination.md
+            - name: Long-running operations
+              href: lro.md
+            - name: Proxying
+              href: proxying.md
+            - name: Tracing
+              href: tracing.md
+        - name: Identity and authentication
+          expanded: false
+          items:
+            - name: Overview
+              href: identity.md
+            - name: Auth in development environments
+              href: identity-dev-env-auth.md
+            - name: Auth in Azure hosted applications
+              href: identity-azure-hosted-auth.md
+            - name: Auth with service principals
+              href: identity-service-principal-auth.md
+            - name: Auth with user credentials
+              href: identity-user-auth.md
+        - name: Logging
+          expanded: false
+          items:
+            - name: Overview
+              href: logging-overview.md
+            - name: java.util.logging
+              href: logging-jul.md
+            - name: Logback
+              href: logging-logback.md
+            - name: Log4J
+              href: logging-log4j.md
+    - name: Integrations
+      expanded: false
       items:
-        - name: Add Root Certificate
-          href: java-sdk-add-certificate-ca-store.md
-        - name: Authenticate
-          href: java-sdk-azure-authenticate.md
-        - name: Configure logging
-          href: java-sdk-azure-log.md
+        - name: Spring
+          href: ../spring-framework/spring-boot-starters-for-azure.md
+        - name: MicroProfile
+          href: ../eclipse-microprofile/index.yml
+    - name: Troubleshooting
+      expanded: false
+      items:
+        - name: Network issues
+          href: troubleshooting-network.md
     - name: Code Samples
       items:
         - name: Virtual machines
-          href: java-sdk-azure-virtual-machine-samples.md
+          href: virtual-machine-samples.md
         - name: Web apps
-          href: java-sdk-azure-web-apps-samples.md
+          href: web-apps-samples.md
         - name: SQL Database
-          href: java-sdk-azure-sql-database-samples.md
+          href: sql-database-samples.md
         - name: Security
-          href: java-sdk-azure-security-samples.md
+          href: security-samples.md
         - name: Containers
-          href: java-sdk-azure-containers-samples.md
+          href: containers-samples.md
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
+    - name: Package index
+      href: azure-sdk-library-package-index.md
     - name: Reference
-      href: /java/api/?view=azure-java
+      href: /java/api

@@ -58,7 +58,7 @@ For iOS, you must have:
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
 * [Apple Developer Portal](https://developer.apple.com)
-* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](/azure/notification-hubs/ios-sdk-get-started).
 * [React Native](https://reactnative.dev/docs/getting-started).
@@ -114,7 +114,7 @@ You can now test sending notifications via the backend service.
 ## Related links
 
 * [Azure Notification Hubs overview](/azure/notification-hubs/notification-hubs-push-notification-overview)
-* [Installing Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* [Installing Visual Studio for Mac](/visualstudio/mac/installation)
 * [Installing Visual Studio Code](https://code.visualstudio.com/download)
 * [Setting up the React Native development environment](https://reactnative.dev/docs/environment-setup)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)

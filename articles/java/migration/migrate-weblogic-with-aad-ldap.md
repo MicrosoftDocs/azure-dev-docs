@@ -167,7 +167,7 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 | `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
 | `wlsLDAPPrincipalPassword` | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
 | `wlsLDAPProviderName` | Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
-| `wlsLDAPSSLCertificate` | Trust Keystore for SSL Configuration | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
+| `wlsLDAPSSLCertificate` | Public key for Azure AD DS LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ### Integrating Azure AD DS LDAP with WLS
 
@@ -193,7 +193,7 @@ After deploying WLS and configuring LDAP using one of the above two methods, fol
 
 ### Lock down and secure LDAP access over the internet
 
-While standing up the secure LDAP in the preceding steps, we had set the source as **Any** for the `AllowLDAPS` rule in the network security group.  Now that the WLS Admin Server has been deployed and connected to LDAP, obtain its public IP address using the Azure portal.  Revisit [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps?branch=pr-en-us-778#lock-down-secure-ldap-access-over-the-internet) and change **Any** to the specific IP address of the WLS Admin server.
+While standing up the secure LDAP in the preceding steps, we had set the source as **Any** for the `AllowLDAPS` rule in the network security group.  Now that the WLS Admin Server has been deployed and connected to LDAP, obtain its public IP address using the Azure portal.  Revisit [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet) and change **Any** to the specific IP address of the WLS Admin server.
 
 ## Clean up resources
 

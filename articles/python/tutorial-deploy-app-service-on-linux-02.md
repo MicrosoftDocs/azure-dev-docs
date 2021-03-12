@@ -35,7 +35,7 @@ Download or clone [https://github.com/Microsoft/python-sample-vscode-django-tuto
 
 Ideally, Django apps deployed to the cloud also use a cloud-based database, such as PostgreSQL for Azure. For more information, see [Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal](tutorial-python-postgresql-app-portal.md).
 
-If your Django app uses a local SQLite database like this sample, it's easiest for this tutorial to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. Otherwise, you need to configure a post-build command to run Django's `migrate` command in the container to which the app is deployed. For more information, see [App Service configuration - Customize build automation](/app-service/configure-language-python#customize-build-automation).
+If your Django app uses a local SQLite database like this sample, it's easiest for this tutorial to include a pre-initialized and pre-populated copy of the *db.sqlite3* file in your repository. Otherwise, you need to configure a post-build command to run Django's `migrate` command in the container to which the app is deployed. For more information, see [App Service configuration - Customize build automation](/azure/app-service/configure-language-python#customize-build-automation).
 
 ### Option 3: Create a minimal Flask app
 
@@ -52,7 +52,7 @@ This section describes the minimal Flask app used in this walkthrough.
         return "Hello Flask, on Azure App Service for Linux"
     ```
 
-1. Create a file named *requirements.txt* with the following contents:
+1. In the same folder, create a file named *requirements.txt* with the following contents:
 
     ```text
     Flask
@@ -60,21 +60,33 @@ This section describes the minimal Flask app used in this walkthrough.
 
 1. Open a terminal using the menu command **Terminal** > **New Terminal**.
 
-1. In the terminal, create and activate a virtual environment named `.venv`. 
+1. In the terminal, navigate to the folder containing *hello.py*. All the remaining terminal commands are run in this folder.
 
-    # [macOS/Linux](#tab/linux)
+1. Create and activate a virtual environment named `.venv`:
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    :: Assumes Windows
+    py -3 -m venv .venv
+    .venv\scripts\activate
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```ps
+    # Assumes Windows
+    py -3 -m venv .venv
+    .venv\scripts\activate
+    ```
+
+    # [bash](#tab/bash)
 
     ```bash
+    # Assumes macOS/Linux
     sudo apt-get install python3-venv    # If needed
     python3 -m venv .venv
     source .venv/bin/activate
-    ```
-
-    # [Windows](#tab/windows)
-
-    ```cmd
-    py -3 -m venv .venv
-    .venv\scripts\activate
     ```
 
     ---

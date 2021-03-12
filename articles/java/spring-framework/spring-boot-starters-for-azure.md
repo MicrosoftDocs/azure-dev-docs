@@ -16,10 +16,6 @@ This article describes the various Spring Boot Starters for the [Spring Initiali
 >[!div class="mx-imgBorder"]
 ![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
 
-> [!NOTE]
->
-> Spring Initializr uses Java 11 as the default version. To use the Spring Boot Starters described in this topic, you must select Java 8 instead.
-> 
 
 The following Spring Boot Starters are currently available for Azure:
 
@@ -111,7 +107,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory>
+* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/>
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 

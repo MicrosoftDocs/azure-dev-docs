@@ -2,8 +2,9 @@
 title: Run the Azure Functions application locally in Visual Studio Code
 description: Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response.
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.custom: devx-track-js, contperfq2
+ms.date: 03/02/2021
+ms.custom: devx-track-js, contperf-fy21q2
+
 ---
 
 # 3. Test the function locally
@@ -33,10 +34,6 @@ When you created the Functions app, the Azure Functions extension automatically 
     ![VS Code stopped on a breakpoint](../media/functions-extension/debugging-breakpoint.png)
 
     To learn more about breakpoints and debugging in VS Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging).
-
-> [!Note]
->
-> If you encounter an execution policy error in this process, try uninstalling `azure-functions-core-tools@3` with npm, then reinstall the package in the terminal with elevated permissions.
 
 > [!div class="nextstepaction"]
 > [I ran the Function app locally](tutorial-vscode-serverless-node-deploy-hosting.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)

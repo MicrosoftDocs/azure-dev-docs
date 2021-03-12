@@ -62,10 +62,10 @@ conceptualContent:
       links:
         - text: Azure development using Java
           itemType: get-started
-          url: sdk/java-sdk-azure-get-started.md
-        - text: Patterns & best practices
+          url: sdk/get-started.md
+        - text: Introducing Azure SDK for Java
           itemType: learn
-          url: sdk/java-sdk-azure-concepts.md
+          url: sdk/overview.md
         - text: Java API browser
           itemType: reference
           url: /java/api/?view=azure-java
@@ -122,7 +122,7 @@ conceptualContent:
       links:
         - text: Create an Azure Function
           itemType: quickstart
-          url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
+          url: /azure/azure-functions/create-first-function-vs-code-java
         - text: Create a Spring Cloud Function
           itemType: tutorial
           url: ./spring-framework/getting-started-with-spring-cloud-function-in-azure.md
