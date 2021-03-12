@@ -143,7 +143,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create keystore on resource|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
 |Create table on keystore|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
 |Get connection information|[Azure CLI](./with-azure-cli/create-cassandra-db.md#get-the-cassandra-connection-string-with-azure-cli)|
-|Use cassandra-driver API on Cosmos DB|[JavaScript](/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
+|Use cassandra-driver API on Cosmos DB|[JavaScript](/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
 
 ### MariaDB
 
@@ -176,7 +176,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
 |Create database on resource|[Azure CLI](./with-database/use-mysql-db.md#create-a-database-on-the-server-with-azure-cli)|
 |Get Connection string|[Azure CLI](./with-database/use-mysql-db.md#get-the-mysql-connection-string-with-azure-cli)|
-|Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/MySQL)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
+|Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/mysql)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
 |Use promise-mysql API|[JavaScript](./with-database/use-mysql-db.md#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
 
 ### PostgreSQL
