@@ -59,7 +59,9 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 
 You can define entities by adding the `@Container` annotation and specifying properties that are related to the collection, such as the collection name, request units (RUs), time to live, and autocreate collection flag.
 
-By default, the collection name is the class name of the user-domain class. To customize it, add the `@Container(containerName="myCustomCollectionName")` annotation to the domain class. The `containerName` field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `containerName = "${dynamic.container.name}"` and `containerName = "#{@someBean.getContainerName()}"`.
+- SpEL Expression and Custom Container Name.
+ - By default, the collection name is the class name of the user-domain class. To customize it, add the `@Container(containerName="myCustomCollectionName")` annotation to the domain class. The `containerName` field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `containerName = "${dynamic.container.name}"` and `containerName = "#{@someBean.getContainerName()}"`.
+ - In order for SpEL expressions to work properly, you need to add `@DependsOn("expressionResolver")` on top of Spring Configuration / Application class.
 
 You can map a field in a domain class to the `id` field of an Azure Cosmos DB document in either of two ways:
 
