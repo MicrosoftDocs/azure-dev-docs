@@ -53,26 +53,31 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
 
     ```yaml
     {
-        "Name": "Image Creation Role",
+    "properties": {
+        "roleName": "Image Creation Role",
         "IsCustom": true,
-        "Description": "Azure Image Builder access to create resources for the image build",
-        "Actions": [
-            "Microsoft.Compute/galleries/read",
-            "Microsoft.Compute/galleries/images/read",
-            "Microsoft.Compute/galleries/images/versions/read",
-            "Microsoft.Compute/galleries/images/versions/write",
-
-            "Microsoft.Compute/images/write",
-            "Microsoft.Compute/images/read",
-            "Microsoft.Compute/images/delete"
+        "description": "Azure Image Builder access to create resources for the image build",
+        "assignableScopes": [
+          "/subscriptions/{subscriptionID}/resourceGroups/{rgName}"
         ],
-        "NotActions": [
-    
-        ],
-        "AssignableScopes": [
-        "/subscriptions/{subscriptionID}/resourceGroups/{rgName}"
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/galleries/read",
+                    "Microsoft.Compute/galleries/images/read",
+                    "Microsoft.Compute/galleries/images/versions/read",
+                    "Microsoft.Compute/galleries/images/versions/write",
+                    "Microsoft.Compute/images/write",
+                    "Microsoft.Compute/images/read",
+                    "Microsoft.Compute/images/delete"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
         ]
     }
+}
     ```
 
 1. Use this JSON code to create a [new custom role](/azure/role-based-access-control/custom-roles-portal#start-from-scratch#start-from-json) with JSON.
