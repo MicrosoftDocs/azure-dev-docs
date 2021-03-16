@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
-ms.date: 01/04/2021
+ms.date: 03/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -27,7 +27,7 @@ This setup for local development is a separate matter from [provisioning resourc
 | Name/Installer | Description |
 | --- | --- |
 | [Azure account with an active subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=python-dev-center&mktingSource=environment-setup) | Accounts/subscriptions are free and include many free-to-use services. |
-| [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
+| [Python 2.7+ or 3.6+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
 | [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure management libraries. |
 
 Notes:
