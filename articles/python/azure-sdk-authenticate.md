@@ -356,7 +356,7 @@ In this method, which is again used with older libraries not based on azure.core
 
 #### Use an Azure sovereign national cloud
 
-With either of these token credential methodsthis method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
+With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -400,7 +400,7 @@ print(subscription.subscription_id)
 
 If you need the ADAL library, run `pip install adal`.
 
-With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud.
+With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud. Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -410,8 +410,6 @@ from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
 LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
 RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
 ```
-
-Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
 ### CLI-based authentication (development purposes only)
 
