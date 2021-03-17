@@ -86,10 +86,10 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
+    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment
     ```
 
-    This command saves its output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
+    For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
@@ -142,23 +142,6 @@ The `az ad sp create-for-rbac` command creates a service principal for "role-bas
 - The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
 
 - The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
-
-    <pre>
-    {
-      "clientId": "12345678-1111-2222-3333-1234567890ab",
-      "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    </pre>
-
-    Without the `--sdk-auth` argument, the command generates simpler output:
 
     <pre>
     {
