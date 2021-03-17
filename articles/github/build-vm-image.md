@@ -158,7 +158,7 @@ jobs:
 
 ## Configure Java
 
-Set up the Java environment with the [Java Setup SDK action](https://github.com/marketplace/actions/setup-java-jdk). For this example, you'll setup the environment, build with Maven, and then output an artifact.
+Set up the Java environment with the [Java Setup SDK action](https://github.com/marketplace/actions/setup-java-jdk). For this example, you'll set up the environment, build with Maven, and then output an artifact.
 
 [GitHub artifacts](https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts) are a way to share files in a workflow between jobs. You'll create an artifact to hold the JAR file and then add it to the virtual machine image.
 
