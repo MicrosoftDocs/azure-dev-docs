@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -347,8 +347,6 @@ subscription_client = get_client_from_cli_profile(SubscriptionClient)
 subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
-
-If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
 
 ### Deprecated: Authenticate with UserPassCredentials
 
