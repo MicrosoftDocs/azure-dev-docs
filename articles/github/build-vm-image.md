@@ -93,7 +93,6 @@ In this example, you'll create a secret named `AZURE_CREDENTIALS` that you can u
 
     ```azurecli-interactive
         appName="myApp"
-
         az ad app create \
         --display-name $appName \
         --homepage "http://localhost/$appName" \
@@ -241,9 +240,11 @@ Replace the placeholders for `{subscriptionID}`, `{rgName}`and `{Identity}` with
 
 ## Create your virtual machine
 
-As a last step, create a virtual machine from your image. Replace the placeholders for `{rgName}`with your resource group name.
+As a last step, create a virtual machine from your image. 
 
-Add a GitHub secret for the virtual machine password (`VM_PWD`).
+1. Replace the placeholders for `{rgName}`with your resource group name.
+
+2. Add a GitHub secret with the virtual machine password (`VM_PWD`). Be sure to write down the password because you will not be able to see it again. The username is `myuser`.
 
 ```yaml
     - name: CREATE VM
@@ -253,4 +254,60 @@ Add a GitHub secret for the virtual machine password (`VM_PWD`).
         inlineScript: |
         az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
             --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
+```
+
+### Complete YAML
+
+```yaml
+  on: [push]
+
+  name: Create Custom VM Image
+
+  jobs:
+    build-image:
+      runs-on: ubuntu-latest    
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2    
+
+      - name: Login via Az module
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: Setup Java 1.8.x
+        uses: actions/setup-java@v1
+        with:
+          java-version: '1.8.x'
+          
+      - name: Build Java
+        run: mvn --batch-mode --update-snapshots verify
+
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
+
+      - name: Create App Baked Image
+        id: imageBuilder
+        uses: azure/build-vm-image@v0
+        with:
+          location: 'eastus2'
+          resource-group-name: '{rgName}'
+          managed-identity: '{Identity}' # Managed identity
+          source-os-type: 'windows'
+          source-image-type: 'platformImage'
+          source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest #unique identifier of source image
+          dist-type: 'SharedImageGallery'
+          dist-resource-id: '/subscriptions/{subscriptionID}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}/versions/0.1.${{ GITHUB.RUN_ID }}' #Replace with the resource id of your shared image  gallery's image definition
+          dist-location: 'eastus2'
+
+      - name: CREATE VM
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+          az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
+              --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
 ```
