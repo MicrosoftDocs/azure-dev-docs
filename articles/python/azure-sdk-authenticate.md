@@ -346,6 +346,10 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
+### Deprecated: Authenticate with JSON file or dictionary
+
+The Azure libraries previously supported authentication using the contents of a JSON file or a JSON dictionary, using `get_client_from_json_file` and `get_client_from_json_dict` methods from the `azure.common.client_factory` library, respectively. However, these methods are no longer supported because they risk exposing sensitive credentials.
+
 ### Deprecated: Authenticate with UserPassCredentials
 
 Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you has to use the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials) class. This class doesn't support two-factor authentication and should no longer be used.
