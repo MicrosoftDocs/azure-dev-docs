@@ -307,7 +307,7 @@ print(subscription.subscription_id)
 
 The information provided here is for legacy purposes only. Current applications should use one of the authentication methods described previously in this article.
 
-#### Deprecated: Authenticate with token credentials and an ADAL context (non azure.core)
+#### Deprecated: Token credentials and an ADAL context (non azure.core)
 
 If you need more control when using token credentials and **are using older, non azure.core management libraries**, you can use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
 
@@ -350,11 +350,11 @@ LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
 RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
 ```
 
-#### Deprecated: Authenticate with JSON file or dictionary
+#### Deprecated: JSON file or dictionary
 
 The Azure libraries previously supported authentication using the contents of a JSON file or a JSON dictionary, using `get_client_from_json_file` and `get_client_from_json_dict` methods from the `azure.common.client_factory` library, respectively. However, these methods are no longer supported because they risk exposing sensitive credentials.
 
-#### Deprecated: Authenticate with UserPassCredentials
+#### Deprecated: UserPassCredentials
 
 Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you has to use the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials) class. This class doesn't support two-factor authentication and should no longer be used.
 
