@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -86,10 +86,10 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
+    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment
     ```
 
-    This command saves its output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
+    For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
@@ -129,6 +129,9 @@ Each developer in your organization should perform these steps individually.
 
 1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
+> [!IMPORTANT]
+> For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a specific service principal.
+
 #### What the create-for-rbac command does
 
 The `az ad sp create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
@@ -139,26 +142,9 @@ The `az ad sp create-for-rbac` command creates a service principal for "role-bas
 
 - The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
-- The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
+    Without `--skip-assignment`, the command assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. This wide-ranging scope poses a risk if the security principal is compromised, which is why we recommend using `--skip-assignment` and then assign the exact roles at the exact scope that the service principal requires.
 
-- The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
-
-    <pre>
-    {
-      "clientId": "12345678-1111-2222-3333-1234567890ab",
-      "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    </pre>
-
-    Without the `--sdk-auth` argument, the command generates simpler output:
+- The command generates JSON output similar to the following values. Your `appId`, `tenant`, and `password` values will all be different:
 
     <pre>
     {
@@ -170,15 +156,13 @@ The `az ad sp create-for-rbac` command creates a service principal for "role-bas
     }
     </pre>
 
-    In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+    In this output, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
 
     > [!WARNING]
-    >  When you create a service principal using `az ad sp create-for-rbac`, the output includes credentials that you must protect, such as a password, client secret, or certificate. Do not store these credentials in code or any file that's committed to source control.
-    > By default, `az ad sp create-for-rbac` assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
-    > For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a a specific service principal.
+    >  Protect any credentials included in the output from `az ad sp create-for-rbac`, such as the password, client secret, or certificate. Do not store credentials in code or any file that's committed to source control.    
 
     > [!IMPORTANT]
-    > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
+    > The output from this command is the only place you ever see the password. You cannot retrieve the password later on. You can, however, add a new password if needed without invalidating the service principal or existing passwords.
 
 ## Use Python virtual environments
 
