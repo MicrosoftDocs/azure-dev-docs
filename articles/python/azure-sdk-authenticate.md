@@ -266,49 +266,6 @@ subscription_client = SubscriptionClient(credentials, base_url=AZURE_CHINA_CLOUD
 
 Sovereign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
-### Authenticate with token credentials and an ADAL context
-
-If you need more control when using token credentials, use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
-
-```python
-import os, adal
-from azure.mgmt.resource import SubscriptionClient
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-
-# Retrieve the IDs and secret to use with ServicePrincipalCredentials
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-tenant_id = os.environ["AZURE_TENANT_ID"]
-client_id = os.environ["AZURE_CLIENT_ID"]
-client_secret = os.environ["AZURE_CLIENT_SECRET"]
-
-LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
-
-context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + tenant_id)
-
-credential = AdalAuthentication(context.acquire_token_with_client_credentials,
-    RESOURCE, client_id, client_secret)
-
-subscription_client = SubscriptionClient(credential)
-
-subscription = next(subscription_client.subscriptions.list())
-print(subscription.subscription_id)
-```
-
-If you need the ADAL library, run `pip install adal`.
-
-With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud. Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
-
-```python
-from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
-
-# ...
-
-LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
-```
-
 ### CLI-based authentication (development purposes only)
 
 In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`. CLI-based authentication works only for development purposes because it cannot be used in production environments.
@@ -346,11 +303,58 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-### Deprecated: Authenticate with JSON file or dictionary
+### Deprecated authentication methods
+
+The information provided here is for legacy purposes only. Current applications should use one of the authentication methods described previously in this article.
+
+#### Deprecated: Authenticate with token credentials and an ADAL context (non azure.core)
+
+If you need more control when using token credentials and **are using older, non azure.core management libraries**, you can use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
+
+```python
+import os, adal
+from azure.mgmt.resource import SubscriptionClient
+from msrestazure.azure_active_directory import AdalAuthentication
+from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+
+# Retrieve the IDs and secret to use with ServicePrincipalCredentials
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+tenant_id = os.environ["AZURE_TENANT_ID"]
+client_id = os.environ["AZURE_CLIENT_ID"]
+client_secret = os.environ["AZURE_CLIENT_SECRET"]
+
+LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+
+context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + tenant_id)
+
+credential = AdalAuthentication(context.acquire_token_with_client_credentials,
+    RESOURCE, client_id, client_secret)
+
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+If you need the ADAL library, run `pip install adal`.
+
+With this method&mdash;again, only when using older, non azure.core libraries&mdash;you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud. Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+
+```python
+from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
+
+# ...
+
+LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
+RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
+```
+
+#### Deprecated: Authenticate with JSON file or dictionary
 
 The Azure libraries previously supported authentication using the contents of a JSON file or a JSON dictionary, using `get_client_from_json_file` and `get_client_from_json_dict` methods from the `azure.common.client_factory` library, respectively. However, these methods are no longer supported because they risk exposing sensitive credentials.
 
-### Deprecated: Authenticate with UserPassCredentials
+#### Deprecated: Authenticate with UserPassCredentials
 
 Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you has to use the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials) class. This class doesn't support two-factor authentication and should no longer be used.
 
