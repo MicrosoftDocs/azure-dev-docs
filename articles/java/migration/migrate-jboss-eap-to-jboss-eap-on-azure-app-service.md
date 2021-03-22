@@ -1,7 +1,7 @@
 ---
 title: Migrate JBoss EAP applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service container.
-author: vaangadi
+author: VaijanathB
 ms.author: vaangadi
 ms.topic: conceptual
 ms.date: 3/16/2021
