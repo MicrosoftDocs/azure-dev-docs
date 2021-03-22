@@ -1,7 +1,7 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access a pre-provisioned blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 08/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -84,7 +84,7 @@ For these reasons, we recommend using the authentication method in production co
 
     Replace "pythonazurestorage12345" with the name of your specific storage account.
 
-    This environment variable is used only by this example and it not used by the Azure libraries.
+    This `STORAGE_BLOB_URL` environment variable is used only by this example and it not used by the Azure libraries.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -144,6 +144,8 @@ For these reasons, we recommend using the authentication method in production co
     The `--scope` argument identifies where this role assignment applies. In this example, you grant the "Storage Blob Data Contributor" role to the *specific* container named "blob-container-01".
 
     Replace `pythonazurestorage12345` with the exact name of your storage account. You can also adjust the name of the resource group and blob container, if necessary. If you use the wrong name, you see the error, "Can not perform requested operation on nested resource. Parent resource 'pythonazurestorage12345' not found."
+
+    If needed, also replace `PythonAzureExample-Storage-rg` with the name of the resource group that contains your storage account. The resource group shown here is what's used in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
     The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 

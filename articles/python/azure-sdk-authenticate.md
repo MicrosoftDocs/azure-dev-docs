@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services
 description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -198,108 +198,6 @@ Service principals for applications deployed to the cloud are managed in your su
 
 In all cases, the appropriate service principal or user must have appropriate permissions for the resources and operation in question.
 
-### Authenticate with a JSON file
-
-In this method, you create a JSON file that contains the necessary credentials for the service principal. You then create an SDK client object using that file. This method can be used both locally and in the cloud.
-
-1. Create a JSON file with the following format:
-
-    ```json
-    {
-        "subscriptionId": "<azure_aubscription_id>",
-        "tenantId": "<tenant_id>",
-        "clientId": "<application_id>",
-        "clientSecret": "<application_secret>",
-        "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-        "resourceManagerEndpointUrl": "https://management.azure.com/",
-        "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-        "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-        "galleryEndpointUrl": "https://gallery.azure.com/",
-        "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    ```
-
-    Replace the four placeholders with your Azure subscription ID, tenant ID, the client ID, and the client secret.
-
-    > [!TIP]
-    > As explained in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development), you can use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command with the `--sdk-auth` parameter to generate this JSON format directly.
-
-1. Save the file with a name like *credentials.json* in a secure location that your code can access. To keep your credentials secure, be sure to omit this file from source control and don't share it with other developers. That is, the tenant ID, client ID, and client secret of a service principal should always remain isolated on your development workstation.
-
-1. Create an environment variable named `AZURE_AUTH_LOCATION` with the path to the JSON file as the value:
-
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set AZURE_AUTH_LOCATION=../credentials.json
-    ```
-
-    # [bash](#tab/bash)
-
-    ```bash
-    AZURE_AUTH_LOCATION="../credentials.json"
-    ```
-
-    ---
-
-    These examples assume the JSON file is named *credentials.json* and is located in the parent folder of your project.
-
-1. Use the [get_client_from_auth_file](/python/api/azure-common/azure.common.client_factory#get-client-from-auth-file-client-class--auth-path-none----kwargs-) method to create the client object:
-
-    ```python
-    from azure.common.client_factory import get_client_from_auth_file
-    from azure.mgmt.resource import SubscriptionClient
-
-    # This form of get_client_from_auth_file relies on the AZURE_AUTH_LOCATION
-    # environment variable.
-    subscription_client = get_client_from_auth_file(SubscriptionClient)
-
-    subscription = next(subscription_client.subscriptions.list())
-    print(subscription.subscription_id)
-    ```
-
-You can alternately specify the path directly in code by using the `auth_path` argument, in which case the environment variable isn't needed:
-
-```python
-subscription_client = get_client_from_auth_file(SubscriptionClient, auth_path="../credentials.json")
-```
-
-### Authenticate with a JSON dictionary
-
-```python
-import os
-from azure.common.client_factory import get_client_from_json_dict
-from azure.mgmt.resource import SubscriptionClient
-
-# Retrieve the IDs and secret to use in the JSON dictionary
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-tenant_id = os.environ["AZURE_TENANT_ID"]
-client_id = os.environ["AZURE_CLIENT_ID"]
-client_secret = os.environ["AZURE_CLIENT_SECRET"]
-
-config_dict = {
-   "subscriptionId": subscription_id,
-    "tenantId": tenant_id,
-   "clientId": client_id,
-   "clientSecret": client_secret,
-   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-   "resourceManagerEndpointUrl": "https://management.azure.com/",
-   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-   "galleryEndpointUrl": "https://gallery.azure.com/",
-   "managementEndpointUrl": "https://management.core.windows.net/"
-}
-
-subscription_client = get_client_from_json_dict(SubscriptionClient, config_dict)
-
-subscription = next(subscription_client.subscriptions.list())
-print(subscription.subscription_id)
-```
-
-Instead of using a file, as described in the previous section, you can build the necessary JSON data in a variable and call [get_client_from_json_dict](/python/api/azure-common/azure.common.client_factory#get-client-from-json-dict-client-class--config-dict----kwargs-). This code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development). For code deployed to the cloud, you can create these environment variables on your server VM or as application settings when using platform service like Azure App Service and Azure Functions.
-
-You can also store values in Azure Key Vault and retrieve them at run time rather than using environment variables.
-
 ### Authenticate with token credentials
 
 You can authenticate with the Azure libraries using explicit subscription, tenant, and client identifiers along with a client secret.
@@ -356,7 +254,7 @@ In this method, which is again used with older libraries not based on azure.core
 
 #### Use an Azure sovereign national cloud
 
-With either of these token credential methodsthis method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
+With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
 
 ```python
 from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
@@ -367,51 +265,6 @@ subscription_client = SubscriptionClient(credentials, base_url=AZURE_CHINA_CLOUD
 ```
 
 Sovereign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
-
-### Authenticate with token credentials and an ADAL context
-
-If you need more control when using token credentials, use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
-
-```python
-import os, adal
-from azure.mgmt.resource import SubscriptionClient
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-
-# Retrieve the IDs and secret to use with ServicePrincipalCredentials
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-tenant_id = os.environ["AZURE_TENANT_ID"]
-client_id = os.environ["AZURE_CLIENT_ID"]
-client_secret = os.environ["AZURE_CLIENT_SECRET"]
-
-LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
-
-context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + tenant_id)
-
-credential = AdalAuthentication(context.acquire_token_with_client_credentials,
-    RESOURCE, client_id, client_secret)
-
-subscription_client = SubscriptionClient(credential)
-
-subscription = next(subscription_client.subscriptions.list())
-print(subscription.subscription_id)
-```
-
-If you need the ADAL library, run `pip install adal`.
-
-With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud.
-
-```python
-from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
-
-# ...
-
-LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
-```
-
-Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
 
 ### CLI-based authentication (development purposes only)
 
@@ -450,9 +303,58 @@ subscription = next(subscription_client.subscriptions.list())
 print(subscription.subscription_id)
 ```
 
-If you need to refer to different subscriptions in the same script, then use the ['get_client_from_auth_file'](#authenticate-with-a-json-file) or  [`get_client_from_json_dict`](#authenticate-with-a-json-dictionary) methods described earlier in this article.
+### Deprecated authentication methods
 
-### Deprecated: Authenticate with UserPassCredentials
+The information provided here is for legacy purposes only. Current applications should use one of the authentication methods described previously in this article.
+
+#### Deprecated: Token credentials and an ADAL context (non azure.core)
+
+If you need more control when using token credentials and **are using older, non azure.core management libraries**, you can use the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) and the SDK ADAL wrapper:
+
+```python
+import os, adal
+from azure.mgmt.resource import SubscriptionClient
+from msrestazure.azure_active_directory import AdalAuthentication
+from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+
+# Retrieve the IDs and secret to use with ServicePrincipalCredentials
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+tenant_id = os.environ["AZURE_TENANT_ID"]
+client_id = os.environ["AZURE_CLIENT_ID"]
+client_secret = os.environ["AZURE_CLIENT_SECRET"]
+
+LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+
+context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + tenant_id)
+
+credential = AdalAuthentication(context.acquire_token_with_client_credentials,
+    RESOURCE, client_id, client_secret)
+
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+If you need the ADAL library, run `pip install adal`.
+
+With this method&mdash;again, only when using older, non azure.core libraries&mdash;you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud. Simply replace `AZURE_PUBLIC_CLOUD` with the appropriate sovereign cloud constant from the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+
+```python
+from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
+
+# ...
+
+LOGIN_ENDPOINT = AZURE_CHINA_CLOUD.endpoints.active_directory
+RESOURCE = AZURE_CHINA_CLOUD.endpoints.active_directory_resource_id
+```
+
+#### Deprecated: JSON file or dictionary
+
+The Azure libraries previously supported authentication using the contents of a JSON file or a JSON dictionary, using `get_client_from_json_file` and `get_client_from_json_dict` methods from the `azure.common.client_factory` library, respectively. However, these methods are no longer supported because they risk exposing sensitive credentials.
+
+#### Deprecated: UserPassCredentials
 
 Before the [Azure Active Directory Authentication Library (ADAL) for Python](https://github.com/AzureAD/azure-activedirectory-library-for-python) was available, you has to use the now-deprecated [`UserPassCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.userpasscredentials) class. This class doesn't support two-factor authentication and should no longer be used.
 

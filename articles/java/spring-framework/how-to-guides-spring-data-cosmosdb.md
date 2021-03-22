@@ -61,6 +61,16 @@ You can define entities by adding the `@Container` annotation and specifying pro
 
 By default, the collection name is the class name of the user-domain class. To customize it, add the `@Container(containerName="myCustomCollectionName")` annotation to the domain class. The `containerName` field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `containerName = "${dynamic.container.name}"` and `containerName = "#{@someBean.getContainerName()}"`.
 
+For SpEL expressions to work properly, you need to add `@DependsOn("expressionResolver")` to the Spring Application class, as shown in the following example:
+
+```java
+@SpringBootApplication
+@DependsOn("expressionResolver")
+public class SampleApplication {
+
+}
+```
+
 You can map a field in a domain class to the `id` field of an Azure Cosmos DB document in either of two ways:
 
 - Annotate the field with `@Id`.
