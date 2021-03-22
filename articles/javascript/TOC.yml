@@ -143,6 +143,8 @@
       href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
+    - name: With web apps
+      href: how-to/with-web-apps.
     - name: Configure your app
       href: how-to/configure-web-app-settings.md
     - name: Tasks for JavaScript developers
