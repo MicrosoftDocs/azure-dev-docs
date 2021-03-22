@@ -24,20 +24,45 @@ You can use existing domain names and certificates or you can create new domain 
 |[Azure Functions](/azure/azure-functions/) & [Apps](/azure/app-service)|[Buy custom domain name on Azure](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain)</br>[Map existing domain name](/app-service/app-service-web-tutorial-custom-domain)<br>[Map with Traffic Manager](/azure/app-service/configure-domain-traffic-manager)|[Create free managed certificate](/azure/app-service/configure-ssl-certificate#create-a-free-managed-certificate-preview)</br>[Import existing certificate from Key Vault](/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault)</br>[Upload private certificate](/azure/app-service/configure-ssl-certificate#upload-a-private-certificate)</br>[Upload public certificate](/azure/app-service/configure-ssl-certificate#upload-a-public-certificate)</br>[Configure SSL bindings](/azure/app-service/configure-ssl-bindings)|
 |[Container Instances](/azure/container-instances)||[Using sidecar container](/azure/container-instances/container-instances-container-group-ssl)|
 
-## 10-minute to a domain name and certificate
+## Create a new app service
 
-The following app services allow you purchase a domain name and create a free certificate all within the Azure portal: 
+[Create your Azure app service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app). 
 
-* Azure App service
-* Azure Functions
- 
-1. [Create your Azure app service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app). Do not select the free pricing tier. 
+Do not select the free pricing tier. 
+
+## Create a new App Service domain
+
 1. Once your web app resource is created, select the **Custom domains** setting. The same setting form is used for the services: App service, Functions.
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain.png" alt-text="Once your web app resource is created, select the **Custom Domain** setting. The same setting form is used for the services: App service, Functions.":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain.png" alt-text="Once your web app resource is created, select the **Custom Domain** setting. The same setting form is used for the following services: App service, Functions.":::
 
 1. Select the **+ Buy App Service domain**. 
 
     :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-buy-app-service-domain.png" alt-text="Select the **+ Buy App Service domain**.":::
 
-1. In the side panel, 
+1. A new creation page opens. Create a new **App Service domain**. You should have a few domain name choices with variations to try. 
+
+    :::image type="content" source="../media/custom-domain/create-new-app-service-domain.png" alt-text="A new creation page opens. Create a new **App Service domain**.":::
+
+1. Continue filling out the creation tabs for the service:
+
+    |Tab name|Select|
+    |--|--|
+    |Contact information||
+    |Hostname assignment|Keep the default settings.|
+    |Advanced|Keep the default settings so your domain name auto-renews next year and your contact information is kept private.|
+
+1. When you are done, select **Review + create** at the bottom of the web site. 
+
+    The domain name is purchased for you and billed to your subscription.
+
+## Create a new App service certificate
+
+1. In the Azure portal, return to your web app, then select the **TLS/SSL settings**, then select **Private Key Certificates (.pfx)**, then select **Create App Service Managed Certificate**.
+
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-add-app-service-managed-certificate.png" alt-text="Select **Add bindings** for all your assigned custom domains which are not already secure. ":::
+
+1. Select **Create** to create your managed certificate.
+
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-create-managed-certificate.png" alt-text="Select **Create** to create your managed certificate.":::
+
