@@ -1,11 +1,11 @@
 --- 
-title: Build custom virtual machine images with GitHub Actions  
+title: Build custom Azure virtual machine images with GitHub Actions  
 description: Learn how to Build custom virtual machine images with Azure and GitHub Actions   
 author: juliakm 
 ms.author: jukullam 
 ms.topic: quickstart
 ms.service: azure 
-ms.date: 03/03/2021
+ms.date: 03/23/2021
 ms.custom: github-actions-azure
 ---
 
@@ -76,9 +76,7 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
                 "notDataActions": []
             }
         ]
-    }
-}
-    ```
+    } } ```
 
 1. Use this JSON code to create a [new custom role](/azure/role-based-access-control/custom-roles-portal#start-from-scratch#start-from-json) with JSON.
 
@@ -121,15 +119,15 @@ In this example, you'll create a secret named `AZURE_CREDENTIALS` that you can u
 
 1. Open your GitHub repository and go to **Settings**.
 
-    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
 
 1. Select **Secrets** and then **New Secret**.
 
-    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
+    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret.":::
 
 1. Paste in your JSON object for your service principal with the name `AZURE_CREDENTIALS`. 
 
-    :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub":::
+    :::image type="content" source="media/azure-secret-add.png" alt-text="Add a secret in GitHub.":::
 
 1. Save by selecting **Add secret**.
 
@@ -244,7 +242,7 @@ As a last step, create a virtual machine from your image.
 
 1. Replace the placeholders for `{rgName}`with your resource group name.
 
-2. Add a GitHub secret with the virtual machine password (`VM_PWD`). Be sure to write down the password because you will not be able to see it again. The username is `myuser`.
+1. Add a GitHub secret with the virtual machine password (`VM_PWD`). Be sure to write down the password because you will not be able to see it again. The username is `myuser`.
 
 ```yaml
     - name: CREATE VM
@@ -311,3 +309,6 @@ As a last step, create a virtual machine from your image.
           az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
               --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
 ```
+
+## Next Steps
+- Learn how to [deploy to Azure](deploy-to-azure.md). 
