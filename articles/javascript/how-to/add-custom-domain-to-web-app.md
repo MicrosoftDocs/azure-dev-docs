@@ -34,18 +34,19 @@ The domain resource is a separate resource from the web app resource.
 
 ## Create a new web app service
 
-When creating one of the following types of web app, **do not select the free pricing tier**: 
-
 |Service|
 |--|
 |[Azure App service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)|
 |[Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)|
 
+1. Create a new resource using one of the links in the preceding table. 
+1. Do not create the resource using a free pricing tier. 
+
 ## Configure App Service for new domain
 
-1. In the Azure portal, for your new web app, Select the **Custom domains** setting, then select **+ Add custom domain**. 
+1. In the Azure portal, for your new web app, select the **Custom domains** setting, then select **+ Add custom domain**. 
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png" alt-text="Select the **Custom domains** setting, then select **+ Add custom domain**. ":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png" alt-text="Select the **Custom domains** setting, then select **+ Add custom domain**. " lightbox="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png":::
 
 1. In the right panel, enter the new domain name, such as `cats-flying-dogs.com`, then select **Validate**.
 1. Select the **Add custom domain** to connect the domain name to the app service's IP address. 
@@ -60,7 +61,7 @@ When creating one of the following types of web app, **do not select the free pr
 
 1. Select **Private Key Certificates** then select **+ Create App Service Managed Certificate**
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-create-private-managed-certificate-button.png" alt-text="Select **Private Key Certificates** then select **+ Create App Service Managed Certificate**":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-create-private-managed-certificate-button.png" lightbox="../media/custom-domain/azure-portal-app-service-create-private-managed-certificate-button.png" alt-text="Select **Private Key Certificates** then select **+ Create App Service Managed Certificate**":::
 
 1. Select the new domain name then select **Create**.
 
@@ -72,7 +73,7 @@ When creating one of the following types of web app, **do not select the free pr
 
 1. Select the **Custom domains** setting, then select **Add binding** for the new domain name. 
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding.png" alt-text="Select the **Custom domains** setting, then select **Add binding** for the new domain name.":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding.png" lightbox="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding.png" alt-text="Select the **Custom domains** setting, then select **Add binding** for the new domain name.":::
 
 1. In the right panel, select the new domain, the private certificate, and the TLS/SSL type.
 
@@ -80,7 +81,7 @@ When creating one of the following types of web app, **do not select the free pr
 
 1. The process completes and the Custom Domain page shows the custom domain name is secure. 
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding-complete.png" alt-text="The process completes and the Custom Domain page shows the custom domain name is secure.":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding-complete.png" lightbox="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-binding-complete.png" alt-text="The process completes and the Custom Domain page shows the custom domain name is secure.":::
 
 1. Select the app's **Overview** page and see the URL for your web app uses the new domain name. 
 
