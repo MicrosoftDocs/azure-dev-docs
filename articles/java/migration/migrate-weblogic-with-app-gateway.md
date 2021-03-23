@@ -9,7 +9,7 @@ ms.date: 02/05/2021
 
 # Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
-This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.  It covers the specific steps for creating a Key Vault, storing an SSL certificate in the Key Vault, and using that certificate for SSL termination.  While all of these elements are well documented in their own right, this tutorial shows the specific way all of these elements come together to create a simple, yet powerful load-balancing solution for WLS on Azure.
+This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.  It covers the specific steps for creating a Key Vault, storing a TLS/SSL certificate in the Key Vault, and using that certificate for TLS/SSL termination.  While all of these elements are well documented in their own right, this tutorial shows the specific way all of these elements come together to create a simple, yet powerful load-balancing solution for WLS on Azure.
 
 <!-- Diagram source at https://github.com/wls-eng/arm-oraclelinux-wls/blob/master/src/main/resources/weblogic-app-gateway-key-vault.vsdx -->
 
@@ -20,7 +20,7 @@ Load balancing is an essential part of migrating your Oracle WebLogic Server clu
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Choose how to provide the SSL certificate to the App Gateway
+> * Choose how to provide the TLS/SSL certificate to the App Gateway
 > * Deploy WebLogic Server with Azure Application Gateway to Azure
 > * Validate successful deployment of WLS and App Gateway
 
@@ -38,14 +38,14 @@ In this tutorial, you learn how to:
 Here are some things to consider about migrating on-premise WLS installations and Azure Application Gateway.  While the steps of this tutorial are the easiest way to stand up a load-balancer in front of your WebLogic Server Cluster on Azure, there are many other ways to do it.  This list shows some other things to consider.
 
 * If you have an existing load-balancing solution, ensure that its capabilities are met or exceeded by Azure Application Gateway.  For a summary of the capabilities of Azure Application Gateway compared to other Azure load-balancing solutions, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
-* If your existing load-balancing solution provides security protection from common exploits and vulnerabilities, the Application Gateway has you covered. Application Gateway's built-in Web Application Firewall (WAF) implements the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).  For more information on WAF support in Application Gateway, see [Application Gateway Features](/azure/application-gateway/features#web-application-firewall).
-* If your existing load-balancing solution requires end-to-end SSL encryption, you'll need to do additional configuration after following the steps in this guide.  See [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption) and the Oracle documentation on [Configuring SSL in Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/asadm/configuring-ssl1.html#GUID-623906C0-B1FD-423F-AE51-061B5800E927).
+* If your existing load-balancing solution provides security protection from common exploits and vulnerabilities, the Application Gateway has you covered. Application Gateway's built-in Web Application Firewall (WAF) implements the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).  For more information on WAF support in Application Gateway, see the [Web Application Firewall](/azure/application-gateway/features#web-application-firewall) section of [Azure Application Gateway features](/azure/application-gateway/features).
+* If your existing load-balancing solution requires end-to-end TLS/SSL encryption, you'll need to do additional configuration after following the steps in this guide.  See the [End-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption) section of [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview) and the Oracle documentation on [Configuring SSL in Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/asadm/configuring-ssl1.html#GUID-623906C0-B1FD-423F-AE51-061B5800E927).
 * If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure App Gateway and WLS.
 * For a comprehensive survey of migrating WebLogic Server to Azure Virtual Machines, see [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md).
 
 ## Deploy WebLogic Server with Application Gateway to Azure
 
-This section will show you how to provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the cluster nodes.  The Application Gateway will use the provided SSL certificate for SSL termination.  For advanced details on SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+This section will show you how to provision a WLS cluster with Azure Application Gateway automatically created as the load balancer for the cluster nodes.  The Application Gateway will use the provided TLS/SSL certificate for TLS/SSL termination.  For advanced details on TLS/SSL termination with Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 
 To create the WLS cluster and Application Gateway, use the following steps.
 
@@ -53,17 +53,17 @@ First, begin the process of deploying a WebLogic Server configured or dynamic cl
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="The App Gateway section within the Azure portal":::
 
-## Choose how to provide the SSL certificate to the App Gateway
+## Choose how to provide the TLS/SSL certificate to the App Gateway
 
-You have several options to provide the SSL certificate to the application gateway, but can only choose one. This section explains each option so you can choose the best one for your deployment.
+You have several options to provide the TLS/SSL certificate to the application gateway, but can only choose one. This section explains each option so you can choose the best one for your deployment.
 
-### Option one: Upload an SSL certificate
+### Option one: Upload an TLS/SSL certificate
 
-This option is suitable for production workloads where the App Gateway faces the public Internet, or for intranet workloads that require SSL. By choosing this option, an Azure Key Vault is automatically provisioned to contain the SSL certificate used by the App Gateway.
+This option is suitable for production workloads where the App Gateway faces the public Internet, or for intranet workloads that require TLS/SSL. By choosing this option, an Azure Key Vault is automatically provisioned to contain the TLS/SSL certificate used by the App Gateway.
 
-To upload an existing, signed, SSL certificate, use the following steps:
+To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
-1. Follow the steps from your certificate issuer to create a password protected SSL certificate and specify the DNS name for the certificate. How to choose wildcard vs. single-name certificate is beyond the scope of this document. Either one will work here.
+1. Follow the steps from your certificate issuer to create a password-protected TLS/SSL certificate and specify the DNS name for the certificate. How to choose wildcard vs. single-name certificate is beyond the scope of this document. Either one will work here.
 1. Export the certificate from your issuer using the PFX file format and download it to your local machine. If your issuer doesn't support exporting as PFX, tools exist to convert many certificate formats to PFX format.
 1. Select the **Azure Application Gateway** section.
 1. Next to **Connect to Azure Application Gateway**, select **Yes**.
@@ -74,7 +74,7 @@ To upload an existing, signed, SSL certificate, use the following steps:
 
 ### Select DNS Configuration
 
-SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You can use a DNS Zone you already have created or allow the deployment to create one for you. Select the **DNS Configuration** section to continue.
+TLS/SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You can use a DNS Zone you already have created or allow the deployment to create one for you. Select the **DNS Configuration** section to continue.
 
 #### Use an existing Azure DNS Zone
 
@@ -97,11 +97,11 @@ Finally, specify the names for the child DNS zones. The deployment will create t
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Child DNS zones":::
 
-The other options for providing an SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
+The other options for providing an TLS/SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
 
 ### Option two: Identify an Azure Key Vault
 
-This option is suitable for production or non-production workloads, depending on the SSL certificate provided.  If you don't want the deployment to create an Azure Key Vault, you can identify an existing one or create one yourself. This option requires you to store the certificate and its password in the Azure Key Vault before continuing. If you have an existing Key Vault you want to use, skip to the section [Create an SSL certificate](#create-an-ssl-certificate).  Otherwise, continue to the next section.
+This option is suitable for production or non-production workloads, depending on the TLS/SSL certificate provided.  If you don't want the deployment to create an Azure Key Vault, you can identify an existing one or create one yourself. This option requires you to store the certificate and its password in the Azure Key Vault before continuing. If you have an existing Key Vault you want to use, skip to the section [Create a TLS/SSL certificate](#create-a-tlsssl-certificate).  Otherwise, continue to the next section.
 
 #### Create an Azure Key Vault
 
@@ -126,9 +126,9 @@ This section shows how to use the Azure portal to create an Azure Key Vault.
 
 Key vault creation is fairly lightweight, typically completing in less than two minutes.  When deployment completes, select **Go to resource** and continue to the next section.
 
-#### Create an SSL certificate
+#### Create a TLS/SSL certificate
 
-This section shows how to create a self-signed SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing, valid, non-empty password SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
+This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
 
 > [!NOTE]
 > This section shows how to base 64 encode the certificate before storing it as a secret in the Key Vault.  This is required by the underlying Azure deployment that creates the WebLogic Server and Application Gateway.
@@ -168,9 +168,9 @@ Follow these steps to create and base 64 encode the certificate:
    base64 mycert.pfx > mycert.txt
    ```
 
-Now that you have a Key Vault and a valid SSL certificate with a non-empty password, you can store the certificate in the Key Vault.
+Now that you have a Key Vault and a valid TLS/SSL certificate with a non-empty password, you can store the certificate in the Key Vault.
 
-#### Store the SSL certificate in the Key Vault
+#### Store the TLS/SSL certificate in the Key Vault
 
 This section shows how to store the certificate and its password in the Key Vault created in the preceding sections.
 
@@ -196,7 +196,7 @@ To store the password for the certificate, follow these steps:
 
 #### Identify the Key Vault
 
-Now that you have a Key Vault with a signed SSL certificate and its password stored as secrets, return to the **Azure Application Gateway** section to identify the Key Vault for the deployment.
+Now that you have a Key Vault with a signed TLS/SSL certificate and its password stored as secrets, return to the **Azure Application Gateway** section to identify the Key Vault for the deployment.
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/identify-key-vault.png" alt-text="Identify Key Vault":::
 
@@ -210,7 +210,7 @@ Now that you have a Key Vault with a signed SSL certificate and its password sto
 
 This will start the process of creating the WLS cluster and its front-end Application Gateway, which may take about 15 minutes.  When the deployment completes, select **Go to resource group**. From the list of resources in the resource group, select **myAppGateway**.
 
-The final option for providing an SSL certificate to the App Gateway is detailed in the next section. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
+The final option for providing a TLS/SSL certificate to the App Gateway is detailed in the next section. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
 
 ### Option three: Generate a self-signed certificate
 
@@ -221,7 +221,7 @@ To request the deployment to perform these actions, use the following steps:
 1. In the **Azure Application Gateway** section, select **Generate a self-signed certificate**.
 1. Select a user-assigned managed identity. This is necessary to allow the deployment to create the Azure Key Vault and certificate.
 1. If you don't already have a user-assigned managed identity, select **Add** to begin the process of creating one.
-1. To create a user-assigned managed identity, follow the steps in [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity). Once you've selected the user-assigned managed identity, make sure the checkbox next to the user-assigned managed identity is checked.
+1. To create a user-assigned managed identity, follow the steps in the [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity) section of [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Once you've selected the user-assigned managed identity, make sure the checkbox next to the user-assigned managed identity is checked.
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/generate-self-signed-certificate.png" alt-text="Generate a self-signed certificate":::
 
@@ -248,7 +248,7 @@ If you're not going to continue to use the WLS cluster, delete the Key Vault and
 1. Select **Delete resource group**.
 1. The input focus will be set to the field labeled **TYPE THE RESOURCE GROUP NAME**.  Type the resource group name as requested.
 1. This will cause the **Delete** button to become enabled.  Select the **Delete** button.  This operation will take some time, but you can continue to the next step while the deletion is processing.
-1. Locate the Key Vault by following the first step of the section [Store the SSL certificate in the Key Vault]().
+1. Locate the Key Vault by following the first step of the section [Store the TLS/SSL certificate in the Key Vault](#store-the-tlsssl-certificate-in-the-key-vault).
 1. Select **Delete**.
 1. Select **Delete** in the pane that appears.
 
