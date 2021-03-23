@@ -2,7 +2,7 @@
 title: Secure JS website with domain and certificates
 description:  Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. 
 ms.topic: how-to
-ms.date: 
+ms.date: 03/23/2021
 ms.custom: devx-track-js
 ---
 
@@ -91,7 +91,7 @@ You can use existing domain names and certificates or you can create new domain 
 |Azure host service|Custom domain name| Certificates|
 |--|--|--|
 |[Azure Static Web Apps](/azure/static-web-apps/)|[Use existing custom domain](/azure/static-web-apps/custom-domain)||
-|[Azure Functions](/azure/azure-functions/) & [Apps](/azure/app-service)|[Buy custom domain name on Azure](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain)</br>[Map existing domain name](/app-service/app-service-web-tutorial-custom-domain)<br>[Map with Traffic Manager](/azure/app-service/configure-domain-traffic-manager)|[Create free managed certificate](/azure/app-service/configure-ssl-certificate#create-a-free-managed-certificate-preview)</br>[Import existing certificate from Key Vault](/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault)</br>[Upload private certificate](/azure/app-service/configure-ssl-certificate#upload-a-private-certificate)</br>[Upload public certificate](/azure/app-service/configure-ssl-certificate#upload-a-public-certificate)</br>[Configure SSL bindings](/azure/app-service/configure-ssl-bindings)|
+|[Azure Functions](/azure/azure-functions/) & [Apps](/azure/app-service)|[Buy custom domain name on Azure](/azure/app-service/manage-custom-dns-buy-domain)</br>[Map existing domain name](/app-service/app-service-web-tutorial-custom-domain)<br>[Map with Traffic Manager](/azure/app-service/configure-domain-traffic-manager)|[Create free managed certificate](/azure/app-service/configure-ssl-certificate#create-a-free-managed-certificate-preview)</br>[Import existing certificate from Key Vault](/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault)</br>[Upload private certificate](/azure/app-service/configure-ssl-certificate#upload-a-private-certificate)</br>[Upload public certificate](/azure/app-service/configure-ssl-certificate#upload-a-public-certificate)</br>[Configure SSL bindings](/azure/app-service/configure-ssl-bindings)|
 |[Container Instances](/azure/container-instances)||[Using sidecar container](/azure/container-instances/container-instances-container-group-ssl)|
 
 ## Next steps
