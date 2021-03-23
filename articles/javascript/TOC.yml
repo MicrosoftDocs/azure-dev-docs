@@ -153,6 +153,8 @@
         href: how-to/configure-web-app-settings.md
       - name: Write serverless code
         href: how-to/develop-serverless-apps.md
+      - name: Create static web app
+        href: how-to/create-static-web-app
       - name: Deploy a web app
       href: how-to/deploy-web-app.md
     - name: With Visual Studio Code

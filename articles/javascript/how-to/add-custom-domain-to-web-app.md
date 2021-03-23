@@ -34,16 +34,16 @@ The domain resource is a separate resource from the web app resource.
 
 ## Create a new web app service
 
-When creating one of the following, **do not select the free pricing tier**: 
+When creating one of the following types of web app, **do not select the free pricing tier**: 
 
-|Service|Instructions|
-|--|--|
-|[Azure app service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)|
-|[Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)||
+|Service|
+|--|
+|[Azure App service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)|
+|[Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)|
 
 ## Configure App Service for new domain
 
-1. Select the **Custom domains** setting, then select **+ Add custom domain**. 
+1. In the Azure portal, for your new web app, Select the **Custom domains** setting, then select **+ Add custom domain**. 
 
     :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png" alt-text="Select the **Custom domains** setting, then select **+ Add custom domain**. ":::
 
