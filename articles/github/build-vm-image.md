@@ -310,5 +310,5 @@ As a last step, create a virtual machine from your image.
               --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
 ```
 
-## Next Steps
+## Next steps
 - Learn how to [deploy to Azure](deploy-to-azure.md). 
