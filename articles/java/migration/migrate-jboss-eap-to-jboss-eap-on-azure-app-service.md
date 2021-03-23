@@ -28,27 +28,11 @@ Consider storing those secrets in Azure KeyVault. For more information, see [Azu
 
 [!INCLUDE [validate-that-the-supported-java-version-works-correctly-jboss-eap](includes/validate-that-the-supported-java-version-works-correctly-jboss-eap.md)]
 
-### Inventory JNDI resources
-
-Inventory all JNDI resources. Some, such as JMS message brokers, may require migration or reconfiguration.
+[!INCLUDE [inventory-external-resources](includes/inventory-external-resources-jboss.md)]
 
 ### Determine whether session replication is used
 
 If your application relies on session replication, you'll have to change your application to remove this dependency.
-
-#### Inside your application
-
-Inspect the *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml* files.
-
-### Document datasources
-
-If your application uses any databases, you need to capture the following information:
-
-* What is the datasource name?
-* What is the connection pool configuration?
-* Where can I find the JDBC driver JAR file?
-
-For more information, see [About JBoss EAP Datasources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
@@ -63,7 +47,6 @@ Any usage of the file system on the application server will require reconfigurat
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
 [!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/determine-whether-jms-queues-or-topics-are-in-use.md)]
-
 
 ### Determine whether JCA connectors are in use
 
@@ -94,11 +77,9 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 [!INCLUDE [setup-data-sources-and-deploy-app-service-jboss](includes/setup-data-sources-and-deploy-app-service-jboss.md)]
 
-
 ## Post-migration
 
 Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that we have some recommendations for you that can make your application more cloud-native.
-
 
 [!INCLUDE [post-migration-recomendations-app-service](includes/post-migration-recomendations-app-service.md)]
 
