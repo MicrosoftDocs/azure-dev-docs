@@ -1,12 +1,12 @@
 ---
 title: 'Create a Python app in Azure App Service on Linux'
-description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
+description: Part of Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
 robots: noindex
 ---
 
-# Quickstart: Create a Python app in Azure App Service 
+# Create a Python app in Azure App Service 
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](/azure/app-service/overview#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. 
 
