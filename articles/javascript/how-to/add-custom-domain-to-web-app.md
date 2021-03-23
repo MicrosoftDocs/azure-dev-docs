@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate.
 
-## Create a new App Service Domain
+## 1. Create a new App Service Domain
 
 The domain resource is a separate resource from the web app resource. 
 
@@ -32,7 +32,7 @@ The domain resource is a separate resource from the web app resource.
 
     The domain name is purchased for you and billed to your subscription.
 
-## Create a new web app service
+## 2. Create a new web app service
 
 |Service|
 |--|
@@ -42,7 +42,7 @@ The domain resource is a separate resource from the web app resource.
 1. Create a new resource using one of the links in the preceding table. 
 1. Do not create the resource using a free pricing tier. 
 
-## Configure App Service for new domain
+## 3. Configure App Service for new domain
 
 1. In the Azure portal, for your new web app, select the **Custom domains** setting, then select **+ Add custom domain**. 
 
@@ -53,7 +53,7 @@ The domain resource is a separate resource from the web app resource.
 
     :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-validate-custom-domain.png" alt-text="Select the **Add custom domain** to connect the domain name to the app service's IP address.":::
 
-## Create free managed private certificate
+## 4. Create free managed private certificate
 
 1. Select **TSL/SSL Settings** from the **Settings** area. 
 
@@ -69,7 +69,7 @@ The domain resource is a separate resource from the web app resource.
 
     This may take a minute or two to complete.
 
-## Add binding between certificate and domain
+## 5. Add binding between certificate and domain
 
 1. Select the **Custom domains** setting, then select **Add binding** for the new domain name. 
 
