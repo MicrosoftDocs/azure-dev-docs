@@ -1,6 +1,6 @@
 --- 
-title: Build custom Azure virtual machine images with GitHub Actions  
-description: Learn how to Build custom virtual machine images with Azure and GitHub Actions   
+title: Build custom virtual machine images with GitHub Actions and Azure  
+description: Learn how to build custom virtual machine images with GitHub Actions and Azure
 author: juliakm 
 ms.author: jukullam 
 ms.topic: quickstart
