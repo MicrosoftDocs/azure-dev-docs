@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Python app on Linux'
+title: 'Create a Python app in Azure App Service on Linux'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
