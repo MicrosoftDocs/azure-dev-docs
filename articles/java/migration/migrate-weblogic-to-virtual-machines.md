@@ -136,9 +136,7 @@ After you've connected the databases, you can configure JMS by following the ins
 
 ### Account for logging
 
-Use the integration with Elastic on Azure provided by the Oracle WebLogic Server offers in Azure Marketplace. This is the easiest way to account for logging.  A complete tutorial is provided in [Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution](migrate-weblogic-with-elk.md). You can see the list of offers in the overview article [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
-
-If the Elastic integration isn't appropriate, you should carry over the existing logging configuration when you migrate the domain. For more information, see [Configure java.util.logging logger levels](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/taskhelp/logging/ConfigureJavaLoggingLevels.html) and [Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wllog/index.html) in the Oracle documentation.
+The existing logging configuration should be carried over when the domain is migrated. For more information, see [Configure java.util.logging logger levels](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/taskhelp/logging/ConfigureJavaLoggingLevels.html) and [Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wllog/index.html)
 
 ### Migrating your application(s)
 
