@@ -83,6 +83,7 @@
 | @azure/iot-device-update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.2.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.2.1) |  |  |
+| @azure-tools/jsonschema | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.0.0) |  |  |
 | adl-vscode | npm [0.4.0](https://www.npmjs.com/package/adl-vscode/v/0.4.0) |  |  |
 | AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Anomaly Detector | npm [3.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.2) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme/) | GitHub [3.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.2/sdk/anomalydetector/ai-anomaly-detector/) |
