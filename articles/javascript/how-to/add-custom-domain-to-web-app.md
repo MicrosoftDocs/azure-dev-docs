@@ -1,5 +1,6 @@
 ---
 title: Secure JS website with domain and certificates
+titleSuffix: Azure 
 description:  Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. 
 ms.topic: how-to
 ms.date: 03/23/2021
@@ -65,7 +66,7 @@ The domain resource is a separate resource from the web app resource.
 
 1. Select the new domain name then select **Create**.
 
-    :::image type="content" source="../media/custom-domain/azure-portal-app-service-add-app-service-managed-certificate-create-certificate.png" alt-text="Select the new domain name then select **Create**.":::
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-add-app-service-create-managed-certificate.png" alt-text="Select the new domain name then select **Create**.":::
 
     This may take a minute or two to complete.
 
