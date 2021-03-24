@@ -31,7 +31,7 @@ While developing your MySQL database with JavaScript, use one of the following t
 
 The Azure MySQL uses npm packages already available, such as:
 
-* [MySQL](https://www.npmjs.com/package/MySQL)
+* [MySQL](https://www.npmjs.com/package/mysql)
 * [Promise-mysql](https://www.npmjs.com/package/promise-mysql)
 
 ## Use Promise-mysql SDK to connect to MySQL on Azure

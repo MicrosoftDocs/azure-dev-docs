@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/create-static-site.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
+    },
+    {
       "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
     },

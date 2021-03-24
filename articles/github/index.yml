@@ -34,6 +34,8 @@ landingContent:
             url: deploy-to-azure.md   
           - text: Deploy databases from GitHub to Azure
             url: database-actions-deploy.md 
+          - text: Build custom virtual images
+            url: build-vm-image.md
 
   # Card
   - title: Tools for interacting with GitHub Actions 
