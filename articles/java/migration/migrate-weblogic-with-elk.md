@@ -3,16 +3,13 @@ title: Tutorial Migrate a WebLogic Server Azure with Elastic Stack on Azure as t
 description: This tutorial walks you through deploying WebLogic Server to Azure with Elastic Stack on Azure as the logging solution
 author: edburns
 ms.author: edburns
-ms.topic: tutorial 
-ms.date: 03/10/2021
+ms.topic: tutorial
+ms.date: 03/24/2021
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
 
 This tutorial walks you through the process of deploying WebLogic Server (WLS) with Elastic on Azure. It covers the specific steps for creating a managed Elastic stack on Azure. First you deploy WLS to connect to that Elastic stack. Then you create the search index in the managed Kibana. Finally, you search the WLS logs from within Kibana. All of these elements are well documented individually in other documentation. This tutorial shows the specific way all of these elements come together to create a powerful log management solution for WLS on Azure.
-
-<!-- diagram source at https://github.com/wls-eng/arm-oraclelinux-wls/blob/master/src/main/resources/design/weblogic-elk.vsdx -->
-:::image type="content" border="false" source="media/migrate-weblogic-with-elk/weblogic-elk.png" alt-text="Diagram showing the relationship between WLS, and Elastic on Azure.":::
 
 In this tutorial, you learn how to:
 
@@ -24,13 +21,12 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An active Azure subscription.
-  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+* An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* The ability to deploy one of the WLS Azure Applications listed at [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 ## Create an Elastic on Azure instance
 
-Elastic on Azure is a service you can get from the Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add additional Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS.  The steps in the next sections will show how to provision Elastic on Azure with either option.
+Elastic on Azure is a service you can get from the Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add additional Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
 
 ### Elasticsearch managed service
 
@@ -40,7 +36,7 @@ Follow these steps to get access to Elasticsearch managed service.
 
 1. Select **Try Free**.
 
-1. Under **Elasticsearch** select **Launch on Elastic Cloud**.  If you already have an account, log in to it and continue to the next step.  If you do not have an account, fill in an email address and password and select **Create account**. The email address and this password are for you Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
+1. Under **Elasticsearch** select **Launch on Elastic Cloud**. If you already have an account, log in to it and continue to the next step.  If you do not have an account, fill in an email address and password and select **Create account**. The email address and this password are for you Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
 
    1. Click on the **Verify and Accept** button in the email.
    1. After logging in, select **Start your free trial**.
