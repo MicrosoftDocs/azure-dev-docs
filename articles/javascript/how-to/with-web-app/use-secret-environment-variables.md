@@ -23,58 +23,47 @@ Make sure the following are installed on your local developer workstation:
 
 ## Download sample Express.js repo 
 
-1. Using git, clone the Express.js sample repo to your local computer. 
+Using git, clone the Express.js sample repo to your local computer. 
 
-    ```bash
-    git clone https://github.com/Azure-Samples/js-e2e-express-server
-    ```
-
-1. Change to the new directory for the sample.
-
-    ```bash
-    cd js-e2e-express-server
-    ```
-
-1. Open the project in Visual Studio Code.
-
-    ```bash
+```bash
+git clone https://github.com/Azure-Samples/js-e2e-express-server && \
+    cd js-e2e-express-server && \
+    npm install && \
     code .
-    ```
-
-1. Open a new terminal in Visual Studio Code and install the project dependencies.
-
-    ```bash
-    npm install
-    ```
-
-## Create a Azure Resource group
-
-
+```
 
 ## Create a Key Vault resource
 
-Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
+Create the Key Vault resource with Azure CLI commands.
 
 
-1. Log in to the [Azure Cloud Shell](https://shell.azure.com). This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription. 
-1. Create a resource group for your Speech resource. 
+1. In the Visual Studio Code integrated terminal, log in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
+
+    ```azurecli
+    az login
+    ```
+ 
+1. Create a resource group for your resources. 
 
     ```azurecli
     az group create \
+        --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
         --location eastus \
-        --name tutorial-resource-group-eastus
+        --name REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME
     ```
 
-1. Create a Speech resource in the resource group.
+1. Create a Key Vault resource in the resource group.
 
     ```azurecli
-    az cognitiveservices account create \
-        --kind SpeechServices \
-        --location eastus \
-        --name tutorial-speech \
-        --resource-group tutorial-resource-group-eastus \
+    az keyvault create \
+        --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
+        --resource-group joansmith-demo-secrets-app-resource-group \
+        --name REPLACE_WITH_YOUR_KEY_VAULT_NAME \
         --sku F0
     ```
+
+
+
 
     This command will fail if your only free Speech resource has already been created. 
 
