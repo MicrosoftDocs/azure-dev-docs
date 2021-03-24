@@ -130,11 +130,11 @@ To test the build job and observe Azure Container Instances manually start a bui
 
 1. Click build **#1** in the **Build History**.
 
-    !["Console Output" view the build output from the console](./media/azure-container-instances-as-jenkins-build-agent/build-history.png)
+    !["Console Output" view the build output from the console in the Build History](./media/azure-container-instances-as-jenkins-build-agent/build-history.png)
 
 1. Select **Console Output** to view the builds output.
 
-    !["Console Output" view the build output from the console](./media/azure-container-instances-as-jenkins-build-agent/build-console-output.png)
+    !["Console Output" view the build output from the console in the builds output](./media/azure-container-instances-as-jenkins-build-agent/build-console-output.png)
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/03/2021
 ms.custom: devx-track-js
 ---
 
@@ -143,7 +143,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create keystore on resource|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
 |Create table on keystore|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
 |Get connection information|[Azure CLI](./with-azure-cli/create-cassandra-db.md#get-the-cassandra-connection-string-with-azure-cli)|
-|Use cassandra-driver API on Cosmos DB|[JavaScript](/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
+|Use cassandra-driver API on Cosmos DB|[JavaScript](/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
 
 ### MariaDB
 
@@ -176,7 +176,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
 |Create database on resource|[Azure CLI](./with-database/use-mysql-db.md#create-a-database-on-the-server-with-azure-cli)|
 |Get Connection string|[Azure CLI](./with-database/use-mysql-db.md#get-the-mysql-connection-string-with-azure-cli)|
-|Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/MySQL)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
+|Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/mysql)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
 |Use promise-mysql API|[JavaScript](./with-database/use-mysql-db.md#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
 
 ### PostgreSQL
@@ -189,6 +189,21 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Get connection string|[Azure CLI](./with-azure-cli/create-postgresql-server-resource.md#get-the-postgresql-connection-string-with-azure-cli)|
 |View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
 |Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)
+
+### SQL API on Cosmos DB
+
+* [Service documentation](/azure/cosmos-db/)
+* [@azure/cosmosdb](https://www.npmjs.com/package/@azure/cosmos) npm package
+
+|Task|using|
+|--|--|
+|Add firewall rule for your client IP address|[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#add-firewall-rule-for-your-client-ip-address)
+|Create Cosmos DB - SQL API resource|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#create-a-cosmos-db-resource-for-sql-api)|
+|Get Cosmos DB keys|[Azure CLI](./with-database/use-sql-api-as-cosmos-db.md#get-the-cosmos-db-keys-for-your-resource)|
+|Get Cosmos DB connection string|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|
+|View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
+|Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
+
 
 
 ## Git

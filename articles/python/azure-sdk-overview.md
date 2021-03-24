@@ -52,7 +52,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
   - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
 
-- For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_introduction.html).
+- For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_design.html#introduction).
 
 ## Provision and manage Azure resources with management libraries
 
