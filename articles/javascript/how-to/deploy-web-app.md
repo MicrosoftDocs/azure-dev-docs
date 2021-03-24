@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/24/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
@@ -18,10 +18,10 @@ For a complete overview of different hosting options, see [Decision tree for Azu
 
 
  Service |App type supported| Suggested for |
-|--|--|--|
-|[*App service](/azure/app-service/overview) - **recommended**|Client, Server, Client/Server, API, Server-render|Host your app from code or a container. This allows you to manage the web server without needing to manage the underlying environment.|
-|[(Preview) Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, Static front-end with server APIs|Host your static client app (such as Angular, Vue, React). Optionally add serverless function endpoints to host a full-stack app. This simple service abstracts away much of the web server, allowing you to focus on the features that matter to a client application. |
-|[Functions](/azure/azure-functions/)|Server API|Host your serverless API endpoints. Azure provides many templates known as triggers to bootstrap common scenarios.|
+|--|----------------------------|--|
+|[*App service](/azure/app-service/overview) - **recommended**|Client<br>Server<br>Client/Server<br>API<br>Server-render<br>Backend process|Host your app from code or a container. This allows you to **fully configure and manage** the web server without needing to manage the underlying environment.<br><br>[Quickstart: Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)|
+|[(Preview) Static Web apps](/azure/static-web-apps/)|Static front-end<br>Pre-render<br>Static front-end with server APIs<br>JAM|Host your static client app (such as Angular, Vue, React). Optionally add serverless function endpoints to host a full-stack app. This service abstracts away much of the web server, allowing you to **focus on the features that matter to a client application**.<br><br>[Quickstart: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)|
+|[Functions](/azure/azure-functions/)|Server API<br>Backend process<br>Triggered process|**Host your serverless API endpoints**. Azure provides many templates known as triggers to bootstrap common scenarios.<br><br>[Quickstart: Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
 
 ## Host web apps with more control
 
