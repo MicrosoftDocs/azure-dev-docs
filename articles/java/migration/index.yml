@@ -52,8 +52,6 @@ landingContent:
             url: migrate-weblogic-with-aad-ldap.md
           - text: WebLogic with App Gateway
             url: migrate-weblogic-with-app-gateway.md
-          - text: WebLogic with Elastic on Azure
-            url: migrate-weblogic-with-elk.md
   - title: Migrate WildFly to Azure
     linkLists:
       - linkListType: how-to-guide
