@@ -1,5 +1,5 @@
 ---
-title: Build static web app with JavaScript
+title: Build static web app on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
 ms.date: 08/20/2019
