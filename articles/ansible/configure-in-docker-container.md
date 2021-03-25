@@ -159,8 +159,8 @@ ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=ea
 
 ## Delete the Azure Resource Group
 
-**Delete** the resource group by adding `state: absent` to the argument list.
+**Delete** the resource group by adding `state=absent` to the argument list.
 
 ```bash
-ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus'
+ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus state=absent'
 ```
