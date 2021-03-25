@@ -51,7 +51,19 @@ Open the `Dockerfile` and copy the follow Docker commands into the file.
 ## [Ansible 2.9](#tab/ansible-2-9)
 
 ```dockerfile
-touch Dockerfile
+FROM ubuntu:18.04
+
+ENV ANSIBLE_VERSION 2.9.17
+
+RUN apt-get update; \
+    apt-get install -y wget; \
+    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb;\
+    apt install -y python3-pip; \
+    apt-get clean
+
+RUN pip3 install --upgrade pip; \
+    pip3 install "ansible==${ANSIBLE_VERSION}"; \
+    pip3 install ansible[azure]
 ```
 
 ## [Ansible 2.10](#tab/ansible-2-10)
@@ -113,10 +125,10 @@ export AZURE_TENANT=<tenantId>
 > [!TIP]
 > You can start the Ansible container with pre-populated environment variable using the `--env` option of the `docker run` command.
 
-## [bash](#tab/bash)
+## [Bash](#tab/bash)
 
 ```bash
- docker run -it --rm \
+ docker run -it \
 --env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" \
 --env "AZURE_CLIENT_ID=<Service_Principal_Application_ID>" \
 --env "AZURE_SECRET=<Service_Principal_Password>" \
