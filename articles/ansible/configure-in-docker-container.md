@@ -7,6 +7,8 @@ ms.date: 03/24/2021
 ms.custom: devx-track-ansible
 ---
 
+# Quickstart - Configure Ansible in a Docker Container
+
 This quick start shows you how to install Ansible running in a Docker container.
 
 In this article, you learn to:
@@ -30,11 +32,13 @@ In this article, you learn to:
 
 From the terminal, create a new `Dockerfile`.
 
-# [Bash](#tab/bash)
+## [Bash](#tab/bash)
+
 ```bash
 touch Dockerfile
 ```
-# [PowerShell](#tab/powershell)
+
+## [PowerShell](#tab/powershell)
 
 ```powershell
 New-Item Dockerfile
@@ -44,13 +48,13 @@ New-Item Dockerfile
 
 Open the `Dockerfile` and copy the follow Docker commands into the file.
 
-# [Ansible 2.9](#tab/ansible-2-9)
+## [Ansible 2.9](#tab/ansible-2-9)
 
 ```dockerfile
 touch Dockerfile
 ```
 
-# [Ansible 2.10](#tab/ansible-2-10)
+## [Ansible 2.10](#tab/ansible-2-10)
 
 ```dockerfile
 FROM ubuntu:18.04
@@ -109,7 +113,7 @@ export AZURE_TENANT=<tenantId>
 > [!TIP]
 > You can start the Ansible container with pre-populated environment variable using the `--env` option of the `docker run` command.
 
-# [bash](#tab/bash)
+## [bash](#tab/bash)
 
 ```bash
  docker run -it --rm \
@@ -120,7 +124,7 @@ export AZURE_TENANT=<tenantId>
 ansible
 ```
 
-# [PowerShell](#tab/powershell)
+## [PowerShell](#tab/powershell)
 
 ```powershell
 docker run -it `
