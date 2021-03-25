@@ -48,8 +48,7 @@ New-Item Dockerfile
 
 Open the `Dockerfile` and copy the follow Docker commands into the file.
 
-## [Ansible 2.9](#tab/ansible-2-9)
-
+# [Ansible 2.9](#tab/ansible-2-9)
 ```dockerfile
 FROM ubuntu:18.04
 
@@ -65,9 +64,7 @@ RUN pip3 install --upgrade pip; \
     pip3 install "ansible==${ANSIBLE_VERSION}"; \
     pip3 install ansible[azure]
 ```
-
 ## [Ansible 2.10](#tab/ansible-2-10)
-
 ```dockerfile
 FROM ubuntu:18.04
 
@@ -82,8 +79,8 @@ RUN pip3 install --upgrade pip; \
     rm requirements-azure.txt; \
     ansible-galaxy collection install azure.azcollection
 ```
-
 Version 2.10 of Ansible Azure's functionality is installed with collections instead of Ansible roles or modules.
+---
 
 ## Build an Ansible Docker Image
 
@@ -125,8 +122,7 @@ export AZURE_TENANT=<tenantId>
 > [!TIP]
 > You can start the Ansible container with pre-populated environment variable using the `--env` option of the `docker run` command.
 
-## [Bash](#tab/bash)
-
+# [Bash](#tab/bash)
 ```bash
  docker run -it \
 --env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" \
@@ -135,9 +131,7 @@ export AZURE_TENANT=<tenantId>
 --env "AZURE_TENANT=<Azure_Tenant>" \
 ansible
 ```
-
-## [PowerShell](#tab/powershell)
-
+# [PowerShell](#tab/powershell)
 ```powershell
 docker run -it `
 --env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" `
@@ -146,7 +140,6 @@ docker run -it `
 --env "AZURE_TENANT=<Azure_Tenant>" `
 ansible
 ```
-
 ---
 
 ## Create an Azure Resource Group with Ansible
