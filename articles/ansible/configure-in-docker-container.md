@@ -32,17 +32,15 @@ In this article, you learn to:
 
 From the terminal, create a new `Dockerfile`.
 
-## [Bash](#tab/bash)
-
+# [Bash](#tab/bash)
 ```bash
 touch Dockerfile
 ```
-
-## [PowerShell](#tab/powershell)
-
+# [PowerShell](#tab/powershell)
 ```powershell
 New-Item Dockerfile
 ```
+---
 
 ## Install Ansible with a Dockerfile
 
