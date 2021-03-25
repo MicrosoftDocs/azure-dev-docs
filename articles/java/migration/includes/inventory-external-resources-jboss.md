@@ -12,17 +12,9 @@ External resources, such as data sources, JMS message brokers, and others are in
 
 Inspect the *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml* files. Look for `<Resource>` elements inside the `<Context>` element.
 
-#### On the application server(s)
-
-Inspect the *$CATALINA_BASE/conf/context.xml* and *$CATALINA_BASE/conf/server.xml* files as well as the *.xml* files found in *$CATALINA_BASE/conf/[engine-name]/[host-name]* directories.
-
-In *context.xml* files, JNDI resources will be described by the `<Resource>` elements inside the top-level `<Context>` element.
-
-In *server.xml* files, JNDI resources will be described by the `<Resource>` elements inside the `<GlobalNamingResources>` element.
-
 #### Datasources
 
-Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataSource`. For each datasource, document the following information:
+Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataSource`. For each datasource,     document the following information:
 
 * What is the datasource name?
 * What is the connection pool configuration?
