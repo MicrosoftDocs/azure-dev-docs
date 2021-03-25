@@ -58,14 +58,14 @@ Create the Key Vault resource with Azure CLI commands.
     az keyvault create \
         --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
         --resource-group joansmith-demo-secrets-app-resource-group \
-        --name REPLACE_WITH_YOUR_KEY_VAULT_NAME \
-        --sku F0
+        --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
     ```
 
+    Your Azure account is the only one authorized to perform any operations on this new vault.. Make note of the output contains values for: 
+    * Vault Name: The name you provided to the --name parameter above.
+    * Vault URI: In the example, this is    `https://<your-unique-keyvault-name>.vault.azure.net/`. 
 
 
-
-    This command will fail if your only free Speech resource has already been created. 
 
 1. Use the command to get the key values for the new Speech resource. 
 
