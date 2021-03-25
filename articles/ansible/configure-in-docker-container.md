@@ -46,7 +46,8 @@ New-Item Dockerfile
 
 Open the `Dockerfile` and copy the follow Docker commands into the file.
 
-# [Ansible 2.9](#tab/ansible-2-9)
+**Ansible 2.9**
+
 ```dockerfile
 FROM ubuntu:18.04
 
@@ -62,7 +63,9 @@ RUN pip3 install --upgrade pip; \
     pip3 install "ansible==${ANSIBLE_VERSION}"; \
     pip3 install ansible[azure]
 ```
-# [Ansible 2.10](#tab/ansible-2-10)
+
+**Ansible 2.10**
+
 ```dockerfile
 FROM ubuntu:18.04
 
@@ -77,7 +80,6 @@ RUN pip3 install --upgrade pip; \
     rm requirements-azure.txt; \
     ansible-galaxy collection install azure.azcollection
 ```
----
 
 ## Build an Ansible Docker Image
 
