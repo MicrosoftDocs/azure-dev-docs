@@ -62,7 +62,7 @@ RUN pip3 install --upgrade pip; \
     pip3 install "ansible==${ANSIBLE_VERSION}"; \
     pip3 install ansible[azure]
 ```
-## [Ansible 2.10](#tab/ansible-2-10)
+# [Ansible 2.10](#tab/ansible-2-10)
 ```dockerfile
 FROM ubuntu:18.04
 
@@ -77,7 +77,6 @@ RUN pip3 install --upgrade pip; \
     rm requirements-azure.txt; \
     ansible-galaxy collection install azure.azcollection
 ```
-Version 2.10 of Ansible Azure's functionality is installed with collections instead of Ansible roles or modules.
 ---
 
 ## Build an Ansible Docker Image
