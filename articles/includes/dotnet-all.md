@@ -162,8 +162,8 @@
 | Custom Vision Training | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/2.0.0)<br>NuGet [2.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/2.1.0-preview) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training_2.0.0/sdk/cognitiveservices/Vision.CustomVision.Training) |
 | Data Lake Analytics | NuGet [1.4.200831](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.200831) |  |  |
 | Data Lake Storage | NuGet [1.2.5-alpha](https://www.nuget.org/packages/Microsoft.Azure.DataLake.Store/1.2.5-alpha) | [docs](/dotnet/api/overview/azure/data-lake-store) | GitHub [1.2.5-alpha](https://github.com/Azure/azure-data-lake-store-net/tree/1.2.3-alpha) |
-| DCAP | NuGet [1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.7.0) |  | GitHub [1.7.0](https://github.com/microsoft/Azure-DCAP-Client/tree/1.6) |
-| Devices Client | NuGet [1.35.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.35.0) |  |  |
+| DCAP | NuGet [1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.8.0) |  | GitHub [1.8.0](https://github.com/microsoft/Azure-DCAP-Client/tree/1.6) |
+| Devices Client | NuGet [1.36.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.36.0) |  |  |
 | Digital Twins - Core | NuGet [1.2.1](https://www.nuget.org/packages/Azure.DigitalTwins.Core/1.2.1) | [docs](/dotnet/api/overview/azure/DigitalTwins.Core-readme/) | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.2.1/sdk/digitaltwins/Azure.DigitalTwins.Core/) |
 | Document DB | NuGet [2.13.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/2.13.1) |  | GitHub [2.13.1](https://github.com/Azure/azure-cosmos-dotnet-v2) |
 | Document DB - Change Feed Processor | NuGet [2.3.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/2.3.2) |  | GitHub [2.3.2](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet/tree/master) |
@@ -217,7 +217,7 @@
 | Media Live Video Analytics Edge | NuGet [1.0.4-preview.1](https://www.nuget.org/packages/Microsoft.Azure.Media.LiveVideoAnalytics.Edge/1.0.4-preview.1) |  | GitHub [1.0.4-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mediaservices/Microsoft.Azure.Media.LiveVideoAnalytics.Edge) |
 | Metrics Advisor | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor/1.0.0-beta.3) | [docs](/dotnet/api/overview/azure/AI.MetricsAdvisor-readme-pre/) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0-beta.3/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/) |
 | Microsoft.Azure.Amqp | NuGet [2.4.11](https://www.nuget.org/packages/Microsoft.Azure.Amqp/2.4.11) |  |  |
-| Microsoft.Azure.Devices | NuGet [1.30.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.30.0) |  |  |
+| Microsoft.Azure.Devices | NuGet [1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.31.0) |  |  |
 | Microsoft.Azure.Devices.Client.PCL | NuGet [1.0.16](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client.PCL/1.0.16) |  |  |
 | Microsoft.Azure.Devices.DigitalTwin.Client | NuGet [1.0.0-preview-001](https://www.nuget.org/packages/Microsoft.Azure.Devices.DigitalTwin.Client/1.0.0-preview-001) |  |  |
 | Microsoft.Azure.Devices.DigitalTwin.Service | NuGet [1.0.0-preview-001](https://www.nuget.org/packages/Microsoft.Azure.Devices.DigitalTwin.Service/1.0.0-preview-001) |  |  |
