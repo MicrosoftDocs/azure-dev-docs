@@ -14,12 +14,10 @@ Store secrets in Azure Key Vault, then pull in those secrets programmatically fr
 ## Prepare your development environment
 
 Make sure the following are installed on your local developer workstation:
-* - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
-   [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
-- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Download sample Express.js repo 
 
@@ -61,24 +59,10 @@ Create the Key Vault resource with Azure CLI commands.
         --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
     ```
 
-    Your Azure account is the only one authorized to perform any operations on this new vault.. Make note of the output contains values for: 
-    * Vault Name: The name you provided to the --name parameter above.
-    * Vault URI: In the example, this is    `https://<your-unique-keyvault-name>.vault.azure.net/`. 
+    Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output contains values for: 
+    * **Vault Name**: The name you provided to the --name parameter above.
+    * **Vault URI**: In the example, this is `https://<your-unique-keyvault-name>.vault.azure.net/`. 
 
-
-
-1. Use the command to get the key values for the new Speech resource. 
-
-    ```azurecli
-    az cognitiveservices account keys list \
-        --name tutorial-speech \
-        --resource-group tutorial-resource-group-eastus \
-        --output table
-    ```
-
-1. Copy one of the keys. 
-
-    You use the key in the web form to authenticate to the Azure Speech service.
 
 ## Store secret environment variable in Key Vault resource
 
