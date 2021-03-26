@@ -140,7 +140,8 @@
 | azure-iot-provisioning-device-client | pypi [1.4.6](https://pypi.org/project/azure-iot-provisioning-device-client/1.4.6) |  |  |
 | azure-media-nspkg | pypi [1.0.0](https://pypi.org/project/azure-media-nspkg/1.0.0) |  |  |
 | azure-mgmt-azureadb2c | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-azureadb2c/1.0.0b1) |  |  |
-| azure-mgmt-deviceupdate | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-deviceupdate/1.0.0b1) |  |  |
+| azure-mgmt-deviceupdate | pypi [1.0.0b2](https://pypi.org/project/azure-mgmt-deviceupdate/1.0.0b2) |  |  |
+| azure-mgmt-extendedlocation | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-extendedlocation/1.0.0b1) |  |  |
 | azure-mgmt-healthbot | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-healthbot/1.0.0b1) |  |  |
 | azure-mgmt-portal | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-portal/1.0.0b1) |  |  |
 | azure-mgmt-purview | pypi [1.0.0b1](https://pypi.org/project/azure-mgmt-purview/1.0.0b1) |  |  |
