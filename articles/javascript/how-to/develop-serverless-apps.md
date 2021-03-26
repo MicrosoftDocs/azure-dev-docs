@@ -114,7 +114,7 @@ The portal creates JavaScript functions only, not TypeScript. If you want to dev
 
 ## Next steps
 
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
+The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) in a good starting point. 
 
 Use the Microsoft Learn Module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
 
