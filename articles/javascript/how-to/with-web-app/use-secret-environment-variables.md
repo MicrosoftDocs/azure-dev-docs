@@ -19,28 +19,17 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 1. Keep your MongoDB connection string from that tutorial. This article shows you how to store and use it with Azure Key Vault. 
 1. Make sure the following are installed on your local developer workstation:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Cosmos DB resource - created in 
-- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+    - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    - Cosmos DB resource - created in 
+    - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+    - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
+    - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
-
-## Download sample Express.js repo 
-
-Using git, clone the Express.js sample repo branch `keyvault` to your local computer, then install dependencies and open the project in Visual Studio Code. 
-
-```bash
-    git clone -b keyvault https://github.com/Azure-Samples/js-e2e-express-mongodb.git && \
-    cd js-e2e-express-mongodb && \
-    npm install && \
-    code .
-```
-
-## Login to Azure CLI
+## Log in to Azure CLI
 
 In the Visual Studio Code integrated terminal, log in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
+
+* [az Login](/cli/azure/reference-index#az_login)
 
 ```azurecli
 az login
@@ -48,7 +37,9 @@ az login
 
 ## Create an Azure resource group with Azure CLI
  
-Create a resource group for your resources to add a Key Vault secret to your Express.js app
+Create a resource group for your resources to add a Key Vault secret to your Express.js app.
+
+* [az group create](/cli/azure/group#az_group_create)
 
 ```azurecli
 az group create \
@@ -61,6 +52,8 @@ az group create \
 
 Create a Key Vault resource in the resource group, such as `joansmith-demo-secrets-app-resource-group`.
 
+* [az keyvault create](/cli/azure/keyvault#az_keyvault_create)
+
 ```azurecli
 az keyvault create \
     --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
@@ -69,18 +62,19 @@ az keyvault create \
 ```
 
 Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output values: 
-* **Vault Name**: The name you provided to the --name parameter above.
+* **Vault Name**: The name you provided to the `--name` parameter above.
 * **Vault URI**: The URL format is `https://<YOUR_KEY_VAULT_NAME>.vault.azure.net/`. 
 
 ## Create a service principal with Azure CLI
 
 The service principal allows you to create and use resources without having to use or expose your personal user account. The service principal is stored as an App Registration in Azure Active Directory. This sample uses the DefaultAzureCredential, which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 
+* [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+
 1. Create a service principal. 
 
     ```azurecli
     az ad sp create-for-rbac \
-    --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
     --name REPLACE-WITH-YOUR-NEW-APP-LOGICAL-NAME
     --skip-assignment 
     ```
@@ -91,17 +85,19 @@ The service principal allows you to create and use resources without having to u
  
     ```json
     {
-        "appId": "123456",
-        "displayName": "REPLACE-WITH-YOUR-NEW-APP-LOGICAL-NAME",
-        "name": "http://REPLACE-WITH-YOUR-NEW-APP-LOGICAL-NAME",
+        "appId": "YOUR-SERVICE-PRINCIPAL-APP-ID",
+        "displayName": "YOUR-NEW-APP-LOGICAL-NAME",
+        "name": "http://YOUR-NEW-APP-LOGICAL-NAME",
         "password": "!@#$%",
-        "tenant": "987654"
+        "tenant": "YOUR-TENANT-ID"
     }
     ```
 
 ## Give your service principal access to your key vault
 
-Give your service principal access to your Key Vault with Azure CLI command. The value for `REPLACE-WITH-YOUR-SERVICE-PRINCIPAL-APP-ID` is your service principal output's `appId` value. 
+Give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-APP-ID` is your service principal output's `appId` value. 
+
+* [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)
 
 ```azurecli
 az keyvault set-policy \
@@ -111,7 +107,7 @@ az keyvault set-policy \
 --secret-permissions get list
 ```
 
-This service principal will only get able to list all secrets or get a specific secret.
+This service principal will only be able to list all secrets or get a specific secret.
 
 ## Store your secret environment variable in Key Vault resource
 
@@ -128,6 +124,16 @@ az keyvault secret set \
 > [!NOTE]
 > `DATABASEURL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
 
+## Download sample Express.js mongoDB repo 
+
+Using git, clone the Express.js sample repo branch `keyvault` to your local computer, then install dependencies and open the project in Visual Studio Code. 
+
+```bash
+git clone -b keyvault https://github.com/Azure-Samples/js-e2e-express-mongodb.git && \
+cd js-e2e-express-mongodb && \
+npm install && \
+code .
+```
 
 ## Configure Express.js required environment variables to use Azure Identity
 
@@ -137,20 +143,20 @@ Set these environment variables in the `.env` file of the sample project to crea
 * `AZURE_CLIENT_ID`: The `appId` from the service principal output above.
 * `AZURE_CLIENT_SECRET`: The `password` from the service principal output above.
 
-When you deploy the application to Azure app service, you will also need to add this settings to your web app. 
+When you deploy the application to Azure app service, you will also need to add these settings to your web app. 
 
 > [!NOTE]
 > These variables names are keywords and must be uses as-is, without changes, in order for Azure Identity to work successfully.
 
 ## Configure Express.js required environment variables to use Azure Key Vault
 
-Set these environment variables in the `.env` file of the sample project to programmatical determine which Key Vault resource and secret to use.
+Set these environment variables in the `.env` file of the sample project to programmatically determine which Key Vault resource and secret to use.
 
 * `KEY_VAULT_NAME`: Same value as `REPLACE-WITH-YOUR-KEY-VAULT-NAME` used in previous commands.
 * `KEY_VAULT_SECRET_NAME_DATABASEURL`: The `appId` from the service principal output above.
 * `AZURE_CLIENT_SECRET`: The `password` from the service principal output above.
 
-When you deploy the application to Azure app service, you will also need to add this settings to your web app. 
+When you deploy the application to Azure app service, you will also need to add these settings to your web app. 
 
 > [!NOTE]
 > These variable names are sample-specific. You can change them but make sure to change them in the environment file, the source code file, and your deployed web app settings. 
@@ -173,9 +179,7 @@ When you deploy the application to Azure app service, you will also need to add 
 The sample code uses the following Azure SDKs:
 
 * [@azure/identity](https://www.npmjs.com/package/@azure/identity) - uses DefaultAzureCredential and your service principal to access resources on Azure.
-* [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) - used to manage use Key Vault secrets.
-
-The Express.js `data.js` file 
+* [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) - used to manage Key Vault secrets.
 
 ### Get secret from Key Vault with JavaScript
 
@@ -197,6 +201,30 @@ After you ensure your DefaultAzureCredential is correctly configured, as shown i
     
     :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="96-112" highlight="99":::
 
-## Clean up resources
+## Clean up resources - remove resource group
+
+Once you have completed this tutorial, you need to remove the resource group. 
+
+* [az group delete](/cli/azure/group#az_group_delete)
+
+```azurecli
+az group delete \
+--name REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME  -y
+```
+
+This command may take a few minutes. 
+
+## Clean up resources - remove service principal
+
+Delete your service principal. 
+
+* [az group delete](/cli/azure/ad/sp#az_ad_sp_delete)
+
+```azurecli
+az ad sp delete \
+--id REPLACE-WITH-YOUR-SERVICE-PRINCIPAL-APP-ID
+```
 
 ## Next steps
+
+* [Configure your Azure Web app](../how-to/configure-web-app-settings.md)
