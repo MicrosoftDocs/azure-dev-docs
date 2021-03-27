@@ -227,4 +227,4 @@ az ad sp delete \
 
 ## Next steps
 
-* [Configure your Azure Web app](../how-to/configure-web-app-settings.md)
+* [Configure your Azure Web app](../configure-web-app-settings.md)
