@@ -52,7 +52,7 @@ To connect and use your mongoDB on Azure Cosmos DB with JavaScript and mongodb, 
 
 1. Copy the following JavaScript code into `index.js`:
 
-    :::code language="javascript" source="~/../js-e2e//database/mongodb/index_mongodb.js" :::
+    :::code language="javascript" source="~/../js-e2e/database/mongodb/index_mongodb.js" :::
 
 1. Replace the following in the script with your resource information:
 
