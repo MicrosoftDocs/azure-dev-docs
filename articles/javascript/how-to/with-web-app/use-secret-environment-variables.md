@@ -117,11 +117,13 @@ This service principal will only get able to list all secrets or get a specific 
 
 Add your MongoDB connection string, created in the [prior tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md), as a secret named `DATABASEURL` to your key vault.
 
+```azurecli
 az keyvault secret set \
 --subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
 --vault-name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
 --name "DATABASEURL" \
 --value YOUR-COSMOS-DB-MONGODB-CONNECTION-STRING
+```
 
 > [!NOTE]
 > `DATABASEURL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
@@ -181,7 +183,7 @@ After you ensure your DefaultAzureCredential is correctly configured, as shown i
 
 1. The following `azure-keyvault.js` file gets the secret from your key vault.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/azure/azure-keyvault.js" range="76-113" highlight="91, 98,101":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/azure/azure-keyvault.js" range="76-113" highlight="91,98,101":::
 
 1. The following `data.js` file code pulls in the dependency for the key vault secret function, `getSecret`, and initializes the configuration object.
 
@@ -189,11 +191,11 @@ After you ensure your DefaultAzureCredential is correctly configured, as shown i
 
 1. The following `data.js` file code shows the `getConnection` function to get environment variables and call `getSecret` from `azure-keyvault.js`.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="18-46" highlight="28":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="15-43" highlight="25":::
 
 1. The following `data.js` file code calls the `getConnection` function, then returns the function to the Express.js `server.js` file. 
     
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="99-115" highlight="102":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="96-112" highlight="99":::
 
 ## Clean up resources
 
