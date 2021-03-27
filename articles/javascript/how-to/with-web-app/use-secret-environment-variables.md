@@ -61,16 +61,16 @@ az group create \
 
 Create a Key Vault resource in the resource group, such as `joansmith-demo-secrets-app-resource-group`.
 
-    ```azurecli
-    az keyvault create \
-        --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
-        --resource-group REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME \
-        --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
-    ```
+```azurecli
+az keyvault create \
+    --subscription REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID \
+    --resource-group REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME \
+    --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
+```
 
-    Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output values: 
-    * **Vault Name**: The name you provided to the --name parameter above.
-    * **Vault URI**: The URL format is `https://<YOUR_KEY_VAULT_NAME>.vault.azure.net/`. 
+Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output values: 
+* **Vault Name**: The name you provided to the --name parameter above.
+* **Vault URI**: The URL format is `https://<YOUR_KEY_VAULT_NAME>.vault.azure.net/`. 
 
 ## Create a service principal with Azure CLI
 
@@ -164,7 +164,7 @@ When you deploy the application to Azure app service, you will also need to add 
 1. Open the Express.js app in the browser: `http://localhost:8080`.
 1. You may have names and jobs from the previous tutorial. Interact with the app, adding names and jobs, deleting individual names and jobs, or deleting all names and jobs. 
 
-    :::image type="content" source="../media/key-vault/use-expressjs-with-key-vault-to-use-cosmos-db-connection.png" alt-text="Run and view Express.js app accessing your Key Vault resource to get the Cosmos DB connection string, then use the connection string to access the MongoDB database.":::
+    :::image type="content" source="../../media/key-vault/use-expressjs-with-key-vault-to-use-cosmos-db-connection.png" alt-text="Run and view Express.js app accessing your Key Vault resource to get the Cosmos DB connection string, then use the connection string to access the MongoDB database.":::
 
 ## Understand the sample application Key Vault code
 
@@ -181,19 +181,19 @@ After you ensure your DefaultAzureCredential is correctly configured, as shown i
 
 1. The following `azure-keyvault.js` file gets the secret from your key vault.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/keyvault/src/azure/azure-keyvault.js" range="76-113" highlight="91, 98,101:::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/azure/azure-keyvault.js" range="76-113" highlight="91, 98,101":::
 
 1. The following `data.js` file code pulls in the dependency for the key vault secret function, `getSecret`, and initializes the configuration object.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/keyvault/src/data.js" range="7-8":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="7-8":::
 
 1. The following `data.js` file code shows the `getConnection` function to get environment variables and call `getSecret` from `azure-keyvault.js`.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/keyvault/src/data.js" range="18-46" highlight="28":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="18-46" highlight="28":::
 
 1. The following `data.js` file code calls the `getConnection` function, then returns the function to the Express.js `server.js` file. 
     
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/keyvault/src/data.js" range="99-115" highlight="102":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="99-115" highlight="102":::
 
 ## Clean up resources
 
