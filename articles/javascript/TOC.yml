@@ -143,10 +143,20 @@
       href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
-    - name: Configure your app
-      href: how-to/configure-web-app-settings.md
-    - name: Tasks for JavaScript developers
+    - name: Azure Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
+    - name: With web apps
+      items: 
+      - name: Create web app with secure domain name
+        href: how-to/add-custom-domain-to-web-app.md
+      - name: Configure your web app
+        href: how-to/configure-web-app-settings.md
+      - name: Write serverless code
+        href: how-to/develop-serverless-apps.md
+      - name: Create static web app
+        href: how-to/create-static-web-app.md
+      - name: Deploy a web app
+        href: how-to/deploy-web-app.md
     - name: With Visual Studio Code
       items: 
       - name: Install and debug local project
@@ -195,16 +205,10 @@
         href: how-to/with-database/use-postgresql-db.md
       - name: SQL API on Cosmos DB
         href: how-to/with-database/use-sql-api-as-cosmos-db.md
-    - name: Deploy a web app
-      href: how-to/deploy-web-app.md
     - name: Deploy containers
       href: how-to/deploy-containers.md
     - name: Integrate with databases
       href: how-to/integrate-database.md
-    - name: Write serverless code
-      href: how-to/develop-serverless-apps.md
-    - name: Create a static (JAMstack) site
-      href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
     - name: Automate with Azure CLI
