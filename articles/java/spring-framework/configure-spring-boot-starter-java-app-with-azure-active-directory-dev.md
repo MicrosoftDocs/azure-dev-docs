@@ -456,7 +456,7 @@ Please follow [instructions here] to build from source or contribute.
 [prerequisite]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#prerequisites
 [Accessing a web application]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#accessing-a-web-application
 [build-developing-version-artifacts-if-needed]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/ENVIRONMENT_CHECKLIST.md#use-development-version
-[azure-sovereign-or-national-cloud]: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-national-cloud
+[azure-sovereign-or-national-cloud]: https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud
 
 <!-- IMG List -->
 
