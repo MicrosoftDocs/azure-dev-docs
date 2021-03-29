@@ -56,16 +56,7 @@ Open the `src/main/resources/META-INF/persistence.xml` file for your app and fin
 ```
 
 #### Repackage and Redeploy
-Repackage and redeploy using the CLI commands below.
+Repackage and redeploy using the same steps used to build and deploy.
 
-##### Powershell
-```powershell
-mvn clean install -DskipTests
-Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <application>.war
-```
+[!INCLUDE [build-and-deploy-war-to-app-service](includes/build-and-deploy-war-to-app-service.md)]
 
-##### Bash
-```bash
-mvn clean install -DskipTests
-curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
-```
