@@ -77,6 +77,9 @@ The following steps walk you through creating an SSH key pair.
     az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
     ```
 
+> [!NOTE]
+> The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
+
 ## Connect to your virtual machine via SSH
 
 Using the SSH command, connect to your virtual machine's public IP address.
@@ -130,7 +133,7 @@ Configure the Ansible credentials using one of the following techniques:
 
 #### <span id="file-credentials"/> Option 1 - Create Ansible credentials file
 
-In this section, you create a local credentials file to provide credentials to Ansible.
+In this section, you create a local credentials file to provide credentials to Ansible. For security reasons, credential files should only be used in development environments.
 
 For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/latest/scenario_guides/guide_azure.html).
 
@@ -152,9 +155,6 @@ For more information about defining Ansible credentials, see [Providing Credenti
     ```
 
 1. Save and close the file.
-
-> [!WARNING]
-> For security reasons, credential files should only be used in development environments.
 
 #### <span id="env-credentials"/> Option 2 - Define Ansible environment variables
 
