@@ -91,12 +91,6 @@ Replace the placeholders with the appropriate values returned in pervious comman
 
 Run the following commands to configure Ansible on Centos:
 
-<br>
-
-<details>
-
-<summary><code>configure-ansible-centos.sh</code></summary>
-
 ```bash
 #!/bin/bash
 
@@ -121,8 +115,6 @@ wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirement
 # Install Ansible modules
 sudo pip3 install -r requirements-azure.txt
 ``````
-
-</details>
 
 ## Create Azure credentials
 
