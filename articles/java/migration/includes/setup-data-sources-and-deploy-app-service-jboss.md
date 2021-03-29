@@ -55,8 +55,5 @@ Open the `src/main/resources/META-INF/persistence.xml` file for your app and fin
     <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
 ```
 
-#### Repackage and Redeploy
-Repackage and redeploy using the same steps used to build and deploy.
-
-[!INCLUDE [build-and-deploy-war-to-app-service](includes/build-and-deploy-war-to-app-service.md)]
+[!INCLUDE [build-and-deploy-war-to-app-service](build-and-deploy-war-to-app-service.md)]
 
