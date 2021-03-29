@@ -295,7 +295,7 @@ Here are some examples about how to use these properties:
 
 #### Property example 1: Use [Azure China] instead of Azure Global.
 
-With this method, you can use an [Azure sovereign or national cloud](azure-sovereign-or-national-cloud) rather than the Azure public cloud.
+With this method, you can use an [Azure sovereign or national cloud][azure-sovereign-or-national-cloud] rather than the Azure public cloud.
 
 * Step 1: Add property in application.yml
 ```yaml
@@ -456,6 +456,7 @@ Please follow [instructions here] to build from source or contribute.
 [prerequisite]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#prerequisites
 [Accessing a web application]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#accessing-a-web-application
 [build-developing-version-artifacts-if-needed]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/ENVIRONMENT_CHECKLIST.md#use-development-version
+[azure-sovereign-or-national-cloud]: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-national-cloud
 
 <!-- IMG List -->
 
