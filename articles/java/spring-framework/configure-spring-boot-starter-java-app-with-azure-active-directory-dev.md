@@ -159,7 +159,7 @@ public String graph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2AuthorizedC
 Here, `graph` is the client name configured in step 2. OAuth2AuthorizedClient contains access_token. 
 access_token can be used to access resource server.
 
-### Accessing a resource server
+### Protecting a resource server/API
 This scenario not support login. Just protect the server by validating the access_token, and if valid, serves the request.
 
 **System diagram**:
@@ -294,6 +294,8 @@ This starter provides following properties:
 Here are some examples about how to use these properties:
 
 #### Property example 1: Use [Azure China] instead of Azure Global.
+
+With this method, you can use an [Azure sovereign or national cloud](azure-sovereign-or-national-cloud) rather than the Azure public cloud.
 
 * Step 1: Add property in application.yml
 ```yaml
@@ -453,7 +455,7 @@ Please follow [instructions here] to build from source or contribute.
 [register_an_application_in_portal]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app
 [prerequisite]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#prerequisites
 [Accessing a web application]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-starter-active-directory#accessing-a-web-application
-[build-developing-version-artifacts-if-needed]: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/build-developing-version-artifacts-if-needed.md
+[build-developing-version-artifacts-if-needed]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/ENVIRONMENT_CHECKLIST.md#use-development-version
 
 <!-- IMG List -->
 
