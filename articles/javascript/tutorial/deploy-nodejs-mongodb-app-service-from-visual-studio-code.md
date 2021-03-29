@@ -43,7 +43,7 @@ The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mong
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
     - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-
+    - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
 ## Create a Cosmos DB database resource for MongoDB
 
 Create a Cosmos resource first because this will take several minutes. 
