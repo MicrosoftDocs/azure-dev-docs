@@ -13,16 +13,30 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault)
 
+This article continues a previous tutorial that stored the Cosmos DB connection string as:
+
+* Local environment variable in `.env`
+* Azure app setting
+
+This document shows how to move that secret into Azure Key Vault and use the secret in your web app:
+
+* Local and Azure app - use Key Vault secret
+
 ## Prepare your development environment
 
 1. Complete the [Express.js with Cosmos DB tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md). 
-1. Keep your MongoDB connection string from that tutorial. This article shows you how to store and use it with Azure Key Vault. 
+
 1. Make sure the following are installed on your local developer workstation:
 
     - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-    - Cosmos DB resource - created in 
+    - Azure resources already created in [previous tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) 
+        - Cosmos DB resource 
+        - App service  
     - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
     - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
+    - Visual Studio Code extensions:
+        - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
+        - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
     - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Log in to Azure CLI
