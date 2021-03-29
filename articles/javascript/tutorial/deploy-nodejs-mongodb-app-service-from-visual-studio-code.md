@@ -2,13 +2,13 @@
 title: Deploy Express.js/MongoDB app with VSCode - App Service/Cosmos DB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
-ms.date: 03/29/2021
+ms.date: 01/12/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ---
 
 # Deploy Express.js MongoDB app to App Service from Visual Studio Code
 
-Deploy the Express.js application, which connects to MongoDB to Azure App Service (on Linux) and a Cosmos DB. 
+Deploy the Express.js application which connects to MongoDB to Azure App Service (on Linux) and a Cosmos DB. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
@@ -61,7 +61,7 @@ Create a Cosmos resource first because this will take several minutes.
     |Property|Value|
     |--|--|
     |Enter a globally unique **Account name** name for the new resource.| Enter a value such as `cosmos-mongodb-YOUR-NAME`, for your resource. Replace `YOUR-NAME` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
-    |Select or create a resource group.|Create a new resource group named `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`.|
+    |Select or create a resource group.|If you need to create a resource group, use a naming convention that identifies the owner, purpose, and region such as `westus-cosmostutorial-joesmith`.|
     |Location|The location of the resource. For this tutorial, select a regional location close to you.|
 
     Creating the resource may take up to 15 minutes. You can move skip the next section if you are time-restricted but remember to back to finish this next section in a few minutes.
@@ -72,30 +72,30 @@ While still in the Azure Databases explorer, right-click the resource name, the 
 
 :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/vscode-databases-extenion-copy-connection-string.png" alt-text="Express.js web app form and data results from local MongoDB.":::
 
-## Clone the sample Express.js app
+## Download and run the sample Express.js app
 
-The Express.js web app is provided for you. Clone the app with git, then install the dependencies and run the app. 
+The Express.js web app is provided for you. Download the app, install the dependencies and run the app. 
 
-1. Clone the sample repo, install the dependencies, then open the project in Visual Studio Code. 
+1. [Download the zipped GitHub repo](https://github.com/Azure-Samples/js-e2e-express-mongo.git) to your local computer then expand to a folder. 
+1. Open the folder with Visual Studio Code. You can either right-click on the folder and select **Open with Code** or use the CLI equivalent when inside the folder:
 
     ```bash
-    git clone https://github.com/Azure-Samples/js-e2e-express-mongo.git && \
-    cd js-e2e-express-mongo && \
-    npm install && \
     code .
     ```
-  
 
 1. Edit the environment file, `.env`, adding the connection string property for your Cosmos DB as the `DATABASE_URL` property's value. 
 
     ```bash
-    DATABASE_URL=ADD-YOUR-CONNECTION-STRING_HERE
+    ENVIRONMENT=development
+    DATABASE_NAME=
+    DATABASE_COLLECTION_NAME=
+    DATABASE_URL=
     ```
 
 1. In Visual Studio Code, open a terminal window, and run the following commands to install the sample's dependencies and start the web app.
 
     ```bash
-    npm start
+    npm install && npm start
     ```
 
 1. View the web app on your local computer in a browser.
@@ -110,7 +110,7 @@ The Express.js web app is provided for you. Clone the app with git, then install
 
 Use the Visual Studio Code extension for App Service to create an App service resource and deploy the Express.js web app to the resource.
 
-1. Navigate to the Azure explorer. Right-click on the subscription then select `Create new web app...(Advanced)`.
+1. Navigate to the Azure explorer. Right-click on the subscription then select `Create new web app...`.
 
     :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/create-web-app-with-extension.png" alt-text="Partial screenshot of Visual Studio Code using Azure App service extension to create a web app.":::
 
@@ -119,13 +119,7 @@ Use the Visual Studio Code extension for App Service to create an App service re
     |Property|Value|
     |--|--|
     |Enter a globally unique name for the new web app.| Enter a value such as `web-app-with-mongodb-YOUR-NAME`, for your App service resource. Replace `<YOUR-NAME>` with your name or unique ID. This unique name is also used as part of the URL to access the resource in a browser.|
-    |Select a resource group for new resources.|Select the resource group you created for your Cosmos DB resource, `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`, replacing `YOUR-NAME-HERE` with your name or email alias.|
     |Select a runtime for the Linux app.|Select `Node 12 LTS`.|
-    |Select an OS.|Select Linux.|
-    |Create a Linux App Service Plan.|Create a new service plan named `js-demo-mongodb-web-app-plan-YOUR-NAME-HERE`, replacing `YOUR-NAME-HERE` with your name or email alias.|
-    |Select a pricing tier|Free|
-    |Select an Application Insights resource.|Skip for now.|
-    |Select a location for new resources.|Select the same location you selected when creating your Cosmos DB resource and resource group.|
 
 1. When the app creation process is complete, a status message appears at the bottom right-corner of Visual Studio Code with a choice of `Deploy` or  `View output`. Select `Deploy`.
 
@@ -150,9 +144,10 @@ Make a few changes and [redeploy](../how-to/deploy-web-app.md#deploy-or-redeploy
 
 ## Clean up resources 
 
-Once you have completed this tutorial, you need to remove the resources created, to make sure you are not billed. 
+Once you have completed this tutorial, you need to remove the two resources created, to make sure you are not billed. 
 
-In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on the resource group, such as `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`, replacing `YOUR-NAME-HERE` with your name or email alias, then select **Delete...**
+1. In Visual Studio Code, use the Azure explorer for Databases, right-click on the resource then select **Delete Account...**.
+1. In Visual Studio Code, use the Azure explorer for App Service, right-click on the resource then select **Delete**.
 
 ## Next steps
 
