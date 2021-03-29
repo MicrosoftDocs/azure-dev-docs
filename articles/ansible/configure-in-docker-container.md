@@ -123,7 +123,7 @@ export AZURE_TENANT=<tenantId>
 
 # [Bash](#tab/bash)
 ```bash
- docker run -it \
+docker run -it \
 --env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" \
 --env "AZURE_CLIENT_ID=<Service_Principal_Application_ID>" \
 --env "AZURE_SECRET=<Service_Principal_Password>" \
