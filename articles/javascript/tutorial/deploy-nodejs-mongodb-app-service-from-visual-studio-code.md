@@ -181,7 +181,7 @@ Make a few changes and [redeploy](../how-to/deploy-web-app.md#deploy-or-redeploy
 
 ## Clean up resources 
 
-Once you have completed this tutorial, you need to remove the resources created, to make sure you are not billed. 
+Once you have completed this tutorial, remove the resources. 
 
 In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on the resource group, such as `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`, replacing `YOUR-NAME-HERE` with your name or email alias, then select **Delete...**
 
