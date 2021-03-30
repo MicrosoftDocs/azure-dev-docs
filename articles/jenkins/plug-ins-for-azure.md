@@ -23,7 +23,7 @@ Many Azure services and features are accessible via Jenkins plug-ins. These serv
 | [Azure Container Agents](https://plugins.jenkins.io/azure-container-agents) | Azure Container Agents plug-in can help you to run a container as an agent in Jenkins | Retiring on February 29, 2024 |  Yes |
 | [Azure Container Registry Task](https://plugins.jenkins.io/azure-container-registry-tasks)       | Jenkins plug-in to send a docker-build request to [Azure Container Registry](/azure/container-registry/container-registry-tasks-overview). | Retiring on February 29, 2024 | |
 | [Azure Container Service](https://plugins.jenkins.io/azure-acs)             | Jenkins plug-in to deploy configurations to Azure Container Service (AKS). | Retiring on February 29, 2024 |  |
-| [Azure Credential](https://plugins.jenkins.io/azure-credentials)            | Jenkins plug-in to manage Azure credentials. | Retiring on February 29, 2024 |  | Yes |
+| [Azure Credential](https://plugins.jenkins.io/azure-credentials)            | Jenkins plug-in to manage Azure credentials. | Retiring on February 29, 2024 | Yes |
 | [Azure Function](https://plugins.jenkins.io/azure-function)                 | Jenkins plug-in to deploy an Azure Function. | Retiring on February 29, 2024 |  |
 | [Azure Storage](https://plugins.jenkins.io/windows-azure-storage)           | plug-in for uploading build artifacts to, or downloading build dependencies from, Microsoft Azure Blob storage. | Retiring on February 29, 2024 | Yes |
 | [Azure VM agents](https://plugins.jenkins.io/azure-vm-agents)               | Jenkins plug-in to create Jenkins agents in Azure virtual machines (via Azure Resource Manager template). | Retiring on February 29, 2024 | Yes |
