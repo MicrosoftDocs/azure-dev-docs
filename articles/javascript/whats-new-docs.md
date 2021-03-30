@@ -15,16 +15,16 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ### What's new
 
-|Name|Notes|
-|---------------------------------------|--|
-|[Secure JavaScript websites with **custom domains and certificates**](./how-to/add-custom-domain-to-web-app.md)|Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. |
-|[Store and use **Azure Key Vault** secrets in Express.js app](./how-to/add-custom-domain-to-web-app.md)|Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. Includes [full source code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault).|
-|[Add **search functionality** to a Static Web app](/azure/search/tutorial-javascript-overview.md)|This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. Includes [full source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website).|
+|Name|
+|---------------------------------------|
+|[Secure JavaScript websites with **custom domains and certificates**](./how-to/add-custom-domain-to-web-app.md)<br><br>Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. |
+|[Store and use **Azure Key Vault** secrets in Express.js app](./how-to/add-custom-domain-to-web-app.md)<br><br>Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. Includes [full source code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault).|
+|[Add **search functionality** to a Static Web app](/azure/search/tutorial-javascript-overview.md)<br><br>This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. Includes [full source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website).|
 
 ### What's updated
 
-|Name|Notes|
-|---------------------------------------|--|
+|Name|
+|---------------------------------------|
 |[Install and manage Node.js for Azure development](./core/install-nodejs-develop-azure-sdk-project.md)|
 |[Deploy Express.js MongoDB app to App Service from Visual Studio Code](./tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|
 
