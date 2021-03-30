@@ -13,20 +13,11 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault)
 
-This article continues a previous tutorial that stored the Cosmos DB connection string as:
-
-* Local environment variable in `.env`
-* Cloud environment in Azure app setting
-
-This document shows how to move that secret into Azure Key Vault and use the secret in your web app:
-
-* Local and Azure app - use Key Vault secret
-
 ## Prepare your development environment
 
 1. Complete the [Express.js with Cosmos DB tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md). 
 
-    You should have an Azure web app to deploy the Express.js app to and a Cosmos DB database to store data. 
+    When you complete the previous tutorial, you should have an Azure web app to deploy the Express.js app to and a Cosmos DB database to store data. 
 
 1. Make sure the following are installed on your local developer workstation:
 
@@ -39,8 +30,6 @@ This document shows how to move that secret into Azure Key Vault and use the sec
     - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - Visual Studio Code extensions:
         - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
-        - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-        - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Log in to Azure CLI
@@ -74,7 +63,7 @@ Your Azure account is the only one authorized to perform any operations on this 
 
 The [service principal](/azure/active-directory/develop/app-objects-and-service-principals) allows you to create and use resources without having to use or expose your personal user account. The service principal is stored as an App Registration in Azure Active Directory. 
 
-This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
+This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 
 * [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 
@@ -199,7 +188,7 @@ Complete this section using VS Code and the App Service extension.
 
     |Setting to add|
     |--|
-    |KEY_VAULT_NAME|
+    |KEY_VAULT_NAME: |
     |KEY_VAULT_SECRET_NAME_DATABASEURL: `DATABASEURL`|
     |AZURE_TENANT_ID=|
     |AZURE_CLIENT_ID=|
@@ -218,9 +207,11 @@ Complete this section using VS Code and the App Service extension.
 
 ## What Changed in the keyvault branch?
 
-The original tutorial stored the database connection string in the `.env` file locally and in the App Settings in your Azure web app. Anyone would had access to your local workstation or your remote Azure app service would be able to see and use your Cosmos DB connection string. 
+The original tutorial stored the database connection string in the `.env` file locally and in the App Settings in your Azure web app. Anyone who had access to your local workstation or your remote Azure app service would be able to see and use your Cosmos DB connection string. 
 
+This branch of the sample changes from using the environment variables to getting those values from key vault in the [./src/azure/azure-kevault.js](https://github.com/Azure-Samples/js-e2e-express-mongodb/blob/keyvault/src/azure/azure-keyvault.js) file. 
 
+The authentication to connect to Key Vault uses the DefaultAzureCredential. The benefit of this is that the code doesn't need to use or store credentials to your key vault. 
 
 ## Understand the sample application Key Vault code
 
@@ -266,11 +257,11 @@ This command may take a few minutes.
 
 Delete your service principal. 
 
-* [az group delete](/cli/azure/ad/sp#az_ad_sp_delete)
+* [az ad sp delete](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_delete)
 
 ```azurecli
 az ad sp delete \
---id REPLACE-WITH-YOUR-SERVICE-PRINCIPAL-APP-ID
+--id YOUR-SERVICE-PRINCIPAL-ID
 ```
 
 ## Next steps
