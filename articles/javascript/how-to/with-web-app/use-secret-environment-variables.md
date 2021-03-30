@@ -36,15 +36,17 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
 In the Visual Studio Code integrated terminal, log in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
 
+Use the [az Login](/cli/azure/reference-index#az_login) command to login. 
+
 ```azurecli
 az login
 ```
 
-[Reference documentation: az Login](/cli/azure/reference-index#az_login)
+
 
 ## Create a Key Vault resource with Azure CLI
 
-Create a Key Vault resource in the resource group.
+Use the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command to create a Key Vault resource in the resource group.
 
 ```azurecli
 az keyvault create \
@@ -52,8 +54,6 @@ az keyvault create \
     --resource-group REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME \
     --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
 ```
-
-[Reference documentation: az keyvault create](/cli/azure/keyvault#az_keyvault_create)
 
 Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output values: 
 * **Vault Name**: The name you provided to the `--name` parameter above.
@@ -65,7 +65,7 @@ The [service principal](/azure/active-directory/develop/app-objects-and-service-
 
 This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 
-1. Create a service principal. 
+1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command to create a service principal. 
 
     ```azurecli
     az ad sp create-for-rbac \
@@ -75,7 +75,7 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
     An example service principal name is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string. 
 
-    [Reference documentation: az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+    
 
 1. Capture and save the service principal output results of the command to use later.
  
@@ -91,7 +91,7 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
 ## Give your service principal access to your key vault
 
-Give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-ID` is your service principal output's `appId` value. 
+Use the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command to give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-ID` is your service principal output's `appId` value. 
 
 ```azurecli
 az keyvault set-policy \
@@ -103,11 +103,9 @@ az keyvault set-policy \
 
 This service principal will only be able to list all secrets or get a specific secret.
 
-[Reference documentation: az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)
-
 ## Store your secret environment variable in Key Vault resource
 
-Add your MongoDB connection string, created in the [prior tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md), as a secret named `DATABASEURL` to your key vault.
+Use the [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command to add your MongoDB connection string, created in the [prior tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md), as a secret named `DATABASEURL` to your key vault.
 
 ```azurecli
 az keyvault secret set \
@@ -119,8 +117,6 @@ az keyvault secret set \
 
 > [!NOTE]
 > `DATABASEURL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
-
-[Reference documentation: az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set)
 
 ## Download sample Express.js mongoDB repo 
 
@@ -244,7 +240,7 @@ After you ensure your DefaultAzureCredential is correctly configured with the re
 
 ## Clean up resources - remove resource group
 
-Once you have completed this tutorial, you need to remove the resource group. 
+Once you have completed this tutorial, you need to remove the resource group with the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli
 az group delete \
@@ -253,18 +249,15 @@ az group delete \
 
 This command may take a few minutes. 
 
-[Reference documentation: az group delete](/cli/azure/group#az_group_delete)
-
 ## Clean up resources - remove service principal
 
-Delete your service principal. 
+Delete your service principal with the 
+[az ad sp delete](/cli/azure/ad/sp#az_ad_sp_delete) command. 
 
 ```azurecli
 az ad sp delete \
 --id YOUR-SERVICE-PRINCIPAL-ID
 ```
-
-[Reference documentation: az ad sp delete](/cli/azure/ad/sp#az_ad_sp_delete)
 
 ## Next steps
 
