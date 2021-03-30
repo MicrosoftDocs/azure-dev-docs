@@ -257,7 +257,7 @@ This command may take a few minutes.
 
 Delete your service principal. 
 
-* [az ad sp delete](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_delete)
+* [az ad sp delete](/cli/azure/ad/sp#az_ad_sp_delete)
 
 ```azurecli
 az ad sp delete \
