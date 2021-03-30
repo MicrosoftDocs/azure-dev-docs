@@ -17,7 +17,7 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
 1. Complete the [Express.js with Cosmos DB tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md). 
 
-    When you complete the previous tutorial, you should have an Azure web app to deploy the Express.js app to and a Cosmos DB database to store data. 
+    When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
 
 1. Make sure the following are installed on your local developer workstation:
 
@@ -29,24 +29,22 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
     - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
     - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - Visual Studio Code extensions:
-        - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code (installed from within Visual Studio Code).
+        - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
     - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Log in to Azure CLI
 
 In the Visual Studio Code integrated terminal, log in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
 
-* [az Login](/cli/azure/reference-index#az_login)
-
 ```azurecli
 az login
 ```
 
+[Reference documentation: az Login](/cli/azure/reference-index#az_login)
+
 ## Create a Key Vault resource with Azure CLI
 
 Create a Key Vault resource in the resource group.
-
-* [az keyvault create](/cli/azure/keyvault#az_keyvault_create)
 
 ```azurecli
 az keyvault create \
@@ -54,6 +52,8 @@ az keyvault create \
     --resource-group REPLACE_WITH_YOUR_RESOURCE_GROUP_NAME \
     --name REPLACE_WITH_YOUR_KEY_VAULT_NAME
 ```
+
+[Reference documentation: az keyvault create](/cli/azure/keyvault#az_keyvault_create)
 
 Your Azure account is the only one authorized to perform any operations on this new vault. Make note of the output values: 
 * **Vault Name**: The name you provided to the `--name` parameter above.
@@ -65,8 +65,6 @@ The [service principal](/azure/active-directory/develop/app-objects-and-service-
 
 This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 
-* [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
-
 1. Create a service principal. 
 
     ```azurecli
@@ -76,6 +74,8 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
     ```
 
     An example service principal name is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string. 
+
+    [Reference documentation: az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 
 1. Capture and save the service principal output results of the command to use later.
  
@@ -93,8 +93,6 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
 Give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-ID` is your service principal output's `appId` value. 
 
-* [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)
-
 ```azurecli
 az keyvault set-policy \
 --subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
@@ -104,6 +102,8 @@ az keyvault set-policy \
 ```
 
 This service principal will only be able to list all secrets or get a specific secret.
+
+[Reference documentation: az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)
 
 ## Store your secret environment variable in Key Vault resource
 
@@ -119,6 +119,8 @@ az keyvault secret set \
 
 > [!NOTE]
 > `DATABASEURL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
+
+[Reference documentation: az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set)
 
 ## Download sample Express.js mongoDB repo 
 
@@ -200,9 +202,9 @@ Complete this section using VS Code and the App Service extension.
     |--|
     |DATABASE_URL: `DATABASEURL`|
 
-1. Right-click your web app name then select **Restart**.
+1. Right-click your web app name then select **Restart** to have the new app settings take affect.
 1. Right-click your web app name then select **Browse Website**. In the subsequent pop-up window, select **Open**.
-1. On the sidebar, right-click your web app and select **Start streaming logs**.
+1. On the sidebar, right-click your web app and select **Start streaming logs** to see the service logs.
 1. Interact with the app, adding items and deleting. 
 
 ## What Changed in the keyvault branch?
@@ -222,29 +224,27 @@ The sample code uses the following Azure SDKs:
 
 ### Get secret from Key Vault with JavaScript
 
-After you ensure your DefaultAzureCredential is correctly configured, as shown in this article, you can use the DefaultAzureCredential to access your Key Vault secrets with JavaScript. 
+After you ensure your DefaultAzureCredential is correctly configured with the required environment variables to use Azure Identity, use the DefaultAzureCredential to access your Key Vault secrets with JavaScript. 
 
-1. The following `azure-keyvault.js` file gets the secret from your key vault.
+1. The following [azure-keyvault.js](https://github.com/Azure-Samples/js-e2e-express-mongodb/blob/keyvault/src/azure/azure-keyvault.js) file gets the secret from your key vault.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/azure/azure-keyvault.js" range="76-113" highlight="91,98,101":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/azure/azure-keyvault.js" range="76-113" :::
 
-1. The following `data.js` file code pulls in the dependency for the key vault secret function, `getSecret`, and initializes the configuration object.
+1. The following [data.js](https://github.com/Azure-Samples/js-e2e-express-mongodb/blob/keyvault/src/data.js) code pulls in the dependency for the key vault secret function, `getSecret`, and initializes the configuration object.
 
     :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="7-8":::
 
-1. The following `data.js` file code shows the `getConnection` function to get environment variables and call `getSecret` from `azure-keyvault.js`.
+1. The following `data.js` code shows the `getConnection` function to get environment variables and call `getSecret` from `azure-keyvault.js`.
 
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="15-43" highlight="25":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="15-43" :::
 
 1. The following `data.js` file code calls the `getConnection` function, then returns the function to the Express.js `server.js` file. 
     
-    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="96-112" highlight="99":::
+    :::code language="javascript" source="~/../js-e2e-express-mongodb-keyvault/src/data.js" range="96-112" :::
 
 ## Clean up resources - remove resource group
 
 Once you have completed this tutorial, you need to remove the resource group. 
-
-* [az group delete](/cli/azure/group#az_group_delete)
 
 ```azurecli
 az group delete \
@@ -253,16 +253,18 @@ az group delete \
 
 This command may take a few minutes. 
 
+[Reference documentation: az group delete](/cli/azure/group#az_group_delete)
+
 ## Clean up resources - remove service principal
 
 Delete your service principal. 
-
-* [az ad sp delete](/cli/azure/ad/sp#az_ad_sp_delete)
 
 ```azurecli
 az ad sp delete \
 --id YOUR-SERVICE-PRINCIPAL-ID
 ```
+
+[Reference documentation: az ad sp delete](/cli/azure/ad/sp#az_ad_sp_delete)
 
 ## Next steps
 
