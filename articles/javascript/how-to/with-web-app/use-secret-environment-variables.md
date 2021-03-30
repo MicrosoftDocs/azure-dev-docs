@@ -118,11 +118,11 @@ az keyvault secret set \
 > [!NOTE]
 > `DATABASEURL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
 
-## Download sample Express.js mongoDB repo 
+## Switch branches in GitHub 
 
-The code to use key vault, instead of an environment variable, is provided in the 'keyvault' branch of the sample repository.
+The code to use key vault, instead of an environment variable, is provided in the `keyvault` branch of the sample repository.
 
-1. Using git, revert the changes to your local project, then checkout out the `keyvault` branch. 
+1. Using git, stash the changes to your local project, then checkout out the `keyvault` branch. 
 
     ```bash
     git stash && git checkout keyvault
