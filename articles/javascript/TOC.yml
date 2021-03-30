@@ -149,6 +149,8 @@
       items: 
       - name: Create web app with secure domain name
         href: how-to/add-custom-domain-to-web-app.md
+      - name: Store and use Key Vault secrets in Express.js
+        href: how-to/with-web-app/use-secret-environment-variables.md
       - name: Configure your web app
         href: how-to/configure-web-app-settings.md
       - name: Write serverless code
