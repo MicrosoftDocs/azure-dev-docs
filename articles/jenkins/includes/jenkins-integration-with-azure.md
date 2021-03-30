@@ -7,13 +7,4 @@
 ---
 
 > [!IMPORTANT]
-> Microsoft is ending support for many Jenkins plugins on February 29, 2024. Azure CLI is the currently recommended way to integrate Jenkins with Azure services.
->
-> The following plugins will continue to be support by the community:
-> * Windows Azure Storage
-> * Azure Credentials
-> * Azure Commons
-> * Azure VM Agents
-> * Azure Container Agents
-> * Azure Artifact Manager
-> * Azure AD
+> Many Azure services have Jenkins plug-ins. Some of these plug-ins will be out of support as of February 29, 2024. Azure CLI is the currently recommended way to integrate Jenkins with Azure services. For more information, refer to the article [Jenkins plug-ins for Azure](./plug-ins-for-azure.md).
