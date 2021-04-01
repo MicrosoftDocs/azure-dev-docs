@@ -31,7 +31,7 @@ Top service types for JavaScript developers include:
 * VMs
 * [Databases](../how-to/with-database/getting-started.md)
 * Storage
-* [Search](../azure/search/tutorial-javascript-overview)
+* [Search](../azure/search/tutorial-javascript-overview.md)
 * Cognitive services
 * Metrics and logging
 * DevOps
@@ -65,7 +65,7 @@ Your development environment needs a few tools to have the best development expe
 
 ## 3. Use Azure SDK with JavaScript
 
-To use Azure services programmatically with JavaScript, find the [service-specific npm package](azure-sdk-library-package-index.md). Each npm package has service-specific connection information.
+To use Azure services programmatically with JavaScript, find the [service-specific npm package](../azure-sdk-library-package-index.md). Each npm package has service-specific connection information.
 
 All Azure SDKs run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript is not a requirement to use the Azure SDKs or the Azure cloud services. 
 
