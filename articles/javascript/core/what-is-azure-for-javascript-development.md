@@ -25,13 +25,13 @@ Azure cloud-based services provide a huge variety of features. These services ca
 
 Top service types for JavaScript developers include:
 
-* [Hosting](./how-to/deploy-web-app.md)
+* [Hosting](../how-to/deploy-web-app.md)
 * Authentication and authorization
 * Containers
 * VMs
-* [Databases](./how-to/with-database/getting-started.md)
+* [Databases](../how-to/with-database/getting-started.md)
 * Storage
-* [Search](/azure/search/tutorial-javascript-overview)
+* [Search](../azure/search/tutorial-javascript-overview)
 * Cognitive services
 * Metrics and logging
 * DevOps
@@ -40,9 +40,18 @@ Top service types for JavaScript developers include:
 
 When you begin learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then start in the [Quickstart Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
-When creating your resource for an Azure service, select the free pricing tier while you are just starting with the service. 
-
 Each service's page on the Azure portal includes connection information you will need to access your resource outside of the portal. 
+
+### Pricing tiers
+
+Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+
+### Free tier resources
+
+When selecting the free (F0) pricing tier, it is important to understand limitations that come with that plan. When a free tier is offered:
+
+* A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
+* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPS), your application will receive an HTTP error with a message indicating you are out of quota. 
 
 ## 2. Prepare your development environment
 
