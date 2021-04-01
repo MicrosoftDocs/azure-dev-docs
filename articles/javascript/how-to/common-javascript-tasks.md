@@ -10,38 +10,19 @@ ms.custom: devx-track-js
 
 Find an example of your current task. If you can't find a task, leave feedback requesting your task. 
 
-## App registration
+## Active Directory App 
 
-[App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
+Provide authentication. 
 
-|Task|using|
-|--|--|
-|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
-|List app registration<br><br>```azurecli
-az ad app list --show-mine --query "[].{AppId:appId, DisplayName:displayName}" --output table
-```|[Azure CLI](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_list)
-
-## Application settings
+[AD App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
 
 |Task|using|
 |--|--|
-|Set local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
-|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
-|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
-|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
-
-## Authentication
-
-|Task|using|
-|--|--|
+|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)<br>[Azure CLI](/cli/azure/ad/app#az_ad_app_create)|
+|List app registration|[Azure CLI](/cli/azure/ad/app#az_ad_app_list)
 |Microsoft Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
 |Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
-|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)|
-
-## Azure login
-
-|Task|using|
-|--|--|
+|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
 |Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
 
 
@@ -70,6 +51,9 @@ az ad app list --show-mine --query "[].{AppId:appId, DisplayName:displayName}" -
 |Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
 |Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
+|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
+
+
 
 ### Function (serverless) apps
 
@@ -246,6 +230,10 @@ az ad app list --show-mine --query "[].{AppId:appId, DisplayName:displayName}" -
 |Delete resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#clean-up-resources)|
 |Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
 |Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
+|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
+|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
+|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
+
 
 ### Blobs
 
