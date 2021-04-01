@@ -80,20 +80,20 @@ The following sections provide links to resources that can help you understand h
 
 ### Azure SDK
 
-- [Java API on Azure](https://docs.microsoft.com/java/api/overview/azure/?view=azure-java-stable&preserve-view=true)
+- [Java API on Azure](/java/api/overview/azure)
 
 ### Application migration
 
-- [Host Spring Web app on Azure](https://docs.microsoft.com/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
-- [Authenticate with Azure](https://docs.microsoft.com/java/api/overview/azure/?view=azure-java-stable&preserve-view=true)
-- [Monitor with AppInsights](https://docs.microsoft.com/azure/application-insights/app-insights-java-quick-start?toc=/java/azure/toc.json?view%3Dazure-java-stable&bc=/java/java_sdk_breadcrumb/toc.json?view%3Dazure-java-stable&view=azure-java-stable&preserve-view=true)
+- [Host Spring Web app on Azure](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
+- [Authenticate with Azure](/java/api/overview/azure)
+- [Monitor with AppInsights](/azure/application-insights/app-insights-java-quick-start)
 
 ### Profiling on Azure
 
-- [Configure app for Java Flight Recorder](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux#configure-apm-platforms%20%E2%80%93%20how%20to%20configure%20New%20Relic%20for%20App%20Service)
-- [Profiling with New Relic](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux#configure-apm-platforms&preserve-view=true)
+- [Configure app for Zulu Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
+- [Profiling with New Relic](/azure/app-service/configure-language-java?pivots=platform-linux#configure-new-relic)
 - [Configure New Relic for Azure Spring Cloud](https://github.com/selvasingh/spring-petclinic-microservices)
 
 ### Support on Azure
 
-- [Support for JDK on Azure](https://docs.microsoft.com/azure/java/jdk/?view=azure-java-stable&preserve-view=true)
+- [Support for JDK on Azure](/azure/java/jdk)
