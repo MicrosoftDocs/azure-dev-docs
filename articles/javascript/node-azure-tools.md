@@ -73,3 +73,6 @@ If you use the Azure portal, the Azure CLI is available in the portal from the t
 
 :::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
 
+## Windows Subsystem for Linux
+
+The [Windows Subsystem for Linux](/windows/wsl/) lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
