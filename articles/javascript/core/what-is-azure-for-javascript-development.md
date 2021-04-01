@@ -31,7 +31,7 @@ Top service types for JavaScript developers include:
 * VMs
 * [Databases](../how-to/with-database/getting-started.md)
 * Storage
-* [Search](../azure/search/tutorial-javascript-overview.md)
+* [Search](/azure/search/tutorial-javascript-overview)
 * Cognitive services
 * Metrics and logging
 * DevOps
