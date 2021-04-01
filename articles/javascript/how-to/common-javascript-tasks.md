@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/01/2021
 ms.custom: devx-track-js
 ---
 
@@ -17,6 +17,9 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Task|using|
 |--|--|
 |Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
+|List app registration<br><br>```azurecli
+az ad app list --show-mine --query "[].{AppId:appId, DisplayName:displayName}" --output table
+```|[Azure CLI](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_list)
 
 ## Application settings
 
