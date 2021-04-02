@@ -38,7 +38,7 @@ To complete this tutorial, you need these items:
 the ACR login server name, and the AKS cluster configured to 
 [authenticate with the ACR registry](/azure/aks/cluster-container-registry-integration).
 
-- A [Jenkins Controller](https://docs.microsoft.com/azure/developer/jenkins/configure-on-linux-vm) Deployed to an Azure Virtual Machine.
+- A [Jenkins Controller](./configure-on-linux-vm.md) Deployed to an Azure Virtual Machine.
 
 - The Azure CLI version 2.0.46 or later installed and configured. 
 Run `az --version` to find the version. If you need to install or upgrade, 
@@ -207,7 +207,7 @@ sudo usermod -aG docker jenkins;
 sudo usermod -aG docker azureuser;
 sudo touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion;
 sudo service jenkins restart;
-sudo cp ~/.kube/config /var/lib/jenkins/config
+sudo cp ~/.kube/config /var/lib/jenkins/.kube/
 sudo chmod 777 /var/lib/jenkins/
 sudo chmod 777 /var/lib/jenkins/config
 ```

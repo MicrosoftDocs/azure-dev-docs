@@ -42,10 +42,7 @@ landingContent:
         links:
           - text: Configure a dynamic inventory
             url: dynamic-inventory-configure.md
-      - linkListType: download
-        links:
-          - text: Visual Studio Code extension for Ansible
-            url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+
   # Card
   - title: Manage Virtual Machines
     linkLists:

@@ -5,6 +5,8 @@
     href: whats-new-docs.md
   - name: What's new with Developer Advocates
     href: whats-new-developer-advocacy.md  
+  - name: Top tasks for developers
+    href: how-to/common-javascript-tasks.md    
   - name: Get started on Azure with JavaScript
     items:
     - name: What is Azure for JavaScript developers?
@@ -141,10 +143,22 @@
       href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
-    - name: Configure your app
-      href: how-to/configure-web-app-settings.md
-    - name: Tasks for JavaScript developers
+    - name: Azure Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
+    - name: With web apps
+      items: 
+      - name: Create web app with secure domain name
+        href: how-to/add-custom-domain-to-web-app.md
+      - name: Store and use Key Vault secrets in Express.js
+        href: how-to/with-web-app/use-secret-environment-variables.md
+      - name: Configure your web app
+        href: how-to/configure-web-app-settings.md
+      - name: Write serverless code
+        href: how-to/develop-serverless-apps.md
+      - name: Create static web app
+        href: how-to/create-static-web-app.md
+      - name: Deploy a web app
+        href: how-to/deploy-web-app.md
     - name: With Visual Studio Code
       items: 
       - name: Install and debug local project
@@ -157,24 +171,30 @@
         href: how-to/with-visual-studio-code/create-azure-database.md
     - name: With Azure CLI
       items: 
-      - name: Create and use container registry
+      - name: Container registry
         href: how-to/with-azure-cli/create-container-registry-resource.md
       - name: Configure web app domain name
         href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
-      - name: Use Cassandra Cosmos DB resource
+      - name: Cassandra Cosmos DB resource
         href: how-to/with-azure-cli/create-cassandra-db.md
-      - name: Use MongoDB Cosmos DB resource
+      - name: Cache for Redis
+        href: how-to/with-azure-cli/create-cache-for-redis-db.md
+      - name: MongoDB Cosmos DB resource
         href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
-      - name: Use MariaDB resource
+      - name: MariaDB resource
         href: how-to/with-azure-cli/create-mariadb.md
-      - name: Use MySQL resource
+      - name: MySQL resource
         href: how-to/with-azure-cli/create-mysql-db.md
-      - name: Use PostgreSQL resource
+      - name: PostgreSQL resource
         href: how-to/with-azure-cli/create-postgresql-server-resource.md
+      - name: SQL API on Cosmos DB
+        href: how-to/with-azure-cli/create-cosmos-sql-api-resource.md
     - name: With databases
       items: 
       - name: Getting started
         href: how-to/with-database/getting-started.md
+      - name: Cache for Redis
+        href: how-to/with-database/use-azure-cache-for-redis-db.md
       - name: Cassandra on Cosmos DB
         href: how-to/with-database/use-cassandra-as-cosmos-db.md
       - name: MongoDB on Cosmos DB
@@ -185,16 +205,12 @@
         href: how-to/with-database/use-mysql-db.md
       - name: PostgreSQL 
         href: how-to/with-database/use-postgresql-db.md
-    - name: Deploy a web app
-      href: how-to/deploy-web-app.md
+      - name: SQL API on Cosmos DB
+        href: how-to/with-database/use-sql-api-as-cosmos-db.md
     - name: Deploy containers
       href: how-to/deploy-containers.md
     - name: Integrate with databases
       href: how-to/integrate-database.md
-    - name: Write serverless code
-      href: how-to/develop-serverless-apps.md
-    - name: Create a static (JAMstack) site
-      href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
     - name: Automate with Azure CLI
