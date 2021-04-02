@@ -27,7 +27,7 @@ landingContent:
           - text: Java learning path
             url: fundamentals.md
           - text: Java on Azure (Microsoft Learn)
-            url: https://docs.microsoft.com/en-us/learn/paths/java-on-azure/
+            url: /learn/paths/java-on-azure/
           - text: Books
             url: books.md
   - title: Explore workshops

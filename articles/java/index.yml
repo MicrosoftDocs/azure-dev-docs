@@ -83,7 +83,7 @@ conceptualContent:
           url: sdk/overview.md
         - text: Java API browser
           itemType: reference
-          url: /java/api/?view=azure-java
+          url: /java/api
       footerLink:
           text: See more
           url: sdk/index.yml
