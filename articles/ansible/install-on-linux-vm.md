@@ -25,7 +25,7 @@ In this quickstart, you'll complete these tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
-- **Access to Linux or a Linux virtual machine** -  If you don't have a Linux machine, create a [Linux virtual machine](/azure/virtual-network/quick-create-cli).
+- **Access to Linux or a Linux virtual machine**: If you don't have a Linux machine, create a [Linux virtual machine](/azure/virtual-network/quick-create-cli).
 
 ## Create an SSH key pair
 
@@ -48,9 +48,10 @@ The following steps walk you through creating an SSH key pair.
     ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N ""
     ```
 
-> [!NOTE]
-> The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
-> The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
+**NOTE**:
+
+* The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
+* The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
 
 ## Create a virtual machine
 
@@ -77,8 +78,9 @@ The following steps walk you through creating an SSH key pair.
     az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
     ```
 
-> [!NOTE]
-> The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
+**NOTE**:
+
+* The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
 
 ## Connect to your virtual machine via SSH
 
@@ -128,10 +130,10 @@ To configure the Ansible credentials, you need the following information:
 
 Configure the Ansible credentials using one of the following techniques:
 
-- [Option 1 - Create an Ansible credentials file](#file-credentials)
-- [Option 2 - Define Ansible environment variables](#env-credentials)
+- [Option 1: Create an Ansible credentials file](#file-credentials)
+- [Option 2: Define Ansible environment variables](#env-credentials)
 
-#### <span id="file-credentials"/> Option 1 - Create Ansible credentials file
+#### <span id="file-credentials"/> Option 1: Create Ansible credentials file
 
 In this section, you create a local credentials file to provide credentials to Ansible. For security reasons, credential files should only be used in development environments.
 
@@ -156,7 +158,7 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
 1. Save and close the file.
 
-#### <span id="env-credentials"/> Option 2 - Define Ansible environment variables
+#### <span id="env-credentials"/> Option 2: Define Ansible environment variables
 
 On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
