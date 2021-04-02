@@ -134,7 +134,12 @@ The following prerequisites are required in order to complete the steps in this 
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
-### Add a user account to your directory, and add that account to a group
+1. If you've modified the **pom.xml** file to use an AAD starter version earlier than 3.0.0, under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
+   
+   >[!div class="mx-imgBorder"]
+   >![Enable Id Tokens][create-app-registration-11]
+  
+  ### Add a user account to your directory, and add that account to a group
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
    
@@ -360,6 +365,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-08]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.png
 [create-app-registration-09]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png
 [create-app-registration-10]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png
+[create-app-registration-11]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-11.png
 
 [create-user-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-01.png
 [create-user-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-02.png

@@ -74,6 +74,18 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "js-e2e-express-mongodb-main",
+      "url": "https://github.com/Azure-Samples/js-e2e-express-mongodb",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "js-e2e-express-mongodb-keyvault",
+      "url": "https://github.com/Azure-Samples/js-e2e-express-mongodb",
+      "branch": "keyvault",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "js-e2e",
       "url": "https://github.com/Azure-Samples/js-e2e",
       "branch": "main",

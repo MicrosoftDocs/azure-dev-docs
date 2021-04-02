@@ -157,8 +157,8 @@ Create the Terraform configuration file that declares the resources for the Kube
         }
         
         network_profile {
-        load_balancer_sku = "Standard"
-        network_plugin = "kubenet"
+            load_balancer_sku = "Standard"
+            network_plugin = "kubenet"
         }
 
         tags = {
