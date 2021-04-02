@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/01/2021
 ms.custom: devx-track-js
 ---
 
@@ -10,35 +10,19 @@ ms.custom: devx-track-js
 
 Find an example of your current task. If you can't find a task, leave feedback requesting your task. 
 
-## App registration
+## Active Directory App 
 
-[App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
+Provide authentication. 
 
-|Task|using|
-|--|--|
-|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
-
-## Application settings
+[AD App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
 
 |Task|using|
 |--|--|
-|Set local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
-|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
-|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
-|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
-
-## Authentication
-
-|Task|using|
-|--|--|
+|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)<br>[Azure CLI](/cli/azure/ad/app#az_ad_app_create)|
+|List app registration|[Azure CLI](/cli/azure/ad/app#az_ad_app_list)
 |Microsoft Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
 |Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
-|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)|
-
-## Azure login
-
-|Task|using|
-|--|--|
+|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
 |Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
 
 
@@ -67,6 +51,9 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
 |Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
+|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
+
+
 
 ### Function (serverless) apps
 
@@ -243,6 +230,10 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Delete resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#clean-up-resources)|
 |Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
 |Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
+|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
+|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
+|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
+
 
 ### Blobs
 
@@ -294,6 +285,8 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |React app with login button|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off from the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|
 |Express.js app with MongoDB database|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating a Cosmos DB resource for the Mongo API, getting the connection information and setting that in the app service configuration setting to connect to a cloud database.<br>[Tutorial](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |Express.js app deployed to VM with cloud-init file|Create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.<br>[Tutorial](../tutorial/nodejs-virtual-machine-vm/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
+
+Use the JavaScript end-to-end snippets collection, [https://github.com/azure-samples/js-e2e](https://github.com/azure-samples/js-e2e), to find or submit JavaScript or TypeScript code examples. 
 
 Use the [Azure Samples browser](/samples/browse/?languages=javascript%2cnodejs%2ctypescript) to find more samples supporting your specific use case. 
 

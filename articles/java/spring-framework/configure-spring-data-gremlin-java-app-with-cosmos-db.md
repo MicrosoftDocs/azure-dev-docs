@@ -17,6 +17,9 @@ This article shows how to use the Azure portal to create an Azure Cosmos DB reso
 
 The Spring Data Gremlin Starter provides Spring Data support for the Gremlin query language from Apache, which developers can use with any Gremlin-compatible data store.
 
+> [!NOTE]
+> We are in the process of deprecating Spring Data Gremlin. We recommend using [azure-spring-boot-starter-cosmos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmos) or [Spring Data Azure Cosmos DB v3 for SQL API](/azure/cosmos-db/sql-api-sdk-java-spring-v3) instead.
+
 ## Prerequisites
 
 The following prerequisites are required in order to follow the steps in this article:
