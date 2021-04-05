@@ -50,8 +50,8 @@
 | Text Analytics | npm [5.0.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.0.1)<br>npm [5.1.0-beta.5](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.5) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme/) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.0.1/sdk/textanalytics/ai-text-analytics/)<br>GitHub [5.1.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0-beta.5/sdk/textanalytics/ai-text-analytics/) |
 | @autorest/codemodel | npm [4.14.7](https://www.npmjs.com/package/@autorest/codemodel/v/4.14.7) |  |  |
 | @autorest/common | npm [1.1.2](https://www.npmjs.com/package/@autorest/common/v/1.1.2) |  |  |
-| @autorest/configuration | npm [1.2.1](https://www.npmjs.com/package/@autorest/configuration/v/1.2.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210401.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210401.4) |  |  |
+| @autorest/configuration | npm [1.2.2](https://www.npmjs.com/package/@autorest/configuration/v/1.2.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210402.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210402.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.2.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.2.1) |  |  |
 | @autorest/schemas | npm [1.1.1](https://www.npmjs.com/package/@autorest/schemas/v/1.1.1) |  |  |
@@ -83,6 +83,7 @@
 | @azure/arm-subscriptions-profile-2020-09-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-subscriptions-profile-2020-09-01-hybrid/v/1.0.0) |  |  |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
+| @azure/cosmos | npm [3.10.5](https://www.npmjs.com/package/@azure/cosmos/v/3.10.5) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.2.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.2.1) |  |  |
 | @azure-tools/adl-vs | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.1.1) |  |  |
@@ -102,12 +103,12 @@
 | AutoRest - CLI Common | npm [0.6.1](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.1) |  | GitHub [0.6.1](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.3.6](https://www.npmjs.com/package/@autorest/compare/v/0.3.6) |  | GitHub [0.3.6](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.2.2](https://www.npmjs.com/package/@autorest/core/v/3.2.2) |  | GitHub [3.2.2](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.2.4](https://www.npmjs.com/package/@autorest/core/v/3.2.4) |  | GitHub [3.2.4](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.16](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.16) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.17](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.17) |  |  |
 | AutoRest - Modeler Four | npm [4.18.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.18.1) |  | GitHub [4.18.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - Power Shell | npm [3.0.425](https://www.npmjs.com/package/@autorest/powershell/v/3.0.425) |  | GitHub [3.0.425](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.6.4](https://www.npmjs.com/package/@autorest/python/v/5.6.4) |  | GitHub [5.6.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
@@ -178,6 +179,7 @@
 | IoT Security Symmetric Key | npm [1.7.7](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.7.7) |  | GitHub [1.7.7](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/symmetric) |
 | IoT Security TPM | npm [1.8.7](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.8.7) |  | GitHub [1.8.7](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/tpm) |
 | IoT Security X509 | npm [1.7.7](https://www.npmjs.com/package/azure-iot-security-x509/v/1.7.7) |  | GitHub [1.7.7](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509) |
+| Key Vault | npm [3.0.5](https://www.npmjs.com/package/azure-keyvault/v/3.0.5) |  |  |
 | Key Vault - Administration | npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/keyvault-admin-readme/) | GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.0.0-beta.2/sdk/keyvault/keyvault-admin/) |
 | Key Vault - Certificates | npm [4.1.0](https://www.npmjs.com/package/@azure/keyvault-certificates/v/4.1.0)<br>npm [4.2.0-beta.2](https://www.npmjs.com/package/@azure/keyvault-certificates/v/4.2.0-beta.2) | [docs](/javascript/api/overview/azure/keyvault-certificates-readme/) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.1.0/sdk/keyvault/keyvault-certificates/)<br>GitHub [4.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.2.0-beta.2/sdk/keyvault/keyvault-certificates/) |
 | Key Vault - Keys | npm [4.1.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.1.0)<br>npm [4.2.0-beta.4](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.2.0-beta.4) | [docs](/javascript/api/overview/azure/keyvault-keys-readme/) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.1.0/sdk/keyvault/keyvault-keys/)<br>GitHub [4.2.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.2.0-beta.4/sdk/keyvault/keyvault-keys/) |
@@ -205,6 +207,7 @@
 | QnA Maker Runtime | npm [1.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker-runtime/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker-runtime) |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
 | Service Bus | npm [7.0.4](https://www.npmjs.com/package/@azure/service-bus/v/7.0.4) | [docs](/javascript/api/overview/azure/service-bus-readme/) | GitHub [7.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.0.4/sdk/servicebus/service-bus/) |
+| Service Bus | npm [0.11.1](https://www.npmjs.com/package/azure-sb/v/0.11.1) |  |  |
 | Service Fabric | npm [5.0.0](https://www.npmjs.com/package/@azure/servicefabric/v/5.0.0) | [docs](/javascript/api/overview/azure/service-fabric) |  |
 | Speech | npm [1.14.1](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk/v/1.14.1) | [docs](/javascript/api/overview/azure/speech-service) |  |
 | Spell Check | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-spellcheck/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-spellcheck) |
