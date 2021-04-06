@@ -85,7 +85,7 @@ The following sections provide links to resources that can help you understand h
 ### Application migration
 
 - [Host Spring Web app on Azure](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
-- [Authenticate with Azure](/java/api/overview/azure)
+- [Authenticate with Azure](/azure/active-directory/develop/quickstart-v2-java-webapp)
 - [Monitor with AppInsights](/azure/application-insights/app-insights-java-quick-start)
 
 ### Profiling on Azure
