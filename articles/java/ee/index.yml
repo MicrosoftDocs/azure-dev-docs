@@ -1,0 +1,83 @@
+### YamlMime:Landing
+
+title: Java EE, Jakarta EE, and MicroProfile on Azure
+summary: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to use these technologies on Azure here.
+
+metadata:
+  title: Java EE, Jakarta EE, and MicroProfile
+  description: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to combine the power of Azure with technologies based on these specifications with this documentation.
+  ms.service: azure
+  ms.topic: landing-page
+  author: edburns
+  ms.author: edburns
+  ms.date: 04/02/2021
+  ms.custom: devx-track-java
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Java application servers on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Oracle WebLogic Server on Azure VMs
+            url: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Oracle WebLogic Server on AKS
+            url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: IBM WebSphere products on Azure
+            url: websphere-family.md
+  - title: Deployment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Java app with Helidon to Azure App Service
+            url: /azure/developer/java/eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
+            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Java app with WebSphere Liberty/Open Liberty to AKS
+            url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Java app with Payara Micro to Azure App Service
+            url: /azure/developer/java/eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Code samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: PiggyMetrics on MicroProfile
+            url: https://github.com/majguo/piggymetrics
+          - text: Deploying a Java app with Payara on an AKS cluster
+            url: https://github.com/Azure-Samples/payara-on-aks
+          - text: Open/WebSphere Liberty on Azure Red Hat OpenShift samples
+            url: https://github.com/Azure-Samples/open-liberty-on-aro
+          - text: Open Liberty/WebSphere Liberty on AKS samples
+            url: https://github.com/Azure-Samples/open-liberty-on-aks
+  - title: Migrate WebLogic to Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: WebLogic to Azure Virtual Machines
+            url: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: WebLogic with AAD via LDAP
+            url: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: WebLogic with App Gateway
+            url: /azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: WebLogic with Elastic on Azure
+            url: /azure/developer/java/migration/migrate-weblogic-with-elk?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Java EE 8 Javadocs
+            url: https://javaee.github.io/javaee-spec/javadocs/
+          - text: Java EE 8 Specifications
+            url: https://javaee.github.io/javaee-spec/Specifications
+          - text: Jakarta EE 9 Javadocs
+            url: https://jakarta.ee/specifications/platform/9/apidocs/
+          - text: Jakarta EE 9 Specifications
+            url: https://jakarta.ee/specifications/platform/9/jakarta-platform-spec-9.html
+          - text: MicroProfile 4 Javadocs
+            url: https://javadoc.io/doc/org.eclipse.microprofile/microprofile/latest/index.html
+          - text: MicroProfile 4 Specifications
+            url: https://download.eclipse.org/microprofile/microprofile-4.0/microprofile-spec-4.0.html
