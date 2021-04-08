@@ -9,7 +9,7 @@
 | Communication Identity | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-identity/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-identity-readme/) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/) |
 | Communication Phone Numbers | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme/) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.0.0-beta.5/sdk/communication/communication-phone-numbers/) |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme/) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
-| Container Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/) |
+| Container Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry-readme/) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/) |
 | Core - Abort Controller | npm [1.0.4](https://www.npmjs.com/package/@azure/abort-controller/v/1.0.4) | [docs](/javascript/api/overview/azure/abort-controller-readme/) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.0.4/sdk/core/abort-controller/) |
 | Core - AMQP | npm [2.2.0](https://www.npmjs.com/package/@azure/core-amqp/v/2.2.0) | [docs](/javascript/api/overview/azure/core-amqp-readme/) | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_2.2.0/sdk/core/core-amqp/) |
 | Core - Auth | npm [1.3.0](https://www.npmjs.com/package/@azure/core-auth/v/1.3.0) | [docs](/javascript/api/overview/azure/core-auth-readme/) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.3.0/sdk/core/core-auth/) |
@@ -52,7 +52,7 @@
 | @autorest/codemodel | npm [4.14.7](https://www.npmjs.com/package/@autorest/codemodel/v/4.14.7) |  |  |
 | @autorest/common | npm [1.1.2](https://www.npmjs.com/package/@autorest/common/v/1.1.2) |  |  |
 | @autorest/configuration | npm [1.2.2](https://www.npmjs.com/package/@autorest/configuration/v/1.2.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210406.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210406.5) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210407.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210407.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.2.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.2.1) |  |  |
 | @autorest/schemas | npm [1.1.1](https://www.npmjs.com/package/@autorest/schemas/v/1.1.1) |  |  |
@@ -114,7 +114,7 @@
 | AutoRest - Go | npm [4.0.0-preview.17](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.17) |  |  |
 | AutoRest - Modeler Four | npm [4.18.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.18.1) |  | GitHub [4.18.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - Power Shell | npm [3.0.425](https://www.npmjs.com/package/@autorest/powershell/v/3.0.425) |  | GitHub [3.0.425](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [5.6.4](https://www.npmjs.com/package/@autorest/python/v/5.6.4) |  | GitHub [5.6.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [5.6.5](https://www.npmjs.com/package/@autorest/python/v/5.6.5) |  | GitHub [5.6.5](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -130,7 +130,7 @@
 | Communication Signaling | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.3) |  |  |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme/) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
 | Computer Vision | npm [7.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/7.1.0) |  | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) |
-| Container Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/) |
+| Container Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry-readme/) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/) |
 | Content Moderator | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-contentmoderator) |
 | Core - Abort Controller | npm [1.0.4](https://www.npmjs.com/package/@azure/abort-controller/v/1.0.4) | [docs](/javascript/api/overview/azure/abort-controller-readme/) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.0.4/sdk/core/abort-controller/) |
 | Core - AMQP | npm [2.2.0](https://www.npmjs.com/package/@azure/core-amqp/v/2.2.0) | [docs](/javascript/api/overview/azure/core-amqp-readme/) | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_2.2.0/sdk/core/core-amqp/) |
