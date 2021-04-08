@@ -28,7 +28,7 @@ To automate the Azure CLI, the CLI must be installed in the environment. Common 
 
 Once the Azure CLI is installed, you must log in to continue running Azure CLI commands. For automation, you can authentication to the Azure CLI.
 
-**Reference documentation**: [az login](/cli/azure/reference-index#az-login)
+**Reference documentation**: [az login](/cli/azure/reference-index#az_login)
 
 [Managed identity](/cli/azure/authenticate-azure-cli#sign-in-with-a-managed-identity) is the recommended choice for authentication.
 
