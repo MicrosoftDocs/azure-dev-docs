@@ -72,7 +72,7 @@ az login
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
-There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
 
@@ -95,19 +95,19 @@ az login --service-principal -u <service_principal_name> -p "<service_principal_
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
 
-1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
+1. To view the current Azure subscription, use [az account show](/cli/azure/account#az_account_show).
 
     ```azurecli
     az account show
     ```
 
-1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
+1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az_account_list) to display a list of subscription name ID values:
 
     ```azurecli
     az account list --query "[].{name:name, subscriptionId:id}"
     ```
 
-1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az-account-set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
+1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
     ```azurecli
     az account set --subscription="<subscription_id>"
