@@ -67,7 +67,7 @@ The following steps show how to specify your Azure credential:
 
 ## Create an Azure App Service for deploying the Java web app
 
-Use [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) to create an Azure App Service plan with the **FREE** pricing tier:
+Use [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) to create an Azure App Service plan with the **FREE** pricing tier:
 
 ```azurecli
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 ## Create an Azure web app
 
-Use [az webapp create](/cli/azure/webapp#az-webapp-create) to create a web app definition in the `myAppServicePlan` App Service plan.
+Use [az webapp create](/cli/azure/webapp#az_webapp_create) to create a web app definition in the `myAppServicePlan` App Service plan.
 
 ```azurecli
 az webapp create \

@@ -35,7 +35,7 @@ This tutorial shows you how to use the Ansible collection for Azure modules in u
 
 Use the Azure CLI to get the necessary Azure subscription information needed when using the Ansible modules for Azure. 
 
-1. Get the Azure subscription ID and Azure subscription tenant ID using the `az account show` command. For the `<Subscription>` placeholder, specify either the Azure subscription name or Azure subscription ID. The command will display many of the key values associated with the default Azure subscription. If you have multiple subscriptions, you might need to set the current subscription via the [az account set](/cli/azure/account#az-account-set) command. From the command's output, make note of both the **ID** and **tenantID** values.
+1. Get the Azure subscription ID and Azure subscription tenant ID using the `az account show` command. For the `<Subscription>` placeholder, specify either the Azure subscription name or Azure subscription ID. The command will display many of the key values associated with the default Azure subscription. If you have multiple subscriptions, you might need to set the current subscription via the [az account set](/cli/azure/account#az_account_set) command. From the command's output, make note of both the **ID** and **tenantID** values.
 
     ```azurecli
     az account show --subscription "<Subscription>" --query tenantId

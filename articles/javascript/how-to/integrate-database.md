@@ -27,7 +27,7 @@ The following table links to a variety of articles for connecting to and using A
 
 ## Cosmos DB connection strings with Azure CLI
 
-Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings):
+Use the following command, [az cosmosdb keys list](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings):
 
 ```azurecli-interactive
 az cosmosdb keys list \
