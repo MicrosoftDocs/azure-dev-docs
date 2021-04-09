@@ -589,6 +589,10 @@
       "redirect_url": "/azure/developer/java/toolkit-for-intellij/whats-new"
     },
     {
+      "source_path": "articles/java/toolkit-for-intellij/quickstart-functions.md",
+      "redirect_url": "/azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
       "source_path": "articles/java/toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",
       "redirect_url": "/azure/developer/java/toolkit-for-eclipse"
     },
