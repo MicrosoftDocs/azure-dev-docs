@@ -18,39 +18,39 @@ The following sections provide links to resources that can help you learn Java f
 
 ### Language
 
-- [Core Platform - Part 1](https://www.linkedin.com/learning/5157019?u=3322)
+- [Core Platform - Part 1](https://learning.oreilly.com/videos/core-java/9780134540603)
 - [Core Platform - Part 2](https://www.linkedin.com/learning/advanced-java-programming-2/learn-advanced-java-programming?u=3322)
 
 ### IDE features
 
 - [IDE IntelliJ Fundamentals](https://www.linkedin.com/learning/intellij-idea-community-edition-essential-training/welcome?u=3322)
 - [IDE Eclipse Fundamentals](https://www.linkedin.com/learning/eclipse-essential-training/welcome?u=3322)
-- [Maven Fundamentals](https://www.linkedin.com/learning/5237111?u=3322)
+- [Maven Fundamentals](https://learning.oreilly.com/videos/getting-started-with/9781782165729/)
 
 ### Software development life cycle
 
 - [JDBC and Databases](https://www.linkedin.com/learning/learning-jdbc/get-going-with-data-access-in-java?u=3322)
 - [Logging](https://www.youtube.com/watch?v=oiaEP57nsmI)
 - [Debugging and Testing](https://learning.oreilly.com/library/view/java-for-absolute/9781484237786/html/463938_1_En_9_Chapter.xhtml)
-- [Unit testing with JUnit5](https://www.linkedin.com/learning/5179603?u=3322)
+- [Unit testing with JUnit5](https://learning.oreilly.com/videos/introduction-to-junit/9781788292290/)
 
 ### Frameworks
 
 - [Java EE](https://www.linkedin.com/learning/learning-java-enterprise-edition?u=3322)
-- [Spring Framework](https://www.linkedin.com/learning/1281479?u=3322)
+- [Spring Framework](https://learning.oreilly.com/videos/spring-framework/9780133477252/)
 - [Java EE vs Spring](https://www.quora.com/What-are-the-differences-between-Java-EE-and-Spring)
 - [Java EE vs Spring : A Dev perspective](https://dzone.com/articles/developers-perspective-spring)
 
 ### Messaging
 
-- [Java Message Service (JMS)](https://www.linkedin.com/learning/5198222?u=3322)
+- [Java Message Service (JMS)](https://learning.oreilly.com/videos/enterprise-messaging-with/9781491917671/)
 
 ### Web
 
-- [Java Web Fundamentals](https://www.linkedin.com/learning/5181572?u=3322)
+- [Java Web Fundamentals](https://learning.oreilly.com/videos/beginning-java-web/9781771376051/)
 - [Spring MVC application](https://www.linkedin.com/learning/spring-spring-mvc-2/spring-mvc-for-robust-applications?u=3322)
 - [Spring Boot - Your first app](https://www.linkedin.com/learning/learning-spring-with-spring-boot-2?u=3322)
-- [Modern Web apps with Spring Boot 2.0](https://www.linkedin.com/learning/5121580?u=3322)
+- [Modern Web apps with Spring Boot 2.0](https://learning.oreilly.com/videos/modern-java-web/9781788993241/)
 
 ### Microservices
 
@@ -65,7 +65,7 @@ The following sections provide links to videos that can help you learn Java adva
 
 - [Multithreading and Concurrency](https://www.linkedin.com/learning/learning-java-threads/welcome?u=3322)
 - [Understanding Concurrency](https://learning.oreilly.com/playlists/d44bf7e8-56c4-415d-8d76-b621373d44ee/)
-- [Optimizing Java](https://www.linkedin.com/learning/5219237?u=3322)
+- [Optimizing Java](https://learning.oreilly.com/videos/optimizing-java/9781771374866/)
 
 ### Performance
 
