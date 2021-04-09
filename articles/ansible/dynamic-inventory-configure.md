@@ -65,7 +65,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 You can [use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories.
 
-Enter the following [az resource tag](/cli/azure/resource#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
+Enter the following [az resource tag](/cli/azure/resource#az_resource_tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
 
 ```azurecli
 az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
@@ -193,7 +193,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli
     ssh `az vm list-ip-addresses \

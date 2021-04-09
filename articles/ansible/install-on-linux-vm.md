@@ -55,13 +55,13 @@ The following steps walk you through creating an SSH key pair.
 
 ## Create a virtual machine
 
-1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
+1. Create a resource group using [az group create](/cli/azure/group#az_group_create). You might need to replace the `--location` parameter with the appropriate value for your environment.
 
     ```azurecli
     az group create --name QuickstartAnsible-rg --location eastus
     ```
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create). Replace the placeholder with the fully qualified name of your SSH **public** key filename.
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az_vm_create). Replace the placeholder with the fully qualified name of your SSH **public** key filename.
 
     ```azurecli
     az vm create \
@@ -72,7 +72,7 @@ The following steps walk you through creating an SSH key pair.
     --ssh-key-values <ssh_public_key_filename>
     ```
 
-1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az-vm-list).
+1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az_vm_list).
 
     ```azurecli
     az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"

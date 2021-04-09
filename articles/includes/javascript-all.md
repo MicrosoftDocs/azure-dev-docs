@@ -52,7 +52,7 @@
 | @autorest/codemodel | npm [4.14.7](https://www.npmjs.com/package/@autorest/codemodel/v/4.14.7) |  |  |
 | @autorest/common | npm [1.1.2](https://www.npmjs.com/package/@autorest/common/v/1.1.2) |  |  |
 | @autorest/configuration | npm [1.2.2](https://www.npmjs.com/package/@autorest/configuration/v/1.2.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210407.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210407.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210408.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210408.4) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.2.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.2.1) |  |  |
 | @autorest/schemas | npm [1.1.1](https://www.npmjs.com/package/@autorest/schemas/v/1.1.1) |  |  |
@@ -129,7 +129,7 @@
 | Communication Phone Numbers | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme/) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.0.0-beta.5/sdk/communication/communication-phone-numbers/) |
 | Communication Signaling | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.3) |  |  |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme/) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
-| Computer Vision | npm [7.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/7.1.0) |  | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) |
+| Computer Vision | npm [8.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.0.0) |  | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) |
 | Container Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry-readme/) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/) |
 | Content Moderator | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-contentmoderator) |
 | Core - Abort Controller | npm [1.0.4](https://www.npmjs.com/package/@azure/abort-controller/v/1.0.4) | [docs](/javascript/api/overview/azure/abort-controller-readme/) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.0.4/sdk/core/abort-controller/) |
@@ -203,7 +203,7 @@
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
-| Oad | npm [0.8.8](https://www.npmjs.com/package/@azure/oad/v/0.8.8) |  | GitHub [0.8.8](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.8.9](https://www.npmjs.com/package/@azure/oad/v/0.8.9) |  | GitHub [0.8.9](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.2](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.2) |  | GitHub [0.9.2](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
