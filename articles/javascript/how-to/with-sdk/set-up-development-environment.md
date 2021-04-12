@@ -6,7 +6,7 @@ ms.date: 04/12/2021
 ms.custom: devx-track-js
 ---
 
-# Set up development environment to use Azure SDK for JavaScript credential
+# Set up development environment to use Azure SDK for JavaScript
 
 Once you have your [Azure subscription](https://azure.microsoft.com/free/), you need to know how to authenticate to the Azure platform to use the Azure SDKs for JavaScript. 
 
