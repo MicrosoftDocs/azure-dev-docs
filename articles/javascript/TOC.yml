@@ -145,6 +145,10 @@
     items:
     - name: Azure Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
+    - name: With Azure SDKs
+      items:
+      - name: Manage resource groups
+        href: manage-azure-resource-groups.md
     - name: With web apps
       items: 
       - name: Create web app with secure domain name
