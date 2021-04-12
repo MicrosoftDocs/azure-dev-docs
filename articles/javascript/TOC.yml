@@ -149,8 +149,6 @@
       items:
       - name: Set up environment
         href: how-to/with-sdk/set-up-development-environment.md
-      - name: Manage resource groups
-        href: how-to/with-sdk/manage-azure-resource-groups.md
     - name: With web apps
       items: 
       - name: Create web app with secure domain name

@@ -1,6 +1,6 @@
 ---
 title: Azure SDK for JavaScript Identity credential
-description: You need to choose and use the Identity credential for your JavaScript scenario.
+description: Once you have your Azure subscription, you need to know how to authenticate to the Azure platform to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Set up development environment to use Azure SDK for JavaScript credential
 
-Once you have your [Azure subscription](https://azure.microsoft.com/free/), to use the Azure SDKs for JavaScript, you need to know how to authenticate to the Azure platform. 
+Once you have your [Azure subscription](https://azure.microsoft.com/free/), you need to know how to authenticate to the Azure platform to use the Azure SDKs for JavaScript. 
 
 ## Authenticate to the Azure platform
 
@@ -18,7 +18,7 @@ Each npm Azure SDK package's `readme.md` has the specific instructions to authen
 
 ## Azure authentication for quickstarts and tutorials
 
-To use a quickstart or tutorial for the Azure services, the quickest credential method is [interactive login](). With this method you complete a few quick steps:
+To use a quickstart or tutorial for the Azure services, the quickest credential method is [interactive login](). With this method, you complete a few quick steps:
 1. You run the code.
 1. A message displays with an authentication URL and a token. 
 1. Open a browser to that URL and enter the token. Depending on your Azure authentication requirements, a second authentication step may be required.
@@ -85,7 +85,7 @@ Use the new service principal to authenticate with Azure.
     npm install @azure/arm-resources
     ```
 
-1. Create a resource group. 
+1. Create a default credential in your JavaScript file.
 
     ```javascript
     // import Azure npm dependency for Identity credential method
@@ -93,22 +93,14 @@ Use the new service principal to authenticate with Azure.
     const credentials = new DefaultAzureCredential();
     ```
 
-1. Pass the credential to any of the Azure Service SDKs in the client constructor parameter for the credential. The following code creates a resource group.
+1. Pass the credential to any of the Azure Service SDKs in the client constructor parameter for the credential in your JavaScript file. The following code lists all resource groups.
 
     ```javascript
     const { ResourceManagementClient } = require("@azure/arm-resources");
     const resourceManagement = new ResourceManagementClient(credentials, subscriptionId);
 
-    const parameters = {
-        location: "eastus",
-        tags: {
-            owner: "diberry",
-            created: "2021-04-01"
-        },
-    };
-
-    resourceManagement.resourceGroups.createOrUpdate("diberry-example-resource-group", parameters)
-    .then(result=>{console.log("done")})
+    resourceManagement.resourceGroups.list()
+    .then(result=>{console.log(JSON.stringify(result))})
     .catch(err=>{console.log(err)});
     ```
 
@@ -131,3 +123,6 @@ Use the new service principal to authenticate with Azure.
 
 1.  Create a new resource. This Azure CLI command is specific to [each service](/cli/azure/service-page/list%20a%20-%20z). 
 
+## Next steps
+
+* Create a resource group with the Azure SDK for JavaScript, `@azure/arm-resources`.
