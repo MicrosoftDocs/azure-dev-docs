@@ -123,6 +123,8 @@ Use the new service principal to authenticate with Azure.
 
 1.  Create a new resource. This Azure CLI command is specific to [each service](/cli/azure/service-page/list%20a%20-%20z). 
 
+---
+
 ## Next steps
 
 * Create a resource group with the Azure SDK for JavaScript, `@azure/arm-resources`.
