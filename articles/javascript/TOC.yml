@@ -147,8 +147,10 @@
       href: how-to/common-javascript-tasks.md
     - name: With Azure SDKs
       items:
+      - name: Set up environment
+        href: how-to/with-sdk/set-up-development-environment.md
       - name: Manage resource groups
-        href: manage-azure-resource-groups.md
+        href: how-to/with-sdk/manage-azure-resource-groups.md
     - name: With web apps
       items: 
       - name: Create web app with secure domain name
