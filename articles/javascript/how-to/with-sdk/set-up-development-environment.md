@@ -127,4 +127,4 @@ Use the new service principal to authenticate with Azure.
 
 ## Next steps
 
-* Create a resource group with the Azure SDK for JavaScript, `@azure/arm-resources`.
+* [Create web app with a secure domain name](../add-custom-domain-to-web-app.md)
