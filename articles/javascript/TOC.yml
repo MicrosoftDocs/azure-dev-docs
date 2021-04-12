@@ -145,6 +145,10 @@
     items:
     - name: Azure Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
+    - name: With Azure SDKs
+      items:
+      - name: Set up environment
+        href: how-to/with-sdk/set-up-development-environment.md
     - name: With web apps
       items: 
       - name: Create web app with secure domain name
