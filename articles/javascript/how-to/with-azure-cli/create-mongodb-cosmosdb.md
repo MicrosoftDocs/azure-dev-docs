@@ -3,7 +3,7 @@ title: Create and use MongoDB on Azure
 description: Create a Cosmos DB resource and use for your MongoDB database. 
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Create and use MongoDB on Azure with Cosmos DB
