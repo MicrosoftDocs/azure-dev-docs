@@ -4,7 +4,7 @@ description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Serv
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create an Application Gateway ingress controller in Azure Kubernetes Service
