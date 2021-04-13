@@ -8,7 +8,7 @@ ms.custom: seo-javascript-september2019, devx-track-js
 
 # Build a new Static web app on Azure with Node.js
 
-Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering is not required. In addition, API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
+Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required. In addition, API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
 
 ## 1. Prepare your development environment
 
