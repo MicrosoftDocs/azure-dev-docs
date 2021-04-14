@@ -15,7 +15,7 @@ on Windows, macOS, and Linux.
 **Azure CLI**
 
 * Cross-platform command-line interface, installable on Windows, macOS, Linux
-* Requires Windows PowerShell, Cmd, or Bash
+* Requires Windows PowerShell, Cmd, or Bash and other Unix shells.
 
 **Azure PowerShell**
 
@@ -105,7 +105,7 @@ With that said, exercising a growth mindset will only improve your abilities. Us
 |Command|Azure CLI|Azure PowerShell|
 |---|---|---|
 |Find Version|az --version|Get-InstalledModule -Name Az|
-|Get Help|az help|Get-Help|
+|Get Help|az --help|Get-Help|
 |View Command Help|az vm --help|Get-Help -Name New-AzVM
 
 ---
