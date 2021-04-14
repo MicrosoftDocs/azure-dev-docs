@@ -2,7 +2,7 @@
 title: Azure SDK for JavaScript Identity credential
 description: Once you have your Azure subscription, you need to know how to authenticate to the Azure platform to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/13/2021
 ms.custom: devx-track-js
 ---
 
@@ -67,7 +67,7 @@ These environment variables are **REQUIRED for the context to use DefaultAzureCr
 * `AZURE_CLIENT_ID`: `YOUR-SERVICE-PRINCIPAL-ID` from the service principal output above.
 * `AZURE_CLIENT_SECRET`: `YOUR-TENANT-ID` from the service principal output above.
 
-## 3. Create Azure resources with service principal 
+## 3. List Azure resource groups with service principal 
 
 Use the new service principal to authenticate with Azure. 
 
@@ -121,7 +121,12 @@ Use the new service principal to authenticate with Azure.
         --tenant YOUR-TENANT-ID
     ```
 
-1.  Create a new resource. This Azure CLI command is specific to [each service](/cli/azure/service-page/list%20a%20-%20z). 
+1.  List all resource groups: 
+
+    ```bash
+    az group list \
+        --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
+    ```
 
 ---
 

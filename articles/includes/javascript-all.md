@@ -52,10 +52,10 @@
 | @autorest/codemodel | npm [4.14.8](https://www.npmjs.com/package/@autorest/codemodel/v/4.14.8) |  |  |
 | @autorest/common | npm [1.1.3](https://www.npmjs.com/package/@autorest/common/v/1.1.3) |  |  |
 | @autorest/configuration | npm [1.2.3](https://www.npmjs.com/package/@autorest/configuration/v/1.2.3) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210412.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210412.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210413.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210413.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.2.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.2.1) |  |  |
-| @autorest/schemas | npm [1.1.1](https://www.npmjs.com/package/@autorest/schemas/v/1.1.1) |  |  |
+| @autorest/schemas | npm [1.1.2](https://www.npmjs.com/package/@autorest/schemas/v/1.1.2) |  |  |
 | @autorest/test-utils | npm [0.2.2](https://www.npmjs.com/package/@autorest/test-utils/v/0.2.2) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.0.0) |  |  |
 | @azure/arm-authorization-profile-2020-09-01-hybrid | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-authorization-profile-2020-09-01-hybrid/v/1.0.0) |  |  |
@@ -106,14 +106,14 @@
 | AutoRest - CLI Common | npm [0.6.1](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.1) |  | GitHub [0.6.1](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.3.6](https://www.npmjs.com/package/@autorest/compare/v/0.3.6) |  | GitHub [0.3.6](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.3.0](https://www.npmjs.com/package/@autorest/core/v/3.3.0) |  | GitHub [3.3.0](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.3.1](https://www.npmjs.com/package/@autorest/core/v/3.3.1) |  | GitHub [3.3.1](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.17](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.17) |  |  |
-| AutoRest - Modeler Four | npm [4.18.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.18.2) |  | GitHub [4.18.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.426](https://www.npmjs.com/package/@autorest/powershell/v/3.0.426) |  | GitHub [3.0.426](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Modeler Four | npm [4.18.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.18.3) |  | GitHub [4.18.3](https://github.com/Azure/autorest.modelerfour) |
+| AutoRest - Power Shell | npm [3.0.427](https://www.npmjs.com/package/@autorest/powershell/v/3.0.427) |  | GitHub [3.0.427](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.6.5](https://www.npmjs.com/package/@autorest/python/v/5.6.5) |  | GitHub [5.6.5](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -320,7 +320,7 @@
 | Resource Management - Monitor | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/6.0.0) | [docs](/javascript/api/overview/azure/monitor) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/monitor/arm-monitor) |
 | Resource Management - MySQL | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-mysql/v/3.3.0) | [docs](/javascript/api/overview/azure/mysql) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mysql/arm-mysql) |
 | Resource Management - NetApp | npm [13.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/13.0.0) |  | GitHub [13.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp) |
-| Resource Management - Network | npm [23.3.0](https://www.npmjs.com/package/@azure/arm-network/v/23.3.0) | [docs](/javascript/api/overview/azure/virtual-network) | GitHub [23.3.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/network/arm-network) |
+| Resource Management - Network | npm [24.0.0](https://www.npmjs.com/package/@azure/arm-network/v/24.0.0) | [docs](/javascript/api/overview/azure/virtual-network) | GitHub [24.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/network/arm-network) |
 | Resource Management - Notification Hubs | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-notificationhubs/v/1.2.0) | [docs](/javascript/api/overview/azure/notification-hubs) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/notificationhubs/arm-notificationhubs) |
 | Resource Management - Operational Insights | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/6.0.0) | [docs](/javascript/api/overview/azure/operational-insights) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/operationalinsights/arm-operationalinsights) |
 | Resource Management - Operations | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-operations/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/operationsmanagement/arm-operations) |
@@ -349,7 +349,7 @@
 | Resource Management - SignalR | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-signalr/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/signalr/arm-signalr) |
 | Resource Management - SQL | npm [7.0.2](https://www.npmjs.com/package/@azure/arm-sql/v/7.0.2) | [docs](/javascript/api/overview/azure/sql) | GitHub [7.0.2](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/sql/arm-sql) |
 | Resource Management - Sql Virtual Machine | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-sqlvirtualmachine/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/sqlvirtualmachine/arm-sqlvirtualmachine) |
-| Resource Management - Storage | npm [15.3.0](https://www.npmjs.com/package/@azure/arm-storage/v/15.3.0) |  | GitHub [15.3.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/arm-storage) |
+| Resource Management - Storage | npm [16.0.0](https://www.npmjs.com/package/@azure/arm-storage/v/16.0.0) |  | GitHub [16.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/arm-storage) |
 | Resource Management - Storage Cache | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-storagecache/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storagecache/arm-storagecache) |
 | Resource Management - Storage Import Export | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-storageimportexport/v/1.2.0) |  | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storageimportexport/arm-storageimportexport) |
 | Resource Management - Storage Sync | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-storagesync/v/8.0.0) |  | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storagesync/arm-storagesync) |
