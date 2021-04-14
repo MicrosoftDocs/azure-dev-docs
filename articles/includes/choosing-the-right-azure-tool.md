@@ -22,11 +22,6 @@ on Windows, macOS, and Linux.
 * Cross-platform PowerShell module, runs on Windows, macOS, Linux
 * Requires Windows PowerShell or PowerShell
 
-**Azure Cloud Shell**
-
-* Cloud-hosted scripting shell that contains both AzureCLI and Azure PowerShell
-* Accessible via a web browser or attachable to local shell environments
-
 ## Different Shell Environments
 
 |Shell Environment|Azure CLI|Azure PowerShell|
@@ -36,23 +31,37 @@ on Windows, macOS, and Linux.
 |Windows PowerShell|Yes|Yes|
 |PowerShell|Yes|Yes|
 
-Windows PowerShell, PowerShell, Cmd, and Bash are shells environments. Your shell environment not only determines which tools you can use but also changes the experience.
+Windows PowerShell, PowerShell, Cmd, and Bash are shell environments. Your shell environment not only determines which tools you can use but also changes the experience.
 
 For example, Bash uses backslashes `\` and Windows PowerShell uses backticks `` ` `` as a line continuation character. The differences in the shell environment don't change how Azure CLI and Azure PowerShell operate. However, they do change your command-line experience.
 
 Azure CLI has an installer that makes its commands executable in all four shell environments.
 
-Azure PowerShell is a PowerShell module named `Az`, not an executable. It can only be installed using Windows PowerShell or PowerShell. Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing it to be (cross-platform), installable on macOS, Linux, and Windows.
+Azure PowerShell is a PowerShell module named `Az`, not an executable.
 
-Azure Cloud Shell is a hosted shell environment that runs on an Ubuntu container. Providing a Bash or PowerShell shell environment. Azure CLI and Azure PowerShell come preinstalled along with other command-line tools.
-
-Customizations of Azure Cloud Shell are limited and you rely on Microsoft to update the version of the tooling provided.
+It can only be installed using Windows PowerShell or PowerShell. Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing it to be (cross-platform), installable on macOS, Linux, and Windows.
 
 **NOTE**:
 
-* AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retire date of February 29 2024.
+* AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retire date of February 29 2024. 
 
-## Which is right for you?
+Using AzureRM? You can [migrate Azure PowerShell from AzureRM to Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az).
+
+## What about Azure Cloud Shell?
+
+Azure Cloud Shell is a hosted shell environment.
+
+It's accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/en-us/blog/cloudshelleditor/).
+
+Azure Cloud Shell provides both a PowerShell and Bash shell environment. It comes with Azure CLI and Azure PowerShell preinstalled, among many other command-line tools. Customizing the terminal is limited because it's hosted as a Ubuntu container that Microsoft manages. With the upside being, you don't have to keep the command-line tools up-to-date. And the downside being, you can't update or downgrade the tools.
+
+![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
+
+Another benefit of Azure CloudShell is that authentication to Azure is handled through your subscription login.
+
+For example, using Azure Cloud Shell in the browser used the authentication from Azure Portal to connect you to your subscription and Azure Resources.
+
+## Which Command-line tool is right for you?
 
 When picking the right tool, it's useful to consider your past experience and current work environment.
 
@@ -70,7 +79,7 @@ With that said, exercising a growth mindset will only improve your abilities. Us
 
 * Feature parity for Azure services doesn't always exist between Azure CLI and Azure PowerShell. But, new functionality is constantly being added.
 
-## Azure CLI and Azure PowerShell Side-by-site Command Comparison
+## Azure CLI and Azure PowerShell Side-by-side Command Comparison
 
 <br>
 
