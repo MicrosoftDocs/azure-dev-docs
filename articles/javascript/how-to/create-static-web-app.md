@@ -13,7 +13,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 ## 1. Prepare your development environment
 
 * Create a free [Azure subscription](https://azure.microsoft.com/free/)
-* Install [Node.js and npm](https://nodejs.org/en/download)
+* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
     * [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
 * Install [Git](https://git-scm.com/downloads) 
