@@ -77,7 +77,7 @@ The app is started on port 3000 and should be visible in your browser. The folde
 
 ## 6. View Azure static web site in browser
 
-1. In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
+In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
 :::image type="content" source="../media/howto-static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
 
@@ -87,5 +87,5 @@ You can also find the URL for the site at:
 
 ## Next step
 
-> Learn more about [Static web apps](/azure/static-web-apps/)
-> [Add an API](/azure/static-web-apps/add-api) in Static web apps
+* Learn more about [Static web apps](/azure/static-web-apps/)
+* [Add an API](/azure/static-web-apps/add-api) in Static web apps
