@@ -6,11 +6,9 @@ ms.date: 01/20/2021
 ms.custom: devx-track-js
 ---
 
-# Deploy Node.js Express.js to Azure App Service using Visual Studio Code
+# Deploy Express.js to Azure App Service using Visual Studio Code
 
-Deploy a Node.js Express.js application to Azure App Service (on Linux or Windows) using the Visual Studio Code [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
-
-Deploy your Node.js app to Azure using Git and the Azure App Service extension. To accomplish this goal:
+Deploy your Express.js app to Azure with the Visual Studio Code extension for Azure App Service extension. To accomplish this goal:
 
 * Create Express.js app
 * Initialize a local Git repository
@@ -20,10 +18,10 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 
 ## 1. Set up your development environment
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
-- [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
-- [Node.js 12+ and npm](https://nodejs.org/en/download).
+* Create a free [Azure subscription](https://azure.microsoft.com/free/)
+* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
+* Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
+    * [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
 ## 2. Sign in to Azure
 
@@ -39,7 +37,7 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 
 ## 5. Initialize Git in Visual Studio Code for current app
 
-1. In the terminal, make sure you're in the *expressApp1* folder, then start Visual Studio Code with the following command:
+1. In the terminal, make sure you're in the *myexpressapp* folder, then start Visual Studio Code with the following command:
 
     ```bash
     code .
@@ -49,7 +47,7 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 
     ![Initialize git repository](../media/deploy-azure/git-init.png)
 
-1. At the prompts, choose *expressApp1* for the workspace folder.
+1. At the prompts, choose *myexpressapp* for the workspace folder.
 
 1. After the repository is initialized, enter the message "Initial commit" and select the checkmark to create the initial commit of your source files.
 
@@ -94,7 +92,7 @@ Deploy your Node.js app to Azure using Git and the Azure App Service extension. 
 
     ![Deploy to Web App icon](../media/deploy-azure/deploy.png)
 
-1. At the prompts, select the *expressApp1* folder, select your **subscription** account again and then select the name of the web app created earlier.
+1. At the prompts, select the *myexpressapp* folder, select your **subscription** account again and then select the name of the web app created earlier.
 
 1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
 
