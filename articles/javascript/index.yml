@@ -60,7 +60,7 @@ landingContent:
           - text: "App service: Express.js container"
             url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
           - text: "Azure Functions: HTTP serverless trigger"
-            url: tutorial/tutorial-vscode-serverless-node-install.md
+            url: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
           - text: "Azure Virtual Machine: NGINX/Express.js containers"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
   - title: Azure SDK client library tutorials

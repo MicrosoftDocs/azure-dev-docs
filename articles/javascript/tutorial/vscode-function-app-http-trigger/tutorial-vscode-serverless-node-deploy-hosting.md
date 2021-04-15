@@ -8,7 +8,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 # 4. Deploy the Functions app to Azure cloud
 
-[Previous step: Test the function locally](tutorial-vscode-serverless-node-test-local.md)
+[Previous step: Test the function locally](./vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)
 
 In this step, use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
 
@@ -50,4 +50,4 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
     > When deploying, the entire Functions application is deployed, so changes to all individual Functions are deployed at once.
 
 > [!div class="nextstepaction"]
-> [I deployed the Function app](tutorial-vscode-serverless-node-remove-resource.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)
+> [I deployed the Function app](./vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)

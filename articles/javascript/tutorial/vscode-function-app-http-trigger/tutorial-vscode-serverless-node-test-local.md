@@ -36,4 +36,4 @@ When you created the Functions app, the Azure Functions extension automatically 
     To learn more about breakpoints and debugging in VS Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging).
 
 > [!div class="nextstepaction"]
-> [I ran the Function app locally](tutorial-vscode-serverless-node-deploy-hosting.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
+> [I ran the Function app locally](./vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
