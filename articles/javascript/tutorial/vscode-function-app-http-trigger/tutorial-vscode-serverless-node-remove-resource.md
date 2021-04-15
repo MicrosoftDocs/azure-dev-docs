@@ -8,7 +8,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 # 5. Clean up Azure resources for Azure Functions tutorial
 
-[Previous step: Deploy the Functions app](./vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)
+[Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-deploy-hosting.md)
 
 ## Remove remote Azure resources
 
@@ -17,7 +17,7 @@ The Functions App you created includes resources that can incur minimal costs (r
 1. Find the resource group name in the list.
 1. Right-click the resource group name and select **Delete**.
 
-    :::image type="content" source="../../medial/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 [!INCLUDE [Next steps for using VSCode extensions](../../includes/tutorial-next-steps-vscode-extensions.md)]
 

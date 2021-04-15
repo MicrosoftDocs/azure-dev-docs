@@ -21,13 +21,13 @@ In this step, you run the Azure Functions project locally to test it before depl
 
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Alt**+click the local URL shown in the output to open the browser and run the function:
 
-    ![Output shown in VS Code Terminal panel when debugging locally](../../medial/functions-extension/local-test-output.png)
+    ![Output shown in VS Code Terminal panel when debugging locally](../../media/functions-extension/local-test-output.png)
 
     The code created by the default HTTP trigger template parses a `name` query parameter to customize the response. 
 
 1. In your browser, enter the URL displayed in the terminal, then add `?name=YOUR-NAME` to the end of URL, replacing `YOUR-NAME` with your name:
 
-    ![HTTP trigger function parsing URL parameters](../../medial/functions-extension/local-test-browser.png)
+    ![HTTP trigger function parsing URL parameters](../../media/functions-extension/local-test-browser.png)
 
 ## Set and stop at break point in serverless app
 
@@ -38,7 +38,7 @@ With your function running locally, set breakpoints on different parts of the co
 1. Remove the `?name=` argument from the URL in the browser and re-submit the browser request to the function. 
 1. When the browser makes that request, VS Code stops the function code on that breakpoint:
 
-    ![VS Code stopped on a breakpoint](../../medial/functions-extension/debugging-breakpoint.png)
+    ![VS Code stopped on a breakpoint](../../media/functions-extension/debugging-breakpoint.png)
 
     To learn more about breakpoints and debugging in VS Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging).
 
