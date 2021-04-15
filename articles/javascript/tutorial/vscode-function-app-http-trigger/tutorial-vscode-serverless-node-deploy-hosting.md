@@ -1,8 +1,8 @@
 ---
-title: Deploy the Functions app to Azure cloud
+title: Deploy the Functions 3.x app to Azure cloud
 description: Use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
 ms.topic: tutorial
-ms.date: 09/23/2019
+ms.date: 04/15/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -48,6 +48,8 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
     > [!TIP]
     > When deploying, the entire Functions application is deployed, so changes to all individual Functions are deployed at once.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I deployed the Function app](tutorial-vscode-serverless-node-remove-resource.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)

@@ -1,5 +1,5 @@
 ---
-title: Create and deploy JavaScript Functions
+title: Create and deploy JavaScript Functions 3.x
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: tutorial
 ms.date: 04/14/2021
@@ -29,6 +29,8 @@ The following software is installed as part of the tutorial later:
 [!INCLUDE [azure-sign-in](../../includes/azure-sign-in-vscode.md)]
 
 [!INCLUDE [Install Azure Functions core tools](../../includes/environment-functions-core-tools.md)]
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](tutorial-vscode-serverless-node-create-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

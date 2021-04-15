@@ -1,8 +1,8 @@
 ---
-title: Create the Azure Functions application from Visual Studio Code
+title: Create the Azure Functions 3.x application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 04/15/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -63,6 +63,8 @@ module.exports = async function (context, req) {
 ```
 
 Each Function [trigger](/azure/azure-functions/functions-triggers-bindings?tabs=csharp) type provides a template function for you, to allow you to immediately focus on the code for your application. When moving from Express.js to Azure Functions, [review the necessary changes](/azure/azure-functions/shift-expressjs?tabs=javascript) for your application. 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I created the Functions app](tutorial-vscode-serverless-node-test-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)
