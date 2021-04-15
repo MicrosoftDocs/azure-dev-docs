@@ -11,19 +11,18 @@ adobe-target: true
 
 In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 
-## Walkthrough video
+## Prepare you development environment 
 
-Watch this video for a complete walkthrough of the content in this article.
+Install the following software: 
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Deploy-Azure-Functions-Visual-Studio-Code/player]
+* Create a free [Azure subscription](https://azure.microsoft.com/free/)
+* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
+* Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
+    * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-[!INCLUDE [azure subscription](../includes/environment-subscription-h2.md)]
+The following software is installed as part of the tutorial later:
 
-## Install software to local workstation
-
-[!INCLUDE [Node.js version text as bullet list](../includes/environment-nodejs-bullet-list.md)]
-- [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) - to use Azure Functions 3.x
 
 ## Sign in to Azure in Visual Studio Code
 
