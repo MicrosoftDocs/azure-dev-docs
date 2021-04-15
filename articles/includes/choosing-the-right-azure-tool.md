@@ -11,17 +11,13 @@ In this article, you'll learn how to choose the right tool for you.
 
 Azure runs on automation. Every action you take inside the portal translates somewhere to code being executed to read, create, modify, or delete resources.
 
-Moving your workload to Azure lifts some of the administrative burden but not all. As your rate of adoption with azure increases so will the overhead required to maintain and administer your resources. Even though you don't have to worry about the data center, you still have to patch and troubleshoot Azure VMs, failover databases, and setup virtual networks.
+Moving your workload to Azure lifts some of the administrative burden but not all. As your rate of adoption with Azure increases so will the overhead. Even though you don't have to worry about the data center, you still have to patch and troubleshoot Azure VMs, failover databases, and setup virtual networks.
 
-By leveraging the existing automation that runs azure, command-line tools reduce that overhead.
+By using the existing automation that runs Azure, command-line tools reduce that overhead.
 
-It is through command-line tools that you can automate routine operations, standardize database fail overs, and pull data that provide powerful insight.
+Command-line tools automate routine operations, standardize database fail overs, and pull data that provide powerful insight. Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share. Sharing a script is much easier than a lengthy wiki page with time consuming screenshots.
 
-Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share.
-
-Sharing a script is much easier than a lengthy wiki page with time consuming screen shots.
-
-Using a command-line tool isn't always necessary, but it's a very useful skill to have.
+Using a command-line tool isn't always necessary, but it's a useful skill to have.
 
 ## Azure CLI vs Azure PowerShell
 
@@ -69,13 +65,13 @@ Azure Cloud Shell is a hosted shell environment.
 
 It's accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/en-us/blog/cloudshelleditor/).
 
-Azure Cloud Shell provides both a PowerShell and Bash shell environment. It comes with Azure CLI and Azure PowerShell preinstalled, among many other command-line tools. Customizing the terminal is limited because it's hosted as a Ubuntu container that Microsoft manages. With the upside being, you don't have to keep the command-line tools up-to-date. And the downside being, you can't update or downgrade the tools.
+Azure Cloud Shell provides both a PowerShell and Bash shell environment. It comes with Azure CLI and Azure PowerShell preinstalled, among many other command-line tools. Customizing the terminal is limited because it's hosted as an Ubuntu container that Microsoft manages. With the upside being, you don't have to keep the command-line tools up to date. And the downside being, you can't update or downgrade the tools.
 
 ![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
 
-Another benefit of Azure CloudShell is that authentication to Azure is handled through your subscription login.
+Another benefit of Azure Cloud Shell is that authentication to Azure is handled through your subscription sign in.
 
-For example, using Azure Cloud Shell in the browser used the authentication from Azure Portal to connect you to your subscription and Azure Resources.
+For example, using Azure Cloud Shell in the browser used the authentication from Azure portal to connect you to your subscription and Azure Resources.
 
 ## Which Command-line tool is right for you?
 
