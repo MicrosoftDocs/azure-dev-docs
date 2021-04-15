@@ -24,7 +24,7 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. At the next prompt, enter a globally unique name for your Function App and press **Enter**. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
-1. Choose the Node.js version/runtime
+1. Choose the Node.js version/runtime.
 
     ![VS Code output panel showing Node.js version/runtime](../../medial/functions-extension/nodejs-runtime-version.png)
 
@@ -40,7 +40,7 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
     ![Copy function URL command](../../medial/functions-extension/copy-function-url-command.png)
 
-1. Paste the URL into a browser, and append a `?name=<yourname>` argument. The browser should then show the function running in the cloud:
+1. Paste the URL into a browser, and append a `?name=YOUR-NAME` argument. The browser shows the function running in the cloud:
 
     ![Function running in the cloud](../../medial/functions-extension/remote-test-browser.png)
 
