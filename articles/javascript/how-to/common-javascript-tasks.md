@@ -61,12 +61,12 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Functions app locally|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-create-local.md)|
-|HTTP trigger code|[JavaScript](../tutorial/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
-|Debug/test function locally|[Visual Studio Code](../tutorial/tutorial-vscode-serverless-node-test-local.md)|
-|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-deploy-hosting.md)|
-|Verify function is available on public URL|[Visual Studio Code extension/Browser](../tutorial/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-publicly-available-with-browser)|
-|Remove function app resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-remove-resource.md)|
+|Create Functions app locally|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md)|
+|HTTP trigger code|[JavaScript](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
+|Debug/test function locally|[Visual Studio Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)|
+|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)|
+|Verify function is available on public URL|[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-publicly-available-with-browser)|
+|Remove function app resource|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md)|
 
 ### App service - full-stack, server-only, or client-only apps
 

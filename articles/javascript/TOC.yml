@@ -64,15 +64,15 @@
         - name: "Create a function with Visual Studio Code"
           items:
             - name: 1. Introduction and prerequisites
-              href: tutorial/tutorial-vscode-serverless-node-install.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
             - name: 2. Create the Functions app
-              href: tutorial/tutorial-vscode-serverless-node-create-local.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
             - name: 3. Test the function locally
-              href: tutorial/tutorial-vscode-serverless-node-test-local.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
             - name: 4. Deploy the Functions app
-              href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
             - name: 5. Clean up resources
-              href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md
       - name: Deploy and host server apps
         items:              
         - name: "Express.js with VS Code"

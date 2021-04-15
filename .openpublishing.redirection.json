@@ -126,23 +126,43 @@
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-install"
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-create-local"
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-test-local"
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting"
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource"
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
     },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
