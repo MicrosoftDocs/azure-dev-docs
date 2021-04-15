@@ -198,6 +198,7 @@
 | azure-resourcemanager-devtestlabs | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-devtestlabs/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-hanaonazure | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-hanaonazure/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-healthcareapis | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-healthcareapis/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-hybridcompute | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-hybridcompute/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-signalr | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-signalr/1.0.0-beta.1/jar/) |  |  |
 | azure-toolkit-appservice-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.5.0/jar/) |  |  |
 | azure-toolkit-auth-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.5.0/jar/) |  |  |
@@ -350,7 +351,7 @@
 | Key Vault - Secrets | maven [4.2.7](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.2.7/jar/)<br>maven [4.3.0-beta.5](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.3.0-beta.5/jar/) | [docs](/java/api/overview/azure/security-keyvault-secrets-readme/) | GitHub [4.2.7](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.2.7/sdk/keyvault/azure-security-keyvault-secrets/)<br>GitHub [4.3.0-beta.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.3.0-beta.5/sdk/keyvault/azure-security-keyvault-secrets/) |
 | Kusto Data | maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/2.7.0/jar/) |  |  |
 | Kusto Ingest | maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/2.7.0/jar/) |  |  |
-| Kusto Spark | maven [2.5.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/2.5.2/jar/) |  |  |
+| Kusto Spark | maven [2.6.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/2.6.0/jar/) |  |  |
 | Log Analytics | maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-loganalytics/1.0.0-Preview-1/jar/) |  | GitHub [1.0.0-Preview-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/loganalytics/microsoft-azure-loganalytics) |
 | LUIS | maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
 | LUIS Authoring | maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
