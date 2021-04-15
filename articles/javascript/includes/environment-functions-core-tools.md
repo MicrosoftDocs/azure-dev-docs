@@ -10,7 +10,11 @@ ms.custom: devx-track-javascript
 
 To enable local debugging, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools), which can be done directly in Visual Studio Code.
 
-1. Start Visual Studio Code.
+1. With a bash terminal on your local computer. The location will be the root for your serverless project. Start Visual Studio Code:
+
+    ```bash
+    code .
+    ```
 
 1. Open the **Command Palette** (**F1**), enter **Azure Functions: Install or Update Azure Functions Core Tools**, and press **Enter** to run the command.
 

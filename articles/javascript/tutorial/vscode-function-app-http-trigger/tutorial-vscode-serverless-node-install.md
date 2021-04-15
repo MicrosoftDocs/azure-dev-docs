@@ -26,9 +26,9 @@ The following software is installed as part of the tutorial later:
 
 ## Sign in to Azure in Visual Studio Code
 
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in-vscode.md)]
+[!INCLUDE [azure-sign-in](../../includes/azure-sign-in-vscode.md)]
 
-[!INCLUDE [Install Azure Functions core tools](../includes/environment-functions-core-tools.md)]
+[!INCLUDE [Install Azure Functions core tools](../../includes/environment-functions-core-tools.md)]
 
 > [!div class="nextstepaction"]
 > [I installed the prerequisites](./vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
