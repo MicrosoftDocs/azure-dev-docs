@@ -31,10 +31,10 @@ If you intend to **host your application on Azure**, without hosting it inside a
 
 When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
 
-* [NVM](#manage-nodejs-version-with-nvm): a command line interface to set or switch your local version of Node.js. 
+* NVM: a command line interface to set or switch your local version of Node.js. 
     * OSX, *nix - [nvm](https://github.com/creationix/nvm)
     * Windows - [nvm for Windows](https://github.com/marcelklehr/nodist) 
-* [Containers](#manage-nodejs-version-with-containers): Use a container with a specific Node.js minimum version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension makes container use very simple. After you install [Docker](https://www.docker.com/), and you have your project open, use the extension to load the project in to a container and attach to the container to debug. 
+* Containers: Use a container with a specific Node.js minimum version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension makes container use very simple. After you install [Docker](https://www.docker.com/), and you have your project open, use the extension to load the project in to a container and attach to the container to debug. 
 
 ## Download and install Node.js based on your intended use
 
