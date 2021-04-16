@@ -15,6 +15,8 @@ With these libraries you can provision and manage resources on Azure services (u
 
 ## Install the latest version of a library
 
+Examples: 
+
 ```cmd
 pip install azure-storage-blob
 ```
@@ -27,7 +29,11 @@ pip install azure-mgmt-storage
 
 On Linux systems, you must install a library for each user separately. Installing libraries for all users with `sudo pip install` isn't supported.
 
+You can use any other package name listed in the [package index](azure-sdk-library-package-index.md).
+
 ## Install specific library versions
+
+Examples:
 
 ```cmd
 pip install azure-storage-blob==12.0.0
@@ -39,7 +45,11 @@ pip install azure-mgmt-storage==10.0.0
 
 Specify the desired version on the command line with `pip install`.
 
+You can use any other package name listed in the [package index](azure-sdk-library-package-index.md).
+
 ## Install preview packages
+
+Examples:
 
 ```cmd
 pip install --pre azure-storage-blob
@@ -53,8 +63,11 @@ To install the latest preview of a library, include the `--pre` flag on the comm
 
 Microsoft periodically releases preview library packages that support upcoming features, with the caveat that the library is subject to change and must not be used in production projects.
 
+You can use any other package name listed in the [package index](azure-sdk-library-package-index.md).
+
 ## Verify a library installation
 
+Examples:
 ```cmd
 pip show azure-storage-blob
 ```
@@ -67,10 +80,16 @@ Use `pip show <library>` to verify that a library is installed. If the library i
 
 You can also use `pip freeze` or `pip list` to see all the libraries that are installed in your current Python environment.
 
+You can use any other package name listed in the [package index](azure-sdk-library-package-index.md).
+
 ## Uninstall a library
+
+Example:
 
 ```cmd
 pip uninstall azure-storage-blob
 ```
 
 To uninstall a library, use `pip uninstall <library>`.
+
+You can use any other package name listed in the [package index](azure-sdk-library-package-index.md).
