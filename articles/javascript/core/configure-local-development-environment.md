@@ -121,7 +121,7 @@ We recommend that you get into the habit of creating a source control repository
 
 1. In Visual Studio Code, select the source control icon to open the **Source Control** explorer, then select **Initialize Repository** to initialize a local Git repository:
 
-    ![Initialize git repository](../media/setup-environment/git-init.png)
+    ![Initialize git repository](../media/setup-environment/initialize-local-repository.png)
 
 1. After the repository is initialized, and you have files to store in source control, enter the message `Initial commit` and select the checkmark to create the initial commit of your source files.
 
