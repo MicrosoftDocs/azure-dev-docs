@@ -24,15 +24,72 @@ Deploy your Express.js app to Azure with the Visual Studio Code extension for Az
 
 ## 2. Sign in to Azure
 
-[!INCLUDE [Azure-sign-in steps](../includes/azure-sign-in.md)]
+If you already use the Azure service extensions, you should already be logged in and can skip this step. 
+
+Once you've installed an extension in Visual Studio Code, you need to sign into your Azure account. 
+
+1. In Visual Studio Code, select the **Azure** explorer icon, then select **Sign in to Azure**, and follow the prompts.
+
+    ![Sign in to Azure through VS Code](../media/deploy-azure/azure-sign-in.png)
+
+2. After signing in, verify that the email address of your Azure account appears in the Status Bar and your subscription(s) appears in the **Azure** explorer:
+    
+    ![VS Code Azure explorer showing subscriptions](../media/deploy-azure/azure-subscription-view.png)
+
+> [!NOTE]
+> If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
+>
+> # [bash](#tab/bash)
+>
+> ```bash
+> export HTTPS_PROXY=https://username:password@proxy:8080
+> export HTTP_PROXY=http://username:password@proxy:8080
+> ```
+>
+> # [PowerShell](#tab/powershell)
+>
+> ```powershell
+> $env: HTTPS_PROXY = "https://username:password@proxy:8080"
+> $env: HTTP_PROXY = "http://username:password@proxy:8080"
+> ```
+>
+> # [Cmd](#tab/cmd)
+>
+> ```cmd
+> set HTTPS_PROXY=https://username:password@proxy:8080
+> set HTTP_PROXY=http://username:password@proxy:8080
+> ```
+>
+> ---
+
 
 ## 3. Create a local Express.js app
 
-[!INCLUDE [Create a local Express.js app](../includes/create-node-app.md)]
+Create and run an Express.js app by cloning an Azure sample repository. 
+
+1. At a terminal command prompt, go to the location where you want to create the app folder.
+
+1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/js-e2e-express-server.git myexpressapp && \
+        cd myexpressapp && \
+        npm install
+    ```
 
 ## 4. Run your local Express.js app
 
-[!INCLUDE [Run your local Express.js app](../includes/run-node-app.md)]
+1. Start the server:
+
+    ```bash
+    npm start
+    ```
+
+1. Test the app by opening a browser to `http://localhost:3000`. The site should appear as follows:
+
+    ![Running Express Application](../media/deploy-azure/express.png)
+
+1. Press **Ctrl**+**C** in the terminal to stop the server.
 
 ## 5. Create App service resource in Visual Studio Code
 
