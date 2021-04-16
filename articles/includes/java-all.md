@@ -157,7 +157,7 @@
 | azure-autorest-customization | maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.3/jar/) |  |  |
 | azure-autorest-extension | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.1/jar/) |  |  |
 | azure-autorest-parent | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.1/jar/) |  |  |
-| azure-communication-administration | maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-administration/1.0.0-beta.3/jar/) |  |  |
+| azure-communication-administration | maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-communication-administration/1.0.0-beta.4/jar/) |  |  |
 | azure-containers-containerregistry | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-containers-containerregistry/1.0.0-beta.1/jar/) |  |  |
 | azure-cosmos-cassandra-driver-3 | maven [0.14.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-driver-3/0.14.0/jar/) |  |  |
 | azure-cosmos-cassandra-driver-4 | maven [0.1.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-4/0.1.0-beta.1/jar/) |  |  |
@@ -199,6 +199,8 @@
 | azure-resourcemanager-hanaonazure | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-hanaonazure/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-healthcareapis | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-healthcareapis/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-hybridcompute | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-hybridcompute/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-logic | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-logic/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-maintenance | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-maintenance/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-signalr | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-signalr/1.0.0-beta.1/jar/) |  |  |
 | azure-toolkit-appservice-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.5.0/jar/) |  |  |
 | azure-toolkit-auth-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.5.0/jar/) |  |  |
@@ -234,7 +236,7 @@
 | AutoRest Build Tools | maven [1.7.12](https://search.maven.org/artifact/com.microsoft.azure/autorest-build-tools/1.7.12/jar/) |  |  |
 | AutoRest Client Runtime for Java | maven [2.1.1](https://search.maven.org/artifact/com.microsoft.azure.v2/autorest-clientruntime-for-java/2.1.1/jar/) |  |  |
 | Autosuggest | maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-autosuggest/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-autosuggest) |
-| Azure | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure/1.41.0/jar/) |  |  |
+| Azure | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure/1.41.1/jar/) |  |  |
 | Azure Functions Java Library RabbitMQ | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq/1.0.0/jar/)<br>maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq/1.0.0-beta/jar/) |  |  |
 | Azure Mixed Reality Authentication | maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-mixedreality-authentication/1.0.0/jar/) | [docs](/java/api/overview/azure/mixedreality-authentication-readme/) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.0.0/sdk/mixedreality/azure-mixedreality-authentication/) |
 | Azure Profile hybrid | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2019_03_01_hybrid/azure/1.0.0-beta-1/jar/) |  |  |
@@ -282,7 +284,7 @@
 | Cosmos DB - Parent | maven [4.0.0-preview.2](https://search.maven.org/artifact/com.azure/azure-cosmos-parent/4.0.0-preview.2/jar/) |  |  |
 | Cosmos DB - Parent | maven [3.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-parent/3.5.0/jar/) |  |  |
 | Cosmos DB - Serialization | maven [2.9.6](https://search.maven.org/artifact/com.azure.data/azure-cosmos-serialization/2.9.6/jar/) |  |  |
-| Cosmos DB - Spark | maven [3.6.8](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/3.6.8/jar/) |  |  |
+| Cosmos DB - Spark | maven [3.6.9](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/3.6.9/jar/) |  |  |
 | Custom Image Search | maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customimagesearch/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customimagesearch) |
 | Custom Search | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/1.0.2/jar/) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customsearch) |
 | Custom Vision Prediction | maven [1.1.0-preview.2](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar/) |  |  |
@@ -368,7 +370,7 @@
 | Monitor OpenTelemetry Exporter | maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-monitor-opentelemetry-exporter/1.0.0-beta.4/jar/) | [docs](/java/api/overview/azure/monitor-opentelemetry-exporter-readme/) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.4/sdk/monitor/azure-monitor-opentelemetry-exporter/) |
 | Native | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/native-preview/1.0.0/jar/) |  |  |
 | News Search | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-newssearch/1.0.2/jar/) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-newssearch) |
-| Parent | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-parent/1.41.0/jar/) |  |  |
+| Parent | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-parent/1.41.1/jar/) |  |  |
 | Profile - Parent | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.profile_2019_03_01_hybrid/azure-profile-parent/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/profiles/2019-03-01-hybrid) |
 | Proton J Azure IoT | maven [0.12.2](https://search.maven.org/artifact/com.microsoft.azure.iot/proton-j-azure-iot/0.12.2/jar/) |  |  |
 | Proton J Azure IoT Dev | maven [0.12.3](https://search.maven.org/artifact/com.microsoft.azure.iot/proton-j-azure-iot-dev/0.12.3/jar/) |  |  |
@@ -445,24 +447,24 @@
 | Management - API Management | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.apimanagement.v2019_12_01/azure-mgmt-apimanagement/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/apimanagement/mgmt-v2019_12_01) |
 | Management - App Configuration | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.appconfiguration.v2020_06_01/azure-mgmt-appconfiguration/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/mgmt-v2020_06_01) |
 | Management - App Platform | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2020_07_01/azure-mgmt-appplatform/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appplatform/mgmt-v2020_07_01) |
-| Management - App Service | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-appservice/1.41.0/jar/) | [docs](/java/api/overview/azure/appservice) |  |
+| Management - App Service | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-appservice/1.41.1/jar/) | [docs](/java/api/overview/azure/appservice) |  |
 | Management - Attestation | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.attestation.v2020_10_01/azure-mgmt-attestation/1.0.0-beta-1/jar/) |  |  |
 | Management - Authorization | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.authorization.v2018_09_01_preview/azure-mgmt-authorization/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/authorization/mgmt-v2018_09_01_preview) |
 | Management - Azure Stack HCI | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.azurestackhci.v2020_10_01/azure-mgmt-azurestackhci/1.0.0/jar/)<br>maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.azurestackhci.v2020_10_01/azure-mgmt-azurestackhci/1.0.0-beta/jar/) |  |  |
 | Management - Azure VMware Solution | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.avs.v2020_03_20/azure-mgmt-avs/1.0.0/jar/)<br>maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.avs.v2020_03_20/azure-mgmt-avs/1.0.0-beta/jar/) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/avs/mgmt-v2020_03_20) |
-| Management - Batch | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batch/1.41.0/jar/) |  |  |
-| Management - Batch AI | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batchai/1.41.0/jar/) |  |  |
+| Management - Batch | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batch/1.41.1/jar/) |  |  |
+| Management - Batch AI | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-batchai/1.41.1/jar/) |  |  |
 | Management - Billing | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.subscription.v2019_10_01_preview/azure-mgmt-billing/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/subscription/mgmt-v2019_10_01_preview) |
 | Management - Cognitive Services | maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices.v2017_04_18/azure-mgmt-cognitiveservices/1.0.1/jar/) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18) |
 | Management - Commerce | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.commerce.v2015_06_01_preview/azure-mgmt-commerce/1.0.0-beta/jar/) |  |  |
 | Management - Communication | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.communication.v2020_08_20_preview/azure-mgmt-communication/1.0.0-beta/jar/) |  |  |
-| Management - Compute | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-compute/1.41.0/jar/) | [docs](/java/api/overview/azure/virtualmachines) |  |
-| Management - Container Instances | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerinstance/1.41.0/jar/) |  |  |
-| Management - Container Registry | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerregistry/1.41.0/jar/) |  |  |
-| Management - Container Service | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerservice/1.41.0/jar/) |  |  |
-| Management - Content Delivery Network | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cdn/1.41.0/jar/) | [docs](/java/api/overview/azure/cdn) |  |
+| Management - Compute | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-compute/1.41.1/jar/) | [docs](/java/api/overview/azure/virtualmachines) |  |
+| Management - Container Instances | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerinstance/1.41.1/jar/) |  |  |
+| Management - Container Registry | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerregistry/1.41.1/jar/) |  |  |
+| Management - Container Service | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-containerservice/1.41.1/jar/) |  |  |
+| Management - Content Delivery Network | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cdn/1.41.1/jar/) | [docs](/java/api/overview/azure/cdn) |  |
 | Management - Core | maven [1.2.1](https://search.maven.org/artifact/com.azure/azure-core-management/1.2.1/jar/) | [docs](/java/api/overview/azure/core-management-readme/) | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.2.1/sdk/core/azure-core-management/) |
-| Management - Cosmos DB | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cosmosdb/1.41.0/jar/) |  |  |
+| Management - Cosmos DB | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-cosmosdb/1.41.1/jar/) |  |  |
 | Management - Cost | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.costmanagement.v2019_11_01/azure-mgmt-costmanagement/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/costmanagement/mgmt-v2019_11_01) |
 | Management - Data Box | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.databox.v2019_09_01/azure-mgmt-databox/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/databox/mgmt-v2019_09_01) |
 | Management - Data Box Edge | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.edgegateway.v2019_03_01/azure-mgmt-databoxedge/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/edgegateway/mgmt-v2019_03_01) |
@@ -475,29 +477,29 @@
 | Management - Dev Spaces | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.devspaces.v2018_06_01_preview/azure-mgmt-devspaces/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/devspaces/mgmt-v2018_06_01_preview) |
 | Management - DevTest Labs | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.devtestlabs.v2018_09_15/azure-mgmt-devtestlabs/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/devtestlabs/mgmt-v2018_09_15) |
 | Management - Digital Twins | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar/)<br>maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0-beta-1/jar/) |  |  |
-| Management - DNS | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-dns/1.41.0/jar/) | [docs](/java/api/overview/azure/dns) |  |
+| Management - DNS | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-dns/1.41.1/jar/) | [docs](/java/api/overview/azure/dns) |  |
 | Management - Document DB | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb.v2015_04_08/azure-mgmt-documentdb/1.0.0-beta/jar/) |  |  |
 | Management - Event Grid | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2019_01_01/azure-mgmt-eventgrid/1.0.0/jar/) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid) |
-| Management - Event Hub | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-eventhub/1.41.0/jar/) |  |  |
+| Management - Event Hub | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-eventhub/1.41.1/jar/) |  |  |
 | Management - Event Hubs | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.eventhubs.v2018_01_01_preview/azure-mgmt-eventhubs/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/mgmt-v2018_01_01_preview) |
-| Management - Graph RBAC | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-graph-rbac/1.41.0/jar/) |  |  |
+| Management - Graph RBAC | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-graph-rbac/1.41.1/jar/) |  |  |
 | Management - HANA on Azure | maven [1.0.0-beta-5](https://search.maven.org/artifact/com.microsoft.azure.hanaonazure.v2017_11_03_preview/azure-mgmt-hanaonazure/1.0.0-beta-5/jar/) |  | GitHub [1.0.0-beta-5](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/hanaonazure/mgmt-v2017_11_03_preview) |
 | Management - HDInsight | maven [1.3.8](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.3.8/jar/) | [docs](/java/api/overview/azure/hdinsight) | GitHub [1.3.8](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/hdinsight/mgmt-v2018_06_01_preview) |
 | Management - Health Care APIs | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.healthcareapis.v2020_03_30/azure-mgmt-healthcareapis/1.0.0-beta/jar/) |  |  |
 | Management - Hybrid Compute | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.hybridcompute.v2020_08_02/azure-mgmt-hybridcompute/1.0.0-beta/jar/) |  |  |
 | Management - IoT Central | maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure.iotcentral.v2018_09_01/azure-mgmt-iotcentral/1.0.4/jar/) |  | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/iotcentral/mgmt-v2018_09_01) |
 | Management - IoT Hub | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.iothub.v2019_07_01_preview/azure-mgmt-iothub/1.0.0-beta/jar/) |  |  |
-| Management - Key Vault | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-keyvault/1.41.0/jar/) |  | GitHub [1.41.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/microsoft-azure-keyvault) |
+| Management - Key Vault | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-keyvault/1.41.1/jar/) |  | GitHub [1.41.1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/microsoft-azure-keyvault) |
 | Management - Kubernetes Configuration | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.kubernetesconfiguration.v2019_11_01_preview/azure-mgmt-kubernetesconfiguration/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/kubernetesconfiguration/mgmt-v2019_11_01_preview) |
 | Management - Kusto | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.kusto.v2020_09_18/azure-mgmt-kusto/1.0.0-beta/jar/) |  |  |
 | Management - Lab Services | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.labservices.v2018_10_15/azure-mgmt-labservices/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/labservices/mgmt-v2018_10_15) |
-| Management - Locks | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-locks/1.41.0/jar/) |  |  |
+| Management - Locks | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-locks/1.41.1/jar/) |  |  |
 | Management - Log Analytics | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.loganalytics.v2020_08_01/azure-mgmt-loganalytics/1.0.0-beta/jar/) |  |  |
 | Management - Logic Apps | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.logic.v2018_07_01_preview/azure-mgmt-logic/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/logic/mgmt-v2018_07_01_preview) |
 | Management - Machine Learning Services | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.machinelearningservices.v2019_05_01/azure-mgmt-machinelearningservices/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/machinelearningservices/mgmt-v2019_05_01) |
 | Management - Maintenance | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.maintenance.v2018_06_01_preview/azure-mgmt-maintenance/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/maintenance/mgmt-v2018_06_01_preview) |
 | Management - Managed Applications | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.managedapplications.v2019_07_01/azure-mgmt-managedapplications/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/managedapplications/mgmt-v2019_07_01) |
-| Management - Managed Service Identity | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-msi/1.41.0/jar/) |  |  |
+| Management - Managed Service Identity | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-msi/1.41.1/jar/) |  |  |
 | Management - Maria DB | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.mariadb.v2018_06_01/azure-mgmt-dbformariadb/1.0.0-beta-1/jar/) |  |  |
 | Management - Maria DB | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mariadb.v2020_01_01/azure-mgmt-mariadb/1.0.0-beta/jar/) |  |  |
 | Management - Marketplace  Ordering | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.marketplaceordering.v2015_06_01/azure-mgmt-marketplaceordering/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/marketplaceordering/mgmt-v2015_06_01) |
@@ -505,11 +507,11 @@
 | Management - Media Services | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2019_05_01_preview/azure-mgmt-media/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/mediaservices/mgmt-v2019_05_01_preview) |
 | Management - Media Services | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2020_05_01/azure-mgmt-media/1.0.0-beta/jar/) |  |  |
 | Management - Mixed Reality | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.mixedreality.v2020_05_01/azure-mgmt-mixedreality/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/mixedreality/mgmt-v2020_05_01) |
-| Management - Monitor | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-monitor/1.41.0/jar/) |  |  |
+| Management - Monitor | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-monitor/1.41.1/jar/) |  |  |
 | Management - Monitor | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.monitor.v2019_11_01/azure-mgmt-monitor/1.0.0-beta/jar/) |  |  |
 | Management - Net App | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.netapp.v2019_06_01/azure-mgmt-netapp/1.0.0/jar/) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp/mgmt-v2019_06_01) |
 | Management - Network | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management-network/0.8.0/jar/) |  |  |
-| Management - Network | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-network/1.41.0/jar/) | [docs](/java/api/overview/azure/network) |  |
+| Management - Network | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-network/1.41.1/jar/) | [docs](/java/api/overview/azure/network) |  |
 | Management - Network | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.frontdoor.v2020_05_01/azure-mgmt-network/1.0.0-beta/jar/) |  |  |
 | Management - Operations | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.operationsmanagement.v2015_11_01_preview/azure-mgmt-operationsmanagement/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/operationsmanagement/mgmt-v2015_11_01_preview) |
 | Management - Peering | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.peering.v2019_08_01_preview/azure-mgmt-peering/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/peering/mgmt-v2019_08_01_preview) |
@@ -518,20 +520,20 @@
 | Management - Power BI Dedicated | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.powerbidedicated.v2017_10_01/azure-mgmt-powerbidedicated/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/powerbidedicated/mgmt-v2017_10_01) |
 | Management - Private DNS | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.privatedns.v2018_09_01/azure-mgmt-privatedns/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/privatedns/mgmt-v2018_09_01) |
 | Management - Recovery Services | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.recoveryservices.backup.v2020_02_02/azure-mgmt-recoveryservices/1.0.0-beta/jar/) |  |  |
-| Management - Redis | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-redis/1.41.0/jar/) |  |  |
+| Management - Redis | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-redis/1.41.1/jar/) |  |  |
 | Management - Relay | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.relay.v2017_04_01/azure-mgmt-relay/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/relay/mgmt-v2017_04_01) |
 | Management - Resource Graph | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar/)<br>maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta-1/jar/) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcegraph/mgmt-v2019_04_01) |
 | Management - Resource Health | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.resourcehealth.v2017_07_01/azure-mgmt-resourcehealth/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcehealth/mgmt-v2017_07_01) |
-| Management - Resources | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-resources/1.41.0/jar/) | [docs](/java/api/overview/azure/resources) |  |
+| Management - Resources | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-resources/1.41.1/jar/) | [docs](/java/api/overview/azure/resources) |  |
 | Management - Scheduler | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management-scheduler/0.8.0/jar/) |  |  |
-| Management - Search | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-search/1.41.0/jar/) |  |  |
-| Management - Service Bus | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-servicebus/1.41.0/jar/) |  |  |
+| Management - Search | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-search/1.41.1/jar/) |  |  |
+| Management - Service Bus | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-servicebus/1.41.1/jar/) |  |  |
 | Management - Service Fabric | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.servicefabric.v2018_02_01/azure-mgmt-servicefabric/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicefabric/mgmt-v2018_02_01) |
 | Management - SignalR | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.signalr.v2020_05_01/azure-mgmt-signalr/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/signalr/mgmt-v2020_05_01) |
 | Management - SQL | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management-sql/0.8.0/jar/) |  |  |
-| Management - SQL | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-sql/1.41.0/jar/) |  |  |
+| Management - SQL | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-sql/1.41.1/jar/) |  |  |
 | Management - SQL Virtual Machine | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.sqlvirtualmachine.v2017_03_01_preview/azure-mgmt-sqlvirtualmachine/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/sqlvirtualmachine/mgmt-v2017_03_01_preview) |
-| Management - Storage | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-storage/1.41.0/jar/) |  |  |
+| Management - Storage | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-storage/1.41.1/jar/) |  |  |
 | Management - Storage Cache | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.storagecache.v2020_03_01/azure-mgmt-storagecache/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storagecache/mgmt-v2020_03_01) |
 | Management - Storage Import Export | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.storageimportexport.v2016_11_01/azure-mgmt-storageimportexport/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storageimportexport/mgmt-v2016_11_01) |
 | Management - Stream Analytics | maven [1.0.0-beta-1](https://search.maven.org/artifact/com.microsoft.azure.streamanalytics-2016-03-01/azure-mgmt-streamanalytics/1.0.0-beta-1/jar/) |  | GitHub [1.0.0-beta-1](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/streamanalytics/mgmt-v2016_03_01) |
@@ -540,7 +542,7 @@
 | Management - Support | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.support.v2020_04_01/azure-mgmt-support/1.0.0/jar/) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/support/mgmt-v2020_04_01) |
 | Management - Synapse | maven [1.0.0-beta-5](https://search.maven.org/artifact/com.microsoft.azure.synapse.v2019_06_01_preview/azure-mgmt-synapse/1.0.0-beta-5/jar/) |  | GitHub [1.0.0-beta-5](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/synapse/mgmt-v2019_06_01_preview) |
 | Management - Time Series Insights | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.timeseriesinsights.v2017_11_15/azure-mgmt-timeseriesinsights/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/timeseriesinsights/mgmt-v2017_11_15) |
-| Management - Traffic Manager | maven [1.41.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-trafficmanager/1.41.0/jar/) | [docs](/java/api/overview/azure/trafficmanager) |  |
+| Management - Traffic Manager | maven [1.41.1](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-trafficmanager/1.41.1/jar/) | [docs](/java/api/overview/azure/trafficmanager) |  |
 | Management - VMware CloudSimple | maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.vmwarecloudsimple.v2019_04_01/azure-mgmt-vmwarecloudsimple/1.0.0-beta/jar/) |  | GitHub [1.0.0-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/vmwarecloudsimple/mgmt-v2019_04_01) |
 | Management - Websites | maven [0.8.0](https://search.maven.org/artifact/com.microsoft.azure/azure-management-websites/0.8.0/jar/) |  |  |
 | Resource Management | maven [2.3.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager/2.3.0/jar/) | [docs](/java/api/overview/azure/resourcemanager-readme/) | GitHub [2.3.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.3.0/sdk/resourcemanager/azure-resourcemanager/) |
