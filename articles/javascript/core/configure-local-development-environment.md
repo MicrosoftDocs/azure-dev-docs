@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 11/05/2020
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -115,23 +115,27 @@ For every project, we recommend that you always create a separate folder, and it
     npm install @azure/ai-text-analytics@5.0.0
     ```
 
-## Use source control
+## Use source control with Visual Studio Code
 
-We recommend that you get into the habit of creating a source control repository whenever you start a project. If you have Git installed, run the following command:
+We recommend that you get into the habit of creating a source control repository whenever you start a project. You can do this from Visual Studio Code. 
 
-```bash
-git init
-```
+1. In Visual Studio Code, select the source control icon to open the **Source Control** explorer, then select **Initialize Repository** to initialize a local Git repository:
 
-From there, you can run commands like `git add` and `git commit` to commit changes. By regularly committing changes, you create a commit history with which you can revert to any previous state.
+    ![Initialize git repository](../media/setup-environment/git-init.png)
 
-To make an online backup of your project, we also recommend uploading your repository to [GitHub](https://github.com) or [Azure DevOps](/azure/devops/user-guide/code-with-git). If you've initialized a local repository first, use `git remote add` to attach the local repository to GitHub or Azure DevOps.
+1. After the repository is initialized, and you have files to store in source control, enter the message `Initial commit` and select the checkmark to create the initial commit of your source files.
 
-Documentation for git is found on [git-scm.com/docs](https://git-scm.com/docs) and all around the Internet.
+    ![Complete an initial commit to the repository](../media/setup-environment/initial-commit.png)
+
+1. Create a new repository on [GitHub](https://github.com/new) or [Azure DevOps](https://dev.azure.com/) and copy the repository URL for the next few steps. 
+
+1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `YOUR-ALIAS` and `YOUR-REPOSITORY` with your own values.
+
+    ```bash
+    git remote add origin https://github.com/YOUR-ALIAS/YOUR-REPOSITORY
+    ```
 
 Visual Studio Code includes a number of built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
-
-You can also use any other source control tool of your choice; Git is simply one of the most widely used and supported.
 
 ## Next steps
 
