@@ -52,7 +52,7 @@
 | @autorest/codemodel | npm [4.14.8](https://www.npmjs.com/package/@autorest/codemodel/v/4.14.8) |  |  |
 | @autorest/common | npm [1.1.3](https://www.npmjs.com/package/@autorest/common/v/1.1.3) |  |  |
 | @autorest/configuration | npm [1.2.3](https://www.npmjs.com/package/@autorest/configuration/v/1.2.3) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210416.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210416.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210419.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210419.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.2.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.2.1) |  |  |
 | @autorest/schemas | npm [1.1.2](https://www.npmjs.com/package/@autorest/schemas/v/1.1.2) |  |  |
@@ -198,7 +198,7 @@
 | MsRest - Azure Env | npm [2.0.0](https://www.npmjs.com/package/@azure/ms-rest-azure-env/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/ms-rest-azure-env) |
 | MsRest - Azure JS | npm [2.1.0](https://www.npmjs.com/package/@azure/ms-rest-azure-js/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/ms-rest-azure-js) |
 | MsRest - Browser Auth | npm [1.0.2](https://www.npmjs.com/package/@azure/ms-rest-browserauth/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/ms-rest-browserauth) |
-| MsRest - JS | npm [2.3.0](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.3.0) |  | GitHub [2.3.0](https://github.com/Azure/ms-rest-js) |
+| MsRest - JS | npm [2.4.0](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.4.0) |  | GitHub [2.4.0](https://github.com/Azure/ms-rest-js) |
 | MsRest - Node Auth | npm [3.0.9](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.0.9) |  | GitHub [3.0.9](https://github.com/Azure/ms-rest-nodeauth) |
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
