@@ -2,100 +2,34 @@
 title: Authenticate with the Azure management modules for Node.js
 description: Authenticate with a service principal into the Azure management modules for Node.js
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 04/19/2021
 ms.custom: devx-track-js
 ---
 
 # Authenticate with the Azure management modules for JavaScript
 
-All [SDK client libraries](../azure-sdk-library-package-index.md) require authentication via a `credentials` object. There are multiple ways of authenticating and creating the required
-credentials.
+Each Azure SDK npm package details how to correctly and securely authenticate to use that package. Do not mix and match authentication packages and code unless all packages use the same authentication package on the npm package page.
 
-Authentication, like all software and services, has been improved over the years. It is important to know which authentication library your service or services 
-uses. 
+## Azure authentication packages
+
+All [Azure SDK client libraries](../azure-sdk-library-package-index.md) require authentication via a `credentials` object. There are multiple ways of authenticating and creating the required
+credentials.
 
 The authentication libraries include the following:
 
-* @azure/identity - newest authentication package
+* **@azure/identity - recommended authentication package**
 * @azure/ms-rest-nodeauth
 * @azure/ms-rest-browserauth
 
-Older authentication packages are in use. If you are using those packages, you should consider migrating off the older authentication methods for a more secure and robust experience. 
-
-## Best practices with Azure SDK client library authentication
-
-Each npm package will show authentication for that exact client library. Do not mix and match authentication packages and code unless all packages use the same authentication package on the npm package page. 
-
-## Azure Identity library
-
-The Azure Identity library is the newest authentication package for Azure. Check the readme of the client library you are using to see if it supports the use of this new library.
-
-The [@azure/identity](https://www.npmjs.com/package/@azure/identity) library simplifies authentication against Azure Active Directory for Azure SDK libraries. It provides a set of TokenCredential implementations, which can be passed into SDK libraries to authenticate API requests. It supports token authentication using an Azure Active Directory service principal or managed identity.
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
- 
-// Enter your storage account name
-const account = "<account>";
-const defaultAzureCredential = new DefaultAzureCredential();
- 
-const blobServiceClient = new BlobServiceClient(
-  `https://${account}.blob.core.windows.net`,
-  defaultAzureCredential
-);
-```
-
-The preceding JavaScript example code demonstrates how to use the Azure Identity library to create a Default Azure Credential, then use this credential to access an Azure Storage resource.
-
-## Azure ms-rest-* libraries
-With the modern `@azure` scoped [client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries), you need a token to use a service. You get the token by using an Azure SDK client authentication method, which returns a credential. 
-
-```javascript
-const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
-msRestNodeAuth.interactiveLogin().then((credential) => {
-    // service code goes here
-}).catch((err) => {
-    // error code goes here
-    console.error(err);
-});
-```
-
-The preceding JavaScript example code demonstrates how to use the modern Azure authentication library with an interactive login to get a credential.
-
-```javascript
-// service code - this is an example only and not best practices for code flow
-const { BlobServiceClient } = require('@azure/storage-blob');
-const billingManagementClient = new billing.BillingManagementClient(credential, subscriptionId);
-billingManagementClient.enrollmentAccounts.list().then((enrollmentList) => {
-    console.log("The result is:");
-    console.log(result);
-})
-```
-
-The preceding JavaScript example code shows how you pass that credential to a specific Azure service client library, such as the Storage service used in this next code sample. The client library takes the credential, and generates a token for you. The service uses the token to validate service-level authentication for your requests. 
-
-The client library manages the token, and knows when to refresh the token. You, as the developer with your code base, don't have to manage this.
-
-## Older Azure SDK client authentication 
-
-Older Azure SDK clients will eventually migrate to the new modern authentication used above. Until that migration, the older client libraries use different authentication clients or may authentication with an entirely separate mechanism entirely such as resource keys. 
-
-For best results with older client libraries: 
-* Each npm package will show authentication for that exact client library.  
-* If your current code uses the modern `@azure/ms-*` libraries and the older authentication libraries in the same code base:
-    * Make sure the older, non-azure scoped library is the most recent for your service. This is noted in the service's documentation. 
-    * If you will need to continue to use a mix of modern and older authentication libraries, you may need to provide credential expiration and refreshing for the older library to match any application logic in your code base. 
-
 ## Authentication with Azure services while developing
 
-Common methods to create the required credential while you are developing:
+[Common credential methods](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/README.md#credential-classes) to create the required credential while you are developing:
 
 | Azure authentication type|Purpose|
 |--|--|
-|**Service principal**|This authentication is the _recommended method_. Learn how to [create an Azure service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to have a connection to Azure that is separate from your personal Azure account. It can be a temporary account or it can be a longer living account to act in place of your personal account.|
-| **Interactive**| This is the easiest way to authenticate when you are trying Azure services. It requires logging in with your personal account with a browser. |
-|**Basic**|This authentication requires you to enter your personal username and password. This is the least secure method and is not recommended.| 
+|**DefaultAzureCredential**|This authentication is the **recommended method**. Learn how to [set up the DefaultAzureCredential](../how-to/with-sdk/set-up-development-environment).|
+| **DeviceCodeCredential**| This is the easiest way to authenticate when you are *trying Azure services*. It requires logging in with your personal account with a browser. |
+|**UserPasswordCredential**|This authentication requires you to enter your personal username and password. This is the least secure method and is not recommended.| 
 
 ## Authentication with Azure services and production code
 
@@ -110,8 +44,9 @@ Common methods to create the required credential in your production code:
 
 |Authentication package|Sample authentication scripts|
 |--|--|
-|[@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth) <br>(recommended)|[Service Principal with Certificate](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpCert.ts)<br>[Service Principal from file](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpSecret.ts)<br>[Interactive](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/interactivePersonalAccount.ts)<br>[Basic](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/usernamePassword.ts)|
-|[@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth)<br>(recommended)|[Authentication with popup (create-react-app)](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/authentication-with-popup)<br>[React without pop-up](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/react-app)<br>[HTML with Login button](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/vanilla)|
+|[@azure/identity]()<br>recommended|[Set up Identity](../how-to/with-sdk/set-up-development-environment)|
+|[@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth)|[Service Principal with Certificate](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpCert.ts)<br>[Service Principal from file](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpSecret.ts)<br>[Interactive](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/interactivePersonalAccount.ts)<br>[Basic](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/usernamePassword.ts)|
+|[@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth)|[Authentication with popup (create-react-app)](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/authentication-with-popup)<br>[React without pop-up](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/react-app)<br>[HTML with Login button](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/vanilla)|
 |[ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure)|[Service principal](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#service-principal-authentication)<br>[Interactive](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#interactive-login)<br>[Basic](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#basic-authentication)|
 
 ## Next steps	
