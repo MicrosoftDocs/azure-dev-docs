@@ -27,7 +27,7 @@ The authentication libraries include the following:
 
 | Azure authentication type|Purpose|
 |--|--|
-|**DefaultAzureCredential**|This authentication is the **recommended method**. Learn how to [set up the DefaultAzureCredential](../how-to/with-sdk/set-up-development-environment).|
+|**DefaultAzureCredential**|This authentication is the **recommended method**. Learn how to [set up the DefaultAzureCredential](../how-to/with-sdk/set-up-development-environment.md).|
 | **DeviceCodeCredential**| This is the easiest way to authenticate when you are *trying Azure services*. It requires logging in with your personal account with a browser. |
 |**UserPasswordCredential**|This authentication requires you to enter your personal username and password. This is the least secure method and is not recommended.| 
 
@@ -44,7 +44,7 @@ Common methods to create the required credential in your production code:
 
 |Authentication package|Sample authentication scripts|
 |--|--|
-|[@azure/identity]()<br>recommended|[Set up Identity](../how-to/with-sdk/set-up-development-environment)|
+|[@azure/identity]()<br>recommended|[Set up Identity](../how-to/with-sdk/set-up-development-environment.md)|
 |[@azure/ms-rest-nodeauth](https://www.npmjs.com/package/@azure/ms-rest-nodeauth)|[Service Principal with Certificate](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpCert.ts)<br>[Service Principal from file](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/authFileWithSpSecret.ts)<br>[Interactive](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/interactivePersonalAccount.ts)<br>[Basic](https://github.com/Azure/ms-rest-nodeauth/blob/master/samples/usernamePassword.ts)|
 |[@azure/ms-rest-browserauth](https://www.npmjs.com/package/@azure/ms-rest-browserauth)|[Authentication with popup (create-react-app)](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/authentication-with-popup)<br>[React without pop-up](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/react-app)<br>[HTML with Login button](https://github.com/Azure/ms-rest-browserauth/tree/master/samples/vanilla)|
 |[ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure)|[Service principal](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#service-principal-authentication)<br>[Interactive](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#interactive-login)<br>[Basic](https://github.com/Azure/azure-sdk-for-node/blob/master/Documentation/Authentication.md#basic-authentication)|
