@@ -46,7 +46,9 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration of service principal
 
-Each Azure service has an authentication mechanism. This can include keys and endpoints, connection strings, or other mechanisms. To conform to best practices, create resources and authenticate to resources using a [service principal](node-sdk-azure-authenticate-principal.md). A service principal allows you to concretely define the access scope to the immediate development need.
+[Create a service principal](/how-to/with-sdk/set-up-development-environment.md#1-create-a-service-principal) to create, use Azure resources _without_ using your personal account. 
+
+Learn more about a [service principals](/azure/active-directory/develop/app-objects-and-service-principals).
 
 ## Working with Azure and the Azure SDK client libraries
 

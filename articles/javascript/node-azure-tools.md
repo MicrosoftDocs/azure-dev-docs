@@ -2,7 +2,7 @@
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 04/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
@@ -34,7 +34,7 @@ Use the following free extensions to use Azure services directly in Visual Studi
 
 | VS Code Extension | Description  |
 |:---------:|---------|
-|[Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)|A collection of extensions. Get web site hosting, SQL and MongoDB data, Docker Containers, Serverless Functions and more, all on Azure, all from VS Code, in this one extension from Microsoft.|
+|[Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)<br>![Azure tools](./media/node-azure-tools/azure-tools-icon.png)|A collection of extensions. Get web site hosting, SQL and MongoDB data, Docker Containers, Serverless Functions and more, all on Azure, all from VS Code, in this one extension from Microsoft.|
 
 If you prefer to install individual extensions, this list includes the most popular Azure services:
 
@@ -47,6 +47,11 @@ If you prefer to install individual extensions, this list includes the most popu
 | [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb "Link to Cosmos DB extension" )<br>![Cosmos DB Tools](media/node-azure-tools/icon-cosmos-db.png)| Create, browse, and update globally distributed, multi-model databases in Azure <br><br>* Quickstart: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript)|
 | [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)   <br> [![Docker](media/node-azure-tools/icon-docker.png)](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)| Manage Docker containers and images, Docker Hub, and Azure container registry<br><br>* Tutorial: [Deploy containers to Azure App Service](tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md) |
 |[Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)<br>![Azure Storage](media/node-azure-tools/icon-storage.png)|Azure Storage including Blob Containers, File Shares, Tables and Queues<br><br>* Quickstart: [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-javascript)|
+|[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)<br>![Remote-containers](media/node-azure-tools/remote-containers-icon.png)|Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's full feature set.|
+|[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)<br>![Remote - SSH](media/node-azure-tools/remote-ssh-icon.png)|Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.|
+
+
+
 | [All Azure extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)||
 
 ## TypeScript
@@ -59,6 +64,9 @@ Azure SDK client library reference documentation is written for TypeScript becau
 
 Learn more about the [TypeScript guidelines for Azure SDK](https://azure.github.io/azure-sdk/typescript_introduction.html).
 
+## Docker Containers
+
+If you typically use Docker containers locally in your development environment, consider using the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. This extension allows you to find a relevant container for your current open folder in Visual Studio Code. There are several Node.js containers to select from or you can bring your own. Once you open the project in a container, you can set breakpoints and debug as if you were in your local environment. 
 
 ## Azure CLI
 Azure CLI is optimized for managing Azure resources from the command line. 
