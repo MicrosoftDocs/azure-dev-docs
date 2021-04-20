@@ -44,16 +44,14 @@ In this article, you learn how to:
 
 ## 2. Authenticate to Azure
 
-Cloud Shell is automatically authenticated under the Microsoft account you used to log into the Azure portal. If your account has multiple Azure subscriptions, you can [switch to one of your other subscriptions](#3-set-the-current-azure-subscription).
+Terraform supports several options for authenticating to Azure. The following options are covered in this article:
 
-Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
+- Option #1: When using Terraform interactively, [authenticating via Microsoft account](#option-1-authenticate-via-microsoft-account) is recommended.
+- Option #2: When using Terraform from code, [authenticating via Azure service principal](#option-2-authenticate-via-azure-service-principal) is one recommended way.
 
-- When using Terraform interactively, [authenticating via Microsoft account](#authenticate-via-microsoft-account) is recommended.
-- When using Terraform from code, [authenticating via Azure service principal](#authenticate-via-azure-service-principal) is one recommended way.
+### Option #1: Authenticate via Microsoft account
 
-### Authenticate via Microsoft account
-
-Calling `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to log into Azure using your Microsoft account. Once you're logged in, return to the portal.
+Calling `az login` without any parameters displays a URL and a code. Browse to the URL, enter the code, and follow the instructions to authenticate to Azure using your Microsoft account. Once you're logged in, return to the portal.
 
 ```azurecli
 az login
@@ -64,7 +62,7 @@ az login
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
 - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#3-set-the-current-azure-subscription).
 
-### Authenticate via Azure service principal
+### Option #2: Authenticate via Azure service principal
 
 **Create an Azure service principal**: To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
 
