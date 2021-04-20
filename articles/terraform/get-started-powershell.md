@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Configure Terraform using Azure PowerShell
-description: In this quickstart, you learn how to install and configure Terraform using Azure PowerShell.
+title: Quickstart - Create an Azure resource group using Terraform in Windows
+description: In this quickstart, you learn how to install and configure Terraform in Windows
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure your environment
+## 1. Configure your environment
 
 1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
@@ -57,7 +57,7 @@ In this article, you learn how to:
     terraform -version
     ```
 
-## Authenticate to Azure
+## 2. Authenticate to Azure
 
 When using PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
 
@@ -134,7 +134,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     az login
     ```
 
-## Set environment variables
+## 3. Set environment variables
 
 Setting environment variables helps Terraform use the intended Azure subscription without you having to insert the information in every Terraform configuration file.
 
@@ -164,11 +164,23 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     gci env:ARM_*
     ```
 
+## 4. Create a base Terraform configuration file
+
 [!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
 
-[!INCLUDE [terraform-create-and-apply-execution-plan.md](includes/terraform-create-and-apply-execution-plan.md)]
+## 5. Initialize Terraform
 
-[!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## 6. Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+## 7. Apply the Terraform execution plan
+
+[!INCLUDE [terraform-apply.md](includes/terraform-apply.md)]
+
+## 8. Verify the results
 
 [!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 

@@ -8,8 +8,6 @@ ms.date: 02/18/2021
 ms.author: tarcher
 ---
 
-## Create a base Terraform configuration file
-
 A Terraform configuration file starts off with the specification of the provider. When using Azure, you'll specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
 
 ```terraform

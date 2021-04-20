@@ -1,10 +1,10 @@
 ---
-title: Quickstart - Configure Terraform using Azure Cloud Shell
-description: In this quickstart, you learn how to install and configure Terraform on Azure Cloud Shell.
+title: Quickstart - Create an Azure resource group using Terraform in Azure Cloud Shell
+description: In this quickstart, you learn how to create install and configure Terraform on Azure Cloud Shell.
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 09/27/2020
-ms.custom: devx-track-terraform, devx-track-azurecli
+ms.date: 03/15/2021
+ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
@@ -18,7 +18,7 @@ This article describes how to get started with [Terraform on Azure](https://www.
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Authenticate to Azure
-> * Create an Azure service principal using the Azure CLI
+> * Create an Azure service principal
 > * Authenticate to Azure using a service principal
 > * Set the current Azure subscription - for use if you have multiple subscriptions
 > * Create a base Terraform configuration file
@@ -29,24 +29,22 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure your environment
+## 1. Configure your environment
 
 1. Browse to the [Azure portal](https://portal.azure.com).
-
-1. If you aren't already logged in, the Azure portal displays a list of available Microsoft accounts. Select a Microsoft account associated with one or more active Azure subscriptions and enter your credentials to continue.
 
 1. Open Cloud Shell.
 
     ![Accessing Cloud Shell](media/install-configure/portal-cloud-shell.png)
 
-1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
+1. If you haven't previously used Cloud Shell, configure the environment and storage settings.
 
 **Notes**:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
-## Authenticate to Azure
+## 2. Authenticate to Azure
 
-Cloud Shell is automatically authenticated under the Microsoft account you used to log into the Azure portal. If your account has multiple Azure subscriptions, you can [switch to one of your other subscriptions](#set-the-current-azure-subscription).
+Cloud Shell is automatically authenticated under the Microsoft account you used to log into the Azure portal. If your account has multiple Azure subscriptions, you can [switch to one of your other subscriptions](#3-set-the-current-azure-subscription).
 
 Terraform supports several options for authenticating to Azure. The following techniques are covered in this article:
 
@@ -64,7 +62,7 @@ az login
 **Notes**:
 
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
-- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#set-the-current-azure-subscription).
+- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#3-set-the-current-azure-subscription).
 
 ### Authenticate via Azure service principal
 
@@ -72,7 +70,7 @@ az login
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
-There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
 
@@ -91,23 +89,23 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
-## Set the current Azure subscription
+## 3. Set the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
 
-1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
+1. To view the current Azure subscription, use [az account show](/cli/azure/account#az_account_show).
 
     ```azurecli
     az account show
     ```
 
-1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
+1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az_account_list) to display a list of subscription name ID values:
 
     ```azurecli
     az account list --query "[].{name:name, subscriptionId:id}"
     ```
 
-1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az-account-set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
+1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
     ```azurecli
     az account set --subscription="<subscription_id>"
@@ -117,9 +115,25 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
+## 4. Create a base Terraform configuration file
+
 [!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
 
-[!INCLUDE [terraform-create-and-apply-execution-plan.md](includes/terraform-create-and-apply-execution-plan.md)]
+## 5. Initialize Terraform
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## 6. Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+## 7. Apply the Terraform execution plan
+
+[!INCLUDE [terraform-apply.md](includes/terraform-apply.md)]
+
+## 8. Verify the results
+
+## 9. Reverse a Terraform execution plan
 
 [!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
 

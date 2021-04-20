@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Setup end-to-end Terratest testing on Terraform projects
+title: Tutorial - Configure end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 03/15/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Setup end-to-end Terratest testing on Terraform projects
+# Tutorial: Configure end-to-end Terratest testing on Terraform projects
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -125,7 +125,7 @@ In this section, you run the test against the sample configuration and deploymen
 
 1. Open a bash/terminal window.
 
-1. Log in to your Azure account. For information about logging into your Azure subscription, see [Azure authentication section](get-started-cloud-shell.md#authenticate-to-azure).
+1. Log in to your Azure account.
 
 1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `USER` with the name of your home directory.
 

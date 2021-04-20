@@ -8,8 +8,6 @@ ms.date: 09/27/2020
 ms.author: tarcher
 ---
 
-## Reverse a Terraform execution plan
-
 1. To reverse, or undo, the execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag as follows:
 
     ```cmd
