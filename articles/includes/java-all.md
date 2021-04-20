@@ -206,6 +206,7 @@
 | azure-resourcemanager-peering | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-peering/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-servicefabric | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicefabric/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-signalr | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-signalr/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-subscription | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-subscription/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-support | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-support/1.0.0-beta.1/jar/) |  |  |
 | azure-toolkit-appservice-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.5.0/jar/) |  |  |
 | azure-toolkit-auth-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.5.0/jar/) |  |  |
