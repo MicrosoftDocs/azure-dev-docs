@@ -362,7 +362,7 @@
 | WindowsAzure Mobile Services - Backend Tables | NuGet [1.0.478](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Tables/1.0.478) |  |  |
 | WindowsAzure Mobile Services - SQLiteStore | NuGet [1.0.4](https://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.4) |  |  |
 | WindowsAzure Mobile Services - WinJS | NuGet [2.0.0-beta](https://www.nuget.org/packages/WindowsAzure.MobileServices.WinJS/2.0.0-beta) |  |  |
-| WindowsAzure Service Bus | NuGet [6.0.5](https://www.nuget.org/packages/WindowsAzure.ServiceBus/6.0.5) |  |  |
+| WindowsAzure Service Bus | NuGet [6.1.0](https://www.nuget.org/packages/WindowsAzure.ServiceBus/6.1.0) |  |  |
 | WindowsAzure Storage | NuGet [9.3.3](https://www.nuget.org/packages/WindowsAzure.Storage/9.3.3) |  | GitHub [9.3.3](https://github.com/Azure/azure-storage-net) |
 | WindowsAzure Storage - Premium Table | NuGet [0.1.0-preview](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) |  | GitHub [0.1.0-preview](https://github.com/Azure/azure-storage-net) |
 | WindowsAzure Storage - Preview | NuGet [3.2.0-preview](https://www.nuget.org/packages/WindowsAzure.Storage-Preview/3.2.0-preview) |  | GitHub [3.2.0-preview](https://github.com/Azure/azure-storage-net) |
