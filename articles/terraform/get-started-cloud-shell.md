@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Create an Azure resource group using Terraform in Azure Cloud Shell
-description: In this quickstart, you learn how to create install and configure Terraform on Azure Cloud Shell.
-keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
+title: Quickstart - Configure Terraform in Azure Cloud Shell
+description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell.
+keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 04/21/2021
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
 adobe-target: true
-# Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
+# Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell
 ---
 
-# Quickstart: Configure Terraform using Azure Cloud Shell
+# Quickstart: Configure Terraform in Azure Cloud Shell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -43,6 +43,8 @@ In this article, you learn how to:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## 2. Authenticate to Azure
+
+#### [Azure CLI](#tab/azure-cli)
 
 Terraform supports several options for authenticating to Azure. The following options are covered in this article:
 
@@ -87,6 +89,12 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
+#### [Azure PowerShell](#tab/azure-powershell)
+
+PowerShell instructions.
+
+---
+
 ## 3. Set the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
@@ -129,9 +137,7 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
 [!INCLUDE [terraform-apply.md](includes/terraform-apply.md)]
 
-## 8. Verify the results
-
-## 9. Reverse a Terraform execution plan
+## 8. Reverse a Terraform execution plan
 
 [!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
 
