@@ -2,7 +2,7 @@
 title: Create Static web app resource
 description: Create the Static Web app resource with a Visual Studio Code extension for that service.
 ms.date: 10/13/2020
-ms.topic: include
+ms.topic: tutorial
 ms.custom: devx-track-javascript
 ---
 

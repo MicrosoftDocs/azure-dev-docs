@@ -2,60 +2,90 @@
 title: Build static web app on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
-ms.date: 08/20/2019
+ms.date: 04/13/2021
 ms.custom: seo-javascript-september2019, devx-track-js
 ---
 
-# Build Static web app on Azure with Node.js
+# Build a new Static web app on Azure with Node.js
 
-Great web apps can be productively built and maintained using a combination of a *JavaScript* front end, *APIs* (third-party or custom APIs built as serverless code), and templated *markup* (HTML and CSS) that is served as static pages. With this combination, also known as the JAMstack, you avoid writing complicated back end code to serve web pages. Instead, the system serves only static pages (HTML, CSS, and JavaScript), where those pages call upon your APIs for server-side work. Because you can write those APIs with auto-scaling serverless technologies, you completely avoid the cost and security concerns of using a typical always-on servers or web hosts. (For more information, see [jamstack.org](https://jamstack.org/).)
+Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required. In addition, API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
 
-To implement a static/JAMstack site on Azure, you employ a variety of tools and services:
+## 1. Prepare your development environment
 
-- Configure a database as necessary.
-- Implement serverless API code in Azure Functions. Those APIs typically use the database.
-- Choose any libraries you want for front-end development, such as Angular. You then upload these static HTML, CSS, and JavaScript files to Azure Blob Storage, which provides a built-in web server.
-- Create a reverse proxy so that all your traffic goes through one URL domain.
+* Create a free [Azure subscription](https://azure.microsoft.com/free/)
+* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
+* Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
+    * [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+* Install [Git](https://git-scm.com/downloads) 
+* Use or create a [GitHub account](https://github.com/join)
 
-You can watch a demonstration of the process with the //build 2019 session, [Productive front-end development with JavaScript, Visual Studio Code, and Azure](https://azure.microsoft.com/resources/videos/build-2019-productive-front-end-development-with-javascript-visual-studio-code-and-azure/).
+## 2. Create a local static web app
 
-> [!VIDEO https://medius.studios.ms/Embed/Video-nc/B19-BRK3021?latestplayer=true]
+If you don't have a client app yet, create a new local static React web app and start it. The following creates a new React app, as an example. If you do have an app, make sure to review the configuration for your [specific front-end framework](/azure/static-web-apps/front-end-frameworks). 
 
-A step-by-step tutorial can be found on [Deploy a static website to Azure](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md).
+```bash
+npx create-react-app my-app && cd my-app && npm start
+```
 
-The following articles also explain further details:
+The app is started on port 3000 and should be visible in your browser. The folder has also been initialized with git to the `main` default branch and the initial version has been committed to your local git. 
 
-- **Databases**: you can use any database you like, such as the different database services on Azure described on [How to integrate Azure databases in Node.js apps](integrate-database.md).
-  
-- **Serverless APIs**:
+## 3. Prepare your repository to deploy to a Static web app
 
-  - Start with [Deploy Azure Functions from Visual Studio Code](../tutorial/tutorial-vscode-serverless-node-install.md), which introduces you to Azure Functions in the context of Visual Studio Code, which which simplifies many of the details.
-  - When you complete the article, you have an Azure Functions project (a folder) that contains a subfolder named for the function, which is the same as its HTTP endpoint. That function folder contains an *index.js* file with the code.
-  - You can modify that function as needed, and also add more functions to the project, then deploy them again to Azure where they are publicly available.
-  - For additional resources on serverless development, see [How to write serverless Node.js code on Azure](develop-serverless-apps.md)
+1. Create a new [GitHub](https://github.com/new) repository to hold your new app. 
 
-- **Deploy your front-end to Azure Storage**: with your APIs in hand, you can now write your front-end code to use those APIs, using whatever framework you like. When you're ready, follow the article, [Tutorial: Host a static website on Blob Storage](/azure/storage/blobs/storage-blob-static-website-host), to upload those files to Azure and turn on static website hosting.
+1. Create a remote entry to your remote fork to your GitHub repo. Change the following command for your own GitHub account and repo name.
 
-- **Create a reverse proxy**: A reverse proxy, as described on [Work with Azure Functions proxies](/azure/azure-functions/functions-proxies) allows you to easily direct certain requests to different URLs. In this case, you want to direct requests for your front-end files to the Azure Storage URL, where you deployed those files, and API requests to the Azure Functions URL.
-
-  - To create these proxies, edit the *proxies.json* file in your Functions project so that it appears as shown below, substituting your URLs for `<storage_url>` and `<api_url>`:
-  
-    ```json
-    {
-      "$schema": "http://json.schemastore.org/proxies",
-      "proxies": {
-        "Static frontend on Azure Storage": {
-          "matchCondition": {
-            "route": "/{*restOfPath}"
-          },
-          "backendUri": "<storage_url>/{restOfPath}"
-        },
-        "Azure Functions API": {
-          "matchCondition": {
-            "route": "/api/{*restOfPath}"
-          },
-          "backendUri": "<api_url>/api/{restOfPath}"
-        }
-      }
-    }
+    ```bash
+    git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
     ```
+
+1. Create a new branch, `live`, that will only be used to deploy to your Static web app.
+
+    ```bash
+    git checkout -b live
+    ```
+
+1. Push your local `live` branch to a remote `live` branch.
+
+    ```bash
+    git push origin live
+    ```
+
+    Your local React app is now on GitHub in the `live` branch. You are ready to set up your Azure Static web app.
+
+## 4. Create a Static Web app resource
+
+1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static web app...**. 
+
+    :::image type="content" source="../media/howto-static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
+
+1. Enter the following information in the subsequent fields, presented one at a time. 
+
+    |Field name| value|Notes|
+    |--|--|--|
+    |A name for your static web app.|`React-static-web-app`|The name of your Azure resource.|
+    |Choose build preset to configure default project structure.|`React`|Select the front-end framework. |
+    |Select a location for new resources|Select an Azure location close to you.|If you are unsure, select `West US 2`.|
+
+## 5. View the GitHub Action build process
+
+1. In a web browser, open your GitHub repository, and select **Actions**. 
+
+1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the **Build And Deploy** successfully finishes.
+
+    :::image type="content" source="../media/howto-static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
+
+## 6. View Azure static web site in browser
+
+In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
+
+:::image type="content" source="../media/howto-static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
+
+You can also find the URL for the site at:
+* the Azure portal for your resource, on the **Overview** page.
+* the GitHub action's build-and-deploy output has the site URL at the very end of the script 
+
+## Next step
+
+* Learn more about [Static web apps](/azure/static-web-apps/)
+* [Add an API](/azure/static-web-apps/add-api) in Static web apps

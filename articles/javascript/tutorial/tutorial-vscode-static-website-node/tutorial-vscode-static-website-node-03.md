@@ -2,7 +2,7 @@
 title: Create an Azure Storage account for a static Node.js website from Visual Studio Code
 description: Static web app tutorial part 3, create an Azure Storage account
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 04/15/2021
 ms.custom: devx-track-js
 ---
 
@@ -22,7 +22,7 @@ In this step, you create an Azure Storage account, which serves as a simple file
 
     ![Create Storage Account in VS Code](../../media/static-website/create-storage-account.png)
 
-1. At the prompt, "Enter the name of the new storage account", enter a globally unique name for your Storage Account and press Enter. Valid characters for an app name are 'a-z' and '0-9'.
+1. At the prompt, "Enter the name of the new storage account", enter a globally unique name for your Storage Account and press Enter. Use only characters and numbers, up to 24 in length. 
 
     > [!NOTE]
     > This creates a storage account and a resource group with the same name. It automatically puts the storage account in West US. If you want to specify the resource group and location, select the "Create Storage Account (Advanced)" option from the context menu.

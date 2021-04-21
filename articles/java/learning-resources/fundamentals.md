@@ -96,4 +96,4 @@ The following sections provide links to resources that can help you understand h
 
 ### Support on Azure
 
-- [Support for JDK on Azure](/azure/java/jdk)
+- [Support for JDK on Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support)
