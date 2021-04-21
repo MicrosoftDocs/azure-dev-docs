@@ -139,7 +139,7 @@ To create and initialize the Azure Key Vault, use the following steps:
        --enabled-for-deployment true \
        --enabled-for-disk-encryption true \
        --enabled-for-template-deployment true \
-       --location eastus
+       --location eastus \
        --query properties.vaultUri \
        --sku standard
    ```
