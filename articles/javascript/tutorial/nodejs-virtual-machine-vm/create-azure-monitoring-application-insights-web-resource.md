@@ -30,7 +30,7 @@ This tutorial includes several Azure resources. Creating a resource group allows
     az extension add -n application-insights
     ```
 
-1. Use the following command to [create a monitoring resource](/cli/azure/ext/application-insights/monitor/app-insights/component#ext_application_insights_az_monitor_app_insights_component_create):
+1. Use the following command to [create a monitoring resource](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create):
 
 
     ```azurecli
