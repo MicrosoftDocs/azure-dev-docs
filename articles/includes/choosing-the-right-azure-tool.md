@@ -76,7 +76,7 @@ similar to that of Bash scripting.
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
 
-Choose the tool that uses your experience. But also factor in your current work environment. Doing so will shorten the learning curve. And help you become proficient at managing Azure at the command line.
+Choose the tool that uses your experience, and shorten your learning curve. Take advantage of [Microsoft learning](https://docs.microsoft.com/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
 
 With that said, exercising a growth mindset will only improve your abilities. Use a different tool when it makes sense.
 
