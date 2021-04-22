@@ -107,7 +107,7 @@ To log into an Azure subscription using a service principal, you first need acce
     $subId = (Get-AzContext).Subscription.id
     ```
 
-1. Create a [PSCredential](/dotnet/api/system.management.automation.pscredential) object to define the service principal password.
+1. Create a [PSCredential](/dotnet/api/system.management.automation.pscredential) object to define the service principal password. The password must meet various critera. Therefore, it's recommended to use a [GUID generator](http://www.guidgen.com) to generate a unique GUID to use as the password.
 
     ```powershell
     $credentials = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential `
@@ -139,8 +139,7 @@ To log into an Azure subscription using a service principal, you first need acce
 
 **Notes**:
 
-- The service principal names and password values are needed to log into the subscription using your service principal.
-- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
+- The service principal password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 - The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 ### Log in to Azure using a service principal
