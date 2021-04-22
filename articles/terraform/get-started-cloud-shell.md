@@ -144,15 +144,18 @@ To log into an Azure subscription using a service principal, you first need acce
 
 ### Log in to Azure using a service principal
 
-1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
+1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques:
 
-    **Option #1**: Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
+    - [Option #1: Call Get-Credential](#call-get-credential)
+    - [Option #2: Construct a PSCredential object](#construct-pscredential-object)
+
+    **<a name="call-get-credential">Option #1: Call Get-Credential</a>**. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
     ```powershell
     $credentials = Get-Credential
     ```
 
-    **Option #2**: Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
+    **<a name="construct-pscredential-object">Option #2: Construct a `PsCredential` object in memory</a>**. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
 
     ```powershell
 
