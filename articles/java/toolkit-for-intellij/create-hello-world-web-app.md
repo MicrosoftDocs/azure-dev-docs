@@ -83,7 +83,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. In the Deploy to Azure dialog box, you can deploy the application to an existing Tomcat webapp or you can create a new one.
 
-   a. Click **+** to create a new webapp. Otherwise, choose **WebApp* from the WebApp dropdown if there are existing webapps in your subscription.
+   a. Click **+** to create a new webapp. Otherwise, choose **WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
 
       :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Deploy to Azure dialog window.":::
 
