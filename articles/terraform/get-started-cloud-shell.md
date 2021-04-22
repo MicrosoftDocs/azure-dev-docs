@@ -144,34 +144,20 @@ To log into an Azure subscription using a service principal, you first need acce
 
 ### Log in to Azure using a service principal
 
-1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques:
+This section shows two options for authenticating to Azure using a service principal:
 
-    - [Option #1: Call Get-Credential](#call-get-credential)
-    - [Option #2: Construct a PSCredential object](#construct-pscredential-object)
+- [Option #1: Authenticate using a credentials file](#using-credentials-file)
+- [Option #2: Authenticate using environment variables](#using-env-vars)
 
-    **<a name="call-get-credential">Option #1: Call Get-Credential</a>**. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
+**<div name="using-credentials-file">Option #1: Authenticate using a credentials file</div>**
 
-    ```powershell
-    $credentials = Get-Credential
-    ```
+```powershell
+```
 
-    **<a name="construct-pscredential-object">Option #2: Construct a `PsCredential` object in memory</a>**. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
+**<div name="using-env-vars">Option #2: Authenticate using environment variables</div>**
 
-    ```powershell
-
-    ```
-
-1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azure_subscription_tenant_id>` placeholder with the Azure subscription tenant ID. If you don't know the tenant ID, see [How to find your Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant) for instructions.
-
-    ```powershell
-    Connect-AzAccount -ServicePrincipal -Credential $credentials -Tenant "<azure_subscription_tenant_id>" 
-    ```
-
-1. Log in to Azure using Azure CLI:
-
-    ```azurecli
-    az login
-    ```
+```powershell
+```
 
 ---
 
