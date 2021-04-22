@@ -189,11 +189,13 @@
 | azure-opentelemetry-exporter-azuremonitor | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-opentelemetry-exporter-azuremonitor/1.0.0-beta.2/jar/) |  |  |
 | azure-quantum-jobs | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-quantum-jobs/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-applicationinsights | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-applicationinsights/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-batch | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-batch/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-batchai | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-batchai/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-billing | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-billing/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-cognitiveservices | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cognitiveservices/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-customerinsights | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-customerinsights/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-databox | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-databox/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-datalakeanalytics | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-datalakeanalytics/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-datamigration | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-datamigration/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-deploymentmanager | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-deploymentmanager/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-devspaces | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-devspaces/1.0.0-beta.1/jar/) |  |  |
@@ -207,7 +209,9 @@
 | azure-resourcemanager-mariadb | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mariadb/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-marketplaceordering | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-marketplaceordering/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-notificationhubs | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-notificationhubs/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-operationsmanagement | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-operationsmanagement/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-peering | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-peering/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-policyinsights | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-policyinsights/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-powerbidedicated | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-powerbidedicated/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-servicefabric | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-servicefabric/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-signalr | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-signalr/1.0.0-beta.1/jar/) |  |  |
