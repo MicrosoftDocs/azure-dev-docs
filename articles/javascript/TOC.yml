@@ -18,7 +18,7 @@
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
     - name: Set up service principal
-      href: core/node-sdk-azure-authenticate-principal.md
+      href: /azure/developer/javascript/how-to/with-sdk/set-up-development-environment
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials

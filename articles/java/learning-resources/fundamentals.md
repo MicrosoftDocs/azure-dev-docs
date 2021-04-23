@@ -69,7 +69,7 @@ The following sections provide links to videos that can help you learn Java adva
 
 ### Performance
 
-- [Performance](https://blogs.msdn.microsoft.com/azureossds/2016/02/05/profiling-java-process-on-azure-web-apps)
+- [Performance](/archive/blogs/azureossds/profiling-java-process-on-azure-web-apps)
 - [Memory Issues](https://www.linkedin.com/learning/java-memory-management?u=3322)
 - [Dump Analysis](https://www.linkedin.com/learning/java-concurrency-troubleshooting-latency-and-throughput?u=3322)
 - [Testing - sampler of methods](https://learning.oreilly.com/playlists/e1ec94ab-a912-4455-b8a7-eccb024d3c55/)
