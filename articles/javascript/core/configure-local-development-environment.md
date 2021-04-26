@@ -46,7 +46,7 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration of service principal
 
-[Create a service principal](/how-to/with-sdk/set-up-development-environment.md#1-create-a-service-principal) to create, use Azure resources _without_ using your personal account. 
+[Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal) to create, use Azure resources _without_ using your personal account. 
 
 Learn more about a [service principals](/azure/active-directory/develop/app-objects-and-service-principals).
 
