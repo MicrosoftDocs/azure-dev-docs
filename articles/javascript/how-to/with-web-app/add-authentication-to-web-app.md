@@ -34,14 +34,14 @@ This article will discuss three ways to provide authentication with your web app
 
 Make sure the following are installed on your local developer workstation:
 
-    - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-    - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.]
-    - Azure resource group already created in previous tutorial.
-    - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
-    - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-    - Visual Studio Code extensions:
-        - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
-    - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.]
+- Azure resource group already created in previous tutorial.
+- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
+- Visual Studio Code extensions:
+    - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Download sample Express.js app
 
@@ -126,7 +126,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 To continue building this authenticated app, you may want to:
 * Change the authentication of your app registration to allow for both authenticated and unauthenticated users
 * Update your web app code with MSAL.js: 
-    * Add a [login button](../tutorial/single-page-application-azure-login-button-sdk-msal.md)
+    * Add a [login button](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
     * Add a logout button 
     * Add a callback route specific to authenticated users
     * Add a public route for unauthenticated users
@@ -148,4 +148,4 @@ In this procedure, you created an Azure app service and an Azure Active Director
 
 ## Next steps
 
-* Change your code to add a [Login button with MSAL.js](../tutorial/single-page-application-azure-login-button-sdk-msal.md)
+* Change your code to add a [Login button with MSAL.js](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
