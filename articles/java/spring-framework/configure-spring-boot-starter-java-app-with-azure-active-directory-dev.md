@@ -46,7 +46,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 
 1. Make sure `redirect URI` has been set to `{application-base-uri}/login/oauth2/code/`, for example *http://localhost:8080/login/oauth2/code/*. Note that you can't omit the trailing `/`.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/   web-application-set-redirect-uri-1.png" alt-text="Web Application set redirect uri 1":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/web-application-set-redirect-uri-1.png" alt-text="Web Application set redirect uri 1":::
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/web-application-set-redirect-uri-2.png" alt-text="Web Application set redirect uri 2":::
 
