@@ -157,6 +157,8 @@
         href: how-to/with-web-app/use-secret-environment-variables.md
       - name: Configure your web app
         href: how-to/configure-web-app-settings.md
+      - name: Add easy authentication
+        href: how-to/with-web-app/add-authentication-to-web-app.md
       - name: Write serverless code
         href: how-to/develop-serverless-apps.md
       - name: Create static web app
