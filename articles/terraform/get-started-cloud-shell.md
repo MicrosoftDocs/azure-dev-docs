@@ -21,9 +21,6 @@ In this article, you learn how to:
 > * Create an Azure service principal
 > * Authenticate to Azure using a service principal
 > * Set the current Azure subscription - for use if you have multiple subscriptions
-> * Create a base Terraform configuration file
-> * Create and apply a Terraform execution plan
-> * Reverse an execution plan
 
 ## Prerequisites
 
@@ -35,9 +32,13 @@ In this article, you learn how to:
 
 1. Open Cloud Shell.
 
-    ![Accessing Cloud Shell](media/install-configure/portal-cloud-shell.png)
+    :::image type="content" source="media/install-configure/portal-cloud-shell.png" alt-text="Open Cloud Shell from the top menu in the Azure portal.":::
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings.
+
+1. Select the CLI - either PowerShell or Bash (for the Azure CLI) - that you want to use.
+
+    :::image type="content" source="media/install-configure/choose-cloudshell-cli.png" alt-text="Select the CLI you want to use in Cloud Shell.":::
 
 **Notes**:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
@@ -144,20 +145,9 @@ To log into an Azure subscription using a service principal, you first need acce
 
 ### Log in to Azure using a service principal
 
-This section shows two options for authenticating to Azure using a service principal:
+1. 
 
-- [Option #1: Authenticate using a credentials file](#using-credentials-file)
-- [Option #2: Authenticate using environment variables](#using-env-vars)
 
-**<div name="using-credentials-file">Option #1: Authenticate using a credentials file</div>**
-
-```powershell
-```
-
-**<div name="using-env-vars">Option #2: Authenticate using environment variables</div>**
-
-```powershell
-```
 
 ---
 
