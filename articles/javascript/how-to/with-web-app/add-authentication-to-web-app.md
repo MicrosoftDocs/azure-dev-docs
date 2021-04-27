@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # Add Microsoft authentication to your Express.js web app
 
-Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for the typical uses cases for you.
+Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you.
 
 ## Easy auth for Azure web apps
 
@@ -17,22 +17,21 @@ Add Microsoft authentication to your web app with an app registration and an Azu
 
 Users are held and authenticated by tenant. An Azure tenant represents a single organization. A tenant is a dedicated and trusted instance of [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis.md) that's automatically created when your organization signs up for a Microsoft cloud service subscription, such as Microsoft Azure, Microsoft Intune, or Microsoft 365. 
 
-All users, regardless of tenant, can be available to be authorized by the Microsoft Identity provider, if the user and the app are both configured that way. 
+All users, regardless of tenant, can be authorized by the Microsoft Identity provider, if the user and the app are both configured that way. 
 
 The following steps provide:
-* identity provided by a secure identity provider
-* no code changes to your app - you can add auth code later 
-* a quick way to require users to sign in to your app
-* no Active Directory, group, user, or role setup
-* no authentication callback routing 
+* Identity provided by a secure identity provider
+* No code changes to your app required
+* No authentication callback routing changes required
+* A quick way to secure your app
+* Very little Active Directory setup required
 
 ## Prepare your development environment
 
 Make sure the following are installed on your local developer workstation:
 
 - An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active Directory permissions to complete these steps.
-- Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.]
-- Azure resource group already created in previous tutorial.
+- Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.
 - [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - Visual Studio Code extensions:
@@ -68,7 +67,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
     |Prompt|Enter|
     |--|--|
-    |Enter a globally unique name for the new web app.||
+    |Enter a globally unique name for the new web app.|The name is used as a subdomain for the web app's URI. |
     |Select a runtime stack.|Select the **most recent version of Node.js**, such as 14 LTS.|
     |Select a pricing tier|Select the **free** tier.|
     
@@ -78,8 +77,10 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Select **Browse website** from the notification. 
     The web app may take a minute or two to return from the server for the first (cold) start.
 
-1. When the receive the following response in the browser, the sample app is deployed and is responding correctly. 
+1. When you receive the following response in the browser, the sample app is deployed and is responding correctly. 
     Authentication isn't configured yet. That is the next step. 
+
+    :::image type="content" source="../../media/app-service-easy-authentication/easy-auth-expressjs-website.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. That is the next step.":::
 
 ## Configure easy auth for your app service
 
@@ -107,11 +108,11 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Select **Next** to view the permissions but do not make any changes. 
 1. Select **Add** to finish the process. 
 
-    When the process completes, you can view your app's identity provider list. 
+    When the process completes, you are in your app's identity provider list in the portal. 
 
 1. Your app is now private. A user must sign in with a Microsoft Identity account. 
 
-    This sign-in process depends on the user's tenant configuration. 
+    The specific steps of the sign-in process depends on the user's tenant configuration. 
 
 ## Sign in with a different user account
 
@@ -122,15 +123,16 @@ Sign in with a **different user account** to simulate a new user to your web app
 
     If you can see your Azure website without logging in, your current browser session already has that account signed in. Open a private or incognito browser window with the same URL. Now you are asked to authenticate. 
 
-1. Accept the permissions requested/consent pop-up. 
+1. Accept the permissions requested in the browser's consent pop-up window. 
 
     This means you are allowing the Azure app to view and read your user account information. It was the second tab of the authentication setup, named **Permissions**. 
-1. In the browser's pop-up window, enter your email account. If you are required to continue with 2-factor authentication, such as using a phone to finish the process, complete those steps. 
-1. After logging in, you should see the authenticated web site. 
+
+    If you are required to continue with 2-factor authentication, such as using a phone to finish the process, complete those steps. 
+1. After logging in, you should see the same website. 
 
 ## Clean up resources
 
-In this procedure, you created an Azure app service and an Azure Active Directory app registration. 
+In this procedure, you created an Azure app service and an Azure Active Directory app registration in just a few minutes. 
 
 ### Delete your Azure app registration
 
@@ -145,4 +147,4 @@ In this procedure, you created an Azure app service and an Azure Active Director
 
 ## Next steps
 
-* Change your code to add a [Login button with MSAL.js](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
+* [Install and debug a local project](../with-visual-studio-code/install-run-debug-nodejs)
