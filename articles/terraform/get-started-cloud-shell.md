@@ -98,9 +98,6 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     terraform version
     ```
 
----
-
-
 #### [Azure PowerShell](#tab/install-latest-version-azure-powershell)
 
 1. Verify the current version of Terraform.
