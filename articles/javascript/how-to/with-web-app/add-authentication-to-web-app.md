@@ -11,6 +11,8 @@ ms.custom: devx-track-js
 
 Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you.
 
+* [Sample code](https://github.com/diberry/js-e2e-web-app-easy-auth.git)
+
 ## Easy auth for Azure web apps
 
 [Easy auth](/azure/app-service/overview-authentication-authorization.md#feature-architecture-on-windows-non-container-deployment) allows your app to provide login to your users using their existing Microsoft account. The account doesn't have to have a particular domain name, such as `@microsoft.com` or `@outlook.com`. Any email domain works as long as the user has an existing Microsoft Identity account with that email address. 
@@ -46,7 +48,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/js-e2e-express-server.git myexpressapp && \
+    git clone https://github.com/diberry/js-e2e-web-app-easy-auth.git myexpressapp && \
         cd myexpressapp && \
         npm install
     ```
