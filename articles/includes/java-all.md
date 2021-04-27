@@ -200,7 +200,7 @@
 | azure-cosmos-cassandra-driver-3 | maven [0.14.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-driver-3/0.14.0/jar/) |  |  |
 | azure-cosmos-cassandra-driver-4 | maven [0.1.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-4/0.1.0-beta.1/jar/) |  |  |
 | azure-cosmos-cassandra-driver-4-extensions | maven [0.1.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-4-extensions/0.1.0-beta.1/jar/) |  |  |
-| azure-cosmos-encryption | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-cosmos-encryption/1.0.0-beta.2/jar/) |  |  |
+| azure-cosmos-encryption | maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-cosmos-encryption/1.0.0-beta.3/jar/) |  |  |
 | azure-cosmos-spark_3-0_2-12 | maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
 | azure-cosmos-spark_3-1_2-12 | maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.0.0-beta.2/jar/) |  |  |
 | azure-mariadb-connector-java | maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
@@ -226,6 +226,7 @@
 | azure-opentelemetry-exporter-azuremonitor | maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-opentelemetry-exporter-azuremonitor/1.0.0-beta.2/jar/) |  |  |
 | azure-quantum-jobs | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-quantum-jobs/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-managedapplications | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-managedapplications/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-mixedreality | maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mixedreality/1.0.0-beta.1/jar/) |  |  |
 | azure-toolkit-appservice-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.5.0/jar/) |  |  |
 | azure-toolkit-auth-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.5.0/jar/) |  |  |
 | azure-toolkit-common-lib | maven [0.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.5.0/jar/) |  |  |
@@ -380,7 +381,7 @@
 | LUIS | maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
 | LUIS Authoring | maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
 | LUIS Runtime | maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-luis-runtime) |
-| MASL4J | maven [1.9.1](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.9.1/jar/) |  |  |
+| MASL4J | maven [1.10.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.10.0/jar/) |  |  |
 | MASL4J Persistence Extension | maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j-persistence-extension/1.1.0/jar/) |  |  |
 | Maven - Plugin | maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0/jar/) |  |  |
 | Maven - Plugin Common | maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
