@@ -20,4 +20,4 @@ The storage you created incurs minimal ongoing costs (which for storage are very
 [!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I'm done](/azure/developer/javascript/how-to/create-static-web-app) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)
+> [I'm done](../how-to/create-static-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-staticwebsite&step=clean-up-resources)
