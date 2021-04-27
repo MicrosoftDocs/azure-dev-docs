@@ -85,10 +85,11 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar. 
 1. Select **Open in portal** to configure easy auth.
-1. Select **Authentication** under the app's settings.
-1. Select **Add identity provider**.
-1. Select **Microsoft**.
-1. Configure the following identity provider settings:
+1. Select **Authentication** under the app's settings then select **Add identity provider**.
+
+    :::image type="content" source="media/app-service-easy-authentication/app-service-add-identity-provider.png" alt-text="Select Authentication under the app's settings then select Add identity provider":::
+
+1. In the next form, configure the following identity provider settings:
 
     |Setting|Value|
     |--|--|
@@ -100,6 +101,8 @@ Create and run an Express.js app by cloning an Azure sample repository.
     |Unauthenticated requests|Keep the default value of 302 not found.|
     | Redirect to|Keep the default value.|
     |Token store|Keep the default value.|
+
+    :::image type="content" source="media/app-service-easy-authentication/app-service-add-microsoft-identity-provider.png" alt-text="Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
 
 1. Select **Next** to view the permissions but do not make any changes. 
 1. Select **Add** to finish the process. 
