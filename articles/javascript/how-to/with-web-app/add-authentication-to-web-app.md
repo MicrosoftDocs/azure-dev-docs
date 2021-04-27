@@ -87,7 +87,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Select **Open in portal** to configure easy auth.
 1. Select **Authentication** under the app's settings then select **Add identity provider**.
 
-    :::image type="content" source="media/app-service-easy-authentication/app-service-add-identity-provider.png" alt-text="Select Authentication under the app's settings then select Add identity provider":::
+    :::image type="content" source="../../media/app-service-easy-authentication/app-service-add-identity-provider.png" alt-text="Select Authentication under the app's settings then select Add identity provider":::
 
 1. In the next form, configure the following identity provider settings:
 
@@ -102,7 +102,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
     | Redirect to|Keep the default value.|
     |Token store|Keep the default value.|
 
-    :::image type="content" source="media/app-service-easy-authentication/app-service-add-microsoft-identity-provider.png" alt-text="Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
+    :::image type="content" source="../../media/app-service-easy-authentication/app-service-add-microsoft-identity-provider.png" alt-text="Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
 
 1. Select **Next** to view the permissions but do not make any changes. 
 1. Select **Add** to finish the process. 
