@@ -40,10 +40,126 @@ In this article, you learn how to:
 
     :::image type="content" source="media/install-configure/choose-cloudshell-cli.png" alt-text="Select the CLI you want to use in Cloud Shell.":::
 
-**Notes**:
-- Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
+## 2. Install the latest version of Terraform
 
-## 2. Authenticate to Azure
+Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks. However, if you need the most recent (or any specific) version sooner, this section shows you how download and install a specific version of Terraform.
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. Verify the current version of Terraform.
+
+    ```azurecli
+    terraform version
+    ```
+
+1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
+
+    :::image type="content" source="media/install-configure/terraform-version-not-current-bash" alt-text="Message displayed in Bash terminal when installed Terraform version is not the most current version.":::
+
+1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
+
+1. Browse to the [Terraform downloads page](https://www.terraform.io/downloads.html).
+
+1. Scroll down to the **Linux** download links.
+
+1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
+
+    :::image type="content" source="latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
+
+1. Copy the URL.
+
+1. Run `curl`, replacing the placeholder with the URL from the previous step.
+
+    ```azurecli
+    curl -O <terraform_download_url>
+    ```
+
+1. Unzip the file.
+
+    ```azurecli
+    unzip <zip_file_downloaded_in_previous_step>
+    ```
+
+1. If it doesn't exist, create a directory named `bin`.
+
+    ```azurecli
+    mkdir
+    ```
+
+1. Move the `terraform` file into the `bin` directory.
+
+    ```azurecli
+    mv terraform bin/    
+    ```
+
+1. Verify that the current version of Terraform is the downloaded version.
+
+    ```azurecli
+    terraform version
+    ```
+
+---
+
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Verify the current version of Terraform.
+
+    ```powershell
+    terraform version
+    ```
+
+1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
+
+    :::image type="content" source="media/install-configure/terraform-version-not-current-powershell" alt-text="Message displayed when installed Terraform version is not the most current version.":::
+
+1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
+
+1. Browse to the [Terraform downloads page](https://www.terraform.io/downloads.html).
+
+1. Scroll down to the **Linux** download links.
+
+1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
+
+    :::image type="content" source="latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
+
+1. Copy the URL.
+
+1. Run `curl`, replacing the placeholder with the URL from the previous step.
+
+    ```powershell
+    curl -O <terraform_download_url>
+    ```
+
+1. Unzip the file.
+
+    ```powershell
+    unzip <zip_file_downloaded_in_previous_step>
+    ```
+
+1. If it doesn't exist, create a directory named `bin`.
+
+    ```powershell
+    mkdir
+    ```
+
+1. Move the `terraform` file into the `bin` directory.
+
+    ```powershell
+    mv terraform bin/    
+    ```
+
+1. Verify that the current version of Terraform is the downloaded version.
+
+    ```powershell
+    terraform version
+    ```
+
+---
+
+## 3. Authenticate to Azure
+
+Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -151,7 +267,7 @@ To log into an Azure subscription using a service principal, you first need acce
 
 ---
 
-## 3. Set the current Azure subscription
+## 4. Set the current Azure subscription
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
 
@@ -177,29 +293,7 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
-## 4. Create a base Terraform configuration file
-
-[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
-
-## 5. Initialize Terraform
-
-[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
-
-## 6. Create a Terraform execution plan
-
-[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
-
-## 7. Apply the Terraform execution plan
-
-[!INCLUDE [terraform-apply.md](includes/terraform-apply.md)]
-
-## 8. Reverse a Terraform execution plan
-
-[!INCLUDE [terraform-reverse-execution-plan.md](includes/terraform-reverse-execution-plan.md)]
-
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a Linux VM using Terraform](create-linux-virtual-machine-with-infrastructure.md)
+> [Create an Azure resource group using Teerraform](create-resource-group.md)
