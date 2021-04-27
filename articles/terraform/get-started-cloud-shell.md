@@ -44,7 +44,7 @@ In this article, you learn how to:
 
 Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks. However, if you need the most recent (or any specific) version sooner, this section shows you how download and install a specific version of Terraform.
 
-#### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/install-latest-version-azure-cli)
 
 1. Verify the current version of Terraform.
 
@@ -54,8 +54,8 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
 
-    :::image type="content" source="media/install-configure/terraform-version-not-current-bash" alt-text="Message displayed in Bash terminal when installed Terraform version is not the most current version.":::
-
+    :::image type="content" source="media/install-configure/terraform-version-not-current-bash.png" alt-text="Message displayed in Bash terminal when installed Terraform version is not the most current version.":::
+                                                            
 1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
 
 1. Browse to the [Terraform downloads page](https://www.terraform.io/downloads.html).
@@ -64,7 +64,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
 
-    :::image type="content" source="latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
+    :::image type="content" source="media/latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
 
 1. Copy the URL.
 
@@ -101,7 +101,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 ---
 
 
-#### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/install-latest-version-azure-powershell)
 
 1. Verify the current version of Terraform.
 
@@ -111,7 +111,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
 
-    :::image type="content" source="media/install-configure/terraform-version-not-current-powershell" alt-text="Message displayed when installed Terraform version is not the most current version.":::
+    :::image type="content" source="media/install-configure/terraform-version-not-current-powershell.png" alt-text="Message displayed when installed Terraform version is not the most current version.":::
 
 1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
 
@@ -121,7 +121,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
 
-    :::image type="content" source="latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
+    :::image type="content" source="media/latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
 
 1. Copy the URL.
 
@@ -161,7 +161,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
-#### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/authenticate-to-azure-azure-cli)
 
 Terraform supports several options for authenticating to Azure. The following options are covered in this article:
 
@@ -179,7 +179,7 @@ az login
 **Notes**:
 
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
-- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#3-set-the-current-azure-subscription).
+- A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#4-set-the-current-azure-subscription).
 
 ### Option #2: Authenticate via Azure service principal
 
@@ -206,7 +206,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
 ```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/authenticate-to-azure-azure-powershell)
 
 When using PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
 
