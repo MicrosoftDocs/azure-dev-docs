@@ -2,9 +2,9 @@
 title: Add authentication to web app
 description: Add Microsoft Identity authentication to your Express.js web app on Azure App service using easy authentication.
 ms.topic: how-to
-ms.date: 04/26/2021
-ms.custom: devx-track-js, devx-track-azurecli
-#intent: Show a customer how to configure authentication for a web app. 
+ms.date: 04/27/2021
+ms.custom: devx-track-js
+#intent: Create Express.js web app with easy auth configured. 
 ---
 
 # Add Microsoft authentication to your Express.js web app
@@ -24,24 +24,19 @@ The following steps provide:
 * no code changes to your app - you can add auth code later 
 * a quick way to require users to sign in to your app
 * no Active Directory, group, user, or role setup
-* no authentication callback routing
-
-## Application architecture
-
-This article will discuss three ways to provide authentication with your web app using easy auth. The work includes authentication configuration. 
+* no authentication callback routing 
 
 ## Prepare your development environment
 
 Make sure the following are installed on your local developer workstation:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active Directory permissions to complete these steps.
 - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.]
 - Azure resource group already created in previous tutorial.
-- [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Download sample Express.js app
 
@@ -63,6 +58,9 @@ Create and run an Express.js app by cloning an Azure sample repository.
     npm start
     ```
 
+1. Browse to your locally running app, `http://localhost:8080`.
+1. In the same bash terminal, stop the running app with **Control + c**.
+
 ## Create an Azure app service
 
 1. In VS Code, select **Azure** from the activity bar, then select **+** in the **Azure: App Service** side bar. 
@@ -76,9 +74,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
     
 1. Wait for the web app creation to complete. 
 1. Select **Deploy** to deploy the sample Express.js app, when the notification pop-up displays. 
-1. When the notification pop-up displays a link to the **output window**, select the link to watch the deployment. 
-
-    The deployment uses [Zip deployment](/azure/app-service/deploy-zip.md). 
+1. When the notification pop-up displays a link to the **output window**, select the link to watch the [zip deployment](/azure/app-service/deploy-zip.md).  
 1. Select **Browse website** from the notification. 
     The web app may take a minute or two to return from the server for the first (cold) start.
 
@@ -114,22 +110,20 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
     This sign-in process depends on the user's tenant configuration. 
 
-## Sign in with a user account
+## Sign in with a different user account
+
+Sign in with a **different user account** to simulate a new user to your web app and authorization.
 
 1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar. 
-1. Select **Browse website** to configure easy auth.
+1. Select **Browse website** to open your web app in a browser.
+
+    If you can see your Azure website without logging in, your current browser session already has that account signed in. Open a private or incognito browser window with the same URL. Now you are asked to authenticate. 
+
+1. Accept the permissions requested/consent pop-up. 
+
+    This means you are allowing the Azure app to view and read your user account information. It was the second tab of the authentication setup, named **Permissions**. 
 1. In the browser's pop-up window, enter your email account. If you are required to continue with 2-factor authentication, such as using a phone to finish the process, complete those steps. 
-1. After logging in, you should see the same web app. 
-
-## Continue with the authenticated app
-
-To continue building this authenticated app, you may want to:
-* Change the authentication of your app registration to allow for both authenticated and unauthenticated users
-* Update your web app code with MSAL.js: 
-    * Add a [login button](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
-    * Add a logout button 
-    * Add a callback route specific to authenticated users
-    * Add a public route for unauthenticated users
+1. After logging in, you should see the authenticated web site. 
 
 ## Clean up resources
 
