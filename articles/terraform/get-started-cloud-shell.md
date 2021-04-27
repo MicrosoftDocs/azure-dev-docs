@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to configure Terraform in Azure C
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
 ms.date: 04/21/2021
-ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
+ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell
 ---

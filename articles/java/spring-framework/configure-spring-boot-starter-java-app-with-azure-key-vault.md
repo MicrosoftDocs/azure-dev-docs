@@ -139,7 +139,7 @@ To create and initialize the Azure Key Vault, use the following steps:
        --enabled-for-deployment true \
        --enabled-for-disk-encryption true \
        --enabled-for-template-deployment true \
-       --location eastus
+       --location eastus \
        --query properties.vaultUri \
        --sku standard
    ```
@@ -401,7 +401,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.12.0</version>
+     <version>1.13.0</version>
    </plugin>
    ```
 
@@ -441,7 +441,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.12.0</version>
+       <version>1.13.0</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>

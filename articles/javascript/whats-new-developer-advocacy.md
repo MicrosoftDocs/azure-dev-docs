@@ -21,7 +21,7 @@ This content is primarily from Developer Advocates as well as other members of t
 * [Cloud First Conference Talk: Highly available, distributed & resilient software](https://youtu.be/OGFkz81mKf8?t=7162) - YouTube - Yohan Lasorsa
 * [Utilise staticwebdev GitHub org](https://github.com/staticwebdev) - We're here to help you get started with Azure Static Web Apps, the easiest way to get a static web application deployed to Azure. - Aaron Powell
 * [GraphQL on Azure: Part 6 - Subscriptions with SignalR](https://dev.to/azure/graphql-on-azure-part-6-subscriptions-with-signalr-275b) - Aaron Powell
-* [Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management) - Burke Holland
+* [Reset deployment tokens in Azure Static Web Apps](/azure/static-web-apps/deployment-token-management) - Burke Holland
 * [Deploy Rust/WASM on SWA - updated](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) - Wassim Chegham
 * [GitHub template for building a shareable web components library with Svelte](https://github.com/sinedied/svelte-web-components-template) - Yohan Lasorsa
 * [Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae) - in **Portuguese​** - Glaucia Lemos
