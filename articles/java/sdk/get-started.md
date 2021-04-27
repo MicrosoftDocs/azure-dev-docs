@@ -8,7 +8,7 @@ ms.date: 11/20/2020
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
-ms.custom: seo-java-august2019, devx-track-java, devx-track-azurecli
+ms.custom: seo-java-august2019, devx-track-java
 ---
 
 # Get started with cloud development using Java on Azure
