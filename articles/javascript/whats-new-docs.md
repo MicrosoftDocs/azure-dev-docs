@@ -60,8 +60,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?tabs=code)|
 |4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
 |5|[Get started with speech-to-text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=script%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript)|
-|6|[Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0&preserve-view=true)|
-|7|[ASP.NET Core SignalR JavaScript client](https://docs.microsoft.com/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&preserve-view=true)|
+|6|[Call an ASP.NET Core web API with JavaScript](/aspnet/core/tutorials/web-api-javascript?preserve-view=true&view=aspnetcore-5.0)|
+|7|[ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client?preserve-view=true&view=aspnetcore-5.0)|
 |8|[Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node?tabs=v2)|
 |9|[Sign in users and call the Microsoft Graph API from an Angular single-page application](/azure/active-directory/develop/tutorial-v2-angular)|
 |10|[Application Insights for web pages](/azure/azure-monitor/app/javascript)|

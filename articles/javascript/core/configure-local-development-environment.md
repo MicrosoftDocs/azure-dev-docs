@@ -141,6 +141,6 @@ Visual Studio Code includes a number of built-in git features. For more informat
 
 ## Next steps
 
-* [Create and use a service principal](node-sdk-azure-authenticate-principal.md)
+* [Create and use a service principal](../how-to/with-sdk/set-up-development-environment.md)
 * [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
 * [Deploy a static website to Azure from Visual Studio Code](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md)
