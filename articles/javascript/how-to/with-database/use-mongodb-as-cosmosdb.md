@@ -3,7 +3,7 @@ title: Use JavaScript on Azure Cosmos DB with MongoDB
 description: To create or move your mongoDB database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Develop a JavaScript application with MongoDB on Azure

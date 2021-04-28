@@ -3,7 +3,7 @@ title: Use JavaScript with Redis on Azure
 description: To create or move your Redis database to Azure, you need an Azure Cache for Redis resource. 
 ms.topic: how-to
 ms.date: 03/04/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Develop a JavaScript application with Azure Cache for Redis
