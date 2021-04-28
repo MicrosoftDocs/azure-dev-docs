@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings.
 
-1. Select the CLI - either PowerShell or Bash (for Azure CLI) - that you want to use.
+1. Select the Bash environment.
 
     :::image type="content" source="media/install-configure/choose-cloudshell-cli.png" alt-text="Select the CLI you want to use in Cloud Shell.":::
 
@@ -62,17 +62,11 @@ Terraform supports several options for authenticating to Azure. The following op
 
 1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
 
-```azurecli
-az login
-```
-
-1. Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription. If you want to use the default Azure subscription, skip the rest of this section. If you want to use one of the non-default subscriptions, continue to the next step.
-
-1. As mentioned, logging in will display your active Azure subscriptions. If your Microsoft account has multiple available Azure subscriptions, you can also use [az account list](/cli/azure/account#az_account_list) to display a list of subscription name ID values:
-
     ```azurecli
-    az account list --query "[].{name:name, subscriptionId:id}"
+    az login
     ```
+    
+1. Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription. If you want to use the default Azure subscription, skip the rest of this section. If you want to use one of the non-default Azure subscriptions, continue to the next step.
 
 1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
@@ -88,8 +82,8 @@ az login
 
 There are two steps to authenticating via an Azure service principal:
 
-[Step 1: Create an Azure service principal](#step-1-create-an-azure-service-principal)
-[Step 2: Log in using an Azure service principal](#step-2-log-in-using-an-azure-service-principal)
+- [Step 1: Create an Azure service principal](#step-1-create-an-azure-service-principal)
+- [Step 2: Log in using an Azure service principal](#step-2-log-in-using-an-azure-service-principal)
 
 #### Step 1: Create an Azure service principal
 
@@ -140,7 +134,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
 
-    :::image type="content" source="media/latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
+    :::image type="content" source="media/install-configure/latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
 
 1. Copy the URL.
 
