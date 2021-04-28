@@ -108,7 +108,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
     |Identity provider|Microsoft|
     |App registration type|Create new app registration|
     |Name|Keep the default name, which is the same as your app service.|
-    |Supported account types|Select **Any Azure AD directory and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps). The **Supported account types** indicate what type of user you expect and allow for your web app.<br>* If you want only users from your directory to sign in, select single tenant.<br> * If you want any to use their work or school account, choose multi-tenant.<br>* If you want anyone, choose **Any Azure AD directory & personal Microsoft accounts.|
+    |Supported account types|Select **Any Azure AD directory and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).<br><br>The **Supported account types** indicate what type of user you expect and allow for your web app.<br>* If you want only users from your directory to sign in, select single tenant.<br> * If you want any to use their work or school account, choose multi-tenant.<br>* If you want anyone, choose **Any Azure AD directory & personal Microsoft accounts.|
     |Authentication|Require authentication - this means your app isn't publicly available.|
     |Unauthenticated requests|Keep the default value of 302 not found.|
     | Redirect to|Keep the default value.|
