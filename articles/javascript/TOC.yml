@@ -163,6 +163,8 @@
         href: how-to/create-static-web-app.md
       - name: Deploy a web app
         href: how-to/deploy-web-app.md
+      - name: Add easy authentication
+        href: how-to/with-web-app/add-authentication-to-web-app.md        
     - name: With Visual Studio Code
       items: 
       - name: Install and debug local project
