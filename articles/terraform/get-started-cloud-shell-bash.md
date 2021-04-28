@@ -68,28 +68,34 @@ Terraform supports several options for authenticating to Azure. The following op
     
 1. Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription. If you want to use the default Azure subscription, skip the rest of this section. If you want to use one of the non-default Azure subscriptions, continue to the next step.
 
-1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
+1. To view the Azure subscription names and IDs for a specific Microsoft account, run the following command. Replace the placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
 
     ```azurecli
-    az account set --subscription="<subscription_id>"
+    az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id}" --output Table
+    ```
+
+1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the placeholder with the ID (or name) of the subscription you want to use:
+
+    ```azurecli
+    az account set --subscription="<subscription_id_or_subscription_name>"
     ```
 
     **Notes**:
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
-### Option #2: Authenticate via Azure service principal
+### Option #2: Authenticate with an Azure service principal
 
-There are two steps to authenticating via an Azure service principal:
+There are two steps to authenticate with an Azure service principal:
 
 - [Step 1: Create an Azure service principal](#step-1-create-an-azure-service-principal)
 - [Step 2: Log in using an Azure service principal](#step-2-log-in-using-an-azure-service-principal)
 
 #### Step 1: Create an Azure service principal
 
-To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
+To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to [Step 2: Log in using an Azure service principal](#step-2-log-in-using-an-azure-service-principal).
 
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use the service principal for future logins.
 
 There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
