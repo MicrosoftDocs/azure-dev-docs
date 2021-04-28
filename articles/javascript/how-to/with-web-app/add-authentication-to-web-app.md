@@ -160,4 +160,4 @@ In this procedure, you created an Azure app service and an Azure Active Director
 
 ## Next steps
 
-* [Install and debug a local project](../with-visual-studio-code/install-run-debug-nodejs)
+* [Install and debug a local project](../with-visual-studio-code/install-run-debug-nodejs.md)
