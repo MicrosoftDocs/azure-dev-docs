@@ -1,5 +1,5 @@
 ---
-title: Add authentication to web app
+title: Add Active Directory authentication
 description: Add Microsoft Identity authentication to your Express.js web app on Azure App service using easy authentication.
 ms.topic: how-to
 ms.date: 04/28/2021
@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you.
 
-* [Sample code](https://github.com/diberry/js-e2e-web-app-easy-auth.git)
+* [Sample code](https://github.com/azure-samples/js-e2e-web-app-easy-auth.git)
 
 ## Easy auth for Azure web apps
 
@@ -57,7 +57,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
 
     ```bash
-    git clone https://github.com/diberry/js-e2e-web-app-easy-auth.git myexpressapp && \
+    git clone https://github.com/azure-samples/js-e2e-web-app-easy-auth.git myexpressapp && \
         cd myexpressapp && \
         npm install
     ```
