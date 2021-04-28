@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
 
-# Add Microsoft authentication to your Express.js web app
+# Add easy authentication to your Express.js web app
 
 Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you.
 
