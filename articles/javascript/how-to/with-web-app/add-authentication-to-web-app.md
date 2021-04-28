@@ -15,7 +15,16 @@ Add Microsoft authentication to your web app with an app registration and an Azu
 
 ## Easy auth for Azure web apps
 
-[Easy auth](/azure/app-service/overview-authentication-authorization.md#feature-architecture-on-windows-non-container-deployment) allows your app to provide login to your users using their existing Microsoft account. The account doesn't have to have a particular domain name, such as `@microsoft.com` or `@outlook.com`. Any email domain works as long as the user has an existing Microsoft Identity account with that email address. 
+[Easy auth](/azure/app-service/overview-authentication-authorization.md#feature-architecture-on-windows-non-container-deployment) allows your app to provide login to your users using their existing Microsoft account. 
+
+The account doesn't have to have a particular domain name. The account can include accounts such as: 
+
+* `@microsoft.com`
+* `@outlook.com`
+* `@yahoo.com`
+* `@gmail.com` 
+
+Any email domain works as long as the user has an existing Microsoft Identity account with that email address. 
 
 Users are held and authenticated by tenant. An Azure tenant represents a single organization. A tenant is a dedicated and trusted instance of [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis.md) that's automatically created when your organization signs up for a Microsoft cloud service subscription, such as Microsoft Azure, Microsoft Intune, or Microsoft 365. 
 
