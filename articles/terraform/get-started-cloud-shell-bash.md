@@ -88,11 +88,12 @@ az login
 
 There are two steps to authenticating via an Azure service principal:
 
-<a href="#step-1-create-an-azure-service-principal">Step 1: Create an Azure service principal</a>: You can skip this step if you already have a service principal you want to use.
-<a href="#step-2-log-in-using-an-azure-service-principal">Step 2: Log in using an Azure service principal</a>
+[Step 1: Create an Azure service principal](#step-1-create-an-azure-service-principal)
+[Step 2: Log in using an Azure service principal](#step-2-log-in-using-an-azure-service-principal)
 
+#### Step 1: Create an Azure service principal
 
-**<div name="step-1-create-an-azure-service-principal">Step 1: Create an Azure service principal</div>**: To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
+To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this part of the section.
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
@@ -109,7 +110,9 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `name`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
-**<div name="step-2-log-in-using-an-azure-service-principal">Step 2: Log in using an Azure service principal</div>**: In the following call to `az login`, replace the placeholders with the information from your service principal.
+#### Step 2: Log in using an Azure service principal
+
+In the following call to `az login`, replace the placeholders with the information from your service principal.
 
 ```azurecli
 az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
