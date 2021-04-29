@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/29/2021
 
 
 ---
@@ -13,21 +13,21 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 April
 
-### What's new
+### New in April
 
 |Name|
 |---------------------------------------|
 |[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you |
 
-### What's updated
+### Updated in April
 
 |Name|
 |---------------------------------------|
-|[Set up development environment to use Azure SDK for JavaScript](./how-to/with-sdk/set-up-development-environment)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+|[Set up development environment to use Azure SDK for JavaScript](./how-to/with-sdk/set-up-development-environment.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
 
 ## 2021 March
 
-### What's new
+### New in March
 
 |Name|
 |---------------------------------------|
@@ -35,7 +35,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Store and use **Azure Key Vault** secrets in Express.js app](./how-to/add-custom-domain-to-web-app.md)<br><br>Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. Includes [full source code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault).|
 |[Add **search functionality** to a Static Web app](/azure/search/tutorial-javascript-overview)<br><br>This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. Includes [full source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website).|
 
-### What's updated
+### Updates in March
 
 |Name|
 |---------------------------------------|
@@ -45,7 +45,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 February
 
-### What's new
+### New in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -57,7 +57,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
 
-### What's updated
+### Updated in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -82,7 +82,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 January
 
-### What's new
+### New in January
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -91,7 +91,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |
 |How-to guide with Visual Studio Code|* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|
 
-### What's updated
+### Updated in January
 
 |Name|Notes|
 |---------------------------------------|--|
