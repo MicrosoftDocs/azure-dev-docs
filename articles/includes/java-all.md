@@ -322,8 +322,8 @@
 | Data Lake Storage | maven [2.3.9](https://search.maven.org/artifact/com.microsoft.azure/azure-data-lake-store-sdk/2.3.9/jar/) | [docs](/java/api/overview/azure/datalake) |  |
 | Digital Twins - Core | maven [1.0.3](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.3/jar/) | [docs](/java/api/overview/azure/digitaltwins-core-readme/) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.0.3/sdk/digitaltwins/azure-digitaltwins-core/) |
 | Digital Twins Device Client Preview | maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/digital-twin-service-client-preview/1.0.0/jar/) |  |  |
-| Document DB | maven [2.6.1](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb/2.6.1/jar/) | [docs](/java/api/overview/azure/cosmosdb) |  |
-| Document DB - Bulk Executor | maven [2.12.0](https://search.maven.org/artifact/com.microsoft.azure/documentdb-bulkexecutor/2.12.0/jar/) |  |  |
+| Document DB | maven [2.6.2](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb/2.6.2/jar/) | [docs](/java/api/overview/azure/cosmosdb) |  |
+| Document DB - Bulk Executor | maven [2.12.1](https://search.maven.org/artifact/com.microsoft.azure/documentdb-bulkexecutor/2.12.1/jar/) |  |  |
 | Document DB - Bulk Import | maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/documentdb-bulkimport/1.0.2/jar/) |  |  |
 | Document DB - Hadoop | maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-hadoop/1.2.0/jar/) |  |  |
 | Document DB - Reactive Extension | maven [0.9.0-rc2](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-rx/0.9.0-rc2/jar/) |  |  |
