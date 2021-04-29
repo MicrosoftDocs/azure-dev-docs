@@ -11,6 +11,20 @@ ms.date: 02/17/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 April
+
+### What's new
+
+|Name|
+|---------------------------------------|
+|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you |
+
+### What's updated
+
+|Name|
+|---------------------------------------|
+|[Set up development environment to use Azure SDK for JavaScript](./how-to/with-sdk/set-up-development-environment)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+
 ## 2021 March
 
 ### What's new
