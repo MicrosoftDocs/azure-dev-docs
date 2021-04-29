@@ -99,15 +99,15 @@ Automated tools that deploy or use Azure services - such as Terraform - should a
 
 There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
-Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
+Replace the placeholders as appropriate for your environment.
 
 ```azurecli
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
+az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --scopes="/subscriptions/<azure_subscription_id>"
 ```
 
 **Notes**:
 
-- Upon successful completion, `az ad sp create-for-rbac` displays several values. The `name`, `password`, and `tenant` values are used in the next step.
+- Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
 #### Step 2: Log in using an Azure service principal
@@ -115,7 +115,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 In the following call to `az login`, replace the placeholders with the information from your service principal.
 
 ```azurecli
-az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
+az login --service-principal -u "<service_principal_appid>" -p "<service_principal_password" --tenant "subscription_tenant_id"
 ```
 
 ## 3. Install the latest version of Terraform
@@ -131,7 +131,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
 
     :::image type="content" source="media/install-configure/terraform-version-not-current-bash.png" alt-text="Message displayed in Bash terminal when installed Terraform version is not the most current version.":::
-                                                            
+
 1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
 
 1. Browse to the [Terraform downloads page](https://www.terraform.io/downloads.html).
