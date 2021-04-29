@@ -127,7 +127,7 @@ az login --service-principal -u "<service_principal_appid>" -p "<service_princip
 
 Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks of its release. However, if you need the most recent version sooner, this section shows you how to download and install the current version of Terraform.
 
-1. Verify the current version of Terraform.
+1. Determine the version of Terraform being used in Cloud Shell.
 
     ```bash
     terraform version
@@ -173,7 +173,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     mv terraform bin/    
     ```
 
-1. Verify that the current version of Terraform is the downloaded version.
+1. Verify that the downloaded version of Terraform is first in the path.
 
     ```bash
     terraform version
