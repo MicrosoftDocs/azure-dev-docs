@@ -66,7 +66,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-starter</artifactId>
         </dependency>
     
@@ -90,7 +90,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -126,8 +126,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-active-directory</artifactId>
         </dependency>
     
         <dependency>
@@ -150,7 +150,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -186,8 +186,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
         </dependency>
     
         <dependency>
@@ -210,7 +210,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -270,7 +270,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
