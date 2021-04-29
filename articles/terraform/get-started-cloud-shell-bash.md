@@ -60,8 +60,8 @@ If you want to authenticate using either a different Microsoft account or Azure 
 
 Terraform supports several options for authenticating to Azure. The following options are covered:
 
-- [Option #1: Authenticate via a Microsoft account](#option-1-authenticate-via-microsoft-account) - Recommended when using Terraform interactively.
-- [Option #2: Authenticate via an Azure service principal](#option-2-authenticate-via-azure-service-principal) - Recommended when using Terraform from code.
+- [Option #1: Authenticate via a Microsoft account](#option-1-authenticate-via-a-microsoft-account) - Recommended when using Terraform interactively.
+- [Option #2: Authenticate via an Azure service principal](#option-2-authenticate-via-an-azure-service-principal) - Recommended when using Terraform from code.
 
 ### Option #1: Authenticate via a Microsoft account
 
