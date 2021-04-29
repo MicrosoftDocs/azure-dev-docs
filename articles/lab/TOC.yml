@@ -1,0 +1,15 @@
+- name: Developer Experience Labs
+  href: index.yml
+  items:
+  - name: Tooltip
+    items: 
+    - name: Python quickstart with Tooltip
+      href: tool-tip-metrics.md
+  - name: Tutorial format labs
+    items:
+    - name: Python flask single page
+      href: quickstart-python-flask.md
+    - name: Python flask multi-page
+      href: quickstart-python-flask-multipage.yml?preview=tutorialFeedback
+    - name: Python flask single page minimized
+      href: quickstart-python-flask-minimized.md

@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Azure SDK for Go documentation
+summary: |
+  Learn about how to use the Azure SDK for Go, what features the SDK provides, and development tools that make
+  it easy to use Azure with Go.
+metadata:
+  title: Azure for Go developers
+  description: Get started developing with the Azure SDK for Go using the developer resources below.
+  author: sptramer
+  ms.author: sttramer
+  ms.date: 09/09/2019
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.devlang: golang
+
+landingContent:
+  - title: Get started with the Azure SDK for Go
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Install the Azure SDK for Go
+            url: azure-sdk-install.md
+          - text: Developer tools
+            url: azure-sdk-tools.md
+      - linkListType: how-to-guide
+        links:
+          - text: Authenticate your application
+            url: azure-sdk-authorization.md
+  - title: Azure SDK for Go examples
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy a Virtual Machine from a template
+            url: azure-sdk-qs-vm.md
+          - text: Use Blob Storage with Go
+            url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/develoer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Connect to an Azure Database for PostgreSQL
+            url: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/develpoer/breadcrumb/toc.json
+          - text: Connect to an Azure Database for MySQL
+            url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Query an Azure SQL database
+            url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - title: Azure SDK for Go reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure SDK for Go code samples
+            url: https://github.com/azure-samples/azure-sdk-for-go-samples
+          - text: Azure SDK for Go API reference
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go

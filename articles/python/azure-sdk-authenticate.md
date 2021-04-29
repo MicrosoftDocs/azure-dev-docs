@@ -1,0 +1,316 @@
+---
+title: How to authenticate Python applications with Azure services
+description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
+ms.date: 03/17/2021
+ms.topic: conceptual
+ms.custom: devx-track-python
+---
+
+# How to authenticate and authorize Python apps on Azure
+
+Most cloud applications deployed to Azure need to access other Azure resources such as storage, databases, stored secrets, and so on. To access those resources, the application must be both authenticated and authorized:
+
+- **Authentication** verifies the app's identity with Azure Active Directory.
+
+- **Authorization** determines which operations the authenticated app can perform on any given resource. The authorized operations are defined by the **roles** assigned to the app identity for that resource. In a few cases, such as Azure Key Vault, authorization is also determined by additional **access policies** that are assigned to the app identity.
+
+This article explains the details of authentication and authorization:
+
+- How to assign an app identity
+- How to grant permissions to an identity
+- How and when authentication and authorization occur
+- The different means through which an app authenticates with Azure using the Azure libraries. Using `DefaultAzureCredential` is recommended, but not required.
+
+## How to assign an app identity
+
+On Azure, an app identity is defined by a **service principal**. (A service principal is a specific type of "security principal" that's used to identify an app or service, which is to say, a piece of code, as opposed to a human user or group of users.)
+
+The service principal involved depends on where the app is running, as described in the following sections.
+
+### Identity when running the app on Azure
+
+When running in the cloud (for example, in production), an app most commonly uses a **system-assigned managed identity** (formerly referred to as "MSI"). With a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), you use the app's name when assigning roles and permissions for resources. Azure automatically manages the underlying service principal and automatically authenticates the app with those other Azure resources. As a result, you don't need to handle the service principal directly. Furthermore, your app code never needs to handle access tokens, secrets, or connection strings for Azure resources, which reduces the risk that any such information might be leaked or otherwise compromised.
+
+Configuring managed identity depends on the service you use to host your app. Refer to the article, [Services that support managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) for links to instructions for each service. For web apps deployed to Azure App Service, for example, you enable managed identity through the **Identity** > **System assigned** option in the Azure portal, or by using the `az webapp identity assign` command in the Azure CLI.
+
+If you can't use managed identity, you instead manually register the application with Azure Active Directory. Registration assigns a service principal to the app, which you use when assigning roles and permissions. For more information, see [Register an application](/azure/active-directory/develop/quickstart-register-app).
+
+### Identity when running the app locally
+
+During development, you often want to run and debug your app code on a developer workstation while still having that code access Azure resources in the cloud. In this case, you create a separate service principal through Azure Active Directory specifically for local development. You again assign roles and permissions to this service principal for the resources in question. Typically, you authorize this development identity to access only non-production resources.
+
+For details on creating the local service principal and making it available to the Azure libraries, see [Configure your local development environment](configure-local-development-environment.md). Once you've completed this one-time configuration, you can run the same app code locally and in the cloud without any environment-specific modifications.
+
+Each developer should have his or her own service principal that's secured within their user account on their workstation and never stored in a source control repository. If any one service principal is ever stolen or compromised, you can easily delete it to revoke all of its permissions, and then recreate the service principal for that developer. For more information, see [How to manage service principals](how-to-manage-service-principals.md).
+
+> [!NOTE]
+> Although it's possible to run an app using your own Azure user credential, doing so doesn't help you establish the specific resource permissions that your app needs when deployed to the cloud. It's much better to set up a service principal for development and assign it the necessary roles and permissions, which you can then replicate using with the deployed app's managed identity or service principal.
+
+## Assign roles and permissions to an identity
+
+Once you know the identities for the app both on Azure and when running locally, you use role-based access control (RBAC) to grant permissions through the Azure portal or the Azure CLI. For full details, see [How to assign role permissions to an app identity or service principal](/azure/role-based-access-control/role-assignments-steps).
+
+## When does authentication and authorization occur?
+
+When writing app code using the Azure libraries (SDK) for Python, you use the following pattern to access Azure resources:
+
+1. Acquire a credential, which describes the app identity, using one of the methods described later in this article.
+
+1. Use the credential to acquire a client object for the resource of interest. (Each type of resource has its own client object in the Azure libraries, to which you provide the resource's URL.)
+
+1. Attempt to access or modify the resource through the client object, which generates an HTTP request to the resource's REST API. The API call is the point at which Azure then both authenticates the app identity and checks authorization.
+
+The following code describes and demonstrates these steps by attempting to access Azure Key Vault.
+
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+
+# Acquire the resource URL. In this code we assume the resource URL is in an
+# environment variable, KEY_VAULT_URL in this case.
+
+vault_url = os.environ["KEY_VAULT_URL"]
+
+
+# Acquire a credential object for the app identity. When running in the cloud,
+# DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
+# When run locally, DefaultAzureCredential relies on environment variables named
+# AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
+
+credential = DefaultAzureCredential()
+
+
+# Acquire an appropriate client object for the resource identified by the URL. The
+# client object only stores the given credential at this point but does not attempt
+# to authenticate it.
+#
+# **NOTE**: SecretClient here is only an example; the same process applies to all
+# other Azure client libraries.
+
+secret_client = SecretClient(vault_url=vault_url, credential=credential)
+
+# Attempt to perform an operation on the resource using the client object (in
+# this case, retrieve a secret from Key Vault). The operation fails for any of
+# the following reasons:
+#
+# 1. The information in the credential object is invalid (for example, the AZURE_CLIENT_ID
+#    environment variable cannot be found).
+# 2. The app identity cannot be authenticated using the information in the credential object.
+# 3. The app identity is not authorized to perform the requested operation on the
+#    resource (identified in this case by the vault_url.
+
+retrieved_secret = secret_client.get_secret("secret-name-01")
+```
+
+Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks.
+
+Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient) object also involves no communication with the resource in question. The `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. 
+
+It's only when the code calls the [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient#get-secret-name--version-none----kwargs-) method that the client object generates the appropriate REST API call to Azure. Azure's endpoint for `get_secret` then authenticates the caller's identity and checks authorization.
+
+## Authenticate with DefaultAzureCredential
+
+For most applications, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the [`azure-identity`](/python/api/azure-identity/azure.identity) library provides the simplest and recommended means of authentication.
+
+`DefaultAzureCredential` automatically uses the app's managed identity (MSI) in the cloud, and automatically loads a local service principal from environment variables when running locally (as described on [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication)).
+
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+
+# Acquire the resource URL
+vault_url = os.environ["KEY_VAULT_URL"]
+
+# Acquire a credential object
+credential = DefaultAzureCredential()
+
+# Acquire a client object
+secret_client = SecretClient(vault_url=vault_url, credential=credential)
+
+# Attempt to perform an operation
+retrieved_secret = secret_client.get_secret("secret-name-01")
+```
+
+The preceding code uses a `DefaultAzureCredential` object when accessing Azure Key Vault, where the URL of the Key Vault is available in an environment variable named `KEY_VAULT_URL`. The code clearly implements the typical library usage pattern: acquire a credential object, create an appropriate client object for the Azure resource, then attempt to perform an operation on that resource using that client object. Again, authentication and authorization don't happen until this final step.
+
+When code is deployed to and running on Azure, `DefaultAzureCredential` automatically uses the system-assigned managed identity (MSI) that you can enable for the app within whatever service is hosting it. Permissions for specific resources, such as Azure Storage or Azure Key Vault, are assigned to that identity using the Azure portal or the Azure CLI. In these cases, this Azure-managed identity maximizes security because you don't ever deal with an explicit service principal in your code.
+
+When you run your code locally, `DefaultAzureCredential` automatically uses the service principal described by the environment variables named `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET`. The client object then includes these values (securely) in the HTTP request header when calling the API endpoint. No code changes are necessary when running locally or in the cloud. For details on creating the service principal and setting up the environment variables, see [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication).
+
+In both cases, the identity involved must be assigned permissions for the appropriate resource. The general process is described on [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps); specifics can be found in the documentation for the individual services. For details on Key Vault permissions, for example, as would be needed for the previous code, see [Provide Key Vault authentication with an access control policy](/azure/key-vault/general/group-permissions-for-apps).
+
+### Using DefaultAzureCredential with SDK management libraries
+
+`DefaultAzureCredential` works with newer versions of the Azure SDK management libraries, that is, those "Resource Management" libraries with "mgmt" in their names that also appear on the [Libraries using azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) list. (Also, the pypi page for an updated library usually includes the line, "Credential system has been completely revamped" to indicate the change.)
+
+For example, you can use `DefaultAzureCredential` with version 15.0.0 or higher of azure-mgmt-resource:
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resource import SubscriptionClient
+
+credential = DefaultAzureCredential()
+subscription_client = SubscriptionClient(credential)
+
+sub_list = subscription_client.subscriptions.list()
+print(list(sub_list))
+```
+
+If the library has not been updated, code using `DefaultAzureCredential` will given the "object has no attribute 'signed-session'" as described in the next section.
+
+### Credential "object has no attribute 'signed_session'"
+
+If you attempt to use `DefaultAzureCredential` (or `AzureCliCredential` and other credential objects from azure.identity) with a library that has not been updated to use azure.core, calls through a client object fail with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". You'd encounter such a failure, ror example, if you use the code in the preceding section with an azure-mgmt-resource library below version 15.
+
+This error happens because non-azure.core versions of SDK management libraries assume that the credential object contains a `signed_session` property, which is not present on `DefaultAzureCredential` and other credential objects from azure.identity.
+
+If the management library you want to use has not yet been updated, then you can use the following alternate methods:
+
+1. Use one of the other authentication methods describe in subsequent sections of this article, which can work well for code that uses *only* SDK management libraries and that won't be deployed to the cloud, in which case you can rely on local service principals only.
+
+1. Instead of `DefaultAzureCredential`, use the [CredentialWrapper class (cred_wrapper.py)](https://gist.github.com/lmazuel/cc683d82ea1d7b40208de7c9fc8de59d) that's provided by a member of the Azure SDK engineering team. Once the desired management library is available, switch back to `DefaultAzureCredential`. This method has the advantage that you can use the same credential with both SDK client and management libraries, and it works both locally and in the cloud.
+
+    Assuming that you've downloaded a copy of *cred_wrapper.py* into your project folder, the previous code would appear as follows:
+
+    ```python
+    from cred_wrapper import CredentialWrapper
+    from azure.mgmt.resource import SubscriptionClient
+
+    credential = CredentialWrapper()
+    subscription_client = SubscriptionClient(credential)
+    subscription = next(subscription_client.subscriptions.list())
+    print(subscription.subscription_id)
+    ```
+
+    Again, once updated management libraries are available, you can use `DefaultAzureCredential` directly as shown in the original code example.
+
+## Other authentication methods
+
+Although `DefaultAzureCredential` is the recommended authentication method for most scenarios, other methods are available with the following caveats:
+
+- Most of the methods work with explicit service principals and don't take advantage of managed identity for code that's deployed to the cloud. When used with production code, then, you must manage and maintain distinct service principals for your cloud applications.
+
+- Some methods, such as CLI-based authentication, work only with local scripts and cannot be used with production code. CLI-based authentication is convenient for development work because it uses the permissions of your Azure login and doesn't require explicit role assignments.
+
+Service principals for applications deployed to the cloud are managed in your subscriptions Active Directory. For more information, see [How to manage service principals](how-to-manage-service-principals.md).
+
+In all cases, the appropriate service principal or user must have appropriate permissions for the resources and operation in question.
+
+### Authenticate with token credentials
+
+You can authenticate with the Azure libraries using explicit subscription, tenant, and client identifiers along with a client secret.
+
+When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#using-clientsecretcredential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#using-serviceprincipalcredentials-azurecommon).
+
+To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
+
+#### Using ClientSecretCredential (azure.identity)
+
+```python
+import os
+from azure.mgmt.resource import SubscriptionClient
+from azure.identity import ClientSecretCredential
+
+# Retrieve the IDs and secret to use with ClientSecretCredential
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+tenant_id = os.environ["AZURE_TENANT_ID"]
+client_id = os.environ["AZURE_CLIENT_ID"]
+client_secret = os.environ["AZURE_CLIENT_SECRET"]
+
+credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
+
+#### Using ServicePrincipalCredentials (azure.common)
+
+```python
+import os
+from azure.mgmt.resource import SubscriptionClient
+from azure.common.credentials import ServicePrincipalCredentials
+
+# Retrieve the IDs and secret to use with ServicePrincipalCredentials
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+tenant_id = os.environ["AZURE_TENANT_ID"]
+client_id = os.environ["AZURE_CLIENT_ID"]
+client_secret = os.environ["AZURE_CLIENT_SECRET"]
+
+credential = ServicePrincipalCredentials(tenant=tenant_id, client_id=client_id, secret=client_secret)
+
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+In this method, which is again used with older libraries not based on azure.core, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
+
+#### Use an Azure sovereign national cloud
+
+With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
+
+```python
+from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
+
+#...
+
+subscription_client = SubscriptionClient(credentials, base_url=AZURE_CHINA_CLOUD.endpoints.resource_manager)
+```
+
+Sovereign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+
+### CLI-based authentication (development purposes only)
+
+In this method, you create a client object using the credentials of the user signed in with the Azure CLI command `az login`. CLI-based authentication works only for development purposes because it cannot be used in production environments.
+
+The Azure libraries use the default subscription ID, or you can set the subscription prior to running the code using [`az account`](/cli/azure/manage-azure-subscriptions-azure-cli).
+
+When using CLI-based authentication, the application is authorized for any and all operations allowed by the CLI login credentials. As a result, if you are the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use specific service principals and assign specific permissions when you start writing production code because you learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production.
+
+#### CLI-based authentication with azure.core libraries
+
+When using [Azure libraries that are updated for azure.core](./azure-sdk-library-package-index.md#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
+
+```python
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import SubscriptionClient
+
+credential = AzureCliCredential()
+subscription_client = SubscriptionClient(credential)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+#### CLI-based authentication with older (non azure.core) libraries
+
+When using older Azure libraries that have not been updated for azure.core, you can use the [`get_client_from_cli_profile`](/python/api/azure-common/azure.common.client_factory#get-client-from-cli-profile-client-class----kwargs-) method from the azure-cli-core library. For example, the following code can be used with versions of azure-mgmt-resource below 15.0.0:
+
+```python
+from azure.common.client_factory import get_client_from_cli_profile
+from azure.mgmt.resource import SubscriptionClient
+
+subscription_client = get_client_from_cli_profile(SubscriptionClient)
+
+subscription = next(subscription_client.subscriptions.list())
+print(subscription.subscription_id)
+```
+
+## See also
+
+- [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
+- [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps)
+- [Example: Provision a resource group](azure-sdk-example-resource-group.md)
+- [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
+- [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

@@ -1,0 +1,46 @@
+### YamlMime:Landing
+
+title: Azure Toolkit for Eclipse documentation
+summary: The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy cloud applications to Azure from inside the Eclipse IDE.
+
+metadata:
+  title: Azure Toolkit for Eclipse documentation
+  description: Learn how the Azure Toolkit for Eclipse plug-in helps you create and deploy cloud applications to Azure.
+  ms.date: 03/13/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Get started guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Hello World web app for Azure App Service
+            url: create-hello-world-web-app.md
+  - title: Step-by-step tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create Spark applications for an HDInsight Spark Linux cluster
+            url: /azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
+  - title: Manage Azure resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Redis caches
+            url: managing-redis-caches-using-azure-explorer.md
+          - text: Storage accounts
+            url: managing-storage-accounts-using-azure-explorer.md
+          - text: Virtual machines
+            url: managing-virtual-machines-using-azure-explorer.md
+  - title: Supported JDKs
+    linkLists:
+      - linkListType: download
+        links:
+        - text: Java for Azure and Azure Stack
+          url: /java/azure/jdk/
+  - title: Source code
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Toolkits for Java
+            url: https://github.com/microsoft/azure-tools-for-java

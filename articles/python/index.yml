@@ -1,0 +1,100 @@
+### YamlMime:Landing
+
+title: Azure for Python Developers
+summary: |
+  Deploy your Python code to Azure for web apps, serverless apps, containers, and machine learning models. Take advantage of the Azure libraries (SDK) for Python to programmatically access the full range of Azure services including storage, databases, pre-built AI capabilities, and much more.
+  
+metadata:
+  title: Azure for Python developers
+  description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Machine Learning, Azure Storage, and the Azure SDK for Python.
+  author: kraigb
+  ms.author: kraigb
+  ms.date: 08/06/2020
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.technology: azure
+  ms.service: multiple
+  ms.devlang: python
+  ms.custom: devx-track-python
+
+landingContent:
+  - title: Serverless functions
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy using Visual Studio Code
+            url: /azure/azure-functions/create-first-function-vs-code-python
+          - text: Deploy using the command line
+            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+          - text: Connect to storage using Visual Studio Code
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+          - text: Connect to storage using the command line
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+  - title: Web apps
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Flask using Visual Studio Code
+            url: tutorial-deploy-app-service-on-linux-01.md     
+          - text: Flask using CLI
+            url: /azure/app-service/quickstart-python
+          - text: Django + PostgreSQL using Azure Portal
+            url: tutorial-python-postgresql-app-portal.md
+          - text: Django + PostgreSQL using CLI
+            url: /azure/app-service/tutorial-python-postgresql-app
+          - text: Containers using Visual Studio Code
+            url: tutorial-deploy-containers-01.md
+          - text: Static sites using Azure Storage
+            url: how-to-create-static-sites.md
+          - text: CI/CD pipeline
+            url: /azure/devops/pipelines/ecosystems/python-webapp          
+  - title: Data and storage
+    linkLists:
+      - linkListType: deploy
+        links: 
+          - text: SQL databases
+            url: quickstarts-data-solutions.md#sql-databases
+          - text: Tables, blobs, files, NoSQL
+            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
+          - text: Big data and analytics
+            url: quickstarts-data-solutions.md#big-data-and-analytics
+  - title: Machine learning
+    linkLists:      
+      - linkListType: how-to-guide
+        links:
+          - text: Create an ML experiment
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-setup
+          - text: Train an ML model
+            url: /azure/machine-learning/tutorial-1st-experiment-sdk-train
+          - text: Train image classification
+            url: /azure/machine-learning/tutorial-train-models-with-aml
+          - text: Use prebuilt AI services (face, speech, text, image, etc.)
+            url: quickstarts-cognitive-services.md
+          - text: More...
+            url: quickstarts-machine-learning.md
+  - title: Azure libraries (SDK)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Cloud development overview
+            url: cloud-development-overview.md
+          - text: Set up your local dev environment
+            url: configure-local-development-environment.md
+          - text: Get to know the Azure libraries
+            url: azure-sdk-overview.md
+          - text: Learn library usage patterns
+            url: azure-sdk-library-usage-patterns.md
+          - text: Authenticate with Azure services
+            url: walkthrough-tutorial-authentication-01.md
+  - title: Developer tools
+    linkLists:  
+      - linkListType: get-started
+        links: 
+          - text: Visual Studio Code (IDE)
+            url: https://code.visualstudio.com/docs/languages/python
+          - text: Azure Command-Line Interface (CLI)
+            url: /cli/azure/install-azure-cli
+          - text: Windows Subsystem for Linux (WSL)
+            url: /windows/wsl/install-win10
+          - text: Visual Studio (for Python/C++ development)
+            url: /visualstudio/python/installation

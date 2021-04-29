@@ -1,0 +1,46 @@
+### YamlMime:Landing
+
+title: Azure SDK for Java documentation
+summary: Cloud development using Java on Azure.
+
+metadata:
+  title: Azure SDK for Java documentation
+  description: Cloud development using Java on Azure
+  ms.date: 02/02/2021
+  ms.topic: landing-page
+
+landingContent:
+  - title: Azure for Java developers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure development using Java
+            url: get-started.md
+          - text: Use the Azure SDK for Java
+            url: overview.md
+      - linkListType: reference
+        links:
+          - text: Java API browser
+            url: /java/api
+      - linkListType: how-to-guide
+        links:
+          - text: Identity and authentication
+            url: identity.md
+          - text: Configure logging
+            url: logging-overview.md
+  - title: Common concepts
+    linkLists:
+      - linkListType: learn
+        links:
+        - text: HTTP clients and pipeline
+          url: http-client-pipeline.md
+        - text: Asynchronous programming
+          url: async-programming.md
+        - text: Pagination and iteration
+          url: pagination.md
+        - text: Long-running operations
+          url: lro.md
+        - text: Proxying
+          url: proxying.md
+        - text: Tracing
+          url: tracing.md

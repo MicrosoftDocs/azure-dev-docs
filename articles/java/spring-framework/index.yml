@@ -1,0 +1,68 @@
+### YamlMime:Landing
+
+title: Spring on Azure integration documentation
+summary: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
+
+metadata:
+  title: Spring on Azure integration documentation
+  description: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications.
+  ms.date: 03/13/2020
+  ms.topic: landing-page
+
+landingContent:
+  - title: Get started guides
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Spring Boot Starters for Azure
+            url: spring-boot-starters-for-azure.md
+          - text: Spring Data Azure Cosmos DB
+            url: how-to-guides-spring-data-cosmosdb.md
+      - linkListType: get-started
+        links:
+          - text: Azure Storage
+            url: configure-spring-boot-starter-java-app-with-azure-storage.md
+          - text: Key Vault secrets
+            url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
+          - text: Key Vault certificates
+            url: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
+          - text: Kafka and Event Hubs
+            url: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
+  - title: Step-by-step tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure an app with Azure Active Directory
+            url: configure-spring-boot-starter-java-app-with-azure-active-directory.md
+          - text: Configure an app to use Redis Cache
+            url: configure-spring-boot-initializer-java-app-with-redis-cache.md
+          - text: Use the Azure Cosmos DB SQL API
+            url: configure-spring-boot-starter-java-app-with-cosmos-db.md
+          - text: Deploy a Spring Boot app
+            url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
+          - text: Deploy an app to a cluster in AKS
+            url: deploy-spring-boot-java-app-on-kubernetes.md
+          - text: Deploy an app to Web Apps for Containers
+            url: deploy-spring-boot-java-app-on-linux.md
+  - title: Code samples
+    linkLists:
+    - linkListType: sample
+      links:
+      - text: Spring Boot Samples for Azure
+        url: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples
+      - text: Spring Guides
+        url: https://github.com/spring-guides/
+  - title: Spring resources
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Spring Framework
+        url: https://spring.io/
+      - text: Spring Cloud Azure
+        url: https://spring.io/projects/spring-cloud-azure
+      - text: Learn Spring
+        url: https://spring.io/learn
+      - text: Spring Boot
+        url: https://spring.io/projects/spring-boot
+      - text: Spring Initializr
+        url: https://start.spring.io/

@@ -4,5 +4,8 @@ _site/
 .optemp/
 _themes*/
 _repo.*/
-
-.openpublishing.buildcore.ps1
+.vs/
+.vscode/
+.ionide/
+.openpublishing.buildcore.ps1.vscode/
+*.DS_Store

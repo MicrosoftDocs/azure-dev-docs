@@ -1,0 +1,34 @@
+- name: Java EE, Jakarta EE, and MicroProfile on Azure documentation
+  href: index.yml
+  items:
+  - name: Java application servers on Azure
+    expanded: true
+    items:
+      - name: Oracle WebLogic Server on Azure VMs
+        href: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Oracle WebLogic Server on AKS
+        href: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: IBM WebSphere products on Azure
+        href: websphere-family.md
+  - name: Deployment
+    expanded: true
+    items:
+      - name: Helidon on Azure App Service
+        href: /azure/developer/java/eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift (ARO)
+        href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: WebSphere Liberty/Open Liberty on AKS
+        href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Payara Micro on Azure App Service
+        href: /azure/developer/java/eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - name: Migrate WebLogic to Azure
+    expanded: true
+    items:
+      - name: WebLogic to Azure Virtual Machines
+        href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: WebLogic with AAD via LDAP
+        href: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: WebLogic with App Gateway
+        href: /azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: WebLogic with Elastic on Azure
+        href: /azure/developer/java/migration/migrate-weblogic-with-elk?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
