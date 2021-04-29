@@ -60,10 +60,10 @@ If you want to authenticate using either a different Microsoft account or Azure 
 
 Terraform supports several options for authenticating to Azure. The following options are covered:
 
-- [Option #1: Authenticate via Microsoft account](#option-1-authenticate-via-microsoft-account) - Recommended when using Terraform interactively.
-- [Option #2: Authenticate via Azure service principal](#option-2-authenticate-via-azure-service-principal) - Recommended when using Terraform from code.
+- [Option #1: Authenticate via a Microsoft account](#option-1-authenticate-via-microsoft-account) - Recommended when using Terraform interactively.
+- [Option #2: Authenticate via an Azure service principal](#option-2-authenticate-via-azure-service-principal) - Recommended when using Terraform from code.
 
-### Option #1: Authenticate via Microsoft account
+### Option #1: Authenticate via a Microsoft account
 
 1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
 
@@ -117,7 +117,7 @@ az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --
 
 #### Step 2: Log in using an Azure service principal
 
-In the following call to `az login`, replace the placeholders with the information from your service principal.
+Run [az login](/cli/azure/account#az_login), replacing the placeholders with the information from your service principal and Azure subscription.
 
 ```azurecli
 az login --service-principal -u "<service_principal_appid>" -p "<service_principal_password" --tenant "subscription_tenant_id"
