@@ -48,7 +48,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: PiggyMetrics on MicroProfile
-            url: https://github.com/majguo/piggymetrics
+            url: https://aka.ms/microprofile-piggymetrics
           - text: Deploying a Java app with Payara on an AKS cluster
             url: https://github.com/Azure-Samples/payara-on-aks
           - text: Open/WebSphere Liberty on Azure Red Hat OpenShift samples
