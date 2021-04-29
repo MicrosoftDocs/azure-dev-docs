@@ -184,4 +184,4 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Teerraform](create-resource-group.md)
+> [Create an Azure resource group using Terraform](create-resource-group.md)
