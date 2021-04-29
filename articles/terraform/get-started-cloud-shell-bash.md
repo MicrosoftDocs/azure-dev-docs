@@ -135,9 +135,9 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
 
-    :::image type="content" source="media/install-configure/terraform-version-not-current-bash.png" alt-text="Message displayed in Bash terminal when installed Terraform version is not the most current version.":::
+    :::image type="content" source="media/install-configure/terraform-version-not-current-bash.png" alt-text="Message displayed in Bash terminal when installed Terraform version is not the current version.":::
 
-1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps. want to download a different version
+1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps.
 
 1. Browse to the [Terraform downloads page](https://www.terraform.io/downloads.html).
 
@@ -161,7 +161,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     unzip <zip_file_downloaded_in_previous_step>
     ```
 
-1. If it doesn't exist, create a directory named `bin`.
+1. If the directory doesn't exist, create a directory named `bin`.
 
     ```azurecli
     mkdir
@@ -178,6 +178,8 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     ```azurecli
     terraform version
     ```
+
+    :::image type="content" source="media/install-configure/terraform-version-is-latest-version-bash.png" alt-text="Output in Bash when the current version of Terraform is current.":::
 
 ## Next steps
 
