@@ -164,7 +164,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 1. If the directory doesn't exist, create a directory named `bin`.
 
     ```azurecli
-    mkdir
+    mkdir bin
     ```
 
 1. Move the `terraform` file into the `bin` directory.
