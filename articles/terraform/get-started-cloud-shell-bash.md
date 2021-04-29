@@ -129,7 +129,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Verify the current version of Terraform.
 
-    ```azurecli
+    ```bash
     terraform version
     ```
 
@@ -151,31 +151,31 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Run `curl`, replacing the placeholder with the URL from the previous step.
 
-    ```azurecli
+    ```bash
     curl -O <terraform_download_url>
     ```
 
 1. Unzip the file.
 
-    ```azurecli
+    ```bash
     unzip <zip_file_downloaded_in_previous_step>
     ```
 
 1. If the directory doesn't exist, create a directory named `bin`.
 
-    ```azurecli
+    ```bash
     mkdir bin
     ```
 
 1. Move the `terraform` file into the `bin` directory.
 
-    ```azurecli
+    ```bash
     mv terraform bin/    
     ```
 
 1. Verify that the current version of Terraform is the downloaded version.
 
-    ```azurecli
+    ```bash
     terraform version
     ```
 
