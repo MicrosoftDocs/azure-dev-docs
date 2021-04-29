@@ -13,11 +13,16 @@ adobe-target: true
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
-This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html).
+This article shows how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using Cloud Shell and Bash.
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * 
+> * Configure Cloud Shell
+> * Authenticate to Azure using a Microsoft account
+> * Switch from the default Azure subscription
+> * Create a service principal
+> * Authenticate using a service principal
+> * Install the latest version of Terraform in Cloud Shell
 
 ## Prerequisites
 
