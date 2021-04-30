@@ -18,10 +18,10 @@ This article demonstrates creating a Java app with the **[Spring Initializr]** t
 
 In this tutorial, you learn how to:
 
- * Create a Java application using the Spring Initializr
- * Configure Azure Active Directory
- * Secure the application with Spring Boot classes and annotations
- * Build and test your Java application
+* Create a Java application using the Spring Initializr
+* Configure Azure Active Directory
+* Secure the application with Spring Boot classes and annotations
+* Build and test your Java application
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -39,10 +39,9 @@ The following prerequisites are required in order to complete the steps in this 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page and select the **GENERATE** button.
-   
+
    >[!div class="mx-imgBorder"]
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
-
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -53,101 +52,100 @@ The following prerequisites are required in order to complete the steps in this 
 1. Log into <https://portal.azure.com>.
 
 1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance_step1][create-directory-00]
 
    >[!div class="mx-imgBorder"]
    >![Create new Azure Active Directory instance_step2][create-directory-01]
 
-1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial.
- (For example: `azuresampledirectory.onmicrosoft.com`.) 
+1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: `azuresampledirectory.onmicrosoft.com`.)
 
-    Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: azuresampledirectory.onmicrosoft.com.).
+   Copy the full URL of your directory; you will use that to add user accounts later in this tutorial. (For example: azuresampledirectory.onmicrosoft.com.).
 
-    When you have finished, select **Create**. It will take a few minutes to create the new resource.
-   
+   When you have finished, select **Create**. It will take a few minutes to create the new resource.
+
    >[!div class="mx-imgBorder"]
    >![Specify Azure Active Directory names][create-directory-02]
 
 1. When complete, select to access the new directory.
-   
+
    >[!div class="mx-imgBorder"]
    >![Select your Azure account name][create-directory-03]
 
 1. Copy the **Tenant ID**; you will use that value to configure your *application.properties* file later in this tutorial.
-   
+
    >[!div class="mx-imgBorder"]
    >![Copy your Tenant ID][create-directory-04]
 
 ### Add an application registration for your Spring Boot app
 
 1. From the portal menu, select **App registrations**, and then select **Register an application**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Add a new app registration][create-app-registration-01]
 
 1. Specify your application, and then select **Register**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Create new app registration][create-app-registration-02]
 
 1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**; you will use these values to configure your *application.properties* file later in this tutorial.
-   
+
    >[!div class="mx-imgBorder"]
    >![Copy app registration keys][create-app-registration-03]
 
-1. Click **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
-   
+1. Select **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
+
    >[!div class="mx-imgBorder"]
    >![Create app registration keys][create-app-registration-03-5]
 
-1. Add a **Description** and select duration in the **Expires** list.  Click **Add**. The value for the key will be automatically filled in.
-   
+1. Add a **Description** and select duration in the **Expires** list. Select **Add**. The value for the key will be automatically filled in.
+
    >[!div class="mx-imgBorder"]
    >![Specify app registration key parameters][create-app-registration-04]
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You will not be able to retrieve this value later.)
-   
+
    >[!div class="mx-imgBorder"]
    >![Copy app registration key value][create-app-registration-04-5]
 
-1. Click **API permissions** in the left navigation pane. 
+1. Select **API permissions** in the left navigation pane.
 
-1. Click **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Click **Grant Permissions...** and **Yes** when prompted.
-   
+1. Select **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Select **Grant Permissions...** and **Yes** when prompted.
+
    >[!div class="mx-imgBorder"]
    >![Add access permissions][create-app-registration-08]
-   
-1. Click **Grant admin consent for Azure Sample** and select **Yes**.
-   
+
+1. Select **Grant admin consent for Azure Sample** and select **Yes**.
+
    >[!div class="mx-imgBorder"]
    >![Grant access permissions][create-app-registration-05]
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Edit Reply URLs][create-app-registration-09]
 
 1. Enter *http://localhost:8080/login/oauth2/code/* as a new **Redirect URI**, and then select **Configure**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Add new Reply URL][create-app-registration-10]
 
 1. If you've modified the **pom.xml** file to use an AAD starter version earlier than 3.0.0, under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Enable Id Tokens][create-app-registration-11]
-  
+
   ### Add a user account to your directory, and add that account to a group
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Add a new user account][create-user-01]
 
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
-   
+
    >[!div class="mx-imgBorder"]
    >![Enter user account information][create-user-02]
 
@@ -214,23 +212,23 @@ The following prerequisites are required in order to complete the steps in this 
    import org.springframework.web.bind.annotation.ResponseBody;
    import org.springframework.web.bind.annotation.RestController;
    import org.springframework.security.access.prepost.PreAuthorize;
-   
+
    @RestController
    public class HelloController {
-   
-      @GetMapping("group1")
-      @ResponseBody
-      @PreAuthorize("hasRole('ROLE_group1')")
-      public String group1() {
-         return "Hello Group 1 Users!";
-      }
-    
-      @GetMapping("group2")
-      @ResponseBody
-      @PreAuthorize("hasRole('ROLE_group2')")
-      public String group2() {
-         return "Hello Group 2 Users!";
-      }
+
+       @GetMapping("group1")
+       @ResponseBody
+       @PreAuthorize("hasRole('ROLE_group1')")
+       public String group1() {
+           return "Hello Group 1 Users!";
+       }
+
+       @GetMapping("group2")
+       @ResponseBody
+       @PreAuthorize("hasRole('ROLE_group2')")
+       public String group2() {
+           return "Hello Group 2 Users!";
+       }
    }
    ```
 
@@ -242,21 +240,21 @@ The following prerequisites are required in order to complete the steps in this 
    > ``` java
    > public class HelloController {
    >
-   >    @PreAuthorize("hasRole('ROLE_Users')")
-   >    @RequestMapping("/")
-   >    public String helloWorld() {
-   >       return "Hello Users!";
-   >    }
-   >    @PreAuthorize("hasRole('ROLE_group1')")
-   >    @RequestMapping("/Group1")
-   >    public String groupOne() {
-   >       return "Hello Group 1 Users!";
-   >    }
-   >    @PreAuthorize("hasRole('ROLE_group2')")
-   >    @RequestMapping("/Group2")
-   >    public String groupTwo() {
-   >       return "Hello Group 2 Users!";
-   >    }
+   >     @PreAuthorize("hasRole('ROLE_Users')")
+   >     @RequestMapping("/")
+   >     public String helloWorld() {
+   >         return "Hello Users!";
+   >     }
+   >     @PreAuthorize("hasRole('ROLE_group1')")
+   >     @RequestMapping("/Group1")
+   >     public String groupOne() {
+   >         return "Hello Group 1 Users!";
+   >     }
+   >     @PreAuthorize("hasRole('ROLE_group2')")
+   >     @RequestMapping("/Group2")
+   >     public String groupTwo() {
+   >         return "Hello Group 2 Users!";
+   >     }
    > }
    > ```
 
@@ -264,23 +262,23 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Add `@EnableWebSecurity` and `@EnableGlobalMethodSecurity(prePostEnabled = true)` in your application class as shown in the following example, then save and close the file:
 
-    ```java
-    package com.wingtiptoys;
+   ```java
+   package com.wingtiptoys;
 
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-    import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-    import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-    
-    @EnableWebSecurity
-    @EnableGlobalMethodSecurity(prePostEnabled = true)
-    @SpringBootApplication
-    public class SpringBootSampleActiveDirectoryApplication {   
-        public static void main(String[] args) {
-            SpringApplication.run(SpringBootSampleActiveDirectoryApplication.class, args);
-        }   
-    }
-    ```
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+   import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+   @EnableWebSecurity
+   @EnableGlobalMethodSecurity(prePostEnabled = true)
+   @SpringBootApplication
+   public class SpringBootSampleActiveDirectoryApplication {
+       public static void main(String[] args) {
+           SpringApplication.run(SpringBootSampleActiveDirectoryApplication.class, args);
+       }
+   }
+   ```
 
 ## Build and test your app
 
@@ -292,12 +290,12 @@ The following prerequisites are required in order to complete the steps in this 
    mvn clean package
    mvn spring-boot:run
    ```
-   
+
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
 1. After your application is built and started by Maven, open `http://localhost:8080/group1` in a web browser; you should be prompted for a user name and password.
-   
+
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
 
@@ -317,11 +315,13 @@ The following prerequisites are required in order to complete the steps in this 
 
    >[!div class="mx-imgBorder"]
    >![UnAuthorized_group2][Unauthorized-group2]
+
 ## Summary
 
 In this tutorial, you created a new Java web application using the Azure Active Directory starter, configured a new Azure AD tenant and registered a new application in it, and then configured your application to use the Spring annotations and classes to protect the web app.
 
 ## See also
+
 * For information about new UI options see [New Azure portal app registration training guide](/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users)
 
 ## Next steps
