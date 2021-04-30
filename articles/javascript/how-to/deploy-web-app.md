@@ -75,7 +75,7 @@ To deploy or redeploy your App service app with Visual Studio Code, right-click 
 
 ## Connect to your Azure hosted environment
 
-* For **manual or occasional access** to your hosted environments, refer to how to [view files in your Azure hosted environment](#view-files-in-azure-hosted-environment.)
+* For **manual or occasional access** to your hosted environments, refer to how to [view files in your Azure hosted environment](#view-files-in-azure-hosted-environment).
 * For **automated or consistent access**, consider taking the steps to set up one of the [deployment methods](#deploy-your-web-app-to-azure).
 
 
