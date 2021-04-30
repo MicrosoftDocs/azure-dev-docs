@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Azure AD Spring Boot Starter client library for Java
 
-This article describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Boot Starter for Azure Active Directory (Azure AD).
+This article describes the features of the Spring Boot Starter for Azure Active Directory (Azure AD). The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
 When you're building a web application, identity and access management are foundational pieces. Azure offers a cloud-based identity service that has deep integration with the rest of the Azure ecosystem.
 
@@ -82,7 +82,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 
    The `AADWebSecurityConfigurerAdapter` class contains the necessary web security configuration for **aad-starter**.
 
-   1. The `DefaultAADWebSecurityConfigurerAdapter` class is configured automatically if you do not provide a configuration.
+   1. The `DefaultAADWebSecurityConfigurerAdapter` class is configured automatically if you don't provide a configuration.
 
    2. To provide a configuration, extend the `AADWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
 
@@ -279,13 +279,13 @@ The Spring Boot Starter for Azure AD provides the following properties:
 | **azure.activedirectory**.client-id                                     | The registered application ID in Azure AD.                                                         |
 | **azure.activedirectory**.client-secret                                 | The client secret of the registered application.                                                   |
 | **azure.activedirectory**.graph-membership-uri                          | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. See `Property example 1` if you want to use Azure China instead.|
-| **azure.activedirectory**.post-logout-redirect-uri                      | The redirect URI for posting the sign out.                            |
+| **azure.activedirectory**.post-logout-redirect-uri                      | The redirect URI for posting the sign-out.                            |
 | **azure.activedirectory**.tenant-id                                     | The Azure tenant ID.                                             |
 | **azure.activedirectory**.user-group.allowed-groups                     | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
 
 The following examples show you how to use these properties:
 
-**Property example 1:** Use [Azure China](/azure/china/resources-developer-guide#check-endpoints-in-azure) instead of Azure Global.
+**Property example 1:** Use [Azure China 21Vianet](/azure/china/resources-developer-guide#check-endpoints-in-azure) instead of Azure Global.
 
 With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) instead of the Azure public cloud.
 
@@ -380,9 +380,9 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    }
    ```
 
-After these steps, `arm`'s scopes (https://management.core.windows.net/user_impersonation) don't need to be consented at sign in. When the user requests the `/arm` endpoint, the user needs to consent the scope. That's what `incremental consent` means.
+After these steps, `arm`'s scopes (https://management.core.windows.net/user_impersonation) don't need to be consented at sign-in. When the user requests the `/arm` endpoint, the user needs to consent the scope. That's what `incremental consent` means.
 
-After the scopes have been consented, Azure AD server will remember that this user has already granted the permission to the web application. So incremental consent will not happen anymore after the user has consented.
+After the scopes have been consented, Azure AD server will remember that this user has already granted the permission to the web application. So incremental consent won't happen anymore after the user has consented.
 
 ## Examples
 
