@@ -65,6 +65,8 @@ Other deployment methods may exist, based on the specific service. For example, 
 
 You can redeploy to your App service using any of the [provided methods](#deploy-your-web-app-to-azure) even if you didn't use that method to originally deploy. You may have some configuration before redeploying if you are switching methods. 
 
+<a name="deploy-or-redeploy-to-app-service-with-visual-studio-code"></a>
+
 ## Deploy with Visual Studio Code
 
 To deploy or redeploy your App service app with Visual Studio Code, right-click your app service from the list of service in the App service extension, then select **Deploy to Web App...**. 
@@ -73,7 +75,7 @@ To deploy or redeploy your App service app with Visual Studio Code, right-click 
 
 ## Connect to your Azure hosted environment
 
-* For **manual or occasional access** to your hosted environments, refer to how to [view files in your Azure hosted environment](#view-files-in-azure-hosted-environment-resources.)
+* For **manual or occasional access** to your hosted environments, refer to how to [view files in your Azure hosted environment](#view-files-in-azure-hosted-environment.)
 * For **automated or consistent access**, consider taking the steps to set up one of the [deployment methods](#deploy-your-web-app-to-azure).
 
 
