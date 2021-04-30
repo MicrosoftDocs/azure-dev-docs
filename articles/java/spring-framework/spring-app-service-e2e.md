@@ -177,13 +177,13 @@ set REGION=<region>
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.11.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.13.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.12.0</version>
+    <version>1.13.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
@@ -192,7 +192,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
         <region>${REGION}</region>
         <runtime>
             <os>linux</os>
-            <javaVersion>jre8</javaVersion>
+            <javaVersion>Java 8</javaVersion>
             <webContainer>TOMCAT 9.0</webContainer>
         </runtime>
         <deployment>
@@ -263,7 +263,7 @@ set DOLLAR=$
 ```
 ---
 
-Next, create and initialize the database server. Use [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
+Next, create and initialize the database server. Use [az mysql up](/cli/azure/mysql#az_mysql_up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) to increase the connection timeout and set the server timezone.
 
 # [bash](#tab/bash)
 
@@ -365,7 +365,7 @@ MySQL is now ready for use.
 
 Next, we'll add the connection info to the MySQL version of the app, then deploy it to App Service.
 
-Update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the HSQLDB profile and put it in the MySQL profile instead, as shown here. The rest of the snippet shows the existing configuration. Note how the environment variables you set previously are used by Maven to configure your MySQL access.
+Update the *pom.xml* file to make MySQL the active configuration. Remove the `<activation>` element from the H2 profile and put it in the MySQL profile instead, as shown here. The rest of the snippet shows the existing configuration. Note how the environment variables you set previously are used by Maven to configure your MySQL access.
 
 ```xml
 <profile>
@@ -385,13 +385,13 @@ Update the *pom.xml* file to make MySQL the active configuration. Remove the `<a
 </profile>
 ```
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.11.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.13.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.12.0</version>
+    <version>1.13.0</version>
     <configuration>
         <schemaVersion>v2</schemaVersion>
         <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
@@ -400,7 +400,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
         <region>${REGION}</region>
         <runtime>
             <os>linux</os>
-            <javaVersion>jre8</javaVersion>
+            <javaVersion>Java 8</javaVersion>
             <webContainer>TOMCAT 9.0</webContainer>
         </runtime>
         <appSettings>

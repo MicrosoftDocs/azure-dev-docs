@@ -26,6 +26,8 @@
           href: migrate-weblogic-with-aad-ldap.md
         - name: WebLogic with App Gateway
           href: migrate-weblogic-with-app-gateway.md
+        - name: WebLogic with Elastic on Azure
+          href: migrate-weblogic-with-elk.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
     - name: WebLogic to WildFly on AKS

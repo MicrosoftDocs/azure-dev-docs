@@ -14,7 +14,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The Azure libraries are how you communicate with Azure services *from* Python code that you run either locally or in the cloud. (Whether you can run Python code within the scope of a particular service depends on whether that service itself currently supports Python.)
 
-- The libraries support Python 2.7 and Python 3.5.3 or later, and it is also tested with PyPy 5.4+.
+- The libraries support Python 2.7 and Python 3.6 or later, and it is also tested with PyPy 5.4+.
 
 - The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the "SDK".
 
@@ -52,7 +52,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
   - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
 
-- For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_introduction.html).
+- For details on the guidelines we apply to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_design.html#introduction).
 
 ## Provision and manage Azure resources with management libraries
 

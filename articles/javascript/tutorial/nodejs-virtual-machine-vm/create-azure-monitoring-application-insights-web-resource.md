@@ -2,8 +2,8 @@
 title: Create Azure Monitor resource
 description: Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses.
 ms.topic: tutorial
-ms.date: 11/13/2020
-ms.custom: devx-track-js
+ms.date: 04/15/2021
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # 2. Create Application Insights resource for web pages
@@ -30,7 +30,7 @@ This tutorial includes several Azure resources. Creating a resource group allows
     az extension add -n application-insights
     ```
 
-1. Use the following command to [create a monitoring resource](/cli/azure/ext/application-insights/monitor/app-insights/component#ext_application_insights_az_monitor_app_insights_component_create):
+1. Use the following command to [create a monitoring resource](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create):
 
 
     ```azurecli
@@ -38,9 +38,10 @@ This tutorial includes several Azure resources. Creating a resource group allows
       --app demoWebAppMonitor \
       --location eastus \
       --resource-group rg-demo-vm-eastus
+      --query instrumentationKey --output table
     ```
 
-    In the results, find and copy the `instrumentationKey`. You will need that later. 
+    In the resulting table, copy the result, you will need that later. 
 
 1. Leave the terminal open, you will use it in the next step.
 

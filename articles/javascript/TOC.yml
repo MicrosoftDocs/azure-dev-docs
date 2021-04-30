@@ -18,12 +18,12 @@
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
     - name: Set up service principal
-      href: core/node-sdk-azure-authenticate-principal.md
+      href: how-to/with-sdk/set-up-development-environment.md
     - name: Authenticate to Azure
       href: core/node-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Deploy and host client apps
+      - name: Client web apps
         items: 
         - name: Cognitive Services - Image analysis
           items: 
@@ -59,21 +59,21 @@
               href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md
-      - name: Deploy and host serverless apps
+      - name: Serverless apis
         items:               
         - name: "Create a function with Visual Studio Code"
           items:
             - name: 1. Introduction and prerequisites
-              href: tutorial/tutorial-vscode-serverless-node-install.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
             - name: 2. Create the Functions app
-              href: tutorial/tutorial-vscode-serverless-node-create-local.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
             - name: 3. Test the function locally
-              href: tutorial/tutorial-vscode-serverless-node-test-local.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
             - name: 4. Deploy the Functions app
-              href: tutorial/tutorial-vscode-serverless-node-deploy-hosting.md
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
             - name: 5. Clean up resources
-              href: tutorial/tutorial-vscode-serverless-node-remove-resource.md
-      - name: Deploy and host server apps
+              href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md
+      - name: Server web apps
         items:              
         - name: "Express.js with VS Code"
           href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
@@ -97,7 +97,7 @@
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
             - name: Clean up resources
               href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
-      - name: Deploy and host container apps  
+      - name: Container web apps  
         items:        
         - name: "Express.js with VS Code"
           items:
@@ -119,7 +119,7 @@
               href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
         - name: "Deno with Azure CLI"
           href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-      - name: Deploy to virtual machines
+      - name: Virtual machine web apps
         items:               
         - name: "Deploy container with logging"
           items: 
@@ -143,10 +143,28 @@
       href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
-    - name: Configure your app
-      href: how-to/configure-web-app-settings.md
-    - name: Tasks for JavaScript developers
+    - name: Azure Tasks for JavaScript developers
       href: how-to/common-javascript-tasks.md
+    - name: With Azure SDKs
+      items:
+      - name: Set up environment
+        href: how-to/with-sdk/set-up-development-environment.md
+    - name: With web apps
+      items: 
+      - name: Create web app with secure domain name
+        href: how-to/add-custom-domain-to-web-app.md
+      - name: Store and use Key Vault secrets in Express.js
+        href: how-to/with-web-app/use-secret-environment-variables.md
+      - name: Configure your web app
+        href: how-to/configure-web-app-settings.md
+      - name: Write serverless code
+        href: how-to/develop-serverless-apps.md
+      - name: Create static web app
+        href: how-to/create-static-web-app.md
+      - name: Deploy a web app
+        href: how-to/deploy-web-app.md
+      - name: Add easy authentication
+        href: how-to/with-web-app/add-authentication-to-web-app.md        
     - name: With Visual Studio Code
       items: 
       - name: Install and debug local project
@@ -195,16 +213,10 @@
         href: how-to/with-database/use-postgresql-db.md
       - name: SQL API on Cosmos DB
         href: how-to/with-database/use-sql-api-as-cosmos-db.md
-    - name: Deploy a web app
-      href: how-to/deploy-web-app.md
     - name: Deploy containers
       href: how-to/deploy-containers.md
     - name: Integrate with databases
       href: how-to/integrate-database.md
-    - name: Write serverless code
-      href: how-to/develop-serverless-apps.md
-    - name: Create a static (JAMstack) site
-      href: how-to/create-static-site.md
     - name: Logging and metrics
       href: how-to/node-sdk-logging.md
     - name: Automate with Azure CLI
