@@ -15,7 +15,7 @@ This article describes the features, issues, workarounds, and diagnostic steps t
 
 When you're building a web application, identity and access management will always be foundational pieces. Azure offers a cloud-based identity service that has deep integration with the rest of the Azure ecosystem.
 
-Although Spring Security makes it easy to secure your Spring-based applications, it's not tailored to a specific identity provider. The `azure-spring-boot-starter-active-directory` (`aad-starter` for short) provides the most optimal way to connect your web application to an Azure Active Directory (Azure AD) tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
+Although Spring Security makes it easy to secure your Spring-based applications, it's not tailored to a specific identity provider. The `azure-spring-boot-starter-active-directory` (`aad-starter` for short) provides the most optimal way to connect your web application to an Azure AD tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
 
 [Package (Maven)](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory) | [API reference documentation](https://azure.github.io/azure-sdk-for-java/springboot.html#azure-spring-boot) | [Product documentation](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples)
 
@@ -146,17 +146,17 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
    }
    ```
 
-   Here, `graph` is the client name configured in step 2. `OAuth2AuthorizedClient` contains access_token. access_token can be used to access resource server.
+   Here, `graph` is the client name configured in step 2. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
 ### Protecting a resource server/API
 
-This scenario not support login. Just protect the server by validating the access_token, and if valid, serves the request.
+This scenario doesn't support sign in, but protects the server by validating the access token. If the access token is valid, the server serves the request.
 
 **System diagram**:
 
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/resource-server.png" alt-text="Standalone resource server usage":::
 
-To use **aad-starter** in this scenario, we need these steps:
+To use **aad-starter** in this scenario, use the following steps:
 
 1. Add the following dependencies in your *pom.xml* file.
 
@@ -210,7 +210,7 @@ in the `configure(HttpSecurity http)` function, as shown in the following exampl
 
 ### Resource server visiting other resource servers
 
-This scenario supports visiting other resource servers in resource servers.
+This scenario supports a resource server visiting other resource servers.
 
 **System diagram**:
 
@@ -269,7 +269,7 @@ This starter provides following properties:
 | Properties                                                              | Description                                                                                    |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | **azure.activedirectory**.app-id-uri                                    | It used in resource server, used to validate the audience in access_token. access_token is valid only when the audience in access_token equal to client-id or app-id-uri    |
-| **azure.activedirectory**.authorization-clients                         | A map configure the resource APIs the application is going to visit. Each item corresponding to one resource API the application is going to visit. In Spring code, each item corresponding to one OAuth2AuthorizedClient object|
+| **azure.activedirectory**.authorization-clients                         | A map configures the resource APIs the application is going to visit. Each item corresponding to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
 | **azure.activedirectory**.authorization-clients.{client-name}.scopes    | API permissions of a resource server that the application is going to acquire.                 |
 | **azure.activedirectory**.authorization-clients.{client-name}.on-demand | This is used for incremental consent. The default value is false. If it's true, it's not consent when user login, when application needs the additional permission, incremental consent is performed with one OAuth2 authorization code flow.|
 | **azure.activedirectory**.base-uri                                      | Base URI for authorization server, the default value is `https://login.microsoftonline.com/`.  |
@@ -391,11 +391,11 @@ See [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](
 
 ### Resource server
 
-Please refer to [azure-spring-boot-sample-active-directory-resource-server](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server/README.md).
+See [azure-spring-boot-sample-active-directory-resource-server](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server/README.md).
 
 ### Resource server visiting other resource servers
 
-Please refer to [azure-spring-boot-sample-active-directory-resource-server-obo](https://github.com/ZhuXiaoBing-cn/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server-obo).
+See [azure-spring-boot-sample-active-directory-resource-server-obo](https://github.com/ZhuXiaoBing-cn/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server-obo).
 
 ## Troubleshooting
 
