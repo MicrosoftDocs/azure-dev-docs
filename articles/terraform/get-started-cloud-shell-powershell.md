@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Configure Terraform in Azure Cloud Shell using PowerShell
-description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell using PowerShell
+title: Quickstart - Configure Terraform in Azure Cloud Shell and PowerShell
+description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell and PowerShell
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
 ms.date: 04/28/2021
@@ -9,11 +9,11 @@ adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using the PowerShell environment.
 ---
 
-# Quickstart: Configure Terraform in Azure Cloud Shell using PowerShell
+# Quickstart: Configure Terraform in Azure Cloud Shell in PowerShell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
-This article shows how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using Cloud Shell and Bash.
+This article shows how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using Cloud Shell and PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -48,7 +48,11 @@ When you log in to the Azure portal with a Microsoft account, you automatically 
 
 Terraform automatically uses information from the default Azure subscription.
 
-Run []() to verify the current Microsoft account and Azure subscription.
+1. Run [Get-AzContext](/powershell/module/az.accounts/get-azcontext) to verify the current Microsoft account and Azure subscription.
+
+1. If want to use the displayed default subscription, you can skip the rest of this section.
+
+1. To authenticate using a different Microsoft account, run []().
 
 
 
@@ -65,7 +69,10 @@ Run []() to verify the current Microsoft account and Azure subscription.
 
 
 
-When using PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
+
+
+
+When in PowerShell and Terraform, you must log in using a service principal. The next two sections will illustrate the following tasks:
 
 - [Create an Azure service principal](#create-an-azure-service-principal)
 - [Log in to Azure using a service principal](#log-in-to-azure-using-a-service-principal)

@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Configure Terraform in Azure Cloud Shell using Bash
-description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell using Bash
+title: Quickstart - Configure Terraform in Azure Cloud Shell and Bash
+description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell and Bash
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
 ms.date: 04/28/2021
@@ -9,7 +9,7 @@ adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using the Bash environment.
 ---
 
-# Quickstart: Configure Terraform in Azure Cloud Shell using Bash
+# Quickstart: Configure Terraform in Azure Cloud Shell and Bash
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -76,7 +76,7 @@ Terraform supports several options for authenticating to Azure. The following op
 1. To view the Azure subscription names and IDs for a specific Microsoft account, run the following command. Replace the placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
 
     ```azurecli
-    az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id}" --output Table
+    az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
     ```
 
 1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the placeholder with the ID (or name) of the subscription you want to use:
@@ -88,6 +88,9 @@ Terraform supports several options for authenticating to Azure. The following op
     **Notes**:
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
+
+> [!IMPORTANT]
+> Creating and applying a Terraform execution plan impacts the current Azure subscription *unless* you have defined specific environment variables that point to another Azure subscription. These environment variables include such information as an Azure subscription ID, a service principal ID, and the service principal's password. For example, if your current Azure subscription is "SubA", but your Bash environment variables point to "SubB", Terraform uses "SubB". For more information about how to set up these environment variables, read the section about [logging in using a service principal](step-2-log-in-using-an-azure-service-principal).
 
 ### Option #2: Authenticate with an Azure service principal
 
