@@ -91,10 +91,11 @@ Terraform supports several options for authenticating to Azure. The following op
 
     **Notes**:
 
-    - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed. In addition, if you run the `az account list` command from the previous step, you see that the default Azure subscription has changed to the subscription you specified with `az account set`.
+    - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
+    - If you run the `az account list` command from the previous step, you see that the default Azure subscription has changed to the subscription you specified with `az account set`.
 
 > [!IMPORTANT]
-> Creating and applying a Terraform execution plan impacts the current Azure subscription *unless* you have defined specific environment variables that point to another Azure subscription. These environment variables include such information as an Azure subscription ID, a service principal ID, and the service principal's password. For example, if your current Azure subscription is "SubA", but your Bash environment variables point to "SubB", Terraform uses "SubB". For more information about how to set up these environment variables, read the section about [logging in using a service principal](step-2-log-in-using-an-azure-service-principal).
+> Creating and applying a Terraform execution plan impacts the current Azure subscription *unless* you have defined specific environment variables that point to another Azure subscription. These environment variables include such information as an Azure subscription ID, a service principal ID, and the service principal's password. For example, if your current Azure subscription is "SubA", but your Bash environment variables point to "SubB", Terraform uses "SubB". For more information about how to set up these environment variables, read the section about [logging in using a service principal](#step-2-log-in-using-an-azure-service-principal).
 
 ### Option #2: Authenticate with an Azure service principal
 
