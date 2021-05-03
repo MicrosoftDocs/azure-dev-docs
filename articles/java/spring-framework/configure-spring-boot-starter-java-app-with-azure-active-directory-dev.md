@@ -283,7 +283,7 @@ The Spring Boot Starter for Azure AD provides the following properties:
 | **azure.activedirectory**.app-id-uri                                    | Used by the resource server to validate the audience in `access_token`. `access_token` is valid only when the audience in access_token equal to `client-id` or `app-id-uri`.    |
 | **azure.activedirectory**.authorization-clients                         | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
 | **azure.activedirectory**.authorization-clients.{client-name}.scopes    | The API permissions of a resource server that the application is going to acquire.                 |
-| **azure.activedirectory**.authorization-clients.{client-name}.on-demand | Used for incremental consent. The default value is *false*. If it's *true*, it doesn't consent when the user signs in. When the application needs the additional permission, incremental consent is performed with one OAuth2 authorization code flow.|
+| **azure.activedirectory**.authorization-clients.{client-name}.on-demand | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
 | **azure.activedirectory**.base-uri                                      | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
 | **azure.activedirectory**.client-id                                     | The registered application ID in Azure AD.                                                         |
 | **azure.activedirectory**.client-secret                                 | The client secret of the registered application.                                                   |
@@ -487,111 +487,6 @@ The starter supports creating `GrantedAuthority` from id_token's `roles` claim t
        return "Admin message";
    }
    ```
-
-#### Support Conditional Access in a web application
-  
-This starter supports [Conditional Access](/azure/active-directory/conditional-access) policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. There are many access-control concepts, but [Block Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) and [Grant Access](/azure/active-directory/conditional-access/concept-conditional-access-grant) are particularly important. In some scenarios, this starter will help you complete Grant Access controls.
-
-In [Resource server visiting other resource server] scenario(For better description, we think that resource server with OBO function as **webapiA** and the other resource servers as **webapiB**), When we configure the webapiB application with Conditional Access(such as [multi-factor authentication]), this stater will help us send the Conditional Access information of the webapiA to the web application and the web application will help us complete the Conditional Access Policy. As shown below:
-
-![aad-conditional-access-flow.png](resource/aad-conditional-access-flow.png)
-
-We can use our sample to create a Conditional Access scenario.
-
-- **webapp**: [azure-spring-boot-sample-active-directory-webapp].
-- **webapiA**:  [azure-spring-boot-sample-active-directory-resource-server-obo].
-- **webapiB**: [azure-spring-boot-sample-active-directory-resource-server].
-
-1. Follow the guide to create conditional access policy for webapiB.
-
-   ![aad-create-conditional-access](resource/aad-create-conditional-access.png)
-
-   ![aad-conditional-access-add-application](resource/aad-conditional-access-add-application.png) 
-  
-1. [Require MFA for all users] or specify the user account in your policy.
-
-   ![aad-create-conditional-access](resource/aad-conditional-access-add-user.png)
-
-1. Follow the guide, configure our samples.
-
-   1. **webapiB**: [configure webapiB]
-   1. **webapiA**: [configure webapiA]
-   1. **webapp**: [configure webapp]
-
-1. Add properties in application.yml.  
-
-   - webapp:
-
-      ```yaml
-      azure:
-        activedirectory:
-          client-id: <Web-API-A-client-id>
-          client-secret: <Web-API-A-client-secret>
-          tenant-id: <tenant-id-registered-by-application>
-          app-id-uri: <Web-API-A-app-id-url>
-          authorization-clients:
-            webapiA:
-              scopes:
-                - <Web-API-A-app-id-url>/Obo.WebApiA.ExampleScope
-      ```
-
-   - webapiA:
-
-      ```yaml
-      azure:
-        activedirectory:
-          client-id: <Web-API-A-client-id>
-          client-secret: <Web-API-A-client-secret>
-          tenant-id: <tenant-id-registered-by-application>
-          app-id-uri: <Web-API-A-app-id-url>
-          authorization-clients:
-            webapiB:
-              scopes:
-                - <Web-API-B-app-id-url>/WebApiB.ExampleScope
-      ```
-
-   - webapiB:
-
-      ```yaml
-      azure:
-        activedirectory:
-           client-id: <Web-API-B-client-id>
-           app-id-uri: <Web-API-B-app-id-url>
-      ```
-
-1. Write your Java code:
-
-   - webapp :
-
-      ```java
-      @GetMapping("/webapp/webapiA/webapiB")
-      @ResponseBody
-      public String callWebApi(@RegisteredOAuth2AuthorizedClient("webapiA") OAuth2AuthorizedClient webapiAClient) {
-          return callWebApiAEndpoint(webapiAClient);
-      }
-      ```
-
-   - webapiA:
-
-      ```java
-      @PreAuthorize("hasAuthority('SCOPE_Obo.WebApiA.ExampleScope')")
-      @GetMapping("webapiA/webapiB")
-      public String callCustom(
-          @RegisteredOAuth2AuthorizedClient("webapiB") OAuth2AuthorizedClient webapiBClient) {
-          return callWebApiBEndpoint(webapiBClient);
-      }
-      ```
-
-   - webapiB:
-
-      ```java
-      @GetMapping("/webapiB")
-      @ResponseBody
-      @PreAuthorize("hasAuthority('SCOPE_WebApiB.ExampleScope')")
-      public String file() {
-          return "Response from WebApiB.";
-      }
-      ```
 
 ## Examples
 
