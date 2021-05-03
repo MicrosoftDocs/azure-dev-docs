@@ -42,9 +42,7 @@ az account show
 
 If want to use the displayed default subscription, you can skip the rest of this section.
 
-If you want to authenticate using either a different Microsoft account or Azure subscription, this rest of this section shows you how.
-
-Terraform supports several options for authenticating to Azure. The following options are covered:
+If you want to authenticate using either a different Microsoft account or Azure subscription, the following options can be used:
 
 - [Option #1: Authenticate via a Microsoft account](authenticate-with-microsoft-account.md) - Recommended when using Terraform interactively.
 - [Option #2: Authenticate via an Azure service principal](authenticate-with-service-principal.md) - Recommended when using Terraform from code.

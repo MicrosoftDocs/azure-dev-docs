@@ -12,6 +12,14 @@ ms.custom: devx-track-terraform
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use the service principal for future logins.
 
+## Prerequisites
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## Open Cloud Shell
+
+[!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
+
 ## Create a service principal
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip this step. If you want to create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).

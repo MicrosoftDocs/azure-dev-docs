@@ -8,6 +8,8 @@ ms.date: 05/02/2021
 ms.author: tarcher
 ---
 
+1. If you already have a Cloud Shell session open, you can skip to the next section.
+
 1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open Cloud Shell.

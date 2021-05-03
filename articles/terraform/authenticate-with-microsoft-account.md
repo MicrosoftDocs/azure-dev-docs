@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
-This article shows how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using Cloud Shell and Bash.
+This article shows how to authenticate to Azure using a Microsoft account using either the default Azure subscription or switching to another Azure subscription.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -24,6 +24,9 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
+## Open Cloud Shell
+
+[!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
 ## Log in to Azure using a Microsoft account
 
