@@ -2,88 +2,134 @@
 title: Build static web app on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.custom: seo-javascript-september2019, devx-track-js
+ms.date: 05/03/2021
+ms.custom: devx-track-js
 ---
 
 # Build a new Static web app on Azure with Node.js
 
-Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required. In addition, API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
+Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a public code repository. 
 
-## 1. Prepare your development environment
+* **Client apps**: Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required. 
+* **APIs**: API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
 
-* Create a free [Azure subscription](https://azure.microsoft.com/free/)
-* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
-* Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
-    * [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
-* Install [Git](https://git-scm.com/downloads) 
-* Use or create a [GitHub account](https://github.com/join)
+* [Static web app community samples](https://github.com/microsoft/static-web-apps-gallery-code-samples)
 
-## 2. Create a local static web app
+## What is a static web app resource? 
 
-If you don't have a client app yet, create a new local static React web app and start it. The following creates a new React app, as an example. If you do have an app, make sure to review the configuration for your [specific front-end framework](/azure/static-web-apps/front-end-frameworks). 
+A Static web app resource is a hosted app with both the generated static client files and the optional api endpoints. When you create the resource, you include information necessary for a GitHub action to build the static files and deploy to Azure. 
 
-```bash
-npx create-react-app my-app && cd my-app && npm start
+:::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the resource, you include information necessary for a GitHub action to build the static files and deploy to Azure.":::
+
+Create the Static web app with one of the following:
+
+* [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
+* [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+* [Azure CLI](/azure/static-web-apps/get-started-cli?tabs=vanilla-javascript)
+
+## The GitHub action builds and deploys your app
+
+The GitHub action is created during resource creation and includes instructions to _build_ and _deploy_ the site. The action is created on the source code repo selected during resource creation. 
+
+The following GitHub action YAML file is based on the Azure [search tutorial](/azure/search/tutorial-javascript-overview) and its [sample code](https://github.com/azure-samples/azure-search-javascript-samples) to add search to a website. 
+
+```yml
+name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_<GENERATED_HOSTNAME> }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "search-website" # App source code path
+          api_location: "search-website/api" # Api source code path - optional
+          output_location: "build" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_<GENERATED_HOSTNAME> }}
+          action: "close"
 ```
 
-The app is started on port 3000 and should be visible in your browser. The folder has also been initialized with git to the `main` default branch and the initial version has been committed to your local git. 
+## Static web apps include apis
 
-## 3. Prepare your repository to deploy to a Static web app
+[Azure Function](/azure/azure-functions/) apis are provided in static web apps optionally and typically live in a folder named `/api`. 
 
-1. Create a new [GitHub](https://github.com/new) repository to hold your new app. 
+These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. 
 
-1. Create a remote entry to your remote fork to your GitHub repo. Change the following command for your own GitHub account and repo name.
+Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
 
-    ```bash
-    git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
-    ```
+* [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
-1. Create a new branch, `live`, that will only be used to deploy to your Static web app.
+## Develop static web apps with Visual Studio Code extension
 
-    ```bash
-    git checkout -b live
-    ```
+Use one of the following methods to create  to quickly develop and deploy your apps. 
 
-1. Push your local `live` branch to a remote `live` branch.
+Tutorials, which use the [Static web app extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
 
-    ```bash
-    git push origin live
-    ```
+* [Add search to a website with Azure Search and Static web apps](/azure/search/tutorial-javascript-overview)
+* [Analyze an image with Azure Computer Vision and Static web apps](/azure/developer/javascript/tutorial/static-web-app/introduction)
 
-    Your local React app is now on GitHub in the `live` branch. You are ready to set up your Azure Static web app.
 
-## 4. Create a Static Web app resource
+## Configure the static web app with GitHub
 
-1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static web app...**. 
+Because the GitHub action controls building and deploying, Static web app [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables), typically injected into the static files, need to be configured in the action yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](/azure/developer/github/github-variable-substitution).  
 
-    :::image type="content" source="../media/howto-static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
+## Deploy static web apps to Azure
 
-1. Enter the following information in the subsequent fields, presented one at a time. 
+Deploying a static web app to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub action under `pull_requests:branches`. 
 
-    |Field name| value|Notes|
-    |--|--|--|
-    |A name for your static web app.|`React-static-web-app`|The name of your Azure resource.|
-    |Choose build preset to configure default project structure.|`React`|Select the front-end framework. |
-    |Select a location for new resources|Select an Azure location close to you.|If you are unsure, select `West US 2`.|
+The push from your local computer needs to use the Static web app's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub action to use your fork. 
 
-## 5. View the GitHub Action build process
+View deployment success from the GitHub action. 
 
-1. In a web browser, open your GitHub repository, and select **Actions**. 
+:::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub action.":::
 
-1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the **Build And Deploy** successfully finishes.
+## View logs of static web apps on Azure
 
-    :::image type="content" source="../media/howto-static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
+Turn on **Application Insights** in the Azure portal for your Static web app to collect logging. The integrated [Application Insights](/azure/azure-monitor/app/javascript) logging collects a huge amount of information for you, without any changes to your code. 
 
-## 6. View Azure static web site in browser
+To add custom logging from your app to Application Insights, add the [@microsoft/applicationinsights-web](https://www.npmjs.com/package/@microsoft/applicationinsights-web) npm package then add the JavaScript code to capture custom information.
 
-In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
+```javascript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
-:::image type="content" source="../media/howto-static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
-
-You can also find the URL for the site at:
-* the Azure portal for your resource, on the **Overview** page.
-* the GitHub action's build-and-deploy output has the site URL at the very end of the script 
+const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.trackTrace({message: 'some trace'});
+```
 
 ## Next step
 
