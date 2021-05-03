@@ -23,7 +23,7 @@ Although Spring Security makes it easy to secure your Spring-based applications,
 
 ## Prerequisites
 
-- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 - A supported Java Development Kit (JDK), version 8 or later. For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
 - [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 - An application [registered with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
@@ -406,6 +406,192 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
 After these steps, `arm`'s scopes (https://management.core.windows.net/user_impersonation) don't need to be consented at sign-in. When the user requests the `/arm` endpoint, the user needs to consent the scope. That's what `incremental consent` means.
 
 After the scopes have been consented, Azure AD server will remember that this user has already granted the permission to the web application. So incremental consent won't happen anymore after the user has consented.
+
+**Property example 4:** Client credential flow in a resource server visiting resource servers.
+
+1. Add the following property to your *application.yml* file:
+
+   ```yaml
+   azure:
+     activedirectory:
+       authorization-clients:
+         webapiC:                          # When authorization-grant-type is null, on behalf of flow is used by default
+           authorization-grant-type: client_credentials
+           scopes:
+               - <Web-API-C-app-id-url>/.default
+   ```
+
+2. Write Java code:
+
+   ```java
+   @PreAuthorize("hasAuthority('SCOPE_Obo.WebApiA.ExampleScope')")
+   @GetMapping("webapiA/webapiC")
+   public String callClientCredential() {
+       String body = webClient
+           .get()
+           .uri(CUSTOM_LOCAL_READ_ENDPOINT)
+           .attributes(clientRegistrationId("webapiC"))
+           .retrieve()
+           .bodyToMono(String.class)
+           .block();
+       LOGGER.info("Response from Client Credential: {}", body);
+       return "client Credential response " + (null != body ? "success." : "failed.");
+   }
+   ```
+
+### Advanced features
+
+#### Support access control by ID token in a web application
+
+The starter supports creating `GrantedAuthority` from id_token's `roles` claim to allow using `id_token` for authorization in a web application. You can use the `appRoles` feature of Azure AD to create a `roles` claim and implement access control.
+
+> [!NOTE]
+> - The `roles` claim generated from `appRoles` is decorated with prefix `APPROLE_`.
+> - When using `appRoles` as a `roles` claim, avoid configuring a group attribute as `roles` at the same time. Otherwise, the group attribute will override the claim to contain group information instead of `appRoles`. You should avoid the following configuration in your manifest:
+>
+>    ```manifest
+>    "optionalClaims": {
+>        "idtoken": [{
+>            "name": "groups",
+>            "additionalProperties": ["emit_as_roles"]
+>        }]
+>    }
+>    ```
+
+1. Add app roles in your application and assign them to users or groups. For more information, see [How to: Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
+
+2. Add the following `appRoles` configuration to your application's manifest:
+
+    ```manifest
+      "appRoles": [
+        {
+          "allowedMemberTypes": [
+            "User"
+          ],
+          "displayName": "Admin",
+          "id": "2fa848d0-8054-4e11-8c73-7af5f1171001",
+          "isEnabled": true,
+          "description": "Full admin access",
+          "value": "Admin"
+         }
+      ]
+    ```
+
+3. Write Java code:
+
+   ```java
+   @GetMapping("Admin")
+   @ResponseBody
+   @PreAuthorize("hasAuthority('APPROLE_Admin')")
+   public String Admin() {
+       return "Admin message";
+   }
+   ```
+
+#### Support Conditional Access in a web application
+  
+This starter supports [Conditional Access](/azure/active-directory/conditional-access) policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. There are many access-control concepts, but [Block Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) and [Grant Access](/azure/active-directory/conditional-access/concept-conditional-access-grant) are particularly important. In some scenarios, this starter will help you complete Grant Access controls.
+
+In [Resource server visiting other resource server] scenario(For better description, we think that resource server with OBO function as **webapiA** and the other resource servers as **webapiB**), When we configure the webapiB application with Conditional Access(such as [multi-factor authentication]), this stater will help us send the Conditional Access information of the webapiA to the web application and the web application will help us complete the Conditional Access Policy. As shown below:
+
+![aad-conditional-access-flow.png](resource/aad-conditional-access-flow.png)
+
+We can use our sample to create a Conditional Access scenario.
+
+- **webapp**: [azure-spring-boot-sample-active-directory-webapp].
+- **webapiA**:  [azure-spring-boot-sample-active-directory-resource-server-obo].
+- **webapiB**: [azure-spring-boot-sample-active-directory-resource-server].
+
+1. Follow the guide to create conditional access policy for webapiB.
+
+   ![aad-create-conditional-access](resource/aad-create-conditional-access.png)
+
+   ![aad-conditional-access-add-application](resource/aad-conditional-access-add-application.png) 
+  
+1. [Require MFA for all users] or specify the user account in your policy.
+
+   ![aad-create-conditional-access](resource/aad-conditional-access-add-user.png)
+
+1. Follow the guide, configure our samples.
+
+   1. **webapiB**: [configure webapiB]
+   1. **webapiA**: [configure webapiA]
+   1. **webapp**: [configure webapp]
+
+1. Add properties in application.yml.  
+
+   - webapp:
+
+      ```yaml
+      azure:
+        activedirectory:
+          client-id: <Web-API-A-client-id>
+          client-secret: <Web-API-A-client-secret>
+          tenant-id: <tenant-id-registered-by-application>
+          app-id-uri: <Web-API-A-app-id-url>
+          authorization-clients:
+            webapiA:
+              scopes:
+                - <Web-API-A-app-id-url>/Obo.WebApiA.ExampleScope
+      ```
+
+   - webapiA:
+
+      ```yaml
+      azure:
+        activedirectory:
+          client-id: <Web-API-A-client-id>
+          client-secret: <Web-API-A-client-secret>
+          tenant-id: <tenant-id-registered-by-application>
+          app-id-uri: <Web-API-A-app-id-url>
+          authorization-clients:
+            webapiB:
+              scopes:
+                - <Web-API-B-app-id-url>/WebApiB.ExampleScope
+      ```
+
+   - webapiB:
+
+      ```yaml
+      azure:
+        activedirectory:
+           client-id: <Web-API-B-client-id>
+           app-id-uri: <Web-API-B-app-id-url>
+      ```
+
+1. Write your Java code:
+
+   - webapp :
+
+      ```java
+      @GetMapping("/webapp/webapiA/webapiB")
+      @ResponseBody
+      public String callWebApi(@RegisteredOAuth2AuthorizedClient("webapiA") OAuth2AuthorizedClient webapiAClient) {
+          return callWebApiAEndpoint(webapiAClient);
+      }
+      ```
+
+   - webapiA:
+
+      ```java
+      @PreAuthorize("hasAuthority('SCOPE_Obo.WebApiA.ExampleScope')")
+      @GetMapping("webapiA/webapiB")
+      public String callCustom(
+          @RegisteredOAuth2AuthorizedClient("webapiB") OAuth2AuthorizedClient webapiBClient) {
+          return callWebApiBEndpoint(webapiBClient);
+      }
+      ```
+
+   - webapiB:
+
+      ```java
+      @GetMapping("/webapiB")
+      @ResponseBody
+      @PreAuthorize("hasAuthority('SCOPE_WebApiB.ExampleScope')")
+      public String file() {
+          return "Response from WebApiB.";
+      }
+      ```
 
 ## Examples
 
