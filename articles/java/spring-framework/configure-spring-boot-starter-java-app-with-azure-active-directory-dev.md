@@ -34,10 +34,10 @@ A *web application* is any web-based application that enables a user to sign in.
 
 This guide covers the following scenarios:
 
-1. Accessing a web application.
-1. Accessing resource servers from a web application.
-1. Accessing a resource server.
-1. Accessing other resource servers from a resource server.
+- [Accessing a web application](#accessing-a-web-application)
+- [Accessing resource servers from a web application](#accessing-resource-servers-from-a-web-application)
+- [Protecting a resource server/API](#protecting-a-resource-serverapi)
+- [Accessing other resource servers from a resource server](#accessing-other-resource-servers-from-a-resource-server)
 
 ### Accessing a web application
 
@@ -103,7 +103,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
       }
       ```
 
-### Web application accessing resource servers
+### Accessing resource servers from a web application
 
 **System diagram**:
 
