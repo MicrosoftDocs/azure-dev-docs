@@ -15,7 +15,7 @@ This article describes the features of the Spring Boot Starter for Azure Active 
 
 When you're building a web application, identity and access management are foundational pieces. Azure offers a cloud-based identity service that has deep integration with the rest of the Azure ecosystem.
 
-Although Spring Security makes it easy to secure your Spring-based applications, it isn't tailored to a specific identity provider. The Spring Boot Starter for Azure AD enables you to connect your web application to an Azure AD tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
+Although Spring Security makes it easy to secure your Spring-based applications, it isn't tailored to a specific identity provider. The Spring Boot Starter for Azure AD (**aad-starter** for short) enables you to connect your web application to an Azure AD tenant and protect your resource server with Azure AD. It uses the Oauth 2.0 protocol to protect web applications and resource servers.
 
 <!-- `azure-spring-boot-starter-active-directory` (`aad-starter` for short) -->
 
@@ -23,15 +23,14 @@ Although Spring Security makes it easy to secure your Spring-based applications,
 
 ## Prerequisites
 
-- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/) with version 8 or above
-- [An Azure subscription](https://azure.microsoft.com/free)
-- [Maven](https://maven.apache.org/) 3.0 or above
-- [Register an application in the Azure portal](/azure/active-directory/develop/quickstart-register-app)
-- [Build developing version artifacts if needed](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/ENVIRONMENT_CHECKLIST.md#use-development-version)
+- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+- A supported Java Development Kit (JDK), version 8 or later. For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
+- [Apache Maven](https://maven.apache.org/), version 3.0 or later.
+- An application [registered with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 ## Key concepts
 
-A *web application* is any web-based application that enables a user to sign in. A *resource server* will either accept or deny access after validating an access token. 
+A *web application* is any web-based application that enables a user to sign in. A *resource server* will either accept or deny access after validating an access token.
 
 This guide covers the following scenarios:
 
@@ -60,7 +59,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.2.0</version>
+       <version>3.5.0-beta.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -89,14 +88,17 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
       ```java
       @EnableWebSecurity
       @EnableGlobalMethodSecurity(prePostEnabled = true)
-      public class AADOAuth2LoginConfigSample extends AADWebSecurityConfigurerAdapter {
-      
+      public class AADOAuth2LoginSecurityConfig extends AADWebSecurityConfigurerAdapter {
+
+          /**
+           * Add configuration logic as needed.
+          */
           @Override
           protected void configure(HttpSecurity http) throws Exception {
               super.configure(http);
               http.authorizeRequests()
-                  .antMatchers("/login").permitAll()
                   .anyRequest().authenticated();
+              // Do some custom configuration.
           }
       }
       ```
@@ -115,7 +117,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.2.0</version>
+       <version>3.5.0-beta.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -143,9 +145,11 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
    ```java
    @GetMapping("/graph")
    @ResponseBody
-   public String graph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2AuthorizedClient graphClient) {
+   public String graph(
+       @RegisteredOAuth2AuthorizedClient("graph") OAuth2AuthorizedClient graphClient
+   ) {
        // toJsonString() is just a demo.
-       // graphClient contains access_token. We can use this access_token to access resource server.
+       // oAuth2AuthorizedClient contains access_token. We can use this access_token to access the resource server.
        return toJsonString(graphClient);
    }
    ```
@@ -168,7 +172,7 @@ To use **aad-starter** in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.2.0</version>
+       <version>3.5.0-beta.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -202,11 +206,15 @@ To use **aad-starter** in this scenario, use the following steps:
    ```java
    @EnableWebSecurity
    @EnableGlobalMethodSecurity(prePostEnabled = true)
-   public class CustomWebServerSecurityConfig extends AADResourceServerWebSecurityConfigurerAdapter {
+   public class AADOAuth2ResourceServerSecurityConfig extends AADResourceServerWebSecurityConfigurerAdapter {
+
+       /**
+        * Add configuration logic as needed.
+        */
        @Override
-       protected void configure(HttpSecurity http) {
-          super.configure(http);
-          // Do some custom configuration
+       protected void configure(HttpSecurity http) throws Exception {
+           super.configure(http);
+           http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
        }
    }
    ```
@@ -227,7 +235,7 @@ To use **aad-starter** in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.2.0</version>
+       <version>3.5.0-beta.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -259,6 +267,7 @@ To use **aad-starter** in this scenario, use the following steps:
    Use the `@RegisteredOAuth2AuthorizedClient` attribute to access the related resource server:
 
    ```java
+   @PreAuthorize("hasAuthority('SCOPE_Obo.Graph.Read')")
    @GetMapping("call-graph")
    public String callGraph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2AuthorizedClient graph) {
        return callMicrosoftGraphMeEndpoint(graph);
@@ -282,6 +291,7 @@ The Spring Boot Starter for Azure AD provides the following properties:
 | **azure.activedirectory**.post-logout-redirect-uri                      | The redirect URI for posting the sign-out.                            |
 | **azure.activedirectory**.tenant-id                                     | The Azure tenant ID.                                             |
 | **azure.activedirectory**.user-group.allowed-groups                     | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
+| **azure.activedirectory**.user-name-attribute                           | Indicates which claim will be the principal's name. |
 
 The following examples show you how to use these properties:
 
@@ -314,14 +324,17 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    ```java
    @EnableWebSecurity
    @EnableGlobalMethodSecurity(prePostEnabled = true)
-   public class AADOAuth2LoginConfigSample extends AADWebSecurityConfigurerAdapter {
-   
+   public class AADOAuth2LoginSecurityConfig extends AADWebSecurityConfigurerAdapter {
+
+       /**
+        * Add configuration logic as needed.
+        */
        @Override
        protected void configure(HttpSecurity http) throws Exception {
            super.configure(http);
            http.authorizeRequests()
-               .antMatchers("/login").permitAll()
                .anyRequest().authenticated();
+           // Do some custom configuration.
        }
    }
    ```
@@ -344,6 +357,20 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
        public String group2() {
            return "group2 message";
        }
+
+       @GetMapping("group1Id")
+       @ResponseBody
+       @PreAuthorize("hasRole('ROLE_<group1-id>')")
+       public String group1Id() {
+           return "group1Id message";
+       }
+
+       @GetMapping("group2Id")
+       @ResponseBody
+       @PreAuthorize("hasRole('ROLE_<group2-id>')")
+       public String group2Id() {
+           return "group2Id message";
+       }
    }
    ```
 
@@ -365,18 +392,14 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
 2. Write Java code:
 
    ```java
-   @Controller
-   public class OnDemandClientController {
-   
-       @GetMapping("/arm")
-       @ResponseBody
-       public String arm(
-           @RegisteredOAuth2AuthorizedClient("arm") OAuth2AuthorizedClient oAuth2AuthorizedClient
-       ) {
-           // toJsonString() is just a demo.
-           // oAuth2AuthorizedClient contains access_token. We can use this access_token to access resource server.
-           return toJsonString(oAuth2AuthorizedClient);
-       }
+   @GetMapping("/arm")
+   @ResponseBody
+   public String arm(
+       @RegisteredOAuth2AuthorizedClient("arm") OAuth2AuthorizedClient armClient
+   ) {
+       // toJsonString() is just a demo.
+       // oAuth2AuthorizedClient contains access_token. We can use this access_token to access resource server.
+       return toJsonString(armClient);
    }
    ```
 
