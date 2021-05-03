@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -11,7 +11,22 @@ This content is primarily from Developer Advocates as well as other members of t
 
 ## Reoccurring events 
 
+* [Microsoft Learn TV](https://docs.microsoft.com/learn/tv/)
 * [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+
+## Timeless
+
+* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
+
+## 2021 April 
+
+* [Deploying a Node.js Web App using GitHub Actions](https://github.com/Azure-Samples/azure-javascript-labs) - Burke Holland - GitHub
+* [Web Wednesday - Getting started with React & TypeScript](https://www.youtube.com/watch?v=BlaHWppdLpQ) - Aaron Powell and Christopher harrison - YouTube
+* [Azure Cosmos DB Conf - EMEA Live Stream](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328) - YouTube
+* [Static Web apps demo - Microsoft Developers France](https://www.youtube.com/watch?v=aI9XFDpsGaA) - 00:37
+* [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/add-mongoose) - Christopher Harrison
+* [Adapt your Angular apps for dual-screen devices with ngx-foldable](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058) - Yohan Lasorsa
+* [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero]() -  - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
 
 ## 2021 March 
 
