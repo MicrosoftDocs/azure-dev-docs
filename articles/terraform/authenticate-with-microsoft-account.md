@@ -10,8 +10,6 @@ ms.custom: devx-track-terraform
 
 # Authenticate to Azure with a Microsoft Account
  
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
-
 This article shows how to authenticate to Azure using a Microsoft account using either the default Azure subscription or switching to another Azure subscription.
 
 In this article, you learn how to:

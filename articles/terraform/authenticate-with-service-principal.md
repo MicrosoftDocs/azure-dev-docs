@@ -3,7 +3,7 @@ title: Authenticate to Azure with a Service Principal
 description: In this article, you learn how to authenticate to Azure with a Service Principal
 keywords: terraform azure cli authenticate
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 05/02/2021
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want authenticate to Azure using a Service Principal.
 ---
@@ -11,6 +11,14 @@ ms.custom: devx-track-terraform
 # Authenticate to Azure with a Service Principal
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use the service principal for future logins.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Configure Cloud Shell
+> * Create a service principal
+> * Store service principal credentials as environment variables
+> * Specify service principal credentials in a code block
+> * Log in to Azure using a service principal
 
 ## Prerequisites
 
@@ -30,30 +38,55 @@ az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --
 
 **Notes**:
 
-- For this article, a service principal with a **Contributor** role is being used.
-- The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
-- For more information about option when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+- For this article, a service principal with a **Contributor** role is being used.
+- The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+- For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
 
 ## Use a service principal to authenticate to Azure
 
 The following options are some of the ways Terraform supports authenticating to Azure using a service principal:
 
-- Option 1: Store service principal credentials as environment variables
-- Option 2: Specify service principal credentials in a code block
-- Option 3: Log in interactively using a service principal
+- [Option 1: Store service principal credentials as environment variables](#store-service-principal-credentials-as-environment-variables)
+- [Option 2: Specify service principal credentials in a code block](#specify-service-principal-credentials-in-a-code-block)
+- [Option 3: Log in interactively using a service principal](#log-in-to-azure-using-a-service-principal)
 
 ### Store service principal credentials as environment variables
 
+1. Edit the `~/.bashrc` file by adding the following environment variables.
+
+    ```bash
+    export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
+    export ARM_TENANT_ID="<azure_subscription_tenant_id"
+    export ARM_CLIENT_ID="<service_principal_appid>"
+    export ARM_CLIENT_SECRET="<service_principal_password>"
+    ```
+
+1. To access any of these values from within a Terraform script use the following syntax: `${env.<environment_variable>}`. For example: `${env.ARM_SUBSCRIPTION_ID}`.
+
+1. Either execute the `~/.bashrc` script or exit and reopen Cloud Shell for the environment variables to be set.
+
+**Notes**:
+
+- Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
+
 ### Specify service principal credentials in a code block
 
-### Log in interactively using a service principal
+1. Edit the Terraform config file 
+
+
+### Log in to Azure using a service principal
+
+The [az login](/cli/azure/reference-index#az_login) command allows a robust set of ways to log in to Azure. The following syntax takes as parameters a service principal AppId, the service principal's password, and the tenant ID of the Azure subscription associated with the service principal.
 
 ```azurecli
 az login --service-principal -u "<service_principal_appid>" -p "<service_principal_password>" --tenant "<azure_subscription_id>"
 ```
 
+**Notes**:
+
+- Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
 
 ## Next steps
 
