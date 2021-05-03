@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform in Azure Cloud Shell and Bash
 description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell and Bash
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 05/02/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using the Bash environment.
