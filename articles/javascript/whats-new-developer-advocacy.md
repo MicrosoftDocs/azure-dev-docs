@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/03/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -18,6 +18,10 @@ This content is primarily from Developer Advocates as well as other members of t
 
 * [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
 
+## 2021 May
+
+* [Playwright - Testes Inteligentes, Automatizados e Rápidos em Cross-Browser com Playwright!](https://github.com/glaucia86/demos-playwright-e2e) - in **Portuguese​** - Glaucia Lemos
+
 ## 2021 April 
 
 * [Deploying a Node.js Web App using GitHub Actions](https://github.com/Azure-Samples/azure-javascript-labs) - Burke Holland - GitHub
@@ -26,7 +30,7 @@ This content is primarily from Developer Advocates as well as other members of t
 * [Static Web apps demo - Microsoft Developers France](https://www.youtube.com/watch?v=aI9XFDpsGaA) - 00:37
 * [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/add-mongoose) - Christopher Harrison
 * [Adapt your Angular apps for dual-screen devices with ngx-foldable](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058) - Yohan Lasorsa
-* [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero]() -  - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
+* [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565) - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
 
 ## 2021 March 
 
