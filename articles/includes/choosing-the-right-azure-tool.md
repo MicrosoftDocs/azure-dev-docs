@@ -8,7 +8,7 @@ When it comes to managing Azure, you have many options. This article compares th
 
 Azure runs on automation. Every action you take inside the portal translates somewhere to code being executed to read, create, modify, or delete resources.
 
-Moving your workload to Azure lifts some of the administrative burden but not all. As your rate of adoption with Azure increases so will the overhead. Even though you don't have to worry about the data center, you still have to patch and troubleshoot Azure VMs, failover databases, and setup virtual networks.
+Moving your workload to Azure lifts some of the administrative burden but not all. As your rate of adoption with Azure increases so will the overhead. Even though you don't have to worry about the data center, you still have to patch and troubleshoot Azure VMs, failover databases, and configure virtual networks.
 
 By using the existing automation that runs Azure, command-line tools reduce that overhead.
 
