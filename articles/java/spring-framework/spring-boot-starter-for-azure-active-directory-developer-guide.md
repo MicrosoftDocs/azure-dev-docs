@@ -50,9 +50,9 @@ To use the Azure AD starter in this scenario, use the following steps:
 
 1. Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see the [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) section of [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/web-application-set-redirect-uri-1.png" alt-text="Web Application set redirect URI 1":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Set the redirect URI for a web application using the Azure portal, part 1":::
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/web-application-set-redirect-uri-2.png" alt-text="Web Application set redirect URI 2":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Set the redirect URI for a web application using the Azure portal, part 2":::
 
 1. Add the following dependencies to your *pom.xml* file.
 
@@ -186,9 +186,9 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/get-app-id-uri-1.png" alt-text="Get app ID URI 1":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Get the app ID URI from the Azure portal, part 1":::
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/get-app-id-uri-2.png" alt-text="Get app ID URI 2":::
+   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Get the app ID URI from the Azure portal, part 2":::
 
 1. Use the default security configuration or provide your own configuration.
 
