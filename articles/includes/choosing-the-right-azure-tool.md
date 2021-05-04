@@ -46,9 +46,9 @@ For example, for the line continuation character, Bash uses the backslash `\` wh
 
 Azure CLI has an installer that makes its commands executable in all four shell environments.
 
-Azure PowerShell is set of cmdlets packaged as a PowerShell module named `Az`; not an executable.
+Azure PowerShell is set of cmdlets packaged as a PowerShell module named `Az`; not an executable. Windows PowerShell or PowerShell must be used to install the `Az` module. 
 
-It can only be installed using Windows PowerShell or PowerShell. Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing allowing it to be installed on macOS, Linux, and Windows.
+Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing allowing it to be installed on macOS, Linux, and Windows.
 
 **NOTE**:
 
