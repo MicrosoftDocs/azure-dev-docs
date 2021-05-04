@@ -48,7 +48,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 
 To use the Azure AD starter in this scenario, use the following steps:
 
-1. Set the *redirect URI* to *<application-base-uri>/login/oauth2/code/*. For example: *http://localhost:8080/login/oauth2/code/*. Be sure to include the trailing `/`. For more information about the redirect URI, see the [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) section of [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+1. Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see the [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) section of [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/web-application-set-redirect-uri-1.png" alt-text="Web Application set redirect URI 1":::
 
@@ -184,7 +184,7 @@ To use the Azure AD starter in this scenario, use the following steps:
        app-id-uri: <your-app-ID-URI>
    ```
 
-   You can use both the *<your-client-ID>* and *<your-app-ID-URI>* values to verify the access token. You can get the *<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
+   You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-dev/get-app-id-uri-1.png" alt-text="Get app ID URI 1":::
 
@@ -271,14 +271,14 @@ The Spring Boot Starter for Azure AD provides the following properties:
 
 | Properties                                                              | Description                                                                                    |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| azure.activedirectory.app-id-uri                                    | Used by the resource server to validate the audience in `access_token`. `access_token` is valid only when the audience in access_token equal to the *<your-client-ID>* or *<your-app-ID-URI>* values described previously.    |
+| azure.activedirectory.app-id-uri                                    | Used by the resource server to validate the audience in `access_token`. `access_token` is valid only when the audience in access_token is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
 | azure.activedirectory.authorization-clients                         | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
-| azure.activedirectory.authorization-clients.*<your-client-name>*.scopes    | The API permissions of a resource server that the application is going to acquire.                 |
-| azure.activedirectory.authorization-clients.*<your-client-name>*.on-demand | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
-| azure.activedirectory.base-uri                                      | The base URI for the authorization server. The default value is *https://login.microsoftonline.com/*.  |
+| azure.activedirectory.authorization-clients.*\<your-client-name>*.scopes    | The API permissions of a resource server that the application is going to acquire.                 |
+| azure.activedirectory.authorization-clients.*\<your-client-name>*.on-demand | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
+| azure.activedirectory.base-uri                                      | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
 | azure.activedirectory.client-id                                     | The registered application ID in Azure AD.                                                         |
 | azure.activedirectory.client-secret                                 | The client secret of the registered application.                                                   |
-| azure.activedirectory.graph-membership-uri                          | Used to load the users' groups. The default value is *https://graph.microsoft.com/v1.0/me/memberOf*, which gets direct groups. To get all transitive membership, set it to *https://graph.microsoft.com/v1.0/me/transitiveMemberOf*. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** earlier in this article.|
+| azure.activedirectory.graph-membership-uri                          | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** earlier in this article.|
 | azure.activedirectory.post-logout-redirect-uri                      | The redirect URI for posting the sign-out.                            |
 | azure.activedirectory.tenant-id                                     | The Azure tenant ID.                                             |
 | azure.activedirectory.user-group.allowed-groups                     | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
@@ -394,9 +394,9 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    }
    ```
 
-This example uses incremental consent, so after these steps, the user won't need to consent `arm`'s scopes at sign-in. When the user requests the `/arm` endpoint, the user will need to consent the scope.
+This example uses incremental consent, so after these steps, the user won't need to consent to `arm`'s scopes at sign-in. When the user requests the `/arm` endpoint, the user will need to consent to the scope.
 
-After the user has consented the scopes, the Azure AD server will remember that this user has already granted the permission to the web application, and incremental consent won't happen any more.
+After the user has consented the scopes, the Azure AD server will remember that this user has already granted the permission to the web application, and incremental consent won't happen anymore.
 
 **Property example 4:** Client credential flow in a resource server visiting resource servers.
 
@@ -406,7 +406,7 @@ After the user has consented the scopes, the Azure AD server will remember that 
    azure:
      activedirectory:
        authorization-clients:
-         webapiC:                          # When authorization-grant-type is null, on behalf of flow is used by default
+         webapiC:   # When authorization-grant-type is null, on behalf of flow is used by default
            authorization-grant-type: client_credentials
            scopes:
                - <Web-API-C-app-id-url>/.default
