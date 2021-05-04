@@ -160,15 +160,12 @@ Note:
 * Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 * Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell read the [Using Format Commands to Change Output View](https://docs.microsoft.com/powershell/scripting/samples/using-format-commands-to-change-output-view).
 
-## Next Steps:
+## Next steps
 
 Azure CLI:
 
 * [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [Azure CLI Command Reference](https://docs.microsoft.com/cli/azure/service-page/list%20a%20-%20z?view=azure-cli-latest)
-* [Azure CLI reference types and status](https://docs.microsoft.com/cli/azure/reference-types-and-status)
 
 Azure PowerShell:
 
 * [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-* [Azure PowerShell Command Reference](https://docs.microsoft.com/powershell/module/az.accounts/)
