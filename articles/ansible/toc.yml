@@ -11,6 +11,8 @@
       href: getting-started-cloud-shell.md
     - name: Configure Ansible using Azure CLI
       href: install-on-linux-vm.md
+    - name: Create Ansible Service Principal
+      href: create-ansible-azure-sp.md
     - name: Work with Linux Virtual Machines
       expanded: true
       items:

@@ -15,8 +15,6 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
 
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
-[!INCLUDE [ansible-210-note.md](includes/ansible-210-note.md)]
-
 ## Create an Azure service principal
 
 An Azure service principals gives you a dedicated account to manage Azure resources with Ansible.
