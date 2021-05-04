@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/29/2021
 
 
 ---
@@ -11,9 +11,25 @@ ms.date: 02/17/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 April
+
+### New in April
+
+|Name|
+|---------------------------------------|
+|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you |
+
+### Updated in April
+
+|Name|
+|---------------------------------------|
+|[Set up development environment to use Azure SDK for JavaScript](./how-to/with-sdk/set-up-development-environment.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+|[Recommended actions for Monitor Azure resources](./how-to/node-sdk-logging.md)<br><br>When you create an Azure resource, configure proper monitoring, alerting, and logging. |
+|[View deployed files in App or Functions services](./how-to/deploy-web-app.md#view-files-in-azure-hosted-environment)<br><br>Quick and simple methods to view your deployed files in the Azure portal or VSCode.|
+
 ## 2021 March
 
-### What's new
+### New in March
 
 |Name|
 |---------------------------------------|
@@ -21,7 +37,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Store and use **Azure Key Vault** secrets in Express.js app](./how-to/add-custom-domain-to-web-app.md)<br><br>Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. Includes [full source code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault).|
 |[Add **search functionality** to a Static Web app](/azure/search/tutorial-javascript-overview)<br><br>This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. Includes [full source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website).|
 
-### What's updated
+### Updates in March
 
 |Name|
 |---------------------------------------|
@@ -31,7 +47,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 February
 
-### What's new
+### New in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -43,7 +59,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
 
-### What's updated
+### Updated in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -60,15 +76,15 @@ Find new and updated content for JavaScript and TypeScript developers.
 |3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?tabs=code)|
 |4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
 |5|[Get started with speech-to-text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=script%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript)|
-|6|[Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0&preserve-view=true)|
-|7|[ASP.NET Core SignalR JavaScript client](https://docs.microsoft.com/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&preserve-view=true)|
+|6|[Call an ASP.NET Core web API with JavaScript](/aspnet/core/tutorials/web-api-javascript?preserve-view=true&view=aspnetcore-5.0)|
+|7|[ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client?preserve-view=true&view=aspnetcore-5.0)|
 |8|[Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node?tabs=v2)|
 |9|[Sign in users and call the Microsoft Graph API from an Angular single-page application](/azure/active-directory/develop/tutorial-v2-angular)|
 |10|[Application Insights for web pages](/azure/azure-monitor/app/javascript)|
 
 ## 2021 January
 
-### What's new
+### New in January
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -77,7 +93,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |
 |How-to guide with Visual Studio Code|* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|
 
-### What's updated
+### Updated in January
 
 |Name|Notes|
 |---------------------------------------|--|

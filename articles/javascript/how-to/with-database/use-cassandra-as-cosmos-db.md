@@ -3,7 +3,7 @@ title: Use JavaScript with Cassandra on Azure Cosmos DB
 description: To create or move your Cassandra database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Develop a JavaScript application with Cassandra on Azure
