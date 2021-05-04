@@ -52,7 +52,7 @@ Windows PowerShell is the standard scripting shell that comes preinstalled with 
 
 **NOTE**:
 
-* AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retire date of February 29 2024.
+* AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retirement date of February 29 2024.
 
 Using AzureRM? You can [migrate Azure PowerShell from AzureRM to Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az).
 
