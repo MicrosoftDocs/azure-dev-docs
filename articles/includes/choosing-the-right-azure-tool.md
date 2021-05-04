@@ -42,7 +42,7 @@ on Windows, macOS, and Linux.
 
 Windows PowerShell, PowerShell, Cmd, and Bash are shell environments. Your shell environment not only determines which tools you can use but also changes your command-line experience.
 
-For example, Bash uses backslashes `\` and Windows PowerShell uses backticks `` ` `` as a line continuation character. The differences in the shell environment doesn't change how Azure CLI and Azure PowerShell operate. However, they do change your command-line experience.
+For example, for the line continuation character, Bash uses the backslash `\` while Windows PowerShell uses the backtick  `` ` ``. The differences in the shell environment doesn't change how Azure CLI and Azure PowerShell operate. However, they do change your command-line experience.
 
 Azure CLI has an installer that makes its commands executable in all four shell environments.
 
