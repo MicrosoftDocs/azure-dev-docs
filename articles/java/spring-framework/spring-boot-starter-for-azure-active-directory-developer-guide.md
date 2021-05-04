@@ -26,21 +26,23 @@ The following links provide access to the starter package, documentation, and sa
 
 ## Prerequisites
 
+To follow the instructions in this guide, you must have the following prerequisites:
+
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 - A supported Java Development Kit (JDK), version 8 or later. For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
 - [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 - An application registered with Azure AD. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-## Key concepts
+## Core scenarios
 
-A *web application* is any web-based application that enables a user to sign in. A *resource server* will either accept or deny access after validating an access token.
-
-This guide covers the following scenarios:
+This guide describes how to use the Azure AD starter in the following scenarios:
 
 - [Access a web application](#access-a-web-application)
 - [Access resource servers from a web application](#access-resource-servers-from-a-web-application)
 - [Protect a resource server/API](#protect-a-resource-serverapi)
 - [Access other resource servers from a resource server](#access-other-resource-servers-from-a-resource-server)
+
+A *web application* is any web-based application that enables a user to sign in. A *resource server* will either accept or deny access after validating an access token.
 
 ### Access a web application
 
@@ -48,7 +50,7 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 
 To use the Azure AD starter in this scenario, use the following steps:
 
-1. Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see the [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) section of [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+1. Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
    :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Set the redirect URI for a web application using the Azure portal, part 1":::
 
@@ -68,7 +70,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    </dependency>
    ```
 
-1. Add the following properties to your *application.yml* file. You can get the values for these properties from the app registration you created in the Azure portal.
+1. Add the following properties to your *application.yml* file. You can get the values for these properties from the app registration you created in the Azure portal, as described in the prerequisites.
 
    ```yaml
    azure:
@@ -122,7 +124,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    </dependency>
    ```
 
-1. Add the following properties to your *application.yml* file:
+1. Add the following properties to your *application.yml* file, as described previously:
 
    ```yaml
    azure:
@@ -175,7 +177,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    </dependency>
    ```
 
-1. Add the following properties to your *application.yml* file:
+1. Add the following properties to your *application.yml* file, as described previously:
 
    ```yaml
    azure:
@@ -265,20 +267,20 @@ To use the Azure AD starter in this scenario, use the following steps:
 
 For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for azure-spring-boot-sample-active-directory-resource-server-obo library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server-obo).
 
-### Configurable properties
+## Configurable properties
 
 The Spring Boot Starter for Azure AD provides the following properties:
 
 | Properties                                                              | Description                                                                                    |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| azure.activedirectory.app-id-uri                                    | Used by the resource server to validate the audience in `access_token`. `access_token` is valid only when the audience in access_token is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
+| azure.activedirectory.app-id-uri                                    | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
 | azure.activedirectory.authorization-clients                         | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
 | azure.activedirectory.authorization-clients.*\<your-client-name>*.scopes    | The API permissions of a resource server that the application is going to acquire.                 |
 | azure.activedirectory.authorization-clients.*\<your-client-name>*.on-demand | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
 | azure.activedirectory.base-uri                                      | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
 | azure.activedirectory.client-id                                     | The registered application ID in Azure AD.                                                         |
 | azure.activedirectory.client-secret                                 | The client secret of the registered application.                                                   |
-| azure.activedirectory.graph-membership-uri                          | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** earlier in this article.|
+| azure.activedirectory.graph-membership-uri                          | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** below.|
 | azure.activedirectory.post-logout-redirect-uri                      | The redirect URI for posting the sign-out.                            |
 | azure.activedirectory.tenant-id                                     | The Azure tenant ID.                                             |
 | azure.activedirectory.user-group.allowed-groups                     | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
@@ -286,9 +288,7 @@ The Spring Boot Starter for Azure AD provides the following properties:
 
 The following examples show you how to use these properties:
 
-**Property example 1:** Use [Azure China 21Vianet](/azure/china/resources-developer-guide#check-endpoints-in-azure) instead of Azure Global.
-
-With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) instead of the Azure public cloud.
+**Property example 1:** To use [Azure China 21Vianet](/azure/china/resources-developer-guide#check-endpoints-in-azure) instead of Azure Global, use the following step.
 
 - Add the following properties to your *application.yml* file:
 
@@ -299,7 +299,9 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
        graph-base-uri: https://microsoftgraph.chinacloudapi.cn
    ```
 
-**Property example 2:** Use `group name` to protect some method in web application.
+With this method, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) instead of the Azure public cloud.
+
+**Property example 2:** To use a group name to protect some method in a web application, use the following steps:
 
 1. Add the following property to your *application.yml* file:
 
@@ -365,7 +367,7 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    }
    ```
 
-**Property example 3:** [Incremental consent](/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) in a web application visiting resource servers.
+**Property example 3:** To enable [incremental consent](/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) in a web application visiting resource servers, use the following steps:
 
 1. Add the following properties to your *application.yml* file:
 
@@ -394,11 +396,9 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    }
    ```
 
-This example uses incremental consent, so after these steps, the user won't need to consent to `arm`'s scopes at sign-in. When the user requests the `/arm` endpoint, the user will need to consent to the scope.
+This example uses incremental consent. Therefore, the user won't need to consent to the `arm` scopes at sign-in, but only upon request of the `/arm` endpoint. The Azure AD server will remember that the user has already granted the permission. Therefore, after the user consents to the scopes, incremental consent won't happen anymore.
 
-After the user has consented the scopes, the Azure AD server will remember that this user has already granted the permission to the web application, and incremental consent won't happen anymore.
-
-**Property example 4:** Client credential flow in a resource server visiting resource servers.
+**Property example 4:** To enable client credential flow in a resource server visiting resource servers, use the following steps:
 
 1. Add the following property to your *application.yml* file:
 
@@ -430,11 +430,11 @@ After the user has consented the scopes, the Azure AD server will remember that 
    }
    ```
 
-### Advanced features
+## Advanced features
 
-#### Support access control by ID token in a web application
+### Support access control by ID token in a web application
 
-The starter supports creating `GrantedAuthority` from id_token's `roles` claim to allow using `id_token` for authorization in a web application. You can use the `appRoles` feature of Azure AD to create a `roles` claim and implement access control.
+The starter supports creating `GrantedAuthority` from an ID token's `roles` claim to allow using the ID token for authorization in a web application. You can use the `appRoles` feature of Azure AD to create a `roles` claim and implement access control.
 
 > [!NOTE]
 > - The `roles` claim generated from `appRoles` is decorated with prefix `APPROLE_`.
@@ -448,6 +448,8 @@ The starter supports creating `GrantedAuthority` from id_token's `roles` claim t
 >        }]
 >    }
 >    ```
+
+To support access control by ID token in a web application, use the following steps:
 
 1. Add app roles in your application and assign them to users or groups. For more information, see [How to: Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
 
