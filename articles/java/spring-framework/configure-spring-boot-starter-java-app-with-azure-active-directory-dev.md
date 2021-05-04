@@ -32,12 +32,12 @@ A *web application* is any web-based application that enables a user to sign in.
 
 This guide covers the following scenarios:
 
-- [Accessing a web application](#accessing-a-web-application)
-- [Accessing resource servers from a web application](#accessing-resource-servers-from-a-web-application)
-- [Protecting a resource server/API](#protecting-a-resource-serverapi)
-- [Accessing other resource servers from a resource server](#accessing-other-resource-servers-from-a-resource-server)
+- [Access a web application](#access-a-web-application)
+- [Access resource servers from a web application](#access-resource-servers-from-a-web-application)
+- [Protect a resource server/API](#protect-a-resource-serverapi)
+- [Access other resource servers from a resource server](#access-other-resource-servers-from-a-resource-server)
 
-### Accessing a web application
+### Access a web application
 
 This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-directory/develop/v2-oauth2-auth-code-flow) flow to enable a user to sign in with a Microsoft account.
 
@@ -99,7 +99,7 @@ To use the Azure AD starter in this scenario, use the following steps:
       }
       ```
 
-### Accessing resource servers from a web application
+### Access resource servers from a web application
 
 To use the Azure AD starter in this scenario, use the following steps:
 
@@ -150,7 +150,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client name configured in step 2. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-### Protecting a resource server/API
+### Protect a resource server/API
 
 This scenario doesn't support sign in, but protects the server by validating the access token. If the access token is valid, the server serves the request.
 
@@ -209,7 +209,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-### Resource server visiting other resource servers
+### Access other resource servers from a resource server
 
 This scenario supports a resource server visiting other resource servers.
 
