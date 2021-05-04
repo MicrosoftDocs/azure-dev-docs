@@ -12,13 +12,13 @@ Moving your workload to Azure lifts some of the administrative burden but not al
 
 By using the existing automation that runs Azure, command-line tools reduce that overhead.
 
-Command-line tools automate routine operations, standardize database fail overs, and pull data that provide powerful insight. Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share. Sharing a script is much easier than a lengthy wiki page with time consuming screenshots.
+Command-line tools automate routine operations, standardize database failovers, and pull data that provide powerful insight. Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share. Sharing a script is much easier than a lengthy wiki page with time consuming screenshots.
 
 Using a command-line tool isn't always necessary, but it's a useful skill to have.
 
 ## Azure CLI vs Azure PowerShell
 
-Azure CLI and Azure PowerShell are command-line tools that create and manage Azure resources. Both are cross-platform, installable
+Azure CLI and Azure PowerShell are command-line tools that enable you to create and manage Azure resources. Both are cross-platform, installable
 on Windows, macOS, and Linux.
 
 **Azure CLI**
