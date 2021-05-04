@@ -2,7 +2,7 @@
 title: Logging, metrics, telemetry in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 04/30/2021
 ms.custom: devx-track-js
 ---
 
@@ -11,8 +11,38 @@ ms.custom: devx-track-js
 There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
 
 * [Resource metrics](#resource-metrics-provided-by-azure-services) - when you use Azure services, Azure monitors your individual resources and collects metrics.  
-* [Custom metrics](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
+* [Logging](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
 * [Azure SDK client libraries](#azure-sdk-client-library-logging) - when you need to view logging already built into Azure client libraries
+
+## Azure resource monitoring in the Azure portal
+
+* Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and after the resource is created.
+
+    The process creates a separate Azure resource for logging, which you can use for more than just the resource logging.
+
+    :::image type="content" source="../media/logging-metrics/create-azure-app-service-with-logging.png" alt-text="View your HTTP endpoint from the service's Overview page on the Azure portal.":::
+
+* View metrics for your resource on a scheduled basis in the [Azure portal](https://portal.azure.com) for each resource. 
+
+    :::image type="content" source="../media/logging-metrics/view-resource-metrics-in-azure-portal.png" alt-text="Configure alerts for your resource in the Azure portal, with URL of `https://portal.azure.com`, for each resource. ":::
+
+* Set alerts for your resource in the [Azure portal](https://portal.azure.com) for each resource. Alerts can include specific metrics, communication streams (such as email), and frequency. Common alerts to set are total:
+    * Requests 
+    * Response time
+    * Http server errors (in Hosting environments)
+
+    :::image type="content" source="../media/logging-metrics/create-alert-for-http-server-errors-in-app-service.png" alt-text="Set common alerts for your resource such as requests, response time and http server errors (for your hosting environment resources).":::
+
+* View failures for Application Insights monitored resources.     
+
+    :::image type="content" source="../media/logging-metrics/view-resource-failure-in-application-insights.png" alt-text="View failures for Application Insights monitored resources.":::
+
+* View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service log configuration. 
+
+    :::image type="content" source="../media/logging-metrics/configue-azure-app-service-logs-in-azure-portal.png" alt-text="View log stream of hosted resources available in the resource's Monitoring section of the Azure portal.":::
+
+* [Add Application Insights SDK](/azure/azure-monitor/app/nodejs) to your source code. 
+
 
 ## Resource metrics provided by Azure services
 

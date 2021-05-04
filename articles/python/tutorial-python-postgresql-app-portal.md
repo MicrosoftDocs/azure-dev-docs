@@ -198,7 +198,7 @@ With the code deployed and the database in place, the app is almost ready to use
 1. Activate the virtual environment
 
     ```bash
-    source /antenv/bin/activate
+    source antenv/bin/activate
     ```
 
 1. Install dependencies:
