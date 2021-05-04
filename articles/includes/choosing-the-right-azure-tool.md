@@ -68,15 +68,14 @@ Cloud Shell is accessible in a web browser and has integrations for [Windows Ter
 
 ## Which Command-line tool is right for you?
 
-When picking the right tool, it's useful to consider your past experience and current work environment.
+When picking the right tool, consider your past experience and current work environment.
 
-Azure CLI is similar to Bash scripting. If you work primarily with Linux systems, Azure CLI is going to feel more natural. Its commands are shorter and the syntax is
-similar to that of Bash scripting.
+Azure CLI syntax is similar to that of Bash scripting. If you work primarily with Linux systems, Azure CLI feels more natural. 
 
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
 
-Choose the tool that uses your experience, and shorten your learning curve. Take advantage of [Microsoft learning](https://docs.microsoft.com/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
+Choose the tool that uses your experience, and shortens your learning curve. Take advantage of [Microsoft learning](https://docs.microsoft.com/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
 
 With that said, exercising a growth mindset will only improve your abilities. Use a different tool when it makes sense.
 
