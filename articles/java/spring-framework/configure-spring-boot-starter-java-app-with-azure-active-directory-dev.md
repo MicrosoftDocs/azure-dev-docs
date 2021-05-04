@@ -9,7 +9,7 @@ ms.author: shaozliu
 ms.custom: devx-track-java
 ---
 
-# Azure AD Spring Boot Starter client library for Java
+# Spring Boot Starter for Azure Active Directory developer's guide
 
 This article describes the features and core scenarios of the Spring Boot Starter for Azure Active Directory (Azure AD). The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
