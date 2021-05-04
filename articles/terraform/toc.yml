@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Configure in Cloud Shell and Bash
+    - name: Configure Cloud Shell in Bash
       href: get-started-cloud-shell-bash.md
-    - name: Configure in Cloud Shell and PowerShell
+    - name: Configure Cloud Shell in PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Configure in Windows and Bash
+    - name: Configure Windows in Bash
       href: get-started-windows-bash.md
-    - name: Configure in Windows and PowerShell
+    - name: Configure Windows in PowerShell
       href: get-started-windows-powershell.md
 - name: How-to guides
   items:

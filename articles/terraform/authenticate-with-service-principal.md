@@ -3,7 +3,7 @@ title: Authenticate to Azure with a Service Principal
 description: In this article, you learn how to authenticate to Azure with a Service Principal
 keywords: terraform azure cli authenticate
 ms.topic: how-to
-ms.date: 05/02/2021
+ms.date: 05/04/2021
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want authenticate to Azure using a Service Principal.
 ---
