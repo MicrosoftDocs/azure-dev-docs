@@ -21,7 +21,7 @@ A Static web app resource is a hosted app with both the generated static client 
 
 :::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the resource, you include information necessary for a GitHub action to build the static files and deploy to Azure.":::
 
-Create the Static web app with one of the following:
+Create the static web app with one of the following:
 
 * [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 * [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
