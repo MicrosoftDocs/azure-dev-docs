@@ -29,6 +29,15 @@ Create the Static Web App with one of the following:
 
     :::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the Static Web App, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
 
+## Use Static Web Apps CLI
+
+The [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) (in preview), also known as SWA CLI, serves as a local development tool for Azure Static Web Apps. It can:
+
+- Serve static static app assets, or proxy to your app dev server
+- Serve API requests, or proxy to APIs running in Azure Functions Core Tools
+- Emulate authentication and authorization
+- Emulate Static Web Apps configuration, including routing
+
 ## Include APIs for a full-stack app
 
 [Azure Function](/azure/azure-functions/) APIs are provided in Static Web Apps optionally and typically live in a folder named `/api`. These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
@@ -119,9 +128,15 @@ jobs:
 
 The API environment variables are runtime variables configured in the Azure portal or Azure CLI.
 
-* Azure portal: 
-* VSCode extension:
-* Azure CLI 
+* Azure portal: Under **Settings** then **Configuration**
+
+    :::image type="content" source="../media/static-web-app/azure-portal-settings-configuration.png" alt-text="Azure portal: Under **Settings** then **Configuration**":::
+
+* VSCode extension: Under **Production** then **Application Settings**
+
+    :::image type="content" source="../media/static-web-app/vscode-settings-configuration.png" alt-text="VSCode extension: Under **Production** then **Application Settings**":::
+ 
+* Azure CLI: Using [az staticwebapp appsettings set](/cli/azure/staticwebapp/appsettings#az_staticwebapp_appsettings_set) 
 
 ## Deploy to Azure
 
@@ -146,6 +161,7 @@ const appInsights = new ApplicationInsights({ config: {
 } });
 appInsights.trackTrace({message: 'some trace'});
 ```
+
 
 ## Next step
 
