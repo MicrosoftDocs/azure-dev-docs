@@ -2,7 +2,7 @@
 
 When it comes to managing Azure, you have many options. This article compares the Azure CLI and Azure PowerShell language and gives a comparison of the shell environments on which they run.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), and [Azure Cloud Shell](http://shell.azure.com/) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), and [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
 
 ## What's the advantage of using a command-line tool?
 
@@ -151,7 +151,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
-|Show all subscription information|az account list --all|Get-AzSubscription | Select-Object -Property *|
+|Show all subscription information|az account list --all|Get-AzSubscription \| Select-Object -Property *|
 |Output as a Table|az account list -o table| Get-AzSubscription \| Format-Table|
 |Output as JSON|az account show|Get-AzSubscription \| ConvertTo-Json|
 
