@@ -10,17 +10,10 @@ ms.custom: devx-track-js
 
 There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
 
-* [Resource metrics](#resource-metrics-provided-by-azure-services) - when you use Azure services, Azure monitors your individual resources and collects metrics.  
-* [Logging](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
-* [Azure SDK client libraries](#azure-sdk-client-library-logging) - when you need to view logging already built into Azure client libraries
+* Azure Resource metrics - when you use Azure services, Azure monitors your individual resources and collects metrics.  
+* [Custom logging](#custom-logging-to-azure) - when your application (on-prem, cloud, or hybrid), needs to log information.
 
 [Azure Monitor](/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-
-The metrics are available inside your resource in the Azure portal. 
-
-:::image type="content" source="../media/logging-metrics/azure-resource-metrics-portal.png" alt-text="Simple Node.js app connected to MongoDB database.":::
-
-Once data is monitored, use either the Azure portal to query the data with common queries, or build your [Kusto queries](/azure/data-explorer/kusto/query/). 
 
 ## Turn on Azure resource monitoring in the Azure portal
 
@@ -54,12 +47,21 @@ Set alerts for your resource in the [Azure portal](https://portal.azure.com) for
 
 ## Custom logging to Azure
 
-Use Azure Monitor's [Application Insights](/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
+Custom logging is automatically provided by Azure web apps and Azure functions, if you use the correct logging functions:
+
+* Web apps use `console.log('your message here')`
+* Function apps use `context.log('your message here')`
+
+You can add richer custom logging with Azure Monitor's [Application Insights](/azure/azure-monitor/app/app-insights-overview), which offers [Server](/azure/azure-monitor/app/nodejs) (Node.js) and [Client](/azure/azure-monitor/app/javascript) (browser) scenarios:
 
 * [Add Application Insights SDK](/azure/azure-monitor/app/nodejs) to your source code.
 * Server - log from Node.js with [Application Insights](/azure/azure-monitor/app/app-insights-overview) - [npm package](https://www.npmjs.com/package/applicationinsights)
 * Client - log from your client code - [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web)
 * Containers and VMs - log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure Virtual machines](/azure/azure-monitor/insights/vminsights-overview)
+
+## Local development with Application Insights
+
+If you are trying out Application Insights by running code locally, which uses one of the Application Insights npm packages, make sure to call the `flush()` method so the logging is sent to Application Insights immediately. When you view the logs, remember that it can still take a couple of minutes before your custom logs are available in Application Insights.  
 
 ## Query your custom logs with Kusto query language
 
@@ -80,17 +82,21 @@ View log stream of hosted resources available in the resource's Monitoring secti
 
 ## View web app and function log streaming
 
-You can see the live log of your web app using the following methods:
+For Azure Web apps, use the following table to learn more about how to stream logs:
 
-* **For Azure Web apps**
-    |Method|Description|
-    |--|--|
-    |Azure CLI|[az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail)|
-    |[VSCode App service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)|Right-click on resource and select **Start streaming logs**| 
-* **For Azure Function apps**
-    |Method|Description|
-    |--|--|
-    |[VSCode Functions service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)|Right-click on resource and select **Start streaming logs**| 
+|Method|Description|
+|--|--|
+|Azure CLI|[az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail)|
+|[VSCode App service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)|Right-click on resource and select **Start streaming logs**| 
+
+
+## View Function log streaming
+
+For Azure Function apps, use the following table to learn more about how to stream logs:
+
+|Method|Description|
+|--|--|
+|[VSCode Functions service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)|Right-click on resource and select **Start streaming logs**| 
  
 
 ## Next steps
