@@ -31,7 +31,7 @@ Create the static web app with one of the following:
 
 The GitHub action is created during resource creation and includes instructions to _build_ and _deploy_ the site. The action is created on the source code repo selected during resource creation. 
 
-The following GitHub action YAML file is based on the Azure [search tutorial](/azure/search/tutorial-javascript-overview) and its [sample code](https://github.com/azure-samples/azure-search-javascript-samples) to add search to a website. 
+The following GitHub Actions YAML file is based on the Azure [search tutorial](/azure/search/tutorial-javascript-overview) and its [sample code](https://github.com/azure-samples/azure-search-javascript-samples) to add search to a website. 
 
 ```yml
 name: Azure Static Web Apps CI/CD
