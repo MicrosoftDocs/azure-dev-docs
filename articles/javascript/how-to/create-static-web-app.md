@@ -6,7 +6,7 @@ ms.date: 05/03/2021
 ms.custom: devx-track-js
 ---
 
-# Build a new Static web app on Azure with Node.js
+# Build a new static web app on Azure with Node.js
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. 
 
