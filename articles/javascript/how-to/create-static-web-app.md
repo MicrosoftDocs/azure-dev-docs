@@ -95,7 +95,7 @@ Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/fu
 
 Use one of the following methods to create  to quickly develop and deploy your apps. 
 
-Tutorials, which use the [Static web app extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
+Tutorials, which use the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
 
 * [Add search to a website with Azure Search and Static web apps](/azure/search/tutorial-javascript-overview)
 * [Analyze an image with Azure Computer Vision and Static web apps](/azure/developer/javascript/tutorial/static-web-app/introduction)
