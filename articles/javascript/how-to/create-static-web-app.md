@@ -163,7 +163,7 @@ appInsights.trackTrace({message: 'some trace'});
 ```
 
 
-## Next step
+## Next steps
 
 * Learn more about [Static Web Apps](/azure/static-web-apps/)
 * [Add an API](/azure/static-web-apps/add-api) in Static Web Apps
