@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/05/2021
 
 
 ---
@@ -10,6 +10,15 @@ ms.date: 04/29/2021
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 May 
+
+### Updated in April
+
+|Name|
+|---------------------------------------|
+|[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)<br><br>Web app and Function app logging information.|
+
 
 ## 2021 April
 
