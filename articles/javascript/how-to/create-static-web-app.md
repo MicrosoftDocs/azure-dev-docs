@@ -81,7 +81,7 @@ jobs:
           action: "close"
 ```
 
-## Static web apps include apis
+## Static web apps include APIs
 
 [Azure Function](/azure/azure-functions/) apis are provided in static web apps optionally and typically live in a folder named `/api`. 
 
