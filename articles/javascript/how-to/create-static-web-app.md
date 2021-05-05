@@ -27,7 +27,7 @@ Create the static web app with one of the following:
 * [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Azure CLI](/azure/static-web-apps/get-started-cli?tabs=vanilla-javascript)
 
-## The GitHub action builds and deploys your app
+## GitHub Actions build and deploy your app
 
 The GitHub action is created during resource creation and includes instructions to _build_ and _deploy_ the site. The action is created on the source code repo selected during resource creation. 
 
