@@ -17,9 +17,7 @@ There are several options for logging, metrics, and telemetry when using Azure. 
 
 ## Turn on Azure resource monitoring in the Azure portal
 
-Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and after the resource is created.
-
-The process creates a separate Azure resource for logging, which you can use for more than just the resource logging.
+Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for your resource. This integration is usually available at resource creation time and after the resource is created. The process creates a separate Application Insights resource for logging.
 
 :::image type="content" source="../media/logging-metrics/create-azure-app-service-with-logging.png" alt-text="View your HTTP endpoint from the service's Overview page on the Azure portal.":::
 
@@ -80,7 +78,7 @@ View log stream of hosted resources available in the resource's Monitoring secti
 
 :::image type="content" source="../media/logging-metrics/configue-azure-app-service-logs-in-azure-portal.png" alt-text="View log stream of hosted resources available in the resource's Monitoring section of the Azure portal.":::
 
-## View web app and function log streaming
+## View web app log streaming
 
 For Azure Web apps, use the following table to learn more about how to stream logs:
 
