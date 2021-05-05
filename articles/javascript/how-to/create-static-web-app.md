@@ -13,11 +13,13 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 * **Client apps**: Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required. 
 * **APIs**: API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
 
-* [Static Web Apps community samples](https://github.com/microsoft/static-web-apps-gallery-code-samples)
+**Samples**:
+* [Static Web Apps community samples](https://github.com/microsoft/static-web-apps-gallery-code-samples) are a great way to find a code to use a starter for your project. 
+* [Static Web App starter projects](https://github.com/staticwebdev/) are another great way to start your project.
 
 ## What is a Static Web App? 
 
-An Azure Static Web Apps is a hosted app with both the generated static client files and the optional API endpoints. When you create the Static Web App, you include information necessary for a GitHub Action to build the static files from your GitHub repository and branch then deploy to Azure. 
+An Azure Static Web Apps is a hosted app with both the generated static client files and the optional API endpoints. When you create the Static Web App, you include information necessary for a GitHub Action to build the static files from your GitHub repository then deploy to Azure. 
 
 Create the Static Web App with one of the following:
 
@@ -27,13 +29,14 @@ Create the Static Web App with one of the following:
 
     :::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the Static Web App, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
 
-## Static Web Apps include APIs
+## Include APIs for a full-stack app
 
 [Azure Function](/azure/azure-functions/) APIs are provided in Static Web Apps optionally and typically live in a folder named `/api`. These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
 
+**Samples**:
 * [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
-## Develop with Visual Studio Code extension
+## Develop with Visual Studio Code
 
 Use the Visual Studio code [extension for Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to create your local folder structure and initial dependencies. 
 
@@ -55,7 +58,7 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 * [Add search to a website with Azure Search](/azure/search/tutorial-javascript-overview)
 * [Analyze an image with Azure Computer Vision](/azure/developer/javascript/tutorial/static-web-app/introduction)
 
-## Configure client environment variables in GitHub Actions
+## Configure client environment variables 
 
 The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](/azure/developer/github/github-variable-substitution).
 
@@ -112,7 +115,7 @@ jobs:
           action: "close"
 ```  
 
-## Configure API environment variables in Azure portal
+## Configure API environment variables 
 
 The API environment variables are runtime variables configured in the Azure portal or Azure CLI.
 
@@ -128,7 +131,7 @@ View deployment success from the GitHub Action.
 
 :::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub Action.":::
 
-## View logs of Static Web Apps on Azure
+## View logs
 
 Turn on **Application Insights** in the Azure portal for your Static Web App to collect logging. The integrated [Application Insights](/azure/azure-monitor/app/javascript) logging collects a huge amount of information for you, without any changes to your code. 
 
