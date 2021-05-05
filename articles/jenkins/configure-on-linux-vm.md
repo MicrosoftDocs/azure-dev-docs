@@ -166,7 +166,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
     ![New job creation](./media/configure-on-linux-vm/new-job.png)
 
-1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`
+1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`. Then change the **Branch Specifier** to `*/main`.
 
     ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
 
