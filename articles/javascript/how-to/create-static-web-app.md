@@ -19,7 +19,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 A Static web app resource is a hosted app with both the generated static client files and the optional api endpoints. When you create the resource, you include information necessary for a GitHub action to build the static files and deploy to Azure. 
 
-:::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the resource, you include information necessary for a GitHub action to build the static files and deploy to Azure.":::
+:::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the resource, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
 
 Create the static web app with one of the following:
 
