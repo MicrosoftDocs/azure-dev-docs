@@ -109,7 +109,7 @@ Because the GitHub action controls building and deploying, Static web app [envir
 
 Deploying a static web app to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub action under `pull_requests:branches`. 
 
-The push from your local computer needs to use the Static web app's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub action to use your fork. 
+The push from your local computer needs to use the static web app's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub action to use your fork. 
 
 View deployment success from the GitHub action. 
 
