@@ -1,12 +1,12 @@
 ---
-title: Build static web app on Azure with JavaScript
+title: Build Static Web App on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.custom: devx-track-js
 ---
 
-# Build a new static web app on Azure with Node.js
+# Build a new Static Web App on Azure with Node.js
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository. 
 
@@ -15,13 +15,13 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 * [Static Web Apps community samples](https://github.com/microsoft/static-web-apps-gallery-code-samples)
 
-## What is a static web app? 
+## What is a Static Web App? 
 
 An Azure Static Web Apps resource is a hosted app with both the generated static client files and the optional API endpoints. When you create the resource, you include information necessary for a GitHub Action to build the static files and deploy to Azure. 
 
 :::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the resource, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
 
-Create the static web app with one of the following:
+Create the Static Web App with one of the following:
 
 * [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 * [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
@@ -29,7 +29,7 @@ Create the static web app with one of the following:
 
 ## Static web apps include APIs
 
-[Azure Function](/azure/azure-functions/) apis are provided in static web apps optionally and typically live in a folder named `/api`. 
+[Azure Function](/azure/azure-functions/) APIs are provided in static web apps optionally and typically live in a folder named `/api`. 
 
 These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. 
 
@@ -51,7 +51,7 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 
     You can usually take the default values if your folder structure follows the typical folder structure for the project type. 
 
-1. When you finish the creation steps, your repository fork has a GitHub Actions to build and deploy to your Static Web App. 
+1. When you finish the creation steps, your repository fork has a GitHub Action to build and deploy to your Static Web App, located in the `/.github/workflows` directory. 
 
 **Tutorials**, which use the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
 
@@ -126,18 +126,18 @@ The API environment variables are runtime variables configured in the Azure port
 
 ## Deploy to Azure
 
-Deploying a static web app to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub action under `pull_requests:branches`. 
+Deploying a Static Web App to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub Action under `pull_requests:branches`. 
 
-The push from your local computer needs to use the static web app's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub action to use your fork. 
+The push from your local computer needs to use the Static Web App's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub Action to use your fork. 
 
-View deployment success from the GitHub action. 
+View deployment success from the GitHub Action. 
 
-:::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub action.":::
+:::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub Action.":::
 
 
 ## View logs of static web apps on Azure
 
-Turn on **Application Insights** in the Azure portal for your Static web app to collect logging. The integrated [Application Insights](/azure/azure-monitor/app/javascript) logging collects a huge amount of information for you, without any changes to your code. 
+Turn on **Application Insights** in the Azure portal for your Static Web App to collect logging. The integrated [Application Insights](/azure/azure-monitor/app/javascript) logging collects a huge amount of information for you, without any changes to your code. 
 
 To add custom logging from your app to Application Insights, add the [@microsoft/applicationinsights-web](https://www.npmjs.com/package/@microsoft/applicationinsights-web) npm package then add the JavaScript code to capture custom information.
 
