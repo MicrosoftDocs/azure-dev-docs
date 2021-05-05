@@ -17,23 +17,19 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 ## What is a Static Web App? 
 
-An Azure Static Web Apps is a hosted app with both the generated static client files and the optional API endpoints. When you create the Static Web App, you include information necessary for a GitHub Action to build the static files and deploy to Azure. 
-
-:::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the Static Web App, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
+An Azure Static Web Apps is a hosted app with both the generated static client files and the optional API endpoints. When you create the Static Web App, you include information necessary for a GitHub Action to build the static files from your GitHub repository and branch then deploy to Azure. 
 
 Create the Static Web App with one of the following:
 
-* [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 * [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Azure CLI](/azure/static-web-apps/get-started-cli?tabs=vanilla-javascript)
+* [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 
-## Static web apps include APIs
+    :::image type="content" source="../media/howto-static-web-app/azure-portal-create-static-web-app.png" alt-text="When you create the Static Web App, you include information necessary for a GitHub Action to build the static files and deploy to Azure.":::
 
-[Azure Function](/azure/azure-functions/) APIs are provided in static web apps optionally and typically live in a folder named `/api`. 
+## Static Web Apps include APIs
 
-These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. 
-
-Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
+[Azure Function](/azure/azure-functions/) APIs are provided in Static Web Apps optionally and typically live in a folder named `/api`. These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
 
 * [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
@@ -55,11 +51,11 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 
 **Tutorials**, which use the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
 
-* [Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
-* [Add search to a website with Azure Search and Static web apps](/azure/search/tutorial-javascript-overview)
-* [Analyze an image with Azure Computer Vision and Static web apps](/azure/developer/javascript/tutorial/static-web-app/introduction)
+* [Building your first static site](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+* [Add search to a website with Azure Search](/azure/search/tutorial-javascript-overview)
+* [Analyze an image with Azure Computer Vision](/azure/developer/javascript/tutorial/static-web-app/introduction)
 
-### Configure client environment variables in GitHub Actions
+## Configure client environment variables in GitHub Actions
 
 The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](/azure/developer/github/github-variable-substitution).
 
@@ -116,7 +112,7 @@ jobs:
           action: "close"
 ```  
 
-### Configure API environment variables in Azure portal
+## Configure API environment variables in Azure portal
 
 The API environment variables are runtime variables configured in the Azure portal or Azure CLI.
 
@@ -126,16 +122,13 @@ The API environment variables are runtime variables configured in the Azure port
 
 ## Deploy to Azure
 
-Deploying a Static Web App to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub Action under `pull_requests:branches`. 
-
-The push from your local computer needs to use the Static Web App's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub Action to use your fork. 
+Deploying a Static Web App to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub Action under `pull_requests:branches`. The push from your local computer needs to use the Static Web App's repository or fork of a repository. If your GitHub user account doesn't have permission to push to the specified branch on the specified organization repo, such as your company's GitHub organization, you should fork the repository, then configure your GitHub Action to use your fork. 
 
 View deployment success from the GitHub Action. 
 
 :::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub Action.":::
 
-
-## View logs of static web apps on Azure
+## View logs of Static Web Apps on Azure
 
 Turn on **Application Insights** in the Azure portal for your Static Web App to collect logging. The integrated [Application Insights](/azure/azure-monitor/app/javascript) logging collects a huge amount of information for you, without any changes to your code. 
 
@@ -153,5 +146,5 @@ appInsights.trackTrace({message: 'some trace'});
 
 ## Next step
 
-* Learn more about [Static web apps](/azure/static-web-apps/)
-* [Add an API](/azure/static-web-apps/add-api) in Static web apps
+* Learn more about [Static Web Apps](/azure/static-web-apps/)
+* [Add an API](/azure/static-web-apps/add-api) in Static Web Apps
