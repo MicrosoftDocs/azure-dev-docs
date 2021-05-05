@@ -9,6 +9,8 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
 
 # Quickstart: Create an Azure service principal for Ansible
 
+In this quickstart, you create an Azure service principal with AzureCLI or Azure PowerShell and authenticate to Azure from Ansible.
+
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
@@ -182,3 +184,7 @@ localhost | CHANGED => {
 }
 
 ```
+
+## Next steps
+
+* [Configure Linux virtual machines in Azure using Ansible](https://docs.microsoft.com/azure/developer/ansible/vm-configure)
