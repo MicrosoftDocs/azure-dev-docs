@@ -27,11 +27,41 @@ Create the static web app with one of the following:
 * [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Azure CLI](/azure/static-web-apps/get-started-cli?tabs=vanilla-javascript)
 
-## GitHub Actions build and deploy your app
+## Static web apps include APIs
 
-The GitHub action is created during resource creation and includes instructions to _build_ and _deploy_ the site. The action is created on the source code repo selected during resource creation. 
+[Azure Function](/azure/azure-functions/) apis are provided in static web apps optionally and typically live in a folder named `/api`. 
 
-The following GitHub Actions YAML file is based on the Azure [search tutorial](/azure/search/tutorial-javascript-overview) and its [sample code](https://github.com/azure-samples/azure-search-javascript-samples) to add search to a website. 
+These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. 
+
+Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
+
+* [Azure serverless community library of samples](https://serverlesslibrary.net/)
+
+## Develop with Visual Studio Code extension
+
+Use the Visual Studio code [extension for Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to create your local folder structure and initial dependencies. 
+
+1. Fork one of the [GitHub templates repositories](https://github.com/staticwebdev/) for your client and API choice or [create a new repository](https://github.com/new). 
+1. In VS Code, create a new Static Web App. 
+1. In the creation steps, select your repository fork and branch. 
+
+    When you push to this repository and branch, your code is also deployed to the Static Web App. It is common to have a `live` or `deploy` branch for that purpose. 
+
+1. In the creation steps, select the project structure, location of the application code, and the build directory. 
+
+    You can usually take the default values if your folder structure follows the typical folder structure for the project type. 
+
+1. When you finish the creation steps, your repository fork has a GitHub Actions to build and deploy to your Static Web App. 
+
+**Tutorials**, which use the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
+
+* [Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+* [Add search to a website with Azure Search and Static web apps](/azure/search/tutorial-javascript-overview)
+* [Analyze an image with Azure Computer Vision and Static web apps](/azure/developer/javascript/tutorial/static-web-app/introduction)
+
+### Configure client environment variables in GitHub Actions
+
+The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](/azure/developer/github/github-variable-substitution).
 
 ```yml
 name: Azure Static Web Apps CI/CD
@@ -67,6 +97,11 @@ jobs:
           api_location: "search-website/api" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          # Inject vars at build time
+          myvarname: 'myvarvalue' 
+          # Inject secrets at build time from GitHub Secrets
+          password: ${{ secrets.PASSWORD }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -79,33 +114,17 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_<GENERATED_HOSTNAME> }}
           action: "close"
-```
+```  
 
-## Static web apps include APIs
+### Configure API environment variables in Azure portal
 
-[Azure Function](/azure/azure-functions/) apis are provided in static web apps optionally and typically live in a folder named `/api`. 
+The API environment variables are runtime variables configured in the Azure portal or Azure CLI.
 
-These functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. 
+* Azure portal: 
+* VSCode extension:
+* Azure CLI 
 
-Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node). 
-
-* [Azure serverless community library of samples](https://serverlesslibrary.net/)
-
-## Develop static web apps with Visual Studio Code extension
-
-Use one of the following methods to create  to quickly develop and deploy your apps. 
-
-Tutorials, which use the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) include: 
-
-* [Add search to a website with Azure Search and Static web apps](/azure/search/tutorial-javascript-overview)
-* [Analyze an image with Azure Computer Vision and Static web apps](/azure/developer/javascript/tutorial/static-web-app/introduction)
-
-
-## Configure the static web app with GitHub
-
-Because the GitHub action controls building and deploying, Static web app [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables), typically injected into the static files, need to be configured in the action yaml in the `env` section. Secrets should be [stored in GitHub secrets and pulled in to the `env` section](/azure/developer/github/github-variable-substitution).  
-
-## Deploy static web apps to Azure
+## Deploy to Azure
 
 Deploying a static web app to Azure is started by pushing to the source code repository's specific branch, listed in the GitHub action under `pull_requests:branches`. 
 
@@ -114,6 +133,7 @@ The push from your local computer needs to use the static web app's repository o
 View deployment success from the GitHub action. 
 
 :::image type="content" source="../media/howto-static-web-app/github-action-build-and-deploy-status.png" alt-text="View deployment success from the GitHub action.":::
+
 
 ## View logs of static web apps on Azure
 
