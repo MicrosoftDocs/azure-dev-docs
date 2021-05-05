@@ -206,7 +206,7 @@ The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package](https://www.n
    e. Right-click **SQL Server (_instance-name_)** and select **Restart**.
    f. Close Configuration Manager.
 
-You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, consult the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver15)
+You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, consult the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user)
 
 Be sure to record the username and password that you selected. You  might need to assign additional server roles or permissions, depending on your database requirements.
 

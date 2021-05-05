@@ -137,7 +137,7 @@ This section shows you how to publish your .NET backend project from Visual Stud
   d. Click **Finish**
 1. Click **Publish**
 
-It takes some time to publish to Azure.  For more details about publishing web projects to Azure from Visual Studio, consult [the documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+It takes some time to publish to Azure.  For more details about publishing web projects to Azure from Visual Studio, consult [the documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ## Define a table controller
 

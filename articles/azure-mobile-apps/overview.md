@@ -57,7 +57,7 @@ The following platform features are useful for mobile production sites:
 
 To get started with Azure Mobile Apps, complete a Getting Started tutorial. The tutorial covers the basics of producing a mobile back end and client of your choice. It also covers integrating authentication, offline sync, and push notifications. You can complete the tutorial multiple times, once for each client application.
 
-* [Apache Cordova](quickstarts/apache-cordova/index.md)
+* [Apache Cordova](quickstarts/cordova/index.md)
 * [Windows (UWP)](quickstarts/uwp/index.md)
 * [Windows (WPF)](quickstarts/wpf/index.md)
 * [Xamarin (Android)](quickstarts/xamarin-android/index.md)

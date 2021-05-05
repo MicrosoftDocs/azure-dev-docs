@@ -1,8 +1,6 @@
-- name: Azure Mobile Apps documentation
-  href: index.yml
-- name: Overview
+- name: Azure Mobile Apps Overview
   href: overview.md
-- name: Quickstarts
+- name: Get Started
   items:
   - name: Apache Cordova
     items:

@@ -96,7 +96,7 @@ Once the initial startup is complete, you will be prompted to sign in with your 
 Take a look at the HOW TO sections:
 
 * Server ([Node.js](../../howto/server/nodejs.md))
-* Server ([ASP.NET Framework](../../howto/server/aspnet-framework.md))
+* Server ([ASP.NET Framework](../../howto/server/dotnet-framework.md))
 * [Apache Cordova Client](../../howto/client/cordova.md)
 
 You can also do a Quick Start for another platform using the same backend server:
