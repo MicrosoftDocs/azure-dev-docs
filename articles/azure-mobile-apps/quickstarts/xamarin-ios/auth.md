@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Add Authentication to your Xamarin.iOS app
 
-In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.iOS using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.iOS using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [!INCLUDE (../../includes/quickstart-configure-auth.md)]
 
@@ -51,7 +51,7 @@ private Task<bool> AuthenticateAsync()
 }
 ```
 
-Use _Alt+Enter_ to add the required package (UIKit). Edit the `InitializeAsync()` method to request authentication prior to marking initialization as complete:
+Use _Alt+Enter_ to add the required package (UIKit). Edit the `InitializeAsync()` method to request authentication:
 
 ``` csharp
     // Get a reference to the table.
@@ -81,7 +81,7 @@ public void OpenUrlContexts(UIScene scene, NSSet<UIOpenUrlContext> urlContexts)
 }
 ```
 
-This handles the callback from the web authenticator for iOS 13 and later.  For other iOS versions, follow the instructions in the [Xamarin.Essentials documentation](https://docs.microsoft.com/xamarin/essentials/web-authenticator?context=xamarin%2Fios&tabs=ios).
+The `OpenUrlContexts` method handles the callback from the web authenticator on iOS 13 and later.  For other iOS versions, follow the instructions in the [Xamarin.Essentials documentation](https://docs.microsoft.com/xamarin/essentials/web-authenticator?context=xamarin%2Fios&tabs=ios).
 
 Right-click on the `Info.plist` file, then select **Open with...**.  Select the **XML (Text) Editor**.  Add the following to the file right before the final `</dict>` line.
 
@@ -101,15 +101,15 @@ Right-click on the `Info.plist` file, then select **Open with...**.  Select the 
     </array>
 ```
 
-This redirects the response from the authentication web view back into the application.  You can now build and run the application.  When it runs, the login process will be triggered prior to the list of items being displayed.
+iOS uses this information to redirect the response from the authentication web view back into the application.  You can now build and run the application.  The sign-in process will be triggered immediately.
 
 ## Test the app
 
-Press F5 to run the app.  You will be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
+Press F5 to run the app.  When you are successfully signed in, the app should run as before without errors.
 
 > **Deleting the resources**
 >
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`.
+> Now you've completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`.
 
 ## Next steps
 

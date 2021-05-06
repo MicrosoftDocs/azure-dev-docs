@@ -92,19 +92,7 @@ In the `DataModel/TodoService.cs` class:
     }
     ```
 
-## Test the app
-
-In this section, test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.  
-
-When you add data items, they're held in the local SQLite store, but not synced to the mobile service until you refresh the list. Other apps may have different requirements about when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
-
-When you refresh the data, a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
-
-1. Open the app.  The data is refreshed from the server.
-2. Make some changes to the data through the app.  Add an item, or change the completion state.
-3. View the data through the Azure portal, SQL Server Manager, or another app that is viewing the data without offline capabilities.  The changes haven't been pushed to the service.
-4. Click on the _Refresh_ button to push the changes to the server.
-5. View the data again.  The changes have been pushed to the service.
+[!INCLUDE (../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

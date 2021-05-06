@@ -32,7 +32,7 @@ In the `TodoService.cs` class:
 
    Ensure you add relevant imports using Alt+Enter.
 
-2. Update the `InitializeOfflineStoreAsync()` method to define the offline version of the table :
+2. Update the `InitializeOfflineStoreAsync()` method to define the offline version of the table:
 
     ``` csharp
     private async Task InitializeOfflineStoreAsync()
@@ -97,21 +97,9 @@ In the `TodoService.cs` class:
     }
     ```
 
-## Test the app
 
-In this section, test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.  It is best to use the Android or iOS versions of the application for this purpose, as it is easier to turn the simulated Wifi on and off.
 
-When you add data items, they are held in the local SQLite store, but not synced to the mobile service until you "pull to refresh" the list. Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
-
-When you "pull to refresh", a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
-
-### Offline testing
-
-1. Place the device or simulator in *Airplane Mode*. This creates an offline scenario.
-2. Add some Todo items, or mark some items as complete. Quit the device or simulator (or forcibly close the app) and restart the app. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
-3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have *not* been synced to the server
-4. Turn on WiFi in the device or simulator. Next, "pull to refresh".
-5. View the TodoItem data again in the Azure portal. The new and changed TodoItems should now appear.
+[!INCLUDE (../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

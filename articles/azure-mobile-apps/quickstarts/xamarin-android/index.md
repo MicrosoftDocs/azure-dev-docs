@@ -12,11 +12,11 @@ ms.author: adhal
 
 This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using Xamarin and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Xamarin Android tutorials about using the Mobile Apps feature in Azure App Service.
+You must complete this tutorial before other Xamarin Android tutorials about using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * An appropriate IDE:
   * For Windows: install [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
@@ -63,13 +63,13 @@ Save the file.
 
 ## Run the app
 
-Ensure that the _Any CPU_ configuration is selected, and a suitable Android emulator is shown:
+Select the _Any CPU_ configuration and an Android emulator:
 
 ![Android Configuration](../../media/xamarin-android-configuration.png)
 
-Press F5 to build and run the project.  The Android emulator will start, then Visual Studio will install the app, and finally the app will start.
+Press F5 to build and run the project.  The Android emulator will start, then Visual Studio will install the app. Finally, the app will start.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item button.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item button.  The item is added to the list.  Click on the item to set or clear the "completed" flag.
 
 ![Quickstart Android](../../media/xamarin-android-startup.png)
 

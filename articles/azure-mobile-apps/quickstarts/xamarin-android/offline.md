@@ -12,7 +12,7 @@ ms.author: adhal
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for Xamarin.Android. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
-Prior to starting this tutorial, you should have completed the [Xamarin.Android Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
+Before starting this tutorial, you should have completed the [Xamarin.Android Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/datasync.md).
 
@@ -32,7 +32,7 @@ In the `TodoService.cs` class:
 
    Ensure you add relevant imports using Alt+Enter.
 
-2. Update the `InitializeAsync()` method to define the offline version of the table :
+2. Update the `InitializeAsync()` method to define the offline version of the table:
 
     ``` csharp
     private async Task InitializeAsync()
@@ -101,17 +101,11 @@ In the `TodoService.cs` class:
 
 In this section, test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.  
 
-When you add data items, they are held in the local SQLite store, but not synced to the mobile service until you refresh the list. Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
+When you add data items, they're held in the local SQLite store, but not synced to the mobile service until you refresh the list. Other apps may have different requirements about when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
 
 When you refresh the data, a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
 
-### Offline testing
-
-1. Place the device or simulator in *Airplane Mode*. This creates an offline scenario.
-2. Add some Todo items, or mark some items as complete. Quit the device or emulator (or forcibly close the app) and restart the app. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
-3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have *not* been synced to the server
-4. Turn on WiFi in the device or simulator. Next, press the Refresh menu item.
-5. View the TodoItem data again in the Azure portal. The new and changed TodoItems should now appear.
+[!INCLUDE (../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

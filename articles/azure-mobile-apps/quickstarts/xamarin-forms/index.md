@@ -12,11 +12,11 @@ ms.author: adhal
 
 This tutorial shows you how to add a cloud-based backend service to a cross-platform mobile app by using Xamarin.Forms and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Xamarin Forms tutorials about using the Mobile Apps feature in Azure App Service.
+You must complete this tutorial before other Xamarin Forms tutorials using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * An appropriate IDE:
   * For Windows: install [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
@@ -30,11 +30,11 @@ To complete this tutorial, you need the following:
   * System Image: Pie (API 28, x86, Google Play)
 * If compiling for iOS, you must have an available Mac.
   * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-  * You must manually open Xcode after installing so that it can add any additional components.
+  * Open Xcode after installing so that it can add any extra required components.
   * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
   * If completing the tutorial on Windows, follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
-You can complete this tutorial on Mac or Windows.  If you wish to compile for the Universal Windows Platform (UWP), then you must use Windows.  If you wish to compile for iOS, then a Mac must be available.
+You can complete this tutorial on Mac or Windows.  A windows system is required to compile and run the Universal Windows Platform (UWP) version. A mac is required to compile the iOS version.
 
 ## Download the Xamarin.Forms quickstart project
 
@@ -74,13 +74,13 @@ Right-click the `ZumoQuickStart.Android` project and select **Set as Startup Pro
 
 Press F5 to build and run the project.  The Android emulator will start, then Visual Studio will install the app, and finally the app will start.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item button.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item button.  The item is added to the list.  Click on the item to set or clear the "completed" flag.
 
 ![Quickstart Android](../../media/xamarin-forms/android-startup.png)
 
 ## Run the iOS app
 
-> **NOTE**: If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You will receive errors when compiling or running iOS applications without a paired Mac.
+> **NOTE**: If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You'll receive errors when compiling or running iOS applications without a paired Mac.
 
 Right-click the `ZumoQuickStart.iOS` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show an iOS device.  Ensure that the _iPhoneSimulator_ configuration is selected:
 
@@ -88,7 +88,7 @@ Right-click the `ZumoQuickStart.iOS` project and select **Set as Startup Project
 
 Press F5 to build and run the project.  The iOS simulator will start, then Visual Studio will install the app, and finally the app will start.  If you have already run the Android version, the items that you entered when running the app will be displayed.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item button.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item button.  The item is added to the list.  Click on the item to set or clear the "completed" flag.
 
 ![Quickstart iOS](../../media/xamarin-forms/ios-startup.png)
 
@@ -96,7 +96,7 @@ Enter some text in the **Add New Item** field, then press enter or click the add
 
 > **NOTE**: You must be using Visual Studio on Windows to run the UWP version of the app.
 
-Right-click on the `ZumoQuickStart.UWP` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show.  Ensure that the _x86_ configuration and the _Local Machine_ is selected:
+Right-click on the `ZumoQuickStart.UWP` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show.  Select the _x86_ configuration and the _Local Machine_:
 
 ![UWP Configuration](../../media/xamarin-forms/uwp-configuration.png)
 

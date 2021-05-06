@@ -12,11 +12,11 @@ ms.author: adhal
 
 This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using Xamarin.iOS and an Azure mobile apps backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Xamarin.iOS tutorials about using the Mobile Apps feature in Azure App Service.
+You must complete this tutorial before other Xamarin.iOS tutorials using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * An appropriate IDE:
   * For Windows: install [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
@@ -26,7 +26,7 @@ To complete this tutorial, you need the following:
   * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 * An available Mac.
   * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-  * You must manually open Xcode after installing so that it can add any additional components.
+  * Open Xcode after installing so that it can add any extra components.
   * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
   * If completing the tutorial on Windows, follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
@@ -72,7 +72,7 @@ The "start" button in the top ribbon may show an iOS device.  Ensure that the _i
 
 Press F5 to build and run the project.  The iOS simulator will start, then Visual Studio will install the app, and finally the app will start.  
 
-Enter some text in the **Add New Item** field, then press enter or click the add item button.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item button.  The item is added to the list.  Click on the item to set or clear the "completed" flag.
 
 ![Quickstart iOS](../../media/xamarin-ios-startup.png)
 
