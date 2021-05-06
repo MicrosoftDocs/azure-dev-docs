@@ -2,7 +2,7 @@
 
 When it comes to managing Azure, you have many options. This article compares the Azure CLI and Azure PowerShell language and gives a comparison of the shell environments on which they run.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), and [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
+[Azure CLI](/cli/azure/install-azure-cli), [Azure PowerShell]/powershell/azure/install-az-ps), and [Azure Cloud Shell](/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
 
 ## What's the advantage of using a command-line tool?
 
@@ -54,7 +54,7 @@ Windows PowerShell is the standard scripting shell that comes preinstalled with 
 
 * AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retirement date of February 29 2024.
 
-If you're using AzureRM, you can [migrate Azure PowerShell from AzureRM to Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az).
+If you're using AzureRM, you can [migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
 ## What about Azure Cloud Shell?
 
@@ -75,7 +75,7 @@ Azure CLI syntax is similar to that of Bash scripting. If you work primarily wit
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
 
-Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](https://docs.microsoft.com/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
+Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
 
 With that said, being open-minded will only improve your abilities. Use a different tool when it makes sense.
 
@@ -164,8 +164,8 @@ Note:
 
 Azure CLI:
 
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 Azure PowerShell:
 
-* [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Install Azure PowerShell](/powershell/azure/install-az-ps)
