@@ -158,7 +158,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 Note:
 
 * Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
-* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell read the [Using Format Commands to Change Output View](https://docs.microsoft.com/powershell/scripting/samples/using-format-commands-to-change-output-view).
+* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell, read the [Using Format Commands to Change Output View](https://docs.microsoft.com/powershell/scripting/samples/using-format-commands-to-change-output-view).
 
 ## Next steps
 
