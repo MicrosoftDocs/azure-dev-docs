@@ -87,9 +87,7 @@ cordova run android
 
 Once the initial startup is complete, you will be prompted to sign in with your Microsoft credentials.  Once complete, you can add and delete items from the list.  
 
-> **Deleting the resources**
->
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
+[!INCLUDE (../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

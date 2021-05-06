@@ -99,9 +99,7 @@ public Task AuthenticateAsync() => mClient.LoginAsync("aad", "zumoquickstart");
 
 From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you're signed in, the app should run as before without errors.
 
-> **Deleting the resources**
->
-> Now you've completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
+[!INCLUDE (../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

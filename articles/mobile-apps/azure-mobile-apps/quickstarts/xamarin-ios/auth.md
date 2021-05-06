@@ -107,9 +107,7 @@ iOS uses this information to redirect the response from the authentication web v
 
 Press F5 to run the app.  When you are successfully signed in, the app should run as before without errors.
 
-> **Deleting the resources**
->
-> Now you've completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`.
+[!INCLUDE (../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

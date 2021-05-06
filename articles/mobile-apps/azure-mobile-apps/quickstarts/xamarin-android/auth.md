@@ -20,11 +20,11 @@ In this tutorial, you add Microsoft authentication to the quickstart project on 
 * From the **Run** menu, click **Run app**.
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
+The app attempts to access the service as an anonymous user.  The *TodoItem* table now requires authentication, so the server responds with a `401 Unauthorized` HTTP status code.
 
 ## Add authentication to the app
 
-Update the `TodoService.cs` class so that it initiates a login process when initializing the service.  Add a constructor:
+Update the `TodoService.cs` class so that the app starts a sign-in process when initializing the service.  Add a constructor:
 
 ``` csharp
     private Android.Content.Context mContext;
@@ -93,15 +93,13 @@ Edit the `Properties\AndroidManifest.xml` to register the authentication respons
 </manifest>
 ```
 
-You can now run the Android app in the emulator.  It will prompt you for a Microsoft credential prior to showing you the list of items.
+You can now run the Android app in the emulator.  It will prompt you for a Microsoft credential before showing you the list of items.
 
 ## Test the app
 
-From the **Run** menu, click **Run app** to start the app.  You will be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
+From the **Run** menu, click **Run app** to start the app.  You''ll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
 
-> **Deleting the resources**
->
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
+[!INCLUDE (../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

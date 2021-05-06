@@ -213,9 +213,7 @@ You can now build and run the application.  When it runs, the login process will
 
 From the **Run** menu, click **Run app** to start the app.  You will be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
 
-> **Deleting the resources**
->
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`.
+[!INCLUDE (../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 
