@@ -2,7 +2,7 @@
 
 When it comes to managing Azure, you have many options. This article compares the Azure CLI and Azure PowerShell language and gives a comparison of the shell environments on which they run.
 
-[Azure CLI](/cli/azure/install-azure-cli), [Azure PowerShell]/powershell/azure/install-az-ps), and [Azure Cloud Shell](/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
+[Azure CLI](/cli/azure/install-azure-cli), [Azure PowerShell](/powershell/azure/install-az-ps), and [Azure Cloud Shell](/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
 
 ## What's the advantage of using a command-line tool?
 
