@@ -10,9 +10,7 @@ ms.author: adhal
 
 # Offline Data Sync
 
-Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for developers to create apps that are functional without a network connection.
-
-When your app is in offline mode, you can still create and modify data, which are saved to a local store. When the app is back online, it can synchronize local changes with your Azure Mobile App backend. The feature also includes support for detecting conflicts when the same record is changed on both the client and the backend. Conflicts can then be handled either on the server or the client.
+Offline data sync is an SDK feature of Azure Mobile Apps. Data is stored in a local store.  When your app is offline, you can still create, modify, and search the data. When your app is online, data is synchronized with your Azure Mobile Apps service. The SDK supports conflict resolution, when the same record is changed on both the client and the service.
 
 Offline sync has several benefits:
 
@@ -33,31 +31,27 @@ The following tutorials show how to add offline sync to your mobile clients usin
 
 ## What is a sync table?
 
-To access the "/tables" endpoint, the Azure Mobile client SDKs provide interfaces such as `IMobileServiceTable` (.NET client SDK) or `MSTable` (iOS client). These APIs connect directly to the Azure Mobile App backend and fail if the client device does not have a network connection.
+To access the "/tables" endpoint, the Azure Mobile client SDKs provide interfaces such as `IMobileServiceTable` (.NET client SDK). These APIs connect directly to the Azure Mobile App backend and fail if the client device does not have a network connection.
 
-To support offline use, your app should instead use the *sync table* APIs, such as `IMobileServiceSyncTable` (.NET client SDK) or `MSSyncTable` (iOS client). All the same CRUD operations (Create, Read, Update, Delete) work against sync table APIs, except now they read from or write to a *local store*. Before any sync table operations can be performed, the local store must be initialized.
+To support offline use, your app should instead use the *sync table* APIs, such as `IMobileServiceSyncTable` (.NET client SDK). All the same CRUD operations (Create, Read, Update, Delete) work against sync table APIs, except now they read from or write to a *local store*. Before any sync table operations can be performed, the local store must be initialized.
 
 ## What is a local store?
 
-A local store is the data persistence layer on the client device. The Azure Mobile Apps client SDKs provide a default local store implementation. On Windows, Xamarin and Android, it is based on SQLite. On iOS, it is based on Core Data.
+A local store is the data persistence layer on the client device. Most platforms use SQLite for the local store, but iOS uses Core Data.
 
-To use the SQLite-based implementation on Windows Phone or Microsoft Store, you need to install a SQLite extension. For more information, see [Windows (UWP): Enable offline sync](../quickstarts/uwp/offline.md). Android and iOS ship with a version of SQLite in the device operating system itself, so it is not necessary to reference your own version of SQLite.
-
-Developers can also implement their own local store. For instance, if you wish to store data in an encrypted format on the mobile client, you can define a local store that uses SQLCipher for encryption.
+Windows apps need the SQLite extension. For more information, see [Windows (UWP): Enable offline sync](../quickstarts/uwp/offline.md).  Android and iOS ship with the correct libraries. You can also implement their own local store. For instance, if you wish to store data in an encrypted store, you can use SQLCipher for encryption.
 
 ## What is a sync context?
 
-A *sync context* is associated with a mobile client object (such as `IMobileServiceClient` or `MSClient`) and tracks changes that are made with sync tables. The sync context maintains an *operation queue*, which keeps an ordered list of CUD operations (Create, Update, Delete) that is later sent to the server.
-
-A local store is associated with the sync context using an initialize method such as `IMobileServicesSyncContext.InitializeAsync(localstore)` in the .NET client SDK.
+A *sync context* is associated with the `MobileServiceClient` to track data changes in sync tables. The sync context maintains an *operation queue*.  An operations queue is an ordered list of pending modifications that have not been sent to the server yet.  A local store is associated with the sync context using an initialize method such as `IMobileServicesSyncContext.InitializeAsync(localstore)` in the .NET client SDK.
 
 ## How offline sync works
 
-When using sync tables, your client code controls when local changes are synchronized with an Azure Mobile App backend. Nothing is sent to the backend until there is a call to *push* local changes. Similarly, the local store is populated with new data only when there is a call to *pull* data.
+Your client code controls when local changes are synchronized with an Azure Mobile App service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
 
 ### Push
 
-Push is an operation on the sync context and sends all CUD changes since the last push. It is not possible to send only an individual table's changes, because otherwise operations could be sent out of order. Push executes a series of REST calls to your Azure Mobile App backend, which in turn modifies your server database.
+Push is an operation on the sync context. It sends all pending changes since the last push. Push executes a series of REST calls to your Azure Mobile App service, which in turn modifies your server database.
 
 ### Pull
 
@@ -69,20 +63,15 @@ If a pull is executed against a table that has pending local updates, the pull f
 
 ### Incremental Sync
 
-The first parameter to the pull operation is a *query name* that is used only on the client. If you use a non-null query name, the Azure Mobile SDK performs an *incremental sync*. Each time a pull operation returns a set of results, the latest `updatedAt` timestamp from that result set is stored in the SDK local system tables. Subsequent pull operations retrieve only records after that timestamp.
+The first parameter to the pull operation is a *query name*. If you use a non-null query name, the Azure Mobile SDK performs an *incremental sync*. Each time a pull operation is triggered, the latest `updatedAt` timestamp from that result set is stored. Subsequent pull operations retrieve only records after that timestamp. To use incremental sync, your server must return meaningful `updatedAt` values. The query name must be unique for each logical query in your app.
 
-To use incremental sync, your server must return meaningful `updatedAt` values and must also support sorting by this field. However, since the SDK adds its own sort on the updatedAt field, you cannot use a pull query that has its own `orderBy` clause.
-
-The query name can be any string you choose, but it must be unique for each logical query in your app. Otherwise, different pull operations could overwrite the same incremental sync timestamp and your queries can return incorrect results.
-
-If the query has a parameter, one way to create a unique query name is to incorporate the parameter value. For instance, if you are filtering on userid, your query name could be as follows (in C#):
+If the query has a parameter, one way to create a unique query name is to incorporate the parameter value. For instance, if you are filtering on `userId`, your query name could be as follows (in C#):
 
 ``` csharp
-await todoTable.PullAsync("todoItems" + userid, 
-    syncTable.Where(u => u.UserId == userid));
+await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId == userId));
 ```
 
-If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records are retrieved on every call to `PullAsync`, which is potentially inefficient.
+If you want to opt out of incremental sync, pass `null` as the query ID. Each pull will retrieve all the records.
 
 ### Purging
 
@@ -90,4 +79,4 @@ You can clear the contents of the local store using `IMobileServiceSyncTable.Pur
 
 A purge clears a table from the local store. If there are operations awaiting synchronization with the server database, the purge throws an exception unless the *force purge* parameter is set.
 
-As an example of stale data on the client, suppose in the "todo list" example, Device1 only pulls items that are not completed. A todoitem "Buy milk" is marked completed on the server by another device. However, Device1 still has the "Buy milk" todoitem in local store because it is only pulling items that are not marked complete. A purge clears this stale item.
+For example, suppose in the "todo list" example, Device1 only pulls items that are not completed. A todoitem "Buy milk" is marked completed on the server by another device. However, Device1 still has the "Buy milk" todoitem in local store because it is only pulling items that are not marked complete. A purge clears this stale item.
