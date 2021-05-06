@@ -35,13 +35,13 @@ For more information on the authentication flow, see [App Service authentication
 
 ## Authentication without provider SDK
 
-If you do not want to set up a provider SDK, you can allow the Azure App Service handle the sign in for you. The Azure Mobile Apps client SDK will open a web view to the provider of your choosing and sign in the user. Occasionally on blogs and forums, it is called the "server flow" or "server-directed flow" because the server manages the process that signs in users, and the client SDK never receives the provider token.
+If you do not want to set up a provider SDK, you can allow the Azure App Service handle the sign-in for you. The Azure Mobile Apps client SDK will open a web view to the provider of your choosing and sign in the user. Occasionally on blogs and forums, it is called the "server flow" or "server-directed flow" because the server manages the process that signs in users, and the client SDK never receives the provider token.
 
 Code to start this flow is included in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the application backend.
 
 ## Submitting a token from the client-directed flow
 
-When using the client-directed flow, first obtain the relevant information that Azure App Service needs to validate the token.  In most cases, this will be an access token.  However, [consult the documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).
+When using the client-directed flow, first obtain the relevant information that Azure App Service needs to validate the token.  In most cases, the token will be an access token.  However, [consult the documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).
 
 You can then build the appropriate JSON object.  For example, if you are using MSAL to perform a client-directed flow on .NET in a WPF application, you might use the following code:
 

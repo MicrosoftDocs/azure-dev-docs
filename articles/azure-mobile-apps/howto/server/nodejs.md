@@ -19,7 +19,7 @@ Azure Mobile Apps provides the capability to add a mobile-optimized data access 
 * Table operations (read, insert, update, delete) for data access
 * Custom API operations
 
-Both operations provide for authentication across all identity providers that Azure App Service allows. These providers include social identity providers such as Facebook, Twitter, Google, and Microsoft, as well as Azure Active Directory for enterprise identity.
+Both operations provide for authentication across all identity providers that Azure App Service allows. These providers include social identity providers such as Facebook, Twitter, Google, and Microsoft, and Azure Active Directory for enterprise identity.
 
 ## Supported platforms
 
@@ -111,11 +111,11 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 
 | Operation | Description |
 | --- | --- |
-| GET /tables/*tablename* |Get all records in the table. |
-| GET /tables/*tablename*/:id |Get a specific record in the table. |
-| POST /tables/*tablename* |Create a record in the table. |
-| PATCH /tables/*tablename*/:id |Update a record in the table. |
-| DELETE /tables/*tablename*/:id |Delete a record in the table. |
+| `GET /tables/tablename` |Get all records in the table. |
+| `GET /tables/tablename/:id` |Get a specific record in the table. |
+| `POST /tables/tablename` |Create a record in the table. |
+| `PATCH /tables/tablename/:id` |Update a record in the table. |
+| `DELETE /tables/tablename/:id` |Delete a record in the table. |
 
 This Web API supports [OData v3](https://www.odata.org) and extends the table schema to support [offline data sync](../datasync.md).
 
@@ -206,9 +206,9 @@ The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package](https://www.n
    e. Right-click **SQL Server (_instance-name_)** and select **Restart**.
    f. Close Configuration Manager.
 
-You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, consult the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user)
+You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user)
 
-Be sure to record the username and password that you selected. You  might need to assign additional server roles or permissions, depending on your database requirements.
+Be sure to record the username and password that you selected. You  might need to assign more server roles or permissions, depending on your database requirements.
 
 The Node.js application reads the `SQLCONNSTR_MS_TableConnectionString` environment variable for
 the connection string for this database. You can set this variable in your environment. For example, you can use PowerShell to set this environment variable:
@@ -469,11 +469,11 @@ table.access = 'authenticated';
 module.exports = table;
 ```
 
-You should establish a mechanism for deleting records: a client application, a WebJob, an Azure Function, or a custom API.
+Establish a mechanism for deleting records permanently such as a client application, a WebJob, an Azure Function, or a custom API.
 
 ### Seed your database with data
 
-When you're creating a new application, you might want to seed a table with data. You can do this within the table definition JavaScript file as follows:
+When you're creating a new application, you might want to seed a table with data. You can seed data within the table definition JavaScript file as follows:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -517,7 +517,7 @@ You can then enable Swagger support in the Azure Mobile Apps constructor:
 var mobile = azureMobileApps({ swagger: true });
 ```
 
-You probably only want to enable Swagger support in development editions. You can do this by using the `NODE_ENV` app setting:
+You probably only want to enable Swagger support in development editions. You can enable Swagger support in development by using the `NODE_ENV` app setting:
 
 ```javascript
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });

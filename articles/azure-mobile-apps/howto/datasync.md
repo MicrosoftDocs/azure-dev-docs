@@ -57,7 +57,7 @@ When using sync tables, your client code controls when local changes are synchro
 
 ### Push
 
-Push is an operation on the sync context and sends all CUD changes since the last push. Note that it is not possible to send only an individual table's changes, because otherwise operations could be sent out of order. Push executes a series of REST calls to your Azure Mobile App backend, which in turn modifies your server database.
+Push is an operation on the sync context and sends all CUD changes since the last push. It is not possible to send only an individual table's changes, because otherwise operations could be sent out of order. Push executes a series of REST calls to your Azure Mobile App backend, which in turn modifies your server database.
 
 ### Pull
 

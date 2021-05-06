@@ -17,7 +17,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 You can create an ASP.NET Framework app using Visual Studio 2019.  
 
 * Choose the **ASP.NET Web Application (.NET Framework)** template.  If you are having trouble locating this template, select **C#**, **All platforms**, and **Web**.
-* After selecting a name and location for the application, select the **Web API** project template.  This installs the correct collection of base services for your application.
+* After selecting a name and location for the application, select the **Web API** project template.  The correct collection of base services for your application will be installed.
 
 ### Download and initialize the SDK
 
@@ -39,8 +39,8 @@ An Azure Mobile Apps server project is initialized similar to other ASP.NET Fram
 
 * Right-click on the project, then select **Add** > **New Item**
 * Select **Web** > **General**, then select the **OWIN Startup class** template.
-* Enter the name `Startup.cs` as the startup name.  (It can be named anything, but this is convention).
-* The contents of the `Startup.cs` file should be similar to this:
+* Enter the name `Startup.cs` as the startup name.
+* The contents of the `Startup.cs` file should be similar to the following code:
 
     ``` csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -121,7 +121,7 @@ The following NuGet-based extension packages provide various mobile features tha
 
 ## Publish the server project
 
-This section shows you how to publish your .NET backend project from Visual Studio.  There are other methods by which you can publish your application.  Consult the [Azure App Service documentation](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) for more details.
+This section shows you how to publish your .NET backend project from Visual Studio.  There are other methods by which you can publish your application.  For more information, see the [Azure App Service documentation](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment).
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 1. In Solution Explorer, right-click the project, click **Publish**.
@@ -137,7 +137,7 @@ This section shows you how to publish your .NET backend project from Visual Stud
   d. Click **Finish**
 1. Click **Publish**
 
-It takes some time to publish to Azure.  For more details about publishing web projects to Azure from Visual Studio, consult [the documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure).
+It takes some time to publish to Azure.  For more information, see [the Visual Studio documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ## Define a table controller
 
@@ -180,14 +180,12 @@ public class MobileServiceContext : DbContext
 }
 ```
 
-If this is the first DTO, ensure you add or modify the `OnModelCreating()` method to add the Azure Mobile Apps column handling as well.
-
 Finally, create a new controller:
 
 * Right-click on the `Controllers` folder.
 * Select **Web API** > **Web API 2 Controller - Empty**
 * Enter a name for the controller.
-* Replace the contents of the new controller with the following:
+* Replace the contents of the new controller with the following code:
 
     ``` csharp
     public class TodoItemController : TableController<TodoItem>
@@ -231,8 +229,6 @@ Finally, create a new controller:
         }
     }
     ```
-
-This is the standard form for a `TableController`.
 
 ### Adjust the table paging size
 
@@ -353,7 +349,7 @@ string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
 The SID is derived from the provider-specific user ID and is static for a given user and login provider.  The SID is null for invalid authentication tokens.
 
-App Service also lets you request specific claims from your login provider. Each identity provider can provide more information using the identity provider SDK.  For example, you can use the Facebook Graph API for friends information.  You can specify claims that are requested in the provider blade in the Azure portal. Some claims require additional configuration with the identity provider.
+App Service also lets you request specific claims from your login provider. Each identity provider can provide more information using the identity provider SDK.  For example, you can use the Facebook Graph API for friends information.  You can specify claims that are requested in the provider blade in the Azure portal. Some claims require more configuration with the identity provider.
 
 The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token needed to make requests against the Facebook Graph API:
 
@@ -430,7 +426,7 @@ To enable diagnostics and write to the logs:
 
 ### <a id="local-debug"/>Local debugging with authentication
 
-You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while in Visual Studio. However, there are some additional considerations when using authentication.
+You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while in Visual Studio. However, there are some extra considerations when using authentication.
 
 You must have a cloud-based mobile app with App Service Authentication/Authorization configured, and your client must have the cloud endpoint specified as the alternate login host. See the documentation for your client platform for the specific steps required.
 

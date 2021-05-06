@@ -21,7 +21,7 @@ This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows d
 
 ## Setup and prerequisites
 
-This guide assumes that you have created a backend with a table.  Examples use the `TodoItem` table from the quick starts.  To add the Azure Mobile Apps plugin to your project, use the following:
+This guide assumes that you have created a backend with a table.  Examples use the `TodoItem` table from the quick starts.  To add the Azure Mobile Apps plugin to your project, use the following command:
 
 ``` bash
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
@@ -53,7 +53,7 @@ ionic platform add browser
 ionic run browser
 ```
 
-The Azure Mobile Apps Cordova plugin supports both Ionic v1 and v2 apps.  Only the Ionic v2 apps require the additional declaration for the `WindowsAzure` object.
+The Azure Mobile Apps Cordova plugin supports both Ionic v1 and v2 apps.  Only the Ionic v2 apps require the extra declaration for the `WindowsAzure` object.
 
 ## Create a client connection
 
@@ -200,7 +200,7 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required for sync operations.  Update your own cache with this information for later updates.
+On successful insertion, the inserted item is returned with extra fields that are required for sync operations.  Update your own cache with this information for later updates.
 
 The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn off dynamic schema before moving your application to production.
 
@@ -271,7 +271,7 @@ In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It d
 
 ### <a id="client-auth"/>Authenticate with a provider (Client Flow)
 
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
+Your app can also independently contact the identity provider and then provide the returned token to your App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve extra user data from the identity provider.
 
 #### Social Authentication basic example
 
@@ -343,7 +343,7 @@ The settings are saved at this point.  Do not close the browser window until the
 3. The Settings blade opens automatically.  If it doesn't, click **All Settings**.
 4. Click **CORS** under the API menu.
 5. Enter the URL that you wish to add in the box provided and press Enter.
-6. Enter additional URLs as needed.
+6. Enter more URLs as needed.
 7. Click **Save** to save the settings.
 
 It takes approximately 10-15 seconds for the new settings to take effect.
