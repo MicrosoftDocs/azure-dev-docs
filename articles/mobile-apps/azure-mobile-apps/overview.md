@@ -10,9 +10,13 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
-Azure Mobile Apps gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  It provides authentication, data query, offline synchronization, and push registration capabilities to your mobile app using resources in the Azure cloud provided by Azure App Service.
+Azure Mobile Apps gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  Using resources in the Azure cloud, it provides your mobile app with:
+
+* Authentication
+* Data query
+* Offline data synchronization
 
 ![Visual overview of Azure Mobile Apps capabilities](./media/overview.png)
 
@@ -21,9 +25,8 @@ Azure Mobile Apps gives enterprise developers and system integrators a mobile-ap
 With the Mobile Apps feature, you can:
 
 * **Build native and cross-platform apps**: Whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (PhoneGap) apps, you can take advantage of App Service by using native SDKs.
-* **Connect to your enterprise systems**: With the Mobile Apps feature, you can add corporate sign-in in minutes, and connect to your enterprise on-premises or cloud resources.
-* **Build offline-ready apps with data sync**: Make your mobile workforce more productive by building apps that work offline, and use Mobile Apps to sync data in the background when connectivity is present with any of your enterprise data sources or software as a service (SaaS) APIs.
-* **Push notifications to millions in seconds**: Engage your customers with instant push notifications on any device, personalized to their needs, and sent when the time is right.
+* **Connect to your enterprise systems**: Authenticate your users with Azure Active Directory, and connect to enterprise data stores.
+* **Build offline-ready apps with data sync**: Make your mobile workforce more productive by building apps that work offline. Use Azure Mobile Apps to sync data in the background.
 
 ## Azure Mobile Apps features
 
@@ -34,8 +37,6 @@ The following features are important to cloud-enabled mobile development:
 * **Data access**: Mobile Apps provides a mobile-friendly OData v3 data source that's linked to Azure SQL Database or an on-premises SQL server. 
 
 * **Offline sync**: The client SDKs make it easy to build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with the back-end data, including conflict-resolution support.
-
-* **Push notifications**: The client SDKs integrate seamlessly with the registration capabilities of Azure Notification Hubs, so you can send push notifications to millions of users simultaneously.
 
 * **Client SDKs**: There is a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)). Each client SDK is available with an MIT license and is open-source.
 

@@ -10,17 +10,15 @@ ms.author: adhal
 
 # Add Authentication to your Xamarin.Forms app
 
-In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.Forms using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [!INCLUDE (../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
 * Open your project in Android Studio.
-* From the **Run** menu, click **Run app**.
+* From the **Run** menu, press **Run app**.
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
-
-This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 ## Add authentication to the app
 
@@ -40,7 +38,7 @@ namespace ZumoQuickstart
 }
 ```
 
-Open the `TodoService.cs` class.  Edit the `InitializeAsync()` method to request authentication prior to marking initialization as complete:
+Open the `TodoService.cs` class.  Edit the `InitializeAsync()` method to request authentication:
 
 ``` csharp
     // Get a reference to the table.
@@ -97,7 +95,7 @@ Edit the `Properties\AndroidManifest.xml` to register the authentication respons
 </manifest>
 ```
 
-You can now run the Android app in the emulator.  It will prompt you for a Microsoft credential prior to showing you the list of items.
+You can now run the Android app in the emulator.  It will prompt you for a Microsoft credential before showing you the list of items.
 
 ### Add authentication to the iOS app
 
@@ -150,7 +148,7 @@ Right-click on the `Info.plist` file, then select **Open with...**.  Select the 
     </array>
 ```
 
-This redirects the response from the authentication web view back into the application.  You can now build and run the application.  When it runs, the login process will be triggered prior to the list of items being displayed.
+After the user completes the sign-in, the user will be redirected back to the application.  You can now build and run the application.  The user is prompted to sign-in before the list of items is displayed.
 
 ### Add authentication to the UWP app
 
@@ -207,11 +205,11 @@ Finally, register the "zumoquickstart" protocol:
   * ExecutableOrStartPageIsRequired: checked
   All other fields can be left blank.
 
-You can now build and run the application.  When it runs, the login process will be triggered prior to the list of items being displayed.
+You can now build and run the application.  When it runs, the sign-in process will be triggered prior to the list of items being displayed.
 
 ## Test the app
 
-From the **Run** menu, click **Run app** to start the app.  You will be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
+From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
 
 [!INCLUDE (../../includes/quickstart-clean-up.md)]
 

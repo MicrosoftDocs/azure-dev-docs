@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Add Authentication to your Apache Cordova app
 
-In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [! INCLUDE (../../includes/quickstart-configure-auth.md)]
 
@@ -19,14 +19,12 @@ In this tutorial, you add Microsoft authentication to the quickstart project usi
 * Run the app using `cordova run android`
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-This exception happens because the app attempts to access the back end as an anonymous user, but the *TodoItem* table now requires authentication.
-
 ## Add authentication to the app
 
 To add authentication via the built-in provider, you must:
 
 * Add the authentication provider to the list of known good sources.
-* Call the authentication provider prior to accessing data.
+* Call the authentication provider before accessing data.
 
 ### Update the Content Security Policy
 
@@ -85,7 +83,7 @@ cordova run android
 >
 > On Windows, this is a common problem.  Start Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
 
-Once the initial startup is complete, you will be prompted to sign in with your Microsoft credentials.  Once complete, you can add and delete items from the list.  
+Once the initial startup is complete, you'll be prompted to sign in with your Microsoft credentials.  Once complete, you can add and delete items from the list.  
 
 [!INCLUDE (../../includes/quickstart-clean-up.md)]
 
@@ -97,7 +95,7 @@ Take a look at the HOW TO sections:
 * Server ([ASP.NET Framework](../../howto/server/dotnet-framework.md))
 * [Apache Cordova Client](../../howto/client/cordova.md)
 
-You can also do a Quick Start for another platform using the same backend server:
+You can also do a Quick Start for another platform using the same service:
 
 * [Windows (UWP)](../uwp/index.md)
 * [Windows (WPF)](../wpf/index.md)

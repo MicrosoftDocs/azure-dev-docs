@@ -10,21 +10,21 @@ ms.author: adhal
 
 # Add Authentication to your Xamarin.Android app
 
-In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.Android using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [!INCLUDE (../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
 * Open your project in Visual Studio
-* From the **Run** menu, click **Run app**.
+* From the **Run** menu, press **Run app**.
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
 The app attempts to access the service as an anonymous user.  The *TodoItem* table now requires authentication, so the server responds with a `401 Unauthorized` HTTP status code.
 
 ## Add authentication to the app
 
-Update the `TodoService.cs` class so that the app starts a sign-in process when initializing the service.  Add a constructor:
+Update the `TodoService.cs` class so that the app asks for sign-in when initializing the service.  Add a constructor:
 
 ``` csharp
     private Android.Content.Context mContext;
@@ -35,7 +35,7 @@ Update the `TodoService.cs` class so that the app starts a sign-in process when 
     }
 ```
 
-Then, edit the `InitializeAsync()` method to add the login call:
+Then, edit the `InitializeAsync()` method to add the sign-in call:
 
 ``` csharp
     private async Task InitializeAsync()
@@ -97,7 +97,7 @@ You can now run the Android app in the emulator.  It will prompt you for a Micro
 
 ## Test the app
 
-From the **Run** menu, click **Run app** to start the app.  You''ll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
+From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
 
 [!INCLUDE (../../includes/quickstart-clean-up.md)]
 
