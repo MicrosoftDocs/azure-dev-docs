@@ -10,13 +10,13 @@ ms.author: adhal
 
 # Create an Apache Cordova app
 
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova cross-platform app by using Azure Mobile Apps and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova cross-platform app by using Azure Mobile Apps and an Azure mobile app backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
+Complete this tutorial before continuing with other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * [A working Apache Cordova 8.1.2 installation](https://cordova.apache.org/docs/en/latest/).
 * A text editor (such as [Visual Studio Code](https://visualstudio.com/code)).
@@ -25,7 +25,7 @@ To complete this tutorial, you need the following:
   * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 
 > **Apache Cordova 8.1.2 or earlier required**
-> Apache Cordova released an incompatible change to the tool in v9.0.0.  If you have Apache Cordova v9.0.0 or later installed, the plugin will not work, complaining of a dependency problem with the `q` module.
+> Apache Cordova released an incompatible change to the tool in v9.0.0.  If you have Apache Cordova v9.0.0 or later installed, the plugin won't work, complaining of a dependency problem with the `q` module.
 
 > **Visual Studio Code**
 > There is an [Apache Cordova extension](https://marketplace.visualstudio.com/items?itemName=Msjsdiag.cordova-tools) for Visual Studio Code that allows you to run the application with debugging.  Visual Studio Code is highly recommended for Apache Cordova development.
@@ -53,7 +53,7 @@ Add a platform to the project.  For example, to add the Android platform, use:
 cordova platform add android
 ```
 
-You can add `browser`, `android`, and `ios` as needed.  However, note that the `browser` platform will not work with offline sync enabled. Once you have added all the platforms you wish to use, run `cordova requirements` to ensure all requirements have been met.
+You can add `browser`, `android`, and `ios` as needed.  The `browser` platform will not work with offline sync enabled. Once you have added all the platforms you wish to use, run `cordova requirements` to ensure all requirements have been met.
 
 Open the `www/js/index.js` file in a text editor.  Edit the definition of `BackendUrl` to show your backend URL.  For example, if your backend URL was `https://zumo-abcd1234.azurewebsites.net`, then the Backend URL would look like this:
 
@@ -68,7 +68,7 @@ Save the file.  Open the `www/index.html` file in a text editor.  Edit the `Cont
     content="default-src 'self' data: gap: https://zumo-abcd1234.azurewebsites.net; style-src 'self'; media-src *;">
 ```
 
-To build the app, use the following:
+To build the app, use the following command:
 
 ``` bash
 cordova build
@@ -95,7 +95,7 @@ cordova run android
 >
 > On Windows, this is a common problem.  Start Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
 
-Once the initial startup is complete, you can add and delete items from the list.  They will be stored within the Azure SQL instance connected to your Azure Mobile Apps backend.
+Once the initial startup is complete, you can add and delete items from the list.  Todo items are stored in the Azure SQL instance connected to your Azure Mobile Apps backend.
 
 ![Apache Cordova App](../../media/cordova-android-startup.png)
 

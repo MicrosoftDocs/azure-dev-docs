@@ -84,14 +84,14 @@ In the `www/js/index.js` file:
 
 ## Build the app
 
-Run the following:
+Run the following commands to build the Android app:
 
 ``` bash
 cordova clean android
 cordova build android
 ```
 
-This builds the Android edition of the app cleanly.  You can now run the app with
+You can run the app:
 
 ``` bash
 cordova run android
@@ -111,11 +111,11 @@ When you add data items, they are held in the local SQLite store, but not synced
 
 When you refresh the data, a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
 
-1. Open the app.  This will automatically refresh the data from the server.
+1. Open the app.  TThe data is automatically refreshed from the server.
 2. Make some changes to the data through the app.  Add an item, or change the completion state.
-3. View the data through the Azure Portal, SQL Server Manager, or another app that is viewing the data without offline capabilities.  Note that the changes have not been pushed to the service.
+3. View the data through the Azure portal, SQL Server Manager, or another app that is viewing the data without offline capabilities.  Changes have not been pushed to the service.
 4. Click on the _Refresh_ button to push the changes to the server.
-5. View the data again.  Note that the changes have been pushed to the service.
+5. View the data again.  Changes have been pushed to the service.
 
 ## Next Steps
 

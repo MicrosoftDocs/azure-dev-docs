@@ -48,7 +48,7 @@ To learn how to create tables in your Mobile Apps backend, see the [.NET Server 
 
 ### Install the managed client SDK package
 
-Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.  For offline capabilities, install the `Microsoft.Azure.Mobile.Client.SQLiteStore` package as well.
+Right-click your project, press **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then press **Install**.  For offline capabilities, install the `Microsoft.Azure.Mobile.Client.SQLiteStore` package as well.
 
 ## Create the Mobile Apps client
 
@@ -58,8 +58,7 @@ The following code creates the [MobileServiceClient](https://msdn.microsoft.com/
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-In the preceding code, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the
-blade for your Mobile App backend in the [Azure portal](https://portal.azure.com). The `MobileServiceClient` object should be a singleton.
+In the preceding code, replace `MOBILE_APP_URL` with the URL of the App Service backend. The `MobileServiceClient` object should be a singleton.
 
 ## Work with tables
 
@@ -508,7 +507,7 @@ Offline tables use a local SQLite store to store data for use when offline.  All
 
 * In Visual Studio, right-click the solution > **Manage NuGet Packages for Solution...**, then search for and install the
    **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
-* For Windows devices, click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, then enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK. The SQLite SDK names vary slightly with each Windows platform.
+* For Windows devices, press **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, then enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK. The SQLite SDK names vary slightly with each Windows platform.
 
 Before a table reference can be created, the local store must be prepared:
 
@@ -627,7 +626,7 @@ The following topics are covered in this section:
 
 ### <a id="clientflow"/>Client-managed authentication
 
-Your app can independently contact the identity provider and then provide the returned token during login with your backend. This client flow enables you to provide a single sign-on experience for users or to retrieve extra user data from the identity provider. Client flow authentication is preferred to using a server flow as the identity provider SDK provides a more native UX feel and allows for more customization.
+Your app can independently contact the identity provider and then provide the returned token during sign-in with your backend. This client flow enables you to provide a single sign-on experience for users or to retrieve extra user data from the identity provider. Client flow authentication is preferred to using a server flow as the identity provider SDK provides a more native UX feel and allows for more customization.
 
 Examples are provided for the following client-flow authentication patterns:
 

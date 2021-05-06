@@ -10,13 +10,13 @@ ms.author: adhal
 
 # Create a Windows (UWP) app
 
-This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other UWP tutorials about using the Mobile Apps feature in Azure App Service.
+This tutorial is required for all other Windows (UWP) tutorials about using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
@@ -63,7 +63,7 @@ Ensure that the _x86_ configuration is selected, and the _Local Machine_ target 
 
 You can also use another target if your Visual Studio IDE is configured for it. Press F5 to build and run the project.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item icon.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item icon.  The item is added to the list.  Press the item to set or clear the "completed" flag.
 
 ![UWP Startup](../../media/uwp-startup.png)
 

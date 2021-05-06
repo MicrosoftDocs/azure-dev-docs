@@ -12,11 +12,11 @@ ms.author: adhal
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Presentation Framework (WPF) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other WPF tutorials about using the Mobile Apps feature in Azure App Service.
+You must complete this tutorial before all other Windows (WPF) tutorials about using the Mobile Apps feature in Azure App Service.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
@@ -57,13 +57,13 @@ Save the file.
 
 ## Run the app
 
-Ensure that the _Any CPU_ configuration is selected, and the _ZumoQuickstart_ target is shown:
+Select the _Any CPU_ configuration and the _ZumoQuickstart_ target:
 
 ![WPF Configuration](../../media/wpf-configuration.png)
 
-Press F5 to build and run the project. 
+Press F5 to build and run the project.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item icon.  This will add the item to the list.  Click on the item to set or clear the "completed" flag.
+Enter some text in the **Add New Item** field, then press enter or click the add item icon.  The item is added to the list.  Press on the item to set or clear the "completed" flag.
 
 ![WPF Startup](../../media/wpf-startup.png)
 

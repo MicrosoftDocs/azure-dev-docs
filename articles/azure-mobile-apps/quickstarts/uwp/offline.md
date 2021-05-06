@@ -10,9 +10,9 @@ ms.author: adhal
 
 # Add Offline Sync to your Windows (UWP) app
 
-This tutorial covers the offline sync feature of Azure Mobile Apps for the UWP quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
+This tutorial covers the offline sync feature of Azure Mobile Apps for the UWP quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
-Prior to starting this tutorial, you should have completed the [UWP Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
+Before starting this tutorial, you should have completed the [Windows (UWP) Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/datasync.md).
 
@@ -30,7 +30,7 @@ In the `DataModel/TodoService.cs` class:
 
    Ensure you add relevant imports using Alt+Enter.
 
-2. Update the `InitializeAsync()` method to define the offline version of the table :
+2. Update the `InitializeAsync()` method to define the offline version of the table:
 
     ``` csharp
     private async Task InitializeAsync()
@@ -96,15 +96,15 @@ In the `DataModel/TodoService.cs` class:
 
 In this section, test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.  
 
-When you add data items, they are held in the local SQLite store, but not synced to the mobile service until you refresh the list. Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
+When you add data items, they're held in the local SQLite store, but not synced to the mobile service until you refresh the list. Other apps may have different requirements about when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
 
 When you refresh the data, a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
 
-1. Open the app.  This will automatically refresh the data from the server.
+1. Open the app.  The data is refreshed from the server.
 2. Make some changes to the data through the app.  Add an item, or change the completion state.
-3. View the data through the Azure Portal, SQL Server Manager, or another app that is viewing the data without offline capabilities.  Note that the changes have not been pushed to the service.
+3. View the data through the Azure portal, SQL Server Manager, or another app that is viewing the data without offline capabilities.  The changes haven't been pushed to the service.
 4. Click on the _Refresh_ button to push the changes to the server.
-5. View the data again.  Note that the changes have been pushed to the service.
+5. View the data again.  The changes have been pushed to the service.
 
 ## Next Steps
 

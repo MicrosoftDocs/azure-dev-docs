@@ -19,11 +19,11 @@ In this tutorial, you add Microsoft authentication to the quickstart project usi
 * Run the app using `cordova run android`
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
+This exception happens because the app attempts to access the back end as an anonymous user, but the *TodoItem* table now requires authentication.
 
 ## Add authentication to the app
 
-To add authentication via the built-in provider, you must do the following:
+To add authentication via the built-in provider, you must:
 
 * Add the authentication provider to the list of known good sources.
 * Call the authentication provider prior to accessing data.
@@ -48,7 +48,7 @@ Edit `www/index.html`; add the OAuth host for Azure Active Directory as follows:
     style-src 'self'; media-src *;">
 ```
 
-Note that we have spread the content over multiple lines for readability.  You should place all content on the same line.
+The content is multiple lines for readability.  Place all code on the same line.
 
 ``` html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.microsoftonline.com https://ZUMOAPPNAME.azurewebsites.net; style-src 'self'; media-src *;">
@@ -58,7 +58,7 @@ You have already replaced `ZUMOAPPNAME` with the name of your app.  For more inf
 
 ## Call the authentication provider
 
-Edit `www/js/index.js`. Replace the `setup()` method with the following:
+Edit `www/js/index.js`. Replace the `setup()` method with the following code:
 
 ``` javascript
 function setup() {

@@ -20,11 +20,11 @@ In this tutorial, you add Microsoft authentication to the quickstart project usi
 * From the **Run** menu, click **Run app**.
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
+This exception happens because the app attempts to access the back end as an anonymous user, but the *TodoItem* table now requires authentication.
 
 ## Add authentication to the app
 
-To add authentication via the built-in provider, you must do the following:
+To add authentication via the built-in provider, you must:
 
 * Register the protocol in the package manifest.
 * Complete the login process when the callback is called.
@@ -42,7 +42,7 @@ Protocols are registered in the app manifest:
   * **Name**: `zumoquickstart`
 * Save the app manifest with **Ctrl+S**.
 
-The **Name** field must match the protocol for the callback.  In our case, this is `zumoquickstart://easyauth.callback`, so the name is `zumoquickstart`.
+The **Name** field must match the protocol for the callback.  We are using `zumoquickstart://easyauth.callback`, so the name is `zumoquickstart`.
 
 ### Handle the callback
 
@@ -65,7 +65,7 @@ protected override void OnActivated(IActivatedEventArgs args)
 }
 ```
 
-When the `zumoquickstart` protocol is detected, the app will launch the main page with a Uri.  This is handled by the `OnNavigatedTo()` method within `MainPage.xaml.cs`.
+When the `zumoquickstart` protocol is detected, the app will launch the main page with a Uri.  The `OnNavigatedTo()` method within `MainPage.xaml.cs` handles the launch.
 
 ### Trigger the login process
 
@@ -97,11 +97,11 @@ public Task AuthenticateAsync() => mClient.LoginAsync("aad", "zumoquickstart");
 
 ## Test the app
 
-From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you are successfully signed in, the app should run as before without errors.
+From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you're signed in, the app should run as before without errors.
 
 > **Deleting the resources**
 >
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
+> Now you've completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
 
 ## Next steps
 

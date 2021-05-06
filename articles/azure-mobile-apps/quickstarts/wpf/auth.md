@@ -24,11 +24,9 @@ This exception happens because the app attempts to access the back end as an una
 
 ## Add authentication to the app
 
-There is no built-in authentication provider for WPF applications, so you must integrate the "provider" SDK for your authentication technique.  The provider SDK will authenticate the user through their normal mechanism, providing your app with an access token.  Your app then submits the access token or authorization code to the Azure App Service backend to get an appropriate access token for accessing the data in the backend.
+There's no built-in authentication provider for WPF applications, so you must integrate the "provider" SDK for your authentication technique.  The provider SDK will authenticate the user through their normal mechanism, providing your app with an access token.  Your app then submits the access token or authorization code to the Azure App Service backend to get an appropriate access token for accessing the data in the backend.
 
-In the case of Azure Active Directory and Microsoft accounts, the provider SDK is the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).  You need to request an `access_token` from Azure Active Directory:
-
-Next, add MSAL to your WPF project:
+The provider SDK is the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) for Azure Active Directory and Microsoft accounts.  Request an `access_token` from Azure Active Directory:
 
 1. Open the project in Visual Studio.
 
@@ -65,7 +63,7 @@ Next, add MSAL to your WPF project:
     }
     ```
 
-    You obtained the _Application (Client) ID_ (referenced here as `CLIENTID`) and the _Scope_ (referenced here as `SCOPE`) when you registered the application in the AAD App Registrations page.
+    You obtained the _Application (Client) ID_ (referenced here as `CLIENTID`) and the _Scope_ (referenced here as `SCOPE`) when you registered the application in the App Registrations page.
 
 4. Add the following code to the `App.xaml.cs` file:
 
@@ -126,17 +124,15 @@ Next, add MSAL to your WPF project:
     }
     ```
 
-Lines 64-66 will use the MSAL library to authenticate the user.  This pops up a web browser to complete the authentication process.  Once complete, lines 72-74 submit the access token received from AAD to the App Service, receiving back an Azure Mobile Apps access token.  This token is then submitted on each request to the service to identify the user.
-
-You can now run the app. It will prompt you for a Microsoft credential prior to showing you the list of items.
+Lines 64-66 will use the MSAL library to authenticate the user.  A web browser opens to complete the authentication process.  Once complete, lines 72-74 submit the access token received from AAD to the App Service. An Azure Mobile Apps access token is received.  This token is then submitted on each request to the service to identify the user.
 
 ## Test the app
 
-From the **Run** menu, click **Run app** to start the app.  You will be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
+From the **Run** menu, click **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
 
 > **Deleting the resources**
 >
-> Now you have completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
+> Now you've completed the quickstart tutorial, you can delete the resources with `az group delete -n zumo-quickstart`. You can also delete the global app registration used for authentication through the portal.
 
 ## Next steps
 
