@@ -52,6 +52,8 @@
       - name: Spring Security 
         expanded: true
         items:
+          - name: Azure Active Directory dev guide
+            href: spring-boot-starter-for-azure-active-directory-developer-guide.md
           - name: Azure Active Directory 
             href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - name: Azure Active Directory B2C
