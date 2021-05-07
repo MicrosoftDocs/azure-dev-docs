@@ -63,7 +63,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <azure.functions.java.library.version>1.4.0</azure.functions.java.library.version>
-    <azure.functions.maven.plugin.version>1.9.1</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.11.0</azure.functions.maven.plugin.version>
 
     <!-- customize those two properties. The functionAppName should be unique across Azure -->
     <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
