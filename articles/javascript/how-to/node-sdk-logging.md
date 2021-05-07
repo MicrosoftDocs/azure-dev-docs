@@ -2,11 +2,11 @@
 title: Logging, metrics, telemetry in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/06/2021
 ms.custom: devx-track-js
 ---
 
-# Logging, metrics, and telemetry in Azure 
+# Logging, metrics, and telemetry in Azure
 
 There are several options for logging, metrics, and telemetry when using Azure. Review the options to find the tool or service you are looking for:
 
@@ -23,21 +23,21 @@ Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) fo
 
 ## View web app metrics data
 
-View metrics for your resource on a scheduled basis in the [Azure portal](https://portal.azure.com) for each resource. 
+View metrics for your resource on a scheduled basis in the [Azure portal](https://portal.azure.com) for each resource.
 
 :::image type="content" source="../media/logging-metrics/view-resource-metrics-in-azure-portal.png" alt-text="Configure alerts for your resource in the Azure portal, with URL of `https://portal.azure.com`, for each resource. ":::
 
 ## View web app failure data
 
-View failures for Application Insights monitored resources.     
+View failures for Application Insights monitored resources.
 
 :::image type="content" source="../media/logging-metrics/view-resource-failure-in-application-insights.png" alt-text="View failures for Application Insights monitored resources.":::
 
-## Set alerts to monitor your resource 
+## Set alerts to monitor your resource
 
 Set alerts for your resource in the [Azure portal](https://portal.azure.com) for each resource. Alerts can include specific metrics, communication streams (such as email), and frequency. Common alerts to set are total:
 
-* Requests 
+* Requests
 * Response time
 * Http server errors (in Hosting environments)
 
@@ -63,7 +63,7 @@ If you are trying out Application Insights by running code locally, which uses o
 
 ## Query your custom logs with Kusto query language
 
-When you use the `context.log` in a Function app or `console.log` in a Web app, and you have Application Insights enabled, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries, using the [Kusto query language](/azure/data-explorer/kusto/query/). 
+When you use the `context.log` in a Function app or `console.log` in a Web app, and you have Application Insights enabled, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can search the Trace table for any messages that contain that prefix when you want to reduce your log to just those custom entries, using the [Kusto query language](/azure/data-explorer/kusto/query/).
 
 ```kusto
 traces
@@ -74,7 +74,7 @@ traces
 
 ## Configure web app log streaming
 
-View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service log configuration. 
+View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service log configuration.
 
 :::image type="content" source="../media/logging-metrics/configue-azure-app-service-logs-in-azure-portal.png" alt-text="View log stream of hosted resources available in the resource's Monitoring section of the Azure portal.":::
 
@@ -85,8 +85,7 @@ For Azure Web apps, use the following table to learn more about how to stream lo
 |Method|Description|
 |--|--|
 |Azure CLI|[az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail)|
-|[VSCode App service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)|Right-click on resource and select **Start streaming logs**| 
-
+|[VSCode App service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)|Right-click on resource and select **Start streaming logs**|
 
 ## View Function log streaming
 
@@ -94,11 +93,11 @@ For Azure Function apps, use the following table to learn more about how to stre
 
 |Method|Description|
 |--|--|
-|[VSCode Functions service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)|Right-click on resource and select **Start streaming logs**| 
- 
+|Azure CLI|[az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>](/cli/azure/webapp/log#az_webapp_log_tail)|
+|[VSCode Functions service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)|Right-click on resource and select **Start streaming logs**|
 
 ## Next steps
 
-- [Enable diagnostics logging for apps in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
-- [Review Azure security logging and auditing options](/azure/security/fundamentals/log-audit)
-- [Learn how to work with Azure platform logs](/azure/azure-monitor/platform/platform-logs-overview)
+* [Enable diagnostics logging for apps in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
+* [Review Azure security logging and auditing options](/azure/security/fundamentals/log-audit)
+* [Learn how to work with Azure platform logs](/azure/azure-monitor/platform/platform-logs-overview)
