@@ -20,8 +20,6 @@ In this tutorial, you add Microsoft authentication to the quickstart project on 
 * Press F5 to run the app.
 * Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
-
 ## Add authentication to the app
 
 Open the `TodoService.cs` class.  Add the `AuthenticateAsync()` method to the class:
@@ -101,11 +99,11 @@ Right-click on the `Info.plist` file, then select **Open with...**.  Select the 
     </array>
 ```
 
-iOS uses this information to redirect the response from the authentication web view back into the application.  You can now build and run the application.  The sign-in process will be triggered immediately.
+iOS uses this information to redirect the user back to the app once they have signed in.  You can now build and run the application.  The sign-in process will be triggered immediately.
 
 ## Test the app
 
-Press F5 to run the app.  When you are successfully signed in, the app should run as before without errors.
+Press F5 to run the app.  When you're successfully signed in, the app should run as before without errors.
 
 [!INCLUDE (../../includes/quickstart-clean-up.md)]
 
