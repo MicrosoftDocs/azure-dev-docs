@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Service Principal for Ansible
+title: Quickstart - Create an Azure service principal for Ansible
 description: In this quickstart, learn how to create an Azure Service Principal to authenticate to Azure.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
@@ -28,9 +28,8 @@ Run the following code to create an Azure service principal:
 az ad sp create-for-rbac --name ansible
 ```
 
-**NOTE**:
-
-* Store the password from the output in a secure location.
+>[!NOTE]
+>Store the password from the output in a secure location.
 
 # [PowerShell](#tab/azurepowershell)
 
@@ -50,9 +49,8 @@ $sp = New-AzAdServicePrincipal @spSplat
 
 Replace `'<Password>'` with your password.
 
-**NOTE**:
-
-* Store the password in a secure location.
+>[!NOTE]
+>Store the password in a secure location.
 
 ---
 
@@ -69,9 +67,8 @@ az role assignment create --assignee <appID> --role Contributor
 
 Replace `<appID>` with the value provided from the output of `az ad sp create-for-rba` command.
 
-**NOTE**:
-
-* To improve security, change the scope of the role assignment to a resource group instead of a subscription.
+>[!NOTE]
+>To improve security, change the scope of the role assignment to a resource group instead of a subscription.
 
 # [PowerShell](#tab/azurepowershell)
 
@@ -87,9 +84,8 @@ $roleAssignmentSplat = @{
 New-AzRoleAssignment @roleAssignmentSplat
 ```
 
-**NOTE**:
-
-* To improve security, change the scope of the role assignment to a resource group instead of a subscription.
+>[!NOTE]
+>To improve security, change the scope of the role assignment to a resource group instead of a subscription.
 
 ---
 
