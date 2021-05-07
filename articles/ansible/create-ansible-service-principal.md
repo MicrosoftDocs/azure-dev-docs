@@ -30,7 +30,7 @@ az ad sp create-for-rbac --name ansible
 
 **NOTE**:
 
-* Store the password from the output in a secure location. You won't be able to retrieve it from Azure later.
+* Store the password from the output in a secure location.
 
 # [PowerShell](#tab/azurepowershell)
 
@@ -52,7 +52,7 @@ Replace `'<Password>'` with your password.
 
 **NOTE**:
 
-* Store the password in a secure location. You won't be able to retrieve it from Azure later.
+* Store the password in a secure location.
 
 ---
 
