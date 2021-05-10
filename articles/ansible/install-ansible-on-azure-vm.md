@@ -23,7 +23,7 @@ In this quickstart, you'll complete these tasks:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [open-source-devops-prereqs-create-sp.md](../includes/open-source-devops-prereqs-create-service-principal.md)]  <!-- todo, update with new ansible service principal article -->
+[!INCLUDE [open-source-devops-prereqs-create-sp.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
 
 ## Create an Azure virtual machine
 
