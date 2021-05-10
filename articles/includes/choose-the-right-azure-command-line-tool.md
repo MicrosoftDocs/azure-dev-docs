@@ -1,4 +1,12 @@
-# Choosing the right command-line tool for Azure
+---
+ author: Duffney
+ ms.service: azure
+ ms.topic: include
+ ms.date: 05/10/2021
+ ms.author: jduffney
+---
+
+# Choose the right command-line tool for Azure
 
 When it comes to managing Azure, you have many options. This article compares the Azure CLI and Azure PowerShell language and gives a comparison of the shell environments on which they run.
 
