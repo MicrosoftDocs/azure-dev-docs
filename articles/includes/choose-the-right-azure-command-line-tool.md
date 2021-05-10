@@ -78,7 +78,7 @@ Cloud Shell is accessible in a web browser and has integrations for [Windows Ter
 
 When picking the right tool, consider your past experience and current work environment.
 
-Azure CLI syntax is similar to that of Bash scripting. If you work primarily with Linux systems, Azure CLI feels more natural. 
+Azure CLI syntax is similar to that of Bash scripting. If you work primarily with Linux systems, Azure CLI feels more natural.
 
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
@@ -89,7 +89,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 **Note**:
 
-* Feature parity for Azure services doesn't always exist between Azure CLI and Azure PowerShell. But, new functionality is constantly being added.
+* Feature parity for Azure services doesn't always exist between Azure CLI and Azure PowerShell.
 
 ## Azure CLI and Azure PowerShell Side-by-side Command Comparison
 
