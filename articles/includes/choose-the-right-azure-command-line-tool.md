@@ -93,11 +93,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ## Azure CLI and Azure PowerShell Side-by-side Command Comparison
 
-<br>
-
 ##### Sign in, Subscription, and Location Commands:
-
-<br>
 
 |Command|Azure CLI|Azure PowerShell|
 |---|---|---|
@@ -108,11 +104,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-<br>
-
 #### Find Versions, Get Help, and View Command Help:
-
-<br>
 
 |Command|Azure CLI|Azure PowerShell|
 |---|---|---|
@@ -122,11 +114,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-<br>
-
 #### Create a Resource Group, VM, and Storage Account:
-
-<br>
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
@@ -136,11 +124,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-<br>
-
 #### Manage Azure Virtual Machines:
-
-<br>
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
@@ -151,11 +135,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 |Start VM| az vm start --name myVM --resource-group \<ResourceGroupName>|Start-AzVM -Name myVM -ResourceGroupName \<ResourceGroupName>
 |Delete VM|az vm delete --name myVM --resource-group \<ResourceGroupName>|Remove-AzVM -Name myVM -ResourceGroupName \<ResourceGroupName>|
 
-<br>
-
 #### Select Properties and Change Output Formats:
-
-<br>
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
