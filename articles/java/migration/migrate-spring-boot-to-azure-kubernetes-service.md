@@ -5,7 +5,7 @@ author: mnriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 4/10/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Migrate Spring Boot applications to Azure Kubernetes Service

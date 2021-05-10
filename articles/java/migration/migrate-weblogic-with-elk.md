@@ -4,12 +4,14 @@ description: This tutorial walks you through deploying WebLogic Server to Azure 
 author: edburns
 ms.author: edburns
 ms.topic: tutorial
-ms.date: 03/24/2021
+ms.date: 04/28/2021
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
 
 This tutorial walks you through the process of deploying WebLogic Server (WLS) with Elastic on Azure. It covers the specific steps for creating a managed Elastic stack on Azure. First you deploy WLS to connect to that Elastic stack. Then you create the search index in the managed Kibana. Finally, you search the WLS logs from within Kibana. All of these elements are well documented individually in other documentation. This tutorial shows the specific way all of these elements come together to create a powerful log management solution for WLS on Azure.
+
+:::image type="content" border="false" source="media/migrate-weblogic-with-elk/weblogic-elk.svg" alt-text="Diagram showing the relationship between WLS, App Gateway, and ELK.":::
 
 In this tutorial, you learn how to:
 
