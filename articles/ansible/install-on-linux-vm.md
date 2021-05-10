@@ -14,7 +14,6 @@ This quickstart shows how to install [Ansible](https://docs.ansible.com/) on a C
 In this quickstart, you'll complete these tasks:
 
 > [!div class="checklist"]
-> * Create an SSH key pair
 > * Create a resource group
 > * Create a CentOS virtual machine
 > * Install Ansible on the virtual machine
@@ -25,37 +24,6 @@ In this quickstart, you'll complete these tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
-* **Install Open-SSH**:
-    * [Windows Server 2019, Windows 10](/windows-server/administration/openssh/openssh_install_firstuse)
-
-## Create an SSH key pair
-
-When connecting to Linux VMs, you can use password authentication or key-based authentication. Key-based authentication is more secure than using passwords. As such, this article uses key-based authentication.
-
-With key-based authentication, there are two keys:
-
-* **Public key**: The public key is stored on the host - such as on your VM (as in this article)
-* **Private key**: The private key enables you to securely connect to your host. The private key is effectively your password and should be protected as such.
-
-The following steps walk you through creating an SSH key pair.
-
-Run the following command to create an SSH key using [ssh-keygen](https://www.ssh.com/ssh/keygen/).
-
-# [Bash](#tab/azure-cli)
-```bash
-ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N ""
-```
-# [PowerShell](#tab/powershell)
-
-```powershell
-ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N """"
-```
----
-
-**NOTE**:
-
-* The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
-* The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
 
 ## Create a virtual machine
 
@@ -89,15 +57,25 @@ ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N "
     --name QuickstartAnsible-vm \
     --image OpenLogic:CentOS:7.7:latest \
     --admin-username azureuser \
-    --ssh-key-values ~/.ssh/<ssh_public_key_filename>.pub
+    --admin-password <password>
     ```
 
-    Replace the placeholder with the fully qualified name of your SSH **public** key filename.
+    Replace the `<password>` your password.
 
     # [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name QuickstartAnsible-rg -location eastus
+    $adminUsername = "azureuser"
+    $adminPassword = ConvertTo-SecureString "P@ssw0rd1234!" -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword);
+    
+    New-AzVM `
+    -ResourceGroupName QuickstartAnsible-rg `
+    -Location eastus `
+    -Image OpenLogic:CentOS:7.7:latest `
+    -Name QuickstartAnsible-vm `
+    -OpenPorts 22 `
+    -Credential $credential
     ```
 
     Replace the placeholder with the fully qualified name of your SSH **public** key filename.
@@ -105,12 +83,28 @@ ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N "
 1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az_vm_list).
 
     ```azurecli
-    az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
+    
     ```
 
-**NOTE**:
+    # [Azure CLI](#tab/azure-cli)
 
-* The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
+    ```azurecli
+    az vm show -d -g QuickstartAnsible-rg -n QuickstartAnsible-vm --query publicIps -o tsv
+    ```
+
+    **NOTE**:
+
+    * The output command displays the public IP address used to connect via SSH to the virtual machine.
+
+    # [PowerShell](#tab/powershell)
+
+    ```azurepowershell
+    Get-AzVM -ResourceGroupName QuickstartAnsible-rg-Name QuickstartAnsible-vm | Get-AzPublicIpAddress
+    ```
+
+    **NOTE**:
+
+    * The output displays the public IP address used to connect via SSH to the virtual machine.
 
 ## Connect to your virtual machine via SSH
 
