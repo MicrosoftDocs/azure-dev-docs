@@ -9,4 +9,4 @@ ms.custom:
 ---
 
 
-[!INCLUDE [choosing-the-right-azure-tool.md](../includes/choosing-the-right-azure-tool.md)]
+[!INCLUDE [choosing-the-right-azure-tool.md](../includes/choose-the-right-azure-command-line-tool.md)]

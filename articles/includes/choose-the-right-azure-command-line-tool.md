@@ -39,7 +39,7 @@ on Windows, macOS, and Linux.
 * Cross-platform PowerShell module, runs on Windows, macOS, Linux
 * Requires Windows PowerShell or PowerShell
 
-## Different Shell Environments
+## Different shell environments
 
 |Shell Environment|Azure CLI|Azure PowerShell|
 |---|:---:|:---:|
@@ -93,7 +93,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ## Azure CLI and Azure PowerShell Side-by-side Command Comparison
 
-##### Sign in, Subscription, and Location Commands:
+Sign in, Subscription, and Location Commands:
 
 |Command|Azure CLI|Azure PowerShell|
 |---|---|---|
@@ -104,7 +104,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-#### Find Versions, Get Help, and View Command Help:
+Find Versions, Get Help, and View Command Help:
 
 |Command|Azure CLI|Azure PowerShell|
 |---|---|---|
@@ -114,7 +114,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-#### Create a Resource Group, VM, and Storage Account:
+Create a Resource Group, VM, and Storage Account:
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
@@ -124,7 +124,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 ---
 
-#### Manage Azure Virtual Machines:
+Manage Azure Virtual Machines:
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
@@ -135,7 +135,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 |Start VM| az vm start --name myVM --resource-group \<ResourceGroupName>|Start-AzVM -Name myVM -ResourceGroupName \<ResourceGroupName>
 |Delete VM|az vm delete --name myVM --resource-group \<ResourceGroupName>|Remove-AzVM -Name myVM -ResourceGroupName \<ResourceGroupName>|
 
-#### Select Properties and Change Output Formats:
+Select Properties and Change Output Formats:
 
 |Command|Azure CLI|Azure PowerShell|
 | --- | --- | --- |
