@@ -8,16 +8,16 @@ ms.custom: devx-track-terraform
 # Customer intent: Find solutions to common problems encountered when using Terraform on Azure.
 ---
 
-## Troubleshoot common problems when using Terraform on Azure
+# Troubleshoot common problems when using Terraform on Azure
 
-### Terraform-specific support
+This article lists common problems and possible solutions when using Terraform on Azure. If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashiCorp-terraform--specific-suppor-channels).
 
-This article lists common problems and possible solutions when using Terraform on Azure. If you encounter a problem that is specific to Terraform, use one of HashiCorp's community support channels:
+## HashiCorp Terraform-specific support channels
 
 * Questions, use-cases, and useful patterns: [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
 * Provider-related questions: [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers)
 
-### Unable to list provider registration status
+## Unable to list provider registration status
 
 This error message looks similar to the following:
 
