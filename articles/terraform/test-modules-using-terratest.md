@@ -515,7 +515,9 @@ With mage, you could also share the steps by using the Go package system. In tha
  
 Instead of executing `az login` before tests, you can complete Azure authentication by setting the service principal environment variables. Terraform publishes a [list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailed instructions that explain how to [obtain the value of these environment variables](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

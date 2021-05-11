@@ -128,7 +128,9 @@ Data stored in an Azure blob is encrypted before being persisted. When needed, T
 
 For more information on Azure Storage encryption, see [Azure Storage service encryption for data at rest](/azure/storage/common/storage-service-encryption).
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

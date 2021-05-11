@@ -182,7 +182,9 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
 
 ## 8. Verify the results
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

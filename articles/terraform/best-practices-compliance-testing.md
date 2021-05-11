@@ -190,7 +190,9 @@ In this section, you'll download and test the example.
 
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

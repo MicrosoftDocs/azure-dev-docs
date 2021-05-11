@@ -1,16 +1,18 @@
 ---
-title: include file
-description: include file
-author: tomarchermsft
-ms.service: terraform
-ms.topic: include
-ms.date: 09/25/2020
-ms.author: tarcher
+title: Troubleshoot common problems when using Terraform on Azure
+description: In this article, troubleshoot common problems when using Terraform on Azure
+keywords: terraform azure troubleshoot errors problems
+ms.topic: how-to
+ms.date: 05/14/2021
+ms.custom: devx-track-terraform
+# Customer intent: Find solutions to common problems encountered when using Terraform on Azure.
 ---
 
-## Troubleshooting
+## Troubleshoot common problems when using Terraform on Azure
 
-### For Terraform-specific support, use one of HashiCorp's community support channels to Terraform:
+### Terraform-specific support
+
+This article lists common problems and possible solutions when using Terraform on Azure. If you encounter a problem that is specific to Terraform, use one of HashiCorp's community support channels:
 
 * Questions, use-cases, and useful patterns: [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
 * Provider-related questions: [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers)

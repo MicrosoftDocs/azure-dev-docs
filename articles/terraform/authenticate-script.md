@@ -88,7 +88,9 @@ az login --service-principal -u "<service_principal_appid>" -p "<service_princip
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

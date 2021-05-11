@@ -465,7 +465,9 @@ You can then SSH to your VM:
 ssh azureuser@<publicIps>
 ```
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

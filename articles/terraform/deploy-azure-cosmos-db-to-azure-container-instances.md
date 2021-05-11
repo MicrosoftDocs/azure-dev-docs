@@ -170,7 +170,9 @@ Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html)
 terraform destroy -auto-approve
 ```
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

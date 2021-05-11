@@ -162,7 +162,9 @@ Create the Terraform configuration file for common variables that are used acros
 
 1. Save the file and exit the editor.
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

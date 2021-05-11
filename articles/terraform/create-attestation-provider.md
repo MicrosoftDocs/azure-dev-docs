@@ -35,7 +35,9 @@ resource "azurerm_attestation_provider" "corpAttestation" {
 }
 ```
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

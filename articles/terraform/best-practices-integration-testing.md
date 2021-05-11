@@ -216,7 +216,9 @@ Once you've done that step, access the details in Azure DevOps to ensure that ev
 
 ![Azure DevOps Green Pipeline](media/best-practices-integration-testing/azure-devops-green-pipeline.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

@@ -17,6 +17,10 @@
       href: get-started-windows-powershell.md
 - name: How-to guides
   items:
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot common problems
+          href: troubleshoot.md
     - name: Setup and configuration
       items:
         - name: Authenticate with Microsoft account

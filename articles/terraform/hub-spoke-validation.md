@@ -140,7 +140,9 @@ When no longer needed, delete the resources created in the tutorial series.
     rm -r hub-spoke
     ```
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

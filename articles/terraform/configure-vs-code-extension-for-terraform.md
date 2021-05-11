@@ -289,7 +289,9 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 ![Test results](media/configure-vs-code-extension-for-terraform/tf-end-to-end-test-results.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

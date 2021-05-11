@@ -775,7 +775,9 @@ Replace the placeholder with the appropriate value. All resources within the spe
 az group delete -n <resource-group>
 ```
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

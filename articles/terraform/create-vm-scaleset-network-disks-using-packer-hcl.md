@@ -436,7 +436,9 @@ terraform destroy
 
 Enter *yes* when you're asked to confirm the deletion of the resources. The destruction process can take a few minutes to complete.
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

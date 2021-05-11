@@ -284,7 +284,9 @@ In this section, the Yeoman generator is used to create and test a module in Clo
 
     ![Test-pass results](media/create-a-base-template-using-yeoman/ymg-pass.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

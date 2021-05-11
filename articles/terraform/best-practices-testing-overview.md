@@ -54,4 +54,6 @@ E2E testing is typically a three-step process. First, the configuration is appli
 > [!div class="nextstepaction"]
 > [Learn more about End-to-end Testing](best-practices-end-to-end-testing.md)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)

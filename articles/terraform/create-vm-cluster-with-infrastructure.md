@@ -246,7 +246,9 @@ If you want to apply a previously saved execution plan, run the following comman
 
 ![Applying a Terraform execution plan](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

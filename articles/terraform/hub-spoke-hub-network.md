@@ -221,7 +221,9 @@ Create the Terraform configuration file that declares the hub virtual network.
     
 3. Save the file, and exit the editor.
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

@@ -101,8 +101,9 @@ resource "azurerm_network_watcher_flow_log" "app1_network_logs" {
 }
 ```
 
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
