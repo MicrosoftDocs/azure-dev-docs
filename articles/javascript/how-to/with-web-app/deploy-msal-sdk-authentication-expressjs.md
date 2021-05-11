@@ -56,7 +56,7 @@ Make sure the following are installed on your local developer workstation:
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
 
-## Download sample Express.js app
+## Download and run sample Express.js app
 
 Create and run an Express.js app by cloning an Azure sample repository. 
 
@@ -78,10 +78,12 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. Browse to your locally running app, `http://localhost:8080`.
 
+    :::image type="content" source="../../media/express-app-msal-auth/please-configure-appSettings.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
+
     > [!TIP]
     > Port 8080 is the default port for Azure app service. If your app uses a different port, make sure the `process.env.PORT` environment variable is used in your running application to get the port value: `port = process.env.PORT || 8080`.
 
-## Create an Azure web app
+## Create an Azure web app in VS Code
 
 1. In VS Code, select **Azure** from the activity bar, then select **+** in the **Azure: App Service** side bar. 
 1. Complete the prompts:
@@ -103,12 +105,9 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Select **Browse website** from the notification. 
     The web app may take a minute or two to return from the server for the first (cold) start.
 
-1. When you receive the following response in the browser, the sample app is deployed and is responding correctly. 
-    Authentication isn't configured yet.  
+1. When you see the same web app as your local app, the sample app is deployed and is responding correctly. Authentication isn't configured yet.  
 
-    :::image type="content" source="../../media/express-app-msal-auth/please-configure-appSettings.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
-
-## Create Active Directory app
+## Create an Active Directory app
 
 Create an Active Directory app to authenticate users with the Microsoft Identity provider. 
 
@@ -160,7 +159,7 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
 > Azure App service's app versus Azure Active Directory app - what's the difference? 
 > The **App service is your web site hosting environment**. This is where you upload your source code. **Active Directory is your Identity solution for validating users**. These two services can be used completely independently but both can be referred to as **apps**. 
 
-## Configure App service environment variables for your Active Directory app secrets
+## Configure App service environment variables for authentication
 
 While you still have the secret and other settings handy, configure your remote App's settings too.
 
