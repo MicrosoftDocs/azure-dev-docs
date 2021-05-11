@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 #intent: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ---
 
-# Deploy Express.js with Microsoft Authentication to Azure App service 
+# Deploy Express.js with Microsoft Authentication to Azure App service
 
 Learn how to deploy an Express.js app, integrated with Microsoft Authentication Library (MSAL).
 
