@@ -65,11 +65,34 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Run the app with the following command: 
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 1. Browse to your locally running app, `http://localhost:8080`.
-1. In the same bash terminal, stop the running app with **Control + c**.
+
+    The app builds and runs successfully but isn't configured correctly for Microsoft Authentication. 
+
+## Create an Active Directory app registration
+
+## Configure Express.js to use your Active Directory app
+
+Edit the appSettings.json file's values for your Active Directory app.
+
+1. In VS Code, edit the `credentials` properties for your Active Directory app. 
+
+    ```json
+    "credentials": {
+        "clientId": process.env.AD_CLIENT_ID || "REPLACE-WITH-YOUR-APP-CLIENT-ID",
+        "tenantId": process.env.AD_TENANT_ID || "REPLACE-WITH-YOUR-APP-TENANT-ID",
+        "clientSecret": process.env.AD_CLIENT_ID_SECRET || "REPLACE-WITH-YOUR-APP-CLIENT-ID-SECRET"
+    }
+    ```
+
+    If you lost your app's cliend ID secret, return to the portal to create a new one. 
+
+1. Wait until the app restarts, then refresh your browser window. 
+1. Sign in to the app.
+1. Select your profile. 
 
 ## Create an Azure app service
 
