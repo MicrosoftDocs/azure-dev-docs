@@ -32,5 +32,5 @@ If you are trying to create an execution plan (`terraform plan`) from the Cloud 
 | ARM_CLIENT_ID | Azure service principal app ID |
 | ARM_CLIENT_SECRET | Azure service principal password |
 
-As of this writing, the Terraform script that runs in Cloud Shell overwrites the `ARM_SUBSCRIPTION_ID` and `ARM_TENANT_ID` environment variables using values from the current Azure subscription. As a result, if the service principal doesn't have rights to the current Azure subscription, any Terraform operations will fail.
+As of this writing, the Terraform script that runs in Cloud Shell overwrites the `ARM_SUBSCRIPTION_ID` and `ARM_TENANT_ID` environment variables using values from the current Azure subscription. As a result, if the service principal referenced by the environment variables doesn't have rights to the current Azure subscription, any Terraform operations will fail.
  
