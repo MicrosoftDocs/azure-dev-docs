@@ -18,8 +18,8 @@ ms.custom: devx-track-ansible
 > [!div class="checklist"]
 >
 > * Set up a network
-> * Create two Azure Container Instances with HTTPD images
-> * Create an application gateway that works with the Azure Container Instances in the server pool
+> * Create two Azure container instances with HTTPD images
+> * Create an application gateway that works with the Azure container instances in the server pool
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ ansible-playbook vnet_create.yml
 
 ## Create servers
 
-The playbook code in this section creates two Azure Container Instances with HTTPD images to be used as web servers for the application gateway.  
+The playbook code in this section creates two Azure container instances with HTTPD images to be used as web servers for the application gateway.  
 
 Save the following playbook as `aci_create.yml`:
 
