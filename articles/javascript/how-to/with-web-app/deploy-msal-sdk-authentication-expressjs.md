@@ -217,7 +217,7 @@ While you still have the secret and other settings handy, configure your remote 
 There are many steps to create a new web app, develop the app locally, then deploy the app to Azure and configuration authentication for that app. 
 
 The [sample code](https://github.com/Azure-Samples/js-e2e-web-app-server-auth) provided:
-* Express.js app integrated with MSAL SDK for authentication
+* Express.js app integrated with MSAL SDK for authentication.
 
 You created: 
 * A new Azure web app - to host your source code.
