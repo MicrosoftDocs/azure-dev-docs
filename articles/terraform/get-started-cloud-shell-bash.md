@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform in Azure Cloud Shell with Bash
 description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell with Bash
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 05/11/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using the Bash environment.
@@ -44,8 +44,8 @@ If want to use the displayed default subscription, you can skip the rest of this
 
 If you want to authenticate using either a different Microsoft account or Azure subscription, the following options can be used:
 
-- [Option #1: Authenticate via a Microsoft account](authenticate-with-microsoft-account.md) - Recommended when using Terraform interactively.
-- [Option #2: Authenticate via an Azure service principal](authenticate-with-service-principal.md) - Recommended when using Terraform from code.
+- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md)
+- [Option #2: Authenticate from script using a service principal](authenticate-script.md)
 
 ## Next steps
 

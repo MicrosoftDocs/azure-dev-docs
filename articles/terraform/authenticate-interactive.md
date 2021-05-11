@@ -1,5 +1,5 @@
 ---
-title: Authenticate to Azure with a Microsoft Account
+title: Authenticate Terraform to Azure with a Microsoft Account
 description: In this article, you learn how to authenticate to Azure with a Microsoft Account
 keywords: terraform azure cli authenticate
 ms.topic: how-to
@@ -59,8 +59,7 @@ az account set --subscription="<subscription_id_or_subscription_name>"
 - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 - If you run the `az account list` command from the previous step, you see that the default Azure subscription has changed to the subscription you specified with `az account set`.
 
-> [!IMPORTANT]
-> Creating and applying a Terraform execution plan impacts the current Azure subscription *unless* you have defined specific environment variables that point to another Azure subscription. These environment variables include such information as an Azure subscription ID, a service principal ID, and the service principal's password. For example, if your current Azure subscription is "SubA", but your Bash environment variables point to "SubB", Terraform uses "SubB". For more information about how to set up these environment variables, read the article [Authenticate with an Azure service principal](get-started-authenticate-with-service-principal.md).
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 

@@ -10,7 +10,23 @@ ms.author: tarcher
 
 ## Troubleshooting
 
-For Terraform-specific support, use one of HashiCorp's community support channels to Terraform:
+### For Terraform-specific support, use one of HashiCorp's community support channels to Terraform:
 
 * Questions, use-cases, and useful patterns: [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
 * Provider-related questions: [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers)
+
+### Unable to list provider registration status
+
+This error message looks similar to the following:
+
+*Error: Unable to list provider registration status, it is possible that this is due to invalid credentials or the service principal does not have permission to use the Resource Manager API, Azure error: resources.ProvidersClient#List: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error. Status=403 Code="AuthorizationFailed" Message="The client '00000000-0000-0000-0000-000000000000' with object id '00000000-0000-0000-0000-000000000000' does not have authorization to perform action 'Microsoft.Resources/subscriptions/providers/read' over scope '/subscriptions/00000000-0000-0000-0000-000000000000' or the scope is invalid. If access was recently granted, please refresh your credentials."*
+
+If you are trying to create an execution plan (`terraform plan`) from the Cloud Shell and you have defined certain [Terraform/Azure environment variables](https://registry.terraform.io/providers/hashicorp/azurerm/2.35.0/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform), you can sometimes see conflicts. The environment variables specify the following value: 
+
+- Azure subscription ID (ARM_SUBSCRIPTION_ID)
+- Microsoft account tenant ID (ARM_TENANT_ID)
+- Azure service principal app ID (ARM_CLIENT_ID)
+- Azure service principal password (ARM_CLIENT_SECRET)
+
+As of this writing, the Terraform script that runs in Cloud Shell overwrites the ARM_SUBSCRIPTION_ID and ARM_TENANT_ID environment variables. As a result, if the service principal doesn't have rights to the current Azure subscription, any Terraform operations will fail.
+ 

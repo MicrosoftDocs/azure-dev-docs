@@ -1,14 +1,14 @@
 ---
-title: Authenticate to Azure with a Service Principal
+title: Authenticate Terraform to Azure using a service principal
 description: In this article, you learn how to authenticate to Azure with a Service Principal
 keywords: terraform azure cli authenticate
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.custom: devx-track-terraform
-# Customer intent: As someone new to Terraform and Azure, I want authenticate to Azure using a Service Principal.
+# Customer intent: I want authenticate to Azure using a service principal.
 ---
 
-# Authenticate to Azure with a Service Principal
+# Authenticate Terraform to Azure using a service principal
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use the service principal for future logins.
 
@@ -87,6 +87,8 @@ az login --service-principal -u "<service_principal_appid>" -p "<service_princip
 **Notes**:
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
+
+[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
 
 ## Next steps
 
