@@ -80,11 +80,7 @@ In this quickstart, you'll complete these tasks:
 
     Replace the placeholder with the fully qualified name of your SSH **public** key filename.
 
-1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az_vm_list).
-
-    ```azurecli
-    
-    ```
+1. Geth the public Ip address of the Azure virtual machine.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -94,12 +90,12 @@ In this quickstart, you'll complete these tasks:
 
     **NOTE**:
 
-    * The output command displays the public IP address used to connect via SSH to the virtual machine.
+    * The output displays the public IP address used to connect via SSH to the virtual machine.
 
     # [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    Get-AzVM -ResourceGroupName QuickstartAnsible-rg-Name QuickstartAnsible-vm | Get-AzPublicIpAddress
+    (Get-AzVM -ResourceGroupName QuickstartAnsible-rg QuickstartAnsible-vm-pwsh | Get-AzPublicIpAddress).IpAddress
     ```
 
     **NOTE**:
@@ -111,12 +107,37 @@ In this quickstart, you'll complete these tasks:
 Using the SSH command, connect to your virtual machine's public IP address.
 
 ```azurecli
-ssh -i <ssh_private_key_filename> azureuser@<vm_ip_address>
+ssh -i azureuser@<vm_ip_address>
 ```
 
 Replace the placeholders with the appropriate values returned in pervious commands.
 
 ## Install Ansible on the virtual machine
+
+### Ansible 2.9 with the azure_rm module
+
+Run the following commands to configure Ansible 2.9 on Centos:
+
+```bash
+#!/bin/bash
+
+# Update all packages that have available updates.
+sudo yum update -y
+
+# Install Python 3 and pip.
+sudo yum install -y python3-pip
+
+# Upgrade pip3.
+sudo pip3 install --upgrade pip
+
+# Install Ansible.
+pip3 install "ansible==2.9.17"
+
+# Install Ansible azure_rm module for interacting with Azure.
+pip3 install ansible[azure]
+```
+
+### Ansible 2.10 with the azure.azcollection collection
 
 Run the following commands to configure Ansible on Centos:
 
@@ -132,18 +153,15 @@ sudo yum install -y python3-pip
 # Upgrade pip3.
 sudo pip3 install --upgrade pip
 
-# Install Ansible.
-pip3 install ansible[azure]
-
-# Install Ansible modules and plugins for interacting with Azure.
+# Install Ansible az collection for interacting with Azure.
 ansible-galaxy collection install azure.azcollection
 
-# Install required modules for Ansible on Azure
+# Get required modules for Ansible on Azure list
 wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 
-# Install Ansible modules
+# Install Ansible modules for Azure
 sudo pip3 install -r requirements-azure.txt
-``````
+```
 
 ## Create Azure credentials
 
@@ -197,7 +215,74 @@ export AZURE_TENANT=<security-principal-tenant>
 
 You now have a virtual machine with Ansible installed and configured!
 
-[!INCLUDE [ansible-test-configuration.md](includes/ansible-test-configuration.md)]
+This section shows how to create a test resource group within your new Ansible configuration. If you don't need to do that, you can skip this section.
+
+### Create an Azure resource group
+
+Run the following ad-hoc Ansible command to create a resource group:
+
+```bash
+#Ansible 2.9 with azure_rm module
+ansible localhost -m azure_rm_resourcegroup -a "name=ansible-test location=eastus"
+
+#Ansible 2.10 with azure.azcollection
+ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=<resource_group_name> location=<location>"
+```
+
+Replace `<resource_group_name>` and `<location>` with your values.
+
+### (Optional) Create an Azure resource group with an Ansible playbook
+
+1. Save the following code as `create_rg.yml`.
+
+    Ansible 2.9 with azure_rm module
+
+    ```yml
+    ---
+    - hosts: localhost
+        connection: local
+        tasks:
+        - name: Creating resource group
+            azure_rm_resourcegroup:
+            name: "<resource_group_name"
+            location: "<location>"
+    ```
+
+    Ansible 2.10 with azure.azcollection
+
+    ```yml
+    - hosts: localhost
+      connection: local
+      collections:
+       - azure.azcollection
+      tasks:
+      - name: Creating resource group
+          azure_rm_resourcegroup:
+          name: "<resource_group_name"
+          location: "<location>"
+    ```
+
+    Replace `<resource_group_name>` and `<location>` with your values.
+
+1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html).
+
+    ```bash
+    ansible-playbook create_rg.yml
+    ```
+
+Read more about the [azure.azcollection](https://cloudblogs.microsoft.com/opensource/2020/04/28/announcing-azcollection-the-ansible-collection-for-azure/).
+
+### Delete an Azure resource group
+
+Run the following command to delete the Azure resource group:
+
+```bash
+#Ansible 2.9 with azure_rm module
+ansible localhost -m azure_rm_resourcegroup -a "name=<resource_group_name> state=absent force_delete_nonempty=yes"
+
+#Ansible 2.10 with azure.azcollection
+ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=<resource_group_name> state=absent force_delete_nonempty=yes"
+```
 
 ## Next steps
 
