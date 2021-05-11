@@ -18,6 +18,8 @@ In this step, you run the Azure Functions project locally to test it before depl
 1. In Visual Studio Code, press **F5**  to launch the debugger and attach to the Azure Functions host. 
 
     You could also use the **Debug** > **Start Debugging** menu command.
+    
+    Reminder: run `func host start` to start the server.
 
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Alt**+click the local URL shown in the output to open the browser and run the function:
 
