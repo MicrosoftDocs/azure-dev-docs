@@ -3,14 +3,16 @@ title: Authenticate Terraform to Azure with a Microsoft Account
 description: In this article, you learn how to authenticate to Azure with a Microsoft Account
 keywords: terraform azure cli authenticate
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 05/11/2021
 ms.custom: devx-track-terraform
-# Customer intent: As someone new to Terraform and Azure, I want authenticate to Azure using a Microsoft account.
+# Customer intent: I want to authenticate to Azure using a Microsoft account.
 ---
 
 # Authenticate to Azure with a Microsoft Account
  
 This article shows how to authenticate to Azure using a Microsoft account using either the default Azure subscription or switching to another Azure subscription.
+
+The techniques illustrated in this article are how you generally authenticate interactively. For information on authenticating from a script, see [Authenticate Terraform to Azure using a service principal](authenticate-script.md).
 
 In this article, you learn how to:
 > [!div class="checklist"]

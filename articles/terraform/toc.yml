@@ -24,9 +24,9 @@
     - name: Setup and configuration
       items:
         - name: Authenticate with Microsoft account
-          href: authenticate-with-microsoft-account.md
+          href: authenticate-interactive.md
         - name: Authenticate with Service Principal
-          href: authenticate-with-service-principal.md
+          href: authenticate-script.md
         - name: Install latest Terraform version
           href: install-latest-version.md
         - name: Store Terraform state in Azure Storage
