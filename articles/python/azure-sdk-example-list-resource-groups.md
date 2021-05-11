@@ -148,7 +148,7 @@ az group list
 The following command lists resources within the "myResourceGroup" in the centralus region (the location argument is necessary to identify a specific data center):
 
 ```azurecli
-az resource list --resource group myResourceGroup --location centralus
+az resource list --resource-group myResourceGroup --location centralus
 ```
 
 ## See also

@@ -86,6 +86,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "js-e2e-web-app-server-auth",
+      "url": "https://github.com/Azure-Samples/js-e2e-web-app-server-auth",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "js-e2e",
       "url": "https://github.com/Azure-Samples/js-e2e",
       "branch": "main",

@@ -4,7 +4,7 @@ description: WebSphere products are key components in enabling enterprise Java w
 author: m-reza-rahman
 ms.author: rezar
 ms.topic: overview
-ms.date: 04/06/2021
+ms.date: 04/28/2021
 ms.custom: template-overview, devx-track-java
 ---
 
@@ -17,6 +17,8 @@ The IBM WebSphere product portfolio is a set of industry-leading runtimes poweri
 WebSphere products are key components in enabling enterprise Java workloads on Azure. The offers aim to cover a range of use cases from mission critical existing traditional workloads to cloud-native applications. The offers target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, WebSphere Application Server on Virtual Machines, Open Liberty on the Azure Kubernetes Service (AKS), and WebSphere Liberty on AKS. All offers enable further customization of deployments such as integration with databases (Db2, Azure SQL, Azure PostgreSQL, Azure MySQL), Azure App Gateway, Azure Active Directory, and ELK.
 
 The currently available offers are linked at the bottom of this page.
+
+:::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure.":::
 
 If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select the CONTACT ME button on the marketplace offer [overview page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
 
