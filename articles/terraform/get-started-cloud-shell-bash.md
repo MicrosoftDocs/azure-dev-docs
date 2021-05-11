@@ -47,6 +47,10 @@ If you want to authenticate using either a different Microsoft account or Azure 
 - [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md)
 - [Option #2: Authenticate from script using a service principal](authenticate-script.md)
 
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+
 ## Next steps
 
 > [!div class="nextstepaction"]

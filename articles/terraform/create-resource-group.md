@@ -8,3 +8,14 @@ ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
+
+# Quickstart: Create an Azure resource group using Terraform
+
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)
