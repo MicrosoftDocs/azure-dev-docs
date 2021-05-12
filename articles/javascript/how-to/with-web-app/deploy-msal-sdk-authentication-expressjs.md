@@ -78,7 +78,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. Browse to your locally running app, `http://localhost:8080`.
 
-    :::image type="content" source="../../media/express-app-msal-auth/please-configure-appSettings.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
+    :::image type="content" source="../../media/express-app-msal-auth/please-configure-app-settings.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
 
     > [!TIP]
     > Port 8080 is the default port for Azure app service. If your app uses a different port, make sure the `process.env.PORT` environment variable is used in your running application to get the port value: `port = process.env.PORT || 8080`.
@@ -102,10 +102,11 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 ## Browse to Azure web app
  
-1. Select **Browse website** from the notification. 
-    The web app may take a minute or two to return from the server for the first (cold) start.
+Select **Browse website** from the notification. 
 
-1. When you see the same web app as your local app, the sample app is deployed and is responding correctly. Authentication isn't configured yet.  
+The web app may take a minute or two to return from the server for the first (cold) start.
+
+When you see the same web app as your local app, the sample app is deployed and is responding correctly. Authentication isn't configured yet.  
 
 ## Create an Active Directory app
 
@@ -131,7 +132,7 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
 
 1. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure web app's redirect URL then select **Save**.
 
-    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-registrations-new-registration-add-app-service-redirect-url.png" alt-text="When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure app service's redirect URL then select **Save**.":::
+    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-add-app-service-redirect-url.png" alt-text="When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure app service's redirect URL then select **Save**.":::
 
 
 1. Copy the following values to use in your Express.js app:
@@ -207,7 +208,7 @@ While you still have the secret and other settings handy, configure your remote 
 1. In VS Code, in the Azure side bar, select your App service then right-click and select **Start streaming logs**. These are the logs for your Azure app service and include `console.log` output.
 1. In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**, to have the new app settings take effect.
 
-    :::image type="content" source="../../media/express-app-msal-auth/vscode-app-service-restart-app.png" alt-text="In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**.":::
+    :::image type="content" source="../../media/express-app-msal-auth/vs-code-app-service-restart-app.png" alt-text="In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**.":::
 
 1. In the Azure side bar, select your App service then right-click and select **Browse website** then select **Open** in the pop-up window. 
 
