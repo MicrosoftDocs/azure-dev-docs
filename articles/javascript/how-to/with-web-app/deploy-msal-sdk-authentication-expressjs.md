@@ -78,7 +78,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. Browse to your locally running app, `http://localhost:8080`.
 
-    :::image type="content" source="../../media/express-app-msal-auth/please-configure-app-settings.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
+    :::image type="content" source="../../media/express-app-msal-auth/please-configure-app-settings.png" alt-text="Screenshot of VS Code. Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. ":::
 
     > [!TIP]
     > Port 8080 is the default port for Azure app service. If your app uses a different port, make sure the `process.env.PORT` environment variable is used in your running application to get the port value: `port = process.env.PORT || 8080`.
@@ -116,7 +116,7 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
 1. In the search bar, enter **Azure Active Directory**, then select **App registrations**. As an alternative, you can use this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
 1. Select **New registration** to begin the app registration process.
 
-    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-registrations-new-registration.png" alt-text="Select Authentication under the app's settings then select Add identity provider":::
+    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-registrations-new-registration.png" alt-text="Screenshot of Azure portal in a browser. Select Authentication under the app's settings then select Add identity provider":::
 
 1. In the next form, configure the following identity provider settings:
 
@@ -126,13 +126,13 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
     |Supported account types|Select **Any Azure AD directory and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).|
     |Web Redirect URI|Enter your local redirect URL:<br>`http://localhost:8080`.|
 
-    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-app-service-add-identity-provider-any-directory.png" alt-text="Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
+    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-app-service-add-identity-provider-any-directory.png" alt-text="Screenshot of Azure portal. Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
 
 1. Select **Register** to finish the process. 
 
 1. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure web app's redirect URL then select **Save**.
 
-    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-add-app-service-redirect-url.png" alt-text="When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure app service's redirect URL then select **Save**.":::
+    :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-add-app-service-redirect-url.png" alt-text="Screenshot of Azure portal. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure app service's redirect URL then select **Save**.":::
 
 
 1. Copy the following values to use in your Express.js app:
@@ -185,21 +185,21 @@ While you still have the secret and other settings handy, configure your remote 
 1. In a web browser, open your local app, `http://localhost:8080`.
 1. Select **Sign-in** from the top navigation bar.
 
-    :::image type="content" source="../../media/express-app-msal-auth/sign-in-to-access-your-resources.png" alt-text="In the web browser for your Express.js app, select **Sign-in** from the top navigation bar.":::
+    :::image type="content" source="../../media/express-app-msal-auth/sign-in-to-access-your-resources.png" alt-text="Screenshot of web app in browser. Select **Sign-in** from the top navigation bar.":::
 
 
 1. Review the permissions requested pop-up then select **Accept**. This is a one-time required request for you, and your app's users, to agree to the permissions requested by your Active Directory app.
 
-    :::image type="content" source="../../media/express-app-msal-auth/browser-window-permissions-requested-by-active-directory-app.png" alt-text="Review the permissions requested pop-up then select **Accept**. This is a one-time required request for you (your app's users) to agree to the permissions requested by the Active Directory app.":::
+    :::image type="content" source="../../media/express-app-msal-auth/browser-window-permissions-requested-by-active-directory-app.png" alt-text="Screenshot of web browser. Review the permissions requested pop-up then select **Accept**. This is a one-time required request for you (your app's users) to agree to the permissions requested by the Active Directory app.":::
 
 1. Complete the sign-in process. The exact process depends on your tenant configuration and can include two-factor authentication (2FA).
 1. When the sign-in process is complete, select **Get my profile**.
 
-    :::image type="content" source="../../media/express-app-msal-auth/welcome-get-my-profile.png" alt-text="When the sign-in process is complete, select **Get my profile**.":::
+    :::image type="content" source="../../media/express-app-msal-auth/welcome-get-my-profile.png" alt-text="Screenshot of your web app in browser. When the sign-in process is complete, select **Get my profile**.":::
 
 1. View your profile data help in the Microsoft Identity provider. The following profile is an example only.
 
-    :::image type="content" source="../../media/express-app-msal-auth/calling-microsoft-graph.png" alt-text="View your profile data help in the Microsoft Identity provider. The following profile is an example only.":::
+    :::image type="content" source="../../media/express-app-msal-auth/calling-microsoft-graph.png" alt-text="Screenshot of your web app in browser. View your profile data help in the Microsoft Identity provider. The following profile is an example only.":::
 
     The **Get my tenant** button will only work for users with Admin permissions on the tenant. 
 
@@ -208,7 +208,7 @@ While you still have the secret and other settings handy, configure your remote 
 1. In VS Code, in the Azure side bar, select your App service then right-click and select **Start streaming logs**. These are the logs for your Azure app service and include `console.log` output.
 1. In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**, to have the new app settings take effect.
 
-    :::image type="content" source="../../media/express-app-msal-auth/vs-code-app-service-restart-app.png" alt-text="In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**.":::
+    :::image type="content" source="../../media/express-app-msal-auth/vs-code-app-service-restart-app.png" alt-text="Screenshot of VS Code. In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**.":::
 
 1. In the Azure side bar, select your App service then right-click and select **Browse website** then select **Open** in the pop-up window. 
 
