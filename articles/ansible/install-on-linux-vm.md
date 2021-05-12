@@ -137,7 +137,7 @@ pip3 install "ansible==2.9.17"
 pip3 install ansible[azure]
 ```
 
-### Ansible 2.10 with the azure.azcollection collection
+### Ansible 2.10 with azure.azcollection
 
 Run the following commands to configure Ansible on Centos:
 
