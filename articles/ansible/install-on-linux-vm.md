@@ -107,7 +107,7 @@ In this quickstart, you'll complete these tasks:
 Using the SSH command, connect to your virtual machine's public IP address.
 
 ```azurecli
-ssh -i azureuser@<vm_ip_address>
+ssh azureuser@<vm_ip_address>
 ```
 
 Replace the placeholders with the appropriate values returned in pervious commands.
