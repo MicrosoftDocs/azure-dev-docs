@@ -44,7 +44,7 @@ In this article, you learn how to:
     az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
     ```
 
-    **Notes**:
+    **Key points**:
 
     - With a Live account - such as a hotmail or outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
 
@@ -56,7 +56,7 @@ To use a specific Azure subscription for the current Cloud Shell session, use [a
 az account set --subscription="<subscription_id_or_subscription_name>"
 ```
 
-**Notes**:
+**Key points**:
 
 - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 - If you run the `az account list` command from the previous step, you see that the default Azure subscription has changed to the subscription you specified with `az account set`.

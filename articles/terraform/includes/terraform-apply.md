@@ -14,7 +14,7 @@ Once you're ready to apply the execution plan to your cloud infrastructure, you 
 terraform apply <terraform_plan>.tfplan
 ```
 
-**Notes:**
+**Key points:**
 
 - The usage of the `terraform apply` command above assumes you used the optional `-out` parameter when you ran `terraform plan`.
 - If you specified the `-out` parameter when you ran `terraform plan`, replace the `<terraform_plan>` placeholder with that parameter value.

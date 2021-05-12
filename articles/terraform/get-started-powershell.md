@@ -95,7 +95,7 @@ Calling [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServi
     $UnsecureSecret
     ```
 
-**Notes**:
+**Key points**:
 
 - The service principal names and password values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).

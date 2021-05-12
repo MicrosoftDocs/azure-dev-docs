@@ -118,7 +118,7 @@ To log into an Azure subscription using a service principal, you first need acce
     New-AzRoleAssignment @roleAssignmentSplat
     ```
 
-**Notes**:
+**Key points**:
 
 - The service principal password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 - The **Contributor** role has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).

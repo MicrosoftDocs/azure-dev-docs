@@ -38,7 +38,7 @@ To log into an Azure subscription using a service principal, you first need acce
 az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --scopes="/subscriptions/<azure_subscription_id>"
 ```
 
-**Notes**:
+**Key points**:
 
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
@@ -69,7 +69,7 @@ The following options are some of the ways Terraform supports authenticating to 
 
 1. Either execute the `~/.bashrc` script or exit and reopen Cloud Shell for the environment variables to be set.
 
-**Notes**:
+**Key points**:
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
 
@@ -86,7 +86,7 @@ The [az login](/cli/azure/reference-index#az_login) command allows a robust set 
 az login --service-principal -u "<service_principal_appid>" -p "<service_principal_password>" --tenant "<azure_subscription_id>"
 ```
 
-**Notes**:
+**Key points**:
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
 
