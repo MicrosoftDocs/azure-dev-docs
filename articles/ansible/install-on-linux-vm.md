@@ -66,7 +66,7 @@ In this quickstart, you'll complete these tasks:
 
     ```azurepowershell
     $adminUsername = "azureuser"
-    $adminPassword = ConvertTo-SecureString "P@ssw0rd1234!" -AsPlainText -Force
+    $adminPassword = ConvertTo-SecureString <password> -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword);
     
     New-AzVM `
@@ -78,7 +78,7 @@ In this quickstart, you'll complete these tasks:
     -Credential $credential
     ```
 
-    Replace the placeholder with the fully qualified name of your SSH **public** key filename.
+    Replace the `<password>` your password.
 
 1. Geth the public Ip address of the Azure virtual machine.
 
