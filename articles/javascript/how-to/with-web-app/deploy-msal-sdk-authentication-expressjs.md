@@ -245,6 +245,7 @@ You used VSCode to:
 
 This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can continue developing with it for your own purposes, refactoring to your needs. 
 
+<<<<<<< HEAD
 ## Clean up resources
 
 1. Select this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
@@ -252,6 +253,8 @@ This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can con
 1. On the Active Directory app's Overview page, select **Delete**.
 1. In VS Code, in the Azure side bar, select your Azure App Service, then select **Delete** 
 
+=======
+>>>>>>> 5c273aa59a9ff56f6d481533d643ef0ec69d72c1
 ## Next steps
 
 * Continue to learn and use the [Microsoft Identity](/azure/active-directory/develop/v2-overview) Provider
