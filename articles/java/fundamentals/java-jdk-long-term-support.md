@@ -23,7 +23,7 @@ For the following services, the JDK is managed by Microsoft:
 * Azure Cognitive Search
 * Azure Cloud Shell
 
-For some of the services above developers may have the capability of changing the JDK distribution with one of their choices. Check the documentation of the service for more information. For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services, Azure Container Instances, Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
+For some of the services above, developers may change the JDK distribution with a different one. Check the documentation of the service for more information. For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services, Azure Container Instances, Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
 
 ## Supported Java Versions and Update Schedule
 
