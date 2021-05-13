@@ -10,6 +10,8 @@ ms.custom: seo-java-september2019, devx-track-java
 
 Java developers on Azure and Azure Stack can build and run production Java applications with different versions of Java and distributions of OpenJDK. Developers can use any Java runtime they want for most of the Azure services, except for services Microsoft manages the Java runtime. 
 
+## Managed JDK
+
 For the following services, the JDK is managed by Microsoft:
 
 * Azure App Service on Windows
@@ -23,7 +25,7 @@ For the following services, the JDK is managed by Microsoft:
 
 For all other Azure services, including some of the above, developers can bring their own JDK, or may have the capability of changing the JDK distribution with one of their choice. Please check the documentation of the service. 
 
-For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services, Azure Container Instances, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
+For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services, Azure Container Instances, Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
 
 ## Supported Java Versions and Update Schedule
 
@@ -38,13 +40,14 @@ Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April
 
 ## Supported OpenJDK Distributions
 
-As always, Java developers can bring their own Java runtimes, including Oracle JDK, Red Hat build of OpenJDK, AdoptOpenJDK and others to Azure and use the secure infrastructure and feature-rich services. 
-
-Microsoft may provide better support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
+As always, Java developers can bring their own Java runtimes, including Oracle JDK, Red Hat build of OpenJDK, AdoptOpenJDK and others to Azure and use the secure infrastructure and feature-rich services. Microsoft may provide better customer support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
 
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [AdoptOpenJDK](https://www.adoptopenjdk.net)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
 
-> [!div class="nextstepaction"]
-> [Download and install Java](java-jdk-install.md)
+For information on how to install and use OpenJDK, please visit one of the distributions above.
+
+## Commercial Support
+
+Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive Java support without any extra cost when developing and/or deploying with a supported Java version or OpenJDK distribution as stated in this document. For any other OpenJDK related issue, developers are welcome to provide feedback through [github.com/microsoft/openjdk](https://github.com/microsoft/openjdk).
