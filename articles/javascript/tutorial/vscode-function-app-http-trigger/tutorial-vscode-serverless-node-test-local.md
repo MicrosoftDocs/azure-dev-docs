@@ -14,13 +14,12 @@ ms.custom: devx-track-js, contperf-fy21q2
 In this step, you run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
 
 ## Run the local serverless function
+1. Run `func host start` to start the server
 
 1. In Visual Studio Code, press **F5**  to launch the debugger and attach to the Azure Functions host. 
 
     You could also use the **Debug** > **Start Debugging** menu command.
     
-    Reminder: run `func host start` to start the server.
-
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Alt**+click the local URL shown in the output to open the browser and run the function:
 
     ![Output shown in VS Code Terminal panel when debugging locally](../../media/functions-extension/local-test-output.png)
