@@ -19,13 +19,11 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|
 |[Deploy Express.js with Microsoft Authentication to Azure App service](./how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md)<br><br>Learn how to deploy an Express.js app, integrated with Microsoft Authentication Library (MSAL).The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the @azure/msal-node npm package. |
 
-### Updated in April
+### Updated in May
 
 |Name|
 |---------------------------------------|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)<br><br>Web app and Function app logging information.|
-|Name|
-|---------------------------------------|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)<br><br>Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
 
 
