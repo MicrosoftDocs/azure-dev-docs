@@ -48,7 +48,7 @@ The following steps walk you through creating an SSH key pair.
     ssh-keygen -m PEM -t rsa -b 2048 -C "azureuser@azure" -f ~/.ssh/ansible_rsa -N ""
     ```
 
-**NOTE**:
+**Key points:**
 
 * The `ssh-keygen` command displays the location of the generated key files. You need this directory name when you create the virtual machine.
 * The public key is stored in `ansible_rsa.pub` and the private key is stored in `ansible_rsa`.
@@ -78,7 +78,7 @@ The following steps walk you through creating an SSH key pair.
     az vm list -d -o table --query "[?name=='QuickstartAnsible-vm']"
     ```
 
-**NOTE**:
+**Key points:**
 
 * The output from the `az vm list` command includes the public IP address used to connect via SSH to the virtual machine.
 

@@ -39,7 +39,7 @@ In this tutorial, you will:
     az vm create --resource-group <resource-group> --name <vm_name> --image UbuntuLTS --admin-username azureuser --admin-password "<password>"
     ```
 
-    **Notes**:
+    **Jenkins**:
 
     - You can also upload your ssh key with the following command `--ssh-key-value <ssh_path>`.
 
