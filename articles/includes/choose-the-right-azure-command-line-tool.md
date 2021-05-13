@@ -2,7 +2,7 @@
  author: Duffney
  ms.service: azure
  ms.topic: include
- ms.date: 05/10/2021
+ ms.date: 05/12/2021
  ms.author: jduffney
 ---
 
@@ -58,7 +58,7 @@ Azure PowerShell is set of cmdlets packaged as a PowerShell module named `Az`; n
 
 Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing allowing it to be installed on macOS, Linux, and Windows.
 
-**Note**:
+**Key points:**
 
 * AzureRM is a PowerShell module that is still referenced for Azure administration with PowerShell. However, it has been replaced by Azure PowerShell and has an official retirement date of February 29 2024.
 
@@ -87,7 +87,7 @@ Choose the tool that uses your experience and shortens your learning curve. Take
 
 With that said, being open-minded will only improve your abilities. Use a different tool when it makes sense.
 
-**Note**:
+**Key points:**
 
 * Feature parity for Azure services doesn't always exist between Azure CLI and Azure PowerShell.
 
@@ -143,10 +143,10 @@ Select Properties and Change Output Formats:
 |Output as a Table|az account list -o table| Get-AzSubscription \| Format-Table|
 |Output as JSON|az account show|Get-AzSubscription \| ConvertTo-Json|
 
-**Note**:
+**Key points:**
 
-* Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
-* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell, read the [Using Format Commands to Change Output View](https://docs.microsoft.com/powershell/scripting/samples/using-format-commands-to-change-output-view).
+* Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
+* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell, read the [Using Format Commands to Change Output View](/powershell/scripting/samples/using-format-commands-to-change-output-view).
 
 ## Next steps
 
