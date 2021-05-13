@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 05/13/2021
 
 
 ---
@@ -24,6 +24,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|
 |---------------------------------------|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)<br><br>Web app and Function app logging information.|
+|Name|
+|---------------------------------------|
+|[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)<br><br>Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
 
 
 ## 2021 April
