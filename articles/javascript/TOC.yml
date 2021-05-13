@@ -67,7 +67,7 @@
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
             - name: 2. Create the Functions app
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
-            - name: 3. Test the function locally
+            - name: 3. Run the function locally
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
             - name: 4. Deploy the Functions app
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md

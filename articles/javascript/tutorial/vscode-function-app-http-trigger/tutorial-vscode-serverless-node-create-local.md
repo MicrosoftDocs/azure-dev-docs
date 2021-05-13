@@ -2,19 +2,15 @@
 title: Create the Azure Functions 3.x application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 ms.topic: tutorial
-ms.date: 04/15/2021
+ms.date: 05/13/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
 # 2. Create the local Functions app with the Visual Studio Code _Functions_ extension
 
-An Azure Functions app can contain many Functions with [different triggers](/azure/azure-functions/functions-triggers-bindings). The HTTP trigger used in this tutorial specifically handles incoming HTTP traffic.
-
-[Previous step: Introduction and prerequisites](tutorial-vscode-serverless-node-install.md)
-
 Create a local Azure Functions (serverless) application that contains an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings) function. 
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Functions** explorer, then select the **Create Project** command:
+1. In Visual Studio Code, select the Azure logo to open the **Azure Functions** explorer, then select the **Create New Project** command:
 
     ![Create a local Function app in VS Code](../../media/functions-extension/create-function-app-project.png)
 
@@ -40,9 +36,9 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-    ![Result of creating a function app](../../media/functions-extension/create-function-app-results.png)
+    :::image type="content" source="../../media/functions-extension/create-function-app-results.png" alt-text="Result of creating a function app" lightbox="../../media/functions-extension/create-function-app-results.png":::
 
-## HTTP function JavaScript template code
+## Change the logging message
 
 The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parameter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
 
@@ -62,7 +58,36 @@ module.exports = async function (context, req) {
 }
 ```
 
-Each Function [trigger](/azure/azure-functions/functions-triggers-bindings?tabs=csharp) type provides a template function for you, to allow you to immediately focus on the code for your application. When moving from Express.js to Azure Functions, [review the necessary changes](/azure/azure-functions/shift-expressjs?tabs=javascript) for your application. 
+Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
+
+```javascript
+context.log(`*** HTTPExample name: ${name}`);
+```
+
+The final function code is:
+
+
+```javascript
+module.exports = async function (context, req) {
+
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const name = (req.query.name || (req.body && req.body.name));
+
+    context.log(`*** HTTPExample name: ${name}`);
+
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+}
+```
+
+:::image type="content" source="../../media/functions-extension/vscode-local-function-log.png" alt-text="Result of creating a function app" lightbox="../../media/functions-extension/vscode-local-function-log.png":::
 
 ## Next steps
 

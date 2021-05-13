@@ -1,5 +1,5 @@
 ---
-title: Run the Azure Functions 3.x application locally in Visual Studio Code
+title: Run Azure Functions 3.x local app in Visual Studio Code
 description: Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response.
 ms.topic: tutorial
 ms.date: 05/13/2021
@@ -7,19 +7,15 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 ---
 
-# 3. Test the function locally
+# 3. Run the function locally
 
-[Previous step: Create the Functions app](tutorial-vscode-serverless-node-create-local.md)
-
-In this step, you run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
+Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
 
 ## Run the local serverless function
 
 1. In Visual Studio Code, press **F5**  to launch the debugger and attach to the Azure Functions host. 
 
     You could also use the **Debug** > **Start Debugging** menu command.
-    
-    Reminder: run `func host start` to start the server.
 
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. Once the host has started, **Alt**+click the local URL shown in the output to open the browser and run the function:
 
@@ -37,7 +33,7 @@ With your function running locally, set breakpoints on different parts of the co
 
 1. Open *index.js*, then click in the margin to the left of line 9 in the editor window. 
 1. A small red dot appears to indicate a breakpoint. 
-1. Remove the `?name=` argument from the URL in the browser and re-submit the browser request to the function. 
+1. Remove the `?name=` argument from the URL in the browser and resubmit the browser request to the function. 
 1. When the browser makes that request, VS Code stops the function code on that breakpoint:
 
     ![VS Code stopped on a breakpoint](../../media/functions-extension/debugging-breakpoint.png)
