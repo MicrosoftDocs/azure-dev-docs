@@ -2,7 +2,7 @@
  author: Duffney
  ms.service: azure
  ms.topic: include
- ms.date: 05/10/2021
+ ms.date: 05/12/2021
  ms.author: jduffney
 ---
 
@@ -145,8 +145,8 @@ Select Properties and Change Output Formats:
 
 **Key points:**
 
-* Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
-* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell, read the [Using Format Commands to Change Output View](https://docs.microsoft.com/powershell/scripting/samples/using-format-commands-to-change-output-view).
+* Azure CLI defaults to outputting a JSON string. Other format options can be found on the [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
+* Azure PowerShell defaults to outputting objects. To learn more about formatting in PowerShell, read the [Using Format Commands to Change Output View](/powershell/scripting/samples/using-format-commands-to-change-output-view).
 
 ## Next steps
 
