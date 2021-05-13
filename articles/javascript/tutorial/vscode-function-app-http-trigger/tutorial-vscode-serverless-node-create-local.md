@@ -36,11 +36,13 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-    :::image type="content" source="../../media/functions-extension/create-function-app-results.png" alt-text="Result of creating a function app" lightbox="../../media/functions-extension/create-function-app-results.png":::
+    :::image type="content" source="../../media/functions-extension/create-function-app-results.png" alt-text="Screenshot of VSCode showing result of creating a function app" lightbox="../../media/functions-extension/create-function-app-results.png":::
 
 ## Change the logging message
 
 The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parameter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
+
+<a name="http-function-javascript-template-code"></a>
 
 ```javascript
 module.exports = async function (context, req) {
@@ -87,7 +89,7 @@ module.exports = async function (context, req) {
 }
 ```
 
-:::image type="content" source="../../media/functions-extension/vscode-local-function-log.png" alt-text="Result of creating a function app" lightbox="../../media/functions-extension/vscode-local-function-log.png":::
+:::image type="content" source="../../media/functions-extension/vscode-local-function-log.png" alt-text="Screenshot of VSCode showing code with new context.log" lightbox="../../media/functions-extension/vscode-local-function-log.png":::
 
 ## Next steps
 
