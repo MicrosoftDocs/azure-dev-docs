@@ -147,7 +147,9 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     ARM_CLIENT_PASSWORD = "<service_principal_password>"
     ```
 
-    **Note**: If you have a PowerShell session open, close the session and reopen it after creating the environment variables.
+    **Key points:**
+
+    - If you have a PowerShell session open, close the session and reopen it after creating the environment variables.
 
 1. To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
