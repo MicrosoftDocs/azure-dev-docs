@@ -32,7 +32,9 @@ Microsoft Azure and Azure Stack support the following versions of Java for the m
 * Java 8 ([OpenJDK 8u](https://wiki.openjdk.java.net/display/jdk8u)) 
 * Java 11 ([OpenJDK 11u](https://wiki.openjdk.java.net/display/jdk11u))
 
-Microsoft will keep these versions up-to-date across Azure and Azure Stack services for as long as there are updates available in the source code. Microsoft may leverage 3rd-party distributions and binaries for some versions of Java. For more details on availability of other versions of Java and support roadmap, please consult the specific Azure service documentation. 
+Microsoft will keep these versions up-to-date across Azure and Azure Stack services for as long as there are updates available in the source code. Microsoft may leverage 3rd-party distributions and binaries for some versions of Java. For more details on availability of other versions of Java and support roadmap, please consult the specific Azure service documentation.
+
+Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October).
 
 # Supported OpenJDK Distributions
 
