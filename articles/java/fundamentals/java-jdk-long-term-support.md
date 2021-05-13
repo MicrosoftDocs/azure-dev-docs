@@ -10,7 +10,7 @@ ms.custom: seo-java-september2019, devx-track-java
 
 Java developers on Azure and Azure Stack can build and run production Java applications with different versions of Java and distributions of OpenJDK. Developers can use any Java runtime they want for most of the Azure services, except for services Microsoft manages the Java runtime. 
 
-For the following services, the distribution of the JDK is managed by Microsoft:
+For the following services, the JDK is managed by Microsoft:
 
 * Azure App Service on Windows
 * Azure App Service on Linux
