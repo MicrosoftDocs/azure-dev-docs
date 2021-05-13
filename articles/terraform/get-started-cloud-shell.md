@@ -41,7 +41,7 @@ In this article, you learn how to:
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
 
-**Notes**:
+**Key points**:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## Authenticate to Azure
@@ -61,7 +61,7 @@ Calling `az login` without any parameters displays a URL and a code. Browse to t
 az login
 ```
 
-**Notes**:
+**Key points**:
 
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
 - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#set-the-current-azure-subscription).
@@ -80,7 +80,7 @@ Enter the following command, replacing `<subscription_id>` with the ID of the su
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
 ```
 
-**Notes**:
+**Key points**:
 
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `name`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
@@ -113,7 +113,7 @@ A Microsoft account can be associated with multiple Azure subscriptions. The fol
     az account set --subscription="<subscription_id>"
     ```
 
-    **Notes**:
+    **Key points**:
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 
