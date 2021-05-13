@@ -101,7 +101,7 @@ The following playbook snippet creates a uniquely named resource group into whic
         msg: "New resource group = {{ kv_rg }}"
 ```
 
-**Notes:**
+**Key points:**
 
 - In this demo, the key vault is created as the sole resource in a resource group. It's common practice to separate the key vault from the resources that use it. This pattern helps to prevent accidental deletion of the key vault when deleting other resources.
 - Since the key vault name must be unique in Azure, the demo creates a random *postfix* value. This value is appended to the name of the key vault resource group and the key vault (created in the next section). The code in the task `Prepare random postfix` generates the random postfix value that is assigned to the `rpfx` variable.
@@ -146,7 +146,7 @@ tasks:
 
 ```
 
-**Notes:**
+**Key points:**
 
 - The [azure_rm_keyvault module](https://docs.ansible.com/ansible/latest/modules/azure_rm_keyvault_module.html) is used to create the key vault.
 - When creating the access policy as part of the key vault, an object ID and tenant ID were supplied. These values define an access policy for a specific service principal (that is associated with an Azure subscription). However, browsing to the Azure portal and attempting to view the key vault's secrets might result in error messages. These messages might be similar to "The operation "List" is not enabled in this key vault's access policy." and "You are unauthorized to view these contents." Receiving these messages indicates that you - as an Active Directory user - don't have access. The next section shows you how to add an access policy for yourself to the key vault.
@@ -209,7 +209,7 @@ The following Ansible playbook snippet shows how to create a key vault secret:
         secret_value: "{{ kv_secret_value }}"
 ```
 
-**Notes:**
+**Key points:**
 
 - The [azure_rm_keyvaultsecret module](https://docs.ansible.com/ansible/latest/modules/azure_rm_keyvaultsecret_module.html) is used to create the key vault secret.
 - For simplicity, the demo includes the `secret_name` and `secret_value`. However, playbooks are infrastructure-as-code (IaC) files just like any source code for your project. As such, values such as these shouldn't be stored in plaintext files when used in production environments.
@@ -234,7 +234,7 @@ tasks:
         var: output['secrets'][0]['secret']
 ```
 
-**Notes:**
+**Key points:**
 
 - The **azure_rm_keyvaultsecret_info module** is used to get the key vault secret. This module is only available if using the Ansible collection for Azure modules. 
 - If you receive an error running this snippet, ensure that you've followed all the instructions in the [Prerequisites section](#prerequisites).
@@ -421,7 +421,7 @@ Once you have the key vault and its secret established, you can use that informa
 
 ```
 
-**Notes:**
+**Key points:**
 
 - The *admin* password for the virtual machine is set to the key vault secret.
 - Your ability to run the entire playbook at once depends on your test environment. You might need to manually add yourself to the key vault's access policy before creating the key. This task is explained in the sections, [Create a key vault](#create-a-key-vault), and [Add yourself to key vault access policy](#add-yourself-to-key-vault-access-policy).

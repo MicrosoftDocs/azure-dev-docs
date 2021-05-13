@@ -17,7 +17,7 @@ Learn how to deploy an Express.js app, integrated with Microsoft Authentication 
 
 The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) npm package to provide:
 
-* Sign-in and sign-out
+* Sign in and sign out
 * Route restrictions to only authenticated users
 * Query a restricted API with user - such as Graph
 
@@ -62,7 +62,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. At a terminal command prompt, go to the location where you want to create the app folder.
 
-1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
+1. Use the following bash command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
 
     ```bash
     git clone https://github.com/Azure-Samples/js-e2e-web-app-server-auth myexpressapp && \
@@ -83,6 +83,14 @@ Create and run an Express.js app by cloning an Azure sample repository.
     > [!TIP]
     > Port 8080 is the default port for Azure app service. If your app uses a different port, make sure the `process.env.PORT` environment variable is used in your running application to get the port value: `port = process.env.PORT || 8080`.
 
+1. Stop the application by selecting <kbd>CTRL</kbd>+<kbd>C</kbd>
+
+1. Open the folder in VS Code with the following command:
+
+    ```bash
+    code .
+    ```
+
 ## Create an Azure web app in VS Code
 
 1. In VS Code, select **Azure** from the activity bar, then select **+** in the **Azure: App Service** side bar. 
@@ -100,20 +108,20 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
     You can return to this deployment window at any time when you select the Integrated terminal's Output window, then select **Azure App Service**.
 
-## Browse to Azure web app
- 
-Select **Browse website** from the notification. 
+1. When deployment completes, select **Browse website** from the notification. 
 
-The web app may take a minute or two to return from the server for the first (cold) start.
+    The web app may take a minute or two to return from the server for the first (cold) start.
 
-When you see the same web app as your local app, the sample app is deployed and is responding correctly. Authentication isn't configured yet.  
+    When you see the same web app as your local app, the sample app is deployed and is responding correctly. Authentication isn't configured yet.  
 
 ## Create an Active Directory app
 
 Create an Active Directory app to authenticate users with the Microsoft Identity provider. 
 
-1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar, then select **Open in portal**.
-1. In the search bar, enter **Azure Active Directory**, then select **App registrations**. As an alternative, you can use this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
+1. In VS Code, select **Azure** from the activity bar, then right-click your new web app from the **Azure: App Service** side bar, then select **Open in portal**. In the search bar, enter **Azure Active Directory**. In the Azure Active Directory section, then select **App registrations**. 
+
+    As an alternative, you can use this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
+
 1. Select **New registration** to begin the app registration process.
 
     :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-registrations-new-registration.png" alt-text="Screenshot of Azure portal in a browser. Select Authentication under the app's settings then select Add identity provider":::
@@ -123,28 +131,33 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
     |Setting|Value|
     |--|--|
     |Name|Enter a name such as `msal-express-sample` and postpend your name at the end so you can easily search for it later.|
-    |Supported account types|Select **Any Azure AD directory and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).|
-    |Web Redirect URI|Enter your local redirect URL:<br>`http://localhost:8080`.|
+    |Supported account types|Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**. This allows anyone within the Microsoft Identity provider to access your web app. Learn more about [these choices](/azure/active-directory/develop/single-and-multi-tenant-apps).|
+    |Web Redirect URI|Enter your local redirect URL:`http://localhost:8080/redirect`|
 
     :::image type="content" source="../../media/express-app-msal-auth/azure-portal-app-service-add-identity-provider-any-directory.png" alt-text="Screenshot of Azure portal. Configure Authentication for the Microsoft provider with a new app registration for any Azure AD Directory and personal account.":::
 
 1. Select **Register** to finish the process. 
 
-1. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure web app's redirect URL then select **Save**.
+1. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure web app's redirect URL then select **Save**. 
+
+    For example, `https://msal-joan.azurewebsites.net/redirect`.
 
     :::image type="content" source="../../media/express-app-msal-auth/azure-portal-active-directory-app-add-app-service-redirect-url.png" alt-text="Screenshot of Azure portal. When the process completes, still in the Azure portal for your new Active Directory app registration, select **Authentication** to add your Azure app service's redirect URL then select **Save**.":::
 
 
-1. Copy the following values to use in your Express.js app:
+1. Copy the following values to a note file to use later:
 
     |Property|Location|
     |--|--|
-    |Application (client) ID|Overview page, Essentials section|
-    |Directory (tenant) ID|Overview page, Essentials section|
-    |Client secret|Follow the next step|
+    |Application (client) ID|Azure portal Active Directory app, Overview page, Essentials section|
+    |Directory (tenant) ID|Azure portal Active Directory app, Overview page, Essentials section|
+    |Client secret|Azure portal Active Directory app, Follow the next step|
 
-1. Select **Certificates and secrets** then **New client secret** to create a new secret and immediately copy the secret. If you lose the secret, you need to create a new secret.
-1. Set these three values in the `./appSettings` file for the `credentials` properties. Post the values into the hard-coded string, used only for local development. 
+1. Select **Certificates and secrets** then select **New client secret** to create a new secret. 
+1. Enter the secret's name that reminds you it was created for the Express.js authentication tutorial, such as `expressjs-msal-tutorial` and immediately copy the secret. 
+1. Select the default **Expires** setting, then select **Add**.
+1. In the **Client secrets** section, copy the secret then paste in your note file with your other settings. If you lose the secret, you need to create a new secret.
+1. Copy these three values from your note file to the `./appSettings` file for the `credentials` properties. Post the values into the hard-coded string, used only for local development. 
 
     ```json
     "credentials": {
@@ -233,6 +246,13 @@ You used VSCode to:
 * Open your Azure web app in the Azure portal.
 
 This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can continue developing with it for your own purposes, refactoring to your needs. 
+
+## Clean up resources
+
+1. Select this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
+1. Search for your app, named something like `msal-express-sample`.
+1. On the Active Directory app's Overview page, select **Delete**.
+1. In VS Code, in the Azure side bar, select your Azure App Service, then select **Delete** 
 
 ## Next steps
 
