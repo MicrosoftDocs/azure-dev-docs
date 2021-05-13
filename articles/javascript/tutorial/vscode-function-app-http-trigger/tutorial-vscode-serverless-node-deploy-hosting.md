@@ -70,7 +70,7 @@ Streaming logs is good for in-the-moment scanning but generally you want to sear
 1. Select **Logs** in the Monitoring section. If a **Queries** pop-up window appears, select the **X** in the top-right corner of the pop-up to close it. 
 1. In the **Schema and Filter** pane, on the **Tables** tab, double-click the **traces** table. 
 
-    This enters the Kusto query, `traces` into the query window. 
+    This enters the [Kusto query](/azure/data-explorer/kusto/query/), `traces` into the query window. 
 1. Edit the query to search for the custom logs:
 
     ```kusto
