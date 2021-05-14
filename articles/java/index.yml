@@ -45,7 +45,7 @@ conceptualContent:
 
     - title: Tools, IDEs, and supported JDKs
       links:
-        - text: Java long-term support
+        - text: Java support
           itemType: get-started
           url: fundamentals/java-jdk-long-term-support.md
         - text: Java JDK installation
