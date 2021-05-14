@@ -8,7 +8,7 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers on Azure and Azure Stack can build and run production Java applications with different versions of Java and OpenJDK. Developers can use any Java runtime they want for most Azure service.
+Java developers on Azure and Azure Stack can build and run production Java applications with different versions of Java and OpenJDK. Developers can use any Java runtime they want for most Azure services.
 
 ## Services with Managed JDK
 
