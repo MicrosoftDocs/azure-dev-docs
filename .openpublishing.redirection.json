@@ -317,6 +317,10 @@
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
     },
     {
+      "source_path": "articles/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/quickstarts/data"
+    },
+    {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
       "redirect_url": "/azure/developer/java/toolkit-for-intellij"
     },
