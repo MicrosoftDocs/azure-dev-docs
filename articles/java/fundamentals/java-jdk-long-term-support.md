@@ -8,9 +8,9 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers on Azure and Azure Stack can build and run production Java applications with different versions of Java and OpenJDK. Developers can use any Java runtime they want for most Azure services.
+Java developers are fully supported on Azure and Azure Stack. For Microsoft managed services, default builds of OpenJDK 8 and 11 are provided (and in some cases can be overridden). For other services, the developer is free to choose the distribution and version they wish.
 
-## Services with Managed JDK
+## Services with a managed or default JDK
 
 For the following services, the default JDK is managed by Microsoft:
 
@@ -24,20 +24,22 @@ For the following services, the default JDK is managed by Microsoft:
 * Azure Cloud Shell
 * Azure DevOps
 
-For some of the services above, developers may change the JDK distribution and version with a different one. Check the documentation of the service for more information. For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services, Azure Container Instances, Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
+For some of the services above, developers may be able to change the JDK distribution and version from the defaults provided. Please check the documentation of the service for more information. For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
 
-## Supported Java versions and update schedule
+### Supported Java versions and update schedule
 
-Microsoft developer tools, and Azure and Azure Stack services with a JDK managed by Microsoft, support the following versions of Java:
+The following versions of Java are supported for Microsoft developer tools, and Azure and Azure Stack services:
 
 * Java 8 ([OpenJDK 8u](https://wiki.openjdk.java.net/display/jdk8u)) 
 * Java 11 ([OpenJDK 11u](https://wiki.openjdk.java.net/display/JDKUpdates/JDK11u))
 
-Microsoft may use 3rd-party distributions and binaries for some versions of Java. Microsoft will keep these distributions up to date for as long as there are updates available. Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October).
+Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October).
+
+Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will also keep those 3rd-party distributions up to date for as long as there are updates available.
 
 For more details on availability of other versions of Java and support roadmap, please consult the specific Azure service documentation.
 
-## Supported OpenJDK distributions
+## Services without a managed or default JDK
 
 As always, Java developers can bring their own Java runtimes from different vendors to Azure. For issues specifically related to the OpenJDK software and the HotSpot JVM, Microsoft will provide support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
 
