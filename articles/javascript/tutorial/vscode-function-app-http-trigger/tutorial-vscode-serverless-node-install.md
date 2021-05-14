@@ -2,7 +2,7 @@
 title: Create and deploy JavaScript Functions 3.x
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: tutorial
-ms.date: 04/14/2021
+ms.date: 05/13/2021
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
@@ -28,7 +28,15 @@ The following software is installed as part of the tutorial later:
 
 [!INCLUDE [azure-sign-in](../../includes/azure-sign-in-vscode.md)]
 
-[!INCLUDE [Install Azure Functions core tools](../../includes/environment-functions-core-tools.md)]
+## Install the Azure Functions Core Tools V3
+
+1. In VS Code, open the integrated terminal at a location you want to create and run the local project.
+
+1. Install Azure Functions Core Tools locally:
+
+    ```bash
+    npm install --global azure-functions-core-tools@3 --unsafe-perm true --save-dev
+    ```
 
 ## Next steps
 
