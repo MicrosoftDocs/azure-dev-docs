@@ -6,7 +6,7 @@
     - name: Java Support
       expanded: true
       items: 
-      - name: Java Long-Term Support
+      - name: Java Support
         href: java-jdk-long-term-support.md
       - name: Java JDK Installation
         href: java-jdk-install.md
