@@ -17,7 +17,7 @@ There are [multiple download package types supported for each client OS](https:/
 
 > [!NOTE]
 > The following instructions target the 64-bit Java 11 version of the JDK.
-> 
+>
 
 ## Windows and macOS
 
