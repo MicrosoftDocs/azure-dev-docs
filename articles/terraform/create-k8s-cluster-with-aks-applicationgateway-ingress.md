@@ -714,14 +714,10 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-    helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-1. If RBAC is **disabled**, run the following command to install and configure Helm:
-
-    ```bash
-    helm init
-    ```
+  **Key Points:**
+    * If RBAC is **disabled**, a service account isn't needed.
 
 1. Add the AGIC Helm repository:
 
@@ -767,7 +763,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
 ### Install a sample app
