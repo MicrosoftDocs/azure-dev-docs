@@ -521,6 +521,7 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
     output "kube_config" {
         value = azurerm_kubernetes_cluster.k8s.kube_config_raw
+        sensitive = true
     }
 
     output "host" {
@@ -565,10 +566,33 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 ## Create the Kubernetes cluster
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
+1. Update the `main.tf` to an Azure storage backend.
+
+     ```terraform
+      terraform {
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+      backend "azurerm" {
+        resource_group_name = "<ResourceGroupName>"
+        storage_account_name = "<AzureStorageAccountName>"
+        container_name = "tfstate"
+        key = "codelab.microsoft.tfstate"
+      }
+    }
+    
+    provider "azurerm" {
+      features {}
+    }
+    ```
+
 1. In Cloud Shell, initialize Terraform. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```bash
-    terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
+    terraform init 
     ```
   
     The `terraform init` command displays the success of initializing the backend and provider plug-in:
