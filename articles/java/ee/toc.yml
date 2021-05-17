@@ -15,7 +15,7 @@
     items:
       - name: Helidon on Azure App Service
         href: /azure/developer/java/eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - JBoss EAP on Azure App Service
+      - name: JBoss EAP on Azure App Service
         href: /TODO/
       - name: WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift (ARO)
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
