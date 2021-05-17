@@ -96,7 +96,7 @@ If you use the Azure portal, the Azure CLI is available in the portal from the t
 
 ## Azure samples
 
-The GitHub organization, [Azure-Samples](https://github.com/azure-samples/), contains many samples across the products and services offered by Azure. Use the [Azure Samples browser](https://docs.microsoft.com/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript) to find a sample to meet your needs. 
+The GitHub organization, [Azure-Samples](https://github.com/azure-samples/), contains many samples across the products and services offered by Azure. Use the [Azure Samples browser](/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript) to find a sample to meet your needs. 
 
 ## Windows Subsystem for Linux
 
@@ -112,5 +112,5 @@ The following list includes tips and tricks Azure developers should know to be m
 * Most resources have at least one **free version** per subscription. Use this type of resource while you are developing.
 * Some resources provide **two keys**, connection strings, or other securing devices. There are two so that **two different developers** can work on the project without sharing the key or connection string. Rotate these keys when a developer leaves the project.
 * The latest npm packages for Azure start with `@azure` scope. 
-* Most Azure npm packages can use the [DefaultAzureCredential](./core/node-sdk-azure-authenticate#authentication-with-azure-services-while-developing.md). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
+* Most Azure npm packages can use the [DefaultAzureCredential](./core/node-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
 
