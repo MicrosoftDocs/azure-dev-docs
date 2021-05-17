@@ -3,7 +3,7 @@ title: Create an Application Gateway ingress controller in Azure Kubernetes Serv
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller.
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 05/17/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -73,16 +73,19 @@ Create the Terraform configuration file that declares the Azure provider.
 1. Paste the following code into the editor:
 
     ```hcl
+    terraform {
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+    }
+    
     provider "azurerm" {
-      # The "feature" block is required for AzureRM provider 2.x. 
-      # If you are using version 1.x, the "features" block is not allowed.
-      version = "~>2.0"
       features {}
     }
 
-    terraform {
-        backend "azurerm" {}
-    }
     ```
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
