@@ -1,6 +1,6 @@
 ---
 title: "JBoss EAP on Azure"
-description: An overview of the available JBoss EAP solutions on Azure, jointly developed and supported by Red Hat and Microsoft.
+description: An overview of the different JBoss EAP solutions on Azure, all jointly developed and supported by Red Hat and Microsoft.
 author: jasonfreeberg
 ms.author: jafreebe
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.date: 05/17/2021
 ms.custom: template-overview, devx-track-java
 ---
 
-This article describes the different solutions for running JBoss EAP on Azure. These solutions are jointly developed and supported by Red Hat and Azure.
+There are three hosting options for JBoss EAP on Azure: App Service, Virtual Machines & Virtual Machine Scale Sets, and Azure Red Hat OpenShift. All solutions are jointly developed and supported by Red Hat and Azure. This article covers the features and benefits of each solution so you can choose the best option for your JBoss EAP deployment.
 
 ## JBoss EAP on Azure App Service
 
@@ -24,5 +24,18 @@ JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. Wh
 - [Java on App Service documentation](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux)
 - [Migration Guide: JBoss EAP to Azure App Service]()
 
-## JBoss EAP on Azure Virtual Machine Scale Sets (VMSS)
+## JBoss EAP on Azure Virtual Machines
 
+[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) (VMSS) provides groups of load-balanced, highly scalable virtual machines for workloads of any size. Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on VMSS uses jointly-developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer and within a Virtual Network, providing you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on VMSS supports clustered deployments via Azure Ping, so your stateful applications can run well.
+
+[Azure Virtual Machines]() provide a singleton virtual machine for a lower-footprint deployment of JBoss EAP on Azure.
+
+### More Resources
+
+- [Quickstart TODO]()
+
+## JBoss EAP on Azure Red Hat OpenShift (ARO)
+
+[Azure Red Hat Openshift](https://azure.microsoft.com/services/openshift/) is a highly available and fully-managed service, providing OpenShift clusters for hosting containerized applications. ARO pricing does not include support for JBoss EAP--you will need to secure a separate EAP subscription.
+
+### More Resources
