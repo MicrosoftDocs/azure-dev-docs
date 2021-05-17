@@ -667,16 +667,10 @@ If the Cloud Shell session times out, you can use the following steps to recover
 ## Test the Kubernetes cluster
 The Kubernetes tools can be used to verify the newly created cluster.
 
-1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
+1. Get the Kubernetes configuration and access credentials from the Azure using the Azure CLI command `az aks get-credentials`.
 
-    ```bash
-    echo "$(terraform output kube_config)" > ./azurek8s
-    ```
-
-1. Set an environment variable so that kubectl picks up the correct config.
-
-    ```bash
-    export KUBECONFIG=./azurek8s
+    ```azcli
+    az aks get-credentials --name <AksCluserName>  --resource-group <ResourceGroupName>
     ```
 
 1. Verify the health of the cluster.
