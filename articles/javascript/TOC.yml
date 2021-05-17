@@ -67,7 +67,7 @@
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
             - name: 2. Create the Functions app
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
-            - name: 3. Test the function locally
+            - name: 3. Run the function locally
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
             - name: 4. Deploy the Functions app
               href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
@@ -164,7 +164,17 @@
       - name: Deploy a web app
         href: how-to/deploy-web-app.md
       - name: Add easy authentication
-        href: how-to/with-web-app/add-authentication-to-web-app.md        
+        href: how-to/with-web-app/add-authentication-to-web-app.md
+      - name: Use Microsoft Identity provider (MSAL.js)
+        href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+    - name: With authentication
+      items: 
+      - name: Add easy authentication
+        href: how-to/with-web-app/add-authentication-to-web-app.md
+      - name: Add a simple Login button for Microsoft Identity provider
+        href: tutorial/single-page-application-azure-login-button-sdk-msal.md
+      - name: Add Microsoft Identity provider integration
+        href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
     - name: With Visual Studio Code
       items: 
       - name: Install and debug local project

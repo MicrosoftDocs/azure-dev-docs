@@ -45,6 +45,7 @@ In this quickstart, you'll complete these tasks:
 
     You might need to replace the `-location` parameter with the appropriate value for your environment.
 
+
     ---
 
 1. Create the Azure virtual machine for Ansible.
@@ -98,8 +99,8 @@ In this quickstart, you'll complete these tasks:
     (Get-AzVM -ResourceGroupName QuickstartAnsible-rg QuickstartAnsible-vm-pwsh | Get-AzPublicIpAddress).IpAddress
     ```
 
-    **NOTE**:
 
+**Key points:**
     * The output displays the public IP address used to connect via SSH to the virtual machine.
 
 ## Connect to your virtual machine via SSH

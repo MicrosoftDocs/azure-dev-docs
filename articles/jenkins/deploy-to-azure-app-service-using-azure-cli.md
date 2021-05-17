@@ -76,7 +76,7 @@ az appservice plan create \
     --sku FREE
 ```
 
-**Notes**:
+**Jenkins**:
 
 - The appservice plan defines the physical resources used to host your apps.
 - All applications assigned to an appservice plan share these resources.
@@ -93,7 +93,7 @@ az webapp create \
     --plan <app_service_plan>
 ```
 
-**Notes**:
+**Jenkins**:
 
 - The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure.
 - Substitute the `<app_name>` placeholder with a unique app name.
@@ -124,7 +124,7 @@ az webapp config set \
 
 1. Select the pencil icon to edit the file.
 
-1. Update the subscription id and tenant id.
+1. Update the subscription ID and tenant ID.
     
     ```groovy
       withEnv(['AZURE_SUBSCRIPTION_ID=<subscription_id>',
@@ -214,7 +214,7 @@ You can modify the script to deploy to an Azure App Service on Linux. App Servic
 
 1. In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file as follows:
 
-    1. Update the subscription id and tenant id.
+    1. Update the subscription ID and tenant ID.
 
         ```groovy
          withEnv(['AZURE_SUBSCRIPTION_ID=<mySubscriptionId>',
