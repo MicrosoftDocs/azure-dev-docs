@@ -36,7 +36,7 @@
       - name: WebLogic with Elastic on Azure
         href: /azure/developer/java/migration/migrate-weblogic-with-elk?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Migrate JBoss EAP to Azure
-      expanded: true
-      items:
-        - name: JBoss EAP to Azure App Service
-          href: /TODO/
+    expanded: true
+    items:
+      - name: JBoss EAP to Azure App Service
+        href: /TODO/
