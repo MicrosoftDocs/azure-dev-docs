@@ -25,6 +25,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)<br><br>Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)<br><br>Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
+|[Tools update](./node-azure-tools.md)<br><br>Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
 
 
 ## 2021 April

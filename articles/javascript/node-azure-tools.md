@@ -2,7 +2,7 @@
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/17/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
@@ -46,7 +46,7 @@ If you prefer to install individual extensions, this list includes the most popu
 | [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice "Link to Azure App Service extension")<br>![App Service Tools](media/node-azure-tools/icon-azure-app-service.png)| Browse sites and the Azure portal, create new sites and deploy to slots. <br><br>* Quickstart: [Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)<br>* Quickstart: [Run a custom container in Azure](/azure/app-service/quickstart-custom-container?pivots=container-linux) |
 | [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb "Link to Cosmos DB extension" )<br>![Cosmos DB Tools](media/node-azure-tools/icon-cosmos-db.png)| Create, browse, and update globally distributed, multi-model databases in Azure <br><br>* Quickstart: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript)|
 | [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)   <br> [![Docker](media/node-azure-tools/icon-docker.png)](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)| Manage Docker containers and images, Docker Hub, and Azure container registry<br><br>* Tutorial: [Deploy containers to Azure App Service](tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md) |
-|[Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)<br>![Azure Storage](media/node-azure-tools/icon-storage.png)|Azure Storage including Blob Containers, File Shares, Tables and Queues<br><br>* Quickstart: [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-javascript)|
+|[Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)<br>![Azure Storage](media/node-azure-tools/icon-storage.png)|Azure Storage including Blob Containers, File Shares, Tables, and Queues<br><br>* Quickstart: [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-javascript)|
 |[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)<br>![Remote-containers](media/node-azure-tools/remote-containers-icon.png)|Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's full feature set.|
 |[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)<br>![Remote - SSH](media/node-azure-tools/remote-ssh-icon.png)|Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.|
 
@@ -56,7 +56,7 @@ If you prefer to install individual extensions, this list includes the most popu
 
 ## TypeScript
 
-[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system. Your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and an another layer on top of these: TypeScript’s type system. Your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
 ## TypeScript and the Azure SDK client libraries
 
@@ -64,9 +64,22 @@ Azure SDK client library reference documentation is written for TypeScript becau
 
 Learn more about the [TypeScript guidelines for Azure SDK](https://azure.github.io/azure-sdk/typescript_introduction.html).
 
+## Windows Terminal
+
+[Windows Terminal](https://github.com/microsoft/terminal) allows you to access several different terminal types from the same Windows application including the Azure CLI and Ubuntu. Use this tool to develop and test CICD bash scripts before using those in GitHub Actions or another pipeline.
+
+## CICD tools
+
+The following integration tools for building and deployment will significantly increase your productivity.
+
+* [GitHub Actions](https://github.com/marketplace?type=actions&query=azure) 
+* [Azure Pipelines](https://marketplace.visualstudio.com/search?term=azure&target=AzureDevOps&category=Azure%20Pipelines&certified=microsoft&sortBy=Relevance) integration
+
 ## Docker Containers
 
 If you typically use Docker containers locally in your development environment, consider using the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. This extension allows you to find a relevant container for your current open folder in Visual Studio Code. There are several Node.js containers to select from or you can bring your own. Once you open the project in a container, you can set breakpoints and debug as if you were in your local environment. 
+
+If you are looking for a Microsoft or Azure-specific image, use the [Microsoft Container Registry](https://github.com/microsoft/containerregistry) (MRC) to [query for an image](https://mcr.microsoft.com/v2/_catalog). 
 
 ## Azure CLI
 Azure CLI is optimized for managing Azure resources from the command line. 
@@ -81,6 +94,23 @@ If you use the Azure portal, the Azure CLI is available in the portal from the t
 
 :::image type="content" source="media/azure-tools/azure-portal-select-azure-cloud-shell.png" alt-text="If you use the Azure portal, the Azure CLI is available in the portal from the top navigation bar.":::
 
+## Azure samples
+
+The GitHub organization, [Azure-Samples](https://github.com/azure-samples/), contains many samples across the products and services offered by Azure. Use the [Azure Samples browser](/samples/browse/?languages=javascript%2Cnodejs%2Ctypescript) to find a sample to meet your needs. 
+
 ## Windows Subsystem for Linux
 
-The [Windows Subsystem for Linux](/windows/wsl/) lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
+The [Windows Subsystem for Linux](/windows/wsl/) lets developers run a GNU/Linux environment, including most command-line tools, utilities, and applications, directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
+
+## Azure JavaScript developers Tips and tricks
+
+The following list includes tips and tricks Azure developers should know to be more productive:
+
+* Develop a **naming schema** for your Azure resources.
+* Group Azure resources into **resource groups**, which also use a naming schema.
+* For each Azure resource, add **tags** that communicate the resource's purpose, project, and other vital information. These tags are visible on the Azure portal, for that resource, on the Overview page. Think of the tags as a way to document the resource with the name/value pairs for the tag. 
+* Most resources have at least one **free version** per subscription. Use this type of resource while you are developing.
+* Some resources provide **two keys**, connection strings, or other securing devices. There are two so that **two different developers** can work on the project without sharing the key or connection string. Rotate these keys when a developer leaves the project.
+* The latest npm packages for Azure start with `@azure` scope. 
+* Most Azure npm packages can use the [DefaultAzureCredential](./core/node-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
+
