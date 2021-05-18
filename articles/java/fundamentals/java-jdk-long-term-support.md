@@ -24,7 +24,7 @@ For the following services, the default JDK is managed by Microsoft:
 * Azure Cloud Shell
 * Azure DevOps
 
-For some of the services above, developers may be able to change the JDK distribution and version from the defaults provided. Please check the documentation of the service for more information. For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
+For some of the services above, developers may be able to change the JDK distribution and version from the defaults provided. Please check the documentation of the service for more information. 
 
 ### Supported Java versions and update schedule
 
@@ -41,7 +41,9 @@ For more details on availability of other versions of Java and support roadmap, 
 
 ## Services without a managed or default JDK
 
-As always, Java developers can bring their own Java runtimes from different vendors to Azure. For issues specifically related to the OpenJDK software and the HotSpot JVM, Microsoft will provide support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
+For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to the developer.
+
+Java developers can bring their own Java runtimes from different vendors to Azure. For issues specifically related to the OpenJDK software and the HotSpot JVM, Microsoft will provide support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
 
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
