@@ -30,7 +30,7 @@ landingContent:
           - text: IBM WebSphere products on Azure
             url: websphere-family.md
           - text: JBoss EAP on Azure
-            url: /jboss/jboss-on-azure.md
+            url: jboss/jboss-on-azure.md
           - text: Eclipse Microprofile on Azure
             url: /azure/developer/java/eclipse-microprofile/
   - title: Deployment
