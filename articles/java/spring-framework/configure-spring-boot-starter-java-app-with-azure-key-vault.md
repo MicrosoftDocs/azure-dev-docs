@@ -233,7 +233,7 @@ This section shows how to use Spring Initializr and `RestController` to create a
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.3.3**
+   * **Spring Boot**: **2.4.5**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
