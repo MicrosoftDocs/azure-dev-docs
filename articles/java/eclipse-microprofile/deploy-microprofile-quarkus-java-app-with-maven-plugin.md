@@ -117,7 +117,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.10.0</version>
+       <version>1.14.0</version>
    </plugin>
    ```
 
@@ -146,7 +146,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
    [INFO] 
-   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ quarkus-hello-azure ---
+   [INFO] --- azure-webapp-maven-plugin:1.14.0:config (default-cli) @ quarkus-hello-azure ---
 
    Define value for OS(Default: Linux): 
    1. linux [*]
@@ -182,7 +182,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
       <plugin>
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>1.10.0</version>  
+        <version>1.14.0</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>
