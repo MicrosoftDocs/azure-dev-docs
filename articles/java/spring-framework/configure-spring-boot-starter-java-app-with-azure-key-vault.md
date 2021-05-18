@@ -227,7 +227,7 @@ Now that you've created a Key Vault and stored a secret, the next section will s
 
 ## Create the app with Spring Initializr
 
-This section shows how to use Spring Initializr and `RestController` to create and run a Spring Boot application locally.
+This section shows how to use Spring Initializr to create and run a Spring Boot web application with key vault secrets included.
 
 1. Browse to <https://start.spring.io/>.
 1. Select the choices as shown in the picture following this list.
@@ -323,9 +323,38 @@ Use the following steps to examine the application and run it locally.
 
 1. Kill the process that's running from `mvn spring-boot:run`. You can type Ctrl-C, or you can use the `jps` command to get the pid of the `Launcher` process and kill it.
 
-## Add Key Vault integration to the app
+## Create the app without Spring Initializr
 
-This section shows you how to add Key Vault integration to your locally running application by modifying the Spring Boot application `KeyvaultApplication`.
+This section shows how to include Azure Key Vault secrets to your existing Spring Boot project without using Spring Initializr.
+
+To manually add the same the configuration that Spring Initializr generates, add the following configuration to your *pom.xml* file.
+
+   ```xml
+   <properties>
+        <azure.version>3.4.0</azure.version>
+   </properties>
+   <dependencies>
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+        </dependency>
+   </dependencies>
+   <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>azure-spring-boot-bom</artifactId>
+                <version>${azure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+   </dependencyManagement> 
+   ```
+
+## Add Key Vault configuration to the app
+
+This section shows you how to add Key Vault configuration to your locally running application by modifying the Spring Boot application `KeyvaultApplication`.
 
 Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code. The simplest form of Spring configuration is the *application.properties* file. In a Maven project, this file is located at *src/main/resources/application.properties*. Spring Initializr helpfully includes a zero length file at this location. Use the following steps to add the necessary configuration to this file.
 
