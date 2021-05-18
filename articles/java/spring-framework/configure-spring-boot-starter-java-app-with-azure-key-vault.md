@@ -227,7 +227,7 @@ Now that you've created a Key Vault and stored a secret, the next section will s
 
 ## Create the app with Spring Initializr
 
-This section shows how to use Spring Initializr to create and run a Spring Boot web application with key vault secrets integrated.
+This section shows how to use Spring Initializr to create and run a Spring Boot web application with key vault secrets included.
 
 1. Browse to <https://start.spring.io/>.
 1. Select the choices as shown in the picture following this list.
@@ -325,7 +325,7 @@ Use the following steps to examine the application and run it locally.
 
 ## Create the app without Spring Initializr
 
-This section shows how to integrate azure key vault secrets to your existing spring boot project without using Spring Initializr.
+This section shows how to include azure key vault secrets to your existing spring boot project without using Spring Initializr.
 
 Just as what Spring Initializr would have done, please add the following to your current *pom.xml* file.
 
