@@ -325,7 +325,7 @@ Use the following steps to examine the application and run it locally.
 
 ## Create the app without Spring Initializr
 
-This section shows how to include azure key vault secrets to your existing spring boot project without using Spring Initializr.
+This section shows how to include Azure Key Vault secrets to your existing Spring Boot project without using Spring Initializr.
 
 Just as what Spring Initializr would have done, please add the following to your current *pom.xml* file.
 
