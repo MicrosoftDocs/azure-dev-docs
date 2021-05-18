@@ -28,7 +28,7 @@ For some of the services above, developers may be able to change the JDK distrib
 
 ### Supported Java versions and update schedule
 
-The following versions of Java are supported for Microsoft developer tools, and Azure and Azure Stack services:
+The following versions of Java are supported for Microsoft developer tools, and Azure and Azure Stack services with a JDK managed by Microsoft:
 
 * Java 8 ([OpenJDK 8u](https://wiki.openjdk.java.net/display/jdk8u)) 
 * Java 11 ([OpenJDK 11u](https://wiki.openjdk.java.net/display/JDKUpdates/JDK11u))
