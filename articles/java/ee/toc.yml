@@ -23,7 +23,6 @@
         href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Payara Micro on Azure App Service
         href: /azure/developer/java/eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - name: 
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
