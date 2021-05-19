@@ -16,7 +16,6 @@ With [Azure Cosmos DB](/azure/cosmos-db/introduction), a globally distributed da
 
 - [Use the Spring Data MongoDB API with Azure Cosmos DB](./configure-spring-data-mongodb-with-cosmos-db.md)
 - [Use the Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
-- [Use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](./configure-spring-data-gremlin-java-app-with-cosmos-db.md)
 
 The Spring Data Azure Cosmos DB SDK is available as open source on GitHub in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) repository. This repo maintains an active [issues list](https://github.com/Azure/azure-sdk-for-java/issues) where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [release history](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) page to see whether an issue has been fixed in a more recent version. 
 

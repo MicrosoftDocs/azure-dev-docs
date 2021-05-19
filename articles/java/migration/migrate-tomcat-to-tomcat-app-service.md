@@ -157,7 +157,7 @@ If your application is built from a Maven POM file, [use the Webapp plugin for M
 If you can't use the Maven plugin, you'll need to provision the Web App through other mechanisms, such as:
 
 * [Azure portal](https://portal.azure.com/#create/Microsoft.WebSite)
-* [Azure CLI](/cli/azure/webapp#az-webapp-create)
+* [Azure CLI](/cli/azure/webapp#az_webapp_create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
 Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy your application.

@@ -3,7 +3,7 @@ title: Create and use PostgreSQL on Azure
 description: Create a PostgreSQL resource and use for your PostgreSQL database. 
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Create and use PostgreSQL on Azure

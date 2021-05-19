@@ -3,7 +3,7 @@ title: Deploy Deno apps to Azure App Service from the Azure CLI
 description: In this tutorial, you deploy a Deno application to Azure App Service (on Linux or Windows) using the Azure CLI.
 ms.topic: tutorial
 ms.date: 10/13/2020
-ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, devx-track-azurecli
 ---
 # Deploy Deno apps to Azure App Service from the Azure CLI
 
@@ -21,13 +21,13 @@ Deploy a Deno application to Azure App Service (on Linux or Windows) using the A
 
 ## 2. Sign in to Azure CLI
 
-If you are using Azure CLI from your local command line, before using any CLI commands, you need to sign in with [az login](/cli/azure/reference-index#az-login).
+If you are using Azure CLI from your local command line, before using any CLI commands, you need to sign in with [az login](/cli/azure/reference-index#az_login).
 
 [!INCLUDE [interactive-login](../../azure-cli/includes/interactive-login.md)]
 
 3. After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. 
 
-4. If you need to select another subscription, use the [az account set](/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
+4. If you need to select another subscription, use the [az account set](/cli/azure/account#az_account_set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
 ## 3. Create local Deno API app
 

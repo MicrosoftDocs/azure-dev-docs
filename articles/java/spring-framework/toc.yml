@@ -27,8 +27,6 @@
             href: configure-spring-app-with-cosmos-db-on-app-service-linux.md           
           - name: Azure Cosmos DB Apache Cassandra API
             href: configure-spring-data-apache-cassandra-with-cosmos-db.md
-          - name: Azure Cosmos DB Gremlin API
-            href: configure-spring-data-gremlin-java-app-with-cosmos-db.md
           - name: Azure Cosmos DB MongoDB API
             href: configure-spring-data-mongodb-with-cosmos-db.md
           - name: JDBC with Azure MySQL
@@ -52,6 +50,8 @@
       - name: Spring Security 
         expanded: true
         items:
+          - name: Azure Active Directory dev guide
+            href: spring-boot-starter-for-azure-active-directory-developer-guide.md
           - name: Azure Active Directory 
             href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - name: Azure Active Directory B2C

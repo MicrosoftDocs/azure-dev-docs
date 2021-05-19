@@ -131,7 +131,9 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "lab/**/*.md": "Dev Experience Lab"
+        "lab/**/*.md": "Dev Experience Lab",
+        "javascript/**/*.md": "Azure"
+        
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [

@@ -3,7 +3,7 @@ title: Create Computer Vision resource
 description: Create your Cognitive Services Computer Vision resource and set to environment variables.
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # 4. Create Computer Vision resource and use in code
@@ -23,7 +23,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
         --location eastus \
         --name rg-demo 
     ```
-1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create):
+1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
 
 
     ```azurecli
@@ -48,7 +48,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
     ...
     ```
 
-1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) to get your keys. 
+1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az_cognitiveservices_account_keys_list) to get your keys. 
 
     ```azurecli
     az cognitiveservices account keys list \
