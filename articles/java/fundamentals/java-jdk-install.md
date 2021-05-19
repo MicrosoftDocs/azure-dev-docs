@@ -9,7 +9,7 @@ ms.custom: devx-track-java
 
 # Install the JDK
 
-You can use any JDK to build Java applications for Azure. This article will help you get started with the Azul Systems Zulu build of OpenJDK for Azure.
+You can use any JDK to build Java applications for Azure. This article will help you get started with the Azul Zulu build of OpenJDK for Azure.
 
 The Azul Zulu builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK that you can use for developing Java applications for Azure and Azure Stack. They contain all the components for building and running Java SE applications.
 
