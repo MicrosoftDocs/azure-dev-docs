@@ -48,7 +48,7 @@ Java developers can bring their own Java runtimes from different vendors to Azur
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
 
-For information on how to install and use OpenJDK, please visit one of the distributions above.
+For information on how to install and use OpenJDK, see the documentation for one of these distributions.
 
 ## Commercial support
 
