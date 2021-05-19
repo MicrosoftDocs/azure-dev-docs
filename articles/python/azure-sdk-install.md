@@ -13,6 +13,9 @@ The Azure SDK for Python is composed solely of many individual libraries that ar
 
 With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries).
 
+> [!NOTE]
+> Azure Libraries for Python (Conda) packages are also available in preview. For more information, see the blog post, [Introducing the Azure SDK for Python (Conda) Preview](https://devblogs.microsoft.com/azure-sdk/python-conda-sdk-preview/).
+
 ## Install the latest version of a library
 
 Examples: 

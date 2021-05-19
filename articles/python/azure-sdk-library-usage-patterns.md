@@ -30,6 +30,9 @@ pip install azure-storage-blob
 
 You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
+> [!NOTE]
+> Azure Libraries for Python (Conda) packages are also available in preview. For more information, see the blog post, [Introducing the Azure SDK for Python (Conda) Preview](https://devblogs.microsoft.com/azure-sdk/python-conda-sdk-preview/).
+
 ## Asynchronous operations
 
 Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
