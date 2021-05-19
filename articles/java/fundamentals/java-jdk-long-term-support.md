@@ -50,7 +50,7 @@ Java developers can bring their own Java runtimes from different vendors to Azur
 
 For information on how to install and use OpenJDK, please visit one of the distributions above.
 
-## Commercial Support
+## Commercial support
 
 Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive Java support without any extra cost when developing and/or deploying Java applications for Microsoft Azure and Azure Stack. 
 
