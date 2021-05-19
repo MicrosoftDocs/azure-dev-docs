@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
-# Monitor and manage Java workloads with Java Flight Recorder and Java Mission Control
+# Monitor and manage Java workloads with JDK Flight Recorder and Mission Control
 
 This article shows you how to monitor and manage Java workloads with Java Flight Recorder and JDK Mission Control.
 
