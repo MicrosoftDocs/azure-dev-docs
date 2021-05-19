@@ -8,7 +8,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 
 # Monitor and manage Java workloads with JDK Flight Recorder and Mission Control
 
-This article shows you how to monitor and manage Java workloads with Java Flight Recorder and JDK Mission Control.
+This article shows you how to monitor and manage Java workloads with JDK Flight Recorder and JDK Mission Control.
 
 Oracle open-sourced Mission Control in 2018, and it's managed as a project under the OpenJDK umbrella. Coupled with Flight Recorder, Mission Control delivers low-overhead, interactive monitoring and management capabilities for Java workloads.
 
