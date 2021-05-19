@@ -13,7 +13,7 @@ ms.custom: seo-java-july2019, devx-track-java
 
 ## Supported JDK runtimes
 
-Java developers on Azure and Azure Stack can build and run production Java 8 and 11 applications. For more information about the supported JDKs available for use when developing on Azure, see [Java long-term support and medium-term support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Java developers on Azure and Azure Stack can build and run production Java 8 and 11 applications. For more information about the supported JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ## Eclipse and IntelliJ plugins
 
