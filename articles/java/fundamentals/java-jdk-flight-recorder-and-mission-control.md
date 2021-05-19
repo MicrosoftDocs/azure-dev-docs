@@ -16,7 +16,7 @@ Follow the steps below to install JDK Mission Control, connect to a Java Virtual
 
 1. Make sure you have a JDK installed.
 
-2. Find a JDK Mission Control binary from the [OpenJDK JMC Project on GitHub](https://github.com/openjdk/jmc), choose the appropriate version for your system, save it locally, and change to that directory.
+2. Find a JDK Mission Control binary from the [OpenJDK JMC Project on GitHub](https://github.com/openjdk/jmc). Then, choose the appropriate version for your system, save it locally, and change to that directory.
 
 3. Expand the downloaded file. The examples below are for [Azul Zulu Mission Control](https://www.azul.com/products/components/zulu-mission-control/#block-download).
 

@@ -8,7 +8,7 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers are fully supported on Azure and Azure Stack. For Microsoft managed services, default builds of OpenJDK 8 and 11 are provided (and in some cases can be overridden). For other services, the developer is free to choose the distribution and version they wish.
+Java developers are fully supported on Azure and Azure Stack. Microsoft managed services provide default builds of OpenJDK 8 and 11, which you can override in some cases. For other services, you're free to use the distribution and version of your choice.
 
 ## Services with a managed or default JDK
 
@@ -37,7 +37,7 @@ Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April
 
 Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will also keep those 3rd-party distributions up to date for as long as there are updates available.
 
-For more details on availability of other versions of Java and support roadmap, please consult the specific Azure service documentation.
+For more details on availability of other versions of Java and support roadmap, see the specific Azure service documentation.
 
 ## Services without a managed or default JDK
 

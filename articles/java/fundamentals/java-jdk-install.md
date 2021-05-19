@@ -9,9 +9,9 @@ ms.custom: devx-track-java
 
 # Install the JDK
 
-Java developers can use any JDK to build applications for Azure. This page will help developers get started with the Azul System's Zulu build of OpenJDK for Azure.
+You can use any JDK to build Java applications for Azure. This article will help you get started with the Azul Systems Zulu build of OpenJDK for Azure.
 
-The Azul Zulu builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK that can be used for developing Java applications for Azure and Azure Stack. They contain all the components for building and running Java SE applications.
+The Azul Zulu builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK that you can use for developing Java applications for Azure and Azure Stack. They contain all the components for building and running Java SE applications.
 
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/).
 
@@ -39,14 +39,14 @@ There are [multiple download package types supported for each client OS](https:/
 
 ### Confirm your installation
 
-To confirm your installation, go to the command-line and run `java -version` and verify you have the Zulu Build OpenJDK 11 installed.
+To confirm your installation, go to the command-line, run `java -version`, and verify you have the Zulu Build OpenJDK 11 installed.
 
 ## Linux
 
 The Azul Zulu Builds of OpenJDK are also provided as DEB, RPM, and extractable TAR.GZ packages.
 
-Please visit [Azul Zulu Builds of OpenJDK for more information on Linux](https://www.azul.com/downloads/azure-only/).
+For more information on Linux, see [Azul Zulu Builds of OpenJDK](https://www.azul.com/downloads/azure-only/).
 
 ## Learn more
 
-For more detailed guidance on preparing, installing, and managing your Azul Zulu Builds of OpenJDK, read [the official Zulu docs](https://docs.azul.com/zulu/zuludocs/index.htm).
+For more detailed guidance on preparing, installing, and managing your Azul Zulu Builds of OpenJDK, see [the official Zulu docs](https://docs.azul.com/zulu/zuludocs/index.htm).
