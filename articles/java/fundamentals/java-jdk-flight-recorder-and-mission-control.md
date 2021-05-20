@@ -12,6 +12,9 @@ This article shows you how to monitor and manage Java workloads with JDK Flight 
 
 Oracle open-sourced Mission Control in 2018, and it's managed as a project under the OpenJDK umbrella. Coupled with Flight Recorder, Mission Control delivers low-overhead, interactive monitoring and management capabilities for Java workloads.
 
+
+## Install JDK Mission Control and connect to a JVM
+
 Follow the steps below to install JDK Mission Control, connect to a Java Virtual Machine (JVM), and gain real-time visibility into all aspects of a running application.
 
 1. Make sure you have a JDK installed.
