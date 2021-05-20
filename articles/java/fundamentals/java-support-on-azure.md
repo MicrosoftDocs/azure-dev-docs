@@ -52,4 +52,4 @@ For information on how to install and use OpenJDK, see the documentation for one
 
 ## Customer support
 
-For issues related to the development or deployment of Java applications to Azure and Azure Stack services, and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive support without any extra cost when developing or deploying Java applications for Azure and Azure Stack.
+For issues related to the deployment of Java applications to Azure and Azure Stack services and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive support without any extra cost.
