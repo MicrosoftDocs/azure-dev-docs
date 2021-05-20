@@ -43,7 +43,7 @@ For more details on availability of other versions of Java and support roadmap, 
 
 For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the Java runtime is entirely up to you.
 
-While Java developers can bring their own Java runtimes from different vendors to Azure, Microsoft recommends you to use any of the following OpenJDK distributions:
+While Java developers can bring their own Java runtimes from different vendors to Azure, Microsoft recommends that you use any of the following OpenJDK distributions:
 
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
