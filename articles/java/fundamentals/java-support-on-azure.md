@@ -1,6 +1,6 @@
 ---
 title: Java JDKs support for Azure development
-description: This article provides a clarification of support for developing for and running Java applications on Azure and Azure Stack.
+description: This article provides details of support for developing for or deploying Java applications to Azure and Azure Stack.
 ms.date: 04/09/2019
 ms.topic: conceptual
 ms.custom: seo-java-september2019, devx-track-java
@@ -8,7 +8,7 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers can build, integrate, and deploy applications to a variety of Azure and Azure stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and maintain a Java runtime. This document will help you understand which services provide a Java runtime by default, and which services do not.
+Java developers can build, integrate, and deploy applications to a variety of Azure and Azure stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
 
 ## Services with a managed or default Java runtime
 
@@ -33,9 +33,9 @@ The following versions of Java are supported for Microsoft developer tools, and 
 * Java 8 ([OpenJDK 8u](https://wiki.openjdk.java.net/display/jdk8u)) 
 * Java 11 ([OpenJDK 11u](https://wiki.openjdk.java.net/display/JDKUpdates/JDK11u))
 
-Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October).
+Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October). 
 
-Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will also keep those 3rd-party distributions up to date for as long as there are updates available.
+Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will keep those 3rd-party distributions up to date for as long as there are updates available.
 
 For more details on availability of other versions of Java and support roadmap, see the specific Azure service documentation.
 
@@ -52,4 +52,4 @@ For information on how to install and use OpenJDK, see the documentation for one
 
 ## Customer support
 
-For issues related to the deployment of Java applications to Azure and Azure Stack services, and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive support without any extra cost when developing or deploying Java applications for Azure and Azure Stack.
+For issues related to the development or deployment of Java applications to Azure and Azure Stack services, and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive support without any extra cost when developing or deploying Java applications for Azure and Azure Stack.
