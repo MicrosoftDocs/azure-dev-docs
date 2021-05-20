@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Java Long-Term Support
+          - text: Java support
             url: java-jdk-long-term-support.md
           - text: Java JDK Installation
             url: java-jdk-install.md

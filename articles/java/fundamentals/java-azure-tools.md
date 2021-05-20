@@ -13,9 +13,7 @@ ms.custom: seo-java-july2019, devx-track-java
 
 ## Supported JDK runtimes
 
-Java developers on Azure and Azure Stack can build and run production Java 7, 8, and 11 applications using [Azul Systems Zulu Enterprise builds of OpenJDK](https://www.azul.com/downloads/azure-only/zulu/) without incurring additional support costs. If you're currently running Java apps with other JDKs, consider migrating to Zulu on Azure for free support and maintenance.
-
-For more information about the supported JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+Java developers on Azure and Azure Stack can build and run production Java 8 and 11 applications. For more information about the supported JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ## Eclipse and IntelliJ plugins
 
@@ -27,7 +25,7 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight but powerful code editor available for MacOS, Windows, and Linux. VS Code supports a simple, modern Java development workflow through a set of extensions that provide project support, code completion, debugging, linting, and navigation.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful code editor available for macOS, Windows, and Linux. VS Code supports a simple, modern Java development workflow through a set of extensions that provide project support, code completion, debugging, linting, and navigation.
 
 [Get Started with VS Code and Java](https://code.visualstudio.com/docs/java)
 [Java extension pack for VS Code](https://code.visualstudio.com/docs/java/extensions)
