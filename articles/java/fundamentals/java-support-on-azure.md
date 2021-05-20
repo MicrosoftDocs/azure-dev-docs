@@ -8,7 +8,7 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers can build, integrate, and deploy applications to a variety of Azure and Azure stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
+Java developers can build, integrate, and deploy applications to a variety of Azure and Azure Stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
 
 ## Services with a managed or default Java runtime
 
