@@ -2,7 +2,7 @@
 title: "Tutorial: Add Microsoft login button to React SPA"
 description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the TypeScript application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
-ms.date: 02/16/2020
+ms.date: 05/20/2021
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
 ms.history: [
 "20210216:fix public issue 443"
@@ -77,7 +77,7 @@ Set aside a place to copy your App registration's client ID value, such as a tex
 
     The `.env` file is read as part of the create-react-app framework. This file is where you can store the client ID for local development. 
 
-1. Copy your Application (client) ID into the second value.
+1. Copy your Application (client) ID into the value.
 
 ## 5. Add login and logoff buttons
 
