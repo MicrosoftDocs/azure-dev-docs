@@ -25,7 +25,7 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight but powerful code editor available for MacOS, Windows, and Linux. VS Code supports a simple, modern Java development workflow through a set of extensions that provide project support, code completion, debugging, linting, and navigation.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful code editor available for macOS, Windows, and Linux. VS Code supports a simple, modern Java development workflow through a set of extensions that provide project support, code completion, debugging, linting, and navigation.
 
 [Get Started with VS Code and Java](https://code.visualstudio.com/docs/java)
 [Java extension pack for VS Code](https://code.visualstudio.com/docs/java/extensions)
