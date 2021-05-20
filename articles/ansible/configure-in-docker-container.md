@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Configure Ansible in a Docker Container
 description: In this quickstart, learn how to install and configure Ansible running in a Docker container to managing Azure resources.
-keywords: ansible, azure, devops, bash, playbook, azure cli
+keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
-ms.date: 03/24/2021
+ms.date: 05/20/2021
 ms.custom: devx-track-ansible
 ---
 
@@ -49,15 +49,14 @@ Open the `Dockerfile` and copy the follow Docker commands into the file.
 **Ansible 2.9**
 
 ```dockerfile
-FROM ubuntu:18.04
+FROM centos:7
 
 ENV ANSIBLE_VERSION 2.9.17
 
-RUN apt-get update; \
-    apt-get install -y wget; \
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb;\
-    apt install -y python3-pip; \
-    apt-get clean
+RUN yum check-update; \
+    yum install -y gcc libffi-devel python3 epel-release; \
+    yum install -y python3-pip; \
+    yum clean all
 
 RUN pip3 install --upgrade pip; \
     pip3 install "ansible==${ANSIBLE_VERSION}"; \
@@ -67,11 +66,13 @@ RUN pip3 install --upgrade pip; \
 **Ansible 2.10**
 
 ```dockerfile
-FROM ubuntu:18.04
+FROM centos:7
 
-RUN apt-get update; \
-    apt install -y python3-pip; \
-    apt-get clean
+RUN yum check-update; \
+    yum install -y gcc libffi-devel python3 epel-release; \
+    yum install -y python3-pip; \
+    yum install -y wget; \
+    yum clean all
 
 RUN pip3 install --upgrade pip; \
     pip3 install "ansible"; \
@@ -130,6 +131,9 @@ docker run -it \
 --env "AZURE_TENANT=<Azure_Tenant>" \
 ansible
 ```
+
+Replace the values with your service principal and Azure subscription details.
+
 # [PowerShell](#tab/powershell)
 ```powershell
 docker run -it `
@@ -139,11 +143,14 @@ docker run -it `
 --env "AZURE_TENANT=<Azure_Tenant>" `
 ansible
 ```
+
+Replace the values with your service principal and Azure subscription details.
+
 ---
 
 ## Create an Azure Resource Group with Ansible
 
-Run the following ad-hoc Ansible command to create a resource group:
+From inside the Ansible container, run the following Ansible command to create a resource group:
 
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus'
@@ -156,3 +163,8 @@ ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=ea
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus state=absent'
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Ansible on Azure](./index.yml)
