@@ -37,7 +37,7 @@ Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April
 
 Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will keep those 3rd-party distributions up to date for as long as there are updates available.
 
-For more details on availability of other versions of Java and support roadmap, see the specific Azure service documentation.
+For more information on the availability of other versions of Java, and for the support roadmap, see the specific Azure service documentation.
 
 ## Services without a managed or default Java runtime
 
