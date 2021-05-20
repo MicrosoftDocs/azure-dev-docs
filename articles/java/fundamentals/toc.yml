@@ -3,12 +3,12 @@
   items:
     - name: Overview
       href: java-azure-tools.md
-    - name: Java Support
+    - name: Java support
       expanded: true
       items: 
-      - name: Java Support
-        href: java-jdk-long-term-support.md
-      - name: Java JDK Installation
+      - name: Java support
+        href: java-support-on-azure.md
+      - name: Java JDK installation
         href: java-jdk-install.md
       - name: Java Docker images for Azure
         href: java-jdk-docker-images.md

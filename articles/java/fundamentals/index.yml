@@ -21,8 +21,8 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Java support
-            url: java-jdk-long-term-support.md
-          - text: Java JDK Installation
+            url: java-support-on-azure.md
+          - text: Java JDK installation
             url: java-jdk-install.md
           - text: Java Docker images for Azure
             url: java-jdk-docker-images.md

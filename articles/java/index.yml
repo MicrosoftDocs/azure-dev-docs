@@ -47,7 +47,7 @@ conceptualContent:
       links:
         - text: Java support
           itemType: get-started
-          url: fundamentals/java-jdk-long-term-support.md
+          url: fundamentals/java-support-on-azure.md
         - text: Java JDK installation
           itemType: get-started
           url: fundamentals/java-jdk-install.md
