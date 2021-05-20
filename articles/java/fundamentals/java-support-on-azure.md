@@ -1,6 +1,6 @@
 ---
 title: Java JDKs support for Azure development
-description: This article provides a statement of support for developing and running Java applications on Azure and Azure Stack.
+description: This article provides a clarification of support for developing for and running Java applications on Azure and Azure Stack.
 ms.date: 04/09/2019
 ms.topic: conceptual
 ms.custom: seo-java-september2019, devx-track-java
@@ -8,11 +8,11 @@ ms.custom: seo-java-september2019, devx-track-java
 
 # Java support on Azure and Azure Stack
 
-Java developers are fully supported on Azure and Azure Stack. Microsoft managed services provide default builds of OpenJDK 8 and 11, which you can override in some cases. For other services, you're free to use the distribution and version of your choice.
+Java developers can build, integrate, and deploy applications to a variety of Azure and Azure stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and maintain a Java runtime. This document will help you understand which services provide a Java runtime by default, and which services do not.
 
-## Services with a managed or default JDK
+## Services with a managed or default Java runtime
 
-For the following services, the default JDK is managed by Microsoft:
+For the following services the Java runtime is managed, or provided by default, by Microsoft:
 
 * Azure App Service on Windows
 * Azure App Service on Linux
@@ -24,7 +24,7 @@ For the following services, the default JDK is managed by Microsoft:
 * Azure Cloud Shell
 * Azure DevOps
 
-For some of the services above, you may be able to change the JDK distribution and version from the defaults provided. For more information, see the documentation of the service.
+For some of the services above, you may be able to change the Java runtime from the one provided by default. For more information, see the documentation of the service.
 
 ### Supported Java versions and update schedule
 
@@ -39,19 +39,17 @@ Microsoft may use 3rd-party Java distributions and binaries for some managed ser
 
 For more details on availability of other versions of Java and support roadmap, see the specific Azure service documentation.
 
-## Services without a managed or default JDK
+## Services without a managed or default Java runtime
 
-For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the JDK is entirely up to you.
+For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the Java runtime is entirely up to you.
 
-Java developers can bring their own Java runtimes from different vendors to Azure. For issues specifically related to the OpenJDK software and the HotSpot JVM, Microsoft will provide support to Azure and Azure Stack customers whenever developers are using any of the following distributions:
+While Java developers can bring their own Java runtimes from different vendors to Azure, Microsoft recommends you to use any of the following OpenJDK distributions:
 
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
 
 For information on how to install and use OpenJDK, see the documentation for one of these distributions.
 
-## Commercial support
+## Customer support
 
-Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive Java support without any extra cost when developing and/or deploying Java applications for Microsoft Azure and Azure Stack. 
-
-Developers are also welcome to raise issues and provide feedback through [github.com/microsoft/openjdk](https://github.com/microsoft/openjdk).
+For issues related to the deployment of Java applications to Azure and Azure Stack services, and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/en-ca/support/plans/) receive support without any extra cost when developing or deploying Java applications for Azure and Azure Stack.
