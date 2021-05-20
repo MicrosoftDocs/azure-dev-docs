@@ -20,7 +20,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - When running code locally, authenticating with Azure relies on environment variables as described on [Configure your local dev environment](configure-local-development-environment.md). 
 
-- You install the library packages you need with `pip install <library_name>`, using the library names on the [Python SDK package index](azure-sdk-library-package-index.md). For further details, see [Install Azure libraries](azure-sdk-install.md).
+- You install the library packages you need with `pip install <library_name>`, using the library names on the [Python SDK package index](azure-sdk-library-package-index.md). For further details, see [Install Azure libraries](azure-sdk-install.md). (Packages for Conda are also in preview, see [Introducing the Azure SDK for Python (Conda) Preview](https://devblogs.microsoft.com/azure-sdk/python-conda-sdk-preview/).)
 
 - There are distinct **management** and **client** libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)

@@ -377,6 +377,10 @@
       "redirect_url": "/azure/developer/java/fundamentals/java-get-started-with-logzio"
     },
     {
+      "source_path": "articles/java/fundamentals/java-jdk-long-term-support.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-support-on-azure"
+    },
+    {
       "source_path": "articles/java/java-sdk-add-certificate-ca-store.md",
       "redirect_url": "/azure/developer/java/sdk"
     },
