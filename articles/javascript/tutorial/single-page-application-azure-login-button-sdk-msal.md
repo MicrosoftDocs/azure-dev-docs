@@ -2,7 +2,7 @@
 title: "Tutorial: Add Microsoft login button to React SPA"
 description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the TypeScript application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
 ms.history: [
 "20210216:fix public issue 443"
@@ -120,6 +120,22 @@ Set aside a place to copy your App registration's client ID value, such as a tex
     npm run start
     ```
 
+    Watch the VSCode integrated for the notice that the app is completely started.
+
+    ```console
+    Compiled successfully!
+    
+    You can now view js-e2e-client-azure-login-button in the browser.
+    
+      Local:            http://localhost:3000
+      On Your Network:  http://x.x.x.x:3000
+    
+    Note that the development build is not optimized.
+    To create a production build, use yarn build.
+    ```
+
+1. Open the web app in a browser, `http://localhost:3000`.
+
 1. Select the **Login** button in the web browser. 
 
     :::image type="content" source="../media/tutorial-login-button/create-react-app-before-authentication-login-button-display.png" alt-text="Select the **Login** button.":::  
@@ -137,6 +153,13 @@ Set aside a place to copy your App registration's client ID value, such as a tex
     :::image type="content" source="../media/tutorial-login-button/create-react-app-after-authentication-login-button-succeeds.png" alt-text="Review the user account information.":::  
 
 1. Select the **Logout** button from the app. The app also provides convenient links to the Microsoft user apps to revoke permissions. 
+
+## Store application-specific user information
+
+The returned user object, and its [token claim](/azure/active-directory/develop/id-tokens), has a lot of information. Two IDs you may want to keep track of are:
+
+* **sub**: The ID that is specific to the user, for your specific Active Directory app ID. This is the ID you should store in your own application database, if you need to correlate your custom app's data to your Microsoft Identity provider user. 
+* **oid**: This is the universal user ID across all apps in the Microsoft Identity provider. Store this value if you need to track your user across several apps in the Identity provider.
 
 ## 7. Clean up resources
 
