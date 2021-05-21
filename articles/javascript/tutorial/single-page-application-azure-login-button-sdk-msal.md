@@ -154,14 +154,14 @@ Set aside a place to copy your App registration's client ID value, such as a tex
 
 1. Select the **Logout** button from the app. The app also provides convenient links to the Microsoft user apps to revoke permissions. 
 
-## Store application-specific user information
+## 7. Store application-specific user information
 
-The returned user object, and its [token claim](/azure/active-directory/develop/id-tokens), has a lot of information. Two IDs you may want to keep track of are:
+Optionally, you can store the user ID in your own application database to correlate between the Microsoft provider identity and the user's data required in your own application. The [token claim](/azure/active-directory/develop/id-tokens) contains two IDs you may want to keep track of are:
 
 * **sub**: The ID that is specific to the user, for your specific Active Directory app ID. This is the ID you should store in your own application database, if you need to correlate your custom app's data to your Microsoft Identity provider user. 
 * **oid**: This is the universal user ID across all apps in the Microsoft Identity provider. Store this value if you need to track your user across several apps in the Identity provider.
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 When you are done using this tutorial, delete the application from the Azure portal [App registration list](https://portal.azure.com/?quickstart=True#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 
