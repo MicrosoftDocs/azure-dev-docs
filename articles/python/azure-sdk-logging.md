@@ -1,7 +1,7 @@
 ---
 title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
-ms.date: 02/01/2021
+ms.date: 05/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -27,14 +27,14 @@ import logging
 
 # ...
 
-# Acquire the logger for a library (azure.storage.blob in this example)
-logger = logging.getLogger('azure.storage.blob')
+# Acquire the logger for a library (azure.mgmt.resource in this example)
+logger = logging.getLogger('azure.mgmt.resource')
 
 # Set the desired logging level
 logger.setLevel(logging.DEBUG)
 ```
 
-- This example acquires the logger for the `azure.storage.blob` library, then sets the logging level to `logging.DEBUG`.
+- This example acquires the logger for the `azure.mgmt.resource` library, then sets the logging level to `logging.DEBUG`.
 
 - You can call `logger.setLevel` at any time to change the logging level for different segments of code.
 
@@ -53,6 +53,8 @@ logger.setLevel(logging.INFO)
 logger = logging.getLogger('azure')
 logger.setLevel(logging.ERROR)
 ```
+
+Note that the `azure` logger is used by some libraries instead of a specific logger. For example, the azure-storage-blob library uses the `azure` logger.
 
 You can use the `logger.isEnabledFor` method to check whether any given logging level is enabled:
 

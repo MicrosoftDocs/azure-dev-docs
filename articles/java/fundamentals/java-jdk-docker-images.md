@@ -9,7 +9,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 
 # Use Docker with a Java Development Kit (JDK) for Azure
 
-This article describes how to use Docker with a Java Development Kit (JDK) for Azure. Pre-built Docker images for 8 and 11 are available through [Docker Hub](https://hub.docker.com/_/microsoft-java-se).
+This article describes how to use Docker with a Java Development Kit (JDK) for Azure. Pre-built Docker images are available through [Docker Hub](https://hub.docker.com/_/microsoft-java-se).
 
 * [JDK](https://hub.docker.com/_/microsoft-java-jdk)
 * [JRE](https://hub.docker.com/_/microsoft-java-jre)
