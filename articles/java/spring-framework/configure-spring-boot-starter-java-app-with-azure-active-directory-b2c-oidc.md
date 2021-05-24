@@ -115,7 +115,7 @@ In this tutorial, you learn how to:
 
    ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
 
-4. Select **Authentication** then click **Add a platform** then select **Web**. Set the **Redirect URIs** to `http://localhost:8080/login/oauth2/code/`. Click **Configure**.
+4. Select **Authentication**, then **Add a platform** then **Web**. Set the **Redirect URIs** to `http://localhost:8080/login/oauth2/code/`, then select **Configure**.
    
   ![Add authentication](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c7-n.png)
   ![Add authentication](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c8-n.png)
