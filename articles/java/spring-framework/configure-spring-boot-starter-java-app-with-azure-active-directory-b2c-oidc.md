@@ -111,7 +111,7 @@ In this tutorial, you learn how to:
 
    ![configure a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
-3. Back on the **Manage** pane , select **App registrations** , then select the application name you created.
+3. Back on the **Manage** pane, select **App registrations**, then select the application name you created.
 
    ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
 
