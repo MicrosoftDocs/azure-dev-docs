@@ -343,7 +343,7 @@ you should be redirected to login page.
 ## Troubleshooting
 - `Missing attribute 'name' in attributes `
 
-  ```
+  ```output
   java.lang.IllegalArgumentException: Missing attribute 'name' in attributes
   	at org.springframework.security.oauth2.core.user.DefaultOAuth2User.<init>(DefaultOAuth2User.java:67) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
   	at org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser.<init>(DefaultOidcUser.java:89) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
