@@ -190,7 +190,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
         b2c:
           base-uri: https://<your-tenant-initial-domain-name>.b2clogin.com/<your-tenant-initial-domain-name>.onmicrosoft.com/
           client-id: <your-application-ID>
-          client-secret: '<secretValue>'
+          client-secret: '<secret-value>'
           login-flow: sign-up-or-sign-in
           logout-success-url: <your-logout-success-URL>
           user-flows:
