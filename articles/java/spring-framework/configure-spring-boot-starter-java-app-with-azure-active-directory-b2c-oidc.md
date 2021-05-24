@@ -134,7 +134,7 @@ In this tutorial, you learn how to:
 
 ### Add user flow.
 
-1. Enter your tenant main page. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
+1. Navigate to your tenant main page. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
 
 2. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
 
@@ -192,7 +192,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
           client-id: <your-application-id> 
           client-secret: '<secret value>'
           login-flow: sign-up-or-sign-in
-          logout-success-url: http://localhost:8080/login
+          logout-success-url: <your-logout-success-url> 
           user-flows:
             sign-up-or-sign-in: <your-sign-up-or-sign-in-user-flow-name> 
             profile-edit: <your-profile-edit-user-flow-name> 
