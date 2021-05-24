@@ -2,13 +2,17 @@
 title: Use JavaScript on Azure Cosmos DB with SQL API
 description: To create a SQL database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 05/24/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Develop a JavaScript application for Cosmos DB with SQL API 
 
 To create or use Cosmos DB with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.
+
+## Locally develop with the CosmosDB emulator
+
+Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for SQL API development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#sql-api). 
 
 ## Create a Cosmos DB resource for a SQL API database
 

@@ -2,7 +2,7 @@
 title: Use JavaScript with Cassandra on Azure Cosmos DB
 description: To create or move your Cassandra database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 05/24/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -10,6 +10,10 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 
 To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database.
+
+## Locally develop with the CosmosDB emulator
+
+Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Cassandra development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#cassandra-api). 
 
 ## Create a Cosmos DB resource for a Cassandra DB database
 
