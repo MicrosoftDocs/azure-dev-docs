@@ -40,7 +40,7 @@ If your app uses Azure secrets, configuration strings, key or other security-rel
 
 ## Deploy your client application to an Azure hosting platform
 
-You can manually deploy your source code to Azure hosting with many [common tools and processes](./how-to/deploy-web-app#deploy-your-web-app-to-azure.md). 
+You can manually deploy your source code to Azure hosting with many [common tools and processes](../../how-to/deploy-web-app#deploy-your-web-app-to-azure.md). 
 
 When you intend to automate deployment, you can either include that in your build process pipeline, such as a GitHub action or Azure pipeline, or you can use a separate automation tool. 
 
@@ -57,5 +57,5 @@ Learn more about Azure hosting platforms:
 * [Azure Functions](/azure/azure-functions/): Serverless APIs
 * [Azure App service](/azure/app-service/)
 * [GitHub Actions](/azure/developer/github/github-actions)
-* [Azure DevOps](/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code)
+* [Azure DevOps](/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code&preserve-view=true)
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
