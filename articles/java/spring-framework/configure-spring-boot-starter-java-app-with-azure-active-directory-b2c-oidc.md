@@ -192,7 +192,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
           client-id: <your-application-ID>
           client-secret: '<secretValue>'
           login-flow: sign-up-or-sign-in
-          logout-success-url: <your-logout-success-url> 
+          logout-success-url: <your-logout-success-URL>
           user-flows:
             sign-up-or-sign-in: <your-sign-up-or-sign-in-user-flow-name> 
             profile-edit: <your-profile-edit-user-flow-name> 
