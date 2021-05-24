@@ -132,7 +132,7 @@ In this tutorial, you learn how to:
 
     ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
-### Add user flow.
+### Add user flow
 
 1. Navigate to your tenant main page. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
 
