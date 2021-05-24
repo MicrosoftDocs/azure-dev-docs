@@ -13,7 +13,7 @@ The Azure SDK for Python is composed solely of many individual libraries that ca
 
 Libraries for standard Python environments are listed in the [package index](azure-sdk-library-package-index.md).
 
-Libraries for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+Packages for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
 
 With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries, which omit `-mgmt`).
 
@@ -42,10 +42,10 @@ conda config --add channels "Microsoft"
 Then install the desired package:
 
 ```cmd
-conda install <library>
+conda install <package>
 ```
 
-`conda install` retrieves the latest version of a library in your current Python environment.
+`conda install` retrieves the latest version of a package in your current Python environment.
 
 You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
 
@@ -68,7 +68,7 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 # [conda](#tab/conda)
 
 ```cmd
-conda install --revision <version> <library>
+conda install --revision <version> <package>
 ```
 
 Specify the desired version on the command line with `conda install --revision`.
@@ -114,12 +114,12 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 # [conda](#tab/conda)
 
 ```cmd
-conda list <library>
+conda list <package>
 ```
 
-If the library is installed, `conda list` displays version and other summary information, otherwise the command displays nothing.
+If the package is installed, `conda list` displays version and other summary information, otherwise the command displays nothing.
 
-You can also use `conda list` to see all the libraries that are installed in your current conda environment.
+You can also use `conda list` to see all the packages that are installed in your current conda environment.
 
 You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
 
@@ -140,10 +140,10 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 # [conda](#tab/conda)
 
 ```cmd
-conda remove <library>
+conda remove <package>
 ```
 
-To uninstall a library, use `conda remove <library>`.
+To uninstall a package, use `conda remove <package>`.
 
 You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
 
