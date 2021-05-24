@@ -190,7 +190,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
         b2c:
           base-uri: https://<your-tenant-initial-domain-name>.b2clogin.com/<your-tenant-initial-domain-name>.onmicrosoft.com/
           client-id: <your-application-id> 
-          client-secret: '<secret value>'
+          client-secret: '<secretValue>'
           login-flow: sign-up-or-sign-in
           logout-success-url: <your-logout-success-url> 
           user-flows:
@@ -200,7 +200,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
           user-name-attribute-name: <your-user-name-attribute-name> 
     ```
 
-    Notice that the `client-secret` value is enclosed in single quotes. This is necessary because the value of `<yourAppKey>` will almost certainly contain some characters that require being inside single quotes when present in YAML.
+    Notice that the `client-secret` value is enclosed in single quotes. This is necessary because the value of `<secretValue>` will almost certainly contain some characters that require being inside single quotes when present in YAML.
 
     > [!NOTE]
     > As of this writing, the full list of Active Directory B2C Spring Integration values that are available for use in *application.yml* is the following:
