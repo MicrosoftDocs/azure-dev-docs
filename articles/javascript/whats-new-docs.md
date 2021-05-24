@@ -27,6 +27,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)<br><br>Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
 |[Tools update](./node-azure-tools.md)<br><br>Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)<br><br>Added Microsoft Identity provider and Active Directory app ID information. |
+|Locally develop with the CosmosDB emulator<br><br>For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
 
 ## 2021 April
