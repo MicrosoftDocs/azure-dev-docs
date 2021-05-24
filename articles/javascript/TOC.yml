@@ -25,6 +25,8 @@
     items:
       - name: Client web apps
         items: 
+        - name: Getting started
+          href: tutorial/client/getting-started.md
         - name: Cognitive Services - Image analysis
           items: 
             - name: 1. Introduction and prerequisites
