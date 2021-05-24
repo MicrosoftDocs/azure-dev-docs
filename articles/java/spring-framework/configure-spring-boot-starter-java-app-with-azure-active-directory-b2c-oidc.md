@@ -121,7 +121,7 @@ In this tutorial, you learn how to:
   ![Add authentication](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c8-n.png)
 
 ### Add app secrets for your app
-   Select **Certificates & secrets** then click **New client secrets**, then input your secret description and click **ADD**. After you create the secret, do remember to copy the secret value for use later in this article. There is a copy icon next to the secret value, click it to copy the value.
+   Select **Certificates & secrets**, then **New client secrets**. Input your secret description and then select **ADD**. After you create the secret, select the copy icon next to the secret value to copy the value for use later in this article.
     
    ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png)
    ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png)
