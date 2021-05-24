@@ -107,7 +107,7 @@ In this tutorial, you learn how to:
 
    ![Screenshot of the Azure portal showing the Azure AD B2C App registrations screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. In the **Name** field, enter your app's name, select **Register**.
+2. In the **Name** field, enter your app's name, then select **Register**.
 
    ![configure a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
