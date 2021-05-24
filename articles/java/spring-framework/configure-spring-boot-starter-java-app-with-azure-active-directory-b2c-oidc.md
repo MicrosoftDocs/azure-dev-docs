@@ -174,7 +174,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
     </dependency>
     ```
 
-    For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this updating the latest version is `3.4.0`.
+    For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. At the time of this update, the latest version is `3.4.0`.
 
 4. Save and close the *pom.xml* file.
 
