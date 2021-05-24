@@ -136,7 +136,7 @@ In this tutorial, you learn how to:
 
 1. Navigate to your tenant main page. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
 
-2. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
+2. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you're done. Here are some things to keep in mind when you go to the other tutorial.
 
     * Start with the step that requests you to select **New User flow**.
     * When this tutorial refers to `webapp1`, use the value you entered for **Group** instead.
