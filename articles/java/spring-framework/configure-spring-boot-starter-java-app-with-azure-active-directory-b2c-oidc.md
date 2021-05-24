@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
     * Under **Project**, select **Maven Project**.
     * Under **Language**, select **Java**.
-    * Under **Spring Boot**, select **2.3.4**.
+    * Under **Spring Boot**, select **2.5.0**.
     * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill some of these out as you type.
     * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
@@ -81,7 +81,7 @@ In this tutorial, you learn how to:
 
 1. Log into <https://portal.azure.com>.
 
-2. Select **Create a resource**, then **Identity**, and then **See all**. Search for **Azure Active Directory B2C**.
+2. Select **Create a resource**. Search for **Azure Active Directory B2C**.
 
     ![Create new Azure Active Directory B2C instance](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-1-n.png)
 
@@ -107,27 +107,24 @@ In this tutorial, you learn how to:
 
    ![Screenshot of the Azure portal showing the Azure AD B2C App registrations screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
 
-2. In the **Name** field, enter the value for **Group** from above, then set **Redirect URI (recommended)**  to *http://localhost:8080/home* and select **Register**.
+2. In the **Name** field, enter your app's name, select **Register**.
 
    ![configure a new app registration](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
 
-3. Back on the **Manage** pane , select **Applications (Legacy)** , then select the application name you created.
+3. Back on the **Manage** pane , select **App registrations** , then select the application name you created.
 
    ![Update application](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
 
-4. Select **Properties** then set **Allow implicit flow** control to **Yes**.
+4. Select **Authentication** then click **Add a platform** then select **Web**. Set the **Redirect URIs** to `http://localhost:8080/login/oauth2/code/`. Click **Configure**.
    
-5. Leave the other fields with their default values.
+  ![Add authentication](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c7-n.png)
+  ![Add authentication](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c8-n.png)
+
+### Add app secrets for your app.    
+   Select **Certificates & secrets** then click **New client secrets**, then input your secret description and click **ADD**. After you create the secret, do remember to copy the secret value for use later in this article. There is a copy icon next to the secret value, click it to copy the value.
     
-6. Select **Save**. It may take a short while before the application is ready.
-    
-   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c6-n.png)
-
-7. In the **General** pane select **Keys**, then select **Generate Key**.
-
-8. Set **App key** to the value you entered above for **Group**.
-
-9. Select **Save**. Wait for the key to appear in the app key section, then copy it for use later in this article.
+   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png)
+   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png)
 
     > [!NOTE]
     > If you leave the **Keys** section and come back, you will not be able to see the key value. In that case, you must create another key and copy it for future use.
@@ -135,11 +132,11 @@ In this tutorial, you learn how to:
 
     ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
-10. Select **Overview**.
+### Add user flow.
 
-11. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
+1. Enter your tenant main page. In the **Policies** section of the left pane, select **User flows**, then select **New user flow**.
 
-12. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
+2. You will now leave this tutorial, execute another tutorial, and come back to this tutorial when you are done. Here are some things to keep in mind when you go to the other tutorial.
 
     * Start with the step that requests you to select **New User flow**.
     * When this tutorial refers to `webapp1`, use the value you entered for **Group** instead.
@@ -163,27 +160,21 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-active-directory-b2c-spring-boot-starter</artifactId>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
         <version>See Below</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        <version>See Below</version>
     </dependency>
     <dependency>
         <groupId>org.thymeleaf.extras</groupId>
         <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-        <version>See Below</version>
     </dependency>
     ```
 
-    For the `azure-active-directory-b2c-spring-boot-starter`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this updating the latest version is `2.3.5`.
-
-    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELEASE`.
-
-    For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
+    For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. As of this updating the latest version is `3.4.0`.
 
 4. Save and close the *pom.xml* file.
 
@@ -197,15 +188,16 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
     azure:
       activedirectory:
         b2c:
-          tenant: ejb0518domain
-          client-id: 11111111-1111-1111-1111-1111111111111111
-          client-secret: '<yourAppKey>'
-          reply-url: http://localhost:8080/home
-          logout-success-url: http://localhost:8080/home
+          base-uri: https://<your-tenant-initial-domain-name>.b2clogin.com/<your-tenant-initial-domain-name>.onmicrosoft.com/
+          client-id: <your-application-id> 
+          client-secret: '<secret value>'
+          login-flow: sign-up-or-sign-in
+          logout-success-url: http://localhost:8080/login
           user-flows:
-            sign-up-or-sign-in: B2C_1_signupsignin1
-            profile-edit: B2C_1_profileediting1
-            password-reset: B2C_1_passwordreset1
+            sign-up-or-sign-in: <your-sign-up-or-sign-in-user-flow-name> 
+            profile-edit: <your-profile-edit-user-flow-name> 
+            password-reset: <your-password-reset-user-flow-name> 
+          user-name-attribute-name: <your-user-name-attribute-name> 
     ```
 
     Notice that the `client-secret` value is enclosed in single quotes. This is necessary because the value of `<yourAppKey>` will almost certainly contain some characters that require being inside single quotes when present in YAML.
@@ -217,16 +209,16 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
     > azure:
     >   activedirectory:
     >     b2c:
-    >       tenant:
-    >       oidc-enabled:
+    >       base-uri:
     >       client-id:
     >       client-secret:
-    >       reply-url:  # should be absolute url.
+    >       login-flow:  
     >       logout-success-url:
     >       user-flows:
     >         sign-up-or-sign-in:
     >         profile-edit: # optional
     >         password-reset: # optional
+    >       user-name-attribute-name:
     > ```
     >
     > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/application.yml) on GitHub.
@@ -347,6 +339,26 @@ you should be redirected to login page.
 5. After you have logged in successfully, you should see the sample `home page` from the browser,
 
     ![Successful login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo3-n.png)
+
+## Troubleshooting
+- `Missing attribute 'name' in attributes `
+
+  ```
+  java.lang.IllegalArgumentException: Missing attribute 'name' in attributes
+  	at org.springframework.security.oauth2.core.user.DefaultOAuth2User.<init>(DefaultOAuth2User.java:67) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+  	at org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser.<init>(DefaultOidcUser.java:89) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+  	at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:144) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+  	at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:63) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+  ```
+
+  While running sample, if error occurs with logs above:
+
+    - make sure that while creating user workflow by following this [guide](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows), for **User attributes and claims** , attributes and claims for **Display Name** should be chosen. And configure `user-name-attribute-name` in the **application.yml** file properly.
+
+### FAQ
+
+#### Sign in with loops to B2C endpoint ?
+This issue almost due to polluted cookies of `localhost`. Clean up cookies of `localhost` and try it again.
 
 ## Summary
 
