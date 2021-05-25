@@ -158,7 +158,6 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
 3. Add the dependencies for Spring OAuth2 security to the *pom.xml*:
 
-<<<<<<< HEAD
    ```xml
    <dependency>
        <groupId>com.azure.spring</groupId>
@@ -168,39 +167,20 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    <dependency>
        <groupId>org.springframework.boot</groupId>
        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+       <version>See Below</version>
    </dependency>
    <dependency>
        <groupId>org.thymeleaf.extras</groupId>
        <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+       <version>See Below</version>
    </dependency>
    ```
 
-   For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/ artifact/com.microsoft.azure/azure-active-directory-spring-boot-starter) to look this up. At the time of this update, the latest version is `3.4.0`.
-=======
-    ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-        <version>See Below</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        <version>See Below</version>
-    </dependency>
-    <dependency>
-        <groupId>org.thymeleaf.extras</groupId>
-        <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-        <version>See Below</version>
-    </dependency>
-    ```
+   For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c) to look this up. As of this updating the latest version is `3.4.0`.
 
-    For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c) to look this up. As of this updating the latest version is `3.4.0`.
+   For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELEASE`.
 
-    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELEASE`.
-
-    For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
->>>>>>> 47dd04976659c9a315a6ca64a25d05ec5970c5fd
+   For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
 
 4. Save and close the *pom.xml* file.
 
@@ -210,7 +190,6 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
 6. Specify the settings for your app registration using the values you created earlier; for example:
 
-<<<<<<< HEAD
    ```yaml
    azure:
      activedirectory:
@@ -232,7 +211,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    > [!NOTE]
    > As of this writing, the full list of Active Directory B2C Spring Integration values that are available for use in *application.yml* is the following:
    >
-   > ```
+   > ```yaml
    > azure:
    >   activedirectory:
    >     b2c:
@@ -249,44 +228,6 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    > ```
    >
    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/application.yml) on GitHub.
-=======
-    ```yaml
-    azure:
-      activedirectory:
-        b2c:
-          base-uri: ${your-tenant-authorization-server-base-uri}
-          client-id: ${your-client-id}
-          client-secret: ${your-client-secret}
-          logout-success-url: ${your-logout-success-url}
-          user-flows:
-            password-reset: ${your-profile-edit-user-flow}
-            profile-edit: ${your-password-reset-user-flow}
-            sign-up-or-sign-in: ${your-sign-up-or-in-user-flow}
-    ```
-
-    > [!NOTE]
-    > As of this writing, the full list of Active Directory B2C Spring Integration values that are available for use in *application.yml* is the following:
-    >
-    > ```
-    > azure:
-    >   activedirectory:
-    >     b2c:
-    >       authenticate-additional-parameters: 
-    >         domain_hint: xxxxxxxxx         # optional
-    >         login_hint: xxxxxxxxx          # optional
-    >         prompt: [login,none,consent]   # optional
-    >       base-uri: ${your-tenant-authorization-server-base-uri}
-    >       client-id: ${your-webapp-client-id}
-    >       client-secret: ${your-webapp-client-secret}
-    >       login-flow: ${your-login-user-flow-key}               # default to sign-up-or-sign-in, will look up the user-flows map with provided key.
-    >       logout-success-url: ${you-logout-success-url}
-    >       user-flows:
-    >         ${your-user-flow-key}: ${your-user-flow-name-defined-on-azure-portal}
-    >       user-name-attribute-name: ${your-user-name-attribute-name}
-    > ```
-    >
-    > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/application.yml) on GitHub.
->>>>>>> 47dd04976659c9a315a6ca64a25d05ec5970c5fd
 
 7. Save and close the *application.yml* file.
 
@@ -351,17 +292,10 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    ```java
    package yourGroupId.yourGroupId.security;
 
-<<<<<<< HEAD
    import com.microsoft.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
    import org.springframework.security.config.annotation.web.builders.HttpSecurity;
    import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
    import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-=======
-    import com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
-    import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-    import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-    import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
->>>>>>> 47dd04976659c9a315a6ca64a25d05ec5970c5fd
 
    @EnableWebSecurity
    public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
