@@ -25,6 +25,8 @@
     items:
       - name: Client web apps
         items: 
+        - name: "Add search to website"
+          href: /azure/search/tutorial-javascript-overview
         - name: Cognitive Services - Image analysis
           items: 
             - name: 1. Introduction and prerequisites
