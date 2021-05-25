@@ -123,14 +123,14 @@ In this tutorial, you learn how to:
 ### Add app secrets for your app
    Select **Certificates & secrets**, then **New client secrets**. Input your secret description and then select **ADD**. After you create the secret, select the copy icon next to the secret value to copy the value for use later in this article.
     
-   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png)
-   ![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png)
+![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png)
+![Update app key](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png)
 
-    > [!NOTE]
-    > If you leave the **Keys** section and come back, you will not be able to see the key value. In that case, you must create another key and copy it for future use.
-    > Occasionally, the generated key may contain characters that are problematic for inclusion in the *application.yml* file, such as backslash or backtick. In that case, discard that key and generate another one.
+> [!NOTE]
+> If you leave the **Keys** section and come back, you will not be able to see the key value. In that case, you must create another key and copy it for future use.
+> Occasionally, the generated key may contain characters that are problematic for inclusion in the *application.yml* file, such as backslash or backtick. In that case, discard that key and generate another one.
 
-    ![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
+![Create the secret](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c3-n.png)
 
 ### Add user flow
 
