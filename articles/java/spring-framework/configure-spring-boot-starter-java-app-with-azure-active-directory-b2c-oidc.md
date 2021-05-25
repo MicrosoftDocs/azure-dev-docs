@@ -341,24 +341,26 @@ you should be redirected to login page.
     ![Successful login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo3-n.png)
 
 ## Troubleshooting
-- `Missing attribute 'name' in attributes `
 
-  ```output
-  java.lang.IllegalArgumentException: Missing attribute 'name' in attributes
-  	at org.springframework.security.oauth2.core.user.DefaultOAuth2User.<init>(DefaultOAuth2User.java:67) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
-  	at org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser.<init>(DefaultOidcUser.java:89) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
-  	at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:144) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
-  	at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:63) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
-  ```
+The following sections describe how to resolve some problems you might encounter.
 
-  While running sample, if error occurs with logs above:
+### Missing attribute name in attributes
 
-    - make sure that while creating user workflow by following this [guide](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows), for **User attributes and claims** , attributes and claims for **Display Name** should be chosen. And configure `user-name-attribute-name` in the **application.yml** file properly.
+While running the sample, you might get an exception with the message `Missing attribute 'name' in attributes`. The log for this exception will look similar to the following output:
 
-### FAQ
+```output
+java.lang.IllegalArgumentException: Missing attribute 'name' in attributes
+at org.springframework.security.oauth2.core.user.DefaultOAuth2User.<init>(DefaultOAuth2User.java:67) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+at org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser.<init>(DefaultOidcUser.java:89) ~[spring-security-oauth2-core-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:144) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:63) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
+```
 
-#### Sign in with loops to B2C endpoint ?
-This issue almost due to polluted cookies of `localhost`. Clean up cookies of `localhost` and try it again.
+If you get this error, double-check the user workflow you created in [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows). When creating the user workflow, for **User attributes and claims**, be sure to choose attributes and claims for **Display Name**. Also, be sure to properly configure `user-name-attribute-name` in the *application.yml* file.
+
+### Sign in with loops to B2C endpoint
+
+This issue is most likely due to polluted cookies for `localhost`. Clean up cookies for `localhost` and try it again.
 
 ## Summary
 
