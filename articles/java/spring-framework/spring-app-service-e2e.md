@@ -177,7 +177,7 @@ set REGION=<region>
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.13.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.14.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
@@ -385,7 +385,7 @@ Update the *pom.xml* file to make MySQL the active configuration. Remove the `<a
 </profile>
 ```
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.13.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.14.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
@@ -398,6 +398,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
         <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
         <appName>${WEBAPP_NAME}</appName>
         <region>${REGION}</region>
+        <pricingTier>P1V2</pricingTier>
         <runtime>
             <os>linux</os>
             <javaVersion>Java 8</javaVersion>
