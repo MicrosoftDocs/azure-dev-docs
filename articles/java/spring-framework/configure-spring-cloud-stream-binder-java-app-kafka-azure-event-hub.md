@@ -101,88 +101,85 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
    ```xml
    <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>spring-cloud-starter-azure-eventhubs-kafka</artifactId>
-     <version>1.2.8</version>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+     <version>2.4.0</version>
    </dependency>
    ```
 
 1. Save and close the *pom.xml* file.
 
-## Create an Azure Credential File
+## Sign into Azure and set your subscription
 
-1. Open a command prompt.
+First, use the following steps to authenticate using the Azure CLI.
 
-1. Navigate to the *resources* directory of your Spring Boot app; for example:
+1. Optionally, sign out and delete some authentication files to remove any lingering credentials:
 
-   ```cmd
-   cd C:\SpringBoot\kafka\src\main\resources
+   ```azurecli
+   az logout
+   rm ~/.azure/accessTokens.json
+   rm ~/.azure/azureProfile.json
    ```
 
-   -or-
-
-   ```bash
-   cd /users/example/home/kafka/src/main/resources
-   ```
-
-1. Sign in to your Azure account:
+1. Sign into your Azure account by using the Azure CLI:
 
    ```azurecli
    az login
    ```
+
+   Follow the instructions to complete the sign-in process.
 
 1. List your subscriptions:
 
    ```azurecli
    az account list
    ```
-   Azure will return a list of your subscriptions, and you will need to copy the GUID for the subscription that you want to use; for example:
+
+   Azure will return a list of your subscriptions. Copy the `id` value for the subscription that you want to use; for example:
 
    ```json
    [
      {
        "cloudName": "AzureCloud",
-       "id": "11111111-1111-1111-1111-111111111111",
-       "isDefault": true,
+       "id": "ssssssss-ssss-ssss-ssss-ssssssssssss",
        "name": "Converted Windows Azure MSDN - Visual Studio Ultimate",
        "state": "Enabled",
-       "tenantId": "22222222-2222-2222-2222-222222222222",
+       "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
        "user": {
-         "name": "gena.soto@wingtiptoys.com",
+         "name": "contoso@microsoft.com",
          "type": "user"
        }
      }
    ]
    ```
-   
+
 1. Specify the GUID for the subscription you want to use with Azure; for example:
 
    ```azurecli
-   az account set -s 11111111-1111-1111-1111-111111111111
+   az account set -s ssssssss-ssss-ssss-ssss-ssssssssssss
    ```
 
-1. Create your Azure Credential file:
+## Create a service principal
 
-   ```azurecli
-   az ad sp create-for-rbac --sdk-auth > my.azureauth
-   ```
+Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service. "Service" is any application, service, or platform that needs to access Azure resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
-   This command will create a *my.azureauth* file in your *resources* directory with contents that resemble the following example:
+To create a service principal, use the following command.
 
-   ```json
-   {
-     "clientId": "33333333-3333-3333-3333-333333333333",
-     "clientSecret": "44444444-4444-4444-4444-444444444444",
-     "subscriptionId": "11111111-1111-1111-1111-111111111111",
-     "tenantId": "22222222-2222-2222-2222-222222222222",
-     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-     "resourceManagerEndpointUrl": "https://management.azure.com/",
-     "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-     "galleryEndpointUrl": "https://gallery.azure.com/",
-     "managementEndpointUrl": "https://management.core.windows.net/"
-   }
-   ```
+```azurecli
+az ad sp create-for-rbac --name contososp
+```
+
+The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
+
+```output
+{
+  "appId": "sample-app-id",
+  "displayName": "contososp",
+  "name": "http://contososp",
+  "password": "sample-password",
+  "tenant": "sample-tenant"
+}
+```
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
@@ -197,9 +194,12 @@ After your namespace is deployed, you can create an event hub in the namespace.
 2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
    ```yaml
-   spring.cloud.azure.credential-file-path=my.azureauth
+   spring.cloud.azure.client-id=<your client ID>
+   spring.cloud.azure.client-secret=<your client secret>
+   spring.cloud.azure.tenant-id=<your tenant ID>
    spring.cloud.azure.resource-group=wingtiptoysresources
    spring.cloud.azure.region=West US
+   spring.cloud.azure.subscription-id=<your subscription ID>
    spring.cloud.azure.eventhub.namespace=wingtiptoys
 
    spring.cloud.stream.bindings.input.destination=wingtiptoyshub
@@ -210,8 +210,11 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
    |                       Field                       |                                                                                   Description                                                                                    |
    |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |     `spring.cloud.azure.credential-file-path`     |                                                    Specifies Azure credential file that you created earlier in this tutorial.                                                    |
+   |           `spring.cloud.azure.client-id`          |                                                    The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                             |
+   |         `spring.cloud.azure.client-secret`        |                                                    The `password` from the return JSON from `az ad sp create-for-rbac`.                                                          |
+   |           `spring.cloud.azure.tenant-id`          |                                                    The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                            |
    |        `spring.cloud.azure.resource-group`        |                                                      Specifies the Azure Resource Group that contains your Azure Event Hub.                                                      |
+   |        `spring.cloud.azure.subscription-id`        |                                                      Specifies the Azure Subscription that contains your Azure Event Hub.                                                      |
    |            `spring.cloud.azure.region`            |                                           Specifies the geographical region that you specified when you created your Azure Event Hub.                                            |
    |      `spring.cloud.azure.eventhub.namespace`      |                                          Specifies the unique name that you specified when you created your Azure Event Hub Namespace.                                           |
    | `spring.cloud.stream.bindings.input.destination`  |                            Specifies the input destination Azure Event Hub, which for this tutorial is the  hub you created earlier in this tutorial.                            |
