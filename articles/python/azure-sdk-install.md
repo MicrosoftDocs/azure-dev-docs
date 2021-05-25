@@ -13,9 +13,9 @@ The Azure SDK for Python is composed solely of many individual libraries that ca
 
 Libraries for standard Python environments are listed in the [package index](azure-sdk-library-package-index.md).
 
-Packages for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+Packages for Conda environments are listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
-With these libraries you can provision and manage resources on Azure services (using the management libraries, which have `-mgmt` in their names) and connect with those resources from app code (using the client libraries, which omit `-mgmt`).
+With these Azure libraries you can provision and manage resources on Azure services (using the management libraries, whose names begin with `azure-mgmt`) and connect with those resources from app code (using the client libraries, whose names begin with just `azure-`).
 
 ## Install the latest version of a library
 
@@ -33,7 +33,7 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 
 # [conda](#tab/conda)
 
-Be sure you've added the Microsoft channel to your Conda configuration:
+Be sure you've added the Microsoft channel to your Conda configuration (you need to do this only once):
 
 ```cmd
 conda config --add channels "Microsoft"
@@ -47,7 +47,7 @@ conda install <package>
 
 `conda install` retrieves the latest version of a package in your current Python environment.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
 Packages for Conda are grouped by services. For example, `azure-storage` includes libraries for working with blobs, file shares, queues, and any other Azure Storage service. The single `azure-mgmt` package contains the management libraries for all services.
 
@@ -56,6 +56,12 @@ Packages for Conda are grouped by services. For example, `azure-storage` include
 ## Install specific library versions
 
 # [pip](#tab/pip)
+
+Be sure you've added the Microsoft channel to your Conda configuration (you need to do this only once):
+
+```cmd
+conda config --add channels "Microsoft"
+```
 
 ```cmd
 pip install <library>==<version>
@@ -68,12 +74,12 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 # [conda](#tab/conda)
 
 ```cmd
-conda install --revision <version> <package>
+conda install <package>==<version>
 ```
 
 Specify the desired version on the command line with `conda install --revision`.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
 ---
 
@@ -93,7 +99,7 @@ You can use any package name listed in the [package index](azure-sdk-library-pac
 
 # [conda](#tab/conda)
 
-(TODO: are preview packages available via conda?)
+Preview packages for Conda are not available at this time.
 
 ---
 
@@ -121,7 +127,7 @@ If the package is installed, `conda list` displays version and other summary inf
 
 You can also use `conda list` to see all the packages that are installed in your current conda environment.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
 ---
 
@@ -145,6 +151,6 @@ conda remove <package>
 
 To uninstall a package, use `conda remove <package>`.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo).
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
 
 ---
