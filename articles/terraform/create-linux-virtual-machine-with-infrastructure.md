@@ -3,7 +3,7 @@ title: Create a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
-ms.date: 06/14/2020
+ms.date: 05/25/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -17,21 +17,22 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Create Azure connection and resource group
 
-Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
-
-The `provider` section tells Terraform to use an Azure provider. To get values for `subscription_id`, `client_id`, `client_secret`, and `tenant_id`, see [Install and configure Terraform](get-started-cloud-shell.md).
-
-> [!TIP]
-> If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
+Let's go through each section of a Terraform template. The first section defines the Azure Terraform provider.
 
 ```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x.
-    # If you're using version 1.x, the "features" block is not allowed.
-    version = "~>2.0"
-    features {}
+  features {}
 }
 ```
+
 
 The following section creates a resource group named `myResourceGroup` in the `eastus` location:
 
@@ -185,7 +186,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
- SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
+The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
 
 ```hcl
 resource "tls_private_key" "example_ssh" {
@@ -193,7 +194,15 @@ resource "tls_private_key" "example_ssh" {
   rsa_bits = 4096
 }
 
-output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+# Create (and display) an SSH key
+resource "tls_private_key" "example_ssh" {
+  algorithm = "RSA"
+  rsa_bits = 4096
+}
+output "tls_private_key" { 
+    value = tls_private_key.example_ssh.private_key_pem 
+    sensitive = true
+}
 
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -221,7 +230,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = file("~/.ssh/id_rsa.pub")
     }
 
     boot_diagnostics {
@@ -238,13 +247,21 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 To bring all these sections together and see Terraform in action, create a file called `terraform_azure.tf` and paste the following content:
 
+> [!IMPORTANT]
+> The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
+
 ```hcl
 # Configure the Microsoft Azure Provider
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x. 
-    # If you're using version 1.x, the "features" block is not allowed.
-    version = "~>2.0"
-    features {}
+  features {}
 }
 
 # Create a resource group if it doesn't exist
@@ -364,7 +381,10 @@ resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
 }
-output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+output "tls_private_key" { 
+    value = tls_private_key.example_ssh.private_key_pem 
+    sensitive = true
+}
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -393,7 +413,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = file("~/.ssh/id_rsa.pub")
     }
 
     boot_diagnostics {
