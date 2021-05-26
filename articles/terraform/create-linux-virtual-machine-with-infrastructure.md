@@ -185,7 +185,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
- SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
+SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
 
 ```hcl
 resource "tls_private_key" "example_ssh" {
