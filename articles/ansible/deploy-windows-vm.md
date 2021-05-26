@@ -404,7 +404,7 @@ ansible-playbook connect_azure_windows_vm.yml -i <publicIPaddress>,
 Replace `<publicIPaddress>` with your virtual machine's address.
 
 **Key Point**:
-* Adding `,` after the public IP address bypasses Ansible's inventory parser, allowing you to run playbooks against hosts not in an inventory file.
+* Adding `,` after the public IP address bypasses Ansible's inventory parser. This syntax allows you to run playbooks against hosts not in an inventory file
 
 ## Clean up resources
 
