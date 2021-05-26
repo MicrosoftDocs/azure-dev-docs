@@ -184,7 +184,7 @@ The `admin_password` value of `{{ password }}` is an Ansible variable that conta
 ```
 
 **Key points**:
-* Avoid storing sensitive data as plain text within playbooks. Use `var_prompts` to prompt for variable input at run time. And adding `no_log: true` prevents the password from being displayed in the logs.
+* Avoid storing sensitive data as plain text. Use `var_prompts` to populate variables at run time. Add `no_log: true` to prevent passwords from being log.
 
 ## Configure the WinRM Listener
 
