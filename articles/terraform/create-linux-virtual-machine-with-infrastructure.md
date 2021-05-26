@@ -47,7 +47,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-In additional sections, you reference the resource group with `azurerm_resource_group.myterraformgroup.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.myterraformgroup.name`.
 
 ## Create virtual network
 
@@ -186,7 +186,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 The final step is to create a VM and use all the resources created. The following code creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
-The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
+The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value as needed.
 
 ```hcl
 resource "tls_private_key" "example_ssh" {
