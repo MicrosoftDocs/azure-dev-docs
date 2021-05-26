@@ -366,7 +366,7 @@ Run the command following command on the Ansible server:
 pip install "pywinrm>=0.3.0"
 ```
 
-Read more about [Windows Remote Management](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#windows-remote-management) for Ansible.
+For more information, see [Windows Remote Management for Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#windows-remote-management).
 
 ## Connect to the Windows virtual machine
 
