@@ -27,4 +27,3 @@ The following articles help you get started with various data options on Azure:
 - [Cosmos DB - Spring Data Cosmos DB](../spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md)
 - [Cosmos DB - Spring Data Mongo DB](../spring-framework/configure-spring-data-mongodb-with-cosmos-db.md)
 - [Cosmos DB - Spring Data Cassandra](../spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md)
-- [Cosmos DB - Spring Data Gremlin](../spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md)

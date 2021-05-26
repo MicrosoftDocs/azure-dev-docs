@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps to Azure
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
@@ -12,7 +12,7 @@ Hosting options and deployment scenarios include several services and tools for 
 
 ## Choose a recommended Azure host provider
 
-Hosting your client, server, or background task app on Azure comes in various solutions for you to choose from. Use the following table to make a selection. The recommended solution for most use cases is [Azure App service](/azure/app-service/overview). 
+Use the following table to select a hosting service for most common app needs. 
 
 For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) and the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
 
@@ -20,11 +20,11 @@ For a complete overview of different hosting options, see [Decision tree for Azu
  Service |App type supported| Suggested for |
 |--|--|--|
 |[*App service](/azure/app-service/overview) - **recommended**|Client, Server, Client/Server, API, Server-render|Host your app from code or a container. This allows you to **fully configure and manage the web server** without needing to manage the underlying environment.<br><br>[**Quickstart**: Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)|
-|[(Preview) Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, JAM-stack, Static front end with serverless APIs|Deploy and dynamically scale your **static client app and serverless APIs**.<br><br>[**Quickstart**: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript) |
-|[Functions](/azure/azure-functions/)|Server API|Host your **serverless API endpoints**. Azure provides many templates known as triggers to bootstrap common scenarios.<br><br>[**Quickstart**: Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
+|[Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, JAM-stack, Static front end with serverless APIs|Deploy and dynamically scale your **static client app and serverless APIs**.<br><br>[**Quickstart**: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript) |
+|[Functions](/azure/azure-functions/)|Serverless APIs, triggered background processes|Host your **serverless API endpoints**. Azure provides many templates known as triggers to bootstrap common scenarios.<br><br>[**Quickstart**: Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
 
 
-## Host web apps with more control
+## Host web apps with more control and flexibility
 
 The following choices give you more control of your application environment. 
 
@@ -32,7 +32,16 @@ The following choices give you more control of your application environment.
 |--|--|
 |[Virtual Machines](/azure/virtual-machines) (VMs)|Full control of a Windows or Linux VM. [Find an endorsed Linux Distribution](/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json) or [learn how to find](/azure/virtual-machines/linux/cli-ps-findimage) Linux VM images in the Azure Marketplace.|
 |[Container Instances](/azure/container-instances/)|Quickly set up a single container.|
-|[Kubernetes Service](/azure/aks/)|Multi-container orchestrations.|
+|Multiple apps|Use an [App Service plan](/azure/app-service/overview-hosting-plans) running multiple [app services](/azure/app-service/). |  
+
+## Ultimate control with microservices on Azure
+
+For enterprise scale systems, use one of the following microservice platforms. 
+
+| Service | Suggested for |
+|--|--|
+|[Kubernetes Service](/azure/aks/)|Deploy a production ready Kubernetes cluster in Azure.|
+|[Service Fabric](/azure/service-fabric/)| A distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers|
 
 ## Alternative web app hosting choices on Azure
 
@@ -46,6 +55,8 @@ These choices are tailored to specific use cases.
 ## Deploy your web app to Azure
 
 Once you have selected a service to host your application, select a deployment process and tool. Deploying your client and server apps to Azure services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
+
+Use [deployment slots](/azure/app-service/deploy-staging-slots) to deploy your source code to a staging environment and warm up the environment before deploying to your production slot. 
 
 Common methods of moving files to the Azure cloud include:
 

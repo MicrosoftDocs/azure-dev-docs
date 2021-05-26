@@ -3,16 +3,16 @@
   items:
     - name: Overview
       href: java-azure-tools.md
-    - name: Java Support
+    - name: Java support
       expanded: true
       items: 
-      - name: Java Long-Term Support
-        href: java-jdk-long-term-support.md
-      - name: Java JDK Installation
+      - name: Java support
+        href: java-support-on-azure.md
+      - name: Java JDK installation
         href: java-jdk-install.md
       - name: Java Docker images for Azure
         href: java-jdk-docker-images.md
-      - name: Zulu Flight Recorder and Mission Control
+      - name: JDK Flight Recorder and Mission Control
         href: java-jdk-flight-recorder-and-mission-control.md
       - name: Reasons to move to Java 11
         href: reasons-to-move-to-java-11.md

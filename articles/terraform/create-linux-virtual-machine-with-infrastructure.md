@@ -1,13 +1,13 @@
 ---
-title: Create a Linux VM with infrastructure in Azure using Terraform
-description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure.
+title: Configure a Linux VM with infrastructure in Azure using Terraform
+description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
-ms.date: 06/14/2020
+ms.date: 05/25/2021
 ms.custom: devx-track-terraform
 ---
 
-# Create a Linux VM with infrastructure in Azure using Terraform
+# Configure a Linux VM with infrastructure in Azure using Terraform
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
 
@@ -17,21 +17,22 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Create Azure connection and resource group
 
-Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
-
-The `provider` section tells Terraform to use an Azure provider. To get values for `subscription_id`, `client_id`, `client_secret`, and `tenant_id`, see [Install and configure Terraform](get-started-cloud-shell.md).
-
-> [!TIP]
-> If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
+The following code defines the Azure Terraform provider:
 
 ```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x.
-    # If you're using version 1.x, the "features" block is not allowed.
-    version = "~>2.0"
-    features {}
+  features {}
 }
 ```
+
 
 The following section creates a resource group named `myResourceGroup` in the `eastus` location:
 
@@ -46,11 +47,11 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-In additional sections, you reference the resource group with `azurerm_resource_group.myterraformgroup.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.myterraformgroup.name`.
 
 ## Create virtual network
 
-The following section creates a virtual network named `myVnet` in the `10.0.0.0/16` address space:
+The following code creates a virtual network named `myVnet` in the `10.0.0.0/16` address space:
 
 ```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
@@ -78,7 +79,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 ## Create public IP address
 
-To access resources across the Internet, create and assign a public IP address to your VM. The following section creates a public IP address named `myPublicIP`:
+To access resources across the Internet, create and assign a public IP address to your VM. The following code creates a public IP address named `myPublicIP`:
 
 ```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
@@ -95,7 +96,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 ## Create Network Security Group
 
-Network Security Groups control the flow of network traffic in and out of your VM. The following section creates a network security group named `myNetworkSecurityGroup` and defines a rule to allow SSH traffic on TCP port 22:
+Network Security Groups control the flow of network traffic in and out of your VM. The following code creates a network security group named `myNetworkSecurityGroup` and defines a rule to allow SSH traffic on TCP port 22:
 
 ```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
@@ -123,7 +124,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 ## Create virtual network interface card
 
-A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named `myNIC` connected to the virtual networking resources you've created:
+A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following code in a Terraform template creates a virtual NIC named `myNIC` connected to the virtual networking resources you've created:
 
 ```hcl
 resource "azurerm_network_interface" "myterraformnic" {
@@ -152,7 +153,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 ## Create storage account for diagnostics
 
-To store boot diagnostics for a VM, you need a storage account. These boot diagnostics can help you troubleshoot problems and monitor the status of your VM. The storage account you create is only to store the boot diagnostics data. As each storage account must have a unique name, the following section generates some random text:
+To store boot diagnostics for a VM, you need a storage account. These boot diagnostics can help you troubleshoot problems and monitor the status of your VM. The storage account you create is only to store the boot diagnostics data. As each storage account must have a unique name, the following code generates some random text:
 
 ```hcl
 resource "random_id" "randomId" {
@@ -183,9 +184,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## Create virtual machine
 
-The final step is to create a VM and use all the resources created. The following section creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
+The final step is to create a VM and use all the resources created. The following code creates a VM named `myVM` and attaches the virtual NIC named `myNIC`. The latest `Ubuntu 18.04-LTS` image is used, and a user named `azureuser` is created with password authentication disabled.
 
-SSH key data is provided in the `ssh_keys` section. Provide a public SSH key in the `key_data` field.
+The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value as needed.
 
 ```hcl
 resource "tls_private_key" "example_ssh" {
@@ -193,7 +194,15 @@ resource "tls_private_key" "example_ssh" {
   rsa_bits = 4096
 }
 
-output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+# Create (and display) an SSH key
+resource "tls_private_key" "example_ssh" {
+  algorithm = "RSA"
+  rsa_bits = 4096
+}
+output "tls_private_key" { 
+    value = tls_private_key.example_ssh.private_key_pem 
+    sensitive = true
+}
 
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -221,7 +230,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = file("~/.ssh/id_rsa.pub")
     }
 
     boot_diagnostics {
@@ -238,13 +247,21 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 To bring all these sections together and see Terraform in action, create a file called `terraform_azure.tf` and paste the following content:
 
+> [!IMPORTANT]
+> The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
+
 ```hcl
 # Configure the Microsoft Azure Provider
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x. 
-    # If you're using version 1.x, the "features" block is not allowed.
-    version = "~>2.0"
-    features {}
+  features {}
 }
 
 # Create a resource group if it doesn't exist
@@ -364,7 +381,10 @@ resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"
   rsa_bits = 4096
 }
-output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+output "tls_private_key" { 
+    value = tls_private_key.example_ssh.private_key_pem 
+    sensitive = true
+}
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -393,7 +413,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = file("~/.ssh/id_rsa.pub")
     }
 
     boot_diagnostics {
@@ -414,43 +434,16 @@ With your Terraform template created, the first step is to initialize Terraform.
 terraform init
 ```
 
-The next step is to have Terraform review and validate the template. This step compares the requested resources to the state information saved by Terraform and then outputs the planned execution. The Azure resources aren't created at this point.
+The next step is to have Terraform review and validate the template. This step compares the requested resources to the state information saved by Terraform and then outputs the planned execution. The Azure resources aren't created at this point. An execution plan is generated and stored in the file specified by the `-out` parameter.
 
 ```bash
-terraform plan
+terraform plan -out terraform_azure.tfplan
 ```
 
-After you execute the previous command, you should see something like the following screen:
-
-```console
-Refreshing Terraform state in-memory prior to plan...
-The refreshed state will be used to calculate this plan, but will not be
-persisted to local or remote state storage.
-...
-
-Note: You didn't specify an "-out" parameter to save this plan, so when
-"apply" is called, Terraform can't guarantee this is what will execute.
-  + azurerm_resource_group.myterraform
-      <snip>
-  + azurerm_virtual_network.myterraformnetwork
-      <snip>
-  + azurerm_network_interface.myterraformnic
-      <snip>
-  + azurerm_network_security_group.myterraformnsg
-      <snip>
-  + azurerm_public_ip.myterraformpublicip
-      <snip>
-  + azurerm_subnet.myterraformsubnet
-      <snip>
-  + azurerm_virtual_machine.myterraformvm
-      <snip>
-Plan: 7 to add, 0 to change, 0 to destroy.
-```
-
-If everything looks correct and you're ready to build the infrastructure in Azure, apply the template in Terraform:
+When you're ready to build the infrastructure in Azure, apply the execution plan:
 
 ```bash
-terraform apply
+terraform apply terraform_azure.tfplan
 ```
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):

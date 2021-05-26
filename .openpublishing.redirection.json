@@ -1,6 +1,30 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },    
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
+      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+    },     
+    {
       "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
       "redirect_url": "/azure/developer/javascript/how-to/with-sdk/set-up-development-environment"
     },
@@ -317,6 +341,10 @@
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
     },
     {
+      "source_path": "articles/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db.md",
+      "redirect_url": "/azure/developer/java/quickstarts/data"
+    },
+    {
       "source_path": "articles/java/toolkit-for-intellij/azure-toolkit-for-intellij.md",
       "redirect_url": "/azure/developer/java/toolkit-for-intellij"
     },
@@ -347,6 +375,10 @@
     {
       "source_path": "articles/java/java-get-started-with-logzio.md",
       "redirect_url": "/azure/developer/java/fundamentals/java-get-started-with-logzio"
+    },
+    {
+      "source_path": "articles/java/fundamentals/java-jdk-long-term-support.md",
+      "redirect_url": "/azure/developer/java/fundamentals/java-support-on-azure"
     },
     {
       "source_path": "articles/java/java-sdk-add-certificate-ca-store.md",

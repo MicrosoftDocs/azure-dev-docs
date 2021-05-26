@@ -34,7 +34,7 @@ The following steps show how to install the required Java JDK and Maven on the J
 
 1. Sign in to Jenkins controller using SSH.
 
-1. [Download and install the Azul Zulu JDKs from an apt-get repository](../java/fundamentals/java-jdk-install.md#download-and-install-the-azul-zulu-jdks-from-an-apt-get-repository):
+1. Download and install the Azul Zulu build of OpenJDK for Azure from an apt-get repository:
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
