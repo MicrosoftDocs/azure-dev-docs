@@ -94,7 +94,7 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
 **Key points**:
 * Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. Then the `debug` module is used to output the public IP address of the VM to the console.
 
-## Create the network security group and network interface card (NIC)
+## Create network security group and NIC
 
 A virtual network interface card connects your VM to the virtual network, a public IP address, and a security group.
 
