@@ -48,7 +48,7 @@ Ansible needs a resource group to deploy your resources in.
       location: eastus
 ```
 
-**Key Points**:
+**Key points**:
 * Setting `hosts` to _localhost_ and `connection` as _local_ runs the playbook locally on the Ansible server.
 
 ## Create the virtual network and subnet
@@ -72,9 +72,9 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
       virtual_network: vNet
 ```
 
-## Create a public Ip Address
+## Create a public IP address
 
-To make the Azure VM accessible via the internet, add a public Ip address.
+To make the Azure VM accessible via the internet, add a public IP address.
 
 Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
 
@@ -91,8 +91,8 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
       msg: "The public IP is {{ output_ip_address.state.ip_address }}"
 ```
 
-**Key Points**:
-* Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. Then the `debug` module is used to output the public Ip address of the VM to the console.
+**Key points**:
+* Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. Then the `debug` module is used to output the public IP address of the VM to the console.
 
 ## Create the network security group and network interface card (NIC)
 
@@ -183,7 +183,7 @@ The `admin_password` value of `{{ password }}` is an Ansible variable that conta
   tasks:
 ```
 
-**Key Points**:
+**Key points**:
 * Avoid storing sensitive data as plain text within playbooks. Use `var_prompts` to prompt for variable input at run time. And adding `no_log: true` prevents the password from being displayed in the logs.
 
 ## Configure the WinRM Listener
