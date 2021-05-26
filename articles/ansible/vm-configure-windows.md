@@ -409,3 +409,8 @@ Replace `<publicIPaddress>` with your virtual machine's address.
 ## Clean up resources
 
 [!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Ansible on Azure](./index.yml)
