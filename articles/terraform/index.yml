@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Linux VM
+          - text: Configure a Linux VM
             url: create-linux-virtual-machine-with-infrastructure.md
       - linkListType: how-to-guide
         links:
