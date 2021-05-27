@@ -67,7 +67,7 @@ Use the following procedure to install the `ioredis` package and initialize your
 
 1. Copy the following JavaScript code into `bulk_insert.js`:
 
-    :::code language="JavaScript" source="~/../js-e2e/database/redis/bulk-insert.js" :::
+    :::code language="JavaScript" source="~/../js-e2e/database/redis/bulk_insert.js" :::
 
 1. Replace the following in the script with your Redis resource information:
 
