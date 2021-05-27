@@ -148,7 +148,7 @@ Replace the values with your service principal and Azure subscription details.
 
 ---
 
-## Create an Azure Resource Group with Ansible
+## Create an Azure Resource Group
 
 From inside the Ansible container, run the following Ansible command to create a resource group:
 
@@ -156,7 +156,21 @@ From inside the Ansible container, run the following Ansible command to create a
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus'
 ```
 
-## Delete the Azure Resource Group
+Confirm the resource group was created.
+
+# [Bash](#tab/bash)
+```bash
+az group show --resource-group myResourceGroup
+```
+
+Replace the values with your service principal and Azure subscription details.
+
+# [PowerShell](#tab/powershell)
+```powershell
+Get-AzResourceGroup -Name myResourceGroup
+```
+
+## Clean up resources
 
 **Delete** the resource group by adding `state=absent` to the argument list.
 
