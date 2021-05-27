@@ -4,13 +4,13 @@ description: This guide describes what you should be aware of when you want to m
 author: VaijanathB
 ms.author: vaangadi
 ms.topic: conceptual
-ms.date: 3/16/2021
+ms.date: 05/27/2021
 ms.custom: devx-track-java
 ---
 
 # Migrate JBoss EAP applications to JBoss EAP on Azure App Service
 
-This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service.
+This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service instance.
 
 ## Pre-migration
 
@@ -24,6 +24,8 @@ Check all properties and configuration files on the production server(s) for any
 
 Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
+You can use Key Vault secrets in your App Service instance with Key Vault references. Key Vault references allow you to use the secrets in your application while keeping them secured and encrypted at rest. For more information, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
+
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
 [!INCLUDE [validate-that-the-supported-java-version-works-correctly-jboss-eap](includes/validate-that-the-supported-java-version-works-correctly-jboss-eap.md)]
@@ -32,11 +34,11 @@ Consider storing those secrets in Azure KeyVault. For more information, see [Azu
 
 ### Determine whether session replication is used
 
-If your application relies on session replication, you'll have to change your application to remove this dependency.
+If your application relies on session replication, you'll have to change your application to remove this dependency. App Service does not allow instances to communicate directly with one another.
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
 
 [!INCLUDE [static-content](includes/static-content.md)]
 
@@ -69,6 +71,15 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 [!INCLUDE [perform-in-place-testing](includes/perform-in-place-testing-jboss.md)]
 
+### Features not supported on App Service
+
+The following features are not supported in JBoss EAP on App Service.
+
+* **Clustering**: Due to network security constraints, application instances on App Service cannot communicate directly with one another. If your current JBoss deployment uses clustering, you'll need to remove this dependency to migrate to App Service.
+* **JBoss EAP management console**: The JBoss web console is not exposed on App Service. Instead, the Azure Portal provides the management APIs for your application, and you should deployment using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
+* **Transactions**: The application instances are run in a stateless manner, so the Transactions API is not currently supported.
+* **Managed domains**: App Service handles the scaling and failover of your application instances, so JBoss EAP’s domain mode is not necessary on App Service.
+
 ## Migration
 
 [!INCLUDE [provision-azure-app-service-for-jboss-eap-runtime](includes/provision-azure-app-service-for-jboss-eap-runtime.md)]
@@ -79,7 +90,6 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 ## Post-migration
 
-Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that we have some recommendations for you that can make your application more cloud-native.
+Now that you've migrated your application to Azure App Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
 [!INCLUDE [post-migration-recomendations-app-service](includes/post-migration-recomendations-app-service.md)]
-

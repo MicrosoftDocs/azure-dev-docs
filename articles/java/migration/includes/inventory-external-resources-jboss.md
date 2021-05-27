@@ -1,7 +1,7 @@
 ---
 author: VaijanathB
 ms.author: vaangadi
-ms.date: 3/20/2021
+ms.date: 05/27/2021
 ---
 
 ### Inventory external resources

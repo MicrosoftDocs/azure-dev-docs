@@ -1,7 +1,7 @@
 ---
 author: VaijanathB
 ms.author: vaangadi
-ms.date: 3/19/2021
+ms.date: 05/27/2021
 ---
 
 ### Determine whether your application relies on scheduled jobs
