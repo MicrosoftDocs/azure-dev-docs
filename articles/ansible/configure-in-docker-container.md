@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure Ansible in a Docker Container
+title: Quickstart - Configure Ansible in a Docker container
 description: In this quickstart, learn how to install and configure Ansible running in a Docker container to managing Azure resources.
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
@@ -82,7 +82,7 @@ RUN pip3 install --upgrade pip; \
     ansible-galaxy collection install azure.azcollection
 ```
 
-## Build an Ansible Docker Image
+## Build an Ansible Docker image
 
 Within the directory containing the `Dockerfile`, run the following Docker command:
 
@@ -92,7 +92,7 @@ docker build . -t ansible
 
 The docker build command executes the commands defined within the `Dockerfile`, which produces the Docker image used to run Ansible within a container.
 
-## Start an Ansible Container
+## Start an Ansible container
 
 Run the `docker run` command to start the Ansible container.
 
@@ -108,7 +108,7 @@ Confirm Ansible was installed by running the command `ansible --version` inside 
 ansible --version
 ```
 
-## Connect to Azure from the Ansible Container
+## Connect to Azure from the Ansible container
 
 **Export** the following environment variables to connect to Azure:
 
@@ -177,6 +177,7 @@ Get-AzResourceGroup -Name myResourceGroup
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus state=absent'
 ```
+---
 
 ## Next steps
 
