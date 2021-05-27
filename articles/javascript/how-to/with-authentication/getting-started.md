@@ -56,7 +56,7 @@ Learn more:
 
 Azure hosting platforms provide Easy Auth for no-code authentication integration. You can add [managed identity](/azure/app-service/overview-managed-identity) and the MSAL SDK to access other Azure resources, with the DefaultAzureCredential.
 
-The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is managed by the hosting environment. 
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is managed by the managed identity on the hosting environment. 
 
 Learn more (using .NET sample code): 
 
