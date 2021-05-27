@@ -48,17 +48,27 @@ Collect required information for the app registration from the [Azure portal](ht
 
 The fastest way to get started with the MSAL SDK is to [find your scenario](/azure/active-directory/develop/authentication-flows-app-scenarios), then locate your [framework and sample](/azure/active-directory/develop/sample-v2-code) associated with your scenario. 
 
-## 4. Hosting integration with managed identity and DefaultAzureCredential
+## 4.Integration with DefaultAzureCredential
 
-Add [managed identity](/azure/app-service/overview-managed-identity) and the MSAL SDK to access other Azure resources, with the DefaultAzureCredential, on behalf of your users or system.
-
-The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the runtime environment. 
+Configure your runtime environment so your code can use the DefaultAzureCredential, on behalf of your users or system. This allows your same code to run in local, stage, and production environments, without managing credentials yourself. 
 
 Examples of DefaultAzureCredential: 
 
 * [Key vault](/javascript/api/overview/azure/identity-readme#authenticating-with-the-defaultazurecredential)
 * [Azure Storage](/javascript/api/overview/azure/storage-blob-readme#create-the-blob-service-client)
 
+### [Simple no-code authentication](#tab/no-code-credential)
+
+Configure a [managed identity](/azure/app-service/overview-managed-identity) for your hosting environment. 
+
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the runtime environment. 
+
+### [Custom SDK authentication](#tab/msal-credential)
+
+Configure your environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
+
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the runtime environment. 
+---
 
 ## Next steps
 
