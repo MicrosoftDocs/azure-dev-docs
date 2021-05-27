@@ -46,7 +46,6 @@ In this tutorial, you learn how to:
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill some of these out as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
-   ![Spring Initializr with values filled in](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/fill-in-the-values-to-generate-the-project.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/fill-in-the-values-to-generate-the-project.png" alt-text="Spring Initializr with values filled in.":::
 
 3. Select **Generate Project**, then download the project to a path on your local computer. Move the downloaded file to a directory named after your project and unzip the file. The file layout should look something like the following, with the value you entered for **Group** in place of `yourProject`.
@@ -82,60 +81,50 @@ In this tutorial, you learn how to:
 
 2. Select **Create a resource**. Search for **Azure Active Directory B2C**.
 
-   ![Create new Azure Active Directory B2C instance using the Azure portal](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-1-n.png)
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-1-n.png" alt-text="Alt text here.":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-1-n.png" alt-text="Create new Azure Active Directory B2C instance using the Azure portal.":::
+
 3. Select **Create**.
 
-   ![Azure Marketplace entry for Azure Active Directory B2C](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-5-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-5-n.png" alt-text="Azure Marketplace entry for Azure Active Directory B2C.":::
 
 4. Select **Create a new Azure AD B2C Tenant**.
 
-   ![Azure portal option to create new Azure AD B2C Tenant](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-2-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-2-n.png" alt-text="Azure portal option to create new Azure AD B2C Tenant.":::
 
 5. For **Organization name** and **Initial domain name**, provide appropriate values, then select **Create**.
 
-   ![Azure AD B2C Create Tenant screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-3-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-3-n.png" alt-text="Azure AD B2C Create Tenant screen.":::
 
 6. When the Active Directory creation is complete, select your account in the upper right corner, then select **Switch directory**, then select the directory just created. You will be redirected to the new tenant home page. Then search for `b2c` and select **Azure AD B2C**.
 
-   ![Locate the Azure AD B2C service](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-4-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/az-4-n.png" alt-text="Locate the Azure AD B2C service.":::
 
 ### Add an application registration for your Spring Boot app
 
 1. In the **Manage** pane on the left, select **App registrations**, and then select **New registration**.
 
-   ![Screenshot of the Azure portal showing the Azure AD B2C App registrations screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c1-n.png" alt-text="Screenshot of the Azure portal showing the Azure AD B2C App registrations screen.":::
 
 2. In the **Name** field, enter your app's name, then select **Register**.
 
-   ![Azure AD B2C register an application form](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c4-n.png" alt-text="Azure AD B2C register an application form.":::
 
 3. Back on the **Manage** pane, select **App registrations**, then select the application name you created.
 
-   ![App registrations screen with display name selected](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c5-n.png" alt-text="App registrations screen with display name selected.":::
 
 4. Select **Authentication**, then **Add a platform** then **Web**. Set the **Redirect URIs** to `http://localhost:8080/login/oauth2/code/`, then select **Configure**.
 
-   ![Options selected for authentication, add a platform, web](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c7-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c7-n.png" alt-text="Options selected for authentication, add a platform, web.":::
 
-   ![Configure Web screen with Redirect URIs field selected](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c8-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c8-n.png" alt-text="Configure Web screen with Redirect URIs field selected.":::
 
 ### Add app secrets for your app
 
 Select **Certificates & secrets**, then **New client secrets**. Input your secret description and then select **Add**. After you create the secret, select the copy icon next to the secret value to copy the value for use later in this article.
 
-![Add a client secret screen](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png)
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c9-n.png" alt-text="Add a client secret screen.":::
-![Certificates and secrets screen with copy button selected](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png)
+
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/b2c10-n.png" alt-text="Certificates and secrets screen with copy button selected.":::
 
 > [!NOTE]
@@ -348,14 +337,12 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 3. After your application is built and started by Maven, open `http://localhost:8080/` in a web browser;
 you should be redirected to login page.
 
-   ![Web app login page](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo1-n.png" alt-text="Web app login page.":::
 
 4. Select the link with text relating to signing in. You should be redirected Azure AD B2C to start the authentication process.
 
 5. After you have logged in successfully, you should see the sample `home page` from the browser,
 
-   ![Web app successful login](media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo3-n.png)
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/lo3-n.png" alt-text="Web app successful login.":::
 
 ## Troubleshooting
