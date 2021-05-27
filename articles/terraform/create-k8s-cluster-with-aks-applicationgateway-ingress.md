@@ -716,8 +716,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
     ```
 
-  **Key Points:**
-    * If RBAC is **disabled**, a service account isn't needed.
+    If RBAC is **disabled**, a service account isn't needed.
 
 1. Add the AGIC Helm repository:
 
