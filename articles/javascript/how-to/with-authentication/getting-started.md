@@ -60,8 +60,8 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 Examples of DefaultAzureCredential: 
 
-* [Key vault](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#authenticating-with-the-defaultazurecredential)
-* [Azure Storage](/javascript/api/overview/azure/storage-blob-readme?view=azure-node-latest#create-the-blob-service-client)
+* [Key vault](/javascript/api/overview/azure/identity-readme#authenticating-with-the-defaultazurecredential)
+* [Azure Storage](/javascript/api/overview/azure/storage-blob-readme#create-the-blob-service-client)
 
 
 ## Next steps
