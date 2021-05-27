@@ -7,14 +7,14 @@ ms.date: 05/20/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart - Configure Ansible in a Docker Container
+# Quickstart: Configure Ansible in a Docker container
 
-This quick start shows you how to install Ansible running in a Docker container.
+This quickstart shows you how to install Ansible running in a Docker container. Using a container for Ansible development solves the problem of "It works on my machine." by providing a consistent experience across all your environments, locally or in production.
 
 In this article, you learn to:
 
 > [!div class="checklist"]
-> * Create an Azure Service Principal
+> * Create an Azure service principal
 > * Create a Dockerfile
 > * Install Ansible in a Docker container
 > * Build a Docker image
@@ -100,7 +100,7 @@ Run the `docker run` command to start the Ansible container.
 docker run -it ansible
 ```
 
-By default Docker containers start detached from the terminal, running in the background. The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
+By default, Docker containers start detached from the terminal, running in the background. The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
 
 Confirm Ansible was installed by running the command `ansible --version` inside the Docker container.
 
