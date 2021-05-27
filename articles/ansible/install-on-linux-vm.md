@@ -27,7 +27,7 @@ In this quickstart, you'll complete these tasks:
 
 ## Create a virtual machine
 
-1. Create a an Azure resource group.
+1. Create an Azure resource group.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -80,7 +80,7 @@ In this quickstart, you'll complete these tasks:
 
     Replace the `<password>` your password.
 
-1. Geth the public Ip address of the Azure virtual machine.
+1. Get the public Ip address of the Azure virtual machine.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -155,6 +155,8 @@ wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirement
 sudo pip3 install -r requirements-azure.txt
 ```
 
+**Key points**:
+* Ansible control node requires Python 2 (version 2.7) or Python 3 (versions 3.5 and higher) installed. Ansible 4.0.0 and ansible-core 2.11 has a soft dependency on Python 3.8, but functions with lower versions. However, Ansible 5.0.0 and ansible-core 2.12 will require 3.8 and newer.
 ## Create Azure credentials
 
 To configure the Ansible credentials, you need the following information:
