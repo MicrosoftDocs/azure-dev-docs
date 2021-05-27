@@ -93,7 +93,7 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.0.0</version>
+        <version>3.4.0</version> 
     </dependency>
     ```
 
@@ -102,7 +102,7 @@ Your simple Spring Boot application is now ready for editing.
     ```xml
     <properties>
         <java.version>11</java.version>
-        <azure.version>3.0.0</azure.version>
+        <azure.version>3.4.0</azure.version>
     </properties>
     ```
 
