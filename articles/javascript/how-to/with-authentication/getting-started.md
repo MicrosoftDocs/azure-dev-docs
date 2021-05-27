@@ -46,11 +46,7 @@ Easy Auth provides access to several identity providers:
 * Twitter
 * OpenID Connect
 
-The [authentication flow](/azure/app-service/overview-authentication-authorization#authentication-flow) directs a user through the identity provider authentication flow then back to your web or function app. The identity provider's authentication information is returned in the expected mechanism, typically the query string or HTTP header.
-
-Your web app or function app automatically includes the authentication token in responses.
-
-Easy Auth creates an [app registration](/azure/active-directory/develop/quickstart-register-app) for Active Directory. The app registration is required for Microsoft identity.
+The [authentication flow](/azure/app-service/overview-authentication-authorization#authentication-flow) directs a user through the identity provider authentication flow then back to your web or function app. The identity provider's authentication information is returned, typically in the query string or HTTP header.
 
 Learn more: 
 
