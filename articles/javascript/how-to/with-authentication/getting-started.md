@@ -56,12 +56,13 @@ Learn more:
 
 Azure hosting platforms provide Easy Auth for no-code authentication integration. You can add [managed identity](/azure/app-service/overview-managed-identity) and the MSAL SDK to access other Azure resources, with the DefaultAzureCredential.
 
-The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is managed by the managed identity on the hosting environment. 
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the hosting environment. 
 
-Learn more (using .NET sample code): 
+Examples of DefaultAzureCredential: 
 
-* [Accessing Azure Storage, on behalf of user](/azure/app-service/scenario-secure-app-access-storage?tabs=azure-portal%2Ccommand-line)
-* [Accessing Azure Graph, on behalf of user](/azure/app-service/scenario-secure-app-access-microsoft-graph-as-user?tabs=command-line)
+* [Key vault](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#authenticating-with-the-defaultazurecredential)
+* [Azure Storage](/javascript/api/overview/azure/storage-blob-readme?view=azure-node-latest#create-the-blob-service-client)
+
 
 ## Next steps
 
