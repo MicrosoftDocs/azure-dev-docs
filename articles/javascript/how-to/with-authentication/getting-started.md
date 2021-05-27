@@ -59,5 +59,5 @@ Azure hosting platforms provide Easy Auth for no-code authentication integration
 ## Next steps
 
 * [Add easy authentication to your web app](../with-web-app/add-authentication-to-web-app.md)
-* [Add Microsoft login button to a single page application](../../tutorial/single-page-application-azure-login-button-sdk-msal)
+* [Add Microsoft login button to a single page application](../tutorial/single-page-application-azure-login-button-sdk-msal)
 * [Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)
