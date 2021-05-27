@@ -158,7 +158,7 @@
     - name: With authentication
       items: 
       - name: Getting started
-        href: how-to-/with-authentication/getting-started.md
+        href: how-to/with-authentication/getting-started.md
       - name: Add easy authentication
         href: how-to/with-web-app/add-authentication-to-web-app.md
       - name: Add a simple Login button for Microsoft Identity provider
