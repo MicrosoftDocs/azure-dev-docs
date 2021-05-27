@@ -19,7 +19,7 @@ The Active directory **app registration** is required to provide authentication 
 
 The no-code authentication path, _[Easy Auth](/azure/app-service/overview-authentication-authorization)_, means the hosting environment manages the authentication for your app. 
 
-1. Create you hosting resource, such as an Azure web app or Azure function app.
+1. Create your hosting resource, such as an Azure web app or Azure function app.
 1. Enable Easy Auth by adding Authentication to your hosting resource. The process creates the app registration for you. 
 1. If you only need to use authentication as a barrier to entry for your app, you are done. If your app needs to access other resources on behalf of the user or service, continue with MSAL integration. 
 
@@ -30,7 +30,7 @@ Before you create your app registration, determine tasks based on expected users
 |Users|Select|
 |--|--|
 |Everyone (social, public, private, and [external identities](/azure/active-directory/external-identities/compare-with-b2c))|[Azure Active Directory B2C](/azure/active-directory-b2c/overview)<br>* Create a new tenant to hold your Active Directory.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
-|Less than everyone|[Azure Active Directory](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
+|Microsoft identity only<br>Users existing in Microsoft tenant(s) or personal Microsoft accounts|[Azure Active Directory](/azure/active-directory-b2c/overview)<br>* Select a tenant to create app registration in.<br>* Create the [app registration](/azure/active-directory/develop/quickstart-register-app).|
 
 ---
 
@@ -52,7 +52,7 @@ The fastest way to get started with the MSAL SDK is to [find your scenario](/azu
 
 Add [managed identity](/azure/app-service/overview-managed-identity) and the MSAL SDK to access other Azure resources, with the DefaultAzureCredential, on behalf of your users or system.
 
-The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the hosting environment. 
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the runtime environment. 
 
 Examples of DefaultAzureCredential: 
 
