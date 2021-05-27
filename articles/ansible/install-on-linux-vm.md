@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Install Ansible on an Azure VM
+title: Quickstart - Configure Ansible on an Azure VM
 description: In this quickstart, learn how to install and configure Ansible on an Azure VM for managing Azure resources.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
@@ -7,7 +7,7 @@ ms.date: 05/10/2021
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Quickstart: Configure Ansible using Azure CLI
+# Quickstart: Configure Ansible on an Azure VM
 
 This quickstart shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
 
@@ -102,7 +102,7 @@ Using the SSH command, connect to your virtual machine's public IP address.
 ssh azureuser@<vm_ip_address>
 ```
 
-Replace the `<vm_ip_address>` with the appropriate value returned in pervious commands.
+Replace the `<vm_ip_address>` with the appropriate value returned in previous commands.
 
 ## Install Ansible on the virtual machine
 
@@ -211,7 +211,10 @@ You now have a virtual machine with Ansible installed and configured!
 
 This section shows how to create a test resource group within your new Ansible configuration. If you don't need to do that, you can skip this section.
 
-### Create an Azure resource group
+- [Option 1: Use an ad-hoc ansible command](#ad-hoc-command)
+- [Option 2: Write and run an Ansible playbook](#ansible-playbook)
+
+#### <span id="ad-hoc-command"/> Option 1: Use an ad-hoc ansible command
 
 Run the following ad-hoc Ansible command to create a resource group:
 
@@ -225,7 +228,7 @@ ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=<resourc
 
 Replace `<resource_group_name>` and `<location>` with your values.
 
-### (Optional) Create an Azure resource group with an Ansible playbook
+#### <span id="ansible-playbook"/> Option 2: Write and run an Ansible playbook
 
 1. Save the following code as `create_rg.yml`.
 
