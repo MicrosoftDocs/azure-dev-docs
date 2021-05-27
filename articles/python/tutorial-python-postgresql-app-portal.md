@@ -233,12 +233,6 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations).
 
-1. Change into the app folder with `cd $APP_PATH`.
-
-1. Activate the virtual environment with `source /antenv/bin/activate`.
-
-1. Install requirements with `pip install -r requirements.txt`.
-
 1. Run the migrations again with `python manage.py migrate`.
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
