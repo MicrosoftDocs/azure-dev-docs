@@ -57,15 +57,15 @@ Examples of DefaultAzureCredential:
 * [Key vault](/javascript/api/overview/azure/identity-readme#authenticating-with-the-defaultazurecredential)
 * [Azure Storage](/javascript/api/overview/azure/storage-blob-readme#create-the-blob-service-client)
 
-### [Simple no-code authentication](#tab/no-code-credential)
+### [Azure hosted environments](#tab/no-code-credential)
 
 Configure a [managed identity](/azure/app-service/overview-managed-identity) for your hosting environment. 
 
 The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the managed identity on the runtime environment. 
 
-### [Custom SDK authentication](#tab/msal-credential)
+### [Other environments](#tab/msal-credential)
 
-Configure your environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
+Configure your local, on-prem, or other environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
 
 The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the runtime environment. 
 
