@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # Getting started with authentication on Azure
 
-The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your JavaScript application. There are several  and concepts before you continue. 
+The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your JavaScript application. 
 
 ## Add code-based authentication with MSAL SDK
 
@@ -52,12 +52,23 @@ Your web app or function app automatically includes the authentication token in 
 
 Easy Auth creates an [app registration](/azure/active-directory/develop/quickstart-register-app) for Active Directory. The app registration is required for Microsoft identity.
 
-## Hosting and MSAL integration
+Learn more: 
 
-Azure hosting platforms provide Easy Auth for no-code authentication integration. You can also add MSAL SDK integration for authentication to the same app.
+* Azure Web app tutorial: [Add authentication to your web app running on Azure App Service](/azure/app-service/scenario-secure-app-overview)
+
+## Hosting and MSAL integration with managed identity and DefaultAzureCredential
+
+Azure hosting platforms provide Easy Auth for no-code authentication integration. You can add [managed identity](/azure/app-service/overview-managed-identity) and MSAL SDK integration to work between the Easy Auth and other Azure resources by using the DefaultAzureCredential.
+
+The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is managed by the hosting environment. 
+
+Learn more (using .NET sample code): 
+
+* [Accessing Azure Storage, on behalf of user](/azure/app-service/scenario-secure-app-access-storage?tabs=azure-portal%2Ccommand-line)
+* [Accessing Azure Graph, on behalf of user](/azure/app-service/scenario-secure-app-access-microsoft-graph-as-user?tabs=command-line)
 
 ## Next steps
 
-* [Add easy authentication to your web app](../with-web-app/add-authentication-to-web-app.md)
-* [Add Microsoft login button to a single page application](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
-* [Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)
+* [JS: Add easy authentication to your web app](../with-web-app/add-authentication-to-web-app.md)
+* [JS: Add Microsoft login button to a single page application](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
+* [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)
