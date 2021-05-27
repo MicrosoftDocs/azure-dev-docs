@@ -374,7 +374,7 @@ Ansible's configuration determines how Ansible connects and authenticates to rem
 
 In this tutorial, you'll use WinRM over HTTPS with self-signed certificates and NTLM for the authentication.
 
-Read more about [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
+For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
 
 **Create** a new Ansible playbook named `connect_azure_windows_vm.yml` and copy the following contents into the playbook:
 
