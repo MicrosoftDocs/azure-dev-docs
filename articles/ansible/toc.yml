@@ -20,6 +20,8 @@
         href: vm-configure.md
       - name: Manage Linux virtual machines
         href: vm-manage.md
+      - name: Configure Windows virtual machines
+        href: vm-configure-windows.md
 - name: Tutorials
   items:
   - name: Azure Application Gateway
