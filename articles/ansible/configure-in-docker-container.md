@@ -169,6 +169,7 @@ Replace the values with your service principal and Azure subscription details.
 ```powershell
 Get-AzResourceGroup -Name myResourceGroup
 ```
+---
 
 ## Clean up resources
 
