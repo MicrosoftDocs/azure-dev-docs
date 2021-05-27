@@ -19,7 +19,7 @@ In this tutorial, locally build and deploy a React/TypeScript client application
 
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-    - [Azure Static Web Apps (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
+    - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - [GitHub account](https://github.com/join) - to fork and push to a repo
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.

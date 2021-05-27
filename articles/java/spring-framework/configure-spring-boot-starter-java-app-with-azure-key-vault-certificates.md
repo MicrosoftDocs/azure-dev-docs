@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
 
-- A supported Java Development Kit (JDK), version 8. For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
+- A supported Java Development Kit (JDK), version 8. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 - [Apache Maven](http://maven.apache.org/), version 3.0.
 

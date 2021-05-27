@@ -83,7 +83,7 @@ App Service supports only a single HTTP endpoint on a single port. If your appli
 
 ### Parameterize the configuration
 
-Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you're migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) in the Spring Boot documentation.
+Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you're migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config) in the Spring Boot documentation.
 
 Here's an example that references a `SERVICEBUS_CONNECTION_STRING` environment variable from an *application.properties* file:
 
