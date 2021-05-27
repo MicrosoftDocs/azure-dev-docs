@@ -9,7 +9,7 @@
   items:
     - name: Configure Ansible using Azure Cloud Shell
       href: getting-started-cloud-shell.md
-    - name: Configure Ansible using Azure CLI
+    - name: Install Ansible on an Azure VM
       href: install-on-linux-vm.md
     - name: Create Ansible service principal
       href: create-ansible-service-principal.md
@@ -20,6 +20,8 @@
         href: vm-configure.md
       - name: Manage Linux virtual machines
         href: vm-manage.md
+      - name: Configure Windows virtual machines
+        href: vm-configure-windows.md
 - name: Tutorials
   items:
   - name: Azure Application Gateway

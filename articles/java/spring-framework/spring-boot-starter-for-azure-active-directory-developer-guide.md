@@ -29,7 +29,7 @@ The following links provide access to the starter package, documentation, and sa
 To follow the instructions in this guide, you must have the following prerequisites:
 
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-- A supported Java Development Kit (JDK), version 8 or later. For more information, see [Java long-term support and medium-term support on Azure and Azure Stack](../fundamentals/java-jdk-long-term-support.md).
+- A supported Java Development Kit (JDK), version 8 or later. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 - [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 - An application registered with Azure AD. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
@@ -499,7 +499,7 @@ logging.level.org.springframework.web=DEBUG
 logging.level.org.hibernate=ERROR
 ```
 
-For more information about logging configuration in Spring, see [Logging](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging) in the Spring documentation.
+For more information about logging configuration in Spring, see [Logging](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging) in the Spring documentation.
 
 ## Next steps
 

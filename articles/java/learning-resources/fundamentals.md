@@ -90,10 +90,10 @@ The following sections provide links to resources that can help you understand h
 
 ### Profiling on Azure
 
-- [Configure app for Zulu Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
+- [Configure app for JDK Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
 - [Profiling with New Relic](/azure/app-service/configure-language-java?pivots=platform-linux#configure-new-relic)
 - [Configure New Relic for Azure Spring Cloud](https://github.com/selvasingh/spring-petclinic-microservices)
 
 ### Support on Azure
 
-- [Support for JDK on Azure](../fundamentals/java-jdk-long-term-support.md)
+- [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md)
