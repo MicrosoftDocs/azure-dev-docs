@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-- **Azure service principal**: [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli), making note of the following values: **appId**, **displayName**, **password**, and **tenant**.
+- **Azure service principal**: [Create a service principal](/ansible/create-ansible-service-principal), making note of the following values: **appId**, **displayName**, **password**, and **tenant**.

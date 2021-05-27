@@ -57,7 +57,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -117,7 +117,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -177,7 +177,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -279,6 +279,10 @@ When you add this starter to a Spring Boot project, the following changes are ma
       </dependencies>
    </dependencyManagement>
    ```
+
+## Application Insights
+
+Azure Monitor Application Insights can help you understand how your app is performing and how it's being used. Application Insights uses the Java agent to enable the application monitor. There are no code changes needed, and you can enable the Java agent with just a couple of configuration changes. For instructions and more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure-docs/articles/azure-monitor/app/java-in-process-agent.md#configuration-options).
 
 ## Next steps
 
