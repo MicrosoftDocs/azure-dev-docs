@@ -269,7 +269,7 @@ Replace `<resource_group_name>` and `<location>` with your values.
 
 Read more about the [azure.azcollection](https://cloudblogs.microsoft.com/opensource/2020/04/28/announcing-azcollection-the-ansible-collection-for-azure/).
 
-### Delete an Azure resource group
+### Clean up resources
 
 Run the following command to delete the Azure resource group:
 
