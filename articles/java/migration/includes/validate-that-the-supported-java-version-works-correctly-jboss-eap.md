@@ -10,4 +10,4 @@ JBoss EAP on Azure App Service runs on Java 8 and 11, so you'll need to confirm 
 
 [!INCLUDE [note-obtain-your-current-java-version](note-obtain-your-current-java-version.md)]
 
-See [Supported Configurations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/7.2.0_release_notes/supported_configs) in the JBoss EAP documentation for guidance on what version of JDK to use to run JBoss EAP.
+For guidance on what version of JDK to use to run JBoss EAP, see [Supported Configurations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/7.2.0_release_notes/supported_configs) in the JBoss EAP documentation.

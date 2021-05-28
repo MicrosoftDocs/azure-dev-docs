@@ -12,7 +12,7 @@ To set up data sources, use the following steps.
 
 1. Obtain your database's JDBC driver.
 
-2. Create an XML module definition file for the JDBC driver. The example shown below is a module definition for PostgreSQL.
+2. Create an XML module definition file for the JDBC driver. The example shown below is a module definition for PostgreSQL. Be sure to replace the `resource-root path` value with the path to the JDBC driver you use.
 
    ```xml
    <?xml version="1.0" ?>
