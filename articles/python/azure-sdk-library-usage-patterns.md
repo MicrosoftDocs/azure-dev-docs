@@ -76,7 +76,7 @@ To specify a proxy you can use environment variables or optional arguments. For 
 
 ## Optional arguments for client objects and methods
 
-In the library reference documentation, you often see a `**kwargs` or `**operation_config**` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
+In the library reference documentation, you often see a `kwargs` or `operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
 
 ### Arguments for libraries based on azure.core
 
