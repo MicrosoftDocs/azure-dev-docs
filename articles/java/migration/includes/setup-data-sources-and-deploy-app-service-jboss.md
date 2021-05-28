@@ -49,10 +49,10 @@ To set up data sources, use the following steps.
 
 6. Configure your site to run *startup_script.sh* when the container starts. In the Azure portal, navigate to **Configuration > General Settings > Startup Command**. Set the startup command field to */home/site/deployments/tools/startup_script.sh*, then select **Save**.
 
-7. Restart the web app. This will cause the web app to run the configuration script.
+7. Restart the web app, which will cause it to run the configuration script.
 
-8. Update the the JTA datasource configuration for your application.
-Open the `src/main/resources/META-INF/persistence.xml` file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
+8. Update the JTA datasource configuration for your application.
+Open the *src/main/resources/META-INF/persistence.xml* file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
 
    ```bash
    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>

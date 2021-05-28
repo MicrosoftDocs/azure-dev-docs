@@ -73,12 +73,12 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 ### Features not supported on App Service
 
-The following features are not supported in JBoss EAP on App Service.
+The following features aren't supported in JBoss EAP on App Service.
 
-* **Clustering**: Due to network security constraints, application instances on App Service cannot communicate directly with one another. If your current JBoss deployment uses clustering, you'll need to remove this dependency to migrate to App Service.
-* **JBoss EAP management console**: The JBoss web console is not exposed on App Service. Instead, the Azure Portal provides the management APIs for your application, and you should deployment using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
-* **Transactions**: The application instances are run in a stateless manner, so the Transactions API is not currently supported.
-* **Managed domains**: App Service handles the scaling and failover of your application instances, so JBoss EAP’s domain mode is not necessary on App Service.
+* **Clustering**: Because of network security constraints, application instances on App Service can't communicate directly with one another. If your current JBoss deployment uses clustering, you'll need to remove this dependency to migrate to App Service.
+* **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
+* **Transactions**: The application instances are run in a stateless manner, so the Transactions API isn't currently supported.
+* **Managed domains**: App Service handles the scaling and failover of your application instances, so JBoss EAP’s domain mode isn't necessary on App Service.
 
 ## Migration
 
