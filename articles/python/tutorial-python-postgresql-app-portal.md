@@ -189,25 +189,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
 1. In the browser window or tab for the web app, select **SSH** (under **Development Tools** on the left side), and then **Go** to open an SSH console on the web app server. It may take a minute to connect for the first time as the web app container needs to start.
 
-1. In the console, change into the web app's folder:
-
-    ```bash
-    cd $APP_PATH
-    ```
-
-1. Activate the virtual environment
-
-    ```bash
-    source antenv/bin/activate
-    ```
-
-1. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-1. Run database migrations:
+1. In the console, run database migrations:
 
     ```bash
     python manage.py migrate
@@ -250,12 +232,6 @@ As described earlier in this tutorial, Azure redeploys your app code whenever yo
 If you change the Django app's data models, however, you must migrate those changes to the database:
 
 1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations).
-
-1. Change into the app folder with `cd $APP_PATH`.
-
-1. Activate the virtual environment with `source /antenv/bin/activate`.
-
-1. Install requirements with `pip install -r requirements.txt`.
 
 1. Run the migrations again with `python manage.py migrate`.
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy Express.js/MongoDB app with VSCode - App Service/Cosmos DB
+title: Deploy Express.js/MongoDB app with VS Code - App Service/Cosmos DB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
 ms.topic: tutorial
 ms.date: 03/29/2021
@@ -34,7 +34,7 @@ The [sample Express.js app](https://github.com/Azure-Samples/js-e2e-express-mong
 
 ## Create or use existing Azure Subscription 
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Install software
 

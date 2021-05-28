@@ -240,6 +240,7 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
     }
 
     @Bean
+    @Override
     public CosmosConfig cosmosConfig() {
         DirectConnectionConfig directConnectionConfig = DirectConnectionConfig.getDefaultConfig();        
         return CosmosConfig.builder()
@@ -320,6 +321,7 @@ You can also customize the configuration to change the connection mode, maximum 
 
 ```java
     @Bean
+    @Override
     public CosmosConfig cosmosConfig() {
 
         // Set the connection mode to Direct (TCP), which applies to data plane operations.
