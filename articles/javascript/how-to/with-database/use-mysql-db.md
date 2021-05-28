@@ -3,7 +3,7 @@ title: Use JavaScript on Azure MySQL
 description: To create or move your MySQL database to Azure, you need a MySQL resource. 
 ms.topic: how-to
 ms.date: 02/8/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Develop a JavaScript application with MySQL on Azure
@@ -31,7 +31,7 @@ While developing your MySQL database with JavaScript, use one of the following t
 
 The Azure MySQL uses npm packages already available, such as:
 
-* [MySQL](https://www.npmjs.com/package/MySQL)
+* [MySQL](https://www.npmjs.com/package/mysql)
 * [Promise-mysql](https://www.npmjs.com/package/promise-mysql)
 
 ## Use Promise-mysql SDK to connect to MySQL on Azure

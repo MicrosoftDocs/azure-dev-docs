@@ -22,7 +22,7 @@ This article guides you through using [Spring Cloud Functions](https://spring.io
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](../fundamentals/java-jdk-long-term-support.md), version 8
+- [Java Developer Kit](../fundamentals/java-support-on-azure.md), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 2.7.1158 or above
@@ -63,7 +63,7 @@ You should change those properties directly near the top of the *pom.xml* file:
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <azure.functions.java.library.version>1.4.0</azure.functions.java.library.version>
-    <azure.functions.maven.plugin.version>1.9.1</azure.functions.maven.plugin.version>
+    <azure.functions.maven.plugin.version>1.11.0</azure.functions.maven.plugin.version>
 
     <!-- customize those two properties. The functionAppName should be unique across Azure -->
     <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
@@ -186,7 +186,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(HelloFunction.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }
 ```

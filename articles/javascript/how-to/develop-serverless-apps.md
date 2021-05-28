@@ -12,6 +12,8 @@ Azure Functions provides serverless code infrastructure, allowing you to create 
 
 Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint. Functions also allow you to trigger another function so that a function work stream can replace existing hosted backend server functionality and remove the need to manage that server. 
 
+* [Azure serverless community library of samples](https://serverlesslibrary.net/)
+
 ## What is a Function resource?
 
 An Azure Function resource is a logical unit for all related functions in a single Azure geographic location. The resource can contain a single function or many functions, which can be independent of each other or related with input or output triggers. You can select from many common functions or create your own.
@@ -114,7 +116,7 @@ The portal creates JavaScript functions only, not TypeScript. If you want to dev
 
 ## Next steps
 
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
+The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) is a good starting point. 
 
 Use the Microsoft Learn Module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
 

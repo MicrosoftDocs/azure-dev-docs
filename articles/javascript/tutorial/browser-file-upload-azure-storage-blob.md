@@ -2,7 +2,7 @@
 title: Upload image to Blob Storage with VSCode - App Service/Cosmos DB
 description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/15/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
@@ -84,7 +84,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploaddemo`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section.Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a value such as `fileuploaddemo`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
 

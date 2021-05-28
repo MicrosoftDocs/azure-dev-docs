@@ -6,7 +6,7 @@ documentationcenter: java
 ms.date: 10/13/2018
 ms.service: event-hubs
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs

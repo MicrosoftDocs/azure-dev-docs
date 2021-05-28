@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 05/03/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -11,11 +11,55 @@ This content is primarily from Developer Advocates as well as other members of t
 
 ## Reoccurring events 
 
+* [Microsoft Learn TV](https://docs.microsoft.com/learn/tv/)
 * [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+
+## Timeless
+
+* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
+
+## 2021 May
+
+* [Playwright - Testes Inteligentes, Automatizados e Rápidos em Cross-Browser com Playwright!](https://github.com/glaucia86/demos-playwright-e2e) - in **Portuguese​** - Glaucia Lemos
+
+## 2021 April 
+
+* [Deploying a Node.js Web App using GitHub Actions](https://github.com/Azure-Samples/azure-javascript-labs) - Burke Holland - GitHub
+* [Web Wednesday - Getting started with React & TypeScript](https://www.youtube.com/watch?v=BlaHWppdLpQ) - Aaron Powell and Christopher harrison - YouTube
+* [Azure Cosmos DB Conf - EMEA Live Stream](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328) - YouTube
+* [Static Web apps demo - Microsoft Developers France](https://www.youtube.com/watch?v=aI9XFDpsGaA) - 00:37
+* [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/add-mongoose) - Christopher Harrison
+* [Adapt your Angular apps for dual-screen devices with ngx-foldable](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058) - Yohan Lasorsa
+* [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565) - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
+
+## 2021 March 
+
+* [DevOps Lab - Deploying packages with GitHub Actions](https://aka.ms/DevOpsLab/DeployingPackageswithGitHub) - Aaron Powell
+* [Static Web Apps API Auth helper](https://www.aaron-powell.com/posts/2021-03-30-making-auth-simpler-for-static-web-app-apis/) - Aaron Powell
+* [Angular+Surface Duo- Gallery app demo](https://github.com/sinedied/surface-duo-photo-gallery) - GitHub repo - Yohan Lasorsa
+* [Cloud First Conference Talk: Highly available, distributed & resilient software](https://youtu.be/OGFkz81mKf8?t=7162) - YouTube - Yohan Lasorsa
+* [Utilise staticwebdev GitHub org](https://github.com/staticwebdev) - We're here to help you get started with Azure Static Web Apps, the easiest way to get a static web application deployed to Azure. - Aaron Powell
+* [GraphQL on Azure: Part 6 - Subscriptions with SignalR](https://dev.to/azure/graphql-on-azure-part-6-subscriptions-with-signalr-275b) - Aaron Powell
+* [Reset deployment tokens in Azure Static Web Apps](/azure/static-web-apps/deployment-token-management) - Burke Holland
+* [Deploy Rust/WASM on SWA - updated](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) - Wassim Chegham
+* [GitHub template for building a shareable web components library with Svelte](https://github.com/sinedied/svelte-web-components-template) - Yohan Lasorsa
+* [Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae) - in **Portuguese​** - Glaucia Lemos
+* Coding Stuff! JWT + Node + Mongo+ Vue Project in **Portuguese​** - Glaucia Lemos
+    * [Video #8](https://youtu.be/6fUcm4aSEjM) - YouTube
+* [Lançamento: Módulo 01 - TypeScript Zero to Hero](https://dev.to/glaucia86/lancamento-modulo-01-typescript-zero-to-hero-40n4) - in **Portuguese​** - Glaucia Lemos
+* TypeScript - Zero to Hero | E por que usar o TypeScript? E, próximos passos! - in **Portuguese​** - YouTube - Glaucia Lemos
+    * [Video #06](https://youtu.be/VIYnya9DUxg)
+    * [Video #05](https://youtu.be/iTCRgdEyq0k)
+    * [Video #04](https://youtu.be/iYXzT08sX5Y)
+    * [Video #03](https://youtu.be/J-sMh3DF10U)
+    * [Video #02](https://youtu.be/_pDsn0gE6ys)
+    * [Video #01](https://youtu.be/u7K1sdnCv5Y)
+* [Live Coding - Season 2021 & News](https://youtu.be/6TED799e0_g) - YouTube - Glaucia Lemos
+
 
 ## 2021 February
 
-* [React Server Components running on Azure Static Web Apps](https://react-notes.anthonychu.com/) - Anthony Chu -  
+* [React Server Components running on Azure Static Web Apps](https://react-notes.anthonychu.com/) - Anthony Chu
 * [Beginner's Series to Node.js video series in **French**](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1) - Yohan Lasorsa and Maud Levy
 * [Beginner's Series to Node.js video series in **Japanese**](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI) - Tomomi Imura
 * [GraphQL and TypeScript Workshop](https://github.com/aaronpowell/graphql-typescript-workshop) - Aaron Powell

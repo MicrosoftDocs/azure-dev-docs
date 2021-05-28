@@ -57,7 +57,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-1. Create a resource group using [az group create](/cli/azure/group#az-group-create). You might need to replace the `--location` parameter with the appropriate value for your environment.
+1. Create a resource group using [az group create](/cli/azure/group#az_group_create). You might need to replace the `--location` parameter with the appropriate value for your environment.
 
     ```azurecli
     az group create \
@@ -65,7 +65,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     --location eastus
     ```
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az_vm_create).
 
     ```azurecli
     az vm create \
@@ -77,13 +77,13 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     --custom-data cloud-init-jenkins.txt
     ```
 
-1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az-vm-list).
+1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az_vm_list).
 
     ```azurecli
     az vm list -d -o table --query "[?name=='QuickstartJenkins-vm']"
     ```
 
-1. By default, Jenkins runs on port 8080. Therefore, open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az-vm-open-port).
+1. By default, Jenkins runs on port 8080. Therefore, open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az_vm_open_port).
 
     ```azurecli
     az vm open-port \
@@ -94,7 +94,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
 ## Configure Jenkins
 
-1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az-vm-show).
+1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az_vm_show).
 
     ```azurecli
     az vm show \
@@ -104,7 +104,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     --output tsv
     ```
 
-    **Notes**:
+    **Jenkins**:
 
     - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
 
@@ -114,7 +114,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     ssh azureuser@<ip_address>
     ```
 
-    **Notes**:
+    **Jenkins**:
 
     - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@QuickstartJenkins-vm`.
 
@@ -166,7 +166,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
     ![New job creation](./media/configure-on-linux-vm/new-job.png)
 
-1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`
+1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`. Then change the **Branch Specifier** to `*/main`.
 
     ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
 

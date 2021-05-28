@@ -8,7 +8,7 @@ ms.date: 11/20/2020
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
-ms.custom: seo-java-august2019, devx-track-java, devx-track-azurecli
+ms.custom: seo-java-august2019, devx-track-java
 ---
 
 # Get started with cloud development using Java on Azure
@@ -19,7 +19,7 @@ This article walks you through setting up a development environment for Azure de
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
-- [Java 8](../fundamentals/java-jdk-long-term-support.md), which is included in Azure Cloud Shell.
+- [Java 8](../fundamentals/java-support-on-azure.md), which is included in Azure Cloud Shell.
 - [Maven 3](https://maven.apache.org/download.cgi), which is included in Azure Cloud Shell.
 
 ## Set up authentication

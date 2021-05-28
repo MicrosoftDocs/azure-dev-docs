@@ -95,7 +95,7 @@ Calling [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServi
     $UnsecureSecret
     ```
 
-**Notes**:
+**Key points**:
 
 - The service principal names and password values are needed to log into the subscription using your service principal.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
@@ -147,7 +147,9 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     ARM_CLIENT_PASSWORD = "<service_principal_password>"
     ```
 
-    **Note**: If you have a PowerShell session open, close the session and reopen it after creating the environment variables.
+    **Key points:**
+
+    - If you have a PowerShell session open, close the session and reopen it after creating the environment variables.
 
 1. To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
