@@ -9,11 +9,11 @@ ms.date: 05/28/2021
 
 This content is primarily from Developer Advocates as well as other members of the Azure JavaScript community. 
 
-Use the [JavaScript Community Hub](https://docs.microsoft.com/javascript) to see more from the community. 
+Use the [JavaScript Community Hub](/javascript) to see more from the community. 
 
 ## Reoccurring events 
 
-* [Microsoft Learn TV](https://docs.microsoft.com/learn/tv/)
+* [Microsoft Learn TV](/learn/tv/)
 * [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
 
 ## Timeless
@@ -40,7 +40,7 @@ Use the [JavaScript Community Hub](https://docs.microsoft.com/javascript) to see
 * [Web Wednesday - Getting started with React & TypeScript](https://www.youtube.com/watch?v=BlaHWppdLpQ) - Aaron Powell and Christopher harrison - YouTube
 * [Azure Cosmos DB Conf - EMEA Live Stream](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328) - YouTube
 * [Static Web apps demo - Microsoft Developers France](https://www.youtube.com/watch?v=aI9XFDpsGaA) - 00:37
-* [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/add-mongoose) - Christopher Harrison
+* [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](/azure/static-web-apps/add-mongoose) - Christopher Harrison
 * [Adapt your Angular apps for dual-screen devices with ngx-foldable](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058) - Yohan Lasorsa
 * [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565) - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
 
