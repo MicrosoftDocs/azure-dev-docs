@@ -148,7 +148,7 @@ Replace the values with your service principal and Azure subscription details.
 
 ---
 
-## Create an Azure Resource Group
+## Create an Azure resource group
 
 From inside the Ansible container, run the following Ansible command to create a resource group:
 
