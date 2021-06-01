@@ -271,15 +271,7 @@ Read more about the [azure.azcollection](https://cloudblogs.microsoft.com/openso
 
 ### Clean up resources
 
-Run the following command to delete the Azure resource group:
-
-```bash
-#Ansible 2.9 with azure_rm module
-ansible localhost -m azure_rm_resourcegroup -a "name=<resource_group_name> state=absent force_delete_nonempty=yes"
-
-#Ansible 2.10 with azure.azcollection
-ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=<resource_group_name> state=absent force_delete_nonempty=yes"
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
 ## Next steps
 
