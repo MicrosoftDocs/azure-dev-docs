@@ -181,7 +181,7 @@ To create the application, use the following steps:
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-initializr-choices.png" alt-text="Spring Initializr with correct choices selected.":::
 1. At the bottom of the page, select **Generate**.
-1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you a *ssltest.zip* file in that directory.
+1. When prompted, download the project to a path on your local computer. This tutorial uses a *ssltest* directory in the current user's home directory. The values above will give you a *ssltest.zip* file in that directory.
 
 ### Enable the Spring Boot app to load the TLS/SSL certificate
 
@@ -279,7 +279,7 @@ To create the REST controller, use the following steps:
    }
    ```
 
-   Note that calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't do this in a real application.
+   Calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't use such code in a real application.
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
 
