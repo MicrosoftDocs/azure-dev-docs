@@ -97,21 +97,29 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
 > az vm image list --output table
 > ```
 
-1. Install `Azul Zulu for Azure`. This example uses the certified Azul Zulu for Azure – Enterprise Edition VM image. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
+1. Install the Microsoft OpenJDK. For complete information about OpenJDK, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
 
    ```shell
    ssh azureuser@<your VM public IP address>
    ```
-   To install Zulu packages for Azure from apt repository.
+   
+   Add the repository. Replace the version placeholder in following commands and execute:
+   
    ```shell
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
-   sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
-   sudo apt-get -q update
-   sudo apt-get -y install zulu-11-azure-jdk
+   wget https://packages.microsoft.com/config/ubuntu/{version}/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   ```
+   
+   Install the Microsoft Build of OpenJDK by running the following commands:
+   
+   ```shell
+   sudo apt install apt-transport-https
+   sudo apt update
+   sudo apt install msopenjdk-11
    ```
 
 > [!NOTE]
-> Another faster way is to use the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK.
+> Another faster way is to use the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
 > Run the following command to obtain the URN name.
 > ```azurecli
 >    az vm image list \
@@ -122,7 +130,6 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
 > This command may take a while to complete.
 > When the command completes, it produces output similar to the following lines. 
 > Select the value for JDK 11 on Ubuntu, and accept the terms for the image to allow the VM to be created.
-
 
 ## Create and configure an Azure Key Vault
 
