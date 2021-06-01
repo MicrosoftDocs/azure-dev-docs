@@ -58,7 +58,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-        <version>3.3.0</version>
+        <version>3.5.0</version>
     </dependency>
     ```
 

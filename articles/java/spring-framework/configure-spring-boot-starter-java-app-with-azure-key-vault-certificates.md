@@ -75,31 +75,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --location <your resource group region>
    ```
 
-1. Obtain the Uniform Resource Name (URN) for the VM you want to create. This example uses the certified Azul Zulu for Azure – Enterprise Edition VM image. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
-
-   ```azurecli
-   az vm image list \
-       --offer Zulu \
-       --location <your region> \
-       --all | grep urn
-   ```
-
-   This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
-
-   ```output
-   "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
-   ...
-   "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
-   "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
-   ```
-
-1. Accept the terms for the image to allow the VM to be created.
-
-   ```azurecli
-   az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
-   ```
-
-1. Create the VM instance with system-assigned managed identity enabled, assigning the **Owner** role in the resource group scope.
+1. Create the VM instance with system-assigned managed identity enabled, using the image `UbuntuLTS` provided by `UbuntuServer`.
 
    ```azurecli
    az vm create \
@@ -108,13 +84,45 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --debug \
        --generate-ssh-keys \
        --assign-identity \
-       --image azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0 \
-       --scope "/subscriptions/<your subscription ID>/resourcegroups/<your resource group name>" \
-       --admin-username azureuser \
-       --role owner
+       --image UbuntuLTS \
+       --admin-username azureuser
    ```
 
    In the JSON output, note down the value of the `publicIpAddress` and `systemAssignedIdentity` properties. You'll use these values later in the tutorial.
+
+> [!NOTE]
+> The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*. 
+> Run the following command to display a cached list of popular images in table format:
+> ```azurecli
+> az vm image list --output table
+> ```
+
+1. Install `Azul Zulu for Azure`. This example uses the certified Azul Zulu for Azure – Enterprise Edition VM image. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
+
+   ```shell
+   ssh azureuser@<your VM public IP address>
+   ```
+   To install Zulu packages for Azure from apt repository.
+   ```shell
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+   sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+   sudo apt-get -q update
+   sudo apt-get -y install zulu-11-azure-jdk
+   ```
+
+> [!NOTE]
+> Another faster way is to use the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK.
+> Run the following command to obtain the URN name.
+> ```azurecli
+>    az vm image list \
+>        --offer Zulu \
+>        --location <your region> \
+>        --all | grep urn
+>    ```
+> This command may take a while to complete.
+> When the command completes, it produces output similar to the following lines. 
+> Select the value for JDK 11 on Ubuntu, and accept the terms for the image to allow the VM to be created.
+
 
 ## Create and configure an Azure Key Vault
 
@@ -163,7 +171,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.3.7**
+   * **Spring Boot**: **2.4.6**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *ssltest* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -209,7 +217,7 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.0.0-beta.2</version>
+      <version>3.0.0-beta.7</version>
    </dependency>
    ```
 
