@@ -711,10 +711,10 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 
 Run the follow helm commands to add the AGIC Helm repository:
 
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
+```bash
+helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+helm repo update
+```
 
 ## Install Ingress Controller Helm Chart
 
