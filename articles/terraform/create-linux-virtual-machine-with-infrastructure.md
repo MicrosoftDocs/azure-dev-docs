@@ -3,7 +3,7 @@ title: Configure a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/02/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -189,11 +189,6 @@ The final step is to create a VM and use all the resources created. The followin
 The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value as needed.
 
 ```hcl
-resource "tls_private_key" "example_ssh" {
-  algorithm = "RSA"
-  rsa_bits = 4096
-}
-
 # Create (and display) an SSH key
 resource "tls_private_key" "example_ssh" {
   algorithm = "RSA"

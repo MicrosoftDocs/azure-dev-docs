@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform using Azure PowerShell
 description: In this quickstart, you learn how to install and configure Terraform using Azure PowerShell.
 keywords: azure devops terraform install configure windows init plan apply execution login rbac service principal automated script powershell
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-terraform
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Windows.
 ---
@@ -144,7 +144,7 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     ARM_CLIENT_ID = "<service_principal_app_id>"
     ARM_SUBSCRIPTION_ID = "<azure_subscription_id>"
     ARM_TENANT_ID = "<azure_subscription_tenant_id>"
-    ARM_CLIENT_PASSWORD = "<service_principal_password>"
+    ARM_CLIENT_SECRET = "<service_principal_password>"
     ```
 
     **Key points:**
