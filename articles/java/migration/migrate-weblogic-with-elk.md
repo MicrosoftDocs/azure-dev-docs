@@ -163,4 +163,4 @@ Follow the same steps as in the preceding section to delete Elastic on Azure, bu
 Continue your migration journey by exploring WebLogic to Azure Virtual Machines.
 
 > [!div class="nextstepaction"]
-> [WebLogic to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
+> [WebLogic to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)

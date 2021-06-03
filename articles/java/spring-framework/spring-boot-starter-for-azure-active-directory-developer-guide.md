@@ -21,7 +21,7 @@ The following links provide access to the starter package, documentation, and sa
 
 - [The azure-spring-boot-starter-active-directory package (Maven)](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory)
 - [API reference documentation](https://azure.github.io/azure-sdk-for-java/springboot.html#azure-spring-boot)
-- [Product documentation](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
+- [Product documentation](./configure-spring-boot-starter-java-app-with-azure-active-directory.md)
 - [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples)
 
 ## Prerequisites
