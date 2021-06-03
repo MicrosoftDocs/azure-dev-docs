@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Configure dynamic inventories of your Azure resources using Ansible
-description: Learn how to use Ansible to manage your Azure dynamic inventories
+title: Tutorial - Configure dynamic inventories for Azure Virtual Machines using Ansible
+description: Learn how to populate your Ansible inventory dynamically from information in Azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 06/03/2021
 ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
@@ -11,7 +11,9 @@ ms.custom: devx-track-ansible, devx-track-azurecli
 
 [!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
 
-Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. 
+Ansible dynamic inventories remove the burden of maintaining static inventory files by pulling the information from various sources.
+
+In this tutorial you will use Azure's dynamic-inventory plug-in to pull information from Azure populating your Ansible inventory.
 
 [!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
@@ -28,7 +30,7 @@ Ansible can be used to pull inventory information from various sources (includin
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## Create the test VMs
+## Create Azure VMs
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -39,63 +41,122 @@ Ansible can be used to pull inventory information from various sources (includin
     > [!IMPORTANT]
     > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
-    ```azurecli
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
     ```
+    # [PowerShell](#tab/powershell)
+    
+    ```azurepowershell
+    New-AzResourceGroup -Name ansible-inventory-test-rg -Location eastus
+    ```
+    ---
 
 1. Create two Linux virtual machines on Azure using one of the following techniques:
 
-    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](./vm-configure.md) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
+    - **Ansible playbook** - The article, [Create a basic Linux virtual machine in Azure with Ansible](./vm-configure.md) and [Create a basic Windows virtual machine in Azure with Ansible](./vm-configure-windows.md)  illustrates how to create a virtual machine from an Ansible playbook.
 
     - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
-        ```azurecli
-        az vm create --resource-group ansible-inventory-test-rg \
-                     --name ansible-inventory-test-vm1 \
-                     --image UbuntuLTS --generate-ssh-keys
+        # [Azure CLI](#tab/azure-cli)
+        ```azurecli-interactive
+        az vm create \
+        --resource-group ansible-inventory-test-rg \
+        --name win-vm \
+        --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
+        --admin-username azureuser \
+        --admin-password <password>
+
+        az vm create \
+        --resource-group ansible-inventory-test-rg \
+        --name linux-vm \
+        --image OpenLogic:CentOS:7.7:latest \
+        --admin-username azureuser \
+        --admin-password <password>
         ```
 
-        ```azurecli
-        az vm create --resource-group ansible-inventory-test-rg \
-                     --name ansible-inventory-test-vm2 \
-                     --image UbuntuLTS --generate-ssh-keys
+        Replace the `<password>` your password.
+
+        # [PowerShell](#tab/powershell)
+        
+        ```azurepowershell
+        $adminUsername = "azureuser"
+        $adminPassword = ConvertTo-SecureString <password> -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword);
+
+        New-AzVM `
+        -ResourceGroupName ansible-inventory-test-rg `
+        -Location eastus `
+        -Image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest `
+        -Name win-vm `
+        -OpenPorts 3389 `
+        -Credential $credential
+
+        New-AzVM `
+        -ResourceGroupName ansible-inventory-test-rg `
+        -Location eastus `
+        -Image OpenLogic:CentOS:7.7:latest `
+        -Name linux-vm `
+        -OpenPorts 22 `
+        -Credential $credential
         ```
+        ---
 
-## Tag a VM
+        Replace the `<password>` your password.
 
-You can [use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories.
+## Add application role tags
 
-Enter the following [az resource tag](/cli/azure/resource#az_resource_tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `Ansible=nginx`:
+Tags are used to organize and categorize Azure resources. Assigning the Azure VMs an application role allows you to use the tags as group names within the Azure dynamic inventory.
 
-```azurecli
-az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+Run the following commands to update the VM tags:
+
+# [Azure CLI](#tab/azure-cli)
+```azurecli-interactive
+az vm update \
+--resource-group ansible-inventory-test-rg \
+--name linux-vm \
+--set tags.applicationRole='message-broker' 
+
+az vm update \
+--resource-group ansible-inventory-test-rg \
+--name win-vm \
+--set tags.applicationRole='web-server' 
 ```
 
-Replace `<YourAzureSubscriptionID>` with your SubscriptionID.
+# [PowerShell](#tab/powershell)
+
+```azurepowershell
+Get-AzVM -Name win-vm -ResourceGroupName ansible-inventory-test-rg-pwsh | Update-AzVM -Tag @{"applicationRole"="web-server"}
+
+Get-AzVM -Name linux-vm -ResourceGroupName ansible-inventory-test-rg-pwsh | Update-AzVM -Tag @{"applicationRole"="message-broker"}
+```
+
+---
+
+Learn more about Azure tagging strategies at [Define your tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging).
 
 ## Generate a dynamic inventory
 
-Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory.
+Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/stable-2.9/lib/ansible/plugins/inventory/azure_rm.py). 
 
-Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/stable-2.9/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plug-in:
+The following steps walk you through using the plug-in:
 
 1. The dynamic inventory must end in `azure_rm` and have an extension of either `yml` or `yaml` otherwise Ansible will not detect the proper inventory plugin. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
     ```yml
-        plugin: azure_rm
-        include_vm_resource_groups:
-        - ansible-inventory-test-rg
-        auth_source: auto
-    
-        keyed_groups:
-        - prefix: tag
-          key: tags
+    plugin: azure_rm
+    include_vm_resource_groups:
+      - ansible-inventory-test-rg
+    auth_source: auto
+    keyed_groups:
+      - prefix: tag
+        key: tags
     ```
 
 1. Run the following command to ping VMs in the resource group:
 
     ```bash
-    ansible all -m ping -i ./myazure_rm.yml
+    ansible-inventory -i myazure_rm.yml --graph
     ```
 
 1. By default host-key checking is enabled, which may result in the following error.
