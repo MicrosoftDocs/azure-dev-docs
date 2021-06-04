@@ -75,7 +75,7 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 When using JBoss EAP on App Service, be sure to take the following notes into consideration.
 
-* **Clustering**: Because of network security constraints, application instances on App Service can't communicate directly with one another. If your current JBoss deployment uses clustering, you'll need to remove this dependency to migrate to App Service.
+* **[Server-to-server clustering](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuration_guide/configuring_high_availability)**: Due to network security constraints, application instances on App Service cannot communicate directly with one another. If your current JBoss deployment uses clustering, consider using JBoss EAP on virtual machine scale sets or externalizing the session and state information. For more information, see [Infinispan and cache containers](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/configuring_high_availability#infinispan)
 * **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
 * **Transactions**: The application instances are run in a stateless manner, so the Transactions API isn't currently supported.
 * **Managed domains**: App Service handles the scaling and failover of your application instances, so JBoss EAP’s domain mode isn't necessary on App Service.
