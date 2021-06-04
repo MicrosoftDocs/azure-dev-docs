@@ -28,7 +28,7 @@ This offer is aimed at automatically provisioning several Azure resources to qui
 
 ## WebSphere Application Server on VMs
 
-This offer is aimed at automatically provisioning several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. The offer targets highly available WebSphere clusters. The offer is available as an [Azure solution template in the portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
+This offer is aimed at automatically provisioning several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. The offer targets highly available WebSphere clusters. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
 
 ## Open Liberty and WebSphere Liberty on AKS
 
