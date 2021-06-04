@@ -11,7 +11,7 @@
       - name: IBM WebSphere products on Azure
         href: websphere-family.md
       - name: Red Hat JBoss EAP on Azure
-        href: jboss/jboss-on-azure.md
+        href: jboss-on-azure.md
   - name: Deployment
     expanded: true
     items:
