@@ -22,7 +22,7 @@ JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App S
 
 JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal regarding your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service.
 
-### More Resources
+For more information, see the following articles:
 
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
