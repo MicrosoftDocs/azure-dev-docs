@@ -24,7 +24,9 @@ JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. Wh
 
 ## JBoss EAP on Azure Virtual Machines
 
-[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) provide groups of load-balanced, highly scalable virtual machines for workloads of any size. Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on Virtual Machine Scale Sets (VMSS) uses jointly-developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer, all within a virtual network. These templates provide you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on VMSS supports clustered deployments via Azure Ping, so your stateful applications can run well.
+Virtual machine scale sets provide groups of load-balanced, highly scalable virtual machines for workloads of any size. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+
+Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on virtual machine scale sets uses jointly developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer, all within a virtual network. These templates provide you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on virtual machine scale sets supports clustered deployments via Azure Ping, so your stateful applications can run well.
 
 ## Next steps
 
