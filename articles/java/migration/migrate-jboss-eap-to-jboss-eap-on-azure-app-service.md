@@ -71,7 +71,7 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 [!INCLUDE [perform-in-place-testing](includes/perform-in-place-testing-jboss.md)]
 
-### Features not supported on App Service
+### JBoss EAP feature notes
 
 The following features aren't supported in JBoss EAP on App Service.
 
