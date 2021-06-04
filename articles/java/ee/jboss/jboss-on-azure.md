@@ -31,6 +31,4 @@ For more information, see the following articles:
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) provide groups of load-balanced, highly scalable virtual machines for workloads of any size. Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on Virtual Machine Scale Sets (VMSS) uses jointly-developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer, all within a virtual network. These templates provide you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on VMSS supports clustered deployments via Azure Ping, so your stateful applications can run well.
 
-### More Resources
-
-- [Azure Resource Manager Quickstart templates](https://aka.ms/Quickstart-JBoss-EAP )
+For more information, see [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?term=jboss).
