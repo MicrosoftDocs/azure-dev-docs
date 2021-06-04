@@ -24,8 +24,8 @@ JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. Wh
 
 ### More Resources
 
-- [Quickstart: JBoss EAP on Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
-- [Java on App Service documentation](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux)
+- [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
+- [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
 
 ## JBoss EAP on Azure Virtual Machines
 
