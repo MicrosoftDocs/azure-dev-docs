@@ -73,7 +73,7 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 ### JBoss EAP feature notes
 
-The following features aren't supported in JBoss EAP on App Service.
+When using JBoss EAP on App Service, be sure to take the following notes into consideration.
 
 * **Clustering**: Because of network security constraints, application instances on App Service can't communicate directly with one another. If your current JBoss deployment uses clustering, you'll need to remove this dependency to migrate to App Service.
 * **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
