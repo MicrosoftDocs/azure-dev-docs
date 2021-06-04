@@ -709,21 +709,12 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
 The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
-1. If RBAC is **enabled**, run the following set of commands to install and configure Helm:
+Run the follow helm commands to add the AGIC Helm repository:
 
-    ```bash
-    kubectl create serviceaccount --namespace kube-system tiller-sa
-    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-    ```
-
-    If RBAC is **disabled**, a service account isn't needed.
-
-1. Add the AGIC Helm repository:
-
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
+```bash
+helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+helm repo update
+```
 
 ## Install Ingress Controller Helm Chart
 

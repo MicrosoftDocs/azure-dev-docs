@@ -6,7 +6,8 @@ ms.topic: tutorial
 ms.service: chef
 author: tomarchermsft
 ms.author: tarcher
-ms.date: 03/11/2021
+recommendations: false
+ms.date: 06/03/2021
 ms.custom: devx-track-chef
 ---
 
