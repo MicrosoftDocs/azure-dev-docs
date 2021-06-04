@@ -12,7 +12,7 @@ ms.custom: template-overview, devx-track-java
 
 This article describes the available solutions for hosting JBoss EAP on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
 
-There are two hosting options for JBoss EAP on Azure: App Service and Virtual Machines & Virtual Machine Scale Sets. Both solutions are jointly developed and supported by Red Hat and Azure.
+There are two hosting options for JBoss EAP on Azure: App Service and virtual machine scale sets. Both solutions are jointly developed and supported by Red Hat and Azure.
 
 ## JBoss EAP on Azure App Service
 
