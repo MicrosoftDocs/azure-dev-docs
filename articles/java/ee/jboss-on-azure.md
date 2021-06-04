@@ -34,4 +34,4 @@ The following articles provide more information on getting started with these te
 
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
-- [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=jboss)
+- [Azure Marketplace: JBoss EAP on Azure Virtual Machines](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.jboss-eap-rhel?tab=Overview)
