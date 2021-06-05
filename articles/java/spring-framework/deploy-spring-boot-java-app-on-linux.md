@@ -98,7 +98,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Select **Access keys** under **Settings** and turn on the **Enabled** switch behind the **Admin user**.
 
-![Enable admin user UI in the Azure portal][AR04]
+   ![Enable admin user UI in the Azure portal][AR04]
 
 ## Configure Maven to build image to your Azure Container Registry
 
