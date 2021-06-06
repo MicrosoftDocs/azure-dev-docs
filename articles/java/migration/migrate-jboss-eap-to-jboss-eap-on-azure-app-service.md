@@ -92,4 +92,4 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
 
 Now that you've migrated your application to Azure App Service, you should verify that it works as you expect. After you've done that, we have some recommendations for you that can make your application more cloud-native.
 
-[!INCLUDE [post-migration-recommendations-app-service](includes/post-migration-recomendations-app-service.md)]
+[!INCLUDE [post-migration-recommendations-app-service](includes/post-migration-recommendations-app-service.md)]
