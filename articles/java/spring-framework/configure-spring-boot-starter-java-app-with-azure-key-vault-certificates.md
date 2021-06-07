@@ -90,14 +90,14 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
 
    In the JSON output, note down the value of the `publicIpAddress` and `systemAssignedIdentity` properties. You'll use these values later in the tutorial.
 
-> [!NOTE]
-> The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*. 
-> Run the following command to display a cached list of popular images in table format:
-> ```azurecli
-> az vm image list --output table
-> ```
+   > [!NOTE]
+   > The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
+   > Run the following command to display a cached list of popular images in table format:
+   > ```azurecli
+   > az vm image list --output table
+   > ```
 
-1. Install the Microsoft OpenJDK. For complete information about OpenJDK, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
+1. Install the Microsoft OpenJDK. For complete information about OpenJDK, see [Microsoft Build of OpenJDK](/java/openjdk).
 
    ```shell
    ssh azureuser@<your VM public IP address>
@@ -118,18 +118,32 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    sudo apt install msopenjdk-11
    ```
 
-> [!NOTE]
-> Another faster way is to use the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
-> Run the following command to obtain the URN name.
-> ```azurecli
->    az vm image list \
->        --offer Zulu \
->        --location <your region> \
->        --all | grep urn
->    ```
-> This command may take a while to complete.
-> When the command completes, it produces output similar to the following lines. 
-> Select the value for JDK 11 on Ubuntu, and accept the terms for the image to allow the VM to be created.
+   > [!NOTE]
+   > Another, faster way to get set up the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
+   > Run the following command to obtain the URN name.
+   > 
+   > ```azurecli
+   >    az vm image list \
+   >        --offer Zulu \
+   >        --location <your region> \
+   >        --all | grep urn
+   > ```
+   > 
+   > This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
+   > 
+   > ```output
+   > "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
+   > ...
+   > "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
+   > "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
+   > ```
+   > 
+   > Use the following command to accept the terms for the image to allow the VM to be created.
+   >
+   > ```azurecli
+   > az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
+   > ```
+   > 
 
 ## Create and configure an Azure Key Vault
 
@@ -188,7 +202,7 @@ To create the application, use the following steps:
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-initializr-choices.png" alt-text="Spring Initializr with correct choices selected.":::
 1. At the bottom of the page, select **Generate**.
-1. When prompted, download the project to a path on your local computer. This tutorial uses a *ssltest* directory in the current user's home directory. The values above will give you a *ssltest.zip* file in that directory.
+1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you an *ssltest.zip* file in that directory.
 
 ### Enable the Spring Boot app to load the TLS/SSL certificate
 
@@ -286,7 +300,7 @@ To create the REST controller, use the following steps:
    }
    ```
 
-   Calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't use such code in a real application.
+   Calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't use `System.exit(0)` in a real application.
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
 
