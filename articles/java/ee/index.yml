@@ -29,6 +29,8 @@ landingContent:
             url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: IBM WebSphere products on Azure
             url: websphere-family.md
+          - text: JBoss EAP on Azure
+            url: jboss-on-azure.md
           - text: Eclipse Microprofile on Azure
             url: /azure/developer/java/eclipse-microprofile/
   - title: Deployment
