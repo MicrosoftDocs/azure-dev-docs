@@ -36,13 +36,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Java app with Helidon to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with Payara Micro to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Code samples
     linkLists:
       - linkListType: sample
@@ -60,13 +60,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines
-            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with AAD via LDAP
-            url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
-            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Elastic on Azure
-            url: ../migration/migrate-weblogic-with-elk.md?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2fee%2ftoc.json
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Reference
     linkLists:
       - linkListType: reference
