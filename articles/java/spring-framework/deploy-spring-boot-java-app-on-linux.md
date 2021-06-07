@@ -63,7 +63,7 @@ The following steps walk through the steps that are required to create a simple 
 
    ```bash
    cd target
-   java -jar gs-spring-boot-docker-0.1.0.jar --server.port=80
+   java -jar spring-boot-docker-0.0.1-SNAPSHOT.jar --server.port=80
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
@@ -95,6 +95,10 @@ The following steps walk through using the Azure portal to create an Azure Conta
 1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then select **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
+
+1. Select **Access keys** under **Settings** and turn on the **Enabled** switch behind the **Admin user**.
+
+   ![Enable admin user UI in the Azure portal][enable-admin-user-for-containter-register]
 
 ## Configure Maven to build image to your Azure Container Registry
 
@@ -147,7 +151,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App for Containers**.
+2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App**.
    
    ![Create a new web app in the Azure portal][LX01]
 
@@ -177,7 +181,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * **Registry**: Choose your container, for example: "*wingtiptoysregistry*"
 
-   * **Image**: Select the image created previously, for example: "*gs-spring-boot-docker*"
+   * **Image**: Select the image created previously, for example: "*spring-boot-docker*"
 
    * **Tag**: Choose the tag for the image; for example: "*latest*"
 
@@ -283,9 +287,9 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 <!-- IMG List -->
 
 [SB01]: media/deploy-spring-boot-java-app-on-linux/SB01.png
-[SB02]: media/deploy-spring-boot-java-app-on-linux/SB02.png
 [AR01]: media/deploy-spring-boot-java-app-on-linux/AR01.png
 [AR03]: media/deploy-spring-boot-java-app-on-linux/AR03.png
+[enable-admin-user-for-containter-register]: media/deploy-spring-boot-java-app-on-linux/enable-admin-user-for-containter-register.png
 [LX01]: media/deploy-spring-boot-java-app-on-linux/LX01.png
 [LX02]: media/deploy-spring-boot-java-app-on-linux/LX02.png
 [LX02-A]: media/deploy-spring-boot-java-app-on-linux/LX02-A.png
