@@ -60,9 +60,13 @@ The following prerequisites are required in order to complete the steps in this 
    > You can use SSL with Redis caches, but you would need to use a different Redis client like Jedis. For more information, see [How to use Azure Redis Cache with Java][Redis Cache with Java].
    >
 
-   When you have specified these options, select **Review + create**, review your specifications, and select **Create**.
+   When you have specified these options, select **Advanced** tab.
 
    ![Create the cache in the Azure portal.][AZ03]
+
+   Select the checkbox next to **Non-TLS port**, then select **Review + create**, review your specifications, and select **Create**.
+
+   ![Select Non-TLS port when creating azure cache.][create-redis-cache-select-non-tls-port]
 
 1. Once your cache has been completed, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources**, and **Redis Caches** pages. You can click on your cache on any of those locations to open the properties page for your cache.
 
@@ -215,6 +219,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ03]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ03.png
 [AZ04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ04.png
 [AZ05]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
+[create-redis-cache-select-non-tls-port]: media/configure-spring-boot-initializer-java-app-with-redis-cache/create-redis-cache-select-non-tls-port.png
 
 [SI01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI01.png
 [SI02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png

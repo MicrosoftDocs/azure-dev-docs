@@ -98,7 +98,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Select **Access keys** under **Settings** and turn on the **Enabled** switch behind the **Admin user**.
 
-   ![Enable admin user UI in the Azure portal][AR04]
+   ![Enable admin user UI in the Azure portal][enable-admin-user-for-containter-register]
 
 ## Configure Maven to build image to your Azure Container Registry
 
@@ -289,7 +289,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [SB01]: media/deploy-spring-boot-java-app-on-linux/SB01.png
 [AR01]: media/deploy-spring-boot-java-app-on-linux/AR01.png
 [AR03]: media/deploy-spring-boot-java-app-on-linux/AR03.png
-[AR04]: media/deploy-spring-boot-java-app-on-linux/AR04.png
+[enable-admin-user-for-containter-register]: media/deploy-spring-boot-java-app-on-linux/enable-admin-user-for-containter-register.png
 [LX01]: media/deploy-spring-boot-java-app-on-linux/LX01.png
 [LX02]: media/deploy-spring-boot-java-app-on-linux/LX02.png
 [LX02-A]: media/deploy-spring-boot-java-app-on-linux/LX02-A.png
