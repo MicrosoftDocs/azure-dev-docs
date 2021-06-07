@@ -3,7 +3,7 @@ title: Tutorial - Configure dynamic inventories for Azure Virtual Machines using
 description: Learn how to populate your Ansible inventory dynamically from information in Azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 06/07/2021
 ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
@@ -141,155 +141,271 @@ Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible
 
 The following steps walk you through using the plug-in:
 
-1. The dynamic inventory must end in `azure_rm` and have an extension of either `yml` or `yaml` otherwise Ansible will not detect the proper inventory plugin. For this tutorial example, save the following playbook as `myazure_rm.yml`:
+1. Create a dynamic inventory named `myazure_rm.yml`
 
     ```yml
     plugin: azure_rm
     include_vm_resource_groups:
       - ansible-inventory-test-rg
     auth_source: auto
-    keyed_groups:
-      - prefix: tag
-        key: tags
     ```
 
-1. Run the following command to ping VMs in the resource group:
+    **Key point:**
+    * Ansible uses the inventory file name and extension to identify which inventory plug-in to use. To use the Azure dynamic inventory plug-in the file must end with `azure_rm` and have an extension of either `yml` or `yaml`.
+
+1. Run the following command to query the VMs within the resource group:
 
     ```bash
     ansible-inventory -i myazure_rm.yml --graph
     ```
 
-1. By default host-key checking is enabled, which may result in the following error.
-
-    ```output
-    Failed to connect to the host via ssh: Host key verification failed.
-    ```
-
-    Disable host-key verification by setting the `ANSIBLE_HOST_KEY_CHECKING` environment variable to `False`.
-
-    ```bash
-    export ANSIBLE_HOST_KEY_CHECKING=False
-    ```
-
-1. When you run the playbook, you see results similar to the following output:
+1. When you run the command, you see results similar to the following output:
   
     ```output
-    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    @all:
+      |--@ungrouped:
+      |  |--linux-vm_cdb4
+      |  |--win-vm_3211
     ```
 
-## Enable the VM tag
+Both VMs belong to the `ungrouped` group, which is a child of the `all` group in the Ansible inventory.
 
-- Run the command `ansible-inventory -i myazure_rm.yml --graph` to get the following output:
+**Key point**:
+* By default the Azure dynamic inventory plug-in returns globally unique names. That's the reason for the extra characters after the VM names. You can disable that by adding `plain_host_names: yes` to the dynamic inventory.
 
-    ```output
-        @all:
-          |--@tag_Ansible_nginx:
-          |  |--ansible-inventory-test-vm1_9e2f
-          |--@ungrouped:
-          |  |--ansible-inventory-test-vm2_7ba9
-    ```
+## Find Azure VM hostvars
 
-- You can also run the following command to test connection to the Nginx VM:
-  
-    ```bash
-    ansible -i ./myazure_rm.yml -m ping tag_Ansible_nginx
-    ```
+Run the following command to view all the `hostvars`:
 
-## Set up Nginx on the tagged VM
+```bash
+ansible-inventory -i myazure_rm.yml --list
+```
 
-The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
+```output
+{
+    "_meta": {
+        "hostvars": {
+            "linux-vm_cdb4": {
+                "ansible_host": "52.188.118.79",
+                "availability_zone": null,
+                "computer_name": "linux-vm",
+                "default_inventory_hostname": "linux-vm_cdb4",
+                "id": "/subscriptions/<subscriptionid>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/linux-vm",
+                "image": {
+                    "offer": "CentOS",
+                    "publisher": "OpenLogic",
+                    "sku": "7.7",
+                    "version": "latest"
+                },
+                ...,
+                "tags": {
+                    "applicationRole": "message-broker"
+                },
+                ...
+            },
+            "win-vm_3211": {
+                "ansible_host": "52.188.112.110",
+                "availability_zone": null,
+                "computer_name": "win-vm",
+                "default_inventory_hostname": "win-vm_3211",
+                "id": "/subscriptions/<subscriptionid>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/win-vm",
+                "image": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest"
+                },
+                ...
+                "tags": {
+                    "applicationRole": "web-server"
+                },
+                ...
+            }
+        }
+    },
+    ...
+    }
+}
+```
 
-1. Create a file named `nginx.yml`:
+By pulling information from Azure the dynamic inventory is able to populate the `hostvars` for each Azure VM. Those `hostvars` are then to determine the VM group memberships within the Ansible inventory.
 
-   ```console
-   code nginx.yml
-   ```
+## Assign group membership with conditional_groups
 
-1. Paste the following sample code into the editor:
+Each conditional group is made of two parts. The name of the group and the condition for adding a member based on value in the specified host variable.
+
+Use the property `image.offer` to create conditional group membership for the _linux-vm_.
+
+Open the `myazure_rm.yml` dynamic inventory and add the following `conditional_group`:
+
+```yml
+plugin: azure_rm
+include_vm_resource_groups:
+  - ansible-inventory-test-rg
+auth_source: auto
+conditional_groups:
+  linux: "'CentOS' in image.offer"
+  windows: "'WindowsServer' in image.offer"
+```
+
+Run the `ansible-inventory` with the `--graph` option:
+
+```bash
+ansible-inventory -i myazure_rm.yml --graph
+```
+
+```output
+@all:
+  |--@linux:
+  |  |--linux-vm_cdb4
+  |--@ungrouped:
+  |--@windows:
+  |  |--win-vm_3211
+```
+
+From the output you can see the VMs are no longer associated with the `ungrouped` group. Instead, each has been assigned to a new group created by the dynamic inventory.
+
+**Key point**:
+* Conditional groups allow you to name specific groups within your inventory and populate them using `hostvars`.
+
+## Assign group membership with keyed_groups
+
+Keyed groups assign group membership the same way conditional groups do, but when using a keyed group the group name is also dynamically populated.
+
+Add the following keyed_group to the `myazure_rm.yml` dynamic inventory:
+
+```yml
+plugin: azure_rm
+include_vm_resource_groups:
+  - ansible-inventory-test-rg
+auth_source: auto
+conditional_groups:
+  linux: "'CentOS' in image.offer"
+  windows: "'WindowsServer' in image.offer"
+keyed_groups:
+ - key: tags.applicationRole
+```
+
+Run the `ansible-inventory` with the `--graph` option:
+
+```bash
+ansible-inventory -i myazure_rm.yml --graph
+```
+
+```output
+@all:
+  |--@_message_broker:
+  |  |--linux-vm_cdb4
+  |--@_web_server:
+  |  |--win-vm_3211
+  |--@linux:
+  |  |--linux-vm_cdb4
+  |--@ungrouped:
+  |--@windows:
+  |  |--win-vm_3211
+```
+
+From the output, you will see two additional groups `_message_broker` and `_web_server`. By using a keyed group with the `applicationRole` tag the group names and group memberships were dynamically populated.
+
+**Key point**:
+* Keyed groups include a separator by default, which is why there is an `_` before the group names. To remove the separator add `separator: ""` under the key property.
+
+## Run playbooks with group name patterns
+
+Use the groups created by the dynamic inventory to target subgroups.
+
+1. Create a playbook called `win_ping.yml` with the following contents:
 
     ```yml
-        ---
-        - name: Install and start Nginx on an Azure virtual machine
-          hosts: all
-          become: yes
-          tasks:
-          - name: install nginx
-            apt: pkg=nginx state=present
-            notify:
-            - start nginx
+    ---
+    - hosts: windows
+      gather_facts: false
     
-          handlers:
-            - name: start nginx
-              service: name=nginx state=started
+      vars_prompt:
+        - name: username
+          prompt: "Enter local username"
+          private: false
+        - name: password
+          prompt: "Enter password"
+    
+      vars:
+        ansible_user: "{{ username }}"
+        ansible_password: "{{ password }}"
+        ansible_connection: winrm
+        ansible_winrm_transport: ntlm
+        ansible_winrm_server_cert_validation: ignore
+    
+      tasks:
+        - name: run win_ping
+          win_ping:
     ```
 
-1. Save the file and exit the editor.
+1. Run the `win_ping.yml` playbook.
 
-1. Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
+    ```bash
+    ansible-playbook win_ping.yml -i myazure_rm.yml
+    ```
 
-     ```bash
-     ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
-     ```
-
-1. After running the playbook, you see output similar to the following results:
+    When prompted, enter the `username` and `password` for the Azure Windows VM.
 
     ```output
-    PLAY [Install and start Nginx on an Azure virtual machine] 
-
-    TASK [Gathering Facts] 
-    ok: [ansible-inventory-test-vm1]
-
-    TASK [install nginx] 
-    changed: [ansible-inventory-test-vm1]
-
-    RUNNING HANDLER [start nginx] 
-    ok: [ansible-inventory-test-vm1]
-
-    PLAY RECAP 
-    ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
+    Enter local username: azureuser
+    Enter password:
+    
+    PLAY [windows] **************************************************************************************************************************************
+    
+    TASK [run win_ping] *********************************************************************************************************************************
+    ok: [win-vm_3211]
+    
+    PLAY RECAP ******************************************************************************************************************************************
+    win-vm_3211                : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
 
-## Test Nginx installation
+    > [!IMPORTANT]
+    > If you get the error `winrm or requests is not installed: No module named 'winrm'`, install pywinrm with the following command: `pip install "pywinrm>=0.3.0"`
 
-This section illustrates one technique to test that Nginx is installed on your virtual machine.
+1. Create a second playbook named `ping.yml` with the following contents:
 
-1. Use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
-
-    ```azurecli
-    ssh `az vm list-ip-addresses \
-    -n ansible-inventory-test-vm1 \
-    --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
+    ```yml
+    ---
+    - hosts: all
+      gather_facts: false
+    
+      vars_prompt:
+        - name: username
+          prompt: "Enter ssh user"
+        - name: password
+          prompt: "Enter password for ssh user"
+    
+      vars:
+        ansible_user: "{{ username }}"
+        ansible_password: "{{ password }}"
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    
+      tasks:
+        - name: run ping
+          ping:
     ```
 
-1. While connected to the `ansible-inventory-test-vm1` virtual machine, run the [nginx -v](https://nginx.org/en/docs/switches.html) command to determine if Nginx is installed.
+1. Run the `ping.yml` playbook.
 
-    ```console
-    nginx -v
+    ```bash
+    ansible-playbook ping.yml -i myazure_rm.yml
     ```
 
-1. Once you run the `nginx -v` command, you see the Nginx version (second line) that indicates that Nginx is installed.
+    When prompted, enter the `username` and `password` for the Azure Linux VM.
 
     ```output
-    tom@ansible-inventory-test-vm1:~$ nginx -v
-
-    nginx version: nginx/1.10.3 (Ubuntu)
-
-    tom@ansible-inventory-test-vm1:~$
-    ```
-
-1. Click the `<Ctrl>D` keyboard combination to disconnect the SSH session.
-
-1. Doing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
-
-    ```output
-    tom@ansible-inventory-test-vm2:~$ nginx -v
-    The program 'nginx' can be found in the following packages:
-    * nginx-core
-    * nginx-extras
-    * nginx-full
-    * nginx-lightTry: sudo apt install <selected package>
-    tom@ansible-inventory-test-vm2:~$
+    Enter ssh username: azureuser
+    Enter password for ssh user:
+    
+    PLAY [linux] *******************************************************************************************************
+    
+    TASK [run ping] ****************************************************************************************************
+    ok: [linux-vm_cdb4]
+    
+    PLAY RECAP *********************************************************************************************************
+    linux-vm_cdb4              : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
     ```
 
 ## Clean up resources
