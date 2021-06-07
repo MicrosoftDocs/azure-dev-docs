@@ -9,9 +9,9 @@
   items:
     - name: Configure Ansible using Azure Cloud Shell
       href: getting-started-cloud-shell.md
-    - name: Install Ansible on an Azure VM
+    - name: Configure Ansible on an Azure VM
       href: install-on-linux-vm.md
-    - name: Install Ansible in a Docker container
+    - name: Configure Ansible in a Docker container
       href: configure-in-docker-container.md
     - name: Create Ansible service principal
       href: create-ansible-service-principal.md

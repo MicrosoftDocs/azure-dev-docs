@@ -81,13 +81,13 @@ set TOMCAT_HOME=<Tomcat install directory>
 ```
 ---
 
-Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.7.11` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
+Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.8.5` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
 
 ```xml
 <plugin>
     <groupId>org.codehaus.cargo</groupId>
     <artifactId>cargo-maven2-plugin</artifactId>
-    <version>1.7.11</version>
+    <version>1.8.5</version>
     <configuration>
         <container>
             <containerId>tomcat9x</containerId>
@@ -163,6 +163,7 @@ $env:RESOURCEGROUP_NAME="<resource group>"
 $env:WEBAPP_NAME="<web app>"
 $env:WEBAPP_PLAN_NAME="$env:WEBAPP_NAME-appservice-plan"
 $env:REGION="<region>"
+$env:SUBSCRIPTION_ID="<subscription_id>"
 ```
 
 # [Cmd](#tab/cmd)
@@ -172,6 +173,7 @@ set RESOURCEGROUP_NAME=<resource group>
 set WEBAPP_NAME=<web app>
 set WEBAPP_PLAN_NAME=%WEBAPP_NAME%-appservice-plan
 set REGION=<region>
+set SUBSCRIPTION_ID=<subscription_id>
 ```
 ---
 
@@ -181,31 +183,32 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add 
 
 ```xml
 <plugin>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.14.0</version>
-    <configuration>
-        <schemaVersion>v2</schemaVersion>
-        <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-        <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-        <appName>${WEBAPP_NAME}</appName>
-        <region>${REGION}</region>
-        <runtime>
-            <os>linux</os>
-            <javaVersion>Java 8</javaVersion>
-            <webContainer>TOMCAT 9.0</webContainer>
-        </runtime>
-        <deployment>
-            <resources>
-                <resource>
-                    <directory>${project.basedir}/target</directory>
-                    <includes>
-                        <include>*.war</include>
-                    </includes>
-                </resource>
-             </resources>
-         </deployment>
-    </configuration>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>1.14.0</version>
+  <configuration>
+    <schemaVersion>v2</schemaVersion>
+    <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+    <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+    <appName>${WEBAPP_NAME}</appName>
+    <region>${REGION}</region>
+    <pricingTier>P1v2</pricingTier>
+    <runtime>
+      <os>Linux</os>
+      <javaVersion>Java 8</javaVersion>
+      <webContainer>TOMCAT 9.0</webContainer>
+    </runtime>
+    <deployment>
+      <resources>
+        <resource>
+          <directory>${project.basedir}/target</directory>
+          <includes>
+            <include>*.war</include>
+          </includes>
+        </resource>
+      </resources>
+    </deployment>
+  </configuration>
 </plugin>
 ```
 
@@ -389,50 +392,50 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 
 ```xml
 <plugin>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.14.0</version>
-    <configuration>
-        <schemaVersion>v2</schemaVersion>
-        <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-        <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-        <appName>${WEBAPP_NAME}</appName>
-        <region>${REGION}</region>
-        <pricingTier>P1V2</pricingTier>
-        <runtime>
-            <os>linux</os>
-            <javaVersion>Java 8</javaVersion>
-            <webContainer>TOMCAT 9.0</webContainer>
-        </runtime>
-        <appSettings>
-            <property>
-                <name>MYSQL_SERVER_FULL_NAME</name>
-                <value>${MYSQL_SERVER_FULL_NAME}</value>
-            </property>
-            <property>
-                <name>MYSQL_SERVER_ADMIN_LOGIN_NAME</name>
-                <value>${MYSQL_SERVER_ADMIN_LOGIN_NAME}</value>
-            </property>
-            <property>
-                <name>MYSQL_SERVER_ADMIN_PASSWORD</name>
-                <value>${MYSQL_SERVER_ADMIN_PASSWORD}</value>
-            </property>
-            <property>
-                <name>MYSQL_DATABASE_NAME</name>
-                <value>${MYSQL_DATABASE_NAME}</value>
-            </property>
-        </appSettings>
-        <deployment>
-            <resources>
-                <resource>
-                    <directory>${project.basedir}/target</directory>
-                    <includes>
-                        <include>*.war</include>
-                    </includes>
-                </resource>
-             </resources>
-         </deployment>
-    </configuration>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>1.14.0</version>
+  <configuration>
+    <schemaVersion>v2</schemaVersion>
+    <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+    <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+    <appName>${WEBAPP_NAME}</appName>
+    <region>${REGION}</region>
+    <pricingTier>P1v2</pricingTier>
+    <runtime>
+      <os>Linux</os>
+      <javaVersion>Java 8</javaVersion>
+      <webContainer>TOMCAT 9.0</webContainer>
+    </runtime>
+    <appSettings>
+      <property>
+        <name>MYSQL_SERVER_FULL_NAME</name>
+        <value>${MYSQL_SERVER_FULL_NAME}</value>
+      </property>
+      <property>
+        <name>MYSQL_SERVER_ADMIN_LOGIN_NAME</name>
+        <value>${MYSQL_SERVER_ADMIN_LOGIN_NAME}</value>
+      </property>
+      <property>
+        <name>MYSQL_SERVER_ADMIN_PASSWORD</name>
+        <value>${MYSQL_SERVER_ADMIN_PASSWORD}</value>
+      </property>
+      <property>
+        <name>MYSQL_DATABASE_NAME</name>
+        <value>${MYSQL_DATABASE_NAME}</value>
+      </property>
+    </appSettings>
+    <deployment>
+      <resources>
+        <resource>
+          <directory>${project.basedir}/target</directory>
+          <includes>
+            <include>*.war</include>
+          </includes>
+        </resource>
+      </resources>
+    </deployment>
+  </configuration>
 </plugin>
 ```
 

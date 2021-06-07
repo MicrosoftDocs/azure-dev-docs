@@ -10,6 +10,8 @@
         href: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: IBM WebSphere products on Azure
         href: websphere-family.md
+      - name: Red Hat JBoss EAP on Azure
+        href: jboss-on-azure.md
   - name: Deployment
     expanded: true
     items:
