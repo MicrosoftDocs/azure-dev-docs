@@ -76,7 +76,6 @@ In this tutorial, you'll use Azure's dynamic-inventory plug-in to populate your 
         --admin-password <password>
         ```
 
-        Replace the `<password>` your password.
 
         # [PowerShell](#tab/powershell)
         
