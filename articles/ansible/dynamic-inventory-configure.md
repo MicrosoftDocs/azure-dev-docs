@@ -20,9 +20,10 @@ In this tutorial, you'll use Azure's dynamic-inventory plug-in to populate your 
 > [!div class="checklist"]
 >
 > * Configure two test virtual machines.
-> * Tag one of the virtual machines
-> * Install Nginx on the tagged virtual machines
-> * Configure a dynamic inventory that includes the configured Azure resources
+> * Add tags to Azure virtual machines
+> * Generate a dynamic inventory
+> * Use conditional and keyed groups to populate group memberships
+> * Run playbooks against groups within the dynamic inventory
 
 ## Prerequisites
 
