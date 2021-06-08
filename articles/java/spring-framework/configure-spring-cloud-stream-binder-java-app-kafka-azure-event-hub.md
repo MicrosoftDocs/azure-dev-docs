@@ -103,7 +103,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
-     <version>2.4.0</version>
+     <version>2.5.0</version>
    </dependency>
    ```
 
@@ -183,29 +183,38 @@ The value of the `name` option must be unique within your subscription. Save asi
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
+1. Add an *application.yaml* in the *resources* directory of your app; for example:
 
-   *C:\SpringBoot\kafka\src\main\resources\application.properties*
+   *C:\SpringBoot\kafka\src\main\resources\application.yaml*
 
    -or-
 
-   */users/example/home/kafka/src/main/resources/application.properties*
+   */users/example/home/kafka/src/main/resources/application.yaml*
 
-2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
+2. Open the *application.yaml* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
    ```yaml
-   spring.cloud.azure.client-id=<your client ID>
-   spring.cloud.azure.client-secret=<your client secret>
-   spring.cloud.azure.tenant-id=<your tenant ID>
-   spring.cloud.azure.resource-group=wingtiptoysresources
-   spring.cloud.azure.region=West US
-   spring.cloud.azure.subscription-id=<your subscription ID>
-   spring.cloud.azure.eventhub.namespace=wingtiptoys
-
-   spring.cloud.stream.bindings.input.destination=wingtiptoyshub
-   spring.cloud.stream.bindings.input.group=$Default
-   spring.cloud.stream.bindings.output.destination=wingtiptoyshub
+   spring:
+     cloud:
+       azure:
+         client-id: <your client ID>
+         client-secret: <your client secret>
+         tenant-id: <your tenant ID>
+         resource-group: <your resource group>
+         subscription-id: <your subscription ID>
+         eventhub:
+           namespace: wingtiptoys
+       stream:
+         function:
+           definition: consume;supply
+         bindings:
+           consume-in-0:
+             destination: wingtiptoyshub
+             group: $Default
+           supply-out-0:
+             destination: wingtiptoyshub
    ```
+   
    Where:
 
    |                       Field                       |                                                                                   Description                                                                                    |
@@ -214,15 +223,18 @@ The value of the `name` option must be unique within your subscription. Save asi
    |         `spring.cloud.azure.client-secret`        |                                                    The `password` from the return JSON from `az ad sp create-for-rbac`.                                                          |
    |           `spring.cloud.azure.tenant-id`          |                                                    The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                            |
    |        `spring.cloud.azure.resource-group`        |                                                      Specifies the Azure Resource Group that contains your Azure Event Hub.                                                      |
-   |        `spring.cloud.azure.subscription-id`        |                                                      Specifies the Azure Subscription that contains your Azure Event Hub.                                                      |
+   |        `spring.cloud.azure.subscription-id`        |                                                     Specifies the Azure Subscription that contains your Azure Event Hub.                                                        |
    |            `spring.cloud.azure.region`            |                                           Specifies the geographical region that you specified when you created your Azure Event Hub.                                            |
+   |     `spring.cloud.azure.auto-create-resources`    |                                           Specifies true to enable automatic creation of related resources if they don't exist.                                                 |
    |      `spring.cloud.azure.eventhub.namespace`      |                                          Specifies the unique name that you specified when you created your Azure Event Hub Namespace.                                           |
    | `spring.cloud.stream.bindings.input.destination`  |                            Specifies the input destination Azure Event Hub, which for this tutorial is the  hub you created earlier in this tutorial.                            |
    |    `spring.cloud.stream.bindings.input.group `    | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    | `spring.cloud.stream.bindings.output.destination` |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
+   > [!NOTE]
+   > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least 1. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
 
-3. Save and close the *application.properties* file.
+3. Save and close the *application.yaml* file.
 
 ## Add sample code to implement basic event hub functionality
 
@@ -242,15 +254,44 @@ In this section, you create the necessary Java classes for sending events to you
 
    ```java
    package com.wingtiptoys.kafka;
-
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.messaging.Message;
+   import reactor.core.publisher.Flux;
+   import reactor.core.publisher.Sinks;
+   
+   import java.util.function.Consumer;
+   import java.util.function.Supplier;
+   
    @SpringBootApplication
-   public class EventhubApplication {
-      public static void main(String[] args) {
-         SpringApplication.run(EventhubApplication.class, args);
-      }
+   public class KafkaApplication {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(KafkaApplication.class);
+   
+       public static void main(String[] args) {
+           SpringApplication.run(KafkaApplication.class, args);
+       }
+   
+       @Bean
+       public Sinks.Many<Message<String>> many() {
+           return Sinks.many().unicast().onBackpressureBuffer();
+       }
+   
+       @Bean
+       public Supplier<Flux<Message<String>>> supply(Sinks.Many<Message<String>> many) {
+           return () -> many.asFlux()
+                            .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
+                            .doOnError(t -> LOGGER.error("Error encountered", t));
+       }
+   
+       @Bean
+       public Consumer<Message<String>> consume() {
+           return message -> LOGGER.info("New message received: '{}'", message.getPayload());
+       }
    }
    ```
 
@@ -263,57 +304,30 @@ In this section, you create the necessary Java classes for sending events to you
 
    ```java
    package com.wingtiptoys.kafka;
-
+   
    import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.cloud.stream.annotation.EnableBinding;
-   import org.springframework.cloud.stream.messaging.Source;
+   import org.springframework.messaging.Message;
    import org.springframework.messaging.support.GenericMessage;
    import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestBody;
    import org.springframework.web.bind.annotation.RequestParam;
    import org.springframework.web.bind.annotation.RestController;
-
-   @EnableBinding(Source.class)
+   import reactor.core.publisher.Sinks;
+   
    @RestController
    public class KafkaSource {
-      @Autowired
-      private Source source;
-
-      @PostMapping("/messages")
-      public String sendMessage(@RequestBody String message) {
-         this.source.output().send(new GenericMessage<>(message));
-         return message;
-      }
+   
+       @Autowired
+       private Sinks.Many<Message<String>> many;
+   
+       @PostMapping("/messages")
+       public String sendMessage(@RequestParam String message) {
+           many.emitNext(new GenericMessage<>(message), Sinks.EmitFailureHandler.FAIL_FAST);
+           return message;
+       }
    }
    ```
 
 1. Save and close the *KafkaSource.java* file.
-
-### Create a new class for the sink connector
-
-1. Create a new Java file named *KafkaSink.java* in the package directory of your app, then open the file in a text editor and add the following lines:
-
-   ```java
-   package com.wingtiptoys.kafka;
-
-   import org.slf4j.Logger;
-   import org.slf4j.LoggerFactory;
-   import org.springframework.cloud.stream.annotation.EnableBinding;
-   import org.springframework.cloud.stream.annotation.StreamListener;
-   import org.springframework.cloud.stream.messaging.Sink;
-
-   @EnableBinding(Sink.class)
-   public class KafkaSink {
-      private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSink.class);
-
-      @StreamListener(Sink.INPUT)
-      public void handleMessage(String message) {
-         LOGGER.info("New message received: " + message);
-      }
-   }
-   ```
-
-1. Save and close the *KafkaSink.java* file.
 
 ## Build and test your application
 
@@ -339,66 +353,16 @@ In this section, you create the necessary Java classes for sending events to you
 1. Once your application is running, you can use *curl* to test your application; for example:
 
    ```shell
-   curl -X POST -H "Content-Type: text/plain" -d "hello" http://localhost:8080/messages
+   curl -X POST http://localhost:8080/messages?message=hello
    ```
    You should see "hello" posted to your application's logs. For example:
 
    ```output
-   2020-10-12 16:56:19.827  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.5.1
-   2020-10-12 16:56:19.828  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 0efa8fb0f4c73d92
-   2020-10-12 16:56:19.830  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1602492979827
-   2020-10-12 16:56:22.277  INFO 13272 --- [container-0-C-1] com.wingtiptoys.kafka.KafkaSink          : New message received: hello
+   2021-06-02 14:47:13.956  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.0
+   2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 62abe01bee039651
+   2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1622616433956
+   2021-06-02 14:47:16.668  INFO 23984 --- [container-0-C-1] com.wingtiptoys.kafka.KafkaApplication   : New message received: 'hello'
    ```
-
-
-> [!NOTE]
-> 
-> For testing purposes, you could modify your *KafkaSource.java* so that it contains a simple HTML form like the following example:
-> 
-> ```java
-> package com.wingtiptoys.kafka;
->    
-> import org.springframework.beans.factory.annotation.Autowired;
-> import org.springframework.cloud.stream.annotation.EnableBinding;
-> import org.springframework.cloud.stream.messaging.Source;
-> import org.springframework.messaging.support.GenericMessage;
-> import org.springframework.web.bind.annotation.GetMapping;
-> import org.springframework.web.bind.annotation.PostMapping;
-> import org.springframework.web.bind.annotation.RequestBody;
-> import org.springframework.web.bind.annotation.RequestParam;
-> import org.springframework.web.bind.annotation.RestController;
-> 
-> @EnableBinding(Source.class)
-> @RestController
-> public class KafkaSource {
->   @Autowired
->   private Source source;
-> 
->   @GetMapping("/")
->   public String sendForm() {
->     return "<html><body>" +
->       "<form action=\"/messages\" method=\"post\">" +
->       "<input type=\"text\" name=\"text\">" +
->       "<input type=\"submit\">" +
->       "</form></body><html>";
->     }
-> 
->   @PostMapping("/messages")
->   public String sendMessage(@RequestBody String message) {
->     this.source.output().send(new GenericMessage<>(message));
->     return message;
->   }
-> }
-> ```
-> 
-> This will allow you to use a web browser to test your application:
-> 
-> ![Testing your application using a web browser][TB01]
-> 
-> When you submit the form, your application will display the results:
-> 
-> ![Application response in a web browser][TB02]
-> 
 
 ## Clean up resources
 

@@ -22,10 +22,10 @@ This article guides you through using [Spring Cloud Functions](https://spring.io
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](../fundamentals/java-support-on-azure.md), version 8
+- [Java Developer Kit](../fundamentals/java-support-on-azure.md), version 11
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
-- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 2.7.1158 or above
+- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 3.0.13901.0 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -58,21 +58,20 @@ You should change those properties directly near the top of the *pom.xml* file:
 
 ```xml
 <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.source>11</maven.compiler.source>
+  <maven.compiler.target>11</maven.compiler.target>
 
-    <azure.functions.java.library.version>1.4.0</azure.functions.java.library.version>
-    <azure.functions.maven.plugin.version>1.11.0</azure.functions.maven.plugin.version>
+  <azure.functions.java.library.version>1.4.2</azure.functions.java.library.version>
+  <azure.functions.maven.plugin.version>1.11.0</azure.functions.maven.plugin.version>
 
-    <!-- customize those two properties. The functionAppName should be unique across Azure -->
-    <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
-    <functionAppName>my-spring-function</functionAppName>
+  <!-- customize those two properties. The functionAppName should be unique across Azure -->
+  <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
+  <functionAppName>my-spring-function</functionAppName>
 
-    <functionAppRegion>eastus</functionAppRegion>
-    <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
-    <start-class>com.example.DemoApplication</start-class>
-    <spring.boot.wrapper.version>1.0.26.RELEASE</spring.boot.wrapper.version>
+  <functionAppRegion>westeurope</functionAppRegion>
+  <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
+  <start-class>com.example.DemoApplication</start-class>
 </properties>
 ```
 
@@ -119,14 +118,14 @@ package com.example.model;
 
 public class User {
 
+    private String name;
+
     public User() {
     }
 
     public User(String name) {
         this.name = name;
     }
-
-    private String name;
 
     public String getName() {
         return name;
@@ -145,14 +144,14 @@ package com.example.model;
 
 public class Greeting {
 
+    private String message;
+
     public Greeting() {
     }
 
     public Greeting(String message) {
         this.message = message;
     }
-
-    private String message;
 
     public String getMessage() {
         return message;
@@ -193,7 +192,7 @@ public class DemoApplication {
 
 Now create the following file, which contains a Spring Boot component that represents the Function we want to run:
 
-*HelloFunction.java*:
+*Hello.java*:
 
 ```java
 package com.example;
@@ -201,24 +200,24 @@ package com.example;
 import com.example.model.Greeting;
 import com.example.model.User;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
 
 @Component
-public class HelloFunction implements Function<User, Greeting> {
+public class Hello implements Function<Mono<User>, Mono<Greeting>> {
 
-    @Override
-    public Greeting apply(User user) {
-        return new Greeting("Hello, " + user.getName() + "!\n");
+    public Mono<Greeting> apply(Mono<User> mono) {
+        return mono.map(user -> new Greeting("Hello, " + user.getName() + "!\n"));
     }
 }
 ```
 
 > [!NOTE]
-> The `HelloFunction` function is quite specific:
+> The `Hello` function is quite specific:
 >
 > - It is a `java.util.function.Function`, which is the function that will be used in this quickstart. It contains the business logic, and is uses a standard Java API to transform one object into another.
-> - As it has the `@Component` annotation, it is a Spring Bean, and by default its name is the one of the class starting with a lowercase character, `helloFunction`. This is important if you want to create other functions in your application, as this name must match the Azure Functions name we will create in the next section.
+> - As it has the `@Component` annotation, it is a Spring Bean, and by default its name is the one of the class starting with a lowercase character, `hello`. This is important if you want to create other functions in your application, as this name must match the Azure Functions name we will create in the next section.
 
 ## Create the Azure Function
 
@@ -237,34 +236,34 @@ import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
-import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
+import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
 
 import java.util.Optional;
 
-public class HelloHandler extends AzureSpringBootRequestHandler<User, Greeting> {
+public class HelloHandler extends FunctionInvoker<User, Greeting> {
 
     @FunctionName("hello")
     public HttpResponseMessage execute(
-            @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<User>> request,
-            ExecutionContext context) {
+        @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<User>> request,
+        ExecutionContext context) {
         User user = request.getBody()
-                .filter((u -> u.getName() != null))
-                .orElseGet(() -> new User(
-                        request.getQueryParameters()
-                                .getOrDefault("name", "world")));
+                           .filter((u -> u.getName() != null))
+                           .orElseGet(() -> new User(
+                               request.getQueryParameters()
+                                      .getOrDefault("name", "world")));
         context.getLogger().info("Greeting user name: " + user.getName());
         return request
-                .createResponseBuilder(HttpStatus.OK)
-                .body(handleRequest(user, context))
-                .header("Content-Type", "application/json")
-                .build();
+            .createResponseBuilder(HttpStatus.OK)
+            .body(handleRequest(user, context))
+            .header("Content-Type", "application/json")
+            .build();
     }
 }
 ```
 
 This Java class is an Azure Function, with the following interesting features:
 
-- It extends `AzureSpringBootRequestHandler`, which does the link between Azure Functions and Spring Cloud Function. This is what provides the `handleRequest()` method that is used in its `body()` method.
+- It extends `FunctionInvoker`, which does the link between Azure Functions and Spring Cloud Function. This is what provides the `handleRequest()` method that is used in its `body()` method.
 - The name of the function, as defined by the `@FunctionName("hello")` annotation, is `hello`.
 - It is a real Azure Function, so you can use the full Azure Functions API here.
 
@@ -274,31 +273,50 @@ Of course, this step is optional, but as good developers you should add unit tes
 
 Create a *src/test/java/com/example* folder, and add the following JUnit tests:
 
-*HelloFunctionTest.java*:
+*HelloTest.java*:
 
 ```java
 package com.example;
 
 import com.example.model.Greeting;
 import com.example.model.User;
+import com.microsoft.azure.functions.ExecutionContext;
 import org.junit.jupiter.api.Test;
-import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
+import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
+import reactor.core.publisher.Mono;
+
+import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HelloFunctionTest {
+public class HelloTest {
 
     @Test
     public void test() {
-        Greeting result = new HelloFunction().apply(new User("foo"));
-        assertThat(result.getMessage()).isEqualTo("Hello, foo!\n");
+        Mono<Greeting> result = new Hello().apply(Mono.just(new User("foo")));
+        assertThat(result.block().getMessage()).isEqualTo("Hello, foo!\n");
     }
 
     @Test
-    public void start() throws Exception {
-        AzureSpringBootRequestHandler<User, Greeting> handler = new AzureSpringBootRequestHandler<>(
-                HelloFunction.class);
-        Greeting result = handler.handleRequest(new User("foo"), null);
+    public void start() {
+        FunctionInvoker<User, Greeting> handler = new FunctionInvoker<>(
+            Hello.class);
+        Greeting result = handler.handleRequest(new User("foo"), new ExecutionContext() {
+            @Override
+            public Logger getLogger() {
+                return Logger.getLogger(HelloTest.class.getName());
+            }
+
+            @Override
+            public String getInvocationId() {
+                return "id1";
+            }
+
+            @Override
+            public String getFunctionName() {
+                return "hello";
+            }
+        });
         handler.close();
         assertThat(result.getMessage()).isEqualTo("Hello, foo!\n");
     }
@@ -337,7 +355,7 @@ The Function should answer you with a `Greeting` object, still in JSON format:
 
 ```Output
 {
-  "message": "Welcome, Azure"
+  "message": "Hello, Azure!\n"
 }
 ```
 
