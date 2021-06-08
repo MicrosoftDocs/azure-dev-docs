@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible, devx-track-azurecli
 
 Ansible dynamic inventories remove the burden of maintaining static inventory files by pulling the information from various sources.
 
-In this tutorial you will use Azure's dynamic-inventory plug-in to pull information from Azure populating your Ansible inventory.
+In this tutorial, you'll use Azure's dynamic-inventory plug-in to populate your Ansible inventory.
 
 [!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
@@ -151,7 +151,7 @@ The following steps walk you through using the plug-in:
     ```
 
     **Key point:**
-    * Ansible uses the inventory file name and extension to identify which inventory plug-in to use. To use the Azure dynamic inventory plug-in the file must end with `azure_rm` and have an extension of either `yml` or `yaml`.
+    * Ansible uses the inventory file name and extension to identify which inventory plug-in to use. To use the Azure dynamic inventory plug-in, the file must end with `azure_rm` and have an extension of either `yml` or `yaml`.
 
 1. Run the following command to query the VMs within the resource group:
 
@@ -228,11 +228,11 @@ ansible-inventory -i myazure_rm.yml --list
 }
 ```
 
-By pulling information from Azure the dynamic inventory is able to populate the `hostvars` for each Azure VM. Those `hostvars` are then to determine the VM group memberships within the Ansible inventory.
+By pulling information from Azure, the dynamic inventory populates the `hostvars` for each Azure VM. Those `hostvars` are then to determine the VM group memberships within the Ansible inventory.
 
 ## Assign group membership with conditional_groups
 
-Each conditional group is made of two parts. The name of the group and the condition for adding a member based on value in the specified host variable.
+Each conditional group is made of two parts. The name of the group and the condition for adding a member to the group.
 
 Use the property `image.offer` to create conditional group membership for the _linux-vm_.
 
@@ -263,7 +263,7 @@ ansible-inventory -i myazure_rm.yml --graph
   |  |--win-vm_3211
 ```
 
-From the output you can see the VMs are no longer associated with the `ungrouped` group. Instead, each has been assigned to a new group created by the dynamic inventory.
+From the output, you can see the VMs are no longer associated with the `ungrouped` group. Instead, each has been assigned to a new group created by the dynamic inventory.
 
 **Key point**:
 * Conditional groups allow you to name specific groups within your inventory and populate them using `hostvars`.
@@ -305,10 +305,10 @@ ansible-inventory -i myazure_rm.yml --graph
   |  |--win-vm_3211
 ```
 
-From the output, you will see two additional groups `_message_broker` and `_web_server`. By using a keyed group with the `applicationRole` tag the group names and group memberships were dynamically populated.
+From the output, you'll see two more groups `_message_broker` and `_web_server`. By using a keyed group, the `applicationRole` tag populated group names and group memberships.
 
 **Key point**:
-* Keyed groups include a separator by default, which is why there is an `_` before the group names. To remove the separator add `separator: ""` under the key property.
+* By default, keyed groups include a separator. To remove the separator add `separator: ""` under the key property.
 
 ## Run playbooks with group name patterns
 
