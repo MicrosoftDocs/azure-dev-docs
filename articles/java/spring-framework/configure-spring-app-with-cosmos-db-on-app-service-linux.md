@@ -101,23 +101,25 @@ The following procedure runs the application on the development computer.
 For Linux (Bash):
 
 ```bash
-export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
-export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
-export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
+export COSMOS_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
+export COSMOS_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
+export COSMOS_DATABASE=<put-your-COSMOS-DATABASE-name-here>
 export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
+export SUBSCRIPTION_ID=<put-your-SUBSCRIPTION_ID-here>
 ```
 
 For Windows (Command Prompt):
 
 ```cmd
-set COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
-set COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
-set COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
+set COSMOS_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
+set COSMOS_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
+set COSMOS_DATABASE=<put-your-COSMOS-DATABASE-name-here>
 set RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 set WEBAPP_NAME=<put-your-Webapp-name-here>
 set REGION=<put-your-REGION-here>
+set SUBSCRIPTION_ID=<put-your-SUBSCRIPTION_ID-here>
 ```
 
 > [!NOTE]
@@ -143,7 +145,7 @@ set REGION=<put-your-REGION-here>
 
 The following procedure deploys the application to Linux on Azure.
 
-1. Open the pom.xml file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the pom.xml file below. If the version is not set to **1.6.0** then update the value.
+1. Open the pom.xml file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the pom.xml file below. If the version is not set to **1.14.0** then update the value.
 
 ```xml
 <plugins> 
@@ -154,31 +156,44 @@ The following procedure deploys the application to Linux on Azure.
        
     <plugin>
         <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-webapp-maven-plugin</artifactId>
-            <version>1.6.0</version>
-            <configuration>
-            <deploymentType>jar</deploymentType>
-            
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.14.0</version>
+        <configuration>
+            <schemaVersion>v2</schemaVersion>
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
             <!-- Web App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-            
+            <pricingTier>P1v2</pricingTier>
             <!-- Java Runtime Stack for Web App on Linux-->
-            <linuxRuntime>jre8</linuxRuntime>
-            
+            <runtime>
+                <os>Linux</os>
+                <javaVersion>Java 8</javaVersion>
+                <webContainer>Java SE</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.jar</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
             <appSettings>
                 <property>
-                    <name>COSMOSDB_URI</name>
-                    <value>${COSMOSDB_URI}</value>
+                    <name>COSMOS_URI</name>
+                    <value>${COSMOS_URI}</value>
                 </property>
                 <property>
-                    <name>COSMOSDB_KEY</name>
-                    <value>${COSMOSDB_KEY}</value>
+                    <name>COSMOS_KEY</name>
+                    <value>${COSMOS_KEY}</value>
                 </property>
                 <property>
-                    <name>COSMOSDB_DBNAME</name>
-                    <value>${COSMOSDB_DBNAME}</value>
+                    <name>COSMOS_DATABASE</name>
+                    <value>${COSMOS_DATABASE}</value>
                 </property>
                 <property>
                     <name>JAVA_OPTS</name>
@@ -202,25 +217,27 @@ The following procedure deploys the application to Linux on Azure.
 // Deploy
 bash-3.2$ mvn azure-webapp:deploy
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] -------< com.azure.spring.samples:spring-todo-app >--------
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.6.0:deploy (default-cli) @ spring-todo-app ---
-[INFO] Authenticate with Azure CLI 2.0
-[INFO] Target Web App doesnt exist. Creating a new one...
-[INFO] Creating App Service Plan 'ServicePlan11111111-1111-1111'...
-[INFO] Successfully created App Service Plan.
-[INFO] Successfully created Web App.
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.14.0:deploy (default-cli) @ spring-todo-app ---
+Auth type: AZURE_CLI
+Default subscription: Consoto Subscription(subscription-id-xxx)
+Username: user@contoso.com
+[INFO] Subscription: Consoto Subscription(subscription-id-xxx)
+[INFO] Creating app service plan...
+[INFO] Successfully created app service plan asp-spring-todo-app.
+[INFO] Creating web app spring-todo-app...
+[INFO] Successfully created Web App spring-todo-app.
 [INFO] Trying to deploy artifact to spring-todo-app...
 [INFO] Successfully deployed the artifact to https://spring-todo-app.azurewebsites.net
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 02:19 min
-[INFO] Finished at: 2018-10-28T15:32:03-07:00
-[INFO] Final Memory: 50M/574M
+[INFO] Total time:  02:05 min
+[INFO] Finished at: 2021-05-28T09:43:19+08:00
 [INFO] ------------------------------------------------------------------------
 ```
 
@@ -252,35 +269,32 @@ The following procedure opens log files on Azure.
 
 ```bash
 bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
-2018-10-28T22:50:17  Welcome, you are now connected to log-streaming service.
-2018-10-28T22:44:56.265890407Z   _____                               
-2018-10-28T22:44:56.265930308Z   /  _  \ __________ _________   ____  
-2018-10-28T22:44:56.265936008Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
-2018-10-28T22:44:56.265940308Z /    |    \/    /|  |  /|  | \/\  ___/ 
-2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
-2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
-2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
-2018-10-28T22:44:56.266260910Z Setup openrc ...
-2018-10-28T22:44:57.396926506Z Service `hwdrivers needs non existent service dev
-2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
-2018-10-28T22:44:57.474152273Z Starting ssh service...
+2021-05-28T01:46:08.000655632Z   _____                               
+2021-05-28T01:46:08.000701432Z   /  _  \ __________ _________   ____  
+2021-05-28T01:46:08.000708133Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
+2021-05-28T01:46:08.000711733Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2021-05-28T01:46:08.000714933Z \____|__  /_____ \____/ |__|    \___  >
+2021-05-28T01:46:08.000718233Z         \/      \/                  \/ 
+2021-05-28T01:46:08.000721333Z A P P   S E R V I C E   O N   L I N U X
+2021-05-28T01:46:08.000724233Z Documentation: http://aka.ms/webapp-linux
 ...
 ...
-2018-10-28T22:46:13.432160734Z [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-2018-10-28T22:46:13.744859424Z [INFO] TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
-2018-10-28T22:46:13.783230205Z [INFO] TodoApplication - Started TodoApplication in 57.209 seconds (JVM running for 70.815)
-2018-10-28T22:46:14.887366993Z 2018-10-28 22:46:14.887  INFO 198 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-10-28T22:46:14.887637695Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-2018-10-28T22:46:14.998479907Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 111 ms
-
-2018-10-28T22:49:20.572059062Z Sun Oct 28 22:49:20 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:25.850543080Z Sun Oct 28 22:49:25 GMT 2018 DELETE ======= /api/todolist/{4f41ab03-1b12-4131-a920-fe5dfec106ca} ======= 
-2018-10-28T22:49:26.047126614Z Sun Oct 28 22:49:26 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:30.201740227Z Sun Oct 28 22:49:30 GMT 2018 POST ======= /api/todolist ======= Milk
-2018-10-28T22:49:30.413468872Z Sun Oct 28 22:49:30 GMT 2018 GET ======= /api/todolist =======
-
-
+2021-05-28T01:46:18.925044188Z   .   ____          _            __ _ _
+2021-05-28T01:46:18.925481392Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2021-05-28T01:46:18.926004297Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2021-05-28T01:46:18.926587603Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2021-05-28T01:46:18.926599403Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2021-05-28T01:46:18.926841806Z  =========|_|==============|___/=/_/_/_/
+2021-05-28T01:46:18.931157849Z  :: Spring Boot ::                (v2.4.5)
+...
+...
+2021-05-28T01:46:29.842553633Z 2021-05-28 01:46:29.842  INFO 124 --- [           main] c.azure.spring.samples.TodoApplication   : Started TodoApplication in 12.635 seconds (JVM running for 17.664)
+2021-05-28T01:46:30.477951594Z 2021-05-28 01:46:30.477  INFO 124 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-28T01:46:30.483316162Z 2021-05-28 01:46:30.483  INFO 124 --- [p-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-28T01:46:30.485411088Z 2021-05-28 01:46:30.484  INFO 124 --- [p-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-05-28T01:47:19.683003828Z 2021-05-28 01:47:19.682  INFO 124 --- [p-nio-80-exec-9] c.a.s.s.controller.TodoListController    : GET request access '/api/todolist' path.
+2021-05-28T01:47:26.069984388Z 2021-05-28 01:47:26.069  INFO 124 --- [-nio-80-exec-10] c.a.s.s.controller.TodoListController    : POST request access '/api/todolist' path with item: Milk
+2021-05-28T01:47:26.649080678Z 2021-05-28 01:47:26.648  INFO 124 --- [p-nio-80-exec-1] c.a.s.s.controller.TodoListController    : GET request access '/api/todolist' path.
 ```
 
 3. When you are finished, you can check your results against the code in 
