@@ -177,7 +177,7 @@ With the database and connection settings in place, you can now configure the we
     | Repository | djangoapp |
     | Branch | master |
 
-1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds and start the app.
+1. Select **Save** to trigger the build and deployment workflow. Go to **Actions** in your GitHub repository for djangoapp to monitor progress. Azure should deploy the code and start the app.
 
     App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/configure-language-python).
 
