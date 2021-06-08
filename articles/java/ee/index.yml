@@ -74,7 +74,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service
-            url: azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Reference
     linkLists:
       - linkListType: reference
